@@ -7,5 +7,5 @@ function load(name) {
     return xhr.status === okStatus ? xhr.responseText : null;
 }
 
-let text = load("test.txt");
+let text = load("archive/LaTex常用数学符号.md");
 console.log(text);
