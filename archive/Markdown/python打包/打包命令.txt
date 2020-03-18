@@ -1,1 +1,0 @@
-pyinstaller --additional-hooks-dir=gui/hooks main.py
