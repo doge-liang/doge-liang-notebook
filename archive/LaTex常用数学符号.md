@@ -20,17 +20,17 @@
 
 - \sqrt[n]:n表示开根数
 
-- example:$\quad$$\sqrt{x}$ $\quad$ $\sqrt[3]{x^{2}}$
+- example:$\quad\sqrt{x}$ $\quad$ $\sqrt[3]{x^{2}}$
 
 #### 分数(fraction)
 
 - \frac{...}{...}
-- example:$\quad$$\frac{x^2}{k+1}$ $\quad$ $x^{\frac{2}{k+1}}$
+- example:$\quad \frac{x^2}{k+1}$ $\quad$ $x^{\frac{2}{k+1}}$
 
 #### 向量(vector)
 
 - \vec \overrightarrow \overleftarrow
-- exmaple:$\quad$$\vec{a}$ $\quad$ $\overrightarrow{AB}$ $\quad$ $\overleftarrow{AB}$
+- exmaple:$\quad \vec{a}$ $\quad$ $\overrightarrow{AB}$ $\quad$ $\overleftarrow{AB}$
 
 #### 积分(integral operator)
 
@@ -40,12 +40,12 @@
 #### 求和运算符(sum operater)
 
 - \sum
-- example:$\quad$$\sum_{i=1}^{n}$
+- example:$\quad \sum_{i=1}^{n}$
 
 #### 乘积运算符(product opertater)
 
 - \prod
-- example:$\quad$$\prod_{\epsilon}$
+- example:$\quad \prod_{\epsilon}$
 
 #### 希腊字母对照表
 
@@ -53,6 +53,7 @@
 $$
 \alpha \beta \gamma \sigma \omega \delta \pi \rho \epsilon \eta \lambda \mu \xi \tau \kappa \zeta \phi \chi \theta \iota o \upsilon \zeta \psi
 $$
+
 |输入   |符号   |
 |---------      |----------     |
 |\alpha         |$\alpha$       |
@@ -81,11 +82,12 @@ $$
 
 #### 常用数学符号
 
-\le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \overbrace
-二元关系运算符
+- 二元关系运算符
+
 $$
-\le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \\ 
+\le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists 
 $$
+> \le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \overbrace
 
 - 离散数学相关
 $$\oplus $$
@@ -109,7 +111,8 @@ $$\times \div \circ \cdot \bull \pm$$
 
 - 上下括号
 $$
-\overbrace{ (a+b+...+z) }^{26} \underbrace{ (a+b+...+z) }_{26} \\
+\overbrace{ (a+b+...+z) }^{26} \newline
+\underbrace{ (a+b+...+z) }_{26}
 $$
 > \overbrace{}  \underbrace{}
 
