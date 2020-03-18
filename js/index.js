@@ -16,15 +16,16 @@ marked.setOptions({
     }
 }); //高亮设置
 
+const url = "./archive/LaTex常用数学符号.md";
+
+htmlobj = $.ajax({
+    url: url,
+    type: 'GET',
+});
 
 $(document).ready(function() {
-    const url = "./archive/LaTex常用数学符号.md";
 
-    htmlobj = $.ajax({
-        url: url,
-        type: 'GET',
-    });
-
+    console.log(htmlobj.responseText);
     // marked渲染
     $("section.markdown-body").html(marked(htmlobj.responseText));
     // mermaid渲染
