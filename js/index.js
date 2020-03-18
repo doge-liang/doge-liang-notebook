@@ -16,26 +16,13 @@ marked.setOptions({
     }
 }); //高亮设置
 
-function list(data) {
-    console.log(data);
-}
-
 
 $(document).ready(function() {
-    const url = "https://raw.githubusercontent.com/doge-liang/doge-liang-notebook/master/archive/LaTex常用数学符号.md";
-
-    function GetJsonp() {
-        var tag = document.createElement('script');
-        tag.src = url;
-        document.head.appendChild(tag);
-        document.head.removeChild(tag);
-    }
+    const url = "./archive/LaTex常用数学符号.md";
 
     htmlobj = $.ajax({
         url: url,
         type: 'GET',
-        dataType: 'jsonp',
-        jsonpCallback: 'list'
     });
 
     // marked渲染
