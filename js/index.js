@@ -28,7 +28,7 @@ $(document).ready(function() {
         url: url,
         async: false
     });
-    $("section.markdown-body").html(marked(http.responseText));
+    // $("section.markdown-body").html(marked(http.responseText));
 
     // marked渲染
     $("section.markdown-body").html(marked(http.responseText));
