@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
 
     // marked渲染
-    $("section.markdown-body").html(marked(http.responseText));
+    $("section.markdown-body").html(marked(htmlobj.responseText));
     // mermaid渲染
     $("code.language-mermaid").each(function() {
         $(this).unwrap();
