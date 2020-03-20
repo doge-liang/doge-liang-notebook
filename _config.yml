@@ -100,7 +100,7 @@ theme: hexo-theme-next
 deploy:
   repository: https://github.com/doge-liang/doge-liang-notebook.git
   type: 'git'
-  branch: blog
+  branch: master
 
 # Math
 math:
