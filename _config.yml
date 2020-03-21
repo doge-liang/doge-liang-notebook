@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: doge-liang-notebook
+subtitle: doge-liang's notebook
+description: '什么都记的笔记本'
 keywords:
-author: John Doe
+author: doge-liang
 language: en
-timezone: ''
+timezone: 'asia/shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+url: https://doge-liang.github.io/doge-liang-notebook
+root: /doge-liang-notebook/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -63,8 +63,8 @@ index_generator:
 
 # Category & Tag
 default_category: uncategorized
-category_map:
-tag_map:
+category_map: categories
+tag_map: tags
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
