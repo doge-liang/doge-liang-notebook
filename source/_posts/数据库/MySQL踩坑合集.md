@@ -1,4 +1,12 @@
-# Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)
+---
+title: MySQL 踩坑合集
+date: 2020-01-01
+tags: [数据库（踩坑）]
+categories: 数据库
+---
+# MySQL 踩坑合集
+
+## Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)
 
 1. 查看事务隔离级别
 ```sql

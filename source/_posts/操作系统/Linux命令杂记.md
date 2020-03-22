@@ -1,3 +1,11 @@
+---
+title: Linux命令杂记
+date: 2019-10-01
+tags: [Linux, 操作系统]
+categories: 
+    - [操作系统]
+    - [计算机基础]
+---
 # 转换到root用户
 ```code
 su root

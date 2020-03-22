@@ -1,3 +1,11 @@
+---
+title: Linux知识杂记
+date: 2019-10-01
+tags: [Linux, 操作系统]
+categories: 
+    - [操作系统]
+    - [计算机基础]
+---
 # Linux文件系统
 以"/"为根目录，子目录有/root,/bin,/var,/etc,/home,/lib...  
 - /bin：

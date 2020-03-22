@@ -1,3 +1,10 @@
+---
+title: Javascript程序设计语言——函数
+date: 2019-10-10
+tags: [程序设计语言, Javascript]
+categories: 
+    - [程序设计语言]
+---
 # Javascript函数
 
 ## 2.1 函数定义

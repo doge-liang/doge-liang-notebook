@@ -1,3 +1,11 @@
+---
+title: Javascript程序设计语言——高阶函数
+date: 2019-10-10
+tags: [程序设计语言, Javascript]
+categories: 
+    - [程序设计语言]
+---
+
 # Javascript 高阶函数
 
 ## 3.1 闭包

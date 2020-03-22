@@ -1,3 +1,11 @@
+---
+title: Jupyter Notebook的使用
+date: 2019-10-10
+tags: [程序设计语言, python, Jupyter Notebook]
+categories: 
+    - [程序设计语言]
+    - [数据分析]
+---
 # Jupyter NoteBook
 
 ## 简介

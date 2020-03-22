@@ -1,3 +1,10 @@
+---
+title: Javascript程序设计语言——基础
+date: 2019-10-10
+tags: [程序设计语言, Javascript]
+categories: 
+    - [程序设计语言]
+---
 # JavaScript 快速入门
 
 ## 1.1 基本语法

@@ -1,3 +1,11 @@
+---
+title: Linux踩坑合集
+date: 2019-10-01
+tags: [Linux, 操作系统]
+categories: 
+    - [操作系统]
+    - [计算机基础]
+---
 # Linux 忘记 mysql root密码，修改权限以及密码(mysql version < 5.7.9)
 解决方案：  
 1. 关掉数据库`service mysqld stop`
