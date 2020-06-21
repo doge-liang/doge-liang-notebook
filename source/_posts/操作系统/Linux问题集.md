@@ -213,3 +213,15 @@ The following packages have unmet dependencies:
 sudo apt purge vim-common
 sudo apt intall vim
 ```
+
+## Ubuntu 依赖版本不一致问题
+
+上面的版本不一致问题解决方案我觉得不太好，因为如果有两个软件使用的是不同版本的同一个依赖，但是这两个软件都要用，这就很麻烦。
+
+网上检索到除了卸载新版，退版本以外的另一种解决方案（我不知道这个软件具体是是如何实现的，难道只是把退版本这件事自动化了？）：
+
+``` BASH
+sudo apt install aptitude
+
+sudo aptitude install xxx
+```
