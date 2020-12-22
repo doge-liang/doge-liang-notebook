@@ -198,7 +198,42 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted unive
 
 ```
 
-上面的 `xenial` 是18.04的版本名，18.10为 `bionic` 
+上面的 `bionic` 是18.04的版本名，18.10为 `cosmic` 
+
+| 版本号                     | 代号              | 发布时间    |
+|---------------------------|-------------------|------------|
+| 20.04 LTS                 | Focal Fossa       | 2020/4/23  |
+| 19.10                     | Eoan Ermine       | 2019/10/17 |
+| 19.04                     | Disco Dingo       | 2019/4/19  |
+| 18.10                     | Cosmic Cuttlefish | 2018/10/18 |
+| 18.04 LTS                 | Bionic Beaver     | 2018/04/26 |
+| 17.10                     | Artful Aardvark   | 2017/10/21 |
+| 17.04                     | Zesty Zapus       | 2017/04/13 |
+| 16.10                     | Yakkety Yak       | 2016/10/20 |
+| 16.04 LTS                 | Xenial Xerus      | 2016/04/21 |
+| 15.10                     | Wily Werewolf     | 2015/10/23 |
+| 15.04                     | Vivid Vervet      | 2015/04/22 |
+| 14.10                     | Utopic Unicorn    | 2014/10/23 |
+| 14.04 LTS                 | Trusty Tahr       | 2014/04/18 |
+| 13.10                     | Saucy Salamander  | 2013/10/17 |
+| 13.04                     | Raring Ringtail   | 2013/04/25 |
+| 12.10                     | Quantal Quetzal   | 2012/10/18 |
+| 12.04 LTS                 | Precise Pangolin  | 2012/04/26 |
+| 11.10                     | Oneiric Ocelot    | 2011/10/13 |
+| 11.04（Unity成为默认桌面环境） | Natty Narwhal     | 2011/04/28 |
+| 10.10                     | Maverick Meerkat  | 2010/10/10 |
+| 10.04 LTS                 | Lucid Lynx        | 2010/04/29 |
+| 9.10                      | Karmic Koala      | 2009/10/29 |
+| 9.04                      | Jaunty Jackalope  | 2009/04/23 |
+| 8.10                      | Intrepid Ibex     | 2008/10/30 |
+| 8.04 LTS                  | Hardy Heron       | 2008/04/24 |
+| 7.10                      | Gutsy Gibbon      | 2007/10/18 |
+| 7.04                      | Feisty Fawn       | 2007/04/19 |
+| 6.10                      | Edgy Eft          | 2006/10/26 |
+| 6.06 LTS                  | Dapper Drake      | 2006/06/01 |
+| 5.10                      | Breezy Badger     | 2005/10/13 |
+| 5.04                      | Hoary Hedgehog    | 2005/04/08 |
+| 4.10（初始发布版本）          | Warty Warthog     | 2004/10/20 |
 
 ## Ubuntu 18.10 安装 vim 失败
 
@@ -225,3 +260,62 @@ sudo apt install aptitude
 
 sudo aptitude install xxx
 ```
+
+## curl 从 github 等网站下载文件出错
+
+类似如下：
+curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused
+
+如果打开网址也进不了页面的话，考虑网址被墙了，解决方案有几种：
+
+1. 修改 hosts ，最简单，但是不保证有效；
+2. 挂代理（没有相关网络知识会比较麻烦）；
+3. 找国内来源（比如百度网盘有没有人共享这些文件等等）；
+
+### 修改 hosts
+
+先备份原有的 hosts
+
+``` shell
+sudo cp /etc/hosts /etc/hosts.bak
+```
+
+查看网址的ip，我这里使用的是 http://ip.tool.chinaz.com/ 
+
+![picture 7](assets/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png)
+
+修改正使用的hosts
+
+``` shell
+
+## 原文件 ##
+
+127.0.0.1   localhost
+127.0.1.1   ubuntu
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+
+``` shell
+
+## 修改为 ##
+
+127.0.0.1   localhost
+127.0.1.1   ubuntu
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+151.101.108.133 raw.githubusercontent.com
+```
+
+保存文件完成。

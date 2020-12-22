@@ -5,40 +5,50 @@ tags: [数据库（应用知识）]
 categories: 
     - [数据库]
 ---
-# SQL 初级使用
+## SQL 初级使用
 
-## 增删改查
+### 增删改查
 
 ```SQL
-USE [DataBaseName]; //切换到某个数据库
-SET [ColumnName] utf8; //设置字符集
+//切换到某个数据库
+USE [DataBaseName];
+//设置字符集
+SET [ColumnName] utf8;
 
-SELECT * FROM [TableName];//简单查询
-SELECT [ColumnName,...] FROM [TableName] WHERE [ColumnName [> = < <> >= <= ?] [BETWEEN ? AND ?] [LIKE 'regex'] [IN (?, ?, ?, ...)] [IS NULL]] AND ... OR ... ; //条件查询
-SELECT DISTINCT ...; //合并重复值
-SELECT ... ORDER BY [ColumnNames, ...] [DESC //是否降序]; //按某列排序
-SELECT TOP [MaxSize]...; //限制最大返回行数
+//简单查询
+SELECT * FROM [TableName];
+//条件查询
+SELECT [ColumnName,...] FROM [TableName] WHERE [ColumnName [> = < <> >= <= ?] [BETWEEN ? AND ?] [LIKE 'regex'] [IN (?, ?, ?, ...)] [IS NULL]] AND ... OR ... ;
+//合并重复值
+SELECT DISTINCT ...;
+//按某列排序
+SELECT ... ORDER BY [ColumnNames, ...] [DESC //是否降序];
+//限制最大返回行数
+SELECT TOP [MaxSize]...;
 
-DELETE FROM [TableName] WHERE [ColumnName] = ?; //删除记录
-DELETE * FROM [TableName]; //删除所有记录而保留表结构
+//删除记录
+DELETE FROM [TableName] WHERE [ColumnName] = ?;
+//删除所有记录而保留表结构
+DELETE * FROM [TableName];
 
-UPDATE [TableName] SET [ColumnName1] = [value1], ... WHERE some_column = some_value; //更改某几列的值
+//更改某几列的值
+UPDATE [TableName] SET [ColumnName1] = [value1], ... WHERE some_column = some_value;
 
-INSERT INTO [TableName][ColumnNames, ...] VALUES [value, ...]; //插入
-
+//插入
+INSERT INTO [TableName][ColumnNames, ...] VALUES [value, ...];
 ```
 
-## 创建/删除/修改指令
+### 创建/删除/修改指令
 
 ```SQL
 CREATE DATABASE [DataBaseName];
 CREATE TABLE [TableName];
-CREATE INDEX [IndexName] ON [TableName]([ColumnName,...] [DESC //指定降序]); //创建索引列
-CREATE UNIQUE INDEX ...; //创建唯一索引
+//创建索引列
+CREATE INDEX [IndexName] ON [TableName]([ColumnName,...] [DESC //指定降序]);
+//创建唯一索引
+CREATE UNIQUE INDEX ...;
 
 DROP DATABASE [DataBaseName];
 DROP TABLE [TableName];
 DROP INDEX [IndexName] ON [TableName];
 ```
-
-

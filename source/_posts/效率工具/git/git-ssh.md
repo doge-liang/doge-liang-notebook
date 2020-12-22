@@ -14,15 +14,23 @@ categories:
 
 ``` BASH
 ssh-keygen
-
-> Generating public/private rsa key pair.
-> Enter file in which to save the key (C:\Users\Administrator.DESKTOP-LRUA21S/.ssh/id_rsa): ../.ssh/id_rsa
 ```
 
-### prepare a git account first
+随后提示输入 `id_rsa` 文件保存位置
+随后输入两次密码，就设定成功了
+在密码保存位置会出现四个文件，其中的 `.pub` 文件中保存了公钥
+把文件内的应用复制
+
+### prepare a git account
 
 click the setting at the top-left corner.
 
 ![picture 1](assets/b9ed120ce8a918731007a77fad7a3a4c838d2637d128a6c8e3e8bce743521f43.png)
 
 ![picture 2](assets/5e0cfef621cbe20c38a15094443810f3d7dda20aca7b1f35e20b66f3c4252b5d.png)
+
+![picture 3](assets/36db3af5779fdf07bd2aeb5aae0b6c5eb4d2f95b53fee84507c27ad806aa069b.png)
+
+点击图中的 `New Repository` 按钮，将刚刚复制的内容粘贴进去就可以完成 ssh key 的配置了。
+
+以后 push 内容到 github Repository 中便会要求输入 ssh 密码了。
