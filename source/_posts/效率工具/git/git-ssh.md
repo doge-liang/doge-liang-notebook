@@ -18,8 +18,13 @@ ssh-keygen
 
 随后提示输入 `id_rsa` 文件保存位置
 随后输入两次密码，就设定成功了
-在密码保存位置会出现四个文件，其中的 `.pub` 文件中保存了公钥
-把文件内的应用复制
+在密码保存位置会出现四个文件分别是 `id_rsa` `id_rsa.pub` `known_hosts` `config`，其中的 `.pub` 文件中保存了公钥，运行
+
+``` BASH
+cat id_rsa.pub
+```
+
+将文件内容复制下来
 
 ### prepare a git account
 
