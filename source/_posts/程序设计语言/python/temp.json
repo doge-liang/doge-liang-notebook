@@ -1,0 +1,22 @@
+{
+    "timestamp": 1.612967119E12, // 时间戳
+    "market_price_usd": 46323.69, // 以美元结算的比特币市场价格
+    "hash_rate": 1.5876093078544116E11, // 哈希速率
+    "total_fees_btc": 17956538532, // 比特币手续费总额
+    "n_btc_mined": 93125000000, // 挖出比特币总额
+    "n_tx": 367643, // 比特币交易总数
+    "n_blocks_mined": 149, // 挖出区块总数
+    "minutes_between_blocks": 8.9932,
+    "totalbc": 1862505000000000, // 流通中的比特币总量
+    "n_blocks_total": 670008,
+    "estimated_transaction_volume_usd": 9.36099762962972E9, // 以美元为单位的交易量估算值
+    "blocks_size": 192267015, // 区块大小
+    "miners_revenue_usd": 5.145706755679422E7, // 美元为单位的矿工收益总额
+    "nextretarget": 671327, // 下次调整难度目标的区块高度
+    "difficulty": 21434395961348, // 当前难度目标
+    "estimated_btc_sent": 20207797845184, // 发送比特币估算量
+    "miners_revenue_btc": 1110, // 矿工收益比特币总量
+    "total_btc_sent": 256597423164055, // 发送比特币总量
+    "trade_volume_btc": 18458.21, // 比特币交易量
+    "trade_volume_usd": 8.550523979949E8 // 以美元为单位的比特币交易量
+}

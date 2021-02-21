@@ -319,3 +319,22 @@ ff02::2 ip6-allrouters
 ```
 
 保存文件完成。
+
+### Ubuntu 系统时间错误 时区正确
+
+本来设置了清华的 apt 源，再执行 `apt update` 的时候，还是出现了 `Release file for ... is not valid yet` 的报错，发现是系统时间有问题，刚好是获取更新的 apt 源链接有问题。猜测是获取软件更新的时候需要校准系统时间和服务器的时间。
+
+**解决方案：**
+通过服务器校准时间
+先安装 `ntpdate`
+
+``` BASH
+sudo apt install ntpdate
+```
+
+再获取服务器时间校准系统时间
+
+``` BASH
+sudo ntpdate ntp.ubuntu.com
+sudo ntpdate time.nist.gov
+```
