@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="LaTex常用数学符号 Inline:$$ \sqrt{3x-1}+(1+x)^2 $$ Block:$$f{x} &#x3D; \int_{-\infty}^\infty\hat f\xi,e^{2 \pi i \xi x},d\xi$$  上下标 ^{}表示上标，_{}表示下标，{}用来放数字字母  example:$\quad$ $a_{1}$ $\quad$ $e^{-t}$ $\quad$ $b_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTex常用符号写法">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E8%A6%81%E8%AE%B0/latex%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E5%86%99%E6%B3%95/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="LaTex常用数学符号 Inline:$$ \sqrt{3x-1}+(1+x)^2 $$ Block:$$f{x} &#x3D; \int_{-\infty}^\infty\hat f\xi,e^{2 \pi i \xi x},d\xi$$  上下标 ^{}表示上标，_{}表示下标，{}用来放数字字母  example:$\quad$ $a_{1}$ $\quad$ $e^{-t}$ $\quad$ $b_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-12T08:27:24.933Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="论文写法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E8%A6%81%E8%AE%B0/latex%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E5%86%99%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>LaTex常用符号写法 | doge-liang-notebook</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doge-liang-notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E8%A6%81%E8%AE%B0/latex%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E5%86%99%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTex常用符号写法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 16:27:24" itemprop="dateModified" datetime="2021-03-12T16:27:24+08:00">2021-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E8%A6%81%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文撰写要记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="LaTex常用数学符号"><a href="#LaTex常用数学符号" class="headerlink" title="LaTex常用数学符号"></a>LaTex常用数学符号</h2><blockquote>
+<p>Inline:<br>$$ \sqrt{3x-1}+(1+x)^2 $$</p>
+<p>Block:<br>$$<br>f{x} = \int_{-\infty}^\infty<br>\hat f\xi,e^{2 \pi i \xi x}<br>,d\xi<br>$$</p>
+</blockquote>
+<h3 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h3><ul>
+<li><p>^{}表示上标，_{}表示下标，{}用来放数字字母</p>
+</li>
+<li><p>example:$\quad$ $a_{1}$ $\quad$ $e^{-t}$ $\quad$ $b_{ij}^{3}$</p>
+</li>
+</ul>
+<h3 id="平方根-square-root"><a href="#平方根-square-root" class="headerlink" title="平方根(square root)"></a>平方根(square root)</h3><ul>
+<li><p>\sqrt[n]:n表示开根数</p>
+</li>
+<li><p>example:$\quad$$\sqrt{x}$ $\quad$ $\sqrt[3]{x^{2}}$</p>
+</li>
+</ul>
+<h3 id="分数-fraction"><a href="#分数-fraction" class="headerlink" title="分数(fraction)"></a>分数(fraction)</h3><ul>
+<li>\frac{…}{…}</li>
+<li>example:$\quad$$\frac{x^2}{k+1}$ $\quad$ $x^{\frac{2}{k+1}}$</li>
+</ul>
+<h3 id="向量-vector"><a href="#向量-vector" class="headerlink" title="向量(vector)"></a>向量(vector)</h3><ul>
+<li>\vec \overrightarrow \overleftarrow</li>
+<li>exmaple:$\quad$$\vec{a}$ $\quad$ $\overrightarrow{AB}$ $\quad$ $\overleftarrow{AB}$</li>
+</ul>
+<h3 id="积分-integral-operator"><a href="#积分-integral-operator" class="headerlink" title="积分(integral operator)"></a>积分(integral operator)</h3><ul>
+<li>\int_{}^{}</li>
+<li>example:$\quad \int_{-\infty}^{\infty}$</li>
+</ul>
+<h3 id="求和运算符-sum-operater"><a href="#求和运算符-sum-operater" class="headerlink" title="求和运算符(sum operater)"></a>求和运算符(sum operater)</h3><ul>
+<li>\sum</li>
+<li>example:$\quad$$\sum_{i=1}^{n}$</li>
+</ul>
+<h3 id="乘积运算符-product-opertater"><a href="#乘积运算符-product-opertater" class="headerlink" title="乘积运算符(product opertater)"></a>乘积运算符(product opertater)</h3><ul>
+<li>\prod</li>
+<li>example:$\quad$$\prod_{\epsilon}$</li>
+</ul>
+<h3 id="希腊字母对照表"><a href="#希腊字母对照表" class="headerlink" title="希腊字母对照表"></a>希腊字母对照表</h3><p>\alpha \beta \gamma \sigma \omega \delta \pi \rho \epsilon \eta \lambda \mu \xi \tau \kappa \zeta \phi \chi \theta \iota o \upsilon \zeta \psi<br>$$<br>\alpha \beta \gamma \sigma \omega \delta \pi \rho \epsilon \eta \lambda \mu \xi \tau \kappa \zeta \phi \chi \theta \iota o \upsilon \zeta \psi<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\alpha</td>
+<td>$\alpha$</td>
+</tr>
+<tr>
+<td>\beta</td>
+<td>$\beta$</td>
+</tr>
+<tr>
+<td>\gamma</td>
+<td>$\gamma$</td>
+</tr>
+<tr>
+<td>\sigma</td>
+<td>$\sigma$</td>
+</tr>
+<tr>
+<td>\omega</td>
+<td>$\omega$</td>
+</tr>
+<tr>
+<td>\delta</td>
+<td>$\delta$</td>
+</tr>
+<tr>
+<td>\pi</td>
+<td>$\pi$</td>
+</tr>
+<tr>
+<td>\rho</td>
+<td>$\rho$</td>
+</tr>
+<tr>
+<td>\epsilon \varepsilon</td>
+<td>$\epsilon \varepsilon$</td>
+</tr>
+<tr>
+<td>\eta</td>
+<td>$\eta$</td>
+</tr>
+<tr>
+<td>\lambda</td>
+<td>$\lambda$</td>
+</tr>
+<tr>
+<td>\mu</td>
+<td>$\mu$</td>
+</tr>
+<tr>
+<td>\xi</td>
+<td>$\xi$</td>
+</tr>
+<tr>
+<td>\tau</td>
+<td>$\tau$</td>
+</tr>
+<tr>
+<td>\kappa</td>
+<td>$\kappa$</td>
+</tr>
+<tr>
+<td>\zeta</td>
+<td>$\zeta$</td>
+</tr>
+<tr>
+<td>\phi</td>
+<td>$\phi$</td>
+</tr>
+<tr>
+<td>\chi</td>
+<td>$\chi$</td>
+</tr>
+<tr>
+<td>\theta</td>
+<td>$\theta$</td>
+</tr>
+<tr>
+<td>\iota</td>
+<td>$\iota$</td>
+</tr>
+<tr>
+<td>o</td>
+<td>$o$</td>
+</tr>
+<tr>
+<td>\upsilon</td>
+<td>$\upsilon$</td>
+</tr>
+<tr>
+<td>\psi</td>
+<td>$\psi$</td>
+</tr>
+</tbody></table>
+<h3 id="常用数学符号"><a href="#常用数学符号" class="headerlink" title="常用数学符号"></a>常用数学符号</h3><ul>
+<li>二元关系运算符<br>$$<br>\le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \<br>$$</li>
+</ul>
+<blockquote>
+<p>\le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \overbrace</p>
+</blockquote>
+<ul>
+<li>离散数学相关<br>$$\oplus $$</li>
+</ul>
+<blockquote>
+<p>\oplus</p>
+</blockquote>
+<ul>
+<li>线性代数相关<br>$$\dots \cdots \vdots \ddots$$</li>
+</ul>
+<blockquote>
+<p>\dots \cdots \vdots \ddots</p>
+</blockquote>
+<ul>
+<li>微积分相关<br>$$\partial$$</li>
+</ul>
+<blockquote>
+<p>\partial</p>
+</blockquote>
+<ul>
+<li>关系运算符<br>$$\le \ge \ne \approx \sim \lt \gt \leqslant \geqslant \nless \ngtr$$</li>
+</ul>
+<blockquote>
+<p>\le \ge \ne \approx  \sim \lt \gt \leqslant \geqslant \nless \ngtr</p>
+</blockquote>
+<ul>
+<li>常规运算符<br>$$\times \div \circ \cdot \bull \pm$$</li>
+</ul>
+<blockquote>
+<p>\times \div \circ \cdot \bull \pm</p>
+</blockquote>
+<ul>
+<li>上下括号<br>$$<br>\overbrace{ (a+b+…+z) }^{26} \underbrace{ (a+b+…+z) }_{26} \<br>$$</li>
+</ul>
+<blockquote>
+<p>\overbrace{}  \underbrace{}</p>
+</blockquote>
+<ul>
+<li>同余<br>$$a \equiv b \mod c$$</li>
+</ul>
+<blockquote>
+<p>a \equiv b \mod c$$</p>
+</blockquote>
+<h3 id="语句块的用法"><a href="#语句块的用法" class="headerlink" title="语句块的用法"></a>语句块的用法</h3><p><code>\begin&#123;&#125;</code>和<code>\end&#123;&#125;</code>表示语句块的开头和结尾，括号里面填写的是语句块需要渲染的情况；<br><code>\tag&#123;&#125;</code>渲染公式后的符号；</p>
+<p>例子：</p>
+<ul>
+<li>分段函数：</li>
+</ul>
+<p>$$<br>f(x) =<br>\begin{cases}<br>    \dfrac{\cos{x}}{x+\sin{x}} &amp; x \geq 0 \<br>    ax^2+bx+c &amp; x \leq 0<br>\end{cases}\tag{4-4}<br>$$</p>
+<ul>
+<li>矩阵、行列式：</li>
+</ul>
+<p>$$<br>A=\left(<br>    \begin{matrix}<br>        a_1 &amp; a_2 &amp; a_3 \<br>        a_4 &amp; a_5 &amp; a_6 \<br>        a_7 &amp; a_8 &amp; a_9<br>    \end{matrix}<br>    \right)<br>    \times {B} = \text{Endless}<br>    \tag{4-1}<br>$$</p>
+<h4 id="综合使用例子"><a href="#综合使用例子" class="headerlink" title="综合使用例子"></a>综合使用例子</h4><p>$$<br>f(x)=a_0+\sum _{n=1}^{\infty } \left(a_n\cos \frac{ n \pi  x }{l}+ b_n \sin \frac{ n \pi  x }{l}\right)<br>$$</p>
+<h4 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h4><ul>
+<li>如何将式子强制放在符号下方<ul>
+<li>若符号是事先定义的数学符号<code>\limits</code><br>$\lim \limits_{n \rightarrow \infty}(1 + \frac{1}{x})$</li>
+<li>若符号不是实现定义的数学符号<code>\mathop&#123;&#125;</code> <code>\limits</code><br>$\mathop{E} \limits^{\circ}$</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/%E8%AE%BA%E6%96%87%E5%86%99%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 论文写法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E8%AE%BA%E6%96%87%E8%A7%84%E8%8C%83/%E8%AE%BA%E6%96%87%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E5%86%99%E6%B3%95/" rel="prev" title="论文参考文献写法">
+      <i class="fa fa-chevron-left"></i> 论文参考文献写法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8/" rel="next" title="数据库应用">
+      数据库应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTex%E5%B8%B8%E7%94%A8%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">LaTex常用数学符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">上下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E6%96%B9%E6%A0%B9-square-root"><span class="nav-number">1.2.</span> <span class="nav-text">平方根(square root)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%95%B0-fraction"><span class="nav-number">1.3.</span> <span class="nav-text">分数(fraction)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F-vector"><span class="nav-number">1.4.</span> <span class="nav-text">向量(vector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%AF%E5%88%86-integral-operator"><span class="nav-number">1.5.</span> <span class="nav-text">积分(integral operator)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6-sum-operater"><span class="nav-number">1.6.</span> <span class="nav-text">求和运算符(sum operater)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E7%A7%AF%E8%BF%90%E7%AE%97%E7%AC%A6-product-opertater"><span class="nav-number">1.7.</span> <span class="nav-text">乘积运算符(product opertater)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="nav-number">1.8.</span> <span class="nav-text">希腊字母对照表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.9.</span> <span class="nav-text">常用数学符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E5%9D%97%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.10.</span> <span class="nav-text">语句块的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="nav-number">1.10.1.</span> <span class="nav-text">综合使用例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%BB%86%E8%8A%82"><span class="nav-number">1.10.2.</span> <span class="nav-text">其他细节</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doge-liang-notebook/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/doge-liang-notebook/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doge-liang-notebook/tags/">
+          
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doge-liang-notebook/js/utils.js"></script>
+
+<script src="/doge-liang-notebook/js/motion.js"></script>
+
+
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
+
+
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

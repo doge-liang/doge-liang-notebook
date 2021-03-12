@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="RSA 加密算法RSA（发明该算法的三个人名首字母）  非对称加密算法  公钥密码体制的由来对称加密算法存在的问题：  密钥分发的问题 保密双方需要共享密钥，而且密钥需要时常更新 $A$ 选择密钥直接发送给 $B$ （互联网环境中无法保证 $B$ 真的是 $B$ ） 第三方 $C$ 分发密钥给 $A$ 和 $B$ （同样无法保证 $A$ 是 $A$ ， $B$ 是 $B$ ） A和B使用原先共享的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rsa/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="RSA 加密算法RSA（发明该算法的三个人名首字母）  非对称加密算法  公钥密码体制的由来对称加密算法存在的问题：  密钥分发的问题 保密双方需要共享密钥，而且密钥需要时常更新 $A$ 选择密钥直接发送给 $B$ （互联网环境中无法保证 $B$ 真的是 $B$ ） 第三方 $C$ 分发密钥给 $A$ 和 $B$ （同样无法保证 $A$ 是 $A$ ， $B$ 是 $B$ ） A和B使用原先共享的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-12T08:31:12.150Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="RSA">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rsa/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>RSA | doge-liang-notebook</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doge-liang-notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rsa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RSA
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-24T00:00:00+08:00">2020-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 16:31:12" itemprop="dateModified" datetime="2021-03-12T16:31:12+08:00">2021-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="RSA-加密算法"><a href="#RSA-加密算法" class="headerlink" title="RSA 加密算法"></a>RSA 加密算法</h2><p>RSA（发明该算法的三个人名首字母）</p>
+<ul>
+<li>非对称加密算法</li>
+</ul>
+<h3 id="公钥密码体制的由来"><a href="#公钥密码体制的由来" class="headerlink" title="公钥密码体制的由来"></a>公钥密码体制的由来</h3><p>对称加密算法存在的问题：</p>
+<ul>
+<li>密钥分发的问题<ul>
+<li>保密双方需要共享密钥，而且密钥需要时常更新</li>
+<li>$A$ 选择密钥直接发送给 $B$ （互联网环境中无法保证 $B$ 真的是 $B$ ）</li>
+<li>第三方 $C$ 分发密钥给 $A$ 和 $B$ （同样无法保证 $A$ 是 $A$ ， $B$ 是 $B$ ）</li>
+<li>A和B使用原先共享的密钥对新密钥加密再共享（需要复杂的密钥交换协议）</li>
+<li>第三方 $C$ 使用与 $A$ 和 $B$ 分别共享的密钥，加密分发新密钥（同样需要复杂的密钥交换协议）</li>
+</ul>
+</li>
+<li>密钥管理的问题<ul>
+<li>密钥管理量大，当用户数为 $N$ 时，要支持任意两者的加密通信，需要 $\dfrac{N(N-1)}{2}$ 个密钥</li>
+</ul>
+</li>
+<li>数字签名问题，无法实现抗抵赖</li>
+</ul>
+<h3 id="公钥密码体系要求"><a href="#公钥密码体系要求" class="headerlink" title="公钥密码体系要求"></a>公钥密码体系要求</h3><ul>
+<li>两个密钥，一个公钥（公开），一个私钥（保密）</li>
+<li>使用不同的密钥进行加密和解密</li>
+<li>知道加密算法，无法推导出公钥和私钥的关系</li>
+<li>两个密钥中任何一个都可以用来加密或解密</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>加密<ul>
+<li>用公钥进行加密，因为公钥大家都有，用私钥加密，谁都可以解密，不能实现加密</li>
+</ul>
+</li>
+<li>认证<ul>
+<li>用私钥进行加密，因为公钥大家都有，用公钥加密，不知道是谁加密的，不能实现认证</li>
+</ul>
+</li>
+</ul>
+<h3 id="RSA-加密过程"><a href="#RSA-加密过程" class="headerlink" title="RSA 加密过程"></a>RSA 加密过程</h3><ol>
+<li>用户选择随机的两个大的素数 $p, q$</li>
+<li>计算 $N = p \times q$</li>
+<li>计算 $N$ 的欧拉数，$\phi(N) = (p-1)(q-1)$</li>
+<li>随机选择一个加密密钥 $e$ ，$1 \le e \le \phi(N), \gcd(e, \phi(N)) = 1$</li>
+<li>解一个同余方程，得到解密密钥 $d$ ， $ed = 1 \mod \phi(N), 0 \le d \le N$</li>
+<li>加密消息得到密文 $C$ ， $C = M^e \mod N$</li>
+<li>解密消息得到明文 $M$ ， $M = C^d \mod N$</li>
+</ol>
+<h3 id="理论依据"><a href="#理论依据" class="headerlink" title="理论依据"></a>理论依据</h3><h4 id="费马定理"><a href="#费马定理" class="headerlink" title="费马定理"></a>费马定理</h4><p>若 $p$ 是素数， $a$ 是一个正整数且不能被 $p$ 整除，则<br>$$a^{p-1} \equiv 1 \mod p$$</p>
+<p><strong>另一种表达形式是</strong>：$a^p \equiv a \mod p$</p>
+<h4 id="Eular-定理以及推论"><a href="#Eular-定理以及推论" class="headerlink" title="Eular 定理以及推论"></a>Eular 定理以及推论</h4><p>先定义<strong>欧拉函数</strong> $\phi(n)$ ，指的是小于 $n$ 且与 $n$ 互素的正整数的个数，习惯上， $\phi(1) = 1$<br>对于 $n = pq$ ， $\phi(n) = \phi(p) \times \phi(q) = (p - 1)(q - 1)$。</p>
+<p><strong>欧拉定理</strong> 对任意互素的 $a$ 和 $n$ ，有：<br>$$a^{\phi(n)} \equiv 1 \mod n$$</p>
+<p><strong>欧拉定理的另一种表述</strong>：$$a^{\phi(n) + 1} \equiv a \mod n$$</p>
+<p>若 $n = pq, p \neq q$，都是素数， $k$ 是任意整数，则 $m^{k(p-1)(q-1)+1} \equiv m \mod n$ 对任意 $0 \le m \le n$ 成立</p>
+<p>只要选择公钥 $e$ ，则私钥 $d$ 满足 $ed = k\phi(n) + 1$ ，即 $ed \equiv 1 \mod \phi(n) \to d \equiv e^{-1} \mod \phi(n)$<br>求 $d$ 就是求 $e$ 的乘法逆元，可以使用扩展的欧几里得算法计算。</p>
+<p>公钥： $K_U = {e, n}$ ，私钥： $K_R = {e, n}$</p>
+<h3 id="算法安全性保证"><a href="#算法安全性保证" class="headerlink" title="算法安全性保证"></a>算法安全性保证</h3><p>RSA 算法安全性是基于加密函数 $e_k(x) = x^e \mod n$ 是一个单向函数，所以对于攻击人，求逆运算是不可能的。</p>
+<p>不可能在于，攻击者需要通过 $n$ 求解出对应的两个素数 $p, q$ 而当 $n$ 相当大的时候，这个求解的过程复杂度相当大。</p>
+<p>所以可以说，RSA 算法的安全性是基于大整数因式分解的困难性上的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/RSA/" rel="tag"><i class="fa fa-tag"></i> RSA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/" rel="prev" title="DES">
+      <i class="fa fa-chevron-left"></i> DES
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rc4/" rel="next" title="RC4">
+      RC4 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA-%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">RSA 加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="nav-number">1.1.</span> <span class="nav-text">公钥密码体制的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E7%B3%BB%E8%A6%81%E6%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">公钥密码体系要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">RSA 加密过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E4%BE%9D%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">理论依据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%B9%E9%A9%AC%E5%AE%9A%E7%90%86"><span class="nav-number">1.5.1.</span> <span class="nav-text">费马定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eular-%E5%AE%9A%E7%90%86%E4%BB%A5%E5%8F%8A%E6%8E%A8%E8%AE%BA"><span class="nav-number">1.5.2.</span> <span class="nav-text">Eular 定理以及推论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E8%AF%81"><span class="nav-number">1.6.</span> <span class="nav-text">算法安全性保证</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doge-liang-notebook/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/doge-liang-notebook/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doge-liang-notebook/tags/">
+          
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doge-liang-notebook/js/utils.js"></script>
+
+<script src="/doge-liang-notebook/js/motion.js"></script>
+
+
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
+
+
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

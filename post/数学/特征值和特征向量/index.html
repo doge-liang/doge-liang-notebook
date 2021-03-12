@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="特征值和特征向量定义：特征向量、特征多项式$\bm{A}$ 是一个 $n$ 阶矩阵， $\lambda$ 是一个数，如果存在非零向量 $\bm{\alpha}$ 使得：$$\bm{A\alpha} &#x3D; \lambda \bm{\alpha}$$就称 $\lambda$ 是 $\bm{A}$ 的一个特征值， $\bm{\alpha}$ 是 $\bm{A}$ 属于 $\lambda$ 的一个特征向量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="特征值和特征向量">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="特征值和特征向量定义：特征向量、特征多项式$\bm{A}$ 是一个 $n$ 阶矩阵， $\lambda$ 是一个数，如果存在非零向量 $\bm{\alpha}$ 使得：$$\bm{A\alpha} &#x3D; \lambda \bm{\alpha}$$就称 $\lambda$ 是 $\bm{A}$ 的一个特征值， $\bm{\alpha}$ 是 $\bm{A}$ 属于 $\lambda$ 的一个特征向量。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-07T12:49:02.336Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="线性代数">
+<meta property="article:tag" content="特征值和特征向量">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>特征值和特征向量 | doge-liang-notebook</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doge-liang-notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          特征值和特征向量
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-22T00:00:00+08:00">2020-08-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-07 20:49:02" itemprop="dateModified" datetime="2021-03-07T20:49:02+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><p><strong>定义</strong>：特征向量、特征多项式<br>$\bm{A}$ 是一个 $n$ 阶矩阵， $\lambda$ 是一个数，如果存在非零向量 $\bm{\alpha}$ 使得：<br>$$<br>\bm{A\alpha} = \lambda \bm{\alpha}<br>$$<br>就称 $\lambda$ 是 $\bm{A}$ 的一个<strong>特征值</strong>， $\bm{\alpha}$ 是 $\bm{A}$ 属于 $\lambda$ 的一个<strong>特征向量</strong>。</p>
+<p><strong>定义</strong>：特征矩阵、特征多项式<br>设 $\bm{A} = (a_{ij})_{nn}$ 为数域 $F$ 上的 $n$ 阶方阵，我们称关于 $\lambda$ 的多项式 $f(\lambda) = |\lambda \bm{E} - \bm{A}|$ 为矩阵 $\bm{A}$ 的<strong>特征多项式</strong>，称 $\lambda \bm{E} - \bm{A}$ 为矩阵 $\bm{A}$ 的<strong>特征矩阵</strong>。</p>
+<p>求特征值和特征向量的方法：</p>
+<ol>
+<li>求解 $|\lambda \bm{E} - \bm{A}| = 0$ 算出所有的根 $\lambda_i$；</li>
+<li>对每个 $\lambda_i$ 计算出所有的 $(\lambda_i \bm{E} - \bm{A})\bm{\alpha} = 0$ 的基础解系，得到属于每一个 $\lambda_i$ 的特征向量 $\bm{\alpha}$</li>
+</ol>
+<p>特征值和特征向量的一些性质：</p>
+<ol>
+<li>$\sum \limits_{i = 1}^{n}\lambda_i = \sum \limits_{i = 1}^{n}a_{ii} = \mathrm{tr}(\bm{A})$;</li>
+<li>$\sum \limits_{i = 0}^{n}\lambda_i = |\bm{A}|$;</li>
+<li>对矩阵 $\bm{A}$ 的所有特征值 $\lambda_i$ 有属于 $\lambda_i$ 的特征向量组 ${\bm{\alpha}<em>{ik} \vert k \in [1, t] }$ 线性无关，那么所有的 ${\bm{\alpha}</em>{ik} \vert k \in [1, t], i \in [1, s] }$ 都线性无关;</li>
+<li>属于不同 $\lambda_i$ 的 $\bm{\alpha}_i$ 都线性无关;</li>
+</ol>
+<h3 id="相似矩阵和矩阵对角化"><a href="#相似矩阵和矩阵对角化" class="headerlink" title="相似矩阵和矩阵对角化"></a>相似矩阵和矩阵对角化</h3><p><strong>定义</strong>：相似矩阵<br>对于矩阵 $\bm{A}$ 存在可逆矩阵 $\bm{P}$ 使得 $\bm{P}^{-1}\bm{AP} = \bm{B}$ 我们称之为 $\bm{A}$ 相似于 $\bm{B}$ ，记为 $\bm{A} \sim \bm{B}$ .</p>
+<p>矩阵间的相似有以下性质：</p>
+<ol>
+<li>反身性</li>
+<li>对称性</li>
+<li>传递性</li>
+</ol>
+<p>此外还有一些特殊的性质：</p>
+<ol>
+<li>$|\bm{A}| = |\bm{B}|$</li>
+<li>$\bm{A}$ 和 $\bm{B}$ 拥有相同的特征多项式和特征值；</li>
+<li>$\mathrm{tr}(\bm{A}) = \mathrm{tr}(\bm{B})$ 且有 $r(\bm{A}) = r(\bm{B})$;</li>
+<li>如果 $f(x)$ 是一个多项式，那么 $f(\bm{B}) = \bm{P}^{-1} f(\bm{A}) \bm{P}$</li>
+<li>$\bm{A}^T \sim \bm{B}^T$ ，若 $\bm{A}$ 可逆还有 $\bm{A}^<em>\sim\bm{B}^</em>$</li>
+</ol>
+<p>矩阵对角化就是求一个矩阵 $\bm{P}$ 使得矩阵 $\bm{A}$ 和一个对角矩阵 $\varLambda$ 相似。<br>矩阵可对角化的充要条件：矩阵 $\bm{A}$ 有 $n$ 个线性无关的特征向量。<br>推论1：一个 $n$ 阶矩阵 $\bm{A}$ 有 $n$ 个不同的特征值，则 $\bm{A}$ 可对角化。<br>推论2：一个 $n$ 阶复矩阵 $\bm{A}$ 的特征多项式无重根，则 $\bm{A}$ 可对角化。</p>
+<p><strong>定义</strong>：内积空间、长度、夹角、正交<br>定义向量的内积：有列向量 $\bm{\alpha}$ 和列向量 $\bm{\beta}$ 我们将 $(\bm{\alpha, \beta}) = \bm{\alpha}^T\bm{\beta} = x_1y_1 + x_2y_2 + \cdots + x_ny_n$ 称为向量 $\bm{\alpha}$ 和向量 $\bm{\beta}$ 的<strong>内积</strong>。定义了线性运算和内积运算的向量空间 $\R^n$ 叫<strong>内积空间</strong>。</p>
+<p>内积空间内的向量与它本身的内积的开平方，即 $|\bm{\alpha}| = \sqrt{(\bm{\alpha}, \bm{\alpha})} = \sqrt{x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2}}$ 作为向量 $\bm{\alpha}$ 的<strong>距离</strong>。</p>
+<p>有了距离和内积的定义，我们就有了夹角的定义， $\cos \theta = \dfrac{(\bm{\alpha}, \bm{\beta})}{|\bm{\alpha}| \cdot |\bm{\beta}|}$ ，我们将 $\theta$ 定义为两个向量的<strong>夹角</strong>，记为 $\lang \bm{\alpha}, \bm{\beta} \rang$。</p>
+<p>当夹角 $\theta = \dfrac{\pi}{2}$ 即 $\cos\theta = 0$ 时，我们将这种情况称为<strong>正交</strong>。一组两两正交的非零向量构成的向量组称为<strong>正交向量组</strong>。一组正交向量组若构成了内积空间 $\R^n$ 的一组基，那么这组向量称为<strong>正交基</strong>。如果都是单位向量，那么被称为<strong>标准正交基</strong>。</p>
+<p>根据以上的定义，我们有以下的不等式：<br><strong>柯西不等式</strong>：<br>$$<br>|(\bm{\alpha}, \bm{\beta})| \leqslant |\bm{\alpha}| \cdot |\bm{\beta}|<br>$$<br><strong>三角不等式</strong>：<br>$$<br>|\bm{\alpha}| + |\bm{\beta}| \geqslant |\bm{\alpha}| + |\bm{\beta}|<br>$$</p>
+<p><strong>定理1</strong>：<br>正交向量组是线性无关向量组。</p>
+<p><strong>定理2</strong>：<br>（施密特正交化）通过已知的一组基构造出一组正交基。<br>设我们有 $\bm{\alpha}_1, \bm{\alpha}_2, \cdots, \bm{\alpha}_n$ 是 $\R^n$ 的一组基。令<br>$$<br>\begin{aligned}<br>\bm{\beta}_1 = &amp; \bm{\alpha}_1, \<br>\bm{\beta}_2 = &amp; \bm{\alpha}_2 - \frac{(\bm{\alpha}_2, \bm{\beta}_1)}{(\bm{\beta}_1, \bm{\beta}_1)}\bm{\beta}_1, \<br>\cdots \cdots \cdots \<br>\bm{\beta}_n = &amp; \bm{\alpha}_n - \frac{(\bm{\alpha}_n, \bm{\beta}_1)}{(\bm{\beta}_1, \bm{\beta}_1)}\bm{\beta}_1 - \frac{(\bm{\alpha}_n, \bm{\beta}_2)}{(\bm{\beta}<em>2, \bm{\beta}<em>2)}\bm{\beta}<em>2 - \cdots - \frac{(\bm{\alpha}<em>n, \bm{\beta}</em>{n-1})}{(\bm{\beta}</em>{n-1}, \bm{\beta}</em>{n-1})}\bm{\beta}</em>{n-1}<br>\end{aligned}<br>$$<br>得到的 $\bm{\beta}_1, \cdots, \bm{\beta}_n$  就是一组正交基了。</p>
+<p><strong>定义</strong>：正交矩阵<br>若矩阵 $\bm{A}$ 满足 $\bm{A}^T \bm{A} = \bm{E}$ 则称其为正交矩阵。<br><strong>性质</strong>：</p>
+<ol>
+<li>$\bm{A}$ 可逆，那么 $\bm{A}^{-1} = \bm{A}^T$；</li>
+<li>$\bm{A}^{-1}, \bm{A}^T$ 也是正交矩阵；</li>
+<li>$|\bm{A}| = \pm 1$；</li>
+<li>正交矩阵的乘积依然是正交矩阵；</li>
+</ol>
+<p><strong>定理3</strong>：<br>矩阵 $\bm{A} = (\bm{\alpha}_1, \bm{\alpha}_2, \cdots, \bm{\alpha}_n)$ 是正交矩阵的充要条件是列向量 $\bm{\alpha}_1, \bm{\alpha}_2, \cdots, \bm{\alpha}_n$ 构成矩阵的一组标准正交基。</p>
+<p><strong>定理4</strong>：<br>实对称矩阵的特征值都是实数。</p>
+<p><strong>定理5</strong>：<br>实对称矩阵属于不同特征值的特征向量必定正交。</p>
+<p><strong>定理6</strong>：<br>对于实对称矩阵 $\bm{A}$ 存在正交矩阵 $\bm{T}$ 使得 $\bm{T}^{-1} \bm{A} \bm{T}$ 为对角矩阵。</p>
+<p><strong>如何求 $\bm{T}$ ？</strong>：</p>
+<ol>
+<li>求出矩阵 $\bm{A}$ 的所有特征值 $\lambda_i$ ，以及属于他们的特征向量 $\bm{\alpha}<em>{1s_i}, \bm{\alpha}</em>{2s_i}, \cdots, \bm{\alpha}_{is_i}$；</li>
+<li>将属于 $\lambda_i$ 的特征向量 $\bm{\alpha}<em>{1s_i}, \bm{\alpha}</em>{2s_i}, \cdots, \bm{\alpha}_{is_i}$ 正交化和单位化；</li>
+<li>将上一步处理后的所有特征向量合并，得到的向量组就是单位正交向量组。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 线性代数</a>
+              <a href="/doge-liang-notebook/tags/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" rel="tag"><i class="fa fa-tag"></i> 特征值和特征向量</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" rel="prev" title="线性方程组">
+      <i class="fa fa-chevron-left"></i> 线性方程组
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%89%BE%E5%B7%A5%E4%BD%9C/%E5%88%B7%E9%A2%98%E7%BB%8F%E9%AA%8C%E6%95%B4%E7%90%86/" rel="next" title="刷题经验整理">
+      刷题经验整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">特征值和特征向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5%E5%92%8C%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">相似矩阵和矩阵对角化</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doge-liang-notebook/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/doge-liang-notebook/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doge-liang-notebook/tags/">
+          
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doge-liang-notebook/js/utils.js"></script>
+
+<script src="/doge-liang-notebook/js/motion.js"></script>
+
+
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
+
+
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

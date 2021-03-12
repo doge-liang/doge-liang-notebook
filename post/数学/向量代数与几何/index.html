@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="向量代数与几何向量 $\bm{a}, \bm{b}$，满足以下运算：  $\bm{a} + \bm{b}$ $k \bm{a}$ $\bm{a} \cdot \bm{b} &#x3D; |\bm{a}| |\bm{b}| \cos \lang \bm{a}, \bm{b} \rang &#x3D; |\bm{a}| \Pi_{a}b$ $|\bm{a} \times \bm{b}| &#x3D; |\bm{a}||\bm{b}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="向量代数与几何">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="向量代数与几何向量 $\bm{a}, \bm{b}$，满足以下运算：  $\bm{a} + \bm{b}$ $k \bm{a}$ $\bm{a} \cdot \bm{b} &#x3D; |\bm{a}| |\bm{b}| \cos \lang \bm{a}, \bm{b} \rang &#x3D; |\bm{a}| \Pi_{a}b$ $|\bm{a} \times \bm{b}| &#x3D; |\bm{a}||\bm{b}">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-07T12:49:02.201Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="向量代数">
+<meta property="article:tag" content="线性代数">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>向量代数与几何 | doge-liang-notebook</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doge-liang-notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          向量代数与几何
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-17T00:00:00+08:00">2020-08-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-07 20:49:02" itemprop="dateModified" datetime="2021-03-07T20:49:02+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="向量代数与几何"><a href="#向量代数与几何" class="headerlink" title="向量代数与几何"></a>向量代数与几何</h2><p>向量 $\bm{a}, \bm{b}$，满足以下运算：</p>
+<ol>
+<li>$\bm{a} + \bm{b}$</li>
+<li>$k \bm{a}$</li>
+<li>$\bm{a} \cdot \bm{b} = |\bm{a}| |\bm{b}| \cos \lang \bm{a}, \bm{b} \rang = |\bm{a}| \Pi_{a}b$</li>
+<li>$|\bm{a} \times \bm{b}| = |\bm{a}||\bm{b}| \sin\lang \bm{a},\bm{b} \rang$<br>以上运算都满足交换律、结合律、分配律（加法没有），以及各自的单位元，但特别地：$\bm{a} \times \bm{b} = - \bm{b} \times \bm{a}$</li>
+<li>$\Pi_\bm{b} \bm{a} = |\bm{a}| \cos\lang \bm{a},\bm{b} \rang$</li>
+</ol>
+<h3 id="向量的坐标表示"><a href="#向量的坐标表示" class="headerlink" title="向量的坐标表示"></a>向量的坐标表示</h3><p>已知 $\bm{i}, \bm{j}, \bm{k}$ 是坐标系的三个轴方向单位向量，我们可以将任意向量 $\bm{p}$ 表示为：<br>$$\bm{p} = p_x \bm{i} + p_y \bm{j} + p_z \bm{k}$$<br>简记： $\bm{p} = (p_x, p_y, p_z)$ 并且有：<br>$$<br>\begin{aligned}<br>    &amp; |\bm{p}| = \sqrt{p_x^2 + p_y^2 + p_z^2}<del>, \<br>    &amp;\frac{\bm{p}}{|\bm{p}|} = \cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma</del>, \<br>    &amp; \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1~~.<br>\end{aligned}<br>$$<br>其中 $\alpha, \beta, \gamma$ 分别是 $\bm{p}$ 和 $\bm{i}, \bm{j}, \bm{k}$ 的夹角。</p>
+<p>有了坐标表示我们可以用如下方式表达 $\bm{a} \times \bm{b}$ 和 $\bm{a} \cdot \bm{b}$ ：<br>$$<br>\begin{aligned}<br>    \bm{a} \times \bm{b} &amp; =<br>    \begin{vmatrix}<br>        \bm{i} &amp; \bm{j} &amp; \bm{k} \<br>        a_x &amp; a_{y} &amp; a_{z} \<br>        b_{x} &amp; b_{y} &amp; b_{z} \<br>    \end{vmatrix}<del>, \<br>    \bm{a} \cdot \bm{b} &amp; = (a_{x}, a_{y}, a_{z}) \cdot (b_{x}, b_{y}, b_{z}) \<br>    &amp; = a_{x}b_{x} + a_{y}b_{y} + a_{z}a_{z}</del>, \<br>    (\bm{a}, \bm{b}, \bm{c}) &amp; = \bm{a} \times \bm{b} \cdot \bm{c} \<br>    &amp; =<br>    \begin{vmatrix}<br>        a_{x} &amp; a_{y} &amp; a_{z} \<br>        b_{x} &amp; b_{y} &amp; b_{z} \<br>        c_{x} &amp; c_{y} &amp; c_{z} \<br>    \end{vmatrix}<br>\end{aligned}<br>$$</p>
+<h3 id="空间平面以及方程"><a href="#空间平面以及方程" class="headerlink" title="空间平面以及方程"></a>空间平面以及方程</h3><ul>
+<li>点法式</li>
+<li>一般式</li>
+<li>截距式</li>
+<li>三点式</li>
+<li>平面束</li>
+</ul>
+<h4 id="点法式"><a href="#点法式" class="headerlink" title="点法式"></a>点法式</h4><p>直观理解，一个点 $(x_{0}, y_{0}, z_{0})$ 和一个法向量 $\bm{p} = (A, B, C)$ 便可以在空间中确定一个平面的位置，方程表达如下：<br>$$<br>A(x - x_{0}) + B(y - y_{0}) + C(z - z_{0}) = 0<br>$$<br>也可以写成法向量 $\bm{p} = (A, B, C)$ 和变量向量 $\bm{x} = (x - x_{0}, y - y_{0}, z - z_{0})$ 的内积：<br>$$<br>\bm{p} \cdot \bm{x} = 0<br>$$</p>
+<h4 id="一般式"><a href="#一般式" class="headerlink" title="一般式"></a>一般式</h4><p>将点法式整理一下可以得到一般式：<br>$$<br>Ax + By + Cz = D<br>$$</p>
+<h4 id="截距式"><a href="#截距式" class="headerlink" title="截距式"></a>截距式</h4><p>将一般是等式两边同时除以 $D$ 就可以得到截距式：<br>$$<br>\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1<br>$$<br>$a, ~b, ~c$ 分别是平面关于坐标轴 $x, ~y, ~z$ 的截距。</p>
+<h4 id="三点式"><a href="#三点式" class="headerlink" title="三点式"></a>三点式</h4><p>用三个点确定一个平面，由三点方程如下：<br>$$<br>\begin{vmatrix}<br>    x - x_{1} &amp; y - y_{1} &amp; z - z_{1} \<br>    x - x_{2} &amp; y - y_{2} &amp; z - z_{2} \<br>    x - x_{3} &amp; y - y_{3} &amp; z - z_{3} \<br>\end{vmatrix} = 0<br>$$</p>
+<h4 id="平面束"><a href="#平面束" class="headerlink" title="平面束"></a>平面束</h4><p>与已知几何体构成简单或复杂的关系的平面，通常通过引用一些变量 $\lambda_1, \lambda_2, \dots$ 和已知几何体的方程组成一个新的方程表达一系列平面，这一系列平面叫做平面束。<br>有两个平面 $\pi_1, \pi_2$ ，他们的法向量分别为 $n_1, n_2$ 根据一些简单的平面关系我们有以下关系：<br>$\pi_1$ 与 $\pi_2$ 重合 $\Leftrightarrow$ $\dfrac{A_{1}}{A_{2}} = \dfrac{B_{1}}{B_{2}} = \dfrac{C_{1}}{C_{2}} = \dfrac{D_{1}}{D_{2}}$<br>$\pi_1 \parallel \pi_2$ $\Leftrightarrow$ $\dfrac{A_{1}}{A_{2}} = \dfrac{B_{1}}{B_{2}} = \dfrac{C_{1}}{C_{2}} \neq \dfrac{D_{1}}{D_{2}}$<br>$\pi_1$ 与 $\pi_2$ 相交 $\Leftrightarrow$ $A_1 : B_1 : C_1 \neq A_2 : B_2 : C_2$</p>
+<h3 id="空间直线以及方程"><a href="#空间直线以及方程" class="headerlink" title="空间直线以及方程"></a>空间直线以及方程</h3><ul>
+<li>点向式</li>
+<li>一般式</li>
+</ul>
+<h4 id="点向式"><a href="#点向式" class="headerlink" title="点向式"></a>点向式</h4><p>由方向向量 $\bm{s} = (m, n, p)$ 和点 $P_0 = (x_0, y_0, z_0)$ 确定直线，方程如下：<br>$$<br>\frac{x - x_0}{m} = \frac{y - y_0}{n} = \frac{z - z_0}{p}<br>$$</p>
+<h4 id="一般式-1"><a href="#一般式-1" class="headerlink" title="一般式"></a>一般式</h4><p>将点向式作恒等变形就可以得到一般式：<br>$$<br>Ax + By + Cz + D = 0<br>$$</p>
+<h3 id="几何关系"><a href="#几何关系" class="headerlink" title="几何关系"></a>几何关系</h3><ul>
+<li><p>直线 $l$ 与平面 $\pi$ 法向量分别为 $\bm{s}, \bm{n}$</p>
+<ul>
+<li>$l$ 在 $\pi$ 上 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} = 0$ 且 $P_0$ 在 $\pi$ 上（$Ax_0 + By_0 + Cz_0 + D = 0$）</li>
+<li>$l$ 与 $\pi$ 平行 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} = 0$ 但 $P_0$ 不在 $\pi$ 上（$Ax_0 + By_0 + Cz_0 + D \neq 0$）</li>
+<li>$l$ 与 $\pi$ 相交 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} \neq 0$</li>
+<li>$l$ 与 $\pi$ 垂直 $\Leftrightarrow$ $\bm{s} = \lambda \bm{n}$</li>
+</ul>
+</li>
+<li><p>直线 $l_1$ 与直线 $l_2$ 法向量分别为 $\bm{s_1}, \bm{s_2}$ 初始点分别为 $P_1, P_2$</p>
+<ul>
+<li>$l_1$ 与 $l_2$ 异面 $\Leftrightarrow$ 混合积 $(\bm{s_1}, \bm{s_2}, \overrightarrow{P_1P_2}) \neq 0$</li>
+<li>$l_1$ 与 $l_2$ 共面 $\Leftrightarrow$ 混合积 $(\bm{s_1}, \bm{s_2}, \overrightarrow{P_1P_2}) = 0$<ul>
+<li>$l_1$ 与 $l_2$ 重合 $\Leftrightarrow$ $\bm{s_1} \parallel \bm{s_2} \parallel \overrightarrow{P_1P_2}$ $\Leftrightarrow$ $\bm{s_1} = \lambda_1 \bm{s_2} = \lambda_2 \overrightarrow{P_1P_2}$</li>
+<li>$l_1$ 与 $l_2$ 相交 $\Leftrightarrow$ $\bm{s_1} \times \bm{s_2} \neq \bm{0}$</li>
+<li>$l_1$ 与 $l_2$ 平行 $\Leftrightarrow$ $\bm{s_1} = \lambda_1 \bm{s_2} \neq \lambda_2 \overrightarrow{P_1P_2}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>直线与直线夹角</p>
+<ul>
+<li>$\theta$ 为 $\bm{s_1}$ 和 $\bm{s_2}$ 夹角，$\varphi = \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\cos \varphi = \dfrac{|\bm{s_1} \cdot \bm{s_2}|}{|\bm{s_1}| |\bm{s_2}|}$</li>
+</ul>
+</li>
+<li><p>直线与平面夹角</p>
+<ul>
+<li>$\theta$ 为 $\bm{s}$ 和 $\bm{n}$ 夹角，$\varphi = \dfrac{\pi}{2} \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\sin \varphi = \dfrac{|\bm{s} \cdot \bm{n}|}{|\bm{s}| |\bm{n}|}$</li>
+</ul>
+</li>
+<li><p>平面与平面夹角</p>
+<ul>
+<li>$\theta$ 为 $\bm{n_1}$ 和 $\bm{n_2}$ 夹角，$\varphi = \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\cos \varphi = \dfrac{|\bm{n_1} \cdot \bm{n_2}|}{|\bm{n_1}| |\bm{n_2}|}$</li>
+</ul>
+</li>
+<li><p>距离</p>
+<ul>
+<li>点 $P_0$ 与直线 $l$： $d(P_0, l) = \dfrac{|\bm{s} \times \overrightarrow{P_0P_1}|}{|\bm{s}|}$</li>
+<li>点 $P_0$ 与平面 $\pi$： $d(P_0, \pi) = \dfrac{|\bm{n} \cdot \overrightarrow{P_0P_1}|}{|\bm{n}|}$</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 向量代数</a>
+              <a href="/doge-liang-notebook/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 线性代数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E8%A1%8C%E5%88%97%E5%BC%8F/" rel="prev" title="行列式">
+      <i class="fa fa-chevron-left"></i> 行列式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" rel="next" title="线性方程组">
+      线性方程组 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95"><span class="nav-number">1.</span> <span class="nav-text">向量代数与几何</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">向量的坐标表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%B9%B3%E9%9D%A2%E4%BB%A5%E5%8F%8A%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">空间平面以及方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E6%B3%95%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">点法式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%BC%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">一般式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%AA%E8%B7%9D%E5%BC%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">截距式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%82%B9%E5%BC%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">三点式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E6%9D%9F"><span class="nav-number">1.2.5.</span> <span class="nav-text">平面束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E4%BB%A5%E5%8F%8A%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">空间直线以及方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E5%90%91%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">点向式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%BC%8F-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">一般式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%B3%E7%B3%BB"><span class="nav-number">1.4.</span> <span class="nav-text">几何关系</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doge-liang-notebook/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/doge-liang-notebook/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doge-liang-notebook/tags/">
+          
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doge-liang-notebook/js/utils.js"></script>
+
+<script src="/doge-liang-notebook/js/motion.js"></script>
+
+
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
+
+
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

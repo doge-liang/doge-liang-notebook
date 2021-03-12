@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="vscode-代码模板打开配置窗口路径：File &gt; Preferences &gt; User Snippets    编写配置文件实例： 12345678910111213141516&amp;#123;    &quot;blog header&quot;: &amp;#123;        &quot;prefix&quot;: &quot;blogheader&quot;,        &amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode-代码模板">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="vscode-代码模板打开配置窗口路径：File &gt; Preferences &gt; User Snippets    编写配置文件实例： 12345678910111213141516&amp;#123;    &quot;blog header&quot;: &amp;#123;        &quot;prefix&quot;: &quot;blogheader&quot;,        &amp;qu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E5%B7%A5%E5%85%B7/vscode/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/eaa49c4b6792cb5091227b561aea6f77d0a2c20fa4333aa89b1552db49e0ddf6.png">
+<meta property="article:published_time" content="2020-05-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-09T16:13:26.703Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="vscode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%B7%A5%E5%85%B7/vscode/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/eaa49c4b6792cb5091227b561aea6f77d0a2c20fa4333aa89b1552db49e0ddf6.png">
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>vscode-代码模板 | doge-liang-notebook</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doge-liang-notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vscode-代码模板
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-31T00:00:00+08:00">2020-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-10 00:13:26" itemprop="dateModified" datetime="2021-03-10T00:13:26+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="vscode-代码模板"><a href="#vscode-代码模板" class="headerlink" title="vscode-代码模板"></a>vscode-代码模板</h2><h3 id="打开配置窗口"><a href="#打开配置窗口" class="headerlink" title="打开配置窗口"></a>打开配置窗口</h3><p>路径：File &gt; Preferences &gt; User Snippets</p>
+<p><img src="/doge-liang-notebook/../../../../assets/%E5%B7%A5%E5%85%B7/vscode/vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/eaa49c4b6792cb5091227b561aea6f77d0a2c20fa4333aa89b1552db49e0ddf6.png" alt="picture 28">  </p>
+<h3 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h3><p>实例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;blog header&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;blogheader&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;---&quot;</span>,</span><br><span class="line">            <span class="string">&quot;title: $&#123;1:$&#123;TM_FILENAME_BASE&#125;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;tags: [$2]&quot;</span>,</span><br><span class="line">            <span class="string">&quot;categories: &quot;</span>,</span><br><span class="line">            <span class="string">&quot;    - [$3]&quot;</span>,</span><br><span class="line">            <span class="string">&quot;---&quot;</span>,</span><br><span class="line">            <span class="string">&quot;# $0&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;insert blog header&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面说明各项作用：</p>
+<h4 id="prefix"><a href="#prefix" class="headerlink" title="prefix"></a>prefix</h4><p>触发前缀，代码模板的前置引导；</p>
+<h4 id="body"><a href="#body" class="headerlink" title="body"></a>body</h4><p>实际插入的代码片段，一行一个字符串，组成一个数组</p>
+<h5 id="指针跳转顺序"><a href="#指针跳转顺序" class="headerlink" title="指针跳转顺序"></a>指针跳转顺序</h5><p><code>$1</code> , <code>$2</code> , 数字代表指针跳转顺序， <code>$0</code> ，代表最后指针所处的位置；</p>
+<h5 id="默认值-placeholder"><a href="#默认值-placeholder" class="headerlink" title="默认值 placeholder"></a>默认值 placeholder</h5><p><code>$&#123;1: placeholder&#125;</code> ，数字代表指针跳转顺序，后面的文字代表默认值；</p>
+<h5 id="可选项-choice"><a href="#可选项-choice" class="headerlink" title="可选项 choice"></a>可选项 choice</h5><p><code>$&#123;1|one, two, three|&#125;</code> ，数字代表指针跳转顺序，后面的各项代表可选的输入项；</p>
+<h5 id="常用变量汇总"><a href="#常用变量汇总" class="headerlink" title="常用变量汇总"></a>常用变量汇总</h5><ul>
+<li><p>常用变量</p>
+<ul>
+<li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
+<li><code>TM_CURRENT_LINE</code> 当前行内容</li>
+<li><code>TM_CURRENT_WORD</code> 光标处字符或空字符串</li>
+<li><code>TM_LINE_INDEX</code> 从0开始的行号</li>
+<li><code>TM_LINE_NUMBER</code> 从1开始的行号</li>
+<li><code>TM_FILENAME</code> 当前被编辑文档名</li>
+<li><code>TM_FILENAME_BASE</code> 当前被编辑文档名，没有后缀</li>
+<li><code>TM_DIRECTORY</code> 当前被编辑文档目录</li>
+<li><code>TM_FILEPATH</code> 当前被编辑文档全路径</li>
+<li><code>CLIPBOARD</code> 当前剪切板内容</li>
+</ul>
+</li>
+<li><p>日期和时间相关变量</p>
+<ul>
+<li><code>CURRENT_YEAR</code> 当前年</li>
+<li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
+<li><code>CURRENT_MONTH</code> 月份，两位数字表示，例如02</li>
+<li><code>CURRENT_MONTH</code> _NAME 月份全称，例如 ‘July’</li>
+<li><code>CURRENT_MONTH_NAME_SHORT</code> 月份简写 ，例如’Jul</li>
+<li><code>CURRENT_DATE</code> 某天</li>
+<li><code>CURRENT_DAY_NAME</code> 星期几， 例如’Monday’)</li>
+<li><code>CURRENT_DAY_NAME_SHORT</code> 星期几的简写， ‘Mon’</li>
+<li><code>CURRENT_HOUR</code> 小时，24小时制</li>
+<li><code>CURRENT_MINUTE</code> 分钟</li>
+<li><code>CURRENT_SECOND</code> 秒数</li>
+</ul>
+</li>
+</ul>
+<p>还可以用正则表达式格式化输出</p>
+<h4 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h4><p>如果配置好后，代码模板没有生效，有可能时 vscode 的对应文件的 quickSuggestions 没开。<br>打开方式： <code>ctrl</code> + <code>shift</code> + <code>P</code> 在弹出的命令检索框上搜索 <code>settings json</code> 得到 vscode 的 settings.json 文档<br>在文档内插入：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;[markdown]&quot;: &#123;</span><br><span class="line">    &quot;editor.quickSuggestions&quot;: true</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>需要什么语言的支持，就在中括号内输入什么语言，还可以添加自定义的文件支持，比如对 <code>xxx.todo</code> ：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;[todo]&quot;:&#123;</span><br><span class="line">    &quot;editor.quickSuggestions&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/vscode/" rel="tag"><i class="fa fa-tag"></i> vscode</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-pandas%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="python数据分析-pandas的使用">
+      <i class="fa fa-chevron-left"></i> python数据分析-pandas的使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/doge-liang-notebook/post/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-css%E7%AF%87/" rel="next" title="前端开发规范-CSS篇">
+      前端开发规范-CSS篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.</span> <span class="nav-text">vscode-代码模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E9%85%8D%E7%BD%AE%E7%AA%97%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">打开配置窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">编写配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#prefix"><span class="nav-number">1.2.1.</span> <span class="nav-text">prefix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#body"><span class="nav-number">1.2.2.</span> <span class="nav-text">body</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E8%B7%B3%E8%BD%AC%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">指针跳转顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC-placeholder"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">默认值 placeholder</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E9%A1%B9-choice"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">可选项 choice</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E6%B1%87%E6%80%BB"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">常用变量汇总</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.3.</span> <span class="nav-text">补充说明</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doge-liang-notebook/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/doge-liang-notebook/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doge-liang-notebook/tags/">
+          
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doge-liang-notebook/js/utils.js"></script>
+
+<script src="/doge-liang-notebook/js/motion.js"></script>
+
+
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
+
+
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
