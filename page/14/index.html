@@ -308,8 +308,8 @@
 <p>$$<br>T_{worst}(n) \le T_{avg}(n)<br>$$</p>
 <h4 id="复杂度的渐进表示法"><a href="#复杂度的渐进表示法" class="headerlink" title="复杂度的渐进表示法"></a>复杂度的渐进表示法</h4><p>我们研究算法复杂度的时候往往只关注最影响算法效率的项，其他的项则只用一个常数倍来表示。</p>
 <p>$T(n) = \Omicron(f(n))$ 表示 $\exist n_0, C &gt; 0$ 使得 $T(n) \le C  \cdot f(n),(n &gt; n_0)$<br>$T(n) = \Omega(f(n))$ 表示 $\exist n_0, C &gt; 0$ 使得 $T(n) \le C  \cdot f(n),(n &gt; n_0)$<br>$T(n) = \Theta(f(n))$ 表示同时有 $T(n) = \Omicron(f(n))$ 和 $T(n) = \Omega(f(n))$</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/ece2cff3581fa6152fb182a9eb8e91cbbff628677d779de25f9056c0350fe179.png" alt="picture 39">  </p>
-<p><img src="/doge-liang-notebook/../../../assets/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/58b9dbb3fa8334910d47eac775530dfaac4f2b35d4fc471d0145ad1ee3e339c2.png" alt="picture 40">  </p>
+<p><img src="../../../assets/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/ece2cff3581fa6152fb182a9eb8e91cbbff628677d779de25f9056c0350fe179.png" alt="picture 39">  </p>
+<p><img src="../../../assets/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/58b9dbb3fa8334910d47eac775530dfaac4f2b35d4fc471d0145ad1ee3e339c2.png" alt="picture 40">  </p>
 <h4 id="复杂度分析技巧"><a href="#复杂度分析技巧" class="headerlink" title="复杂度分析技巧"></a>复杂度分析技巧</h4><p><strong>加法法则</strong>：<br>$T_1(n) + T_2(n) = \max {\large(} \Omega(f_1(n)), \Omega(f(n) {\large)}$<br><strong>乘法法则</strong>：<br>$T_1(n) \times T_2(n) = \Omega(f_1(n) \times f_2(n))$</p>
 <p>若 $T(n)$ 是 $n$ 的 $k$ 阶多项式，那么 $T(n) = \Theta(n^k)$<br><code>for</code> 循环中，时间复杂度为 循环次数 $n$ 乘以 循环体代码复杂度<br><code>if-else</code> 中，时间复杂度取决于，条件判断和两个分支中最大的复杂度</p>
 <p>常用的时间复杂度大小顺序：<br>$$<br>O(1) \lt O(\log_2n) \lt O(n) \lt O(n\log_2n) \lt O(n^2) \lt O(n^3) \lt O(2^n) \lt O(n!) \lt O(n^n)<br>$$</p>

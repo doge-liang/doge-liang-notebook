@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="第三章-数据链路层4.1 信道分配问题网络链路分为两大类：点到点连接(WAN)和广播信道(LAN)广播信道的节点共用一条信道进行通信，那么就存在着信道竞争的问题。  广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)  两种解决信道分配问题的方案：信道静态分配、信道动态分配 4.1.1 静态信道分配这种信道分配方式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
 <meta property="article:published_time" content="2020-05-23T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-03-12T07:58:54.000Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
 
@@ -292,7 +292,7 @@
 <p>很显然，贪婪的 1-坚持 CSMA 在 2 台以上的计算机竞争时，大家都很急躁争抢信道，冲突会频繁发生；<br>稍微没那么贪婪的 p-坚持 CSMA 表现良好，IEEE 802.11 是对这种方式的改良；<br>非坚持的 CSMA，很佛系，提高了高竞争系统的信道利用率，但是这种方式的延迟更大了（每次遇到冲突，都等一个随机时间，这个随机时间很可能有能够发送出去的机会，但错失了）；</p>
 <h5 id="带有冲突检测的-CSMA"><a href="#带有冲突检测的-CSMA" class="headerlink" title="带有冲突检测的 CSMA"></a>带有冲突检测的 CSMA</h5><p>CSMA/CD 协议工作流程：当空闲时，多个计算机都要发送，冲突就会发生。如果一个站检测到冲突，就会停止发送，并发送一个冲突加强信号，通知网络上各个站点已经发生冲突，所有计算机都等待一段随机时间再发送；</p>
 <p>用下图模型描述，我们可以看到，CSMA/CD 模型将会交替出现竞争期、传输期、空闲期；</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png" alt="picture 40">  </p>
+<p><img src="../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png" alt="picture 40">  </p>
 <p>冲突检测机制：考虑一个极端情况，网络中距离最远的两台计算机，计算机 A 在 $t_0$ 时刻发送一个帧，在 $t_0 + \tau - \varepsilon$ 时刻（该帧几乎到达另一台计算机 B 时），另一台计算机 B 刚好发送了一个帧，这时冲突了，计算机 B 立刻检测到了，马上停止发送，而计算机 A 要等到，冲突信号回传才能知道冲突了，即 $t_0 + 2\tau - \varepsilon$ 时刻。<br>通过以上极端情况讨论，我们得到了一个结论，当计算机发送的数据，经过 $2\tau$ 时长之后没有收到冲突信号，那么就可以认为，数据安全的发送出去了。那么我们可以试着按照 $2\tau$ 将时间分成时间槽，这时的 CSMA/CD 协议就很像是带时间槽的 ALOHA协议了。差异在于，$2\tau$ 往往比时间槽的长度（帧时）短，这个差距越大，带来的性能提升就越高。</p>
 <h5 id="无冲突协议"><a href="#无冲突协议" class="headerlink" title="无冲突协议"></a>无冲突协议</h5>
     </div>

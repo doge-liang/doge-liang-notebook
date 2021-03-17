@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="古典加密算法两种基本技术 代替：将明文的字母替换成其他的数字、字母、符号； 置换：将信息的顺序按照某种规则打乱；  代替技术凯撒密码将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。例如：  明文：Nice to meet your 密文：QLFH WR PHHW BRXU  加密算法可以如此表达：$$C &#x3D; E(3, p) &#x3D; (p + 3) \mod 26$$移位可以是任意大小">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
-<meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png">
-<meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png">
 <meta property="article:published_time" content="2020-08-12T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-03-12T08:27:45.420Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
 
@@ -299,7 +299,7 @@
 <li>根据编码表将明文转换为密文</li>
 </ol>
 <h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>选定密钥词 monarchy 。<br>得到编码表：</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8">  </p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8">  </p>
 <p><strong>编码表编制规则</strong>：将密钥词按顺序排在 $5 \times 5$ 的矩阵中，剩下的字母按照字母表顺序排列，I/L代表同一个字母；</p>
 <p>处理明文的重复字母对，在重复字母对中插入别的字母（具体插入什么自己定），例如：balloon 转换成 ba lx lo on。</p>
 <p><strong>明文字母对处理逻辑</strong>：</p>
@@ -310,11 +310,11 @@
 </ol>
 <p>尽管Playfair密码看起来是安全的，但是仍然能够通过分析密码频率进行密码破译。</p>
 <p>字母频率出现表：</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9">  </p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9">  </p>
 <p>曲线越平坦，代表加密效果越好，理想化的结果是完全平坦的曲线，这样代表明文中所有字母的频率都被隐藏起来了，所有字母的出现概率相等，唯密文攻击无法判断区分每个字母。</p>
 <h5 id="Hill-密码"><a href="#Hill-密码" class="headerlink" title="Hill 密码"></a>Hill 密码</h5><h4 id="多表代替加密"><a href="#多表代替加密" class="headerlink" title="多表代替加密"></a>多表代替加密</h4><h5 id="Vigenere-密码"><a href="#Vigenere-密码" class="headerlink" title="Vigenere 密码"></a>Vigenere 密码</h5><h5 id="Vernam-密码"><a href="#Vernam-密码" class="headerlink" title="Vernam 密码"></a>Vernam 密码</h5><h4 id="一次一密"><a href="#一次一密" class="headerlink" title="一次一密"></a>一次一密</h4><h3 id="置换技术"><a href="#置换技术" class="headerlink" title="置换技术"></a>置换技术</h3><p>按照某种规则打乱明文，不加入新的信息；</p>
 <h4 id="一个简单的例子：栅栏技术"><a href="#一个简单的例子：栅栏技术" class="headerlink" title="一个简单的例子：栅栏技术"></a>一个简单的例子：栅栏技术</h4><p>按照对角线的顺序写出明文，在按行写出密文；<br><strong>例</strong>：<br>明文：“meet me after the toga party”<br>深度为2的加密：</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10">  </p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10">  </p>
 <p>然后按行写出得到密文：<br>MEMATRHTGPRYETEFETEOAAT</p>
 
     </div>
