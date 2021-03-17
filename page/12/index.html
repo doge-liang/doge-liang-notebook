@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -218,7 +218,251 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" class="post-title-link" itemprop="url">第二讲 完全信息静态博弈</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">python打包方式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:35:21" itemprop="dateModified" datetime="2021-03-13T04:35:21+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="python打包方式"><a href="#python打包方式" class="headerlink" title="python打包方式"></a>python打包方式</h2><h3 id="通过-pyInstaller"><a href="#通过-pyInstaller" class="headerlink" title="通过 pyInstaller"></a>通过 pyInstaller</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">单文件模式</span></span><br><span class="line">pyinstaller -F myscript.py</span><br><span class="line"><span class="meta">#</span><span class="bash">包含动态库的模式</span></span><br><span class="line">pyinstaller myscript.py</span><br><span class="line"><span class="meta">#</span><span class="bash">使用.spec文件进行高级打包操作</span></span><br><span class="line">pyi-makespec optionsscript [scirpt...] #创建.spec文件</span><br><span class="line"><span class="meta">#</span><span class="bash">在.spec文件内编辑</span></span><br><span class="line">pyinstaller specfile</span><br><span class="line">pyi-build specfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E7%88%AC%E8%99%AB-requests%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E7%88%AC%E8%99%AB-requests%E5%BA%93/" class="post-title-link" itemprop="url">python 爬虫-requests库</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:35:50" itemprop="dateModified" datetime="2021-03-13T04:35:50+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E8%BF%9E%E6%8E%A5mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E8%BF%9E%E6%8E%A5mysql/" class="post-title-link" itemprop="url">python 连接mysql</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:35:45" itemprop="dateModified" datetime="2021-03-13T04:35:45+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="python-连接mysql"><a href="#python-连接mysql" class="headerlink" title="python 连接mysql"></a>python 连接mysql</h2><ol>
+<li>PyMySQL</li>
+<li>pyodbc</li>
+</ol>
+<h3 id="pyodbc"><a href="#pyodbc" class="headerlink" title="pyodbc"></a>pyodbc</h3><p>连接mysql</p>
+<ol>
+<li>下载odbc-MySQL驱动安装包</li>
+<li>安装驱动并在电脑的管理工具处配置数据源</li>
+<li>经测试数据源可用后即可点击确定</li>
+</ol>
+<p>各个系统以及数据库的连接模板代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyodbc</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例: Windows系统, 非DSN方式, 使用微软 SQL Server 数据库驱动</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DRIVER=&#123;SQL Server&#125;;SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例: Linux系统, 非DSN方式, 使用FreeTDS驱动</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DRIVER=&#123;FreeTDS&#125;;SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass;TDS_Version=7.0&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例:使用DSN方式</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DSN=test;PWD=password&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开游标</span></span><br><span class="line"></span><br><span class="line">cursor = cnxn.cursor()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%B8%80%E8%AE%B2-%E5%AF%BC%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%B8%80%E8%AE%B2-%E5%AF%BC%E8%AE%BA/" class="post-title-link" itemprop="url">第一讲 导论</a>
         </h1>
 
         <div class="post-meta">
@@ -235,7 +479,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-06 02:29:47" itemprop="dateModified" datetime="2021-03-06T02:29:47+08:00">2021-03-06</time>
+                <time title="Modified: 2021-03-09 22:54:34" itemprop="dateModified" datetime="2021-03-09T22:54:34+08:00">2021-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,121 +502,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="第二讲-完全信息静态博弈"><a href="#第二讲-完全信息静态博弈" class="headerlink" title="第二讲 完全信息静态博弈"></a>第二讲 完全信息静态博弈</h2><p>主要内容：</p>
-<blockquote>
-<p>标准式（策略式）博弈<br>重复剔除严格劣策略<br>Nash均衡<br>混合策略</p>
-</blockquote>
-<h3 id="什么是完全信息静态博弈？"><a href="#什么是完全信息静态博弈？" class="headerlink" title="什么是完全信息静态博弈？"></a>什么是完全信息静态博弈？</h3><ul>
-<li>静态博弈：每个参与人同时相互独立地决策，或决策有先后，但后决策者不知先决策者所采取的行动；</li>
-<li>完全信息：参与人所有可能的行动、所有可能的结果、所有可能行动与可能结果的联系、以及每个参与人的偏好都被所有参与人知道；</li>
-</ul>
-<h3 id="标准式博弈"><a href="#标准式博弈" class="headerlink" title="标准式博弈"></a>标准式博弈</h3><ul>
-<li>一个标准式博弈应该包含一下要素：<ul>
-<li>博弈的理性参与人：$i=1, 2, 3, … n$</li>
-<li>每个参与人可供选择的行动集合：$A_1, A_2, … A_n$</li>
-<li>针对所有参与人所选择的行动，每个参与人获得的支付。$u_i(a_1, a_2, … a_n)$，对于所有 $a_1 \in A_1, a_2 \in A_2, a_3, a_n \in A_n$</li>
-</ul>
+          <h2 id="第一讲-导论"><a href="#第一讲-导论" class="headerlink" title="第一讲 导论"></a>第一讲 导论</h2><h3 id="经典案例评析"><a href="#经典案例评析" class="headerlink" title="经典案例评析"></a>经典案例评析</h3><ol>
+<li><p>囚徒困境：<br>最优情况是双方都保持沉默，但纳什均衡会导向双方都坦白的最差情况。</p>
 </li>
-<li>在一个 $n$ 个参与人的标准式中，参与人的行动集合为$A_1, A_2, … A_n$，支付函数为$u_1, … u_n$，我们用 $G = {n; a_1, … a_n; u_1, …, u_n}$表示该博弈；</li>
-<li>策略集 $S_i$ 表示参与人 $i$ 所有的策略。一个策略组合 $s_i = (s_1, s_2, … s_n)$ 为 $S_i$ 的子集；</li>
-</ul>
-<blockquote>
-<p>在完全信息博弈中，参与人的策略集就是行动集合；<br>标准式可以用矩阵表示两个人的有限策略博弈；</p>
-</blockquote>
-<h4 id="构建过程案例：囚徒困境"><a href="#构建过程案例：囚徒困境" class="headerlink" title="构建过程案例：囚徒困境"></a>构建过程案例：囚徒困境</h4><ul>
-<li>参与人：{囚犯1、囚犯2}</li>
-<li>行动/策略：$A_1 = A_2 = S_1 = S_2 = {$ 沉默、坦白 $}$</li>
-<li>支付：由两个参与人的行动决定.</li>
-</ul>
-<p>$u_1($ 沉默、沉默 $)=-1 $ , $u_1($ 沉默、坦白 $)=-9$ , $u_1($ 坦白、沉默 $)=0$ , $u_1($ 坦白、坦白 $)=-6$<br>$u_2($ 沉默、沉默 $)=-1$ , $u_2($ 沉默、坦白 $)=0$ , $u_2($ 坦白、沉默 $)=-9$ , $u_2($ 坦白、坦白 $)=-6$</p>
-<h3 id="博弈求解"><a href="#博弈求解" class="headerlink" title="博弈求解"></a>博弈求解</h3><ul>
-<li>解(solution)是分析博弈的方法：在参与人的某些理性假设下，对博弈的所有可能结果进行筛选，留下更有可能的结果；</li>
-<li>均衡(equilibrium)是博弈经过特定求解过程筛选后所剩下的策略组合(strategy set)，一个博弈可能存在多个均衡；</li>
-</ul>
-<h4 id="解法一：重复剔除严格劣策略"><a href="#解法一：重复剔除严格劣策略" class="headerlink" title="解法一：重复剔除严格劣策略"></a>解法一：重复剔除严格劣策略</h4><ul>
-<li>占优策略：无论其他参与人如何选择，这个策略都比其他策略的支付函数要高，就叫做占优策略；</li>
-<li>劣策略：相反，如果一个策略的支付函数始终不高于其他策略的支付函数，那么就是劣策略（其中，低于的策略叫严格劣策略）；</li>
-</ul>
-<p>重复剔除严格劣策略的解法就是，通过剔除严格劣策略来将现有博弈转化为一个新的博弈，再对新的博弈重复上述过程，直到无法剔除为止，得到博弈的解；<br>对于离散型博弈，我们通常使用划线法剔除严格劣策略得到博弈的解；<br>缺陷：</p>
-<ul>
-<li>重复剔除严格劣策略的前提是，所有的参与人都知道其他参与人是理性人且剔除的顺序都不影响最终结果；</li>
-<li>只有存在严格劣策略时，才能剔除，并不是所有博弈都有严格劣策略，如性别战；</li>
-</ul>
-<h4 id="解法二：最优反应策略"><a href="#解法二：最优反应策略" class="headerlink" title="解法二：最优反应策略"></a>解法二：最优反应策略</h4><ul>
-<li>最优反应策略(best response)：如果参与人 $i$ 的策略 $s_i$ 对其他参与人的策略 $s_{-i}={s_1, s_2, \dots s_{i-1}, s_{i+1}, \dots, s_n}$ 有</li>
-</ul>
-<p>$$<br>u_i(s_i, s_{-i}) \ge u_i(s_i’, s_{-i}), s_i’ \in S_i<br>$$<br>那么我们说该策略 $s_i$ 为最优反应策略；</p>
-<p>由于一个理性人总会对其他人选择的策略 $s_{-i}$ 选择自己的最优反应策略 $s_i$ 。因此博弈可以被转化为求解：<br>$$<br>\max\limits_{s_i \in S_i} u(s_i, s_{-i}^*)<br>$$<br>解出来的结果为：${s_i^*, s_{-i}^*}$<br>Nash均衡是一个策略组合，这个组合中每个参与人针对其他参与人的策略所选择的反应是最优反应，且每个参与人都不愿意独自离开选定的策略。<br>对于离散博弈，通常使用划线法选择相对占优策略的交集寻找Nash均衡解；</p>
-<p>ps：一个博弈的Nash均衡解是剔除严格劣策略的解的子集；</p>
-<h3 id="连续型博弈"><a href="#连续型博弈" class="headerlink" title="连续型博弈"></a>连续型博弈</h3><p>对于连续型博弈，不能使用划线法得到解。我们通常联系支付函数的一阶导数，另一阶导数为0得到最优反应策略；</p>
-<h4 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h4><ol>
-<li>中间选民：设有一批选民的政策倾向在一个单位区间从左（x = 0）至右(x = 1)均匀分布，为一个职位参加竞选的两个候选人同时选择其竞选的政策倾向（即在x = 0 到 x = 1中间的一个点）。选民观察候选人的选择，然后把票投给其政策倾向离自己最近的候选人。获得选票数量更多的候选人将获胜。如果两个候选人选择相同的政策倾向，则平分所得选票。如果两人获得选票数量相同，谁当选由掷硬币来决定。</li>
-<li>n个厂商的Cournot模型：假设在Cournot寡头垄断模型中有n个厂商。设qi为厂商i的产量，同时设Q = q1 +…+qn为总产量。设P(Q)为市场出清价格（当需求为Q时），并假设反需求函数为P(Q) = a – Q，这里Q ≤ a。假设这些厂商都没有固定成本且产量为qi时生产成本为cqi（所有的厂商都有相同的边际成本，同时假设c &lt; a）。</li>
+<li><p>性别战：<br>这时有两个纳什均衡解的情况，男女约会需要选择约会项目，两方喜欢的东西不同，纳什均衡解是双方都选择相同的项目，即两个解。</p>
+</li>
+<li><p>斗鸡博弈：<br>两个人对打，都前进则会导致双方受损，一方前进一方后退会导致一赢一输，双方后退会导致双方所得为零，该情况与囚徒困境很像，但是结果却是一方前进一方后退两种情况。</p>
+</li>
+<li><p>智猪博弈：<br>有一大一小两头猪，而且他们要得到猪食至少要某一方去按下按钮，按下按钮会导致那一方失去一部分猪食。他们获取猪食的能力也不一致。最后的均衡解为大猪按下按钮，小猪等待。</p>
+</li>
+<li><p>猜谜游戏：<br>两个人伸手，两个人伸手情况一致则A赢，两个人伸手情况不一致则B赢。该情况没有纯策略均衡，但是有混合策略均衡。</p>
+</li>
 </ol>
-<hr>
-<ol>
-<li><strong>中点选民：</strong><br>参与人：候选人 $A$ , $B$<br>行动：$A_1=S_1={x_1 }, A_2=S_2={x_2 }, 0≤x_1, x_2≤1$<br>不妨设 $x_1≤x_2$, 支付：<br>$u_1 (x_1, x_2 )= (x_1+x_2)/2$<br>$u_2 (x_1, x_2 )= 1-(x_1+x_2)/2.$<br>为求得最优反应函数，我们需要求解：<br>$\max \limits_{0≤x_1≤x_2}u_1 (x_1, x_2^*) = (x_1 + x_2^*)/2$<br>$\max \limits_{x_1≤x_2≤1}⁡u_2 (x_1^*, x_2 )=1-(x_1^*+x_2)/2$<br>得到最优反应函数：<br>$x_1^*=x_2^*$<br>$x_2^*=x_1^*$<br>得到Nash均衡解$(x_1^*, x_2^* )$，且 $x_1^*=x_2^*$。而此时$u_1 (x_1^*, x_2^* )=u_2 (x_1^*, x_2^*)=x_2^*=1-x_2^*=1/2$<br>所以最后均衡解为 $(1/2, 1/2)$.</li>
-<li><strong>N个厂商的Cournot模型：</strong><br>参与人：厂商 $1, 2, 3, \dots, n$<br>行动：$A_i=S_i=q_i∈[0, a]$<br>支付：<br>$u_i (q_i )=P(Q)Q=(a-Q-c) q_i$<br>对于企业i为求得最优反应函数，需要求解：<br>$\max \limits_{0≤q_i≤a}⁡ u_i (q_i, q_{-1}^*) = (a-q_i - q_{-i}^* - c)q_i$<br>得到最优反应函数：<br>$q_i^*=(a-c-q_{-i}^*)/2$<br>联立n个企业的最优反应函数求得Nash均衡为：$(q_1^*, q_2^*, \dots, q_n^*)$<br>而 $Q^*=q_1^*+q_2^*+⋯+q_n^*$ 满足以下条件：<br>$Q^* = n(a-c)/(n+1)$</li>
-</ol>
-<h3 id="混合策略均衡"><a href="#混合策略均衡" class="headerlink" title="混合策略均衡"></a>混合策略均衡</h3><p>有些博弈并没有纯策略的Nash均衡，比如猜字游戏，我们找不出绝对的最优策略，每个参与人最合理的做法便是随机选择策略，这种随机化选择策略的做法就是<strong>混合策略</strong>的思想；</p>
-<p>由于引入了概率，于是我们便用分布函数来描述支付函数，参与人 $i$ 选择纯策略 $s_i$ 的支付函数表示为，其他参与人所选择策略的概率分布函数的期望（收益由他人的选择决定）</p>
-<h4 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h4><ol>
-<li>求解下述博弈的混合战略Nash均衡：</li>
-</ol>
-<p>两个企业各有一个工作空缺，假设企业所给的工资不同：企业 $i$ 给出的工资为 $w_i$ ，这里$\dfrac{1}{2}w_1 &lt; w_2 &lt; 2w_1$。设想有两个工人，每人只能申请一份工作，两人同时决定是申请企业1的工作，还是向企业2申请。如果只有一个工人向一个企业申请，他就会得到这份工作；如果两个工人同时向一个企业申请工作，则企业随机选择一个工人，另一人就会失业（这时收益为0）。</p>
-<ul>
-<li>参与人：工人1、2</li>
-<li>行动：$A_1=A_2={w_1, w_2}$</li>
-<li>支付：</li>
+<h3 id="合作博弈和非合作博弈"><a href="#合作博弈和非合作博弈" class="headerlink" title="合作博弈和非合作博弈"></a>合作博弈和非合作博弈</h3><ul>
+<li>合作(Cooperative)博弈：也称正和博弈，参与人中至少有一个人利益增加。同时其他人的利益不受损，重点是研究如何分配合作所得收益。</li>
+<li>非合作(Non-cooperative)博弈：包括零和博弈和负和博弈，研究人们在相互影响的局势中如何选择决策使自己的收益最大化。</li>
+<li>两者区别：能否达成具有约束力的协议，经济学中大多数是非合作博弈。</li>
 </ul>
-<p>$u_1(w_1, w_1)=\dfrac{1}{2}w_1, \quad u_1(w_1, w_2)=w_1, \quad u_1(w_2, w_1)=w_2, \quad u_1(w_2, w_2)=\dfrac{1}{2}w_2$<br>$u_2(w_1, w_1)=\dfrac{1}{2}w_1, \quad u_2(w_1, w_2)=w_2, \quad u_2(w_2, w_1)=w_1, \quad u_2(w_2, w_2)=\dfrac{1}{2}w_2$</p>
-<ul>
-<li>混合战略：<ul>
-<li>工人1分别以概率 $r$ 和 $1-r$ 选择申请的公司1、2；</li>
-<li>工人2分别以概率 $q$ 和 $1-q$ 选择申请的公司1、2；</li>
+<h3 id="非合作博弈的分类"><a href="#非合作博弈的分类" class="headerlink" title="非合作博弈的分类"></a>非合作博弈的分类</h3><ul>
+<li>静态(Static)博弈和动态(Dynamic)博弈<ul>
+<li>静态博弈：指在博弈中，参与人同时选择行动，或是行动者不知道先行者采取什么具体行动。</li>
+<li>动态博弈：指在博弈中，参与人的顺序有先后顺序。</li>
 </ul>
 </li>
-<li>工人1的支付期望：<ul>
-<li>选择企业1：$\dfrac{1}{2}w_1q + w_1(1-q) = (1-\dfrac{1}{2}q)w_1$</li>
-<li>选择企业2：$w_2q + \dfrac{1}{2}(1-q)w_2 = \dfrac{1}{2}(1+q)w_2$</li>
-</ul>
-</li>
-<li>工人1的最优反应函数：<ul>
-<li>当 $q &lt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业1 ($r=1$)</li>
-<li>当 $q &gt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业2 ($r=0$)</li>
-<li>当 $q = \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，两种选择无差异 ($0 &lt; r &lt; 1$)</li>
+<li>完全信息(Complete)博弈和不完全信息(Incomplete)博弈<ul>
+<li>完全信息博弈：每个参与人对其他参与人的特征、策略及收益等有准确的信息。</li>
+<li>不完全信息博弈：指参与人对其他人的特征、策略及收益等信息了解的不够准确（不确定性）。</li>
 </ul>
 </li>
 </ul>
-<div style="text-align: center">
-
-<figure class="highlight python"><figcaption><span>&#123;cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">plt.xlabel(<span class="string">&#x27;q-label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;r-label&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</div>
-
-<ul>
-<li><p>工人2的支付期望：</p>
-</li>
-<li><p>选择企业1：$\dfrac{1}{2}w_1r + w_1(1-r) = (1- \dfrac{1}{2} r) w_1$</p>
-</li>
-<li><p>选择企业2：$w_2 r + \dfrac{1}{2} w_2 (1-r) = \dfrac{1}{2} (1+r) w_2$</p>
-</li>
-<li><p>工人2的最优反应函数：</p>
-<ul>
-<li>当 $r &lt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业1 ($q=1$)</li>
-<li>当 $r &gt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业2 ($q=0$)</li>
-<li>当 $r = \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，两种选择无差异 ($0 &lt; q &lt; 1$)</li>
-</ul>
-</li>
-</ul>
-<div style="text-align: center">
-
-<figure class="highlight python"><figcaption><span>&#123;cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line">ax.plot([<span class="number">0</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">ax.plot([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0</span>])</span><br><span class="line">fig.suptitle(<span class="string">&quot;r-q&quot;</span>)</span><br><span class="line">ax.grid(<span class="literal">True</span>, linestyle=<span class="string">&#x27;-.&#x27;</span>)</span><br><span class="line">ax.tick_params(labelcolor=<span class="string">&#x27;r&#x27;</span>, labelsize=<span class="string">&#x27;medium&#x27;</span>, width=<span class="number">3</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;q-label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;r-label&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-</div>
-
-<p>所以，混合策略均衡为($\dfrac{2w_1 - w_2}{w_1 + w_2}, \dfrac{2w_1 - w_2}{w_1 + w_2}$).</p>
-<h3 id="Nash均衡存在性"><a href="#Nash均衡存在性" class="headerlink" title="Nash均衡存在性"></a>Nash均衡存在性</h3><p>在 $n$ 个参与人的标准式博弈 $G = {N; (A_i); (u_i); }$ 中，如果 $n$ 是有限的，且对于每个参与人 $i$ 的策略集 $S_i$ 也是有限的，则博弈存在至少一个Nash均衡，均衡也可能包含混合策略。</p>
 
       
     </div>
@@ -743,7 +901,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -757,7 +915,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/" class="post-title-link" itemprop="url">Linux命令杂记</a>
+            <a href="/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" class="post-title-link" itemprop="url">第二讲 完全信息静态博弈</a>
         </h1>
 
         <div class="post-meta">
@@ -774,7 +932,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-06 15:49:11" itemprop="dateModified" datetime="2021-03-06T15:49:11+08:00">2021-03-06</time>
+                <time title="Modified: 2021-03-06 02:29:47" itemprop="dateModified" datetime="2021-03-06T02:29:47+08:00">2021-03-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -782,7 +940,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%8D%9A%E5%BC%88%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">博弈论</span></a>
                 </span>
             </span>
 
@@ -797,560 +955,121 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="转换到root用户"><a href="#转换到root用户" class="headerlink" title="转换到root用户"></a>转换到root用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改root用户密码"><a href="#修改root用户密码" class="headerlink" title="修改root用户密码"></a>修改root用户密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改ssh密码"><a href="#修改ssh密码" class="headerlink" title="修改ssh密码"></a>修改ssh密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd [用户]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">输入新密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash">重新输入密码</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install [Option] &#x2F;&#x2F; RedHat-based</span><br><span class="line">sudo apt-get install [Option] &#x2F;&#x2F; CentOS-based</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看软件安装"><a href="#查看软件安装" class="headerlink" title="查看软件安装"></a>查看软件安装</h2><p><strong>因为linux安装软件的方式比较多，所以没有一个通用的办法能查到某些软件是否安装。总结起来就是这几类：</strong>  </p>
-<ol>
-<li>rpm包安装的：用rpm -qa，如果查找某一软件包是否安装，用rpm -qa|grep “软件或包的名字”;</li>
-<li>deb包安装的：用dpkg -l，如果指定软件包，用dpkg -l|grep “软件或者包的名字”;</li>
-</ol>
-<h2 id="文件操作命令"><a href="#文件操作命令" class="headerlink" title="文件操作命令"></a>文件操作命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 显示文件信息</span><br><span class="line">ls [OPTION]... [FILE]...</span><br><span class="line">&#x2F;&#x2F; 按行显示</span><br><span class="line">ls -1</span><br><span class="line">&#x2F;&#x2F; 显示具体信息</span><br><span class="line">ls -l</span><br><span class="line">&#x2F;&#x2F; 显示子文件夹</span><br><span class="line">ls [OPTION] -R</span><br><span class="line">&#x2F;&#x2F; 树形结构显示文件目录，使用tree，要自己安装</span><br><span class="line">tree</span><br><span class="line">&#x2F;&#x2F; 显示到第N层</span><br><span class="line">tree -L N</span><br><span class="line">&#x2F;&#x2F; 这两个命令参数非常多，-help参数查看帮助信息</span><br><span class="line">ls -help</span><br><span class="line">tree -help</span><br></pre></td></tr></table></figure>
-
-<h2 id="软件安装-卸载"><a href="#软件安装-卸载" class="headerlink" title="软件安装/卸载"></a>软件安装/卸载</h2><p>apt:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install xxx xxx</span><br><span class="line">apt install xxx xxx # 看apt的版本，新版的apt == apt-get</span><br><span class="line">apt remove xxx xxx # 保留配置的卸载</span><br><span class="line">apt purge xxx xxx # 不保留配置的卸载</span><br><span class="line">apt update xxx xxx</span><br><span class="line">apt upgrade xxx xxx</span><br></pre></td></tr></table></figure>
-
-<h2 id="后台启动命令"><a href="#后台启动命令" class="headerlink" title="后台启动命令"></a>后台启动命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid [Option] [program]</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件和目录的维护"><a href="#文件和目录的维护" class="headerlink" title="文件和目录的维护"></a>文件和目录的维护</h2><p><code>chmod [mode] [path]</code> 修改目录的读/写/执行权限</p>
-<ul>
-<li>mode：代表权限模式</li>
-<li>path：表示作用目录</li>
-</ul>
-<p>mode 有几种表示方式，一种是数字的表达方式</p>
-<p>mode 可以写成三个八进制数字的组合，第一个数字表示文件所有者的权限，第二个表示所属组的权限，第三个表示其他用户的权限。</p>
-<ul>
-<li>执行：<code>001</code></li>
-<li>写：<code>010</code></li>
-<li>读：<code>100</code></li>
-</ul>
-<p>注意和 <code>umask</code> 权限掩码的区别，权限掩码的各个位表示的意思和 <code>mode</code> 一样。但是 <code>umask</code> 中设置为 1 的位是表示剥夺该项权限的。因为赋予什么权限是由 <code>mode</code> 和 <code>umask</code> 之间 <code>AND</code> 的结果定。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/" class="post-title-link" itemprop="url">Linux知识杂记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-06 11:07:26" itemprop="dateModified" datetime="2021-03-06T11:07:26+08:00">2021-03-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Linux文件系统"><a href="#Linux文件系统" class="headerlink" title="Linux文件系统"></a>Linux文件系统</h2><p>以”/“为根目录，子目录有/root, /bin, /var, /etc, /home, /lib…  一起组成一个树状的目录结构；</p>
-<ul>
-<li><strong>/bin</strong>：</li>
-</ul>
-<p>bin 是 Binary 的缩写, 这个目录存放着最经常使用的命令。</p>
-<ul>
-<li>/boot：</li>
-</ul>
-<p>这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
-<ul>
-<li>/dev ：</li>
-</ul>
-<p>dev 是 Device (设备)的缩写, 该目录下存放的是 Linux 的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</p>
-<ul>
-<li><strong>/etc</strong>：</li>
-</ul>
-<p>这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
-<ul>
-<li><strong>/home</strong>：</li>
-</ul>
-<p>用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。这个目录的设置也是出于 Linux 为多用户设计的初衷。</p>
-<ul>
-<li>/lib：</li>
-</ul>
-<p>这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
-<ul>
-<li>/lost+found：</li>
-</ul>
-<p>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
-<ul>
-<li>/media：</li>
-</ul>
-<p>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后， linux 会把识别的设备挂载到这个目录下。</p>
-<ul>
-<li>/mnt：</li>
-</ul>
-<p>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 /mnt 上，然后进入该目录就可以查看光驱里的内容了。</p>
-<ul>
-<li>/opt：</li>
-</ul>
-<p> 这是给主机额外安装软件所摆放的目录。比如你安装一个 ORACLE 数据库则就可以放到这个目录下。默认是空的。</p>
-<ul>
-<li>/proc：</li>
-</ul>
-<p>这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的 ping 命令，使别人无法 ping 你的机器：</p>
-<ul>
-<li>/root：</li>
-</ul>
-<p>该目录为系统管理员，也称作超级权限者的用户主目录。</p>
-<ul>
-<li>/sbin：</li>
-</ul>
-<p>s就是 Super User 的意思，这里存放的是系统管理员使用的系统管理程序。</p>
-<ul>
-<li>/selinux：</li>
-</ul>
-<p> 这个目录是 Redhat/CentOS 所特有的目录， Selinux 是一个安全机制，类似于 windows 的防火墙，但是这套机制比较复杂，这个目录就是存放 selinux 相关的文件的。</p>
-<ul>
-<li>/srv：</li>
-</ul>
-<p> 该目录存放一些服务启动之后需要提取的数据。</p>
-<ul>
-<li>/sys：</li>
-</ul>
-<p> 这是 linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。</p>
-<ul>
-<li>sysfs文件系统集成了下面 3 种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。</li>
-</ul>
-<p>该文件系统是内核设备树的一个直观反映。</p>
-<p>当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
-<ul>
-<li>/tmp：</li>
-</ul>
-<p>这个目录是用来存放一些临时文件的。</p>
-<ul>
-<li>/usr：</li>
-</ul>
-<p> 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</p>
-<ul>
-<li>/usr/bin：</li>
-</ul>
-<p>系统用户使用的应用程序。</p>
-<ul>
-<li>/usr/sbin：</li>
-</ul>
-<p>超级用户使用的比较高级的管理程序和系统守护程序。</p>
-<ul>
-<li>/usr/src：</li>
-</ul>
-<p>内核源代码默认的放置目录。</p>
-<ul>
-<li>/var：</li>
-</ul>
-<p>这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
-<ul>
-<li>/run：</li>
-</ul>
-<p>是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 /var/run 目录，应该让它指向 run。</p>
-<h2 id="ubuntu-切换窗口快捷键"><a href="#ubuntu-切换窗口快捷键" class="headerlink" title="ubuntu 切换窗口快捷键"></a>ubuntu 切换窗口快捷键</h2><ol>
-<li><code>alt + tab</code> 在多个程序间切换</li>
-<li><code>alt + 6</code> 在程序打开的多个窗口间切换</li>
-<li>长按 <code>win</code> 弹出所有打开的窗口</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/" class="post-title-link" itemprop="url">Linux踩坑合集</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 01:20:55" itemprop="dateModified" datetime="2021-03-11T01:20:55+08:00">2021-03-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Linux-忘记-mysql-root密码，修改权限以及密码-mysql-version-lt-5-7-9"><a href="#Linux-忘记-mysql-root密码，修改权限以及密码-mysql-version-lt-5-7-9" class="headerlink" title="Linux 忘记 mysql root密码，修改权限以及密码(mysql version &lt; 5.7.9)"></a>Linux 忘记 mysql root密码，修改权限以及密码(mysql version &lt; 5.7.9)</h2><p>解决方案：  </p>
-<ol>
-<li>关掉数据库 <code>service mysqld stop</code></li>
-<li>执行 <code>mysqld_safe --skip-grant-tables</code></li>
-<li>打开数据库并进入mysql数据库中 <code>mysql -u root mysql</code></li>
-<li>查看所有用户的信息 <code>SELECT user, host, password FROM user;</code></li>
-<li>修改root用户密码 <code>UPDATE user set password=password(&#39;newpassword&#39;) WHERE user=&#39;root&#39;;</code></li>
-<li>刷新权限表 <code>FLUSH PRIVILEGES;</code></li>
-<li><code>exit</code></li>
-</ol>
-<h2 id="Linux-忘记-mysql-root密码，修改权限以及密码-mysql-version-8-0"><a href="#Linux-忘记-mysql-root密码，修改权限以及密码-mysql-version-8-0" class="headerlink" title="Linux 忘记 mysql root密码，修改权限以及密码(mysql version 8.0)"></a>Linux 忘记 mysql root密码，修改权限以及密码(mysql version 8.0)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_root_password <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="连接数据库1251错误码"><a href="#连接数据库1251错误码" class="headerlink" title="连接数据库1251错误码"></a>连接数据库1251错误码</h2><p>原因：<br>由于mysql8之前的版本中加密规则是mysql_native_password, 而在mysql 8.0之后, 加密规则是caching_sha2_password。<br>解决方案：  </p>
-<ol>
-<li>升级Navicat驱动</li>
-<li>把mysql用户登录密码加密规则还原成mysql_native_password.</li>
-</ol>
-<p>我们进行方法二：</p>
-<ol>
-<li>进入数据库</li>
-<li>输入</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span> PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>; #更新一下用户的密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新权限</span><br></pre></td></tr></table></figure>
-
-<h2 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h2><p>这里使用的是googlepinyin<br>安装好相关的包之后，再设置-输入法-管理已安装语言中，安装中文，并修改输入法系统为：fcitx 随后重启。重启之后，右上角应该是有个白色的小按钮，点击之后配置输入法，注意有键盘(keyboard)字样的要放最上面，而且这个不代表输入法，是键盘布局的意思，是不会激活输入法的。</p>
-<ul>
-<li>Ubuntu系</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line">apt-get install fcitx fcitx-googlepinyin fcitx-table-wbpy fcitx-pinyin fcitx-sunpinyin</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Centos系</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall chinese support //安装中文环境支持</span><br></pre></td></tr></table></figure>
-
-<h2 id="Ubuntu-修改分辨率"><a href="#Ubuntu-修改分辨率" class="headerlink" title="Ubuntu 修改分辨率"></a>Ubuntu 修改分辨率</h2><h3 id="方案一（临时性）"><a href="#方案一（临时性）" class="headerlink" title="方案一（临时性）"></a>方案一（临时性）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cvt 1920 1080</span><br><span class="line">sudo xrandr --newmode xxx <span class="comment"># 填写上一条命令出现的modeline信息</span></span><br><span class="line">sudo xrandr --addmode VGA-1 <span class="string">&quot;1920x1080_60&quot;</span> <span class="comment"># 添加显示模式</span></span><br><span class="line">sudo xrandr --output  VGA-1 --mode <span class="string">&quot;1920x1080_60.00&quot;</span> <span class="comment"># 输出显示模式</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="方案二（永久性）"><a href="#方案二（永久性）" class="headerlink" title="方案二（永久性）"></a>方案二（永久性）</h3><blockquote>
-<p>新版本的 Ubuntu 可能没有这个文件，所以这种方式可能失效。</p>
+          <h2 id="第二讲-完全信息静态博弈"><a href="#第二讲-完全信息静态博弈" class="headerlink" title="第二讲 完全信息静态博弈"></a>第二讲 完全信息静态博弈</h2><p>主要内容：</p>
+<blockquote>
+<p>标准式（策略式）博弈<br>重复剔除严格劣策略<br>Nash均衡<br>混合策略</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/X11/xorg.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入以下内容</span></span><br><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">Section &quot;</span>Monitor<span class="string">&quot;</span></span><br><span class="line"><span class="string">Identifier &quot;</span>Configured Monitor<span class="string">&quot;</span></span><br><span class="line"><span class="string">Modeline &quot;</span>1920x1080_60.00<span class="string">&quot;  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync</span></span><br><span class="line"><span class="string">Option &quot;</span>PreferredMode<span class="string">&quot; &quot;</span>1920x1080_60.00<span class="string">&quot;</span></span><br><span class="line"><span class="string">EndSection</span></span><br><span class="line"><span class="string">Section &quot;</span>Screen<span class="string">&quot;</span></span><br><span class="line"><span class="string">Identifier &quot;</span>Default Screen<span class="string">&quot;</span></span><br><span class="line"><span class="string">Monitor &quot;</span>Configured Monitor<span class="string">&quot;</span></span><br><span class="line"><span class="string">Device &quot;</span>Configured Video Device<span class="string">&quot;</span></span><br><span class="line"><span class="string">EndSection</span></span><br><span class="line"><span class="string">Section &quot;</span>Device<span class="string">&quot;</span></span><br><span class="line"><span class="string">Identifier &quot;</span>Configured Video Device<span class="string">&quot;</span></span><br><span class="line"><span class="string">EndSection</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>另一种方式：</p>
-<h2 id="Debian7-apt-get-无法升级"><a href="#Debian7-apt-get-无法升级" class="headerlink" title="Debian7 apt-get 无法升级"></a>Debian7 apt-get 无法升级</h2><p>Debian7 官方已经不提供源了，我们应该升级系统。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<p>将所有的wheezy改成jessie<br>执行升级：<br><code>apt-get upgrade</code><br><code>apt-get update</code><br><code>apt-get dist-upgrade</code></p>
-<p>删除无用组件： <code>apt-get autoremove</code></p>
-<p>重启系统： <code>reboot</code></p>
-<p>删除无用内核： <code>apt purge linux-image-3.2.0-4-amd64 -y</code></p>
-<h2 id="Ubuntu-apt-get-dist-upgrade-无法升级"><a href="#Ubuntu-apt-get-dist-upgrade-无法升级" class="headerlink" title="Ubuntu apt-get dist-upgrade 无法升级"></a>Ubuntu apt-get dist-upgrade 无法升级</h2><p>错误信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11 Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/) is another process using it?</span><br></pre></td></tr></table></figure>
-
-<p>问题分析：<br>有别的进程占用了 <code>apt</code> 命令，因为 <code>apt</code> 命令只能有一个进程使用，所以我们应该查看什么进程正在使用进程，判断是否需要 <code>kill</code> 掉；</p>
-<p>解决方案：</p>
-<ol>
-<li><p>清除lock file和cache的lock file</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></li>
-<li><p>列出使用中的进程并杀死</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br><span class="line">sudo kill -9 xxx</span><br></pre></td></tr></table></figure></li>
+<h3 id="什么是完全信息静态博弈？"><a href="#什么是完全信息静态博弈？" class="headerlink" title="什么是完全信息静态博弈？"></a>什么是完全信息静态博弈？</h3><ul>
+<li>静态博弈：每个参与人同时相互独立地决策，或决策有先后，但后决策者不知先决策者所采取的行动；</li>
+<li>完全信息：参与人所有可能的行动、所有可能的结果、所有可能行动与可能结果的联系、以及每个参与人的偏好都被所有参与人知道；</li>
+</ul>
+<h3 id="标准式博弈"><a href="#标准式博弈" class="headerlink" title="标准式博弈"></a>标准式博弈</h3><ul>
+<li>一个标准式博弈应该包含一下要素：<ul>
+<li>博弈的理性参与人：$i=1, 2, 3, … n$</li>
+<li>每个参与人可供选择的行动集合：$A_1, A_2, … A_n$</li>
+<li>针对所有参与人所选择的行动，每个参与人获得的支付。$u_i(a_1, a_2, … a_n)$，对于所有 $a_1 \in A_1, a_2 \in A_2, a_3, a_n \in A_n$</li>
+</ul>
+</li>
+<li>在一个 $n$ 个参与人的标准式中，参与人的行动集合为$A_1, A_2, … A_n$，支付函数为$u_1, … u_n$，我们用 $G = {n; a_1, … a_n; u_1, …, u_n}$表示该博弈；</li>
+<li>策略集 $S_i$ 表示参与人 $i$ 所有的策略。一个策略组合 $s_i = (s_1, s_2, … s_n)$ 为 $S_i$ 的子集；</li>
+</ul>
+<blockquote>
+<p>在完全信息博弈中，参与人的策略集就是行动集合；<br>标准式可以用矩阵表示两个人的有限策略博弈；</p>
+</blockquote>
+<h4 id="构建过程案例：囚徒困境"><a href="#构建过程案例：囚徒困境" class="headerlink" title="构建过程案例：囚徒困境"></a>构建过程案例：囚徒困境</h4><ul>
+<li>参与人：{囚犯1、囚犯2}</li>
+<li>行动/策略：$A_1 = A_2 = S_1 = S_2 = {$ 沉默、坦白 $}$</li>
+<li>支付：由两个参与人的行动决定.</li>
+</ul>
+<p>$u_1($ 沉默、沉默 $)=-1 $ , $u_1($ 沉默、坦白 $)=-9$ , $u_1($ 坦白、沉默 $)=0$ , $u_1($ 坦白、坦白 $)=-6$<br>$u_2($ 沉默、沉默 $)=-1$ , $u_2($ 沉默、坦白 $)=0$ , $u_2($ 坦白、沉默 $)=-9$ , $u_2($ 坦白、坦白 $)=-6$</p>
+<h3 id="博弈求解"><a href="#博弈求解" class="headerlink" title="博弈求解"></a>博弈求解</h3><ul>
+<li>解(solution)是分析博弈的方法：在参与人的某些理性假设下，对博弈的所有可能结果进行筛选，留下更有可能的结果；</li>
+<li>均衡(equilibrium)是博弈经过特定求解过程筛选后所剩下的策略组合(strategy set)，一个博弈可能存在多个均衡；</li>
+</ul>
+<h4 id="解法一：重复剔除严格劣策略"><a href="#解法一：重复剔除严格劣策略" class="headerlink" title="解法一：重复剔除严格劣策略"></a>解法一：重复剔除严格劣策略</h4><ul>
+<li>占优策略：无论其他参与人如何选择，这个策略都比其他策略的支付函数要高，就叫做占优策略；</li>
+<li>劣策略：相反，如果一个策略的支付函数始终不高于其他策略的支付函数，那么就是劣策略（其中，低于的策略叫严格劣策略）；</li>
+</ul>
+<p>重复剔除严格劣策略的解法就是，通过剔除严格劣策略来将现有博弈转化为一个新的博弈，再对新的博弈重复上述过程，直到无法剔除为止，得到博弈的解；<br>对于离散型博弈，我们通常使用划线法剔除严格劣策略得到博弈的解；<br>缺陷：</p>
+<ul>
+<li>重复剔除严格劣策略的前提是，所有的参与人都知道其他参与人是理性人且剔除的顺序都不影响最终结果；</li>
+<li>只有存在严格劣策略时，才能剔除，并不是所有博弈都有严格劣策略，如性别战；</li>
+</ul>
+<h4 id="解法二：最优反应策略"><a href="#解法二：最优反应策略" class="headerlink" title="解法二：最优反应策略"></a>解法二：最优反应策略</h4><ul>
+<li>最优反应策略(best response)：如果参与人 $i$ 的策略 $s_i$ 对其他参与人的策略 $s_{-i}={s_1, s_2, \dots s_{i-1}, s_{i+1}, \dots, s_n}$ 有</li>
+</ul>
+<p>$$<br>u_i(s_i, s_{-i}) \ge u_i(s_i’, s_{-i}), s_i’ \in S_i<br>$$<br>那么我们说该策略 $s_i$ 为最优反应策略；</p>
+<p>由于一个理性人总会对其他人选择的策略 $s_{-i}$ 选择自己的最优反应策略 $s_i$ 。因此博弈可以被转化为求解：<br>$$<br>\max\limits_{s_i \in S_i} u(s_i, s_{-i}^*)<br>$$<br>解出来的结果为：${s_i^*, s_{-i}^*}$<br>Nash均衡是一个策略组合，这个组合中每个参与人针对其他参与人的策略所选择的反应是最优反应，且每个参与人都不愿意独自离开选定的策略。<br>对于离散博弈，通常使用划线法选择相对占优策略的交集寻找Nash均衡解；</p>
+<p>ps：一个博弈的Nash均衡解是剔除严格劣策略的解的子集；</p>
+<h3 id="连续型博弈"><a href="#连续型博弈" class="headerlink" title="连续型博弈"></a>连续型博弈</h3><p>对于连续型博弈，不能使用划线法得到解。我们通常联系支付函数的一阶导数，另一阶导数为0得到最优反应策略；</p>
+<h4 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h4><ol>
+<li>中间选民：设有一批选民的政策倾向在一个单位区间从左（x = 0）至右(x = 1)均匀分布，为一个职位参加竞选的两个候选人同时选择其竞选的政策倾向（即在x = 0 到 x = 1中间的一个点）。选民观察候选人的选择，然后把票投给其政策倾向离自己最近的候选人。获得选票数量更多的候选人将获胜。如果两个候选人选择相同的政策倾向，则平分所得选票。如果两人获得选票数量相同，谁当选由掷硬币来决定。</li>
+<li>n个厂商的Cournot模型：假设在Cournot寡头垄断模型中有n个厂商。设qi为厂商i的产量，同时设Q = q1 +…+qn为总产量。设P(Q)为市场出清价格（当需求为Q时），并假设反需求函数为P(Q) = a – Q，这里Q ≤ a。假设这些厂商都没有固定成本且产量为qi时生产成本为cqi（所有的厂商都有相同的边际成本，同时假设c &lt; a）。</li>
 </ol>
-<h2 id="Ubuntu-换源"><a href="#Ubuntu-换源" class="headerlink" title="Ubuntu 换源"></a>Ubuntu 换源</h2><p>备份原始 sources.list</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
-
-<p>修改源文件 sources.list</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /etc/apt/sources.list <span class="comment"># 编辑权限使得可编辑</span></span><br><span class="line">sudo vim /etc/apt/sources.list <span class="comment"># 打开编辑器</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除原来内容，更换为如下</span></span><br><span class="line"><span class="comment"># 清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>上面的 <code>bionic</code> 是18.04的版本名，18.10为 <code>cosmic</code></p>
-<table>
-<thead>
-<tr>
-<th>版本号</th>
-<th>代号</th>
-<th>发布时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>20.04 LTS</td>
-<td>Focal Fossa</td>
-<td>2020/4/23</td>
-</tr>
-<tr>
-<td>19.10</td>
-<td>Eoan Ermine</td>
-<td>2019/10/17</td>
-</tr>
-<tr>
-<td>19.04</td>
-<td>Disco Dingo</td>
-<td>2019/4/19</td>
-</tr>
-<tr>
-<td>18.10</td>
-<td>Cosmic Cuttlefish</td>
-<td>2018/10/18</td>
-</tr>
-<tr>
-<td>18.04 LTS</td>
-<td>Bionic Beaver</td>
-<td>2018/04/26</td>
-</tr>
-<tr>
-<td>17.10</td>
-<td>Artful Aardvark</td>
-<td>2017/10/21</td>
-</tr>
-<tr>
-<td>17.04</td>
-<td>Zesty Zapus</td>
-<td>2017/04/13</td>
-</tr>
-<tr>
-<td>16.10</td>
-<td>Yakkety Yak</td>
-<td>2016/10/20</td>
-</tr>
-<tr>
-<td>16.04 LTS</td>
-<td>Xenial Xerus</td>
-<td>2016/04/21</td>
-</tr>
-<tr>
-<td>15.10</td>
-<td>Wily Werewolf</td>
-<td>2015/10/23</td>
-</tr>
-<tr>
-<td>15.04</td>
-<td>Vivid Vervet</td>
-<td>2015/04/22</td>
-</tr>
-<tr>
-<td>14.10</td>
-<td>Utopic Unicorn</td>
-<td>2014/10/23</td>
-</tr>
-<tr>
-<td>14.04 LTS</td>
-<td>Trusty Tahr</td>
-<td>2014/04/18</td>
-</tr>
-<tr>
-<td>13.10</td>
-<td>Saucy Salamander</td>
-<td>2013/10/17</td>
-</tr>
-<tr>
-<td>13.04</td>
-<td>Raring Ringtail</td>
-<td>2013/04/25</td>
-</tr>
-<tr>
-<td>12.10</td>
-<td>Quantal Quetzal</td>
-<td>2012/10/18</td>
-</tr>
-<tr>
-<td>12.04 LTS</td>
-<td>Precise Pangolin</td>
-<td>2012/04/26</td>
-</tr>
-<tr>
-<td>11.10</td>
-<td>Oneiric Ocelot</td>
-<td>2011/10/13</td>
-</tr>
-<tr>
-<td>11.04（Unity成为默认桌面环境）</td>
-<td>Natty Narwhal</td>
-<td>2011/04/28</td>
-</tr>
-<tr>
-<td>10.10</td>
-<td>Maverick Meerkat</td>
-<td>2010/10/10</td>
-</tr>
-<tr>
-<td>10.04 LTS</td>
-<td>Lucid Lynx</td>
-<td>2010/04/29</td>
-</tr>
-<tr>
-<td>9.10</td>
-<td>Karmic Koala</td>
-<td>2009/10/29</td>
-</tr>
-<tr>
-<td>9.04</td>
-<td>Jaunty Jackalope</td>
-<td>2009/04/23</td>
-</tr>
-<tr>
-<td>8.10</td>
-<td>Intrepid Ibex</td>
-<td>2008/10/30</td>
-</tr>
-<tr>
-<td>8.04 LTS</td>
-<td>Hardy Heron</td>
-<td>2008/04/24</td>
-</tr>
-<tr>
-<td>7.10</td>
-<td>Gutsy Gibbon</td>
-<td>2007/10/18</td>
-</tr>
-<tr>
-<td>7.04</td>
-<td>Feisty Fawn</td>
-<td>2007/04/19</td>
-</tr>
-<tr>
-<td>6.10</td>
-<td>Edgy Eft</td>
-<td>2006/10/26</td>
-</tr>
-<tr>
-<td>6.06 LTS</td>
-<td>Dapper Drake</td>
-<td>2006/06/01</td>
-</tr>
-<tr>
-<td>5.10</td>
-<td>Breezy Badger</td>
-<td>2005/10/13</td>
-</tr>
-<tr>
-<td>5.04</td>
-<td>Hoary Hedgehog</td>
-<td>2005/04/08</td>
-</tr>
-<tr>
-<td>4.10（初始发布版本）</td>
-<td>Warty Warthog</td>
-<td>2004/10/20</td>
-</tr>
-</tbody></table>
-<h2 id="Ubuntu-18-10-安装-vim-失败"><a href="#Ubuntu-18-10-安装-vim-失败" class="headerlink" title="Ubuntu 18.10 安装 vim 失败"></a>Ubuntu 18.10 安装 vim 失败</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following packages have unmet dependencies: </span><br><span class="line">    vim : Depends: vim-common (= 2:8.0.1453-1ubuntu1.1)</span><br></pre></td></tr></table></figure>
-
-<p>可能是 Ubuntu 18.10 版本自带的 vim-common 不满足 vim 的版本要求，解决方案是卸载自带版本，然后直接安装 vim 使用 apt 自行管理依赖。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge vim-common</span><br><span class="line">sudo apt intall vim</span><br></pre></td></tr></table></figure>
-
-<h2 id="Ubuntu-依赖版本不一致问题"><a href="#Ubuntu-依赖版本不一致问题" class="headerlink" title="Ubuntu 依赖版本不一致问题"></a>Ubuntu 依赖版本不一致问题</h2><p>上面的版本不一致问题解决方案我觉得不太好，因为如果有两个软件使用的是不同版本的同一个依赖，但是这两个软件都要用，这就很麻烦。</p>
-<p>网上检索到除了卸载新版，退版本以外的另一种解决方案（我不知道这个软件具体是是如何实现的，难道只是把退版本这件事自动化了？）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install aptitude</span><br><span class="line"></span><br><span class="line">sudo aptitude install xxx</span><br></pre></td></tr></table></figure>
-
-<h2 id="curl-从-github-等网站下载文件出错"><a href="#curl-从-github-等网站下载文件出错" class="headerlink" title="curl 从 github 等网站下载文件出错"></a>curl 从 github 等网站下载文件出错</h2><p>类似如下：<br>curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</p>
-<p>如果打开网址也进不了页面的话，考虑网址被墙了，解决方案有几种：</p>
+<hr>
 <ol>
-<li>修改 hosts ，最简单，但是不保证有效；</li>
-<li>挂代理（没有相关网络知识会比较麻烦）；</li>
-<li>找国内来源（比如百度网盘有没有人共享这些文件等等）；</li>
+<li><strong>中点选民：</strong><br>参与人：候选人 $A$ , $B$<br>行动：$A_1=S_1={x_1 }, A_2=S_2={x_2 }, 0≤x_1, x_2≤1$<br>不妨设 $x_1≤x_2$, 支付：<br>$u_1 (x_1, x_2 )= (x_1+x_2)/2$<br>$u_2 (x_1, x_2 )= 1-(x_1+x_2)/2.$<br>为求得最优反应函数，我们需要求解：<br>$\max \limits_{0≤x_1≤x_2}u_1 (x_1, x_2^*) = (x_1 + x_2^*)/2$<br>$\max \limits_{x_1≤x_2≤1}⁡u_2 (x_1^*, x_2 )=1-(x_1^*+x_2)/2$<br>得到最优反应函数：<br>$x_1^*=x_2^*$<br>$x_2^*=x_1^*$<br>得到Nash均衡解$(x_1^*, x_2^* )$，且 $x_1^*=x_2^*$。而此时$u_1 (x_1^*, x_2^* )=u_2 (x_1^*, x_2^*)=x_2^*=1-x_2^*=1/2$<br>所以最后均衡解为 $(1/2, 1/2)$.</li>
+<li><strong>N个厂商的Cournot模型：</strong><br>参与人：厂商 $1, 2, 3, \dots, n$<br>行动：$A_i=S_i=q_i∈[0, a]$<br>支付：<br>$u_i (q_i )=P(Q)Q=(a-Q-c) q_i$<br>对于企业i为求得最优反应函数，需要求解：<br>$\max \limits_{0≤q_i≤a}⁡ u_i (q_i, q_{-1}^*) = (a-q_i - q_{-i}^* - c)q_i$<br>得到最优反应函数：<br>$q_i^*=(a-c-q_{-i}^*)/2$<br>联立n个企业的最优反应函数求得Nash均衡为：$(q_1^*, q_2^*, \dots, q_n^*)$<br>而 $Q^*=q_1^*+q_2^*+⋯+q_n^*$ 满足以下条件：<br>$Q^* = n(a-c)/(n+1)$</li>
 </ol>
-<h3 id="修改-hosts"><a href="#修改-hosts" class="headerlink" title="修改 hosts"></a>修改 hosts</h3><p>先备份原有的 hosts</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/hosts /etc/hosts.bak</span><br></pre></td></tr></table></figure>
+<h3 id="混合策略均衡"><a href="#混合策略均衡" class="headerlink" title="混合策略均衡"></a>混合策略均衡</h3><p>有些博弈并没有纯策略的Nash均衡，比如猜字游戏，我们找不出绝对的最优策略，每个参与人最合理的做法便是随机选择策略，这种随机化选择策略的做法就是<strong>混合策略</strong>的思想；</p>
+<p>由于引入了概率，于是我们便用分布函数来描述支付函数，参与人 $i$ 选择纯策略 $s_i$ 的支付函数表示为，其他参与人所选择策略的概率分布函数的期望（收益由他人的选择决定）</p>
+<h4 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h4><ol>
+<li>求解下述博弈的混合战略Nash均衡：</li>
+</ol>
+<p>两个企业各有一个工作空缺，假设企业所给的工资不同：企业 $i$ 给出的工资为 $w_i$ ，这里$\dfrac{1}{2}w_1 &lt; w_2 &lt; 2w_1$。设想有两个工人，每人只能申请一份工作，两人同时决定是申请企业1的工作，还是向企业2申请。如果只有一个工人向一个企业申请，他就会得到这份工作；如果两个工人同时向一个企业申请工作，则企业随机选择一个工人，另一人就会失业（这时收益为0）。</p>
+<ul>
+<li>参与人：工人1、2</li>
+<li>行动：$A_1=A_2={w_1, w_2}$</li>
+<li>支付：</li>
+</ul>
+<p>$u_1(w_1, w_1)=\dfrac{1}{2}w_1, \quad u_1(w_1, w_2)=w_1, \quad u_1(w_2, w_1)=w_2, \quad u_1(w_2, w_2)=\dfrac{1}{2}w_2$<br>$u_2(w_1, w_1)=\dfrac{1}{2}w_1, \quad u_2(w_1, w_2)=w_2, \quad u_2(w_2, w_1)=w_1, \quad u_2(w_2, w_2)=\dfrac{1}{2}w_2$</p>
+<ul>
+<li>混合战略：<ul>
+<li>工人1分别以概率 $r$ 和 $1-r$ 选择申请的公司1、2；</li>
+<li>工人2分别以概率 $q$ 和 $1-q$ 选择申请的公司1、2；</li>
+</ul>
+</li>
+<li>工人1的支付期望：<ul>
+<li>选择企业1：$\dfrac{1}{2}w_1q + w_1(1-q) = (1-\dfrac{1}{2}q)w_1$</li>
+<li>选择企业2：$w_2q + \dfrac{1}{2}(1-q)w_2 = \dfrac{1}{2}(1+q)w_2$</li>
+</ul>
+</li>
+<li>工人1的最优反应函数：<ul>
+<li>当 $q &lt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业1 ($r=1$)</li>
+<li>当 $q &gt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业2 ($r=0$)</li>
+<li>当 $q = \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，两种选择无差异 ($0 &lt; r &lt; 1$)</li>
+</ul>
+</li>
+</ul>
+<div style="text-align: center">
 
-<p>查看网址的ip，我这里使用的是 <a target="_blank" rel="noopener" href="http://ip.tool.chinaz.com/">http://ip.tool.chinaz.com/</a></p>
-<p><img src="/doge-liang-notebook/../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png" alt="picture 14">  </p>
-<p>修改正使用的hosts</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 原文件 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>&#123;cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">plt.xlabel(<span class="string">&#x27;q-label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;r-label&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 修改为 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br><span class="line"></span><br><span class="line">151.101.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+</div>
 
-<p>保存文件完成。</p>
-<h3 id="Ubuntu-系统时间错误-时区正确"><a href="#Ubuntu-系统时间错误-时区正确" class="headerlink" title="Ubuntu 系统时间错误 时区正确"></a>Ubuntu 系统时间错误 时区正确</h3><p>本来设置了清华的 apt 源，再执行 <code>apt update</code> 的时候，还是出现了 <code>Release file for ... is not valid yet</code> 的报错，发现是系统时间有问题，刚好是获取更新的 apt 源链接有问题。猜测是获取软件更新的时候需要校准系统时间和服务器的时间。</p>
-<p><strong>解决方案：</strong><br>通过服务器校准时间<br>先安装 <code>ntpdate</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ntpdate</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>工人2的支付期望：</p>
+</li>
+<li><p>选择企业1：$\dfrac{1}{2}w_1r + w_1(1-r) = (1- \dfrac{1}{2} r) w_1$</p>
+</li>
+<li><p>选择企业2：$w_2 r + \dfrac{1}{2} w_2 (1-r) = \dfrac{1}{2} (1+r) w_2$</p>
+</li>
+<li><p>工人2的最优反应函数：</p>
+<ul>
+<li>当 $r &lt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业1 ($q=1$)</li>
+<li>当 $r &gt; \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，选择企业2 ($q=0$)</li>
+<li>当 $r = \dfrac{2w_1 - w_2}{w_1 + w_2}$ 时，两种选择无差异 ($0 &lt; q &lt; 1$)</li>
+</ul>
+</li>
+</ul>
+<div style="text-align: center">
 
-<p>再获取服务器时间校准系统时间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ntpdate ntp.ubuntu.com</span><br><span class="line">sudo ntpdate time.nist.gov</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>&#123;cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line">ax.plot([<span class="number">0</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">ax.plot([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0</span>])</span><br><span class="line">fig.suptitle(<span class="string">&quot;r-q&quot;</span>)</span><br><span class="line">ax.grid(<span class="literal">True</span>, linestyle=<span class="string">&#x27;-.&#x27;</span>)</span><br><span class="line">ax.tick_params(labelcolor=<span class="string">&#x27;r&#x27;</span>, labelsize=<span class="string">&#x27;medium&#x27;</span>, width=<span class="number">3</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;q-label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;r-label&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<p>所以，混合策略均衡为($\dfrac{2w_1 - w_2}{w_1 + w_2}, \dfrac{2w_1 - w_2}{w_1 + w_2}$).</p>
+<h3 id="Nash均衡存在性"><a href="#Nash均衡存在性" class="headerlink" title="Nash均衡存在性"></a>Nash均衡存在性</h3><p>在 $n$ 个参与人的标准式博弈 $G = {N; (A_i); (u_i); }$ 中，如果 $n$ 是有限的，且对于每个参与人 $i$ 的策略集 $S_i$ 也是有限的，则博弈存在至少一个Nash均衡，均衡也可能包含混合策略。</p>
 
       
     </div>
@@ -1629,113 +1348,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E5%99%A8/" class="post-title-link" itemprop="url">汇编语言-运算器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 02:41:59" itemprop="dateModified" datetime="2021-03-12T02:41:59+08:00">2021-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">汇编语言</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h2><h3 id="全加器-FA"><a href="#全加器-FA" class="headerlink" title="全加器(FA)"></a>全加器(FA)</h3><p>实现一位二进制的加减法</p>
-<ul>
-<li>加法单元</li>
-</ul>
-<blockquote>
-<p>全加器有三个输入量（两个操作数和一个低位进位数，两个输出量（结果和进位数）</p>
-</blockquote>
-<ul>
-<li>数字逻辑</li>
-</ul>
-<ol>
-<li>真值表</li>
-<li>逻辑公式</li>
-<li>公式化简或转换</li>
-<li>由公式写出电路图</li>
-</ol>
-<h3 id="加法器"><a href="#加法器" class="headerlink" title="加法器"></a>加法器</h3><p>实现八位加法</p>
-<h4 id="串行加法器"><a href="#串行加法器" class="headerlink" title="串行加法器"></a>串行加法器</h4><p>1个FA进行n步计算</p>
-<p>最终结果在A内保存，B被清零，进位的结果保存在C。</p>
-<h4 id="并行加法器"><a href="#并行加法器" class="headerlink" title="并行加法器"></a>并行加法器</h4><p>n个FA进行1步计算</p>
-<p>进位链</p>
-<p>进位线路结构：</p>
-<ul>
-<li>串行进位</li>
-<li>组内并行</li>
-<li>组间并行</li>
-<li>并行进位</li>
-</ul>
-<p>速度从上到下逐渐变快</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="page-number" href="/doge-liang-notebook/page/14/">14</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1801,14 +1418,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/doge-liang-notebook/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

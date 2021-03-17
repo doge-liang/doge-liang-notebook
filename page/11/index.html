@@ -204,6 +204,962 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/" class="post-title-link" itemprop="url">函数、极限与连续</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-10 02:18:44" itemprop="dateModified" datetime="2021-03-10T02:18:44+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="函数、极限与连续"><a href="#函数、极限与连续" class="headerlink" title="函数、极限与连续"></a>函数、极限与连续</h2><h3 id="极限计算的一些工具"><a href="#极限计算的一些工具" class="headerlink" title="极限计算的一些工具"></a>极限计算的一些工具</h3><ol>
+<li>洛必达法则（分子分母可导且极限分别为 $0$ 或 $c$ 或 $\infin$ ，用之前先化简）</li>
+<li>等价无穷小替换（只能乘除，不能加减）；</li>
+<li>泰勒公式（麦克劳林公式）；</li>
+<li>特殊极限；</li>
+<li>夹逼准则；</li>
+</ol>
+<p>一些经验：</p>
+<ol>
+<li>一般指数和底数都含有 $x$ 的极限式 $f(x)^{g(x)}$ 都通过指数的性质化为 $e^{g(x) \ln f(x)}$ 将幂指关系转换成乘积关系，再通过其他的工具化简求值；</li>
+<li>$\ln f(x)$ 如果 $f(x) \to 1$ 可以通过恒等变换 $\ln(f(x) = \ln [f(x) - 1 + 1]$</li>
+<li>一般三角函数和对数函数考虑等价无穷小替换，或者说是泰勒公式进行展开，关注指数最低那项，确定展开到第几项；</li>
+<li>使用泰勒公式时常常会遇到需要对复合函数进行展开的情况，如 $\tan f(x)$，我们将 $f(x)$ 作为一个整体来展开；</li>
+<li>对于含有极限的函数间断点判断，通常要将极限符号去掉，化成分段函数，再讨论分界点的连续性，与极限无关的变量可以暂时看成常数，通过为自变量划分不同的范围得到不同的极限值，最后得到的就是一个分段函数；</li>
+<li>自变量趋于 $\infin$ 通常是不好把握的，通过换元法将 $\infin$ 转换成 $0$ 能用的工具就多了泰勒公式、特殊极限、等价无穷小替换等等；</li>
+<li>间断点的讨论就是寻找无意义的点，通常是分母等于零的点、三角函数趋向无穷的点、对数函数趋向于无穷的点；</li>
+</ol>
+<h3 id="极限计算一般步骤"><a href="#极限计算一般步骤" class="headerlink" title="极限计算一般步骤"></a>极限计算一般步骤</h3><ol>
+<li>化简<br>等价无穷小替换<br>换元<br>通分<br>$u^v = e^{v\ln u} = e^{v(u-1)}$<br>中值定理（积分中值用于统一积分和导数）（拉格朗日用于函数减函数的情况）（泰勒用于高阶）（牛顿-莱布尼兹用于从函数推原函数）</li>
+<li>洛必达</li>
+<li>泰勒公式</li>
+<li>无穷小比阶</li>
+</ol>
+<h3 id="1-1-函数的四个性质"><a href="#1-1-函数的四个性质" class="headerlink" title="1.1 函数的四个性质"></a>1.1 函数的四个性质</h3><ul>
+<li><p>周期性</p>
+</li>
+<li><p>奇偶性</p>
+</li>
+<li><p>单调性</p>
+</li>
+<li><p>有界性</p>
+</li>
+<li><p>双曲函数</p>
+<ul>
+<li>正弦 $\sh x = \dfrac{e^x - e^{-x}}{2}$</li>
+<li>余弦 $\ch x = \dfrac{e^x + e^{-x}}{2}$</li>
+<li>正切 $\th x = \dfrac{e^x - e^{-x}}{e^x + e^{-x}}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-2-双曲函数相关恒等式"><a href="#1-1-2-双曲函数相关恒等式" class="headerlink" title="1.1.2 双曲函数相关恒等式"></a>1.1.2 双曲函数相关恒等式</h4><p>$$<br>\begin{aligned}<br>\sh (x \pm y) &amp;= \sh x \ch y \pm \sh x \ch y \<br>\ch (x \pm y) &amp;= \ch x \ch y \pm \sh x \sh y \<br>\ch^2 x - \sh^2 x &amp;= 1 \<br>\sh 2x &amp;= 2 \sh x \ch x \<br>\ch 2x &amp;= \ch^2 x + \sh^2 x<br>\end{aligned}<br>$$</p>
+<h3 id="1-2-极限"><a href="#1-2-极限" class="headerlink" title="1.2 极限"></a>1.2 极限</h3><h4 id="1-2-1-数列极限"><a href="#1-2-1-数列极限" class="headerlink" title="1.2.1 数列极限"></a>1.2.1 数列极限</h4><blockquote>
+<p>$$<br>\exists a, \quad { \forall \epsilon &gt; 0, \quad \exists N &gt; 0, \quad \ni [\forall n &gt; N: |u_n - A| &lt; \epsilon] } \Leftrightarrow \lim_{n \Leftrightarrow \infty} = A.<br>$$</p>
+</blockquote>
+<h5 id="1-2-1-1-收敛数列的性质"><a href="#1-2-1-1-收敛数列的性质" class="headerlink" title="1.2.1.1 收敛数列的性质"></a>1.2.1.1 收敛数列的性质</h5><ol>
+<li>唯一性<br>如果数列收敛，那么极限唯一。</li>
+<li>有界性<br>如果数列收敛，那么一定有界。</li>
+<li>保号性<br>如果数列极限大于零（小于零），那么存在某一项，使得以后的项都大于零（小于零）。</li>
+<li>致密性<br>如果数列收敛，其任意子列也收敛。（可逆）</li>
+</ol>
+<h4 id="1-2-2-函数极限"><a href="#1-2-2-函数极限" class="headerlink" title="1.2.2 函数极限"></a>1.2.2 函数极限</h4><p>极限的算数定义式：<br>$$<br>\exists A, \forall \epsilon &gt; 0, \exists N &gt; 0, \ni \forall x &gt; N , |f(x) - A| &lt; \epsilon \Longleftrightarrow \lim_{x \rightarrow \infty} f(x) = A<br>$$</p>
+<h5 id="1-2-2-1-函数极限的性质"><a href="#1-2-2-1-函数极限的性质" class="headerlink" title="1.2.2.1 函数极限的性质"></a>1.2.2.1 函数极限的性质</h5><ol>
+<li><p>唯一性<br>$\lim \limits_{x \rightarrow a}f(x)$，极限唯一。</p>
+</li>
+<li><p>局部有界性<br>函数极限存在，那么在任意一个范围内有界，</p>
+</li>
+<li><p>局部保号性<br>函数极限存在，且极限大于零（小于零），那么在极限一定范围内，函数大于零或小于零。</p>
+</li>
+<li><p>函数极限与数列极限<br>设一收敛极限收敛于$x_0$且不等于$x_n$，一收敛函数$\lim \limits_{x \rightarrow x_0}f(x)$，那么$\lim \limits_{n \rightarrow \infty}f(x_n) = \lim \limits_{x \rightarrow x_0} f(x)$</p>
+</li>
+</ol>
+<h4 id="1-2-3-极限存在准则"><a href="#1-2-3-极限存在准则" class="headerlink" title="1.2.3 极限存在准则"></a>1.2.3 极限存在准则</h4><ol>
+<li><p>夹逼定理；<br>对于数列${x_n}$、${y_n}$、${z_n}$，从某项起，如果有<br>$$<br>\begin{aligned}<br>\lim_{n \rightarrow \infty} y_n = a, \<br>\lim_{n \rightarrow \infty} z_n = a, \<br>y_n \le x_n \le z_n<br>\end{aligned}<br>$$<br>那么数列${x_n}$的极限存在且$\lim_{n \rightarrow \infty} x_n = a$.<br>用夹逼准则证明一般使用放缩法，两种基本放缩法：<br>$$<br>\begin{cases}<br>n \cdot u_{\min} \le u_1 + u_2 + \cdots + u_n \le n \cdot u_{\max},\<br>\text{if } u_i \ge 0 , 1 \cdot \le u_1 + u_2 + \cdots + u_n \le n \cdot u_{\max}.<br>\end{cases}<br>$$<br>递推式的一些放缩法：<br>$$<br>\begin{cases}<br>|x_{n+1} - a| \lt k |x_n - a| \lt k^2 |x_{n-1} - a| \lt \cdots \lt k^n | x_1 - a|+<br>\end{cases}<br>$$</p>
+</li>
+<li><p>单调有界数列必有极限，且极限为上（下）确界；<br>一般利用单调有界准则可以证明极限存在。证明极限存在之后可以对等式的两边取极限，将与 $n$ 相关的极限都转化为含有 $A$ 的方程，解出来就得到了极限值 $A$。</p>
+</li>
+<li><p>区间套定理；<br>数列${x_n}$单调递增，${y_n}$单调递减，且$\lim \limits_{n \rightarrow \infty}$</p>
+</li>
+<li><p>柯西(Cauchy)极限存在准则；<br>数列收敛的充分必要条件：<br>对于任意给定的正数$\epsilon$，存在着这样的正整数$N$，使得当$m \gt N, n \gt N$时，就有<br>$$<br>|x_n - x_m| \lt \epsilon<br>$$</p>
+</li>
+</ol>
+<h4 id="1-2-4-两个重要极限"><a href="#1-2-4-两个重要极限" class="headerlink" title="1.2.4 两个重要极限"></a>1.2.4 两个重要极限</h4><ol>
+<li><p>$\lim \limits_{x \rightarrow 0} \dfrac{\sin}{x} = 1$</p>
+</li>
+<li><p>$\lim \limits_{x \rightarrow \infty} (1 + \dfrac{1}{x})^x = e$</p>
+</li>
+</ol>
+<h4 id="1-2-5-极限求法"><a href="#1-2-5-极限求法" class="headerlink" title="1.2.5 极限求法"></a>1.2.5 极限求法</h4><ul>
+<li><p>等价无穷小量替换<br>我们可以使用等价无穷小替换的方式，将函数化繁为简：<br>若<br>$$\lim_{x \rightarrow 0} \frac{\alpha(x)}{\alpha’ (x)} = 1, \quad \lim_{x \rightarrow 0} \frac{\alpha (x)}{\beta (x)}$$<br>则有<br>$$<br>\lim_{x \rightarrow 0} \frac{\alpha (x)}{\beta (x)} \cdot \frac{\alpha’ (x)}{\alpha (x)} = \lim_{x \rightarrow 0} \frac{\alpha’ (x)}{\beta (x)}<br>$$<br>常用等价无穷小量：<br>$$<br>\begin{aligned}<br>&amp;\sin \sim x , \quad \tan x \sim x \<br>&amp;\arcsin x \sim x , \quad \arctan x \sim x , \quad e^2 - 1  \sim x \<br>&amp;x \sim \ln (x + 1) , \quad (x + 1)^a - 1 \sim  a{x} , \<br>&amp;1 - \cos x \sim \frac{1}{2} x^2 , \quad x - \sin x \sim \frac{1}{6} x^3<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>夹逼定理<br>当</p>
+<ol>
+<li>$\quad g(x) \le f(x) \le g(x)$</li>
+<li>$\quad \lim \limits_{x \rightarrow x_0} g(x) = \lim \limits_{x \rightarrow x_0} h(x) = a$<br>我们有<br>$$\lim_{x \rightarrow x_0} f(x) = a$$</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-6-函数的连续性与间断点"><a href="#1-2-6-函数的连续性与间断点" class="headerlink" title="1.2.6 函数的连续性与间断点"></a>1.2.6 函数的连续性与间断点</h4><ul>
+<li>连续</li>
+</ul>
+<p>$$\lim_{x \rightarrow x_0} f(x) = f(x_0)$$</p>
+<ul>
+<li>间断<ul>
+<li>$f(x_0)$ 不存在</li>
+<li>$\lim \limits_{x \rightarrow x_0} f(x)$ 不存在</li>
+<li>$\lim \limits_{x \rightarrow x_0} f(x) \ne f(x_0)$</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-2-6-1-连续函数的性质"><a href="#1-2-6-1-连续函数的性质" class="headerlink" title="1.2.6.1 连续函数的性质"></a>1.2.6.1 连续函数的性质</h5><ol>
+<li><p>有界性<br>定义在闭区间上的连续函数有界且一定有最大（最小值）。</p>
+</li>
+<li><p>零点定理<br>若连续函数在 $[a, b]$ 上有定义且$f(a) f(b) \lt 0$那么在 $(a, b)$ 内至少存在一点 $\xi$ ，使得：$f(\xi) = 0$</p>
+</li>
+<li><p>介值定理<br>$$<br>f(a) = A, f(b) = B, A \lt C \lt B<br>\Longrightarrow<br>\exists \xi ,, a \lt \xi \lt b ,, f(\xi) = C<br>$$</p>
+</li>
+<li><p>一致连续性<br>$$<br>\forall \epsilon \gt 0 ,, \exists \delta \gt 0 ,, |x_1 - x_2| \lt \delta \Longrightarrow |f(x_1) - f(x_2)| \lt \epsilon<br>$$<br>一致连续性定理：<br>若$f(x)$在闭区间 $[a,b]$ 上连续，那么它在该区间上一致连续。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" class="post-title-link" itemprop="url">导数与微分</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-10 02:10:10" itemprop="dateModified" datetime="2021-03-10T02:10:10+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导数与微分"><a href="#导数与微分" class="headerlink" title="导数与微分"></a>导数与微分</h2><h3 id="2-1-导数"><a href="#2-1-导数" class="headerlink" title="2.1 导数"></a>2.1 导数</h3><p><strong>定义</strong><br>$$<br>f’(x_0) = \lim_{x \rightarrow x_0} \frac{f(x) - f(x_0)}{x - x_0}<br>$$</p>
+<p>可导一定连续，连续不一定可导。</p>
+<h4 id="2-1-1-导数的运算"><a href="#2-1-1-导数的运算" class="headerlink" title="2.1.1 导数的运算"></a>2.1.1 导数的运算</h4><ul>
+<li>加减<ul>
+<li>$d(f \pm g)=f’ \pm g’$</li>
+</ul>
+</li>
+<li>乘<ul>
+<li>$d(f \cdot g)=f’g + fg’$</li>
+</ul>
+</li>
+<li>除<ul>
+<li>$d(\dfrac{f}{g})=\dfrac{f’g - fg’}{g^2}$</li>
+</ul>
+</li>
+<li>链式法则<ul>
+<li>$df(g(x))=f’(g(x))g’(x)$</li>
+</ul>
+</li>
+<li>反函数<ul>
+<li>$[f^{-1}(x)]’ = \dfrac{1}{f’(y)}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-常用导数"><a href="#2-1-2-常用导数" class="headerlink" title="2.1.2 常用导数"></a>2.1.2 常用导数</h4><table>
+<thead>
+<tr>
+<th>$f(x)$</th>
+<th>$f’(x)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x^n$</td>
+<td>$nx^{n-1}$</td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td>$e^x$</td>
+</tr>
+<tr>
+<td>$a^x$</td>
+<td>$a^x\ln a$</td>
+</tr>
+<tr>
+<td>$\ln x$</td>
+<td>$1/x$</td>
+</tr>
+<tr>
+<td>$\log_a(x)$</td>
+<td>$1/x\ln a$</td>
+</tr>
+<tr>
+<td>$\sin x$</td>
+<td>$\cos x$</td>
+</tr>
+<tr>
+<td>$\cos x$</td>
+<td>$-\sin x$</td>
+</tr>
+<tr>
+<td>$\tan x$</td>
+<td>$\sec^2 x$</td>
+</tr>
+<tr>
+<td>$\cot x$</td>
+<td>$-\csc^2 x$</td>
+</tr>
+<tr>
+<td>$\sec x$</td>
+<td>$\sec x \tan x$</td>
+</tr>
+<tr>
+<td>$\csc x$</td>
+<td>$-\csc x \cot x$</td>
+</tr>
+<tr>
+<td>$\arcsin x$</td>
+<td>$\dfrac{1}{\sqrt{1-x^2}}$</td>
+</tr>
+<tr>
+<td>$\arccos x$</td>
+<td>$-\dfrac{1}{\sqrt{1-x^2}}$</td>
+</tr>
+<tr>
+<td>$\arctan x$</td>
+<td>$\dfrac{1}{1+x^2}$</td>
+</tr>
+<tr>
+<td>$\mathrm{arccot} x$</td>
+<td>$-\dfrac{1}{1 + x^2}$</td>
+</tr>
+</tbody></table>
+<h4 id="2-1-3-莱布尼茨公式（二项式定理）"><a href="#2-1-3-莱布尼茨公式（二项式定理）" class="headerlink" title="2.1.3 莱布尼茨公式（二项式定理）"></a>2.1.3 莱布尼茨公式（二项式定理）</h4><p>$$<br>\begin{aligned}<br>(uv)^{(n)} = u^{(n)}v + nu^{(n - 1)}v’ + \frac{n(n-1)} u^{(n - 2)} v’’ + \cdots + \frac{n (n-1) \cdots (n-k+1)}{k} u^{(n-k)} v^{(k)} + \cdots + uv^{(n)} \<br>= \sum_{k = 0}^{n} {k \choose n} u^{(n - k)} v^{(k)}<br>\end{aligned}<br>$$</p>
+<h4 id="2-1-4-隐函数求导以及参数方程"><a href="#2-1-4-隐函数求导以及参数方程" class="headerlink" title="2.1.4 隐函数求导以及参数方程"></a>2.1.4 隐函数求导以及参数方程</h4><ul>
+<li>对数求导法<ul>
+<li>两边取对数再求导</li>
+</ul>
+</li>
+<li>参数方程求导法<ul>
+<li>$$\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}$$</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-微分"><a href="#2-2-微分" class="headerlink" title="2.2 微分"></a>2.2 微分</h3><p>微分：$dy = f’(x)\Delta x$<br>增量：$\Delta y = f’(x)\Delta x + \alpha \Delta x = dy + o(dy)$<br>导数也称为<strong>微商</strong>。</p>
+<p>可微性$\Leftrightarrow$可导性</p>
+<h4 id="2-2-1-使用微分近似求函数值"><a href="#2-2-1-使用微分近似求函数值" class="headerlink" title="2.2.1 使用微分近似求函数值"></a>2.2.1 使用微分近似求函数值</h4><p>$$<br>\begin{aligned}<br>\Delta y = f(x + x_0) - f(x_0) \approx f’(x_0) \Delta x \<br>f(x + x_0) \approx f(x_0) + f’(x_0) \Delta x<br>\end{aligned}<br>$$<br>作代换$x + x_0 \rightarrow x$：<br>$$<br>f(x) \approx f(x_0) + f’(x_0) (x - x_0)<br>$$</p>
+<h4 id="2-2-2-微分中值定理"><a href="#2-2-2-微分中值定理" class="headerlink" title="2.2.2 微分中值定理"></a>2.2.2 微分中值定理</h4><ol>
+<li>费马引理（极值点（驻点）导数为0）</li>
+</ol>
+<blockquote>
+<p>设函数 $f(x)$ 在点 $x_0$ 的某邻域 $U(x_0)$ 内有定义，且在 $x_0$ 处可导，如果对任意的 $x \in U(x_0)$ 有<br>$$ f(x) \le f(x_0) \quad {\rm or} \quad f(x) \ge f(x_0)$$<br>那么 $f’(x_0) = 0$</p>
+</blockquote>
+<ol start="2">
+<li>罗尔定理（拉格朗日中值定理的特殊形式）</li>
+</ol>
+<blockquote>
+<p>如果函数 $f(x)$ 满足：</p>
+<ol>
+<li>在闭区间 $[a, b]$ 连续；</li>
+<li>在开区间 $(a, b)$ 内可导；</li>
+<li>在区间端点处函数值相等，即 $f(a) = f(b)$，</li>
+</ol>
+<p>那么在 $(a, b)$ 内至少有一点 $\xi$ 使得 $f’(\xi) = 0$</p>
+</blockquote>
+<ol start="3">
+<li>拉格朗日中值定理</li>
+</ol>
+<blockquote>
+<p>如果函数 $f(x)$ 满足：</p>
+<ol>
+<li>在闭区间 $[a, b]$ 连续；</li>
+<li>在开区间 $(a, b)$ 可导；</li>
+</ol>
+<p>那么在 $(a, b)$ 内至少有一点 $\xi$ 使得 $f’(\xi) = \dfrac{f(b) - f(a)}{b - a}$ 成立.</p>
+</blockquote>
+<ol start="4">
+<li>柯西中值定理（拉格朗日中值定理的参数方程情形）</li>
+</ol>
+<blockquote>
+<p>如果函数 $f(x), g(x)$ 满足：</p>
+<ol>
+<li>在闭区间 $[a, b]$ 上连续；</li>
+<li>在开区间 $(a, b)$ 上可导；</li>
+<li>对任意 $x \in (a, b), g’(x) \ne 0$</li>
+</ol>
+<p>那么在 $(a, b)$ 至少有一点 $\xi$ 使得：<br>$$\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f’(\xi)}{g’(\xi)}$$<br>成立.</p>
+</blockquote>
+<p>中值定理的几种应用形式：</p>
+<ol>
+<li>$f - f$ 直接使用中值定理</li>
+<li>$f - A$ 这种情况我们应该要把 $A \to f(x_0)$，一般是 $0, 1$ 等不容易发现的常数</li>
+<li>$\ln(\frac{A}{B}) \to \ln A - \ln B$ 将两边取对数之后将分式转化为差，构造函数的差</li>
+</ol>
+<h3 id="2-3-洛必达法则"><a href="#2-3-洛必达法则" class="headerlink" title="2.3 洛必达法则"></a>2.3 洛必达法则</h3><p>洛必达法则运用条件：</p>
+<ol>
+<li>$\lim \limits_{x \rightarrow x_0} f(x) = 0(\infty), \lim \limits_{x \rightarrow x_0} F(x) = 0(\infty)$；</li>
+<li>在点$x_0$的某一去心邻域内，$f’(x)$和$F’(x)$都存在，且$F’(x) \ne 0$；</li>
+<li>极限$\lim \limits_{x \rightarrow x_0} \dfrac{f’(x)}{F’(x)}$存在</li>
+</ol>
+<p>在求极限的过程中，对于上面的第三条条件，我们在求出极限之前也不知道极限是否存在。但习惯上我们仍然使用洛必达法则，直到求出来的极限的确不存在时，我们就把之前的等号划去。</p>
+<h3 id="2-4-泰勒公式"><a href="#2-4-泰勒公式" class="headerlink" title="2.4 泰勒公式"></a>2.4 泰勒公式</h3><p>泰勒公式是使用多项式近似函数在某点附近的表达式的方法。</p>
+<p>根据：<br>$$<br>f(x) = f(x_0) + f’(x_0)(x - x_0) + o(x - x_0)<br>$$</p>
+<p>只要我们不断提高$o(x - x_0)$的精度，我们便可以得到更精确的$f(x)$函数近似。</p>
+<p>使用待定系数法求得多项式每项系数的值，得到泰勒多项式：<br>$$<br>\begin{aligned}<br>p(x) = \sum_{k = 0}^{n} \frac{f^{(n)}(x_0)}{k!} (x - x_0)^k \<br>f(x) = p(x) + R(x)<br>\end{aligned}<br>$$</p>
+<h4 id="2-4-1-泰勒中值定理"><a href="#2-4-1-泰勒中值定理" class="headerlink" title="2.4.1 泰勒中值定理"></a>2.4.1 泰勒中值定理</h4><p>$$<br>\frac{f(x) - p_n(x)}{(x - x_0)^{n + 1}} = \frac{f^{(n + 1)} (\xi)}{(n + 1)!}<br>$$<br>注意：$f(x)$要求有$n + 1$阶导数。</p>
+<h4 id="2-4-2-拉格朗日型余项"><a href="#2-4-2-拉格朗日型余项" class="headerlink" title="2.4.2 拉格朗日型余项"></a>2.4.2 拉格朗日型余项</h4><p>$$<br>R(x) = \frac{f^{(n+1)} (\xi)}{(n + 1)!} (x - x_0)^{n + 1} , \xi \in (x, x_0)<br>$$</p>
+<h4 id="2-4-3-皮亚诺型余项"><a href="#2-4-3-皮亚诺型余项" class="headerlink" title="2.4.3 皮亚诺型余项"></a>2.4.3 皮亚诺型余项</h4><p>对 $\xi$ 0进行代换：<br>$$<br>\xi = x + \theta (x + x_0)<br>$$<br>得到：<br>$$<br>R_n(x) = \frac{f^{(n + 1)} [x_0 + \theta (x - x_0)]}{(n + 1)!} (x - x_0)^{n + 1}<br>$$<br>以上即是<strong>皮亚诺型余项</strong>。</p>
+<h4 id="2-4-4-麦克劳林公式"><a href="#2-4-4-麦克劳林公式" class="headerlink" title="2.4.4 麦克劳林公式"></a>2.4.4 麦克劳林公式</h4><p>麦克劳林公式是泰勒公式当$x_0 = 0$时的特殊形式。<br>$$<br>f(x) = \sum_{k = 0}^{n} \frac{f^{n}(0)}{k!} x^n + o(x^n)<br>$$</p>
+<h4 id="2-4-5-常见的函数的麦克劳林公式"><a href="#2-4-5-常见的函数的麦克劳林公式" class="headerlink" title="2.4.5 常见的函数的麦克劳林公式"></a>2.4.5 常见的函数的麦克劳林公式</h4><p>$$<br>\begin{aligned}<br>  e^x &amp;= 1 + x + \frac{x^2}{2!} + \cdots + \frac{x^n}{n!} + o(x^n), \<br>  \sin x &amp;= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots + (-1)^{n - 1} \frac{x^{2n - 1}}{(2n - 1)!} + o(x^{2n}), \<br>  \cos x &amp;= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots + (-1)^n \frac{x^{2n}}{2n!} + o(x^{2n + 1}), \<br>  \ln(1 + x) &amp;= x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots + (-1)^{n + 1} \frac{x^n}{n} + o(x^n) ,\<br>  \frac{1}{1 - x} &amp;= 1 + x + x^2 + x^3 + \cdots + x^n + \cdots = \sum_{n = 1}^{\infty}x^n ,\vert x \vert &lt; 1 ,\<br>  \frac{1}{1 + x} &amp;= 1 - x + x^2 - \cdots (-1)^n x^n + \cdots = \sum_{n = 1}^{\infty}(-1)^n x^n , \vert x \vert &lt; 1 ,\<br>  (1+x)^\alpha &amp;= 1 + \alpha x + \frac{\alpha(\alpha - 1)}{2!}x^2 + o(x^3) ,\<br>  \tan x &amp;= x + \frac{1}{3}x^3 + o(x^3) (x \to 0) ,\<br>  \arcsin x &amp;= x + \frac{1}{6}x^3 + o(x^3) (x \to 0),\<br>  \arctan x &amp;= x - \frac{1}{3}x^3 + o(x^3) (x \to 0) .<br>\end{aligned}<br>$$</p>
+<h4 id="2-4-6-泰勒公式常见用法"><a href="#2-4-6-泰勒公式常见用法" class="headerlink" title="2.4.6 泰勒公式常见用法"></a>2.4.6 泰勒公式常见用法</h4><ul>
+<li>求函数近似值（展开式的余项是误差范围的高阶无穷小即可近似）</li>
+<li>求极限（将复杂函数展开成多项式+高阶无穷小）<ul>
+<li>$A/B$型，上下同阶原则</li>
+<li>$A-B$型，幂次最高原则</li>
+</ul>
+</li>
+<li>不等式证明（利用余项的 $\xi$ 所在的区间构造不等式）</li>
+<li>。。。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%A7%AF%E5%88%86%E4%B8%8E%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%A7%AF%E5%88%86%E4%B8%8E%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="post-title-link" itemprop="url">积分与微分方程</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-07 20:49:46" itemprop="dateModified" datetime="2021-03-07T20:49:46+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="积分与微分方程"><a href="#积分与微分方程" class="headerlink" title="积分与微分方程"></a>积分与微分方程</h2><h3 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h3><h4 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h4><h5 id="不定积分的三种求法"><a href="#不定积分的三种求法" class="headerlink" title="不定积分的三种求法"></a>不定积分的三种求法</h5><ul>
+<li>第一换元法（凑微分法）</li>
+</ul>
+<p>$\global \def {\d}{\mathop{}!\mathrm{d}}$</p>
+<!-- $\global \def $ -->
+<p>$$<br>\int g(\psi(x))\psi’(x) \d x = \int g(u) \d u \Big|_{u = \psi(x)}<br>$$</p>
+<ul>
+<li>第二换元法</li>
+</ul>
+<p>令 $x = \psi(t)$</p>
+<p>$$<br>\int g(x) \d x = \int g(\psi(x)) \d \psi(x) = \int g(\psi(x)) \psi’(x) \d x<br>$$<br><strong>ps:</strong> 此法要求 $x = \psi (u)$ 为单调可导函数，定积分要注意代换之后的积分范围会根据代换函数的增减性调整，切记得将 $u = \psi^{-1}(x)$ 回代；<br>常见代换方法：</p>
+<ol>
+<li>三角函数代换；</li>
+<li>根式代换；</li>
+<li>倒代换；</li>
+<li>复杂函数的直接代换（比如反三角函数和对数函数等）；</li>
+</ol>
+<ul>
+<li>分部积分法-选取优先级（反对幂三（指）指（三））</li>
+</ul>
+<p>**ps:**分布积分经常创造出积分再现或者积分抵消的情形；<br>$$<br>\int uv’ \d x = uv - \int v’ \d u<br>$$</p>
+<h5 id="基本积分公式"><a href="#基本积分公式" class="headerlink" title="基本积分公式"></a>基本积分公式</h5><ol>
+<li><p>有理函数<br>$$<br>\begin{aligned}<br>&amp;\int x^a \d x = \frac{x^{a+1}}{a+1} + C(a \neq  -1); &amp;<br>&amp;\int \frac{1}{x} \d x = \ln|x| \d x \<br>&amp;\int a^x \d x = \frac{a^x}{\ln a} \d x + C(a &gt; 0, a \neq 1); &amp;<br>&amp;\int e^x \d x = e^x + C; \<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>三角函数<br>$$<br>\begin{aligned}<br>&amp;\int \sin x \d x = - \cos x + C; &amp;<br>&amp;\int \cos \d x = \sin x + C; \<br>&amp;\int \tan x \d x = -\ln |\cos x| + C; &amp;<br>&amp;\int \cot x \d x = \ln \sin x + C; \<br>&amp;\int \sec x \d x = \ln |\sec x + \tan x| + C; &amp;<br>&amp;\int \csc x \d x = \ln |\csc x - \cot x| + C; \<br>&amp;\int \sec^2 x \d x = \tan x + C &amp;<br>&amp;\int \csc^2 x \d x = -\cot x + \<br>&amp;\int \sec x \tan x \d x = \sec x + C&amp;<br>&amp;\int \csc x \cot x \d x = -\csc x + C \<br>&amp;\int \cos^2 x \d x = \frac{x}{2} - \frac{\sin 2x}{4} + C&amp;<br>&amp;\int \sin^2 x \d x = \frac{x}{2} + \frac{\sin 2x}{4} + C\<br>&amp;\int \tan^2 x \d x = \tan x - x + C&amp;<br>&amp;\int \cot^2 x \d x = - \cot x - x + C\<br>\end{aligned}<br>$$</p>
+</li>
+</ol>
+<p>$\sin^2 x , \cos^2 x$ 通过降幂公式 $\cos 2x = 2\cos^2 x - 1 = 1 - 2\sin^2 x$ ，将幂次降下来再进行积分；<br>$\tan^2 x , \cot^2 x$ 通过切割转换公式 $\tan^2 = \sec^2 x - 1, \cot^2 = \csc^2 x - 1$ ，将正余切的积分转换为正余割的幂再进行积分；</p>
+<ol>
+<li>根式<br>$$<br>\begin{aligned}<br>&amp;\int \frac{\d x}{\sqrt{1 - x^2}} = \arcsin x + C&amp;<br>&amp;\int \frac{\d x}{\sqrt{a^2 - x^2}} = \arcsin \frac{x}{a} + C\<br>&amp;\int \frac{\d x}{1 + x^2} = \arctan x + C&amp;<br>&amp;\int \frac{\d x}{a^2 + x^2} = \frac{1}{a} \arctan \frac{x}{a} + C\<br>&amp;\int \frac{\d x}{x^2 - a^2} = \frac{1}{2a} \ln|\frac{x - a}{x + a}| + C\<br>&amp;\int \frac{\d x}{\sqrt{x^2 \pm a^2}} = \ln(x + \sqrt{a^2 \pm x^2}) + C\<br>&amp;\int \sqrt{a^2 - x^2} \d x = \frac{a^2}{2} \arcsin \frac{x}{a} + \frac{x}{2} \sqrt{a^2 - x^2} + C<br>\end{aligned}<br>$$</li>
+</ol>
+<h4 id="int-x-a-f-x-、-f-x-、f’-x-的关系"><a href="#int-x-a-f-x-、-f-x-、f’-x-的关系" class="headerlink" title="$\int^{x}_{a} f(x) 、 f(x)、f’(x)$ 的关系"></a>$\int^{x}_{a} f(x) 、 f(x)、f’(x)$ 的关系</h4><table>
+<thead>
+<tr>
+<th>$f(x)$</th>
+<th>$\int^{x}_{0}f(t) \d t$</th>
+<th>$\int^{x}_{a}f(t) \d t$</th>
+<th>$f’(x)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>周期函数</td>
+<td>周期函数(条件：$\int^{T}_{0}f(t) \d t = 0$)</td>
+<td>周期函数</td>
+<td>周期函数</td>
+</tr>
+<tr>
+<td>奇函数</td>
+<td>偶函数</td>
+<td>偶函数</td>
+<td>偶函数</td>
+</tr>
+<tr>
+<td>偶函数</td>
+<td>奇函数</td>
+<td>不确定</td>
+<td>奇函数</td>
+</tr>
+</tbody></table>
+<h4 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h4><h5 id="积分中值定理"><a href="#积分中值定理" class="headerlink" title="积分中值定理"></a>积分中值定理</h5><p>$$<br>\int^{a}_{b} f(x) \d x = f(\xi) (b - a)<br>$$</p>
+<h5 id="重要公式总结"><a href="#重要公式总结" class="headerlink" title="重要公式总结"></a>重要公式总结</h5><h6 id="区间再现公式"><a href="#区间再现公式" class="headerlink" title="区间再现公式"></a>区间再现公式</h6><p>$$<br>\begin{aligned}<br>  &amp;\int^{a}<em>{b} f(x) \d x = \int^{a}</em>{b} f(a + b - x) \d x\<br>  &amp;\int^{a}<em>{b} f(x) \d x = \frac{1}{2} \int^{b}</em>{a} \lbrack f(x) + f(a + b - x) \rbrack \d x\<br>  &amp;\int^{b}<em>{a} f(x) \d x = \int^{\frac{a + b}{2}}</em>{a} \lbrack f(x) + f(a + b - x) \rbrack \d x\<br>\end{aligned}<br>$$</p>
+<h6 id="华氏公式（点火公式）"><a href="#华氏公式（点火公式）" class="headerlink" title="华氏公式（点火公式）"></a>华氏公式（点火公式）</h6><p>$$<br>\begin{aligned}<br>  &amp;\int^{\frac{\pi}{2}}<em>{0} \sin^n x \d x = \int^{\frac{\pi}{2}}</em>{0} \cos^n x \d x =<br>  \begin{cases}<br>    \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \dfrac{2}{3} \cdot 1, \text{n &gt; 1 and n is odd}\<br>    \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \dfrac{2}{3} \cdot 1, \text{n &gt; 0 and n is even}\<br>  \end{cases}\<br>  &amp;\int^{\pi}<em>{0} \sin^n x \d x =<br>    \begin{cases}<br>      2 \cdot \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \cdot \dfrac{2}{3} \cdot 1, \text{n &gt; 1 and n is odd}\<br>      2 \cdot \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \cdot \dfrac{1}{2} \cdot \frac{\pi}{2}, \text{n &gt; 0 and n is even}<br>    \end{cases}\<br>  &amp;\int^{\pi}</em>{0} \cos^n x \d x =<br>  \begin{cases}<br>    0, \text{n &gt; 0 and n is odd}\<br>    2 \cdot \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \cdot \dfrac{1}{2} \cdot \dfrac{\pi}{2}, \text{n &gt; 0 and n is even}<br>  \end{cases}\<br>  &amp;\int^{2\pi}<em>{0} \sin^n x \d x =<br>  \begin{cases}<br>    0, \text{n &gt; 0 and n is odd}\<br>    4 \cdot \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \cdot \dfrac{1}{2} \cdot \dfrac{\pi}{2}, \text{n &gt; 0 and n is even}<br>  \end{cases}\<br>  &amp;\int^{2\pi}</em>{0} \cos^n x \d x = \int^{2\pi}_{0} \sin^n x \d x =<br>  \begin{cases}<br>    0, \text{n &gt; 0 and n is odd}\<br>    4 \cdot \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 2} \cdot \cdots \cdot \dfrac{1}{2} \cdot \dfrac{\pi}{2}, \text{n &gt; 0 and n is even}<br>  \end{cases}\<br>\end{aligned}<br>$$</p>
+<h6 id="其他含有三角函数的公式"><a href="#其他含有三角函数的公式" class="headerlink" title="其他含有三角函数的公式"></a>其他含有三角函数的公式</h6><p>$$<br>\begin{aligned}<br>  &amp;\int^{\pi}<em>{0} x f(\sin x) \d x = \dfrac{\pi}{2} \int^{\pi}</em>{0} f(\sin x ) \d x\<br>  &amp;\int^{\pi}<em>{0} x f(\sin x) \d x = \pi \int^{\frac{\pi}{2}}</em>{0} f(\sin x) \d x\<br>  &amp;\int^{\frac{\pi}{2}}<em>{0} f(\sin x) \d x = \int^{\frac{\pi}{2}}</em>{0} f(\cos x) \d x\<br>  &amp;\int^{\frac{\pi}{2}}<em>{0} f(\sin x, \cos x) \d x = \int^{\frac{\pi}{2}}</em>{0} f(\cos x, \sin x) \d x<br>\end{aligned}<br>$$</p>
+<h6 id="区间简化公式"><a href="#区间简化公式" class="headerlink" title="区间简化公式"></a>区间简化公式</h6><p>$$<br>\begin{aligned}<br>  &amp;\int^{b}<em>{a} f(x) \d x = \int^{\frac{\pi}{2}}</em>{-\frac{\pi}{2}} f(\dfrac{a + b}{2} + \frac{b - a}{2} \sin t) \cdot \frac{b - a}{2} \cos t \d t\<br>  &amp;\int^{b}<em>{a} f(x) \d x = \int^{1}</em>{0} f\lbrack a + (b - a)t \rbrack \d t\<br>  &amp;\int^{a}<em>{-a} f(x) \d x = \int^{a}</em>{0} \lbrack f(x) + f(-x) \rbrack \d x\<br>\end{aligned}<br>$$</p>
+<h4 id="变限积分"><a href="#变限积分" class="headerlink" title="变限积分"></a>变限积分</h4><ol>
+<li>直接求导</li>
+</ol>
+<p>$$<br>\int^{f(x)}_{0} g(t) \d t \Rightarrow g(f(x))f’(x)<br>$$</p>
+<ol start="2">
+<li>换元求导</li>
+</ol>
+<p>$$<br>\int^{x + f(x)}<em>{x} g(t - x) \d t \xRightarrow{u = t - x} = \int^{f(x)}</em>{0} g(u) \d u<br>$$</p>
+<ol start="3">
+<li>拆分求导，一般是对称区间奇函数或者绝对值等等分段函数</li>
+<li>换序积分，画出积分范围，再换序</li>
+</ol>
+<p><strong>注意常考</strong>：</p>
+<ol>
+<li>反函数的导函数关系</li>
+<li>原函数与积分的关系</li>
+<li>积分中值定理</li>
+<li>拉格朗日中值定理</li>
+<li>含 $e^x$ 积分的处理，导数乘法公式的逆用</li>
+</ol>
+<h4 id="反常积分与-varGamma-函数"><a href="#反常积分与-varGamma-函数" class="headerlink" title="反常积分与 $\varGamma$ 函数"></a>反常积分与 $\varGamma$ 函数</h4><h3 id="微分方程"><a href="#微分方程" class="headerlink" title="微分方程"></a>微分方程</h3><h4 id="可分离变量的微分方程"><a href="#可分离变量的微分方程" class="headerlink" title="可分离变量的微分方程"></a>可分离变量的微分方程</h4><p>$$<br>\frac{\d y}{\d x} = P(x) y \rightarrow<br>\frac{\d y}{y} = P(x) \d x \to<br>\ln y = \int P(x) \d x \to<br>y = C e ^{\int P(x) \d x}<br>$$</p>
+<h4 id="齐次微分方程"><a href="#齐次微分方程" class="headerlink" title="齐次微分方程"></a>齐次微分方程</h4><p>$$<br>\begin{aligned}<br>&amp; \frac{\d y}{\d x} = \phi(\frac{y}{x}) \xRightarrow{u = \frac{y}{x}}<br>  \frac{\d y}{\d x} = x \frac{\d u}{\d x} + u = \phi(u) \<br>&amp; \Rightarrow \frac{\d u}{u - \phi (u)} = \frac{\d x}{x} \<br>&amp; \Rightarrow x = C e ^{\int \frac{\d u}{u - \phi (u)}}, u = \frac{y}{x}<br>\end{aligned}<br>$$</p>
+<h5 id="可化为齐次的微分方程"><a href="#可化为齐次的微分方程" class="headerlink" title="可化为齐次的微分方程"></a>可化为齐次的微分方程</h5><p>$$<br>\frac{\d y}{\d x} = \frac{a_1 x + b_1 y + c_1}{a_2 x = b_2 y + c_2} \xRightarrow{x = X + k_1, y = Y + k_2}<br>\frac{\d y}{\d x} = \frac{\d Y}{\d X} = \frac{a_1 X + b_1 Y}{a_2 X + b_2 Y} \xRightarrow{u = \frac{Y}{X}}<br>\frac{\d Y}{\d X} = \frac{b_1 u + a_1}{b_2 u + a_2}<br>$$<br>上述 $k_1, k_2$ 的取值能够将常数项 $c_1, c_2$ 化为0，接下来的步骤和齐次线性方程的解法一致了。</p>
+<h4 id="一阶线性微分方程"><a href="#一阶线性微分方程" class="headerlink" title="一阶线性微分方程"></a>一阶线性微分方程</h4><p>有以下一阶线性微分方程：</p>
+<p>$$<br>\frac{\d y}{\d x} + P(x)y = Q(x)<br>$$</p>
+<p>令 $Q(x) = 0$ 得到<strong>非齐次微分方程对应的齐次方程</strong>：<br>$$<br>\frac{\d y}{\d x} = - P(x) y<br>$$</p>
+<p>齐次方程的通解：<br>$$<br>\frac{\d y}{\d x} + P(x)y = 0 \Rightarrow<br>\frac{\d y}{y} = -P(x) \d x \Rightarrow y = Ce ^{- \int P(x) \d x}<br>$$</p>
+<p>常数变易法解出<strong>非齐次微分方程</strong>的通解：</p>
+<p>令 $y = u e ^{- \int P(x) \d x}$, </p>
+<p>$$<br>\begin{aligned}<br>\frac{\d y}{\d x} &amp; = -P(x) u e ^{- \int P(x) \d x} + \frac{\d u}{\d x} e ^{-\int P(x) \d x} \<br>&amp; = Q(x) - P(x) y \<br>&amp; = Q(x) - P(x) u e ^{-\int P(x) \d x} \ \Longrightarrow<br>&amp; \frac{\d u}{\d x} = Q(x) e ^{\int P(x) \d x} \ \Longrightarrow<br>&amp; u = \int Q(x) e ^{\int P(x) \d x} \d x + C \ \Longrightarrow<br>&amp; y = \big( \int Q(x) e ^{\int P(x) \d x} \d x + C \big) e ^{- \int P(x) \d x}<br>\end{aligned}<br>$$</p>
+<h4 id="伯努利方程"><a href="#伯努利方程" class="headerlink" title="伯努利方程"></a>伯努利方程</h4><p>$$<br>\begin{aligned}<br>&amp; \frac{\d y}{\d x} + P(x)y = Q(x)y ^{n} \ \Rightarrow<br>&amp; y^{-n} \frac{\d y}{\d x} + P(x) y^{1-n} = Q(x) \ \Rightarrow<br>&amp; \frac{\d y^{1-n}}{\d x} + (1-n)P(x)y^{1-n} = (1-n)Q(x)<br>\end{aligned}<br>$$</p>
+<p>最后化成了关于 $y^{1-n}$ 和 $x$ 的微分方程，一阶线性微分方程的通解求法，可以求出 $y^{1-n}$ 的通解，进而求出 $y$ 的通解。</p>
+<h4 id="可降阶的高阶微分方程"><a href="#可降阶的高阶微分方程" class="headerlink" title="可降阶的高阶微分方程"></a>可降阶的高阶微分方程</h4><h5 id="y-n-f-x-型"><a href="#y-n-f-x-型" class="headerlink" title="$y^{(n)} = f(x)$ 型"></a>$y^{(n)} = f(x)$ 型</h5><p>无限求积分直到解出来<br>$$<br>y = \int \Big( \int \dots \big( \int (\int y ^{(n)} \d x + C_1 ) \d x + C_2 \big) + \dots \Big) + C_{n-1}<br>$$</p>
+<h5 id="y’’-f-x-y’-型"><a href="#y’’-f-x-y’-型" class="headerlink" title="$y’’ = f(x, y’)$ 型"></a>$y’’ = f(x, y’)$ 型</h5><p>该类型的微分方程右端不显含未知函数 $y$ ，我们设 $y’ = p$，则有<br>$$<br>p’ = f(x, p)<br>$$<br>解该一阶微分方程得到：<br>$$<br>\begin{aligned}<br>p &amp;= \varphi(x, C_1) \ \Rightarrow<br>\frac{\d y}{\d x} &amp;= \varphi(x, C_1) \d x \ \Rightarrow<br>y &amp;= \int \varphi(x, C_1) \d x<br>\end{aligned}<br>$$</p>
+<h5 id="y’’-f-y-y’-型"><a href="#y’’-f-y-y’-型" class="headerlink" title="$y’’ = f(y, y’)$ 型"></a>$y’’ = f(y, y’)$ 型</h5><p>该方程不显含自变量 $x$ 我们令 $p = y’$ 将关于 $y$ 的二阶微分方程转换成关于 $p$ 的一阶微分方程<br>$$<br>y’’ = \frac{\d y’}{\d y} \cdot \frac{\d y}{\d x} = p \cdot \frac{\d p}{\d x} = f(y, p)<br>$$<br>这是一个关于 $p$ 和 $y$ 的一阶微分方程，假设其通解为：<br>$$<br>\begin{aligned}<br>y’ = p &amp;= \varphi(y, C_1) \ \Rightarrow<br>\int \frac{\d y}{\varphi (y, C_1)} &amp;= x + C_2<br>\end{aligned}<br>$$</p>
+<h4 id="高阶微分方程"><a href="#高阶微分方程" class="headerlink" title="高阶微分方程"></a>高阶微分方程</h4><h5 id="线性微分方程解的结构"><a href="#线性微分方程解的结构" class="headerlink" title="线性微分方程解的结构"></a>线性微分方程解的结构</h5><p>考虑一个二阶线性微分方程：<br>$$<br>\tag{1} y’’ + P(x)y’ + Q(x)y = 0<br>$$</p>
+<p><strong>定理1</strong> 如果函数 $y_1(x)$ 和 $y_2(x)$ 是方程 $(1)$ 的解，那么<br>$$<br>y = C_1 y_1(x) + C_2 y_2(x)<br>$$<br>也是方程 $(1)$ 的解，其中 $C_1, C_2$ 是任意常数。</p>
+<p>线性相关的概念：</p>
+<blockquote>
+<p>设函数 $y_1(x), y_2(x), \dots, y_n(x)$ 为定义在区间 $I$ 上的 $n$ 个函数，如果存在 $n$ 个不全为零的常数 $k_1, k_2, k_3, \dots, k_n$ 使得<br>$$k_1 y_1(x) + k_2 y_2(x) + \dots + k_n y_n(x) \equiv 0$$<br>我们说这 $n$ 个函数 $y_1(x), y_2(x), y_3(x), \dots, y_n(x)$ <strong>线性相关</strong>，否则称为<strong>线性无关</strong>.</p>
+</blockquote>
+<p><strong>定理2</strong> 如果 $y_1(x)$ 和 $y_2(x)$ 是方程 $(1)$ 的两个线性无关特解，那么<br>$$<br>y = C_1 y_1(x) + C_2 y_2(x) \quad (C_1, C_2 ; \text{are constants})<br>$$<br>就是方程 $(1)$ 的特解。</p>
+<h5 id="…-未完待续"><a href="#…-未完待续" class="headerlink" title="… 未完待续"></a>… 未完待续</h5><h4 id="常系数齐次线性微分方程"><a href="#常系数齐次线性微分方程" class="headerlink" title="常系数齐次线性微分方程"></a>常系数齐次线性微分方程</h4><h4 id="常系数非齐次线性微分方程"><a href="#常系数非齐次线性微分方程" class="headerlink" title="常系数非齐次线性微分方程"></a>常系数非齐次线性微分方程</h4><h4 id="欧拉方程"><a href="#欧拉方程" class="headerlink" title="欧拉方程"></a>欧拉方程</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">集合</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-07 20:49:46" itemprop="dateModified" datetime="2021-03-07T20:49:46+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="1-1-集合的概念"><a href="#1-1-集合的概念" class="headerlink" title="1.1 集合的概念"></a>1.1 集合的概念</h3><p><strong>集合</strong>是数学中的一个基本概念，代表了具有某种共同特征的事物总体。组成集合的元素称为<strong>元</strong>。</p>
+<p>两种集合：有限集、无限集。</p>
+<h3 id="1-2-集合的运算"><a href="#1-2-集合的运算" class="headerlink" title="1.2 集合的运算"></a>1.2 集合的运算</h3><p>集合运算：并、交、差（$\cup, \cap,-,A^\complement$）</p>
+<p>集合关系：包含于，属于（$\subset,\subseteq,\in$）</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>在说明函数之前，我们先引入映射的概念。</p>
+<h4 id="2-1-映射"><a href="#2-1-映射" class="headerlink" title="2.1 映射"></a>2.1 映射</h4><blockquote>
+<p>集合$A$中某元素$a$能够通过某种<strong>对应关系</strong>对应到集合$B$中的$b$元素，我们称这种对应关系为<strong>映射</strong>。<br>映射又分为<strong>单射</strong>、<strong>满射</strong>，当一个映射既是单射又是满射，那么又被叫做<strong>一一映射</strong>（双射）。</p>
+</blockquote>
+<p>当映射的集合是数集时，我们便称之为函数。</p>
+<h4 id="2-1-函数的性质"><a href="#2-1-函数的性质" class="headerlink" title="2.1 函数的性质"></a>2.1 函数的性质</h4><p>有界性、单调性、奇偶性、周期性</p>
+<h4 id="2-2-函数的运算"><a href="#2-2-函数的运算" class="headerlink" title="2.2 函数的运算"></a>2.2 函数的运算</h4><blockquote>
+<p>$$f(x) + g(x).\<br>f(x) - g(x),\<br>f(x) \times g(x),\<br>\frac{f(x)}{g(x)}$$</p>
+</blockquote>
+<p>函数的复合运算</p>
+<blockquote>
+<p>$f(g(x))$</p>
+</blockquote>
+<p>函数的逆运算</p>
+<blockquote>
+<p>$f^{-1}(x)$</p>
+</blockquote>
+<h4 id="2-3-初等函数以及性质"><a href="#2-3-初等函数以及性质" class="headerlink" title="2.3 初等函数以及性质"></a>2.3 初等函数以及性质</h4><blockquote>
+<p>$y = y_{0}a^{kx}$<br>$y = \log_{a}x$</p>
+</blockquote>
+<ul>
+<li><p>三角函数</p>
+<ul>
+<li>正弦 余弦 正切 余切 正割 余割<br>$\sin x=\dfrac{y}{r}, \cos x=\dfrac{x}{r}, \tan x\dfrac{y}{x}, \sec x=\dfrac{r}{x}, \csc x=\dfrac{r}{y}$</li>
+<li>周期性：正切余切$T=\pi$，其他的$T=2\pi$</li>
+<li>奇偶性：正弦正切余割 奇函数，余弦余切正割 偶函数</li>
+<li>图形的平移：$y = af(b(x+c)) + d$，a拉伸y轴，b压缩x轴，cd上加下减，左加右减</li>
+<li>恒等式：</li>
+<li>$\cos^2 \theta + \sin^2 \theta = 1$</li>
+<li>$1 + \tan^2 \theta = \sec^2 \theta ,\ \ 1 + \cot^2 \theta = \csc^2 \theta$</li>
+<li>和角公式：</li>
+<li>$\cos(A + B) = \cos A \cos B - \sin A \sin B$</li>
+<li>$\sin(A + B) = \sin A \cos B + \cos A \sin B$</li>
+<li>倍角公式：</li>
+<li>$\cos2 \theta = \cos^2 \theta - \sin^2 \theta$</li>
+<li>$\sin2 \theta = 2\sin \theta \cos \theta$</li>
+<li>余弦定理：</li>
+<li>$c^2 = a^2 + b^2 - 2ab\cos \theta$</li>
+</ul>
+</li>
+<li><p>反三角函数</p>
+<ul>
+<li>图像记住</li>
+<li>恒等式：</li>
+<li>$\arcsin(-x) = - \arcsin x$</li>
+<li>$\arccos x + \arccos (-x) = \pi$</li>
+<li>24.$\arccos (-x) = \pi - \arccos x$</li>
+<li>$\arcsin x + \arccos x = \dfrac{\pi}{2}$</li>
+</ul>
+</li>
+<li><p>双曲函数</p>
+<ul>
+<li>$\sinh(x)=\dfrac{e^x - e^{-x}}{2}$</li>
+<li>$\cosh(x)=\dfrac{e^x + e^{-x}}{2}$</li>
+<li>$\tanh(x)=\dfrac{\sinh(x)}{\cosh(x)}$</li>
+<li>$\sinh^2(x) - \cosh^2(x)$</li>
+</ul>
+</li>
+<li><p>反双曲函数</p>
+<ul>
+<li>${\rm arcsinh}(x)$</li>
+<li>${\rm arccosh}{x}$</li>
+<li>${\rm arctanh}(x)$</li>
+</ul>
+</li>
+</ul>
+<p>悬链线的解析式与双曲函数息息相关。</p>
+<h4 id="2-4-参数方程"><a href="#2-4-参数方程" class="headerlink" title="2.4 参数方程"></a>2.4 参数方程</h4><p>将方程的自变量，因变量都用第三个参数表示，称之为函数的参数化。<br>反参数化：将参数用其中一个变量表示，再将这个参数带入其他的变量中。  </p>
+<ul>
+<li>圆：$x^2 + y^2 = a^2$</li>
+</ul>
+<blockquote>
+<p>$x = a\cos t$<br>$y = a\sin t$<br>$0 \le t \le 2\pi$</p>
+</blockquote>
+<ul>
+<li>椭圆：$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$</li>
+</ul>
+<blockquote>
+<p>$x = a\cos t$<br>$y = b\sin t$<br>$0 \le t \le 2\pi$</p>
+</blockquote>
+<ul>
+<li>双曲线：$\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$</li>
+</ul>
+<blockquote>
+<p>$x = a\sec t$<br>$y = b\sin t$<br>$0 \le t \le 2\pi$</p>
+</blockquote>
+<ul>
+<li>抛物线：$y^2 = 2px$</li>
+</ul>
+<blockquote>
+<p>$x = 2pt^2$<br>$y = 2pt$<br>$t \in \R$</p>
+</blockquote>
+<p>几类需要注意的线：摆线（圆沿着直线滚动时，圆上一固定的一点所描绘出来的曲线）、星型线（圆沿着比他更大的圆的内侧滚动时，圆上固定一点描绘出来的曲线）、对数螺旋线（$p= ca^\theta$）；</p>
+<p>对数螺旋线有一个有趣的性质：原来的方程的曲线经过放大（缩小）和旋转，都能和原来的曲线部分重合；</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Javascript——基础</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:30:54" itemprop="dateModified" datetime="2021-03-13T04:30:54+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="JavaScript-快速入门"><a href="#JavaScript-快速入门" class="headerlink" title="JavaScript 快速入门"></a>JavaScript 快速入门</h2><h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><p>一句语句完成用 <code>;</code> 结尾；<br>块语句用 <code>&#123;...&#125;</code> 框选；<br>编译器可以直接使用Chrome浏览器；</p>
+<h3 id="1-2-数据类型"><a href="#1-2-数据类型" class="headerlink" title="1.2 数据类型"></a>1.2 数据类型</h3><h4 id="1-2-1-Number"><a href="#1-2-1-Number" class="headerlink" title="1.2.1 Number"></a>1.2.1 Number</h4><p>JavaScript 不区分整数和浮点数，统一表示为Number；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> <span class="comment">// 整数123</span></span><br><span class="line"><span class="number">0.456</span> <span class="comment">//浮点数0.456</span></span><br><span class="line"><span class="number">1.2345e3</span> <span class="comment">// 科学计数法表示浮点数</span></span><br><span class="line"><span class="literal">NaN</span> <span class="comment">// NaN表示Not a Number，当无法计算时用NaN表示（区分Python的NaN）</span></span><br><span class="line"><span class="literal">Infinity</span> <span class="comment">// Infinity表示无限大，当数值超界时用Infinity表示</span></span><br></pre></td></tr></table></figure>
+
+<p>数字运算符， <code>+</code> 、 <code>-</code> 、 <code>*</code> 、 <code>/</code> 、 <code>%</code></p>
+<h4 id="1-2-2-字符串"><a href="#1-2-2-字符串" class="headerlink" title="1.2.2 字符串"></a>1.2.2 字符串</h4><p><code>&quot;abc&quot;</code> 、 <code>&#39;abc&#39;</code> 都是字符串的表示形式；</p>
+<h3 id="1-2-3-布尔值"><a href="#1-2-3-布尔值" class="headerlink" title="1.2.3 布尔值"></a>1.2.3 布尔值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    &amp;&amp; <span class="comment">// 与运算</span></span><br><span class="line">    || <span class="comment">// 或运算</span></span><br><span class="line">    ! <span class="comment">//非运算</span></span><br><span class="line"></span><br><span class="line">    <span class="number">2</span> &gt; <span class="number">5</span>; <span class="comment">// false</span></span><br><span class="line"><span class="number">5</span> &gt;= <span class="number">2</span>; <span class="comment">// true</span></span><br><span class="line"><span class="number">7</span> == <span class="number">7</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际上JavaScript允许任意数据类型做比较</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>; <span class="comment">// true，会自动转换数据类型再比较，有时候结果会很诡异</span></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span>; <span class="comment">// false，不会转换，数据类型不一致则会false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-缺失值"><a href="#1-2-4-缺失值" class="headerlink" title="1.2.4 缺失值"></a>1.2.4 缺失值</h4><h4 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a><code>NaN</code></h4><p>需要注意的是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span> <span class="comment">//false，NaN不等于任何对象包括它自己</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>) <span class="comment">//true，这是唯一判断NaN的方法</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">NaN</span>) <span class="comment">//Number，还是会返回Number</span></span><br></pre></td></tr></table></figure>
+
+<p>关于浮点数计算误差，这一点在每一门编程语言中都会出现，这是计算机内部对浮点数的表示造成的问题。</p>
+<h3 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a><code>null</code> 和 <code>undefined</code></h3><p><code>null</code> 表示空值， <code>undefined</code> 表示未定义；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>) <span class="comment">//object</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>通常 <code>undefined</code> 用于判断函数参数是否传递的情况下有用；</p>
+<h3 id="1-2-5-数组"><a href="#1-2-5-数组" class="headerlink" title="1.2.5 数组"></a>1.2.5 数组</h3><p>数组也是对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">14</span>, <span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>, <span class="literal">true</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意这里的元素数量是 3 但是数组内没有内容，都是undefined</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>] <span class="comment">//数组切片</span></span><br><span class="line">arr[<span class="number">1</span>]</span><br><span class="line">arr[<span class="number">3</span>] <span class="comment">// 索引超界返回undefined</span></span><br><span class="line">arr.pop() <span class="comment">// 尾部弹出</span></span><br><span class="line">arr.shift() <span class="comment">// 顶部流出</span></span><br><span class="line">arr.push(<span class="string">&quot;elem&quot;</span>) <span class="comment">// 尾部推入</span></span><br><span class="line">arr.unshift(<span class="string">&quot;elem&quot;</span>) <span class="comment">// 顶部推入</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>array.splice()</li>
+</ul>
+<p>用法： <code>arr.splice(index[, deleteCount, elem1, ..., elemN])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;I&quot;</span>, <span class="string">&quot;study&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">// 从索引 1 开始删除 1 个元素</span></span><br><span class="line">alert(arr); <span class="comment">// [&quot;I&quot;, &quot;JavaScript&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>array.find()/array.findIndex()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;I&quot;</span>, <span class="string">&quot;study&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>];</span><br><span class="line">arr.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> item == <span class="string">&quot;I&quot;</span>) <span class="comment">// 0</span></span><br><span class="line">arr.find(<span class="function"><span class="params">item</span> =&gt;</span> item == <span class="string">&quot;I&quot;</span>) <span class="comment">// &quot;I&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-6-对象"><a href="#1-2-6-对象" class="headerlink" title="1.2.6 对象"></a>1.2.6 对象</h3><p>键值对<br>JavaScript对象的键都是字符串，值可以为任意类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    tags: [<span class="string">&#x27;js&#x27;</span>, <span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;mobile&#x27;</span>],</span><br><span class="line">    city: <span class="string">&#x27;Beijing&#x27;</span>,</span><br><span class="line">    hasCar: <span class="literal">true</span>,</span><br><span class="line">    zipcode: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line">person.name; <span class="comment">// &#x27;Bob&#x27;</span></span><br><span class="line">person.zipcode; <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-7-变量"><a href="#1-2-7-变量" class="headerlink" title="1.2.7 变量"></a>1.2.7 变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a; <span class="comment">// 申明了变量a，此时a的值为undefined</span></span><br><span class="line"><span class="keyword">var</span> $b = <span class="number">1</span>; <span class="comment">// 申明了变量$b，同时赋值为1</span></span><br><span class="line"><span class="keyword">var</span> s_001 = <span class="string">&#x27;007&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> answer = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> t = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这种类型声明时无需指定类型的语言为动态语言，反之为静态语言；</p>
+<h3 id="1-2-8-strict-模式"><a href="#1-2-8-strict-模式" class="headerlink" title="1.2.8 strict 模式"></a>1.2.8 strict 模式</h3><p>该模式为修复早期JavaScript全局变量（无需 <code>var</code> 声明的变量）带来的种种问题而产生，在JavaScript代码的第一行中输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>支持strict模式的浏览器便可以开启strict模式。这时如果声明变量不使用 <code>var</code> 便会报错。</p>
+<h2 id="1-3-字符串"><a href="#1-3-字符串" class="headerlink" title="1.3 字符串"></a>1.3 字符串</h2><h3 id="1-3-1-转义字符"><a href="#1-3-1-转义字符" class="headerlink" title="1.3.1 转义字符"></a>1.3.1 转义字符</h3><p>同其他语言。<br>ASCII字符表示 <code>\x##</code><br>Unicode字符 <code>\u####</code></p>
+<h3 id="1-3-2-多行字符串"><a href="#1-3-2-多行字符串" class="headerlink" title="1.3.2 多行字符串"></a>1.3.2 多行字符串</h3><p>使用反引号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`多行字符串</span></span><br><span class="line"><span class="string">多行字符串</span></span><br><span class="line"><span class="string">多行字符串`</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-3-模板字符串"><a href="#1-3-3-模板字符串" class="headerlink" title="1.3.3 模板字符串"></a>1.3.3 模板字符串</h3><p>用于连接字符串，注意用的是反引号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明`;</span></span><br><span class="line"><span class="string">var age = 20;</span></span><br><span class="line"><span class="string">var message = `你好，$&#123;name&#125;，你今年$&#123;age&#125;岁了！` </span></span><br></pre></td></tr></table></figure>
+
+<p>另一种方式时 <code>+</code> ，同其他语言。</p>
+<h3 id="1-3-4-操作字符串"><a href="#1-3-4-操作字符串" class="headerlink" title="1.3.4 操作字符串"></a>1.3.4 操作字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;abcDEF&#x27;</span>;</span><br><span class="line">s.length; <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">s[<span class="number">0</span>] <span class="comment">// &#x27;a&#x27;</span></span><br><span class="line"></span><br><span class="line">s.toUpperCase() <span class="comment">// &#x27;ABCDEF&#x27;</span></span><br><span class="line"></span><br><span class="line">s.toLowerCase() <span class="comment">// &#x27;abcdef&#x27;</span></span><br><span class="line"></span><br><span class="line">s.indexOf(<span class="string">&#x27;a&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line">s.indexOf(<span class="string">&#x27;A&#x27;</span>) <span class="comment">// -1，找不到</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-数组"><a href="#1-4-数组" class="headerlink" title="1.4 数组"></a>1.4 数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr.length = <span class="number">6</span>; <span class="comment">// 6</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 3, undefined, undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>; <span class="comment">// 2</span></span><br><span class="line">arr; <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>indexOf()</code> 同其他语言，找不到返回-1  </p>
+<p><code>slice()</code> 类似于索引</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// [2, 3]</span></span><br><span class="line">arr.silce(<span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>push()</code> 和 <code>pop()</code><br><code>push()</code> 添加， <code>pop()</code> 去除，类似于栈</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.push(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [1, 2, &#x27;A&#x27;, &#x27;B&#x27;]</span></span><br><span class="line">arr.pop() <span class="comment">// &#x27;B&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>unshift()</code> 和 <code>shift()</code><br><code>unshift()</code> 头部添加， <code>shift()</code> 尾部删除</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.unshift(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// &#x27;A&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>sort()</code><br>排序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.sort();</span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>reverse()</code><br>反转整个数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.reverse(); <span class="comment">// [&#x27;C&#x27;, &#x27;A&#x27;, &#x27;B&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>splice()</code><br>修改 <code>Array</code> 的万能方法；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;Microsoft&#x27;</span>, <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Yahoo&#x27;</span>, <span class="string">&#x27;AOL&#x27;</span>, <span class="string">&#x27;Excite&#x27;</span>, <span class="string">&#x27;Oracle&#x27;</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素，再添加两个元素；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回删除的元素[&#x27;Yahoo&#x27;, &#x27;AOL&#x27;, &#x27;Excite&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microcoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只删除，不添加；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// [&#x27;Google&#x27;, &#x27;Facebook&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只添加，不删除；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>concat()</code><br>连接两个 <code>Array</code> 并返回结果；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> added = arr.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">added; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, 1, 2, 3]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>值得注意的是</strong>， <code>concat()</code> 并不会修改调用它的 <code>Array</code> ，而是返回新的 <code>Array</code> 。<br><strong>而且</strong>， <code>concat()</code> 方法可以接受任意的元素和 <code>Arrary</code> ，并且自动拆开 <code>Array</code> 。</p>
+<p><code>join()</code><br>连接数组中的元素并且可以用指定的字符串连接起来；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>); <span class="comment">// &#x27;A--B-C-1-2-3&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>该方法会自动转换元素为字符串再拼接。</p>
+<p>多维数组<br>索引同其他编程语言。</p>
+<h2 id="1-5-对象"><a href="#1-5-对象" class="headerlink" title="1.5 对象"></a>1.5 对象</h2><p>就是键-值对<br>通过 <code>object.attribute</code> 访问，若键不是一个有效的变量名，而是字符串，那就只能用 <code>object[&#39;attribute&#39;]</code> 访问。<br>对于对象的增删改查；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.age; <span class="comment">// undefined</span></span><br><span class="line">xiaoming.age = <span class="number">18</span>; <span class="comment">// 新增一个age属性</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.age; <span class="comment">//删除age属性</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.school; <span class="comment">// 删除一个不存在的school属性也不会报错</span></span><br></pre></td></tr></table></figure>
+
+<p>用 <code>in</code> 操作符判断属性是否存在。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;toString&#x27;</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true,Object对象从Object继承来的toString</span></span><br></pre></td></tr></table></figure>
+
+<p>用 <code>hasOwnProperty()</code> 判断是否对象自己拥有的而不是继承来的；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;toString&#x27;</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-条件判断"><a href="#1-6-条件判断" class="headerlink" title="1.6 条件判断"></a>1.6 条件判断</h2><p>用 <code>if () &#123;...&#125; else if() &#123;...&#125; else &#123;...&#125;</code> 来进行条件判断。支持嵌套，同其它语言。</p>
+<h2 id="1-7-循环"><a href="#1-7-循环" class="headerlink" title="1.7 循环"></a>1.7 循环</h2><p><code>for (...;...;...)</code> 同其他语言。<br><code>for var key in iterable</code> 类似python。<strong>注意</strong>：对 <code>Array</code> 的迭代，只会迭代 <code>Array</code> 的索引。<br><code>while (...)</code> 同其他语言。<br><code>do &#123;...&#125; while(...)</code> 同其他语言。  </p>
+<h2 id="1-8-Map和Set"><a href="#1-8-Map和Set" class="headerlink" title="1.8 Map和Set"></a>1.8 Map和Set</h2><p>为解决对象的键只能是字符串的问题，JavaScript提供了Map对象。<br>Map的增删改查。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">&#x27;Michael&#x27;</span>, <span class="number">95</span>],</span><br><span class="line">    [<span class="string">&#x27;Bob&#x27;</span>, <span class="number">59</span>],</span><br><span class="line">    [<span class="string">&#x27;Tracy&#x27;</span>, <span class="number">85</span>]</span><br><span class="line">]);</span><br><span class="line">m.get(<span class="string">&#x27;Michael&#x27;</span>); <span class="comment">// 95</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">m.set(<span class="string">&#x27;Adam&#x27;</span>, <span class="number">67</span>);</span><br><span class="line">m.has(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">m.delete(<span class="string">&#x27;Adam&#x27;</span>);</span><br><span class="line">m.get(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>Set类似Map但是不存储value, Key值不重复。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">s1.add(<span class="number">4</span>);</span><br><span class="line">s1.delete(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意在 <code>Set</code> 中 <code>1</code> 和 <code>&#39;1&#39;</code> 是不同元素。<br>重复 <code>add()</code> 元素不会报错，但也没有效果。  </p>
+<h2 id="1-9-iterable"><a href="#1-9-iterable" class="headerlink" title="1.9 iterable"></a>1.9 iterable</h2><p><code>Array</code> 、 <code>Map</code> 和 <code>Set</code> 都输入 <code>iterable</code> 类型。<br><code>iterable</code> 可以用 <code>for...of</code> 来遍历。<br><code>for ... in</code> 循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个 <code>Array</code> 数组实际上也是一个对象，它的每个元素的索引被视为一个属性。<br><code>for ... of</code> 循环则完全修复了这些问题，它只循环集合本身的元素。<br>然而，更好的方式是直接使用 <code>iterable</code> 内置的 <code>forEach</code> 方法，它接收一个函数，每次迭代就自动回调该函数。  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -353,178 +1309,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Javascript——基础</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 02:38:34" itemprop="dateModified" datetime="2021-03-12T02:38:34+08:00">2021-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="JavaScript-快速入门"><a href="#JavaScript-快速入门" class="headerlink" title="JavaScript 快速入门"></a>JavaScript 快速入门</h2><h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><p>一句语句完成用 <code>;</code> 结尾；<br>块语句用 <code>&#123;...&#125;</code> 框选；<br>编译器可以直接使用Chrome浏览器；</p>
-<h3 id="1-2-数据类型"><a href="#1-2-数据类型" class="headerlink" title="1.2 数据类型"></a>1.2 数据类型</h3><h4 id="1-2-1-Number"><a href="#1-2-1-Number" class="headerlink" title="1.2.1 Number"></a>1.2.1 Number</h4><p>JavaScript 不区分整数和浮点数，统一表示为Number；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> <span class="comment">// 整数123</span></span><br><span class="line"><span class="number">0.456</span> <span class="comment">//浮点数0.456</span></span><br><span class="line"><span class="number">1.2345e3</span> <span class="comment">// 科学计数法表示浮点数</span></span><br><span class="line"><span class="literal">NaN</span> <span class="comment">// NaN表示Not a Number，当无法计算时用NaN表示（区分Python的NaN）</span></span><br><span class="line"><span class="literal">Infinity</span> <span class="comment">// Infinity表示无限大，当数值超界时用Infinity表示</span></span><br></pre></td></tr></table></figure>
-
-<p>数字运算符， <code>+</code> 、 <code>-</code> 、 <code>*</code> 、 <code>/</code> 、 <code>%</code> </p>
-<h4 id="1-2-2-字符串"><a href="#1-2-2-字符串" class="headerlink" title="1.2.2 字符串"></a>1.2.2 字符串</h4><p><code>&quot;abc&quot;</code> 、 <code>&#39;abc&#39;</code> 都是字符串的表示形式；</p>
-<h3 id="1-2-3-布尔值"><a href="#1-2-3-布尔值" class="headerlink" title="1.2.3 布尔值"></a>1.2.3 布尔值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    &amp;&amp; <span class="comment">// 与运算</span></span><br><span class="line">    || <span class="comment">// 或运算</span></span><br><span class="line">    ! <span class="comment">//非运算</span></span><br><span class="line"></span><br><span class="line">    <span class="number">2</span> &gt; <span class="number">5</span>; <span class="comment">// false</span></span><br><span class="line"><span class="number">5</span> &gt;= <span class="number">2</span>; <span class="comment">// true</span></span><br><span class="line"><span class="number">7</span> == <span class="number">7</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际上JavaScript允许任意数据类型做比较</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>; <span class="comment">// true，会自动转换数据类型再比较，有时候结果会很诡异</span></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span>; <span class="comment">// false，不会转换，数据类型不一致则会false</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2-4-缺失值"><a href="#1-2-4-缺失值" class="headerlink" title="1.2.4 缺失值"></a>1.2.4 缺失值</h4><h4 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a><code>NaN</code></h4><p>需要注意的是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span> <span class="comment">//false，NaN不等于任何对象包括它自己</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>) <span class="comment">//true，这是唯一判断NaN的方法</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">NaN</span>) <span class="comment">//Number，还是会返回Number</span></span><br></pre></td></tr></table></figure>
-
-<p>关于浮点数计算误差，这一点在每一门编程语言中都会出现，这是计算机内部对浮点数的表示造成的问题。</p>
-<h3 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a><code>null</code> 和 <code>undefined</code></h3><p><code>null</code> 表示空值， <code>undefined</code> 表示未定义；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>) <span class="comment">//object</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>通常 <code>undefined</code> 用于判断函数参数是否传递的情况下有用；</p>
-<h3 id="1-2-5-数组"><a href="#1-2-5-数组" class="headerlink" title="1.2.5 数组"></a>1.2.5 数组</h3><p>数组也是对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">14</span>, <span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>, <span class="literal">true</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意这里的元素数量是 3 但是数组内没有内容，都是undefined</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>] <span class="comment">//数组切片</span></span><br><span class="line">arr[<span class="number">1</span>]</span><br><span class="line">arr[<span class="number">3</span>] <span class="comment">// 索引超界返回undefined</span></span><br><span class="line">arr.pop() <span class="comment">// 尾部弹出</span></span><br><span class="line">arr.shift() <span class="comment">// 顶部流出</span></span><br><span class="line">arr.push(<span class="string">&quot;elem&quot;</span>) <span class="comment">// 尾部推入</span></span><br><span class="line">arr.unshift(<span class="string">&quot;elem&quot;</span>) <span class="comment">// 顶部推入</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>array.splice()</li>
-</ul>
-<p>用法： <code>arr.splice(index[, deleteCount, elem1, ..., elemN])</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;I&quot;</span>, <span class="string">&quot;study&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">// 从索引 1 开始删除 1 个元素</span></span><br><span class="line">alert(arr); <span class="comment">// [&quot;I&quot;, &quot;JavaScript&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>array.find()/array.findIndex()</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;I&quot;</span>, <span class="string">&quot;study&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>];</span><br><span class="line">arr.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> item == <span class="string">&quot;I&quot;</span>) <span class="comment">// 0</span></span><br><span class="line">arr.find(<span class="function"><span class="params">item</span> =&gt;</span> item == <span class="string">&quot;I&quot;</span>) <span class="comment">// &quot;I&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-6-对象"><a href="#1-2-6-对象" class="headerlink" title="1.2.6 对象"></a>1.2.6 对象</h3><p>键值对<br>JavaScript对象的键都是字符串，值可以为任意类型。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    tags: [<span class="string">&#x27;js&#x27;</span>, <span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;mobile&#x27;</span>],</span><br><span class="line">    city: <span class="string">&#x27;Beijing&#x27;</span>,</span><br><span class="line">    hasCar: <span class="literal">true</span>,</span><br><span class="line">    zipcode: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line">person.name; <span class="comment">// &#x27;Bob&#x27;</span></span><br><span class="line">person.zipcode; <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-7-变量"><a href="#1-2-7-变量" class="headerlink" title="1.2.7 变量"></a>1.2.7 变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a; <span class="comment">// 申明了变量a，此时a的值为undefined</span></span><br><span class="line"><span class="keyword">var</span> $b = <span class="number">1</span>; <span class="comment">// 申明了变量$b，同时赋值为1</span></span><br><span class="line"><span class="keyword">var</span> s_001 = <span class="string">&#x27;007&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> answer = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> t = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这种类型声明时无需指定类型的语言为动态语言，反之为静态语言；</p>
-<h3 id="1-2-8-strict-模式"><a href="#1-2-8-strict-模式" class="headerlink" title="1.2.8 strict 模式"></a>1.2.8 strict 模式</h3><p>该模式为修复早期JavaScript全局变量（无需 <code>var</code> 声明的变量）带来的种种问题而产生，在JavaScript代码的第一行中输入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>支持strict模式的浏览器便可以开启strict模式。这时如果声明变量不使用 <code>var</code> 便会报错。</p>
-<h2 id="1-3-字符串"><a href="#1-3-字符串" class="headerlink" title="1.3 字符串"></a>1.3 字符串</h2><h3 id="1-3-1-转义字符"><a href="#1-3-1-转义字符" class="headerlink" title="1.3.1 转义字符"></a>1.3.1 转义字符</h3><p>同其他语言。<br>ASCII字符表示 <code>\x##</code><br>Unicode字符 <code>\u####</code> </p>
-<h3 id="1-3-2-多行字符串"><a href="#1-3-2-多行字符串" class="headerlink" title="1.3.2 多行字符串"></a>1.3.2 多行字符串</h3><p>使用反引号</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`多行字符串</span></span><br><span class="line"><span class="string">多行字符串</span></span><br><span class="line"><span class="string">多行字符串`</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-3-模板字符串"><a href="#1-3-3-模板字符串" class="headerlink" title="1.3.3 模板字符串"></a>1.3.3 模板字符串</h3><p>用于连接字符串，注意用的是反引号</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明`;</span></span><br><span class="line"><span class="string">var age = 20;</span></span><br><span class="line"><span class="string">var message = `你好，$&#123;name&#125;，你今年$&#123;age&#125;岁了！` </span></span><br></pre></td></tr></table></figure>
-
-<p>另一种方式时 <code>+</code> ，同其他语言。</p>
-<h3 id="1-3-4-操作字符串"><a href="#1-3-4-操作字符串" class="headerlink" title="1.3.4 操作字符串"></a>1.3.4 操作字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;abcDEF&#x27;</span>;</span><br><span class="line">s.length; <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">s[<span class="number">0</span>] <span class="comment">// &#x27;a&#x27;</span></span><br><span class="line"></span><br><span class="line">s.toUpperCase() <span class="comment">// &#x27;ABCDEF&#x27;</span></span><br><span class="line"></span><br><span class="line">s.toLowerCase() <span class="comment">// &#x27;abcdef&#x27;</span></span><br><span class="line"></span><br><span class="line">s.indexOf(<span class="string">&#x27;a&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line">s.indexOf(<span class="string">&#x27;A&#x27;</span>) <span class="comment">// -1，找不到</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4-数组"><a href="#1-4-数组" class="headerlink" title="1.4 数组"></a>1.4 数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr.length = <span class="number">6</span>; <span class="comment">// 6</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 3, undefined, undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>; <span class="comment">// 2</span></span><br><span class="line">arr; <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>indexOf()</code> 同其他语言，找不到返回-1  </p>
-<p><code>slice()</code> 类似于索引</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// [2, 3]</span></span><br><span class="line">arr.silce(<span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>push()</code> 和 <code>pop()</code><br><code>push()</code> 添加， <code>pop()</code> 去除，类似于栈</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.push(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [1, 2, &#x27;A&#x27;, &#x27;B&#x27;]</span></span><br><span class="line">arr.pop() <span class="comment">// &#x27;B&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>unshift()</code> 和 <code>shift()</code><br><code>unshift()</code> 头部添加， <code>shift()</code> 尾部删除</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.unshift(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// &#x27;A&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>sort()</code><br>排序。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.sort();</span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>reverse()</code><br>反转整个数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.reverse(); <span class="comment">// [&#x27;C&#x27;, &#x27;A&#x27;, &#x27;B&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>splice()</code><br>修改 <code>Array</code> 的万能方法；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;Microsoft&#x27;</span>, <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Yahoo&#x27;</span>, <span class="string">&#x27;AOL&#x27;</span>, <span class="string">&#x27;Excite&#x27;</span>, <span class="string">&#x27;Oracle&#x27;</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素，再添加两个元素；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回删除的元素[&#x27;Yahoo&#x27;, &#x27;AOL&#x27;, &#x27;Excite&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microcoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只删除，不添加；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// [&#x27;Google&#x27;, &#x27;Facebook&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只添加，不删除；</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>);</span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>concat()</code><br>连接两个 <code>Array</code> 并返回结果；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> added = arr.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">added; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, 1, 2, 3]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>值得注意的是</strong>， <code>concat()</code> 并不会修改调用它的 <code>Array</code> ，而是返回新的 <code>Array</code> 。<br><strong>而且</strong>， <code>concat()</code> 方法可以接受任意的元素和 <code>Arrary</code> ，并且自动拆开 <code>Array</code> 。</p>
-<p><code>join()</code><br>连接数组中的元素并且可以用指定的字符串连接起来；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>); <span class="comment">// &#x27;A--B-C-1-2-3&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>该方法会自动转换元素为字符串再拼接。</p>
-<p>多维数组<br>索引同其他编程语言。</p>
-<h2 id="1-5-对象"><a href="#1-5-对象" class="headerlink" title="1.5 对象"></a>1.5 对象</h2><p>就是键-值对<br>通过 <code>object.attribute</code> 访问，若键不是一个有效的变量名，而是字符串，那就只能用 <code>object[&#39;attribute&#39;]</code> 访问。<br>对于对象的增删改查；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.age; <span class="comment">// undefined</span></span><br><span class="line">xiaoming.age = <span class="number">18</span>; <span class="comment">// 新增一个age属性</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.age; <span class="comment">//删除age属性</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.school; <span class="comment">// 删除一个不存在的school属性也不会报错</span></span><br></pre></td></tr></table></figure>
-
-<p>用 <code>in</code> 操作符判断属性是否存在。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;toString&#x27;</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true,Object对象从Object继承来的toString</span></span><br></pre></td></tr></table></figure>
-
-<p>用 <code>hasOwnProperty()</code> 判断是否对象自己拥有的而不是继承来的；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;toString&#x27;</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-6-条件判断"><a href="#1-6-条件判断" class="headerlink" title="1.6 条件判断"></a>1.6 条件判断</h2><p>用 <code>if () &#123;...&#125; else if() &#123;...&#125; else &#123;...&#125;</code> 来进行条件判断。支持嵌套，同其它语言。</p>
-<h2 id="1-7-循环"><a href="#1-7-循环" class="headerlink" title="1.7 循环"></a>1.7 循环</h2><p><code>for (...;...;...)</code> 同其他语言。<br><code>for var key in iterable</code> 类似python。<strong>注意</strong>：对 <code>Array</code> 的迭代，只会迭代 <code>Array</code> 的索引。<br><code>while (...)</code> 同其他语言。<br><code>do &#123;...&#125; while(...)</code> 同其他语言。  </p>
-<h2 id="1-8-Map和Set"><a href="#1-8-Map和Set" class="headerlink" title="1.8 Map和Set"></a>1.8 Map和Set</h2><p>为解决对象的键只能是字符串的问题，JavaScript提供了Map对象。<br>Map的增删改查。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">&#x27;Michael&#x27;</span>, <span class="number">95</span>],</span><br><span class="line">    [<span class="string">&#x27;Bob&#x27;</span>, <span class="number">59</span>],</span><br><span class="line">    [<span class="string">&#x27;Tracy&#x27;</span>, <span class="number">85</span>]</span><br><span class="line">]);</span><br><span class="line">m.get(<span class="string">&#x27;Michael&#x27;</span>); <span class="comment">// 95</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">m.set(<span class="string">&#x27;Adam&#x27;</span>, <span class="number">67</span>);</span><br><span class="line">m.has(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">m.delete(<span class="string">&#x27;Adam&#x27;</span>);</span><br><span class="line">m.get(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>Set类似Map但是不存储value, Key值不重复。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">s1.add(<span class="number">4</span>);</span><br><span class="line">s1.delete(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意在 <code>Set</code> 中 <code>1</code> 和 <code>&#39;1&#39;</code> 是不同元素。<br>重复 <code>add()</code> 元素不会报错，但也没有效果。  </p>
-<h2 id="1-9-iterable"><a href="#1-9-iterable" class="headerlink" title="1.9 iterable"></a>1.9 iterable</h2><p><code>Array</code> 、 <code>Map</code> 和 <code>Set</code> 都输入 <code>iterable</code> 类型。<br><code>iterable</code> 可以用 <code>for...of</code> 来遍历。<br><code>for ... in</code> 循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个 <code>Array</code> 数组实际上也是一个对象，它的每个元素的索引被视为一个属性。<br><code>for ... of</code> 循环则完全修复了这些问题，它只循环集合本身的元素。<br>然而，更好的方式是直接使用 <code>iterable</code> 内置的 <code>forEach</code> 方法，它接收一个函数，每次迭代就自动回调该函数。  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/javascript%E2%80%94%E2%80%94%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -603,7 +1387,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/jupyter-notebook%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/jupyter-notebook%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -617,7 +1401,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/jupyter-notebook%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Jupyter Notebook的使用</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/jupyter-notebook%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Jupyter Notebook的使用</a>
         </h1>
 
         <div class="post-meta">
@@ -634,7 +1418,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:01:58" itemprop="dateModified" datetime="2021-03-10T00:01:58+08:00">2021-03-10</time>
+                <time title="Modified: 2021-03-13 04:35:10" itemprop="dateModified" datetime="2021-03-13T04:35:10+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -643,6 +1427,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -700,7 +1488,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/numpy%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/numpy%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -714,7 +1502,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/numpy%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">numpy的使用</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/numpy%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">numpy的使用</a>
         </h1>
 
         <div class="post-meta">
@@ -731,7 +1519,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-07 21:00:47" itemprop="dateModified" datetime="2021-03-07T21:00:47+08:00">2021-03-07</time>
+                <time title="Modified: 2021-03-13 04:34:58" itemprop="dateModified" datetime="2021-03-13T04:34:58+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -743,7 +1531,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -777,7 +1565,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E5%AD%A6%E4%B9%A0-xlwt-xlrd/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E5%AD%A6%E4%B9%A0-xlwt-xlrd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -791,7 +1579,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E5%AD%A6%E4%B9%A0-xlwt-xlrd/" class="post-title-link" itemprop="url">Python学习-xlwt/xlrd</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E5%AD%A6%E4%B9%A0-xlwt-xlrd/" class="post-title-link" itemprop="url">Python学习-xlwt/xlrd</a>
         </h1>
 
         <div class="post-meta">
@@ -808,7 +1596,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:03:41" itemprop="dateModified" datetime="2021-03-10T00:03:41+08:00">2021-03-10</time>
+                <time title="Modified: 2021-03-13 04:36:23" itemprop="dateModified" datetime="2021-03-13T04:36:23+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -820,7 +1608,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -1070,357 +1858,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">python打包方式</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:02:06" itemprop="dateModified" datetime="2021-03-10T00:02:06+08:00">2021-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="python打包方式"><a href="#python打包方式" class="headerlink" title="python打包方式"></a>python打包方式</h2><h3 id="通过-pyInstaller"><a href="#通过-pyInstaller" class="headerlink" title="通过 pyInstaller"></a>通过 pyInstaller</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">单文件模式</span></span><br><span class="line">pyinstaller -F myscript.py</span><br><span class="line"><span class="meta">#</span><span class="bash">包含动态库的模式</span></span><br><span class="line">pyinstaller myscript.py</span><br><span class="line"><span class="meta">#</span><span class="bash">使用.spec文件进行高级打包操作</span></span><br><span class="line">pyi-makespec optionsscript [scirpt...] #创建.spec文件</span><br><span class="line"><span class="meta">#</span><span class="bash">在.spec文件内编辑</span></span><br><span class="line">pyinstaller specfile</span><br><span class="line">pyi-build specfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python-%E8%BF%9E%E6%8E%A5mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python-%E8%BF%9E%E6%8E%A5mysql/" class="post-title-link" itemprop="url">python 连接mysql</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-07 20:52:57" itemprop="dateModified" datetime="2021-03-07T20:52:57+08:00">2021-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python-%E8%BF%9E%E6%8E%A5mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python-%E8%BF%9E%E6%8E%A5mysql/" class="post-title-link" itemprop="url">python 连接mysql</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:05:03" itemprop="dateModified" datetime="2021-03-10T00:05:03+08:00">2021-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="python-连接mysql"><a href="#python-连接mysql" class="headerlink" title="python 连接mysql"></a>python 连接mysql</h2><ol>
-<li>PyMySQL</li>
-<li>pyodbc</li>
-</ol>
-<h3 id="pyodbc"><a href="#pyodbc" class="headerlink" title="pyodbc"></a>pyodbc</h3><p>连接mysql</p>
-<ol>
-<li>下载odbc-MySQL驱动安装包</li>
-<li>安装驱动并在电脑的管理工具处配置数据源</li>
-<li>经测试数据源可用后即可点击确定</li>
-</ol>
-<p>各个系统以及数据库的连接模板代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyodbc</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例: Windows系统, 非DSN方式, 使用微软 SQL Server 数据库驱动</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DRIVER=&#123;SQL Server&#125;;SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例: Linux系统, 非DSN方式, 使用FreeTDS驱动</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DRIVER=&#123;FreeTDS&#125;;SERVER=localhost;PORT=1433;DATABASE=testdb;UID=me;PWD=pass;TDS_Version=7.0&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接示例:使用DSN方式</span></span><br><span class="line"></span><br><span class="line">cnxn = pyodbc.connect(<span class="string">&#x27;DSN=test;PWD=password&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开游标</span></span><br><span class="line"></span><br><span class="line">cursor = cnxn.cursor()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%B8%80%E8%AE%B2-%E5%AF%BC%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%B8%80%E8%AE%B2-%E5%AF%BC%E8%AE%BA/" class="post-title-link" itemprop="url">第一讲 导论</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-09 22:54:34" itemprop="dateModified" datetime="2021-03-09T22:54:34+08:00">2021-03-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%8D%9A%E5%BC%88%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">博弈论</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="第一讲-导论"><a href="#第一讲-导论" class="headerlink" title="第一讲 导论"></a>第一讲 导论</h2><h3 id="经典案例评析"><a href="#经典案例评析" class="headerlink" title="经典案例评析"></a>经典案例评析</h3><ol>
-<li><p>囚徒困境：<br>最优情况是双方都保持沉默，但纳什均衡会导向双方都坦白的最差情况。</p>
-</li>
-<li><p>性别战：<br>这时有两个纳什均衡解的情况，男女约会需要选择约会项目，两方喜欢的东西不同，纳什均衡解是双方都选择相同的项目，即两个解。</p>
-</li>
-<li><p>斗鸡博弈：<br>两个人对打，都前进则会导致双方受损，一方前进一方后退会导致一赢一输，双方后退会导致双方所得为零，该情况与囚徒困境很像，但是结果却是一方前进一方后退两种情况。</p>
-</li>
-<li><p>智猪博弈：<br>有一大一小两头猪，而且他们要得到猪食至少要某一方去按下按钮，按下按钮会导致那一方失去一部分猪食。他们获取猪食的能力也不一致。最后的均衡解为大猪按下按钮，小猪等待。</p>
-</li>
-<li><p>猜谜游戏：<br>两个人伸手，两个人伸手情况一致则A赢，两个人伸手情况不一致则B赢。该情况没有纯策略均衡，但是有混合策略均衡。</p>
-</li>
-</ol>
-<h3 id="合作博弈和非合作博弈"><a href="#合作博弈和非合作博弈" class="headerlink" title="合作博弈和非合作博弈"></a>合作博弈和非合作博弈</h3><ul>
-<li>合作(Cooperative)博弈：也称正和博弈，参与人中至少有一个人利益增加。同时其他人的利益不受损，重点是研究如何分配合作所得收益。</li>
-<li>非合作(Non-cooperative)博弈：包括零和博弈和负和博弈，研究人们在相互影响的局势中如何选择决策使自己的收益最大化。</li>
-<li>两者区别：能否达成具有约束力的协议，经济学中大多数是非合作博弈。</li>
-</ul>
-<h3 id="非合作博弈的分类"><a href="#非合作博弈的分类" class="headerlink" title="非合作博弈的分类"></a>非合作博弈的分类</h3><ul>
-<li>静态(Static)博弈和动态(Dynamic)博弈<ul>
-<li>静态博弈：指在博弈中，参与人同时选择行动，或是行动者不知道先行者采取什么具体行动。</li>
-<li>动态博弈：指在博弈中，参与人的顺序有先后顺序。</li>
-</ul>
-</li>
-<li>完全信息(Complete)博弈和不完全信息(Incomplete)博弈<ul>
-<li>完全信息博弈：每个参与人对其他参与人的特征、策略及收益等有准确的信息。</li>
-<li>不完全信息博弈：指参与人对其他人的特征、策略及收益等信息了解的不够准确（不确定性）。</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/doge-liang-notebook/page/12/">12</a><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/doge-liang-notebook/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/14/">14</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1486,14 +1928,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/doge-liang-notebook/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

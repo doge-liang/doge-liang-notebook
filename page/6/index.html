@@ -204,6 +204,495 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E8%A1%8C%E5%88%97%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E8%A1%8C%E5%88%97%E5%BC%8F/" class="post-title-link" itemprop="url">行列式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-16T00:00:00+08:00">2020-08-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-07 20:49:01" itemprop="dateModified" datetime="2021-03-07T20:49:01+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><p>利用预先定义的计算规则，根据方阵计算出来的值。有点像列竖式计算的竖式，本质上是一个数值。</p>
+<p>二阶行列式计算：<br>$$<br>\begin{vmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{vmatrix} = ad - bc<br>$$</p>
+<p>三阶行列式的计算：<br>$$<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; a_{13} \<br>a_{21} &amp; a_{22} &amp; a_{23} \<br>a_{31} &amp; a_{32} &amp; a_{33}<br>\end{vmatrix} = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{21}a_{32}a_{13} - a_{12}a_{21}a_{33} - a_{23}a_{32}a_{11} - a_{13}a_{22}a_{31}<br>$$</p>
+<p>预先定义的计算规则为：所有不同行不同列的元素的乘积的代数和。每一项乘积的符号由逆序数 $\tau(j_1 j_2 \dots j_n)$ 决定。</p>
+<p>$n$ 阶行列式计算：<br>$$<br>D =<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}<br>\end{vmatrix} = \sum_{j_1 j_2 \dots j_n} (-1)^{\tau(j_1 j_2 \dots j_n)} a_{1j_1} a_{2j_2} a_{3j_3} \cdots a_{nj_n}<br>$$</p>
+<h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><ol>
+<li>$D^{T} = D$（说明行列式的行和列是等价的，交换并不影响值。）</li>
+<li>如果 $D$ 中有一行全都是 $0$ ，那么 $D = 0$（由行列式的计算规则即可得到）</li>
+</ol>
+<p>行列变换法则：</p>
+<h4 id="性质1-交换两行（列），符号改变"><a href="#性质1-交换两行（列），符号改变" class="headerlink" title="性质1 交换两行（列），符号改变"></a>性质1 交换两行（列），符号改变</h4><p>$$<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nj} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} = -<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nj} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix}<br>$$</p>
+<h5 id="推论1-行列式两行（列）相等，值为0"><a href="#推论1-行列式两行（列）相等，值为0" class="headerlink" title="推论1 行列式两行（列）相等，值为0"></a>推论1 行列式两行（列）相等，值为0</h5><p>$$<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} = 0<br>$$</p>
+<blockquote>
+<p><strong>证明</strong>：<br>交换相等的两行，符号改变，但是行列式还是原来的行列式，所以为0。</p>
+</blockquote>
+<h4 id="性质2-行列式等于将某一行拆成两个行列式相加"><a href="#性质2-行列式等于将某一行拆成两个行列式相加" class="headerlink" title="性质2 行列式等于将某一行拆成两个行列式相加"></a>性质2 行列式等于将某一行拆成两个行列式相加</h4><p>$$<br>\begin{aligned}<br>&amp; \begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; b_{1i} + a_{1j} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; b_{2i} + a_{2j} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; b_{ni} + a_{nj} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} \<br>&amp; = \begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; b_{1i} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; b_{2i} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; b_{ni} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} +<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nj} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix}<br>\end{aligned}<br>$$</p>
+<h5 id="推论-1-两行（列）相加，值不变"><a href="#推论-1-两行（列）相加，值不变" class="headerlink" title="推论 1 两行（列）相加，值不变"></a>推论 1 两行（列）相加，值不变</h5><p>$$<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nj} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} =<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; a_{1j} + a_{1i} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; a_{2j} + a_{2i} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; a_{nj} + a_{ni} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix}<br>$$</p>
+<blockquote>
+<p><strong>证明</strong>：<br>将后一个行列式拆成两个行列式的和，然后因为后一个行列式的两列式相等的，由性质1得到等于0.</p>
+</blockquote>
+<h4 id="性质3-行列式乘一个数，等于行列式某一行（列）乘一个数"><a href="#性质3-行列式乘一个数，等于行列式某一行（列）乘一个数" class="headerlink" title="性质3 行列式乘一个数，等于行列式某一行（列）乘一个数"></a>性质3 行列式乘一个数，等于行列式某一行（列）乘一个数</h4><p>$$<br>k<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1i} &amp; \cdots &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2i} &amp; \cdots &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots &amp;        &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{ni} &amp; \cdots &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix} =<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; ka_{1i} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; ka_{2i} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots  &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; ka_{ni} &amp; \cdots &amp; a_{nn} \<br>\end{vmatrix}<br>$$</p>
+<p>活用以上三条性质及其推论可以得到更好用的性质。</p>
+<p>我们引入以下记号表达相应的含义：</p>
+<ol>
+<li>$r_{i} \div k$（或 $c_{i} \div k$）：从第 $i$ 行（列）中提取公因子 $k$.</li>
+<li>$r_{i} + kr_{j}$（或 $c_{i} + kr_{j}$）：将第 $j$ 行（列）的 $k$ 倍加到第 $i$ 行（列）上.</li>
+<li>$r_{i} \lrarr r_{j}$（或 $c_{i} \lrarr c_{j}$）：将第 $i$ 行（列）和第 $j$ 列互换。</li>
+</ol>
+<h3 id="按行（列）展开"><a href="#按行（列）展开" class="headerlink" title="按行（列）展开"></a>按行（列）展开</h3><p>为了方便表示，我们定义一些概念：</p>
+<ul>
+<li>余子式 $M_{ij}$ 是去掉了第 $i$ 行 $j$ 列后的行列式；</li>
+</ul>
+<p>$$<br>M_{ij} =<br>\begin{vmatrix}<br>a_{11}     &amp; \cdots &amp; a_{1, j-1}   &amp; a_{1, j+1}   &amp; \cdots &amp; a_{1n}     \<br>a_{21}     &amp; \cdots &amp; a_{2, j-1}   &amp; a_{1, j+1}   &amp; \cdots &amp; a_{2n}     \<br>\vdots     &amp;        &amp; \vdots       &amp; \vdots       &amp;        &amp; \vdots     \<br>a_{i-1, 1} &amp; \cdots &amp; a_{i-1, j-1} &amp; a_{i-1, j+1} &amp; \cdots &amp; a_{i_1, n} \<br>a_{i-1, 1} &amp; \cdots &amp; a_{i-1, j-1} &amp; a_{i-1, j+1} &amp; \cdots &amp; a_{i_1, n} \<br>\vdots     &amp;        &amp; \vdots       &amp; \vdots       &amp;        &amp; \vdots     \<br>a_{n1}     &amp; \cdots &amp; a_{nj-1}     &amp; a_{n, j+1}   &amp; \cdots &amp; a_{nn}     \<br>\end{vmatrix}<br>$$</p>
+<ul>
+<li>代数余子式 $A_{ij}$ 是在余子式的基础上乘以符号项 $(-1)^{i+j}$ 的行列式。</li>
+</ul>
+<p>于是我们有<strong>按行展开</strong>：$D = \sum_{j = 1}^{n} a_{ij}A_{ij}$ ，其中 $i$ 为任意一行，该式表示 $D$ 按 $i$ 行展开。</p>
+<blockquote>
+<p><strong>关于符号项的确定</strong><br><del>首先对于有 $a_{11}$ 参与计算的符号位是 $(-1)^{\tau(j_1 j_2 \dots j_n)} = (-1)^{\tau(1 j_2 \dots j_n)}$ 这是显然的，然后是对于 $a_{ij}$ 参与计算的符号位，我们可以通过依次与以上各行（列）逐行进行行列变换将 $a_{ij}$ 转移到 $a_{11}$ 的位置，经过 $i-1$ 次行变换和 $j-1$ 次列变换，即乘以 $(-1)^{(i-1) + (j-1)} = (-1)^{i + j}$，使得 $a_{ij}$ 项的展开式符号位变成 $(-1)^{i+j} \times (-1)^{\tau(1 j_2 \dots j_n)}$ 。（依次进行变换是为了保证余子式的行列顺序不会损坏）</del> <strong>暂时没有想到合适的说法</strong></p>
+</blockquote>
+<h4 id="克拉默法则"><a href="#克拉默法则" class="headerlink" title="克拉默法则"></a>克拉默法则</h4><p>将行列式和方程组联系起来的法则。<br>已知一个由 $n$ 个 $n$ 元方程组成的方程组：<br>$$<br>\begin{cases}<br>a_{11}x_{11} + a_{12}x_{12} + \cdots + a_{1n}x_{1n} = b_1, \<br>a_{21}x_{21} + a_{22}x_{22} + \cdots + a_{2n}x_{2n} = b_2, \<br>\dots \<br>a_{n1}x_{n1} + a_{n2}x_{n2} + \cdots + a_{nn}x_{nn} = b_n. \<br>\end{cases}<br>$$<br>令<br>$$<br>D =<br>\begin{vmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \<br>\vdots &amp; \vdots &amp;        &amp; \vdots \<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}<br>\end{vmatrix}<br>$$<br>为系数行列式，若 $D \neq 0$ 则方程有唯一解<br>$$<br>x_1 = \frac{D_1}{D}, x_2 = \frac{D_2}{D}, \cdots , x_n = \frac{D_n}{D}<br>$$<br>其中 $D_i$ 是使用 $b_1, b_2, b_3, \cdots, b_n$ 代替 $D$ 的第 $i$ 列得到的行列式。</p>
+<h4 id="拉普拉斯展开"><a href="#拉普拉斯展开" class="headerlink" title="拉普拉斯展开"></a>拉普拉斯展开</h4><p>可以理解为按块展开，在后来的<strong>矩阵分块</strong>中有重要应用。<br>先定义一些概念：</p>
+<ul>
+<li>$k$ 阶子式</li>
+<li>余子式</li>
+<li>代数余子式</li>
+</ul>
+<p>选定 $k$ 行 $k$ 列交叉的元素组成一个有 $k^2$ 个元素的方阵 $M$ ，该方阵我们称为 $D$ 的 <strong>$k$ 阶子式</strong>。余下的元素称为 $M$ 的<strong>余子式 $N$<strong>。 $A_{ij} = (-1)^{i_1 + i_2 + \dots + i_k + j_1 + j_2 + \dots + j_n}N_{ij}$ 称为 $M$ 的</strong>代数余子式</strong>。<br>再来介绍拉普拉斯展开：<br>选定行列式 $D$ 的 $k$ 行（列）的所有子式，共 $t = C_{n}^{k}$ 个，记为 $M_1, M_2, \cdots, M_t$ 其代数余子式记为 $A_1, A_2, \cdots, A_t$，有<br>$$D = M_1A_1 + M_2A_2 + \cdots + M_tA_t$$<br>该定理一般不用来计算行列式，但在某些大块为 $0$ 的行列式中可以用来计算。例如：</p>
+<p>$$<br>\begin{vmatrix}<br>    \bm{A} &amp; \bm{O} \<br>    \bm{<em>} &amp; \bm{B}<br>\end{vmatrix} =<br>\begin{vmatrix}<br>    \bm{A} &amp; \bm{</em>} \<br>    \bm{O} &amp; \bm{B}<br>\end{vmatrix} =<br>\vert \bm{A} \vert \cdot \vert \bm{B} \vert<br>$$</p>
+<p>$$<br>\begin{vmatrix}<br>    \bm{<em>} &amp; \bm{B} \<br>    \bm{A} &amp; \bm{O}<br>\end{vmatrix} =<br>\begin{vmatrix}<br>    \bm{O} &amp; \bm{B} \<br>    \bm{A} &amp; \bm{</em>}<br>\end{vmatrix} =<br>(-1)^{nm} \vert \bm{A} \vert \cdot \vert \bm{B} \vert<br>$$</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/aes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/aes/" class="post-title-link" itemprop="url">AES</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-13T00:00:00+08:00">2020-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-10 01:25:33" itemprop="dateModified" datetime="2021-03-10T01:25:33+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><h3 id="AES-总体结构"><a href="#AES-总体结构" class="headerlink" title="AES 总体结构"></a>AES 总体结构</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/AES/155993c2259b5c07d78764a339dc148daeca7447128a0161ec18dca428a329c3.png" alt="picture 14">  </p>
+<ul>
+<li>明文分组长度：16字节（128位）</li>
+<li>密钥长度：16字节，24字节或32字节（128位，192位，256位）</li>
+<li>迭代轮数：10轮，12轮，14轮（不同轮数对应不同的密钥长度）</li>
+</ul>
+<h3 id="AES-的数据结构"><a href="#AES-的数据结构" class="headerlink" title="AES 的数据结构"></a>AES 的数据结构</h3><p>明文和密钥排列：按照字节组成字节矩阵，每个字节块按列排序。</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/AES/425858b21c943aff18aeda1d1e01a5e7f29b81926af58a0fa334d30b52dde476.png" alt="picture 15">  </p>
+<p>图中展示了128位的密钥矩阵和扩展密钥，<strong>128位</strong>（16字节）的密钥被扩展成<strong>44字</strong>长的密钥序列。一个字等于四个字节。</p>
+<h3 id="以-AES-128-为例"><a href="#以-AES-128-为例" class="headerlink" title="以 AES-128 为例"></a>以 AES-128 为例</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/AES/a644779112a19db423be0bb849359af39635058e7c000ef4aaf60213b20a00ec.png" alt="picture 16">  </p>
+<p>步骤描述：</p>
+<ol>
+<li><p>该结构显然不是Feistel结构；</p>
+</li>
+<li><p><strong>密钥扩展</strong>：输入的密钥被扩展成44个32位的字组成的数组 $w[i]$ 。有4个不同的字（128位）作为该轮的轮密钥；</p>
+</li>
+<li><p><strong>初始变换</strong>：开始第一轮之前先进行一轮轮密相加；</p>
+</li>
+<li><p><strong>轮函数</strong>：每轮（除了<strong>最后一轮没有列混淆</strong>）都由四个阶段组成：</p>
+<ul>
+<li>字节代换（代替）：使用S盒完成分组中的按字节代替。</li>
+<li>行移位（置换）：简单的一行代替另一方。</li>
+<li>列混淆（代替）：对列的每个字节做替换，是一个与本列全部字节相关的函数。</li>
+<li>轮密钥加（代替）：利用当前分组和扩展密钥的一部分进行按位XOR（异或）</li>
+</ul>
+</li>
+<li><p>加/解密<strong>流程一样</strong>（实质使用的函数不同），都是经过9轮四阶段迭代运算，然后经过一个三阶段第10轮的运算。</p>
+</li>
+</ol>
+<p>下面是完整的<strong>轮函数</strong>的结构：</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/AES/8cd7144c29300b8396e0457a0dec617fa03c0e4cf3f9f56c7b90b17ab64ff037.png" alt="picture 17">  </p>
+<ol>
+<li>算法的两端必须由轮密钥加担当，否则就有可能在不知道密钥的情况下就能够执行逆操作，故不能增加算法的安全性。</li>
+<li>就轮密钥加本身来说是容易破译的，但是其他三个阶段提供位混乱的功能，经过多轮迭代，就显得很安全。</li>
+<li>每个阶段均可逆。三个位混乱阶段都是可逆的。而轮密钥加操作的可逆性原理在于：$A \oplus A \oplus B = B$</li>
+<li>解密算法并非完全和加密算法对称，密钥的使用顺序也是逆序的，这是由于加密算法的结构决定的。</li>
+<li>加/解密第10轮只有三阶段（字节代换、行移位、轮密钥加）。</li>
+</ol>
+<h4 id="AES-的变换函数"><a href="#AES-的变换函数" class="headerlink" title="AES 的变换函数"></a>AES 的变换函数</h4><p>下面开始讨论 AES 单轮加密/解密过程中使用的函数基本原理。</p>
+<h5 id="字节代换"><a href="#字节代换" class="headerlink" title="字节代换"></a>字节代换</h5><h5 id="行移位"><a href="#行移位" class="headerlink" title="行移位"></a>行移位</h5><h5 id="列混淆"><a href="#列混淆" class="headerlink" title="列混淆"></a>列混淆</h5><h5 id="轮密钥加"><a href="#轮密钥加" class="headerlink" title="轮密钥加"></a>轮密钥加</h5><h4 id="密钥扩展"><a href="#密钥扩展" class="headerlink" title="密钥扩展"></a>密钥扩展</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">古典加密算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-13T00:00:00+08:00">2020-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 16:27:45" itemprop="dateModified" datetime="2021-03-12T16:27:45+08:00">2021-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="古典加密算法"><a href="#古典加密算法" class="headerlink" title="古典加密算法"></a>古典加密算法</h2><h2 id="两种基本技术"><a href="#两种基本技术" class="headerlink" title="两种基本技术"></a>两种基本技术</h2><ul>
+<li>代替：将明文的字母替换成其他的数字、字母、符号；</li>
+<li>置换：将信息的顺序按照某种规则打乱；</li>
+</ul>
+<h3 id="代替技术"><a href="#代替技术" class="headerlink" title="代替技术"></a>代替技术</h3><h4 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h4><p>将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。<br>例如：</p>
+<ul>
+<li>明文：Nice to meet your</li>
+<li>密文：QLFH WR PHHW BRXU</li>
+</ul>
+<p>加密算法可以如此表达：<br>$$<br>C = E(3, p) = (p + 3) \mod 26<br>$$<br>移位可以是任意大小，所以恺撒密码的一般表达为：<br>$$<br>C = E(k, p) = (p + 3) \mod 26<br>$$</p>
+<p>解密算法为：<br>$$<br>p = D(k, C) = (C - 3) \mod 26<br>$$</p>
+<p>因为恺撒密码的以下性质，使得其很容易通过穷举破解：</p>
+<ol>
+<li>加解密算法已知</li>
+<li>密钥短，容易穷举</li>
+<li>语言已知，意义容易识别</li>
+</ol>
+<h4 id="单表代替密码"><a href="#单表代替密码" class="headerlink" title="单表代替密码"></a>单表代替密码</h4><p>在恺撒密码的基础上，运用置换技术将密文打乱，使得实际上每个字母的移位 $k$ 不同，密钥空间极具上升。</p>
+<ul>
+<li><strong>置换</strong>：对于集合 $S = {a, b, c}$ 他的所有元素的一个有序排列称为一个置换，所以集合 $S$ 有6个置换：$abc, acb, bac, bca, cab, cba$</li>
+</ul>
+<p>破解：由于单表代替带有原始字母的统计频率特征，所以可以通过统计字母的相对频率和英文文章中普遍出现的频率进行比较对比，发现其中的规律，可以部分破解密码，由于使用的语言是英语，所以可以依靠猜测将密码破解出来。</p>
+<p>通过使用“同音字”的方法（一个字母对应多个字母进行替换），每次代替的时候，循环或随机使用“同音字”代替就好了。这种方法虽然将密文中单个元素的对应关系隐藏起来了，但是<strong>多字母语法模式还是残留在密文</strong>中，为密码分析提供了一种思路。<br>解决明文结构残留在密文中的主要方法：</p>
+<ul>
+<li>对多个字母进行加密；</li>
+<li>使用多表代替密码</li>
+</ul>
+<h4 id="Playfair密码"><a href="#Playfair密码" class="headerlink" title="Playfair密码"></a>Playfair密码</h4><p>Playfair密码是最著名的多表替代密码。</p>
+<p>加密过程：</p>
+<ol>
+<li>确定密钥词</li>
+<li>排出编码表</li>
+<li>对明文的重复字母对进行去重处理</li>
+<li>根据编码表将明文转换为密文</li>
+</ol>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>选定密钥词 monarchy 。<br>得到编码表：</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8">  </p>
+<p><strong>编码表编制规则</strong>：将密钥词按顺序排在 $5 \times 5$ 的矩阵中，剩下的字母按照字母表顺序排列，I/L代表同一个字母；</p>
+<p>处理明文的重复字母对，在重复字母对中插入别的字母（具体插入什么自己定），例如：balloon 转换成 ba lx lo on。</p>
+<p><strong>明文字母对处理逻辑</strong>：</p>
+<ol>
+<li>落在矩阵同一行的字母对，使用向右移动一位的字母进行代替，如果到最后一个字母，循环到该行的开头取。例如：字母对 bd 用 DC 代替。</li>
+<li>落在矩阵同一列的字母对，使用向下移动一位的字母进行替代，如果到最后一个字母，循环到该列的开头取。例如：字母 pv 用 VO 代替。</li>
+<li>其余的字母对，按照行列交点进行代替。例如：hs 利用 bp 进行代替，cp 利用 HL 进行代替。</li>
+</ol>
+<p>尽管Playfair密码看起来是安全的，但是仍然能够通过分析密码频率进行密码破译。</p>
+<p>字母频率出现表：</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9">  </p>
+<p>曲线越平坦，代表加密效果越好，理想化的结果是完全平坦的曲线，这样代表明文中所有字母的频率都被隐藏起来了，所有字母的出现概率相等，唯密文攻击无法判断区分每个字母。</p>
+<h5 id="Hill-密码"><a href="#Hill-密码" class="headerlink" title="Hill 密码"></a>Hill 密码</h5><h4 id="多表代替加密"><a href="#多表代替加密" class="headerlink" title="多表代替加密"></a>多表代替加密</h4><h5 id="Vigenere-密码"><a href="#Vigenere-密码" class="headerlink" title="Vigenere 密码"></a>Vigenere 密码</h5><h5 id="Vernam-密码"><a href="#Vernam-密码" class="headerlink" title="Vernam 密码"></a>Vernam 密码</h5><h4 id="一次一密"><a href="#一次一密" class="headerlink" title="一次一密"></a>一次一密</h4><h3 id="置换技术"><a href="#置换技术" class="headerlink" title="置换技术"></a>置换技术</h3><p>按照某种规则打乱明文，不加入新的信息；</p>
+<h4 id="一个简单的例子：栅栏技术"><a href="#一个简单的例子：栅栏技术" class="headerlink" title="一个简单的例子：栅栏技术"></a>一个简单的例子：栅栏技术</h4><p>按照对角线的顺序写出明文，在按行写出密文；<br><strong>例</strong>：<br>明文：“meet me after the toga party”<br>深度为2的加密：</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10">  </p>
+<p>然后按行写出得到密文：<br>MEMATRHTGPRYETEFETEOAAT</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">分组加密算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-13T00:00:00+08:00">2020-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 16:27:37" itemprop="dateModified" datetime="2021-03-12T16:27:37+08:00">2021-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="分组加密算法"><a href="#分组加密算法" class="headerlink" title="分组加密算法"></a>分组加密算法</h2><h3 id="流密码-vs-分组密码"><a href="#流密码-vs-分组密码" class="headerlink" title="流密码 vs 分组密码"></a>流密码 vs 分组密码</h3><p>流密码一次加密一位或者一个字节</p>
+<ul>
+<li>Vigenere 密码</li>
+<li>一次一密版本的 Vernam 密码</li>
+</ul>
+<p>分组密码需要共享一对对称密钥，一次加密一个明文分组得到与明文等长的密文分组；</p>
+<p>流密码面对的问题：</p>
+<ol>
+<li>通信双方的密钥流必须以某种安全、独立的方式共享。如果需要通信的数据流量很大，那么就难以保证安全；</li>
+<li>如果使用交换密钥 $K$ ，然后使用密钥 $K$ 和相应的密钥生成程序（位流发生器）生成密码学意义上可用的、强壮的密钥流。则可以解决以上的问题。</li>
+</ol>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/036382b949364f0824f3f7c68cf965afc1294366e52330d797d978726cf733c7.png" alt="picture 1">  </p>
+<h3 id="Feistel-密码结构的设计动机（这部分有问题，待修改）"><a href="#Feistel-密码结构的设计动机（这部分有问题，待修改）" class="headerlink" title="Feistel 密码结构的设计动机（这部分有问题，待修改）"></a>Feistel 密码结构的设计动机（这部分有问题，待修改）</h3><ul>
+<li>可逆映射（非奇异变换）</li>
+<li>不可逆映射（奇异变换）</li>
+</ul>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/4e78d1abddb969ca5bfe7c7365249237a78641cce2988efd5152b0b86f79b2ab.png" alt="picture 2">  </p>
+<ol>
+<li>分组密码需要同时满足加密和解密的需求，所以明文密文之间的映射必须可逆。意味着对 $n$ 位长的分组进行加密时，有 $2^n$ 种组合，我们的加解密算法需要满足有 $2^n$ 大的密文空间；</li>
+<li>$n$ 需要充分大，并且允许明文和密文之间采用任意的可逆映射（变换）将明文的特征掩盖，否则就和传统的代替密码一样容易被统计方法破解；</li>
+</ol>
+<h3 id="Feistel-密码"><a href="#Feistel-密码" class="headerlink" title="Feistel 密码"></a>Feistel 密码</h3><h4 id="混淆和扩散"><a href="#混淆和扩散" class="headerlink" title="混淆和扩散"></a>混淆和扩散</h4><p><strong>混淆和扩散</strong>是区别于代替和置换的概念。</p>
+<ul>
+<li>混淆：尽可能地使<strong>加密密钥</strong>和<strong>密文</strong>之间的统计关系变得复杂，使得发现密钥变得困难；</li>
+<li>扩散：尽可能地使<strong>明文</strong>和<strong>密文</strong>之间的统计关系变得复杂，使得推导密钥变得困难；</li>
+</ul>
+<h3 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h3><p>详见DES文章</p>
+<p><strong>雪崩效应</strong>：指的是明文微小的改变将引起密文的很多位改变，这有助于阻止攻击者猜测密钥或明文空间。</p>
+<h4 id="分组密码的工作模式"><a href="#分组密码的工作模式" class="headerlink" title="分组密码的工作模式"></a>分组密码的工作模式</h4><p>本质上，工作模式是用于增强密码算法或者使算法适应具体应用的技术。</p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/178bd56118772b27f86d5cee0324e66b79b39ce3401448fd2437ab134647c702.png" alt="picture 3">  </p>
+<h5 id="电码本模式（ECB）"><a href="#电码本模式（ECB）" class="headerlink" title="电码本模式（ECB）"></a>电码本模式（ECB）</h5><p>一次处理 $b$ 位明文，每次使用相同的密钥加密。</p>
+<h5 id="密码分组链接模式（CBC）"><a href="#密码分组链接模式（CBC）" class="headerlink" title="密码分组链接模式（CBC）"></a>密码分组链接模式（CBC）</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/9313408d961e580d27babee2662e7734f9741299777b826a519e918e69848ce3.png" alt="picture 4">  </p>
+<ul>
+<li>加密：</li>
+</ul>
+<p>$$C_1 = E(K, IV \oplus P_1), \<br>  C_n = E(K, C_{n-1} \oplus P_n)$$</p>
+<ul>
+<li>解密：</li>
+</ul>
+<p>$$P_1 = D(K, C_1) \oplus IV, \<br>  P_n = D(K, C_n) \oplus C_{n-1}$$</p>
+<h5 id="密码反馈（CFB）"><a href="#密码反馈（CFB）" class="headerlink" title="密码反馈（CFB）"></a>密码反馈（CFB）</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/c34f970546d0a35e888ab372355f4a3eba444aa1f67c4e20859d65f7ce813f99.png" alt="picture 5">  </p>
+<p>将任意分组密码转换为流密码。  </p>
+<ul>
+<li>加密：</li>
+</ul>
+<p>$$C_1 = P_1 \oplus S_s(E(K, IV)) \<br>  C_n = P_n \oplus S_s(E(K, C_{n-1}))$$</p>
+<ul>
+<li>解密：</li>
+</ul>
+<p>$$P_1 = C_1 \oplus S_s(E(K, IV)) \<br>  P_n = C_n \oplus S_s(E(K, C_{n-1}))$$</p>
+<h5 id="输出反馈（OFB）"><a href="#输出反馈（OFB）" class="headerlink" title="输出反馈（OFB）"></a>输出反馈（OFB）</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/40c78462af6bb5ffee41242f90baecc8f44aafc70223d2175a47fccdf0ffab45.png" alt="picture 6">  </p>
+<p>与密码反馈基本一致，加密算法的输入是上一次DES的输出。</p>
+<h5 id="计数器（CTR）"><a href="#计数器（CTR）" class="headerlink" title="计数器（CTR）"></a>计数器（CTR）</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/93ded51d206c0878a22e0233719370d93c8d86e5c4342b7e5477195a76d0815d.png" alt="picture 7">  </p>
+<p>$$C_n = P_n \oplus E(K, Counter)$$</p>
+<p>初始化一个计数器，当消息块逐渐增加，计数器也随之增加。再将计数器与明文异或，得到密文。<br>特点：可并行化、可预处理、不需要设计解密算法、随机访问……</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +895,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/matplotlib/python-matplotlib%E7%BB%98%E5%9B%BE/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -420,7 +909,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/matplotlib/python-matplotlib%E7%BB%98%E5%9B%BE/" class="post-title-link" itemprop="url">python-matplotlib绘图</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/" class="post-title-link" itemprop="url">python-matplotlib绘图</a>
         </h1>
 
         <div class="post-meta">
@@ -437,7 +926,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:04:44" itemprop="dateModified" datetime="2021-03-10T00:04:44+08:00">2021-03-10</time>
+                <time title="Modified: 2021-03-13 04:34:26" itemprop="dateModified" datetime="2021-03-13T04:34:26+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,7 +934,11 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/matplotlib/" itemprop="url" rel="index"><span itemprop="name">matplotlib</span></a>
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -530,7 +1023,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 00:02:11" itemprop="dateModified" datetime="2021-03-10T00:02:11+08:00">2021-03-10</time>
+                <time title="Modified: 2021-03-13 04:36:23" itemprop="dateModified" datetime="2021-03-13T04:36:23+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -576,7 +1069,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/python/python-pip%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-pip%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -590,7 +1083,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/python/python-pip%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">python-pip配置</a>
+            <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-pip%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">python-pip配置</a>
         </h1>
 
         <div class="post-meta">
@@ -599,17 +1092,27 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-03 00:00:00 / Modified: 13:52:43" itemprop="dateCreated datePublished" datetime="2020-07-03T00:00:00+08:00">2020-07-03</time>
+              <time title="Created: 2020-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-03T00:00:00+08:00">2020-07-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:33:55" itemprop="dateModified" datetime="2021-03-13T04:33:55+08:00">2021-03-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -644,79 +1147,6 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Unix 系</span></span><br><span class="line">vim ~/.pip/pip.conf:</span><br><span class="line">    [global]</span><br><span class="line">    index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Windows</span></span><br><span class="line">cd %HOMEPATH%</span><br><span class="line">md pip &amp; cd pip</span><br><span class="line">echo. timeout = 6000&gt;&gt;pip.ini</span><br><span class="line">echo. index-url = https://pypi.tuna.tsinghua.edu.cn/simple&gt;&gt;pip.ini</span><br><span class="line">echo. trusted-host = https://pypi.tuna.tsinghua.edu.cn&gt;&gt;pip.ini</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rc4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rc4/" class="post-title-link" itemprop="url">RC4</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-24T00:00:00+08:00">2020-06-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 16:30:59" itemprop="dateModified" datetime="2021-03-12T16:30:59+08:00">2021-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RC4算法"><a href="#RC4算法" class="headerlink" title="RC4算法"></a>RC4算法</h2>
       
     </div>
 
@@ -860,338 +1290,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/" class="post-title-link" itemprop="url">DES</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-23T00:00:00+08:00">2020-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 16:30:45" itemprop="dateModified" datetime="2021-03-12T16:30:45+08:00">2021-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">对称加密算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="DES-算法"><a href="#DES-算法" class="headerlink" title="DES 算法"></a>DES 算法</h2><p>数据加密标准（Data Encryption Standard）</p>
-<ul>
-<li>对称分组加密算法</li>
-<li>1998年12月后，不再作为联邦加密标准（安全性不再有保障）；</li>
-</ul>
-<p>我们先看一个与 DES 相关的加密算法结构：Feistel网络，他是第一个描述 DES 加密算法的一个结构；</p>
-<h3 id="Feistel-密码结构"><a href="#Feistel-密码结构" class="headerlink" title="Feistel 密码结构"></a>Feistel 密码结构</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/0d9a19a91754e1402017955be2a933e8a99ffa5a4d1029cc30ce1e20109f4f44.png" alt="picture 18">  </p>
-<ul>
-<li>分组长度：（性能or安全性）推荐值：128位</li>
-<li>密钥长度：（性能or安全性）推荐值：128位</li>
-<li>迭代轮数：（性能or安全性）推荐值：16轮</li>
-<li>子密钥产生算法：越复杂越安全</li>
-<li>轮函数：越复杂越安全</li>
-<li>快速软件加/解密：速度很重要</li>
-<li>简化分析难度：这里指的是简化算法描述的难度，易于分析才能分析其脆弱性，便于改良；</li>
-</ul>
-<p>Feistel 网络是加密算法的一个框架，而 DES 是该框架的一个实现。</p>
-<h3 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h3><p>DES 属于分组加密算法，处理的分组长度为64位，密钥长度为56位为了便于运算扩充为64为，扩充的8位可以用于校验或者随意设置。加密分为以下步骤：</p>
-<ol>
-<li>输入64位明文</li>
-<li>初始置换</li>
-<li>16轮迭代</li>
-<li>交换左右32位</li>
-<li>初始逆置换</li>
-<li>输出64位密文</li>
-</ol>
-<h4 id="初始置换"><a href="#初始置换" class="headerlink" title="初始置换"></a>初始置换</h4><p>给定一个 $8 \times 8$ 置换矩阵 $IP$ ，根据该矩阵置换64位的输入数据，这里只发生了数据位置的变化，数据未改变；</p>
-<h4 id="16轮迭代"><a href="#16轮迭代" class="headerlink" title="16轮迭代"></a>16轮迭代</h4><p>我们看单轮迭代如何运算。</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/89a7683a4ee52d60a72fa277a5ff08a82a7b27c2595f118364eeebffbb81fd76.png" alt="picture 19">  </p>
-<p>图中的 $w$ 为32。</p>
-<p>单轮迭代算法细节：</p>
-<ol>
-<li>右32位与<strong>子密钥</strong>1输入<strong>轮函数</strong> $F$ 中；</li>
-<li>输出的结果与左32位进行<strong>异或</strong>运算；</li>
-<li>输出的结果作为下一轮的右32位输入；</li>
-<li>原右32位作为下一轮的左32位输入；</li>
-</ol>
-<h5 id="轮函数-F"><a href="#轮函数-F" class="headerlink" title="轮函数 $F$"></a>轮函数 $F$</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/c1b354263132167202b19e2ae70dd089b9a84db2f60d37d72d51d2c83dc6ce04.png" alt="picture 20">  </p>
-<p>32位输入先被扩充为48位（因为子密钥长度为48位），再与子密钥异或，得到的结果再进行代换选择（8个 S 盒），产生的32位结果再通过置换得到输出；</p>
-<h6 id="S-盒"><a href="#S-盒" class="headerlink" title="S 盒"></a>S 盒</h6><p>S 盒是一个从6位选出4位的一个算法，单个 S 盒如下：</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/f62c043f0c0e43f529b4cd63f9d741dd0d78b622ddb4da13e5e888d4d8aa6422.png" alt="picture 21">  </p>
-<p>6位输入的第一位和第六位决定选择的行，中间四位决定选择的列，行列决定了一个0~16的数字（4位长），该数字位输出。</p>
-<p>DES 算法中的选择代换是由8个不同的 S 盒组成的：</p>
-<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/01bdec2805bb2817ece7628932abc4aec195638b00b080af71825fb9599cff08.png" alt="picture 22">  </p>
-<h5 id="子密钥生成算法"><a href="#子密钥生成算法" class="headerlink" title="子密钥生成算法"></a>子密钥生成算法</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/9369c6a09b83d5ed255c61f9f87ad12f9f4c93b2041f8fb98c2de9b601136b7f.png" alt="picture 23">  </p>
-<p>首先通过置换选择表，从64位密码中选择56位密钥并按照表的顺序排好，再分成左右两部分，按照计算逻辑表进行循环左移，再拼接成56位的结果，输入到置换选择表中，选出48位的<strong>子密钥</strong>。</p>
-<h3 id="DES-算法的形式化描述"><a href="#DES-算法的形式化描述" class="headerlink" title="DES 算法的形式化描述"></a>DES 算法的形式化描述</h3><ul>
-<li><p>加密：</p>
-<p>  $$<br>  \begin{aligned}<br>  (&lt;64bit&gt;)IP &amp;\to L_0 R_0 \<br>  R_{t-1} &amp;\to L_t \quad t \in [1,16] \<br>  f(R_{t-1}, k_{t-1}) \oplus L_{t-1} &amp;\to R_t \quad t \in [1,16] \<br>  IP^{-1}(R_{16} L_{16}) &amp;\to (&lt;64bits&gt;)<br>  \end{aligned}<br>  $$</p>
-</li>
-<li><p>解密：</p>
-<p>  $$<br>  \begin{aligned}<br>  (&lt;64bit&gt;)IP &amp;\to R_{16} L_{16} \<br>  R_t &amp;\to L_{t-1} \quad t \in [1,16] \<br>  f(R_t, k_t) \oplus L_t &amp;\to R_{t-1} \quad t \in [1,16] \<br>  IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)<br>  \end{aligned}<br>  $$</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">密码学概述</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-23T00:00:00+08:00">2020-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 16:29:49" itemprop="dateModified" datetime="2021-03-12T16:29:49+08:00">2021-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="密码学概述"><a href="#密码学概述" class="headerlink" title="密码学概述"></a>密码学概述</h2><h3 id="什么是信息？"><a href="#什么是信息？" class="headerlink" title="什么是信息？"></a>什么是信息？</h3><p>信息是以信息<strong>形态</strong>（文字、语音、图形、图像）为表现形式，以<strong>物理介质</strong>（纸张、显示器）为载体，以适合于<strong>计算机</strong>进行<strong>表达、传输或处理</strong>的表达形式（二进制、电流脉冲）来表示的<strong>知识</strong>。</p>
-<h3 id="信息特征"><a href="#信息特征" class="headerlink" title="信息特征"></a>信息特征</h3><ul>
-<li>客观性（客观存在</li>
-<li>普遍性（普遍存在</li>
-<li>可识别性（可以被识别</li>
-<li>依附性（依附于物理介质</li>
-<li>时效性（过时信息失效</li>
-<li>可共享性（可被共享，总量不变</li>
-<li>无限性（取之不尽</li>
-<li>有价值性（对人有价值</li>
-<li>可再生性（加工再生新的信息</li>
-</ul>
-<p>信息论+控制论+系统论=方法论</p>
-<p>传感+计算机+通信+控制=IT</p>
-<h3 id="信息安全发展历程"><a href="#信息安全发展历程" class="headerlink" title="信息安全发展历程"></a>信息安全发展历程</h3><p>通信安全–信息安全–信息保障–网络空间安全</p>
-<p>通信安全：编码、解码<br>信息安全：CIA<br>信息保障：主动、纵深、深度、泛在<br>网络空间安全：国安</p>
-<h3 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h3><ul>
-<li>密码编码学：加密</li>
-<li>密码分析学：破译、伪造</li>
-<li>密码体制<ul>
-<li>明文 $P$ ：要传递的消息</li>
-<li>密文 $C$ ：经过伪造混淆之后的明文</li>
-<li>密钥 $K$ ：加密/解密所使用的密钥</li>
-<li>加密算法 $E$ ：将明文转化为密文的一组数学函数</li>
-<li>解密算法 $C$ ：将密文转化为明文的一组数学函数</li>
-</ul>
-</li>
-</ul>
-<h3 id="密码的安全性"><a href="#密码的安全性" class="headerlink" title="密码的安全性"></a>密码的安全性</h3><p><strong>克彻霍夫原理</strong> 假设攻击者是在知道加密体制的前提下破解密钥的；</p>
-<ul>
-<li>密码算法可公开</li>
-<li>密钥密码算法所使用的密钥一般不能公开</li>
-<li>根据明文、密文、加密算法、解密算法无法得到密钥</li>
-</ul>
-<p>因此密码体制的安全性应该是<strong>基于密钥</strong>而非基于算法。</p>
-<ul>
-<li>无条件安全：无论攻击者有多少密文、都无法破解出明文，或者无法验证结果的正确性；<ul>
-<li>如：一次一密</li>
-</ul>
-</li>
-<li>计算安全：破译的代价超出密文本身的价值；破译时间超出信息有效期；<ul>
-<li>如RSA算法</li>
-</ul>
-</li>
-</ul>
-<p>计算安全包括一种叫做可证明安全：基于计算复杂性的安全，将安全性归结于一个现有的无法解决的数学难题来实现；</p>
-<h3 id="常用加密算法"><a href="#常用加密算法" class="headerlink" title="常用加密算法"></a>常用加密算法</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/98b2cf844f4422da95aefd2f04ee84acf545f5cd89da70607245090d6d622129.png" alt="picture 11">  </p>
-<h3 id="针对密码算法的攻击方式"><a href="#针对密码算法的攻击方式" class="headerlink" title="针对密码算法的攻击方式"></a>针对密码算法的攻击方式</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/31f1ee6ca2c9c71063f021921911f0b26d4236ecb967bb7ec5fdd7f6b56d3515.png" alt="picture 12">  </p>
-<p>无论有多少密文都不足以唯一地确定密文所对应的明文，则称为无条件安全。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/use-latex-to-wirte-math-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/use-latex-to-wirte-math-note/" class="post-title-link" itemprop="url">use latex to wirte math note</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-07 20:46:16" itemprop="dateModified" datetime="2021-03-07T20:46:16+08:00">2021-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Prepare-Package"><a href="#Prepare-Package" class="headerlink" title="Prepare Package"></a>Prepare Package</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install texlive-full zathura xdotool vim</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/doge-liang-notebook/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/doge-liang-notebook/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/14/">14</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1257,14 +1360,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/doge-liang-notebook/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
