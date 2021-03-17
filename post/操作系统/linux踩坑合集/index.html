@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"doge-liang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Linux 忘记 mysql root密码，修改权限以及密码(mysql version &lt; 5.7.9)解决方案：    关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入mysql数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, passwor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux踩坑合集">
-<meta property="og:url" content="https://doge-liang.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="Linux 忘记 mysql root密码，修改权限以及密码(mysql version &lt; 5.7.9)解决方案：    关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入mysql数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, passwor">
 <meta property="og:locale" content="en_US">
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doge-liang.github.io/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
 
-<link rel="canonical" href="https://doge-liang.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
 
 
 <script id="page-configurations">
@@ -98,7 +98,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">doge-liang-notebook</span>
         <span class="logo-line-after"><i></i></span>
@@ -120,37 +120,37 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -209,10 +209,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
       <meta itemprop="name" content="doge-liang">
       <meta itemprop="description" content="什么都记的笔记本">
     </span>
@@ -247,7 +247,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
                 </span>
             </span>
 
@@ -521,7 +521,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/hosts /etc/hosts.bak</span><br></pre></td></tr></table></figure>
 
 <p>查看网址的ip，我这里使用的是 <a target="_blank" rel="noopener" href="http://ip.tool.chinaz.com/">http://ip.tool.chinaz.com/</a></p>
-<p><img src="/../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png" alt="picture 14">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png" alt="picture 14">  </p>
 <p>修改正使用的hosts</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 原文件 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br></pre></td></tr></table></figure>
 
@@ -544,7 +544,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/doge-liang-notebook/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           </div>
 
         
@@ -553,11 +553,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="prev" title="Java程序设计语言基础">
+    <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="prev" title="Java程序设计语言基础">
       <i class="fa fa-chevron-left"></i> Java程序设计语言基础
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/" rel="next" title="Linux知识杂记">
+    <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/" rel="next" title="Linux知识杂记">
       Linux知识杂记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -631,20 +631,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/doge-liang-notebook/archives/">
         
           <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/doge-liang-notebook/categories/">
           
         <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/doge-liang-notebook/tags/">
           
         <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">tags</span></a>
@@ -699,30 +699,30 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/doge-liang-notebook/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/doge-liang-notebook/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
 
 
-
-
-  
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
 
 
 

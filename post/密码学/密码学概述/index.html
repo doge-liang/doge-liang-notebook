@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"doge-liang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="密码学概述什么是信息？信息是以信息形态（文字、语音、图形、图像）为表现形式，以物理介质（纸张、显示器）为载体，以适合于计算机进行表达、传输或处理的表达形式（二进制、电流脉冲）来表示的知识。 信息特征 客观性（客观存在 普遍性（普遍存在 可识别性（可以被识别 依附性（依附于物理介质 时效性（过时信息失效 可共享性（可被共享，总量不变 无限性（取之不尽 有价值性（对人有价值 可再生性（加工再生新的信息">
 <meta property="og:type" content="article">
 <meta property="og:title" content="密码学概述">
-<meta property="og:url" content="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="密码学概述什么是信息？信息是以信息形态（文字、语音、图形、图像）为表现形式，以物理介质（纸张、显示器）为载体，以适合于计算机进行表达、传输或处理的表达形式（二进制、电流脉冲）来表示的知识。 信息特征 客观性（客观存在 普遍性（普遍存在 可识别性（可以被识别 依附性（依附于物理介质 时效性（过时信息失效 可共享性（可被共享，总量不变 无限性（取之不尽 有价值性（对人有价值 可再生性（加工再生新的信息">
 <meta property="og:locale" content="en_US">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/98b2cf844f4422da95aefd2f04ee84acf545f5cd89da70607245090d6d622129.png">
 
-<link rel="canonical" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
 
 
 <script id="page-configurations">
@@ -100,7 +100,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">doge-liang-notebook</span>
         <span class="logo-line-after"><i></i></span>
@@ -122,37 +122,37 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -211,10 +211,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
       <meta itemprop="name" content="doge-liang">
       <meta itemprop="description" content="什么都记的笔记本">
     </span>
@@ -249,7 +249,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
                 </span>
             </span>
 
@@ -310,8 +310,8 @@
 </li>
 </ul>
 <p>计算安全包括一种叫做可证明安全：基于计算复杂性的安全，将安全性归结于一个现有的无法解决的数学难题来实现；</p>
-<h3 id="常用加密算法"><a href="#常用加密算法" class="headerlink" title="常用加密算法"></a>常用加密算法</h3><p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/98b2cf844f4422da95aefd2f04ee84acf545f5cd89da70607245090d6d622129.png" alt="picture 11">  </p>
-<h3 id="针对密码算法的攻击方式"><a href="#针对密码算法的攻击方式" class="headerlink" title="针对密码算法的攻击方式"></a>针对密码算法的攻击方式</h3><p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/31f1ee6ca2c9c71063f021921911f0b26d4236ecb967bb7ec5fdd7f6b56d3515.png" alt="picture 12">  </p>
+<h3 id="常用加密算法"><a href="#常用加密算法" class="headerlink" title="常用加密算法"></a>常用加密算法</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/98b2cf844f4422da95aefd2f04ee84acf545f5cd89da70607245090d6d622129.png" alt="picture 11">  </p>
+<h3 id="针对密码算法的攻击方式"><a href="#针对密码算法的攻击方式" class="headerlink" title="针对密码算法的攻击方式"></a>针对密码算法的攻击方式</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/31f1ee6ca2c9c71063f021921911f0b26d4236ecb967bb7ec5fdd7f6b56d3515.png" alt="picture 12">  </p>
 <p>无论有多少密文都不足以唯一地确定密文所对应的明文，则称为无条件安全。</p>
 
     </div>
@@ -323,8 +323,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 密码学</a>
-              <a href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag"><i class="fa fa-tag"></i> 概述</a>
+              <a href="/doge-liang-notebook/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 密码学</a>
+              <a href="/doge-liang-notebook/tags/%E6%A6%82%E8%BF%B0/" rel="tag"><i class="fa fa-tag"></i> 概述</a>
           </div>
 
         
@@ -333,11 +333,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/%E5%B7%A5%E5%85%B7/use-latex-to-wirte-math-note/" rel="prev" title="use latex to wirte math note">
+    <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/use-latex-to-wirte-math-note/" rel="prev" title="use latex to wirte math note">
       <i class="fa fa-chevron-left"></i> use latex to wirte math note
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/" rel="next" title="DES">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/" rel="next" title="DES">
       DES <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -411,20 +411,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/doge-liang-notebook/archives/">
         
           <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/doge-liang-notebook/categories/">
           
         <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/doge-liang-notebook/tags/">
           
         <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">tags</span></a>
@@ -479,30 +479,30 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/doge-liang-notebook/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/doge-liang-notebook/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
 
 
-
-
-  
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
 
 
 

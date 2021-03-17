@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"doge-liang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="DES 算法数据加密标准（Data Encryption Standard）  对称分组加密算法 1998年12月后，不再作为联邦加密标准（安全性不再有保障）；  我们先看一个与 DES 相关的加密算法结构：Feistel网络，他是第一个描述 DES 加密算法的一个结构； Feistel 密码结构    分组长度：（性能or安全性）推荐值：128位 密钥长度：（性能or安全性）推荐值：128位 迭">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DES">
-<meta property="og:url" content="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="DES 算法数据加密标准（Data Encryption Standard）  对称分组加密算法 1998年12月后，不再作为联邦加密标准（安全性不再有保障）；  我们先看一个与 DES 相关的加密算法结构：Feistel网络，他是第一个描述 DES 加密算法的一个结构； Feistel 密码结构    分组长度：（性能or安全性）推荐值：128位 密钥长度：（性能or安全性）推荐值：128位 迭">
 <meta property="og:locale" content="en_US">
@@ -40,7 +40,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/0d9a19a91754e1402017955be2a933e8a99ffa5a4d1029cc30ce1e20109f4f44.png">
 
-<link rel="canonical" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
 
 
 <script id="page-configurations">
@@ -103,7 +103,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">doge-liang-notebook</span>
         <span class="logo-line-after"><i></i></span>
@@ -125,37 +125,37 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,10 +214,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/des/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
       <meta itemprop="name" content="doge-liang">
       <meta itemprop="description" content="什么都记的笔记本">
     </span>
@@ -252,11 +252,11 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">对称加密算法</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">对称加密算法</span></a>
                 </span>
             </span>
 
@@ -277,7 +277,7 @@
 <li>1998年12月后，不再作为联邦加密标准（安全性不再有保障）；</li>
 </ul>
 <p>我们先看一个与 DES 相关的加密算法结构：Feistel网络，他是第一个描述 DES 加密算法的一个结构；</p>
-<h3 id="Feistel-密码结构"><a href="#Feistel-密码结构" class="headerlink" title="Feistel 密码结构"></a>Feistel 密码结构</h3><p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/0d9a19a91754e1402017955be2a933e8a99ffa5a4d1029cc30ce1e20109f4f44.png" alt="picture 18">  </p>
+<h3 id="Feistel-密码结构"><a href="#Feistel-密码结构" class="headerlink" title="Feistel 密码结构"></a>Feistel 密码结构</h3><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/0d9a19a91754e1402017955be2a933e8a99ffa5a4d1029cc30ce1e20109f4f44.png" alt="picture 18">  </p>
 <ul>
 <li>分组长度：（性能or安全性）推荐值：128位</li>
 <li>密钥长度：（性能or安全性）推荐值：128位</li>
@@ -299,7 +299,7 @@
 </ol>
 <h4 id="初始置换"><a href="#初始置换" class="headerlink" title="初始置换"></a>初始置换</h4><p>给定一个 $8 \times 8$ 置换矩阵 $IP$ ，根据该矩阵置换64位的输入数据，这里只发生了数据位置的变化，数据未改变；</p>
 <h4 id="16轮迭代"><a href="#16轮迭代" class="headerlink" title="16轮迭代"></a>16轮迭代</h4><p>我们看单轮迭代如何运算。</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/89a7683a4ee52d60a72fa277a5ff08a82a7b27c2595f118364eeebffbb81fd76.png" alt="picture 19">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/89a7683a4ee52d60a72fa277a5ff08a82a7b27c2595f118364eeebffbb81fd76.png" alt="picture 19">  </p>
 <p>图中的 $w$ 为32。</p>
 <p>单轮迭代算法细节：</p>
 <ol>
@@ -308,14 +308,14 @@
 <li>输出的结果作为下一轮的右32位输入；</li>
 <li>原右32位作为下一轮的左32位输入；</li>
 </ol>
-<h5 id="轮函数-F"><a href="#轮函数-F" class="headerlink" title="轮函数 $F$"></a>轮函数 $F$</h5><p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/c1b354263132167202b19e2ae70dd089b9a84db2f60d37d72d51d2c83dc6ce04.png" alt="picture 20">  </p>
+<h5 id="轮函数-F"><a href="#轮函数-F" class="headerlink" title="轮函数 $F$"></a>轮函数 $F$</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/c1b354263132167202b19e2ae70dd089b9a84db2f60d37d72d51d2c83dc6ce04.png" alt="picture 20">  </p>
 <p>32位输入先被扩充为48位（因为子密钥长度为48位），再与子密钥异或，得到的结果再进行代换选择（8个 S 盒），产生的32位结果再通过置换得到输出；</p>
 <h6 id="S-盒"><a href="#S-盒" class="headerlink" title="S 盒"></a>S 盒</h6><p>S 盒是一个从6位选出4位的一个算法，单个 S 盒如下：</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/f62c043f0c0e43f529b4cd63f9d741dd0d78b622ddb4da13e5e888d4d8aa6422.png" alt="picture 21">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/f62c043f0c0e43f529b4cd63f9d741dd0d78b622ddb4da13e5e888d4d8aa6422.png" alt="picture 21">  </p>
 <p>6位输入的第一位和第六位决定选择的行，中间四位决定选择的列，行列决定了一个0~16的数字（4位长），该数字位输出。</p>
 <p>DES 算法中的选择代换是由8个不同的 S 盒组成的：</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/01bdec2805bb2817ece7628932abc4aec195638b00b080af71825fb9599cff08.png" alt="picture 22">  </p>
-<h5 id="子密钥生成算法"><a href="#子密钥生成算法" class="headerlink" title="子密钥生成算法"></a>子密钥生成算法</h5><p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/9369c6a09b83d5ed255c61f9f87ad12f9f4c93b2041f8fb98c2de9b601136b7f.png" alt="picture 23">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/01bdec2805bb2817ece7628932abc4aec195638b00b080af71825fb9599cff08.png" alt="picture 22">  </p>
+<h5 id="子密钥生成算法"><a href="#子密钥生成算法" class="headerlink" title="子密钥生成算法"></a>子密钥生成算法</h5><p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/DES/9369c6a09b83d5ed255c61f9f87ad12f9f4c93b2041f8fb98c2de9b601136b7f.png" alt="picture 23">  </p>
 <p>首先通过置换选择表，从64位密码中选择56位密钥并按照表的顺序排好，再分成左右两部分，按照计算逻辑表进行循环左移，再拼接成56位的结果，输入到置换选择表中，选出48位的<strong>子密钥</strong>。</p>
 <h3 id="DES-算法的形式化描述"><a href="#DES-算法的形式化描述" class="headerlink" title="DES 算法的形式化描述"></a>DES 算法的形式化描述</h3><ul>
 <li><p>加密：</p>
@@ -335,7 +335,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/DES/" rel="tag"><i class="fa fa-tag"></i> DES</a>
+              <a href="/doge-liang-notebook/tags/DES/" rel="tag"><i class="fa fa-tag"></i> DES</a>
           </div>
 
         
@@ -344,11 +344,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/" rel="prev" title="密码学概述">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/" rel="prev" title="密码学概述">
       <i class="fa fa-chevron-left"></i> 密码学概述
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rsa/" rel="next" title="RSA">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/rsa/" rel="next" title="RSA">
       RSA <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -422,20 +422,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/doge-liang-notebook/archives/">
         
           <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/doge-liang-notebook/categories/">
           
         <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/doge-liang-notebook/tags/">
           
         <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">tags</span></a>
@@ -490,30 +490,30 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/doge-liang-notebook/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/doge-liang-notebook/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
 
 
-
-
-  
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
 
 
 

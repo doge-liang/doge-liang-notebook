@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/doge-liang-notebook/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"doge-liang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="古典加密算法两种基本技术 代替：将明文的字母替换成其他的数字、字母、符号； 置换：将信息的顺序按照某种规则打乱；  代替技术凯撒密码将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。例如：  明文：Nice to meet your 密文：QLFH WR PHHW BRXU  加密算法可以如此表达：$$C &#x3D; E(3, p) &#x3D; (p + 3) \mod 26$$移位可以是任意大小">
 <meta property="og:type" content="article">
 <meta property="og:title" content="古典加密算法">
-<meta property="og:url" content="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="古典加密算法两种基本技术 代替：将明文的字母替换成其他的数字、字母、符号； 置换：将信息的顺序按照某种规则打乱；  代替技术凯撒密码将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。例如：  明文：Nice to meet your 密文：QLFH WR PHHW BRXU  加密算法可以如此表达：$$C &#x3D; E(3, p) &#x3D; (p + 3) \mod 26$$移位可以是任意大小">
 <meta property="og:locale" content="en_US">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
 
-<link rel="canonical" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -99,7 +99,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/doge-liang-notebook/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">doge-liang-notebook</span>
         <span class="logo-line-after"><i></i></span>
@@ -121,37 +121,37 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/doge-liang-notebook/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/doge-liang-notebook/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+    <a href="/doge-liang-notebook/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+    <a href="/doge-liang-notebook/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -210,10 +210,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
       <meta itemprop="name" content="doge-liang">
       <meta itemprop="description" content="什么都记的笔记本">
     </span>
@@ -248,7 +248,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
                 </span>
             </span>
 
@@ -299,7 +299,7 @@
 <li>根据编码表将明文转换为密文</li>
 </ol>
 <h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>选定密钥词 monarchy 。<br>得到编码表：</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8">  </p>
 <p><strong>编码表编制规则</strong>：将密钥词按顺序排在 $5 \times 5$ 的矩阵中，剩下的字母按照字母表顺序排列，I/L代表同一个字母；</p>
 <p>处理明文的重复字母对，在重复字母对中插入别的字母（具体插入什么自己定），例如：balloon 转换成 ba lx lo on。</p>
 <p><strong>明文字母对处理逻辑</strong>：</p>
@@ -310,11 +310,11 @@
 </ol>
 <p>尽管Playfair密码看起来是安全的，但是仍然能够通过分析密码频率进行密码破译。</p>
 <p>字母频率出现表：</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9">  </p>
 <p>曲线越平坦，代表加密效果越好，理想化的结果是完全平坦的曲线，这样代表明文中所有字母的频率都被隐藏起来了，所有字母的出现概率相等，唯密文攻击无法判断区分每个字母。</p>
 <h5 id="Hill-密码"><a href="#Hill-密码" class="headerlink" title="Hill 密码"></a>Hill 密码</h5><h4 id="多表代替加密"><a href="#多表代替加密" class="headerlink" title="多表代替加密"></a>多表代替加密</h4><h5 id="Vigenere-密码"><a href="#Vigenere-密码" class="headerlink" title="Vigenere 密码"></a>Vigenere 密码</h5><h5 id="Vernam-密码"><a href="#Vernam-密码" class="headerlink" title="Vernam 密码"></a>Vernam 密码</h5><h4 id="一次一密"><a href="#一次一密" class="headerlink" title="一次一密"></a>一次一密</h4><h3 id="置换技术"><a href="#置换技术" class="headerlink" title="置换技术"></a>置换技术</h3><p>按照某种规则打乱明文，不加入新的信息；</p>
 <h4 id="一个简单的例子：栅栏技术"><a href="#一个简单的例子：栅栏技术" class="headerlink" title="一个简单的例子：栅栏技术"></a>一个简单的例子：栅栏技术</h4><p>按照对角线的顺序写出明文，在按行写出密文；<br><strong>例</strong>：<br>明文：“meet me after the toga party”<br>深度为2的加密：</p>
-<p><img src="/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10">  </p>
+<p><img src="/doge-liang-notebook/../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10">  </p>
 <p>然后按行写出得到密文：<br>MEMATRHTGPRYETEFETEOAAT</p>
 
     </div>
@@ -331,11 +331,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/" rel="prev" title="第四章-网络层">
+    <a href="/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/" rel="prev" title="第四章-网络层">
       <i class="fa fa-chevron-left"></i> 第四章-网络层
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="next" title="分组加密算法">
+    <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="next" title="分组加密算法">
       分组加密算法 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -409,20 +409,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/doge-liang-notebook/archives/">
         
           <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/doge-liang-notebook/categories/">
           
         <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/doge-liang-notebook/tags/">
           
         <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">tags</span></a>
@@ -477,30 +477,30 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/doge-liang-notebook/lib/anime.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.min.js"></script>
+  <script src="/doge-liang-notebook/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/doge-liang-notebook/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/doge-liang-notebook/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/doge-liang-notebook/js/schemes/muse.js"></script>
 
 
-
-
-  
+<script src="/doge-liang-notebook/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/doge-liang-notebook/js/local-search.js"></script>
 
 
 
