@@ -1380,6 +1380,162 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0/" class="post-title-link" itemprop="url">导数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-10 02:27:04" itemprop="dateModified" datetime="2021-03-10T02:27:04+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><h3 id="2-1-导函数"><a href="#2-1-导函数" class="headerlink" title="2.1 导函数"></a>2.1 导函数</h3><ul>
+<li>导函数<blockquote>
+<p>$$f’(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h}$$<br>（若这个极限存在）</p>
+</blockquote>
+</li>
+</ul>
+<p>计算导函数：  </p>
+<ol>
+<li>使用定义（求极限）</li>
+</ol>
+<h3 id="2-2-记号"><a href="#2-2-记号" class="headerlink" title="2.2 记号"></a>2.2 记号</h3><p>$f’(x)$明确了自变量  </p>
+<p>$y’$简洁但没有明确自变量  </p>
+<p>$\dfrac{dy}{dx}$说出了自变量并用d表示导数  </p>
+<p>$\dfrac{df}{dx}$明确了函数的名称  </p>
+<p>$\dfrac{d}{dx}f(x)$强调了微商是作用在$f$上的一种运算的概念  </p>
+<h3 id="2-3-导函数计算法则"><a href="#2-3-导函数计算法则" class="headerlink" title="2.3 导函数计算法则"></a>2.3 导函数计算法则</h3><table>
+<thead>
+<tr>
+<th>$f(x)$</th>
+<th>$f’(x)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x^n$</td>
+<td>$nx^{n-1}$</td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td>$e^x$</td>
+</tr>
+<tr>
+<td>$a^x$</td>
+<td>$a^xlna$</td>
+</tr>
+<tr>
+<td>$lnx$</td>
+<td>$1/x$</td>
+</tr>
+<tr>
+<td>$log_a(x)$</td>
+<td>$1/xlna$</td>
+</tr>
+<tr>
+<td>$sinx$</td>
+<td>$cosx$</td>
+</tr>
+<tr>
+<td>$cosx$</td>
+<td>$-sinx$</td>
+</tr>
+<tr>
+<td>$tanx$</td>
+<td>$sec^2x$</td>
+</tr>
+<tr>
+<td>$arcsinx$</td>
+<td>$\dfrac{1}{\sqrt{1-x^2}}$</td>
+</tr>
+<tr>
+<td>$arccosx$</td>
+<td>$-\dfrac{1}{\sqrt{1-x^2}}$</td>
+</tr>
+<tr>
+<td>$arctanx$</td>
+<td>$\dfrac{1}{1+x^2}$</td>
+</tr>
+</tbody></table>
+<h3 id="2-4-四则运算"><a href="#2-4-四则运算" class="headerlink" title="2.4 四则运算"></a>2.4 四则运算</h3><ul>
+<li>加减<br>$d(f \pm g)=f’ \pm g’$</li>
+<li>乘<br>$d(f \cdot g)=f’g + fg’$</li>
+<li>除<br>$d(\dfrac{f}{g})=\dfrac{f’g - fg’}{g^2}$</li>
+<li>链式法则<br>$df(g(x))=f’(g(x))g’(x)$</li>
+</ul>
+<h3 id="2-5-微分相关定理"><a href="#2-5-微分相关定理" class="headerlink" title="2.5 微分相关定理"></a>2.5 微分相关定理</h3><ul>
+<li>可微函数连续，连续函数不一定可微</li>
+<li>导数中值性质：一个函数在[a,b]可导，那么导函数在[a,b]上连续</li>
+<li>高阶导数：$f^{(n)}$</li>
+</ul>
+<h3 id="2-6-隐函数微分法"><a href="#2-6-隐函数微分法" class="headerlink" title="2.6 隐函数微分法"></a>2.6 隐函数微分法</h3><ul>
+<li>隐函数：$F(x, y)=0$</li>
+</ul>
+<p>隐函数通常不会符合一般函数定义，有的x可# 2.7 相关变化率</p>
+<p>函数中的每个变量都对一个新的变量进行求导，得到各个函数变化率之间的方程。然后就根据已知条件解方程就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1559,162 +1715,6 @@
 <p>曲线$y = f(x)$的在点$P(x_0, f(x_0))$的斜率是数<br>$$m = \lim_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h}$$<br>（若这个极限存在）</p>
 </blockquote>
 <h3 id="1-3-1-导数初探"><a href="#1-3-1-导数初探" class="headerlink" title="1.3.1 导数初探"></a>1.3.1 导数初探</h3><p>变化率：在一点处的导数<br>表达式<br>$$\frac{f(x_0 + h) - f(x_0)}{h}$$<br>称为$f$在$x_0$处增量为$h$的<strong>差商</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0/" class="post-title-link" itemprop="url">导数</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-10 02:27:04" itemprop="dateModified" datetime="2021-03-10T02:27:04+08:00">2021-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><h3 id="2-1-导函数"><a href="#2-1-导函数" class="headerlink" title="2.1 导函数"></a>2.1 导函数</h3><ul>
-<li>导函数<blockquote>
-<p>$$f’(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h}$$<br>（若这个极限存在）</p>
-</blockquote>
-</li>
-</ul>
-<p>计算导函数：  </p>
-<ol>
-<li>使用定义（求极限）</li>
-</ol>
-<h3 id="2-2-记号"><a href="#2-2-记号" class="headerlink" title="2.2 记号"></a>2.2 记号</h3><p>$f’(x)$明确了自变量  </p>
-<p>$y’$简洁但没有明确自变量  </p>
-<p>$\dfrac{dy}{dx}$说出了自变量并用d表示导数  </p>
-<p>$\dfrac{df}{dx}$明确了函数的名称  </p>
-<p>$\dfrac{d}{dx}f(x)$强调了微商是作用在$f$上的一种运算的概念  </p>
-<h3 id="2-3-导函数计算法则"><a href="#2-3-导函数计算法则" class="headerlink" title="2.3 导函数计算法则"></a>2.3 导函数计算法则</h3><table>
-<thead>
-<tr>
-<th>$f(x)$</th>
-<th>$f’(x)$</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$x^n$</td>
-<td>$nx^{n-1}$</td>
-</tr>
-<tr>
-<td>$e^x$</td>
-<td>$e^x$</td>
-</tr>
-<tr>
-<td>$a^x$</td>
-<td>$a^xlna$</td>
-</tr>
-<tr>
-<td>$lnx$</td>
-<td>$1/x$</td>
-</tr>
-<tr>
-<td>$log_a(x)$</td>
-<td>$1/xlna$</td>
-</tr>
-<tr>
-<td>$sinx$</td>
-<td>$cosx$</td>
-</tr>
-<tr>
-<td>$cosx$</td>
-<td>$-sinx$</td>
-</tr>
-<tr>
-<td>$tanx$</td>
-<td>$sec^2x$</td>
-</tr>
-<tr>
-<td>$arcsinx$</td>
-<td>$\dfrac{1}{\sqrt{1-x^2}}$</td>
-</tr>
-<tr>
-<td>$arccosx$</td>
-<td>$-\dfrac{1}{\sqrt{1-x^2}}$</td>
-</tr>
-<tr>
-<td>$arctanx$</td>
-<td>$\dfrac{1}{1+x^2}$</td>
-</tr>
-</tbody></table>
-<h3 id="2-4-四则运算"><a href="#2-4-四则运算" class="headerlink" title="2.4 四则运算"></a>2.4 四则运算</h3><ul>
-<li>加减<br>$d(f \pm g)=f’ \pm g’$</li>
-<li>乘<br>$d(f \cdot g)=f’g + fg’$</li>
-<li>除<br>$d(\dfrac{f}{g})=\dfrac{f’g - fg’}{g^2}$</li>
-<li>链式法则<br>$df(g(x))=f’(g(x))g’(x)$</li>
-</ul>
-<h3 id="2-5-微分相关定理"><a href="#2-5-微分相关定理" class="headerlink" title="2.5 微分相关定理"></a>2.5 微分相关定理</h3><ul>
-<li>可微函数连续，连续函数不一定可微</li>
-<li>导数中值性质：一个函数在[a,b]可导，那么导函数在[a,b]上连续</li>
-<li>高阶导数：$f^{(n)}$</li>
-</ul>
-<h3 id="2-6-隐函数微分法"><a href="#2-6-隐函数微分法" class="headerlink" title="2.6 隐函数微分法"></a>2.6 隐函数微分法</h3><ul>
-<li>隐函数：$F(x, y)=0$</li>
-</ul>
-<p>隐函数通常不会符合一般函数定义，有的x可# 2.7 相关变化率</p>
-<p>函数中的每个变量都对一个新的变量进行求导，得到各个函数变化率之间的方程。然后就根据已知条件解方程就可以了。</p>
 
       
     </div>
@@ -2177,7 +2177,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

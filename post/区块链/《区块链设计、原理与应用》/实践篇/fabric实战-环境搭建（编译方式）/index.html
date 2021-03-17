@@ -23,18 +23,17 @@
   <meta name="description" content="Fabric 环境搭建简单说说 Fabric：  HyperLegder 下的 模块化架构的 分布式的账本解决方案平台特点是： 深度加密 便捷扩展 灵活部署（基于 Docker） 可插拔（定制化）  这次实验使用的是二进制源码编译的方式安装 Fabric 。 实验机器VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机 基本环境部署主要是 Go 语言环境和 Docker 容器，因">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric实战-环境搭建（编译方式）">
-<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%BE%E8%AE%A1%E3%80%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B/%E5%AE%9E%E8%B7%B5%E7%AF%87/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="Fabric 环境搭建简单说说 Fabric：  HyperLegder 下的 模块化架构的 分布式的账本解决方案平台特点是： 深度加密 便捷扩展 灵活部署（基于 Docker） 可插拔（定制化）  这次实验使用的是二进制源码编译的方式安装 Fabric 。 实验机器VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机 基本环境部署主要是 Go 语言环境和 Docker 容器，因">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-13T16:09:41.464Z">
+<meta property="article:modified_time" content="2021-03-17T06:32:30.414Z">
 <meta property="article:author" content="doge-liang">
-<meta property="article:tag" content="Hyperledger">
-<meta property="article:tag" content="Fabric实战">
+<meta property="article:tag" content="Hyperledger Fabric">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%BE%E8%AE%A1%E3%80%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B/%E5%AE%9E%E8%B7%B5%E7%AF%87/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -208,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%BE%E8%AE%A1%E3%80%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B/%E5%AE%9E%E8%B7%B5%E7%AF%87/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -238,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-14 00:09:41" itemprop="dateModified" datetime="2021-03-14T00:09:41+08:00">2021-03-14</time>
+                <time title="Modified: 2021-03-17 14:32:30" itemprop="dateModified" datetime="2021-03-17T14:32:30+08:00">2021-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +249,11 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger/" itemprop="url" rel="index"><span itemprop="name">Hyperledger</span></a>
+                  <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%BE%E8%AE%A1%E3%80%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">《区块链设计、原理与应用》</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%BE%E8%AE%A1%E3%80%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B/%E5%AE%9E%E8%B7%B5%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">实践篇</span></a>
                 </span>
             </span>
 
@@ -393,8 +396,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/doge-liang-notebook/tags/Hyperledger/" rel="tag"><i class="fa fa-tag"></i> Hyperledger</a>
-              <a href="/doge-liang-notebook/tags/Fabric%E5%AE%9E%E6%88%98/" rel="tag"><i class="fa fa-tag"></i> Fabric实战</a>
+              <a href="/doge-liang-notebook/tags/Hyperledger-Fabric/" rel="tag"><i class="fa fa-tag"></i> Hyperledger Fabric</a>
           </div>
 
         
@@ -490,7 +492,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
