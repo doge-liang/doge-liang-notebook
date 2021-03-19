@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-plugin/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim-application/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-plugin/" class="post-title-link" itemprop="url">vim-plugin</a>
+            <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim-application/" class="post-title-link" itemprop="url">vim-application</a>
         </h1>
 
         <div class="post-meta">
@@ -235,7 +235,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-18 16:58:25" itemprop="dateModified" datetime="2021-03-18T16:58:25+08:00">2021-03-18</time>
+                <time title="Modified: 2021-03-07 20:47:41" itemprop="dateModified" datetime="2021-03-07T20:47:41+08:00">2021-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,10 +244,6 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
                 </span>
             </span>
 
@@ -262,11 +258,146 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="vim-插件管理"><a href="#vim-插件管理" class="headerlink" title="vim 插件管理"></a>vim 插件管理</h2><h3 id="vim-plugin"><a href="#vim-plugin" class="headerlink" title="vim-plugin"></a>vim-plugin</h3><p>自动检测是否安装并拉取脚本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs</span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall --sync | <span class="built_in">source</span> <span class="variable">$MYVIMRC</span></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
-
+          <h2 id="vim-应用"><a href="#vim-应用" class="headerlink" title="vim 应用"></a>vim 应用</h2><h3 id="块注释"><a href="#块注释" class="headerlink" title="块注释"></a>块注释</h3><p>添加注释：</p>
+<ol>
+<li><code>ctrl</code> + <code>v</code> 进入列模式， <code>I</code> 进入插入模式，输入注释符号</li>
+<li><code>esc</code> 退出列模式和视图模式</li>
+</ol>
+<p>取消注释：</p>
+<ol>
+<li><code>ctrl</code> + <code>v</code> 控制方向键选中注释代码， <code>d</code> 删除注释符号</li>
+</ol>
+<h2 id="Vim使用笔记"><a href="#Vim使用笔记" class="headerlink" title="Vim使用笔记"></a>Vim使用笔记</h2><h6 id="窗口多开和切换"><a href="#窗口多开和切换" class="headerlink" title="窗口多开和切换"></a>窗口多开和切换</h6><ul>
+<li>横向切割窗口</li>
+</ul>
+<p><code>:new [windowName]</code> 横向切割，保存之后 windowName 就是文件名<br><code>:split [windowName]</code> 同上</p>
+<ul>
+<li>纵向切割窗口</li>
+</ul>
+<p><code>:vsplit [windowName]</code></p>
+<ul>
+<li>关闭多窗口</li>
+</ul>
+<p><code>:close</code> 关闭窗口，内容还在缓存中<br><code>:q!</code> 强制退出，不保存<br><code>:w!</code> 强制保存退出<br><code>:x</code> 同上<br><code>:tabc</code> 关闭当前窗口<br><code>:tabo</code> 关闭所有窗口</p>
+<ul>
+<li><p>窗口大小调整</p>
+<ul>
+<li><p>纵向调整</p>
+</li>
+<li><p><code>ctrl+w</code> + 纵向扩大（行数增加）</p>
+</li>
+<li><p><code>ctrl+w</code> - 纵向缩小 （行数减少）</p>
+</li>
+<li><p><code>res(ize) num</code> 例如：:res 5，显示行数调为5行</p>
+</li>
+<li><p><code>res(ize)+num</code> 把当前窗口高度增加num行</p>
+</li>
+<li><p><code>res(ize)-num</code> 把当前窗口高度减少num行</p>
+</li>
+<li><p>横向调整</p>
+<ul>
+<li><code>:vertical res(ize) num</code> 指定当前窗口为num列</li>
+<li><code>:vertical res(ize)+num</code> 把当前窗口增加num列</li>
+<li><code>:vertical res(ize)-num</code> 把当前窗口减少num列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>:f [fileName]</code> 窗口重命名<br><code>vim fileA, fileB, fileC</code> 多文件打开<br><code>:n ||[fileName]</code> 跳至下一个文件<br><code>:Ex</code> 文件浏览器<br><code>:[S/V]ex</code> 横向/纵向分割出文件浏览器<br><code>:ls</code> 当前具体窗口信息</p>
+<p><code>:shell</code> 在不关闭 vim 的情况下，跳转到 shell</p>
+<p>vim 有三个模式：命令模式、视图模式、编辑模式</p>
+<h6 id="命令模式-Normal"><a href="#命令模式-Normal" class="headerlink" title="命令模式(Normal)"></a>命令模式(Normal)</h6><ul>
+<li><code>i</code> → 进入*Insert模式，按Esc可退回Normal模式</li>
+<li><code>x</code> → 删除光标所在的字符</li>
+<li><code>:wq</code> → 存盘退出（*:w<em>存盘，</em>:q<em>退出，</em>:w*后面可以加文件名)</li>
+<li><code>dd</code> → 删除当前行，并保存到剪切板</li>
+<li><code>p</code> → 粘贴</li>
+<li><code>hjkl</code> → 左上下右</li>
+<li><code>:help \&lt;command\&gt;</code> → 显示相关命令的帮助</li>
+</ul>
+<h6 id="命令模式拓展"><a href="#命令模式拓展" class="headerlink" title="命令模式拓展"></a>命令模式拓展</h6><ol>
+<li><p>各种插入模式</p>
+<ul>
+<li><code>a</code> → 在光标后插入</li>
+<li><code>o</code> → 在当前行后插入一个新行</li>
+<li><code>cw</code> → 替换光标所在未知到下一个空格处的字符</li>
+</ul>
+</li>
+<li><p>简单的移动光标</p>
+<ul>
+<li><code>0</code> → 到行头</li>
+<li><code>^</code> → 到本行第一个不是空格字符的位置</li>
+<li><code>$</code> → 到本行行尾</li>
+<li><code>g_</code> → 到本行最后一个不是空格字符的位置</li>
+<li><code>/pattern</code> → 向下搜索 <em>pattern</em> 字符串，有多个匹配可使用<em>n</em>去往下一个匹配字符串</li>
+<li><code>?pattern</code> → 向上搜索 <em>pattern</em> 字符串，同上</li>
+<li><code>%s/xenial/bionic/g</code> → 整个文件内将 ‘xenial’ 替换成 ‘bionic’ ， 也可以指定行 <code>1,10s/xenial/bionic/g</code></li>
+</ul>
+</li>
+<li><p>拷贝/粘贴</p>
+<ul>
+<li><code>p</code> → 粘贴在当前位置之后</li>
+<li><code>P</code> → 粘贴在当前位置之前</li>
+<li><code>yy</code> → 拷贝当前行到ddp</li>
+</ul>
+</li>
+<li><p>Undo/Redo</p>
+<ul>
+<li><code>u</code> → undo</li>
+<li><code>&lt;ctrl-R&gt;</code> → redo</li>
+</ul>
+</li>
+<li><p>打开/保存/退出/改变文件(Buffer)</p>
+<ul>
+<li><code>e &lt;path/to/file&gt;</code> → 打开一个文件</li>
+<li><code>:w</code> → 存盘</li>
+<li><code>:savea &lt;path/to/file&gt;</code> → 另存为 <code>&lt;path/to/file&gt;</code></li>
+<li><code>:x, ZZ</code> 或 <code>:wq</code> → 保存并退出( <code>:x</code> 表示仅在需要时保存)</li>
+<li><code>:bn和:bp</code> → 同时打开很多文件时，可以用这两个命令进行切换上一个文件和下一个文件，*:n*也可以切换到下一个文件</li>
+</ul>
+</li>
+</ol>
+<h6 id="更好更快更强"><a href="#更好更快更强" class="headerlink" title="更好更快更强"></a>更好更快更强</h6><ul>
+<li><p><code>.</code> → 重复上一次命令</p>
+</li>
+<li><p><code>N \&lt;command&gt;</code> → 重复某个命令n次</p>
+</li>
+<li><p><code>2dd</code> → 删除2行</p>
+</li>
+<li><p><code>3p</code> → 粘贴文本3次</p>
+</li>
+<li><p><code>100idesu [ESC]</code> → 会写下 “desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu “</p>
+</li>
+<li><p><code>.</code> → 重复上一个命令—— 100 “desu “.</p>
+</li>
+<li><p><code>3.</code> → 重复 3 次 “desu” (注意：不是 300，你看，VIM多聪明啊)</p>
+</li>
+<li><p><code>NG</code> → 移动到第N行</p>
+</li>
+<li><p><code>gg</code> → 移动到第一行</p>
+</li>
+<li><p><code>G</code> → 到最后一行</p>
+</li>
+<li><p>按单词移动</p>
+<ul>
+<li><code>w</code> → 到下一个单词开头</li>
+<li><code>e</code> → 到下一个单词结尾</li>
+<li><code>%</code> → 匹配括号移动</li>
+<li><code>*</code> 和 <code>#</code> → 匹配光标当前单词， <code>*</code> 下一个， <code>#</code> 上一个</li>
+</ul>
+</li>
+<li><p>命令联动</p>
+<ul>
+<li><code>0y$</code> → 从行头拷贝到行尾</li>
+<li><code>ye</code> → 从当前光标拷贝到本单词最后一个字符</li>
+<li><code>gU</code> → 变大写</li>
+<li><code>gu</code> → 变小写</li>
+</ul>
+</li>
+</ul>
+<h6 id="视图模式-visual-mode"><a href="#视图模式-visual-mode" class="headerlink" title="视图模式(visual mode)"></a>视图模式(visual mode)</h6><p><code>v</code> 进入视图模式，字符选择<br><code>V</code> 进入视图模式，行选择<br><code>&lt;C-v&gt;</code> 块选择<br><code>y</code> 高亮位置复制<br><code>d</code> 高亮位置删除</p>
+<h3 id="vimrc-脚本编写"><a href="#vimrc-脚本编写" class="headerlink" title="vimrc 脚本编写"></a>vimrc 脚本编写</h3>
       
     </div>
 
