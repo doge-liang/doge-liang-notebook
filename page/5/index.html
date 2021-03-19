@@ -204,6 +204,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">面向对象设计原则</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-29T00:00:00+08:00">2020-11-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 17:06:03" itemprop="dateModified" datetime="2021-03-12T17:06:03+08:00">2021-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+
+<h2 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h2><p>这七大原则既是面向对象的七大原则，也是设计模式的七大原则，总体的目标都是增强代码的可重用性、可读性、可扩展性和健壮性。</p>
+<p>1、单一职责原则<br>定义：一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中。</p>
+<blockquote>
+<p>比如说，<code>Vehicle</code> 类中实现了 <code>run()</code> 方法，但不同的交通工具是在不同的地方跑的，根据单一职责原则， <code>Vehicle</code> 类需要拆分成细的类，比如<code>RoadVehicle</code>、<code>AirVehicle</code>、<code>WaterVehicle</code> 等，以实现各自的 <code>run()</code> 方法；<br>单一职责原则是实现<strong>高内聚</strong>、<strong>低耦合</strong>的指导方针，是最简单却最难运用的原则，需要设计人员发现类的不同职责并将其分离；</p>
+</blockquote>
+<p>2、开闭原则<br>定义：软件实体应当对<strong>扩展开放</strong>（功能提供方），对<strong>修改关闭</strong>（使用方）。</p>
+<blockquote>
+<p>指软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
+</blockquote>
+<p>3、里氏替换原则<br>定义：所有引用基类的地方必须能透明地使用其子类的对象。</p>
+<blockquote>
+<p>里氏替换原则表明，在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常，反过来则不成立。<br>在运用里氏替换原则时，应该将父类设计为抽象类或者接口，让子类继承父类或实现父类接口，并实现在父类中声明的方法。</p>
+</blockquote>
+<p>4、依赖倒转原则<br>定义：高层模块不应该依赖底层模块，它们都应该<strong>依赖抽象</strong>。抽象不应该依赖于细节，细节应该依赖于抽象。</p>
+<blockquote>
+<p>依赖倒转原则要求：要针对接口编程，不要针对实现编程。</p>
+</blockquote>
+<p>5、接口隔离原则<br>定义：客户端<strong>不应该</strong>依赖那些它<strong>不需要</strong>的接口。</p>
+<blockquote>
+<p>在使用接口隔离原则的时候，需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；接口也不能太大，太大的接口将违背接口隔离原则，灵活性较差，使用起来不方便。</p>
+</blockquote>
+<p>6、合成复用原则<br>定义：合成复用原则（Composite Reuse Principle，CRP）又叫组合/聚合复用原则（Composition/Aggregate Reuse Principle，CARP）。它要求在软件复用时，要尽量先使用<strong>组合</strong>或者<strong>聚合</strong>等关联关系来实现，其次才考虑使用继承关系来实现。</p>
+<blockquote>
+<p>继承虽好，但增加了代码的耦合性。一般而言，如果两个类之间是”Has-A”关系应使用组合或聚合，如果是”Is-A”关系可使用继承。</p>
+</blockquote>
+<p>7、迪米特法则-又称最少知识原则<br>定义：每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位。</p>
+<h2 id="两大元素"><a href="#两大元素" class="headerlink" title="两大元素"></a>两大元素</h2><h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h2 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1459,158 +1573,11 @@ img {
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/" class="post-title-link" itemprop="url">向量代数与几何</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-17T00:00:00+08:00">2020-08-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-18 10:56:05" itemprop="dateModified" datetime="2021-03-18T10:56:05+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">线性代数</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="向量代数与几何"><a href="#向量代数与几何" class="headerlink" title="向量代数与几何"></a>向量代数与几何</h2><p>向量 $\bm{a}, \bm{b}$，满足以下运算：</p>
-<ol>
-<li>$\bm{a} + \bm{b}$</li>
-<li>$k \bm{a}$</li>
-<li>$\bm{a} \cdot \bm{b} = |\bm{a}| |\bm{b}| \cos \lang \bm{a}, \bm{b} \rang = |\bm{a}| \Pi_{a}b$</li>
-<li>$|\bm{a} \times \bm{b}| = |\bm{a}||\bm{b}| \sin\lang \bm{a},\bm{b} \rang$<br>以上运算都满足交换律、结合律、分配律（加法没有），以及各自的单位元，但特别地：$\bm{a} \times \bm{b} = - \bm{b} \times \bm{a}$</li>
-<li>$\Pi_\bm{b} \bm{a} = |\bm{a}| \cos\lang \bm{a},\bm{b} \rang$</li>
-</ol>
-<h3 id="向量的坐标表示"><a href="#向量的坐标表示" class="headerlink" title="向量的坐标表示"></a>向量的坐标表示</h3><p>已知 $\bm{i}, \bm{j}, \bm{k}$ 是坐标系的三个轴方向单位向量，我们可以将任意向量 $\bm{p}$ 表示为：<br>$$\bm{p} = p_x \bm{i} + p_y \bm{j} + p_z \bm{k}$$<br>简记： $\bm{p} = (p_x, p_y, p_z)$ 并且有：<br>$$<br>\begin{aligned}<br>    &amp; |\bm{p}| = \sqrt{p_x^2 + p_y^2 + p_z^2}<del>, \<br>    &amp;\frac{\bm{p}}{|\bm{p}|} = \cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma</del>, \<br>    &amp; \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1~~.<br>\end{aligned}<br>$$<br>其中 $\alpha, \beta, \gamma$ 分别是 $\bm{p}$ 和 $\bm{i}, \bm{j}, \bm{k}$ 的夹角。</p>
-<p>有了坐标表示我们可以用如下方式表达 $\bm{a} \times \bm{b}$ 和 $\bm{a} \cdot \bm{b}$ ：<br>$$<br>\begin{aligned}<br>    \bm{a} \times \bm{b} &amp; =<br>    \begin{vmatrix}<br>        \bm{i} &amp; \bm{j} &amp; \bm{k} \<br>        a_x &amp; a_{y} &amp; a_{z} \<br>        b_{x} &amp; b_{y} &amp; b_{z} \<br>    \end{vmatrix}<del>, \<br>    \bm{a} \cdot \bm{b} &amp; = (a_{x}, a_{y}, a_{z}) \cdot (b_{x}, b_{y}, b_{z}) \<br>    &amp; = a_{x}b_{x} + a_{y}b_{y} + a_{z}a_{z}</del>, \<br>    (\bm{a}, \bm{b}, \bm{c}) &amp; = \bm{a} \times \bm{b} \cdot \bm{c} \<br>    &amp; =<br>    \begin{vmatrix}<br>        a_{x} &amp; a_{y} &amp; a_{z} \<br>        b_{x} &amp; b_{y} &amp; b_{z} \<br>        c_{x} &amp; c_{y} &amp; c_{z} \<br>    \end{vmatrix}<br>\end{aligned}<br>$$</p>
-<h3 id="空间平面以及方程"><a href="#空间平面以及方程" class="headerlink" title="空间平面以及方程"></a>空间平面以及方程</h3><ul>
-<li>点法式</li>
-<li>一般式</li>
-<li>截距式</li>
-<li>三点式</li>
-<li>平面束</li>
-</ul>
-<h4 id="点法式"><a href="#点法式" class="headerlink" title="点法式"></a>点法式</h4><p>直观理解，一个点 $(x_{0}, y_{0}, z_{0})$ 和一个法向量 $\bm{p} = (A, B, C)$ 便可以在空间中确定一个平面的位置，方程表达如下：<br>$$<br>A(x - x_{0}) + B(y - y_{0}) + C(z - z_{0}) = 0<br>$$<br>也可以写成法向量 $\bm{p} = (A, B, C)$ 和变量向量 $\bm{x} = (x - x_{0}, y - y_{0}, z - z_{0})$ 的内积：<br>$$<br>\bm{p} \cdot \bm{x} = 0<br>$$</p>
-<h4 id="一般式"><a href="#一般式" class="headerlink" title="一般式"></a>一般式</h4><p>将点法式整理一下可以得到一般式：<br>$$<br>Ax + By + Cz = D<br>$$</p>
-<h4 id="截距式"><a href="#截距式" class="headerlink" title="截距式"></a>截距式</h4><p>将一般是等式两边同时除以 $D$ 就可以得到截距式：<br>$$<br>\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1<br>$$<br>$a, ~b, ~c$ 分别是平面关于坐标轴 $x, ~y, ~z$ 的截距。</p>
-<h4 id="三点式"><a href="#三点式" class="headerlink" title="三点式"></a>三点式</h4><p>用三个点确定一个平面，由三点方程如下：<br>$$<br>\begin{vmatrix}<br>    x - x_{1} &amp; y - y_{1} &amp; z - z_{1} \<br>    x - x_{2} &amp; y - y_{2} &amp; z - z_{2} \<br>    x - x_{3} &amp; y - y_{3} &amp; z - z_{3} \<br>\end{vmatrix} = 0<br>$$</p>
-<h4 id="平面束"><a href="#平面束" class="headerlink" title="平面束"></a>平面束</h4><p>与已知几何体构成简单或复杂的关系的平面，通常通过引用一些变量 $\lambda_1, \lambda_2, \dots$ 和已知几何体的方程组成一个新的方程表达一系列平面，这一系列平面叫做平面束。<br>有两个平面 $\pi_1, \pi_2$ ，他们的法向量分别为 $n_1, n_2$ 根据一些简单的平面关系我们有以下关系：<br>$\pi_1$ 与 $\pi_2$ 重合 $\Leftrightarrow$ $\dfrac{A_{1}}{A_{2}} = \dfrac{B_{1}}{B_{2}} = \dfrac{C_{1}}{C_{2}} = \dfrac{D_{1}}{D_{2}}$<br>$\pi_1 \parallel \pi_2$ $\Leftrightarrow$ $\dfrac{A_{1}}{A_{2}} = \dfrac{B_{1}}{B_{2}} = \dfrac{C_{1}}{C_{2}} \neq \dfrac{D_{1}}{D_{2}}$<br>$\pi_1$ 与 $\pi_2$ 相交 $\Leftrightarrow$ $A_1 : B_1 : C_1 \neq A_2 : B_2 : C_2$</p>
-<h3 id="空间直线以及方程"><a href="#空间直线以及方程" class="headerlink" title="空间直线以及方程"></a>空间直线以及方程</h3><ul>
-<li>点向式</li>
-<li>一般式</li>
-</ul>
-<h4 id="点向式"><a href="#点向式" class="headerlink" title="点向式"></a>点向式</h4><p>由方向向量 $\bm{s} = (m, n, p)$ 和点 $P_0 = (x_0, y_0, z_0)$ 确定直线，方程如下：<br>$$<br>\frac{x - x_0}{m} = \frac{y - y_0}{n} = \frac{z - z_0}{p}<br>$$</p>
-<h4 id="一般式-1"><a href="#一般式-1" class="headerlink" title="一般式"></a>一般式</h4><p>将点向式作恒等变形就可以得到一般式：<br>$$<br>Ax + By + Cz + D = 0<br>$$</p>
-<h3 id="几何关系"><a href="#几何关系" class="headerlink" title="几何关系"></a>几何关系</h3><ul>
-<li><p>直线 $l$ 与平面 $\pi$ 法向量分别为 $\bm{s}, \bm{n}$</p>
-<ul>
-<li>$l$ 在 $\pi$ 上 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} = 0$ 且 $P_0$ 在 $\pi$ 上（$Ax_0 + By_0 + Cz_0 + D = 0$）</li>
-<li>$l$ 与 $\pi$ 平行 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} = 0$ 但 $P_0$ 不在 $\pi$ 上（$Ax_0 + By_0 + Cz_0 + D \neq 0$）</li>
-<li>$l$ 与 $\pi$ 相交 $\Leftrightarrow$ $\bm{s} \cdot \bm{n} \neq 0$</li>
-<li>$l$ 与 $\pi$ 垂直 $\Leftrightarrow$ $\bm{s} = \lambda \bm{n}$</li>
-</ul>
-</li>
-<li><p>直线 $l_1$ 与直线 $l_2$ 法向量分别为 $\bm{s_1}, \bm{s_2}$ 初始点分别为 $P_1, P_2$</p>
-<ul>
-<li>$l_1$ 与 $l_2$ 异面 $\Leftrightarrow$ 混合积 $(\bm{s_1}, \bm{s_2}, \overrightarrow{P_1P_2}) \neq 0$</li>
-<li>$l_1$ 与 $l_2$ 共面 $\Leftrightarrow$ 混合积 $(\bm{s_1}, \bm{s_2}, \overrightarrow{P_1P_2}) = 0$<ul>
-<li>$l_1$ 与 $l_2$ 重合 $\Leftrightarrow$ $\bm{s_1} \parallel \bm{s_2} \parallel \overrightarrow{P_1P_2}$ $\Leftrightarrow$ $\bm{s_1} = \lambda_1 \bm{s_2} = \lambda_2 \overrightarrow{P_1P_2}$</li>
-<li>$l_1$ 与 $l_2$ 相交 $\Leftrightarrow$ $\bm{s_1} \times \bm{s_2} \neq \bm{0}$</li>
-<li>$l_1$ 与 $l_2$ 平行 $\Leftrightarrow$ $\bm{s_1} = \lambda_1 \bm{s_2} \neq \lambda_2 \overrightarrow{P_1P_2}$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>直线与直线夹角</p>
-<ul>
-<li>$\theta$ 为 $\bm{s_1}$ 和 $\bm{s_2}$ 夹角，$\varphi = \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\cos \varphi = \dfrac{|\bm{s_1} \cdot \bm{s_2}|}{|\bm{s_1}| |\bm{s_2}|}$</li>
-</ul>
-</li>
-<li><p>直线与平面夹角</p>
-<ul>
-<li>$\theta$ 为 $\bm{s}$ 和 $\bm{n}$ 夹角，$\varphi = \dfrac{\pi}{2} \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\sin \varphi = \dfrac{|\bm{s} \cdot \bm{n}|}{|\bm{s}| |\bm{n}|}$</li>
-</ul>
-</li>
-<li><p>平面与平面夹角</p>
-<ul>
-<li>$\theta$ 为 $\bm{n_1}$ 和 $\bm{n_2}$ 夹角，$\varphi = \min {\theta, \pi - \theta}$ 为直线与直线的夹角，$\cos \varphi = \dfrac{|\bm{n_1} \cdot \bm{n_2}|}{|\bm{n_1}| |\bm{n_2}|}$</li>
-</ul>
-</li>
-<li><p>距离</p>
-<ul>
-<li>点 $P_0$ 与直线 $l$： $d(P_0, l) = \dfrac{|\bm{s} \times \overrightarrow{P_0P_1}|}{|\bm{s}|}$</li>
-<li>点 $P_0$ 与平面 $\pi$： $d(P_0, \pi) = \dfrac{|\bm{n} \cdot \overrightarrow{P_0P_1}|}{|\bm{n}|}$</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/doge-liang-notebook/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/doge-liang-notebook/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/14/">14</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1676,20 +1643,20 @@ img {
       <div class="site-state-item site-state-posts">
           <a href="/doge-liang-notebook/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/doge-liang-notebook/tags/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

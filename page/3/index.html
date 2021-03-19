@@ -204,6 +204,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">Linux 文件与目录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 04:37:03" itemprop="dateModified" datetime="2021-03-13T04:37:03+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Linux-文件与目录"><a href="#Linux-文件与目录" class="headerlink" title="Linux 文件与目录"></a>Linux 文件与目录</h2><ul>
+<li><em>在 Linux 中，一切皆为文件。</em></li>
+</ul>
+<h3 id="文件系统概述"><a href="#文件系统概述" class="headerlink" title="文件系统概述"></a>文件系统概述</h3><p>在操作系统中，文件系统是一种组织管理操作系统存储资源的一种机制。</p>
+<p>文件系统的功能包括：</p>
+<ul>
+<li>管理和调度文件的存储空间；</li>
+<li>提供文件的物理结构、逻辑结构和存储方法；</li>
+<li>实现文件从标识到实际地址的映射；</li>
+<li>实现文件的控制和存取；</li>
+<li>实现文件信息的共享和保密；</li>
+</ul>
+<p>Linux 的文件系统的类型包括：</p>
+<ol>
+<li>磁盘文件系统：是工作与本地主机的文件系统，如硬盘、CD-ROM、DVD、USB 存储器等等。常见的文件格式有 EXT3 、 EXT4 、 VFAT 、 FAT 、 FAT16 、 NTFS 等等。 NTFS 是 Windows 目前主要用的文件系统格式， EXT 系列则属于 Linux 的文件系统格式；</li>
+<li>网络文件系统：需要远程访问的文件系统，常见的有 NFS 、 Samba 等；</li>
+<li>虚拟文件系统：指工作在物理文件系统之上的文件系统，又叫 VFS （Virtual File System）。他将具体的物理文件系统进行抽象，使得上层应用无论面对什么物理文件系统都能够统一操作。就像 JVM 的作用一样。</li>
+</ol>
+<p>Linux 文件系统的结构：</p>
+<p>Linux 文件系统的结构像是<strong>一棵</strong>倒置的树，所有的存储目录都是这棵树的子目录，而 Windows 不同分区则是不同的树。</p>
+<ul>
+<li>Windows 的目录属于分区；</li>
+<li>Linux 的分区属于目录；</li>
+</ul>
+<p>另外， Linux 从设计之初则定位为多用户操作系统，所以权限配置部分做的比较完善，而 Windows 则刚好相反。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E5%9E%8B/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -914,7 +1016,7 @@ transform: translateX(-50%);
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/pac/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/pac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -928,7 +1030,7 @@ transform: translateX(-50%);
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/pac/" class="post-title-link" itemprop="url">PAC</a>
+            <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/pac/" class="post-title-link" itemprop="url">PAC</a>
         </h1>
 
         <div class="post-meta">
@@ -945,7 +1047,7 @@ transform: translateX(-50%);
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 18:47:04" itemprop="dateModified" datetime="2021-03-12T18:47:04+08:00">2021-03-12</time>
+                <time title="Modified: 2021-03-18 16:58:38" itemprop="dateModified" datetime="2021-03-18T16:58:38+08:00">2021-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -958,6 +1060,10 @@ transform: translateX(-50%);
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/" itemprop="url" rel="index"><span itemprop="name">vpn</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/v2ray/" itemprop="url" rel="index"><span itemprop="name">v2ray</span></a>
                 </span>
             </span>
 
@@ -1019,110 +1125,11 @@ transform: translateX(-50%);
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/thomas-calculus/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/thomas-calculus/" class="post-title-link" itemprop="url">Thomas' calculus</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-03-07 00:00:00 / Modified: 20:49:01" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-
-<h2 id="Thomas’-calculus"><a href="#Thomas’-calculus" class="headerlink" title="Thomas’ calculus"></a>Thomas’ calculus</h2><h2 id="1-Preliminaries"><a href="#1-Preliminaries" class="headerlink" title="1.Preliminaries"></a>1.Preliminaries</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>This chapter reviews the basic ideas you need to start calculus. The topic<br>include</p>
-<ol>
-<li>the real number system,</li>
-<li>Catesian coordinates in the plane,</li>
-<li>straight lines, parabolas,</li>
-<li>circles,</li>
-<li>functions,</li>
-<li>and trigonometry.</li>
-</ol>
-<p>We also discuss the use of</p>
-<ol>
-<li>graphing calculators</li>
-<li>computer graphing software.</li>
-</ol>
-<h3 id="Real-Numbers"><a href="#Real-Numbers" class="headerlink" title="Real Numbers"></a>Real Numbers</h3><p>Real numbers are numbers that can be expressed as decimals.<br>The real numbers can be represented geometrically as points on a number line called the <strong>real line</strong>.</p>
-<p>We use the symbol $\real$ denotes the real number or the real line  </p>
-<p>We have three categories of the real number properties.  </p>
-<h4 id="algebraic-properties"><a href="#algebraic-properties" class="headerlink" title="algebraic properties"></a>algebraic properties</h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><a class="page-number" href="/doge-liang-notebook/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/doge-liang-notebook/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/13/">13</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><a class="page-number" href="/doge-liang-notebook/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/doge-liang-notebook/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/14/">14</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1188,20 +1195,20 @@ transform: translateX(-50%);
       <div class="site-state-item site-state-posts">
           <a href="/doge-liang-notebook/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/doge-liang-notebook/categories/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/doge-liang-notebook/tags/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
