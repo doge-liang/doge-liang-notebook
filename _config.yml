@@ -15,11 +15,11 @@ timezone: 'asia/shanghai'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://doge-liang.github.io/doge-liang-notebook
 root: /doge-liang-notebook/
-permalink: :year/:month/:day/:title/
+permalink: post/:category/:post_title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -41,7 +41,15 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
+
+# <<< update
+# post_asset_foler: true
+# marked:
+#   prependRoot: true
+#   postAsset: true
+# <<< update
+
 relative_link: false
 future: true
 highlight:
@@ -77,7 +85,8 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_option: mtime
+# use_date_for_updated: false
 
 # Pagination
 ## Set per_page to 0 to disable pagination
