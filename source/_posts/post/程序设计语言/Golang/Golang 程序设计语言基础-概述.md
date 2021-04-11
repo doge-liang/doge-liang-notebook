@@ -55,33 +55,34 @@ Go = Pyhton + C
 
 ### 开发工具
 
-VS Code + GO SDK 1.14.3
-
-### Ubuntu 安装 Go 环境
+VS Code + GO SDK 1.16.3
 
 ### 第一个程序 Hello world
 
 项目路径：
 
-```shell
-└─learning-go
-    └─src
-        └─go_code
-            ├─ex-1
-            │  ├─main
-            │  │      hello-world.go
-            │  │      main.exe
-            │  │
-            │  └─package
-            └─ex-2
+```code
+learning-go # $GOPATH 的路径
+└─src # 源代码
+    └─go_code # 项目
+        ├─ex-1
+        │  ├─main
+        │  │      hello-world.go
+        │  │      main.exe
+        │  │
+        │  └─package
+        └─ex-2
 ```
 
 ```go
 package main
+
 import "fmt"
+
 func main() {
-	fmt.Println("hellow world.")
+	fmt.Println("Hello world")
 }
+
 ```
 
 1. `main()` 是入口函数；

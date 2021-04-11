@@ -107,9 +107,46 @@ mode 有几种表示方式，一种是数字的表达方式
 
 mode 可以写成三个八进制数字的组合，第一个数字表示文件所有者的权限，第二个表示所属组的权限，第三个表示其他用户的权限。
 
-- 执行：`001`
-- 写：`010`
-- 读：`100`
+例如：
+
+``` BASH
+$ ll
+
+# total 16
+# drwxr-xr-x 4 root   root   4096 Apr  6 12:33 ./
+# drwxrwxr-x 3 ubuntu ubuntu 4096 Apr  6 12:55 ../
+# drwxr-xr-x 3 root   root   4096 Apr  6 12:33 msp/
+# drwxr-xr-x 2 root   root   4096 Apr  6 12:33 tls/
+
+# 文件类型 权限字符串 目录/链接数 所有者 所有者的用户组 修改时间 文件名
+```
+
+`drwxr-xr-x` 意思是：
+
+1. 文件的所有者拥有读、写、执行权限；
+2. 文件所属用户组有读、执行权限；
+3. 其他用户拥有读、执行权限；
+
+#### 文件类型
+
+`-` ：表示普通文件；
+`d` ：表示目录；
+`l` ：表示链接文件；
+`p` ：表示管理文件；
+`b` ：表示块设备文件；
+`c` ：表示字符设备文件；
+`s` ：表示套接字文件；
+
+#### 权限字符串
+
+- 执行： `001` 、 `x` (execute)
+- 写： `010` 、 `w` (write)
+- 读： `100` 、 `r` (read)
+
+#### 目录/链接个数
+
+- 对于目录文件，就会显示该目录下有几个目录文件，比如上面的代码中 `./` 目录有 4 个目录文件，看输出中的文件的文件类型是有四个目录文件（ `./` 本身和 `../` 都算进去了）；
+- 对于其他文件，就会显示链接到这个文件的链接的个数，一个文件至少会有自己链接到自己，所以至少是 1；
 
 注意和 `umask` 权限掩码的区别，权限掩码的各个位表示的意思和 `mode` 一样。但是 `umask` 中设置为 1 的位是表示剥夺该项权限的。因为赋予什么权限是由 `mode` 和 `umask` 之间 `AND` 的结果定。
 
@@ -289,6 +326,32 @@ echo `expr index "$string" io`  # 输出 4
 file=`ls /etc`
 ```
 
+#### 数组
+
+``` BASH
+array_name=(value1 value2 ... valuen)
+
+# 读取
+array_name[0]
+
+# 获取数组长度
+${#array_name[@]}
+
+# for 循环遍历
+for i in ${array_name[@]}; do
+    echo $i
+done
+
+# while 循环遍历
+while [ $j -lt ${#array_name[@]} ]
+do
+    echo $j
+    let "$j++"
+    # 也可以不加引号，也可以不加 $ 符号
+    # 也可以用 ((j++)) 替代
+done
+```
+
 #### bash 脚本中的 set 命令
 
 `set` 命令是对 shell 的一些设置，
@@ -302,3 +365,70 @@ echo $(uname -a)
 ```
 
 以上命令会返回两次 Linux 的版本信息，区别是，上一条命令会被显示出来，而下一条不会。
+
+### 流程控制
+
+#### 条件判断
+
+``` BASH
+if condition1
+then
+    command1
+elif condition2 
+then 
+    command2
+else
+    commandN
+fi
+```
+
+``` BASH
+if [[ ! -f tmp/mycc.tar.gz ]]; then
+    pushd ~/workspace/chaincode/chaincode_example01/go
+        ./build.sh
+    popd
+fi
+```
+
+`-f` 判断文件 `tmp/mycc.tar.gz` 是否存在，若存在则为 `True` 。前面有个非符号，变成 `False` 。
+
+另外，`if [ ... ]` 和 `if [[ ... ]]` 是有区别的，详见 <https://www.cnblogs.com/aaron-agu/p/5700650.html>
+
+##### 多重判断
+
+``` BASH
+case 值 in
+模式1)
+    command1
+    command2
+    ...
+    commandN
+    ;;
+模式2）
+    command1
+    command2
+    ...
+    commandN
+    ;;
+esac
+```
+
+#### 循环
+
+``` BASH
+for var in item1 item2 ... itemN
+do
+    command1
+    command2
+    ...
+    commandN
+done
+```
+
+``` BASH
+while condition
+do
+    command
+done
+```
+

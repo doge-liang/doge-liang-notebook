@@ -45,6 +45,7 @@ else
   echo "fabric binaries existing (${FABRIC_VERSION}), ignored"
 fi
 
+# Fabric CA Source Code
 CA_FILE_NAME=hyperledger-fabric-ca-${ARCH}-${CA_VERSION}.tar.gz
 if [ ! -f $CA_FILE_NAME ]; then
   echo "downloading fabric-ca binaries (${CA_FILE_NAME})..."

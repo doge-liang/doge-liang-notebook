@@ -13,9 +13,12 @@
 #      Examples:
 #      a) --port 443
 #         To set the listening port
+#         设置监听端口
 #      b) --ca.keyfile ../mykey.pem
 #         To set the "keyfile" element in the "ca" section below;
 #         note the '.' separator character.
+#         在下面的“ ca”部分中设置“ keyfile”元素；
+#         注意“。”分隔符。
 #   2) environment variable
 #      环境变量
 #      Examples:

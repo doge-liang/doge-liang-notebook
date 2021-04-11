@@ -10,11 +10,26 @@ categories:
 
 ## python 面向对象入门
 
+面向对象的要素：
+
+- 类
+- 属性
+- 方法
+
+- 继承
+- 封装
+- 多态
+
 ### 类
+
+python 类对象支持两种操作：属性引用、实例化
 
 ``` Python
 class Car:
+    """A Car Class"""
+
     # 类变量，在所有实例中共享
+    # 类似于 Java 中的 static 变量
     CarCount = 0
 
     # 私有变量，不能直接访问，也不能继承
@@ -32,6 +47,15 @@ class Car:
 
     def get_driver(self):
         print(self.driver)
+
+# 属性引用
+Car.CarCount
+# 内置方法，返回 "A Car Class"
+Car.__doc__ 
+
+# 实例化
+car = Car("粤A2333", "老司机")
+car.carNo # 访问实例对象
 
 class People:
     
@@ -103,7 +127,7 @@ __bytes__
 
 此外还有很多预定义的函数，很多 python 的一些操作都可以通过重写预定义函数来定制化，比如下面的运算符重载。
 
-### 运算符重载
+#### 运算符重载
 
 通过对以上类内使用的私有方法的重新定义来达到运算符重载的效果，比如重载 `+` ：
 
@@ -134,4 +158,77 @@ if __name__ == '__main__':
 
 ``` BASH
 (10, -10)
+```
+
+#### 自定义迭代器
+
+`for` 语句会调用类的 `iter()` 方法，返回一个定义了 `next()` 函数的容器对象，然后不停调用 `next()` 方法，访问容器内的对象。直到 `__next__()` 方法触发 `StopIteration` 异常来通知 `for` 终止循环。下面定义了一个迭代器类。
+
+``` Python
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.data[self.index]
+
+
+if __name__ == '__main__':
+    r = Reverse([1, 2, 3, 4])
+    for i in r:
+        print(i)
+# 1
+# 2
+# 3
+# 4
+```
+
+#### 生成器
+
+上面实现的迭代器是通过自定义 `__iter__()` 和 `__next__()` 方法实现的，实际上要完成同样的功能，生成器也可以实现，而且生成器的语法会更加紧凑。
+
+``` Python
+def reverse(data):
+    for index in range(len(data)-1, -1, -1):
+        yield data[index]
+
+
+if __name__ == '__main__':
+    for i in reverse('golf'):
+        print(char)
+# f
+# l
+# o
+# g
+```
+
+通过 `next()` 函数调用生成器，就会在执行到 `yield` 的时候离开函数，每执行一次 `next()` 还会从上次离开的地方继续执行。
+
+``` Python
+if __name__ == '__main__':
+    r = reverse([1, 2, 3, 4])
+    print(next(r))
+    print(next(r))
+    print(next(r))
+    print(next(r))
+
+# 4
+# 3
+# 2
+# 1
+```
+
+##### 生成器表达式
+
+``` Python
+if __name__ == '__main__':
+    print([i for i in reverse('abcd')])
 ```
