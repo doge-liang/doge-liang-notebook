@@ -1,5 +1,5 @@
 ---
-title: Java程序设计语言基础
+title: Java程序设计语言-基础语法
 date: 2019-10-01
 tags: []
 categories:
@@ -7,7 +7,7 @@ categories:
 	- Java
 ---
 
-## Java 程序设计语言基础
+## Java 程序设计语言-基础语法
 
 ### 简单说说 JAVA
 
@@ -164,7 +164,20 @@ Java 中主要的数值变量类型：
 
 ![picture 16](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/b580933cd040190891b7178c843b5dbe91bc6e5448d9fccc2a24c3c0140016a3.png)  
 
+`float` ：
+- 符号位： 1 bit ，取值范围 0, 1 ；
+- 指数位： 8 bit ，取值范围 为 -126~127 （ 8 位全为 0 或 1 的时候规定位非正规形式，此时尾数有特殊形式；
+- 尾数位： 23 bit ，格式为 1.M 或者 0.M 的格式，最高位为 1 则标识为浮点数的正规形式，若为 0 则表示非正规格式，由指数位决定。取值范围比 `int` 要小，所以 `int` 在强转的时候会丢失精度；
+
+`double` ：规则同上，位数如下
+- 符号位： 1 bit
+- 指数位： 11 bit
+- 尾数位： 52 bit
+
 `+`、`-`、`*`、`/`、`%` 五种种运算以为还有布尔运算（逻辑运算）`&` 和 `&&` 、`|` 和 `||` 、`!`
+
+注意：
+- `&&` 和 `||` 为短路计算模式，若左表达式值为 `false` 则不再计算右边的表达式；
 
 输入/输出的简单代码：
 
@@ -210,6 +223,8 @@ System.out.println(0XFFFFFF) // hex int
 - 负无穷：`Double.NEGATIVE_INFINITY` ，负数除以 0 得到，可用`Double.isInfinite(x)` 判断；
 - NaN：`Double.NaN`，`0.0/0.0` 得到，可用 `Double.isNaN(x)` 判断；
 
+> 不同位长处理器的兼容问题，例如 80 位处理机在进行浮点运算时不会对中间结果采取截断措施，只对最终结果截断为 64 位以保证程序的可移植性。但在 64 位处理机中，会产生精度更低的结果，有可能导致程序运行结果的不一致，降低可移植性。通过在相应位置添加 **`strictfp`** 关键字可以使方法或类中的的所有方法计算的中间结果都截断，即严格的浮点运算模式。
+
 ##### 程序实例：显示当前时间
 
 ``` JAVA
@@ -237,11 +252,13 @@ public class ShowCurrentTime {
 
 #### 字符型
 
-Java 中用 `char` 类型代表 UTF-16 中的一个代码单元。
+Java 中用 `char` 类型代表 UTF-16 中的一个代码单元（ 16 个二进制位， 4 个十六进制位）。
 
-在 Unicode 标准中，一个字符使用两个字节表示，如 `U+0041` 代表了 `A` 。但随着越来越多的语种加入 Unicode 标准，位数超过了 16 位。Java 使用两个 8 位的代码单元表示一个码点超过 16 位的字符。
+在早期的 Unicode 标准中，一个字符使用两个字节表示，如 `U+0041` 代表了 `A` 。但随着越来越多的语种加入 Unicode 标准，要完全表示那么多字符所需的二进制位数已经超过了原来的 16 位了。于是 Java 的设计者将 UTF-16 的 `U+0000` ~ `U+FFFF` 划分为基本语言级别，将 `U+10000` ~ `U+10FFFF` 的代码段根据超出4位的部分划分为 16 个语言级别。基本语言级别的码点（一个代码对应的编号）只需要一个代码单元即可表示，后面的则需要两个代码单元表示。比如一个码点为 `U+1D546` 的字符，编码为 `U+D835` 和 `U+DD46` 。第一个代码单元的范围为 `U+D800` ~ `U+DBFF` ， 第二个代码单元的范围为 `U+DC00` ~ `U+DFFF` 。
 
-除非一定要处理 UTF-6 ，否则最好不要使用 `char` 。
+具体的映射算法见： http://en.wikipedia.org/wiki/UTF-l6
+
+除非一定要处理 UTF-16 ，否则最好不要使用 `char` 。
 
 #### 字符串
 
@@ -251,17 +268,94 @@ Java 中用 `char` 类型代表 UTF-16 中的一个代码单元。
 
 ##### 拼接
 
-Java 使用 `+` 拼接字符串，不会改变原有的字符串。
+Java 使用 `+` 拼接字符串，不会改变原有的字符串，而是产生新的字符串。
+
+##### 判空与判 Null
+
+一般判 Null 先，因为 Null 对象不能调用方法，而判断字符串的长度（或者说判空）都需要调用方法。为了保证程序的顺利执行，一般先判 Null 。
+
+```Java
+if (s1 != null && s1.length() == 0) {
+	// 字符串非 Null 且非空
+}
+```
+
+使用 `s1.equals("")` 或者 `"".equals(s1)` 也能判空。
 
 ##### 字符串不可变
 
 Java 的 `String` 类对象是*不可变字符串*，我们可以修改字符串的引用，指向不同对象，但不可以修改字符串本身。这样看起来是低效的，但由于编译器的 *共享* 机制，使得程序无需因为重复的字符串对象浪费资源。引用可以有很多个，本源只能有一个。
+
+> 通常是字符串常量才适用共享机制，字符串变量还是有可能会在堆中存储多个等值的字符串。因此比较两个字符串变量是否相等一般使用 `s1.equals(s2)` 或者 `if(s1.compareTo(s2) == 0)` 。字面量也可以直接使用这两个方法。
+
+##### String API
+
+```Java
+char charAt(int index)
+// 返回指定位置的代码单元，因为有的 UTF-16 的字符码点是超过两个代码单元的。
+// 除非底层的代码单元感兴趣，否则一般不用这个方法。
+
+int codePointAt(int index)
+// 返回指定位置的码点。
+
+IntStream codePoints()
+// 将字符串的码点作为流返回。
+// s1.codePoints().toArray() 可以得到 int[]
+
+new String(int[] codePoints, int offset, int count)
+// 从 offset 开始的 count 个码点转换成 String
+
+boolean equalsIgnoreCase(String other)
+// 比较两个字符串，忽略大小写
+
+int indexOf(String str)
+int indexOf(String str, int fromIndex)
+int indexOf(int cp)
+int indexOf(int cp, int fromIndex)
+// 从 fromIndex 或者 0 开始扫描字符串，
+// 查找子串 str 或者码点 cp 并返回第一个匹配的位置 
+
+String replace(CharSequence oldString, CharSequence newString)
+// 用 newString 代替字符串中的 oldString，返回一个新字符串。
+// String 或者 StringBuilder 都能当作 CharSequence 来传
+
+String toLowerCase()
+String toUpperCase()
+
+String trim()
+// 删除头尾空格，返回新字符串。
+
+String join(CharSequence delimeter, CharSequence... elements)
+// 是静态方法，将多个 CharSequence 使用定界符 delimeter 连接起来。
+```
+
+##### 构建字符串
 
 字符串处理有三个相关的类：`String` ， `StringBuilder` ， `StringBuffer`
 
 - `String` ：不可变类型，注意区分 `null` 和空串；
 - `StringBuilder` ：使用 `StringBuilder` 对象，通过 `append(str)` 连接字符串，然后通过 `this.toString()` 将字符串构建出来。不是线程安全的，应该限制在单线程使用；
 - `StringBuffer` ：作用与 `StringBuilder` 类相同，是 `StringBuilder` 的前身，是线程安全的，可以多线程使用，但性能不够 `StringBuilder` 高；
+
+`StringBuilder` 和 `StringBuilder` 的 API 都大致相同，下面以 `StringBuilder` 为例。
+
+```Java
+int length() 
+// 返回的是代码单元的数量，区别于 String 的 length()
+
+// 插入类的 API 都是返回 this 对象，可以连续 append/insert/deleted
+StringBuilder append(String str)
+StringBuilder append(char c)
+StringBuilder appendCodePoint(int cp)
+StringBuilder insert(int offset, String str)
+StringBuilder insert(int offset, char c)
+
+StringBuilder delete(int startIndex, int endIndex)
+// 注意包头不包尾
+
+String toString()
+// 构建字符串并返回
+```
 
 #### 枚举类型
 
@@ -279,21 +373,21 @@ Size s = Size.MEDIUM;
 
 #### 变量
 
-没什么特别的，就是变量未声明禁止使用。
+没什么特别的，就是变量未声明以及未初始化禁止使用。
 
 #### 常量
 
-Java 利用 `final` 指示常量，只能被赋值一次。一旦被赋值之后， 就不能够再更改了。
+Java 利用 `final` 指示常量。常量只能被赋值一次。一旦被赋值之后， 就不能够再更改了，习惯上使用全大写字母声明，使用下划线连接不同的单词。
 
 #### 范围限定符
 
 类限定符：从类的层面上进行限定。
 
 - `public`，其他类可调用；
-- `protect`，
-- `private`，
+- `protect`，同一个包内的其他类可以调用；
+- `private`，同一类内可调用；
 
-- `static`，标识为静态的，指的都是类本身的属性或者方法，无需实例化即可使用；
+- `static`，标识为静态的，指的是类本身的属性或者方法，无需实例化即可使用，该类的所有实例共享该变量或方法；
 
 #### 代码块
 
@@ -348,7 +442,16 @@ int y = (int)x; // 9，精度丢失方式是直接截断小数位数
 
 `&(and) |(or) ^(xor) ~(not) >> << >>>`
 
-注意，没有 `<<<` ，`>> <<` 使用的是循环位移的方案。
+注意：
+- 没有 `<<<` 运算符；
+- `>> <<` 使用的是循环位移的方案；
+
+运算符优先级：
+
+![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/5c401c8fda09e83bd31b44457a34fb3a037a2df4102369b07e582553baebbe27.png)  
+
+![picture 2](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/3724c3163da0cabfe2d667bba461a384b97f4e61149a10a575296c6163802b10.png)  
+
 
 #### 输入输出
 
@@ -385,25 +488,26 @@ char[] password = cons.readPassword("Password: ");
 
 ##### 格式化输出
 
+主要使用 `System.out.printf(String patternString, String... params)` 进行格式化输出
 
+`patternString` 由固定部分和要插入的部分以及格式控制标志构成。
 
-#### 泛型
+![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/9b8ff6975f3aaca1f90d1885c908d543394ea030d7decff0d2cfac7c7d7e418e.png)  
 
-这个特性使得我们可以将类型参数化，即，将类型定义为参数传入方法中，不需要在传入参数的时候再考虑传入对象类型问题，以及相关的程序调试问题。  
+![picture 4](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/5c5b94e4be9f7b14fbc9bbb01301165ab33162208d2145806e7d6609204ad565.png)  
 
-借助于**自动打包 (autoboxing)**的java特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。  
+![picture 5](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8  %A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/4a2c07c37e0fec98440b997210198e5c7d36dd69b95160158a23161335af19da.png)  
 
-``` java
-//这是一个泛型类
-public class genericClass<T> {
-	//这是一个泛型方法
-	public genericMethod(T param) {...}
-	...
-}
+![picture 3](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75539bb84f3a4f23804a17b3f613fd75a465d81ed03a0b0315b3a9d81fde4fe0.png)  
 
-//这是一个泛型接口
-public interface genericInterface<T> {
-...}
+example:
+
+```Java
+System.out.printf("Hello, %s. Next year, you'll be %d.", name, age);
+// 百分号表示这部分由后面对应位置的变量替换
+System.out.printf("%,.2f", 10000.0 / 3.0);
+// 3,333.33
 ```
 
+![picture 6](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75ecde1f297b74f548e6f47d9c37275f92063c68031f0499fb0a96de0a8fcce1.png)  
 

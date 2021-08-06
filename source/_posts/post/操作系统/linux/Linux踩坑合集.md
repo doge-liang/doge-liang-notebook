@@ -17,7 +17,7 @@ categories:
 3. 打开数据库并进入mysql数据库中 `mysql -u root mysql`
 4. 查看所有用户的信息 `SELECT user, host, password FROM user;`
 5. 修改root用户密码 `UPDATE user set password=password('newpassword') WHERE user='root';`
-6. 刷新权限表 `FLUSH PRIVILEGES;`
+6. 刷新权限表并执行 `FLUSH PRIVILEGES;`
 7. `exit`
 
 ## Linux 忘记 mysql root密码，修改权限以及密码(mysql version 8.0)

@@ -42,11 +42,11 @@ Infinity // Infinity表示无限大，当数值超界时用Infinity表示
 true
 false
 
-    && // 与运算
-    || // 或运算
-    ! //非运算
+&& // 与运算
+|| // 或运算
+! //非运算
 
-    2 > 5; // false
+2 > 5; // false
 5 >= 2; // true
 7 == 7; // true
 

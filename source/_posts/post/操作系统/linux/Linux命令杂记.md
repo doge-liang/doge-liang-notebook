@@ -8,6 +8,13 @@ categories:
 
 ---
 
+## 检查 Linux 版本
+
+```bash
+lsb_release -a
+uname -a #查看硬件架构
+```
+
 ## 转换到root用户
 
 ``` code

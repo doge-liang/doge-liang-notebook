@@ -3,8 +3,9 @@ title: docker ps 命令打印内容过多如何解决
 date: 2021-03-30
 tags: []
 categories: 
-    - 工具
-    - docker
+
+    - [工具]
+    - [docker]
 ---
 
 ## docker ps 命令打印内容过多如何解决
@@ -15,9 +16,9 @@ categories:
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"
 ```
 
-- table - 表示显示表头列名
-- {{.ID}} - 容器ID
-- {{.Command}} - 启动执行的命令
+- `table` - 表示显示表头列名
+- `{{.ID}}` - 容器ID
+- `{{.Command}}` - 启动执行的命令
 显示结果：
 
 ``` BASH

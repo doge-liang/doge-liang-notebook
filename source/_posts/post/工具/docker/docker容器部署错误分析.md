@@ -3,8 +3,9 @@ title: docker容器部署错误分析
 date: 2021-04-07
 tags: []
 categories: 
-    - 工具
-    - docker
+
+    - [工具]
+    - [docker]
 ---
 
 ## docker容器部署错误分析

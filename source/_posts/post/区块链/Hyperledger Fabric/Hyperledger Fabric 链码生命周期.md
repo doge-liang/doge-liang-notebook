@@ -55,21 +55,83 @@ Fabric 链码的生命周期指的是，多个组织在通道上使用该链码�
 }
 ```
 
+`peer lifecycle chaincode package` 把链码 `*.tar.gz` 和元数据文件 `metadata.json` 文件打包：
+
+``` BASH
+peer lifecycle chaincode package tmp/${CC_LABEL}.tar.gz \
+--path ${CC_PATH} \
+--lang $CC_LANG \
+--label ${CC_LABEL}
+```
+
 ![picture 1](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/8fad11d96bc0bf425a43cd30f0963203eb52967ff1141b86176d6e6976944ef6.png)  
 
-链码由 Org1 和 Org2 单独打包。这两个组织都使用 MYCC_1 作为包标签，以便使用名称和版本来标识包。组织无需使用相同的包标签。
+*链码由 Org1 和 Org2 单独打包。这两个组织都使用 MYCC_1 作为包标签，以便使用名称和版本来标识包。组织无需使用相同的包标签。*
 
 #### 第二步：安装链码到 peers 中
 
 每个需要执行交易和为交易背书的 Peer 节点上都要安装链码包。无论是使用 CLI 还是 SDK，你都需要使用 **Peer Admin** 完成此步骤。Peer 节点将在安装链码后构建链码，如果链码出现问题，则返回链码构建错误消息。建议组织只打包一次链码，然后在属于同一个组织的每个 Peer 上安装相同的链码包。如果一个通道想要确保每个组织运行相同的链码，一个组织可以打包一个链码并将其发送给带外的(out of band)的其他通道成员。
 
+`peer lifecycle chaincode install` 命令安装链码包：
+
+``` BASH
+peer lifecycle chaincode install tmp/${CC_LABEL}.tar.gz
+```
+
+安装后可以使用如下命令查询y已经安装的链码：
+
+``` BASH
+peer lifecycle chaincode queryinstalled --output json | jq
+```
+
+如果输出如下，则链码安装成功，我们可以看到这个包标识符一般是由 `链码名_版本号:哈希码` 构成的
+
+```code
+PACKAGE_ID=mycc_v1.0:03d34a995a0e6b5285746a7662ff42c3ca88145f3a265a5a4580c4c7c5e7e549
+```
+
 安装成功后，将返回一个由包标签与包的哈希组合而成的链码包标识符。此包标识符是用来关联安装在 Peer 上的链码包和组织批准的链码定义的。**该标识符要保存**起来为下一步准备。你还可以通过使用 Peer CLI 查询安装在 Peer 上的包来查找包标识符。
 
 ![picture 2](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/20ea2f6a657756c8d8af8353bccf79909b26e95dbaaaa012aa2b8ea548135a0c.png)  
 
-Org1 和 Org2 的 Peer 管理员在加入该通道的 Peer 上安装 MYCC_1 链码包。安装链码包的过程，完成了构建链码和创建包标识符 `MYCC_1:<hashcode>` 的的工作。
+*Org1 和 Org2 的 Peer 管理员在加入该通道的 Peer 上安装 MYCC_1 链码包。安装链码包的过程，完成了构建链码和创建包标识符 `MYCC_1:<hashcode>` 的的工作。*
 
-#### 第三步：批准组织的链码定义
+#### 第三步：为组织批准的链码定义
+
+代码如下：
+
+``` BASH
+# 如果 CORE_PEER_TLS_ENABLED 打开了，则用以下命令
+peer lifecycle chaincode approveformyorg \
+    -o ${ORDERER_ADDRESS} \
+    --ordererTLSHostnameOverride orderer.mynetwork.com \
+    --tls $CORE_PEER_TLS_ENABLED \
+    --cafile $ORDERER_CA \
+    --channelID $CHANNEL_NAME \
+    # 以下是需要整个组织保持一致的链码定义
+    --name ${CC_NAME} \
+    --version ${CC_VERSION} \
+    --init-required \
+    --package-id ${PACKAGE_ID} \
+    --sequence $CC_SEQ \
+    --waitForEvent \
+    --signature-policy "$CC_POLICY" \
+    $PRIVATE_COLLECTION_DEF
+
+# 如果没有打开则用以下命令
+peer lifecycle chaincode approveformyorg \
+    -o ${ORDERER_ADDRESS} \
+    --channelID $CHANNEL_NAME \
+    # 以下是需要整个组织保持一致的链码定义
+    --name ${CC_NAME} \
+    --version ${CC_VERSION} \ # 包标识符
+    --init-required \
+    --package-id ${PACKAGE_ID} \
+    --sequence $CC_SEQ \
+    --waitForEvent \
+    --signature-policy "$CC_POLICY" \
+    $PRIVATE_COLLECTION_DEF
+```
 
 链码受链码定义的约束。当通道成员批准链码定义时，这个批准的过程，就像组织对链码参数的投票。这些经组织批准定义，可以让通道成员在使用链码之前就达成一致。链码定义包括以下参数，这些参数需要整个组织保持一致：
 
@@ -83,6 +145,7 @@ Org1 和 Org2 的 Peer 管理员在加入该通道的 Peer 上安装 MYCC_1 链�
 
 如果你正在使用 Fabric Peer CLI，你可以在批准并提交链码定义时使用 `--init-required` 的标记，以表示必须调用 `Init` 函数来初始化新的链码版本。要使用 Fabric peer CLI 调用 `Init` ，请使用 `peer chaincode invoke` 命令并传入 `--isInit` 标志。
 
+
 如果你使用的是 Fabric Contract API ，则无需在链码中包含 `Init` 方法。但是，你仍然可以使用 `--init-required` 参数来请求通过应用程序的调用来初始化链码。如果使用 `--init-required` 标志，则每次将链码版本增加时，都需要将 `--isInit` 参数传递给链码调用，以初始化链码。你可以传递 `--isInit` 并使用链码中的任何函数来初始化链码。
 
 链码定义还包括**程序包标识符**。这是每个要使用链码的组织的必需参数。程序包标识符不必对于所有组织都相同。组织可以批准链码定义，而无需安装链码包或在定义中不包含标识符。
@@ -91,7 +154,7 @@ Org1 和 Org2 的 Peer 管理员在加入该通道的 Peer 上安装 MYCC_1 链�
 
 ![picture 3](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/773efc2f61fbfcb4e51ca98bad97f41843741615bba5c7d97e96890e80154069.png)  
 
-Org1 和 Org2 的组织管理员批准其组织的 MYCC 链码定义。链码定义包括链码名称，版本和背书策略以及其他字段。由于两个组织都将使用链码来背书交易，因此两个组织的批准定义都需要包括程序包标识符。
+*Org1 和 Org2 的组织管理员批准其组织的 MYCC 链码定义。链码定义包括链码名称，版本和背书策略以及其他字段。由于两个组织都将使用链码来背书交易，因此两个组织的批准定义都需要包括程序包标识符。*
 
 组织可以批准链码定义而不安装链码包。如果组织不需要使用链码，则可以批准不带程序包标识符的链码定义，以确保满足生命周期背书策略。
 
@@ -99,7 +162,87 @@ Org1 和 Org2 的组织管理员批准其组织的 MYCC 链码定义。链码定
 
 ![picture 4](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png)  
 
-一旦在通道上定义了 MYCC ， Org1 和 Org2 就可以开始使用链码了。每个 Peer 上的链码的第一次调用都会在该 Peer 上启动链码容器。
+*一旦在通道上定义了 MYCC ， Org1 和 Org2 就可以开始使用链码了。每个 Peer 上的链码的第一次调用都会在该 Peer 上启动链码容器。*
+
+#### 第四步：提交链码定义到通道
+
+一旦足够多的通道成员同意一个链码定义，某个组织能够提交定义到通道。你可以用命令 `peer lifecycle chaincode checkcommitreadiness`  基于哪个通道成员已经批准了该定义，来检查提交链码定义是否应该成功，然后使用 Peer CLI 工具将链码定义提交到通道。（译者注：根据通道成员同意的状况，来判断提交是否可能成功）。提交交易请求首先发送给通道成员的 peer 节点，peer 节点会查询链码定义被他们组织同意的状况，并且为定义背书如果所在组织已经同意了。交易然后提交给排序服务，排序服务会把链码定义提交给通道。提交定义交易需要以 Organization Administrator 身份来提交。
+
+检查链码同意情况：
+
+``` BASH
+peer lifecycle chaincode checkcommitreadiness \
+--channelID $CHANNEL_NAME \
+--name ${CC_NAME} \
+--version ${CC_VERSION} \
+--sequence $CC_SEQ \
+--output json \
+--init-required \
+--signature-policy "$CC_POLICY" \
+$PRIVATE_COLLECTION_DEF
+```
+
+如果达到了背书条件，可以使用如下命令来提交链码定义到通道，
+
+``` BASH
+if [[ "$CORE_PEER_TLS_ENABLED" == "true" ]]; then
+    peer lifecycle chaincode commit \
+    -o ${ORDERER_ADDRESS} \
+    --ordererTLSHostnameOverride orderer.mynetwork.com \
+    --tls $CORE_PEER_TLS_ENABLED \
+    --cafile $ORDERER_CA \
+    --peerAddresses $PEER0_PROVIDER_ADDRESS \
+    --tlsRootCertFiles $PEER0_PROVIDER_TLS_ROOTCERT_FILE \
+    --peerAddresses $PEER0_SUBSCRIBER_ADDRESS \
+    --tlsRootCertFiles $PEER0_SUBSCRIBER_TLS_ROOTCERT_FILE \
+    -C $CHANNEL_NAME \
+    --name ${CC_NAME} \
+    --version ${CC_VERSION} \
+    --sequence $CC_SEQ \
+    --init-required \
+    --signature-policy "$CC_POLICY" \
+    $PRIVATE_COLLECTION_DEF
+else
+    peer lifecycle chaincode commit -o ${ORDERER_ADDRESS} \
+    --peerAddresses $PEER0_PROVIDER_ADDRESS \
+    --peerAddresses $PEER0_SUBSCRIBER_ADDRESS \
+    -C $CHANNEL_NAME \
+    --name ${CC_NAME} \
+    --version ${CC_VERSION} \
+    --sequence $CC_SEQ \
+    --init-required \
+    --signature-policy "$CC_POLICY" \
+    $PRIVATE_COLLECTION_DEF
+fi
+```
+
+使用如下命令检查提交情况，
+
+``` BASH
+peer lifecycle chaincode querycommitted --channelID $CHANNEL_NAME --name ${CC_NAME}
+```
+
+链码在被成功提交到通道之前，需要被同意的组织的数量是通过 `Channel/Application/LifecycleEndorsement` 策略来管理的。默认情况下，这个策略需要通道中大多数的组织来给交易背书。生命周期背书策略不同于链码背书策略。例如，尽管一个链码背书策略只需要一个或两个组织的签名，根据默认策略大多数的通道成员仍然需要批准链码定义。当提交一个通道定义，你需要面向足够多的 peer 组织，以确保你的生命周期背书策略被满足。你可以在 [策略概念主题](https://hyperledger-fabric.readthedocs.io/zh_CN/release-2.2/policies/policies.html) 中了解到更多关于 Fabric 链码生命周期策略。
+
+你也可以设置 `Channel/Application/LifecycleEndorsement` 策略为一个签名策略并且明确指明通道上可以批准链码定义的组织集合。这允许你创建一个其中大多数组织作为链码管理者并且治理通道业务逻辑的通道。如果你的通道有大量的 Idemix（译者注：身份混合，实现零知识证明）组织，你也可以用一个签名策略（译者注：策略只需要一个签名），因为这些组织不能批准链码定义或者为链码背书并且可能阻碍通道达成大多数成员同意的结果。
+
+![picture 1](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/da656f5b6c2a5d4436b39753cc73755776951a65e2cedf4e6fcfc77befb77995.png)  
+
+*Org1 或 Org2 的一个组织管理员提交链码定义到通道。通道上的定义不包含 packageID。*
+
+一个组织在不安装链码包的条件下能够批准链码定义。如果一个组织不需要使用链码，他们可以在没有包身份的情况下批准一个链码定义来确保生命周期背书策略被满足。
+
+在链码定义已经提交到通道上后，链码容器会在所有的链码安装到的 peer 节点上启动，来允许通道成员开始使用链码。可能会花费几分钟的时间来启动链码容器。你可以用链码定义来要求调用 `Init` 方法初始化链码。如果 `Init` 方法调用是需要的，链码的第一个调用必须是调用 `Init` 方法。 `Init` 方法的调用服从于链码的背书策略。
+
+![picture 2](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png)  
+
+*一旦 MYCC 链码在通道上定义，Org1 和 Org2 能开始使用链码。每个 peer 节点上的链码的第一个调用会启动该 peer 上的链码容器。*
+
+调用链码的命令：
+
+``` BASH
+# BASH
+```
 
 ### 链码升级
 
@@ -107,29 +250,33 @@ Org1 和 Org2 的组织管理员批准其组织的 MYCC 链码定义。链码定
 
 1. 重新打包链码：仅在升级链码二进制文件时才需要完成此步骤。
    ![picture 5](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/3f64011d821ef49bb71bf6a81063b7662f32d21df61293ea81e15760cd869694.png)  
-    Org1 和 Org2 升级链码二进制文件并重新打包链码。两家公司使用不同的链码包标签。
+
+    *Org1 和 Org2 升级链码二进制文件并重新打包链码。两家公司使用不同的链码包标签。*
 
 2. 在 Peer 上再次安装新的链码软件包：如果要升级链码二进制文件，则仅需要完成此步骤。安装新的链码软件包将生成一个程序包标识符 ，你需要将其传递给新的链码定义。你还需要更改链码版本，生命周期流程将使用它来追踪链码二进制文件，判断是否已升级。
    ![picture 6](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/af2b16ca63944a3cc441c6541065f26696cbfc0f650306005a2750d4611acaf6.png)  
-    Org1 和 Org2 在其 Peer 节点上安装新软件包。安装将创建一个新的链码包标识符。
+
+    *Org1 和 Org2 在其 Peer 节点上安装新软件包。安装将创建一个新的链码包标识符。*
 
 3. 批准新的链码定义：如果要升级链码二进制文件，则需要更新链码定义中的链码版本和程序包标识符。你也可以更新你的链码背书策略，而不必重新打包链码二进制文件。通道成员只需要批准新策略的定义。新定义需要将定义中的序列变量加1。
    ![picture 7](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/77a875649c1a4477dadaca64c2761d7d1ee5c57ae8ec7e336149fde380820587.png)  
-    Org1 和 Org2 的组织管理员为各自的组织批准新的链码定义。新定义引用了新的链码包标识符并更改了链码版本。由于这是链码的第一次更新，因此序列从 1 递增到 2 。
+
+    *Org1 和 Org2 的组织管理员为各自的组织批准新的链码定义。新定义引用了新的链码包标识符并更改了链码版本。由于这是链码的第一次更新，因此序列从 1 递增到 2 。*
 
 4. 将定义提交给通道：当足够数量的通道成员批准了新的链码定义时，一个组织可以提交新定义以将链码定义升级到通道。作为生命周期过程的一部分，没有单独的升级命令。
    ![picture 8](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/f898ab88ed67fafd96f465837b0c60be5d6eb856d6fad376c122b24ef3c37b87.png)  
-   来自 Org1 或 Org2 的组织管理员将新的链码定义提交到通道。
 
-提交链码定义后，将使用升级的链码二进制文件中的代码启动新的链码容器。如果在链码定义中请求执行 `Init` 函数，则需要在成功提交新定义后再次调用 `Init` 函数来始化升级的链码。如果在不更改链码版本的情况下更新了链码定义，则链码容器将保持不变，并且不需要调用 `Init` 函数。
+   *来自 Org1 或 Org2 的组织管理员将新的链码定义提交到通道。*
 
-![picture 9](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png)  
+    提交链码定义后，将使用升级的链码二进制文件中的代码启动新的链码容器。如果在链码定义中请求执行 `Init` 函数，则需要在成功提交新定义后再次调用 `Init` 函数来始化升级的链码。如果在不更改链码版本的情况下更新了链码定义，则链码容器将保持不变，并且不需要调用 `Init` 函数。
 
-将新定义提交给通道后，每个 Peer 将自动启动新的链码容器。
+    ![picture 9](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png)  
 
-Fabric 链码生命周期使用链码定义中的 **sequence** 来跟踪升级。所有通道成员都需要将序列号加 1 ，并批准新的定义以升级链码。版本参数用于追踪链码二进制文件，仅在升级链码二进制文件时才需要更改。
+    *将新定义提交给通道后，每个 Peer 将自动启动新的链码容器。*
 
-### 部署方案
+    Fabric 链码生命周期使用链码定义中的 **sequence** 来跟踪升级。所有通道成员都需要将序列号加 1 ，并批准新的定义以升级链码。版本参数用于追踪链码二进制文件，仅在升级链码二进制文件时才需要更改。
+
+### 部署场景
 
 以下示例说明了如何使用 Fabric 链码生命周期来管理通道和链码。
 
