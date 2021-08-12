@@ -3,8 +3,8 @@ title: Linux cat 命令与重定向
 date: 2021-07-25
 tags: [cat]
 categories: 
-    - [操作系统]
-    - [linux]
+    - 操作系统
+    - linux
 ---
 
 ## Linux cat 命令与重定向

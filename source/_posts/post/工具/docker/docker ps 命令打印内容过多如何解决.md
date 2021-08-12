@@ -4,8 +4,8 @@ date: 2021-03-30
 tags: []
 categories: 
 
-    - [工具]
-    - [docker]
+    - 工具
+    - docker
 ---
 
 ## docker ps 命令打印内容过多如何解决

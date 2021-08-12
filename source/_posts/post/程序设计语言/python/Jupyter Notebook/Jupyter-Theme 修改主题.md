@@ -3,9 +3,10 @@ title: Jupyter-Theme 修改主题
 date: 2021-07-06
 tags: []
 categories: 
-    - [程序设计语言]
-    - [python]
-    - [Jupyter Notebook]
+
+    - 程序设计语言
+    - python
+    - Jupyter Notebook
 ---
 
 ## Jupyter-Theme 修改主题

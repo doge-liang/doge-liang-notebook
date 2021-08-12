@@ -3,8 +3,8 @@ title: Markdown 快速入门
 date: 2021-07-06
 tags: []
 categories: 
-    - [工具]
-    - [markdown]
+    - 工具
+    - markdown
 ---
 
 ## Markdown 快速入门
