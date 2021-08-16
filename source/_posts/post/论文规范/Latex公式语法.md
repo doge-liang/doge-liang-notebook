@@ -1,5 +1,6 @@
 ---
 title: LaTex常用符号写法
+mathjax: true
 date: 2020-01-01
 tags: [论文写法]
 categories: 
