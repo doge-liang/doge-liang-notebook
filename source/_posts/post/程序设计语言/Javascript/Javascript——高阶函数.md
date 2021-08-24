@@ -1,9 +1,10 @@
 ---
 title: Javascript——高阶函数
 date: 2019-10-10
-tags: [程序设计语言, Javascript]
+tags: [程序设计语言]
 categories: 
     - 程序设计语言
+    - JavaScript
 ---
 
 ## Javascript 高阶函数
