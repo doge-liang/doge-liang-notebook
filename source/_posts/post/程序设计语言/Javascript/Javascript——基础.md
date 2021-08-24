@@ -5,6 +5,7 @@ tags: []
 categories: 
 
     - 程序设计语言
+    - JavaScript
 
 ---
 
