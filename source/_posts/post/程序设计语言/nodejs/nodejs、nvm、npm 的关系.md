@@ -2,10 +2,16 @@
 title: nodejs、nvm、npm 的关系
 date: 2021-03-13
 tags: []
-categories: 
-    - 程序设计语言
-    - nodejs
+categories:
+  - 程序设计语言
+  - nodejs
 ---
+
+- [node.js、nvm、npm 的关系](#nodejsnvmnpm-的关系)
+  - [node.js](#nodejs)
+  - [nvm](#nvm)
+  - [npm](#npm)
+  - [三者关系](#三者关系)
 
 ## node.js、nvm、npm 的关系
 

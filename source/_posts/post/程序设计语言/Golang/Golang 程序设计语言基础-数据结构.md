@@ -2,16 +2,20 @@
 title: Golang 程序设计语言基础-数据结构
 date: 2021-04-10
 tags: []
-categories: 
-    - 程序设计语言
-    - Golang
+categories:
+  - 程序设计语言
+  - Golang
 ---
+
+- [Golang 程序设计语言基础-数据结构](#golang-程序设计语言基础-数据结构)
+	- [数组](#数组)
+	- [切片](#切片)
 
 ## Golang 程序设计语言基础-数据结构
 
 ### 数组
 
-``` Go
+```Go
 
 // 数组
 
@@ -92,4 +96,3 @@ func main() {
 ```
 
 ### 切片
-

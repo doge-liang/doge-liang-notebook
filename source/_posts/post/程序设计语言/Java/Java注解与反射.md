@@ -2,27 +2,27 @@
 title: Java注解与反射
 date: 2021-03-07
 tags: [Java]
-categories: 
-    - 程序设计语言
-    - Java
+categories:
+  - 程序设计语言
+  - Java
 ---
 
-<style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
+- [注解和反射](#注解和反射)
+  - [注解](#注解)
+  - [注解入门](#注解入门)
+    - [定义一个简单注解](#定义一个简单注解)
+  - [反射](#反射)
+    - [功能](#功能)
+    - [优缺点](#优缺点)
+    - [获取 Class 类的实例](#获取-class-类的实例)
+    - [Class 类的常用方法](#class-类的常用方法)
+    - [Java 程序的运行](#java-程序的运行)
+      - [Java 内存分析](#java-内存分析)
+      - [类的加载过程](#类的加载过程)
+      - [类的初始化](#类的初始化)
+      - [类的加载器](#类的加载器)
 
-## Java注解与反射
+## Java 注解与反射
 
 # 注解和反射
 
@@ -34,7 +34,7 @@ transform: translateX(-50%);
 
 例如：
 
-``` JAVA
+```JAVA
 @Override //这就是注解
 public void example() {
     ...
@@ -43,17 +43,17 @@ public void example() {
 
 注解还可以有参数值，比如
 
-``` JAVA
+```JAVA
 @SupperssWarnings(value="unchecked")
 ```
 
-注解可以附加在 package,class,method,field上面，相当于增加了额外的辅助信息，我们可以通过反射机制实现对这些元数据的访问。
+注解可以附加在 package,class,method,field 上面，相当于增加了额外的辅助信息，我们可以通过反射机制实现对这些元数据的访问。
 
 一些内置注解：
 
 - `@Override` ：重写修辞；
 
-``` JAVA
+```JAVA
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 public @interface Override {
@@ -62,7 +62,7 @@ public @interface Override {
 
 - `@Deprecated` ：过时方法提醒；
 
-``` JAVA
+```JAVA
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE})
@@ -81,7 +81,7 @@ public @interface Deprecated {
 
 ### 定义一个简单注解
 
-``` JAVA
+```JAVA
 @Target(value = {ElementType.METHOD, ElementType.CLASS})
 @Retention(value = RetentionPolicy.RUNTIME)
 @Inherited
@@ -113,7 +113,7 @@ public @interface MyAnnotaion {
 
 ### 获取 Class 类的实例
 
-``` JAVA
+```JAVA
 Test test = new Test();
 Class c1 = Class.forName("com.example.Test");
 Class c2 = test.getClass();
@@ -152,7 +152,7 @@ Class c9 = a.getClass();
 
 #### Java 内存分析
 
-![picture 18](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/4e8edf8f42ca4b84de99896a016b2294f6c4853658213aa276f30b1d4d1aca0d.png)  
+![picture 18](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/4e8edf8f42ca4b84de99896a016b2294f6c4853658213aa276f30b1d4d1aca0d.png)
 
 #### 类的加载过程
 
@@ -172,10 +172,10 @@ Class c9 = a.getClass();
 
 类的主动引用（一定会发生类的初始化）
 
-- 当虚拟机启动，先初始化main方法所在的类；
-- new一个类的对象；
-- 调用类的静态成员（除了final常量）和静态方法；
-- 使用java.lang.reflect包的方法对类进行反射调用；
+- 当虚拟机启动，先初始化 main 方法所在的类；
+- new 一个类的对象；
+- 调用类的静态成员（除了 final 常量）和静态方法；
+- 使用 java.lang.reflect 包的方法对类进行反射调用；
 - 当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类；
 
 类的被动引用（不会发生类的初始化）
@@ -194,7 +194,7 @@ Class c9 = a.getClass();
 
 这些类加载器是自上而下加载，自下而上检查是否加载完成的。此外我们还可以自定义类加载器；
 
-``` JAVA
+```JAVA
 // 获取系统类加载器
 ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
 
@@ -210,4 +210,3 @@ System.getProperty("java.class.path");
 ```
 
 双亲委派机制：假如我自己定义了一个类 `java.lang.String` ，JVM 会从用户类加载器一层一层往上找，如果找到了就不会加载自己定义的这个 `java.lang.String` 类，这是处于系统安全性的考虑；
-
