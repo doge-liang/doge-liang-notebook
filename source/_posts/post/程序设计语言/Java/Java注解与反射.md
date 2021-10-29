@@ -7,20 +7,20 @@ categories:
   - Java
 ---
 
-- [Java 注解与反射](#java-注解与反射)
-  - [注解](#注解)
-    - [入门](#入门)
-  - [定义一个简单注解](#定义一个简单注解)
-  - [反射](#反射)
-    - [功能](#功能)
-    - [优缺点](#优缺点)
-    - [获取 Class 类的实例](#获取-class-类的实例)
-    - [Class 类的常用方法](#class-类的常用方法)
-  - [Java 程序的运行过程过程](#java-程序的运行过程过程)
-    - [Java 内存分析](#java-内存分析)
-    - [类的加载过程](#类的加载过程)
-    - [类的初始化](#类的初始化)
-    - [类的加载器](#类的加载器)
+<style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
 
 ## Java 注解与反射
 

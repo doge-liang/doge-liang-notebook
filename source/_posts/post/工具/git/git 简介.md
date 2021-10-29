@@ -2,15 +2,10 @@
 title: git 简介
 date: 2021-03-14
 tags: []
-categories:
-  - 工具
-  - git
+categories: 
+    - 工具
+    - git
 ---
-
-- [git 简介](#git-简介)
-  - [本地版本控制系统（VSC）](#本地版本控制系统vsc)
-  - [中心化的版本控制系统（CVCS）](#中心化的版本控制系统cvcs)
-  - [git 的工作流程](#git-的工作流程)
 
 ## git 简介
 
@@ -26,16 +21,4 @@ RCS 是目前还活跃的一个本地版本控制系统，它伴随着操作系�
 
 为了处理多机协作的问题，中心化的版本控制系统被开发出来了，使用一台独立的服务器保存版本文件，多个客户端通过访问这个共享的版本服务器完成版本管理。像 CVS ， Subversion 和 Perforce 等软件都是 CVCS 。 CVCS 作为版本管理系统的标准持续了多年。
 
-### git 的工作流程
 
-![picture 1](../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png)
-
-- Local
-  - working directory: 现在正在写代码的地方，常常变动；
-  - Staging Area：暂存区，代码被提交前都存在这里；
-  - Repository：本地仓库，本地执行 `git commit` 后代码就存在这里；
-- Remote
-  - Repository：远程仓库；
-    ![picture 2](../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png)
-
-两张图的概念是一致的，名字有点不同而已。

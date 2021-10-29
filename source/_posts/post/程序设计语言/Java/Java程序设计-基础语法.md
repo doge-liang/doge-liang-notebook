@@ -7,41 +7,6 @@ categories:
 	- Java
 ---
 
-- [Java 程序设计语言-基础语法](#java-程序设计语言-基础语法)
-  - [简单说说 JAVA](#简单说说-java)
-  - [关于 OpenJDK 和 OracleJDK](#关于-openjdk-和-oraclejdk)
-  - [先验知识](#先验知识)
-    - [Java 语言规范、API、JDK、IDE](#java-语言规范apijdkide)
-    - [创建、编译和执行 Java 程序](#创建编译和执行-java-程序)
-    - [一个简单的例子](#一个简单的例子)
-    - [代码规范](#代码规范)
-    - [三种程序错误](#三种程序错误)
-  - [基本程序设计](#基本程序设计)
-    - [合法的标识符、命名习惯](#合法的标识符命名习惯)
-    - [数据类型和运算操作](#数据类型和运算操作)
-    - [整型直接量](#整型直接量)
-    - [浮点数](#浮点数)
-      - [程序实例：显示当前时间](#程序实例显示当前时间)
-    - [字符型](#字符型)
-    - [字符串](#字符串)
-      - [裁剪](#裁剪)
-      - [拼接](#拼接)
-      - [判空与判 Null](#判空与判-null)
-      - [字符串不可变](#字符串不可变)
-      - [String API](#string-api)
-      - [构建字符串](#构建字符串)
-    - [枚举类型](#枚举类型)
-    - [变量](#变量)
-    - [常量](#常量)
-    - [范围限定符](#范围限定符)
-    - [代码块](#代码块)
-    - [数学函数与常量](#数学函数与常量)
-    - [显式类型转换和隐式类型转换](#显式类型转换和隐式类型转换)
-    - [位运算符](#位运算符)
-    - [输入输出](#输入输出)
-      - [控制台输入](#控制台输入)
-      - [格式化输出](#格式化输出)
-
 ## Java 程序设计语言-基础语法
 
 ### 简单说说 JAVA
@@ -72,9 +37,9 @@ OracleJDK 的构建实现过程就是基于 OpenJDK 的，并不是完全开源�
 #### Java 语言规范、API、JDK、IDE
 
 - Java 语言规范就是 Java 的语法，完整的定义在 <https://docs.oracle.com/javase/specs/> 中可以找到；
-- API(Application Program Interface) 也称为 _库_ ，包括开发 Java 程序预定义的类和接口；
+- API(Application Program Interface) 也称为 *库* ，包括开发 Java 程序预定义的类和接口；
 - JDK(Java Development Toolkit)，Java 开发工具包，每个版本都有对应的 Java 开发工具包， Java SE 8 的工具包为 JDK 1.8 = Java 8 = JDK 8
-- IDE(Integrated Development Environment) 集成开发环境，将程序的编辑、编译、链接、调试都放在一个界面中。IDE 没有出现的时候，程序员需要使用专门的文本编辑软件编写源代码，然后使用命令行工具调用 JDK 中的 Java 开发工具，比如编译器、链接器等，生成调试文件，使用 JDK 中的调试器来查看结果；
+- IDE(Integrated Development Environment) 集成开发环境，将程序的编辑、编译、链接、调试都放在一个界面中。IDE 没有出现的时候，程序员需要使用专门的文本编辑软件编写源代码，然后使用命令行工具调用 JDK 中的Java 开发工具，比如编译器、链接器等，生成调试文件，使用 JDK 中的调试器来查看结果；
 
 Java 的三个版本：
 
@@ -87,11 +52,11 @@ Java 的三个版本：
 - `.java` 文件存放源代码；
 - `.class` 文件为编译生成字节码文件，由 JVM(Java Virtual machine) 执行；
 
-![picture 15](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/38161b86580243532b4bf2793197f37ecd7be2548c64fdbf8176cb7545f86239.png)
+![picture 15](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/38161b86580243532b4bf2793197f37ecd7be2548c64fdbf8176cb7545f86239.png)  
 
 #### 一个简单的例子
 
-```JAVA
+``` JAVA
 // Welcome.java
 public class Welcome {
 	public static void main(String[] args) {
@@ -102,14 +67,14 @@ public class Welcome {
 
 通过命令行调用 jdk **编译器**生成字节码文件（可执行文件、`.class` 文件），通过 JVM 执行。
 
-```BASH
+``` BASH
 #cmd
 javac Welcome.java
 java Welcome
 # Welcome to Java!
 ```
 
-在执行一个 Java 程序时， JVM 首先使用 _类加载器（class loader）_ 将字节码载入到内存中，每个类在使用之前都需要被动态地载入到内存中。类被加载进内存之后， JVM 会使用 _字节码验证器（bytecode verifier）_ 对字节码进行验证，以保证程序符合安全规范不会篡改或者危害计算机。随后通过**解释器**逐行执行。后来引进了运行时编译器—— JIT 编译器，将热点代码的机器码在第一次编译时就保存下来，重复执行。改善了解释器在解释热点代码时效率低的问题。
+在执行一个 Java 程序时， JVM 首先使用 *类加载器（class loader）* 将字节码载入到内存中，每个类在使用之前都需要被动态地载入到内存中。类被加载进内存之后， JVM 会使用 *字节码验证器（bytecode verifier）* 对字节码进行验证，以保证程序符合安全规范不会篡改或者危害计算机。随后通过**解释器**逐行执行。后来引进了运行时编译器—— JIT 编译器，将热点代码的机器码在第一次编译时就保存下来，重复执行。改善了解释器在解释热点代码时效率低的问题。
 
 这种**解释与编译共存**的方式是 JAVA 的特点。 JVM 的存在也是 JAVA 语言“一次编译到处运行”的关键。
 
@@ -119,7 +84,7 @@ java Welcome
 
 规范的注释：
 
-```JAVA
+``` JAVA
 // 行注释风格
 /**
 块注释风格
@@ -128,16 +93,16 @@ java Welcome
 
 两种块代码风格：
 
-```JAVA
+``` JAVA
 // 次行风格 next-line style
 public static void main(String[] args) {
 	...
 }
 ```
 
-```JAVA
+``` JAVA
 // 行尾风格 end-of-line style
-public static void main(String[] args)
+public static void main(String[] args) 
 {
 	...
 }
@@ -156,7 +121,7 @@ public static void main(String[] args)
 #### 合法的标识符、命名习惯
 
 - 标识符是由字母、数字、下划线（-) 和美元符号（$) 构成的字符序列。
-- 标识符必须以字母、下划线（\_)或美元符号（$) 开头，不能以数字开头。
+- 标识符必须以字母、下划线（_)或美元符号（$) 开头，不能以数字开头。
 - 标识符不能是保留字（参见 [保留字列表](https://blog.csdn.net/weixin_42614447/article/details/87883920)）。
 - 标识符不能是 `true` 、 `false` 或 `null`。
 - 标识符可以为任意长度。
@@ -171,13 +136,13 @@ public static void main(String[] args)
 
 定义一个常量：
 
-```JAVA
+``` JAVA
 final double PI = 3.14159; // Declare a constant
 ```
 
 定义一个变量：
 
-```JAVA
+``` JAVA
 double height = 1.7;
 int age = 18;
 String name = "John";
@@ -197,16 +162,14 @@ Java 拥有 4 种整型(`int` `short` `long` `byte`)、 2 种浮点型(`double` 
 
 Java 中主要的数值变量类型：
 
-![picture 16](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/b580933cd040190891b7178c843b5dbe91bc6e5448d9fccc2a24c3c0140016a3.png)
+![picture 16](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/b580933cd040190891b7178c843b5dbe91bc6e5448d9fccc2a24c3c0140016a3.png)  
 
 `float` ：
-
 - 符号位： 1 bit ，取值范围 0, 1 ；
 - 指数位： 8 bit ，取值范围 为 -126~127 （ 8 位全为 0 或 1 的时候规定位非正规形式，此时尾数有特殊形式；
 - 尾数位： 23 bit ，格式为 1.M 或者 0.M 的格式，最高位为 1 则标识为浮点数的正规形式，若为 0 则表示非正规格式，由指数位决定。取值范围比 `int` 要小，所以 `int` 在强转的时候会丢失精度；
 
 `double` ：规则同上，位数如下
-
 - 符号位： 1 bit
 - 指数位： 11 bit
 - 尾数位： 52 bit
@@ -214,12 +177,11 @@ Java 中主要的数值变量类型：
 `+`、`-`、`*`、`/`、`%` 五种种运算以为还有布尔运算（逻辑运算）`&` 和 `&&` 、`|` 和 `||` 、`!`
 
 注意：
-
 - `&&` 和 `||` 为短路计算模式，若左表达式值为 `false` 则不再计算右边的表达式；
 
 输入/输出的简单代码：
 
-```JAVA
+``` JAVA
 // 初始化键盘输入扫描类
 Scanner input = new Scanner(System.in);
 // 输出
@@ -241,7 +203,7 @@ float floatValue = input.nextFloat();
 
 直接量就是单纯的数字，不带任何标识符的；
 
-```JAVA
+``` JAVA
 System.out.println(425342432143214L) // long int
 System.out.println(0B111111) // binary int
 System.out.println(0777777) // Octal int
@@ -265,7 +227,7 @@ System.out.println(0XFFFFFF) // hex int
 
 ##### 程序实例：显示当前时间
 
-```JAVA
+``` JAVA
 public class ShowCurrentTime {
 	public static void main(String[] args) {
         long totalMilliseconds = System.currentTimeMillis();
@@ -292,7 +254,7 @@ public class ShowCurrentTime {
 
 Java 中用 `char` 类型代表 UTF-16 中的一个代码单元（ 16 个二进制位， 4 个十六进制位）。
 
-在早期的 Unicode 标准中，一个字符使用两个字节表示，如 `U+0041` 代表了 `A` 。但随着越来越多的语种加入 Unicode 标准，要完全表示那么多字符所需的二进制位数已经超过了原来的 16 位了。于是 Java 的设计者将 UTF-16 的 `U+0000` ~ `U+FFFF` 划分为基本语言级别，将 `U+10000` ~ `U+10FFFF` 的代码段根据超出 4 位的部分划分为 16 个语言级别。基本语言级别的码点（一个代码对应的编号）只需要一个代码单元即可表示，后面的则需要两个代码单元表示。比如一个码点为 `U+1D546` 的字符，编码为 `U+D835` 和 `U+DD46` 。第一个代码单元的范围为 `U+D800` ~ `U+DBFF` ， 第二个代码单元的范围为 `U+DC00` ~ `U+DFFF` 。
+在早期的 Unicode 标准中，一个字符使用两个字节表示，如 `U+0041` 代表了 `A` 。但随着越来越多的语种加入 Unicode 标准，要完全表示那么多字符所需的二进制位数已经超过了原来的 16 位了。于是 Java 的设计者将 UTF-16 的 `U+0000` ~ `U+FFFF` 划分为基本语言级别，将 `U+10000` ~ `U+10FFFF` 的代码段根据超出4位的部分划分为 16 个语言级别。基本语言级别的码点（一个代码对应的编号）只需要一个代码单元即可表示，后面的则需要两个代码单元表示。比如一个码点为 `U+1D546` 的字符，编码为 `U+D835` 和 `U+DD46` 。第一个代码单元的范围为 `U+D800` ~ `U+DBFF` ， 第二个代码单元的范围为 `U+DC00` ~ `U+DFFF` 。
 
 具体的映射算法见： http://en.wikipedia.org/wiki/UTF-l6
 
@@ -322,7 +284,7 @@ if (s1 != null && s1.length() == 0) {
 
 ##### 字符串不可变
 
-Java 的 `String` 类对象是*不可变字符串*，我们可以修改字符串的引用，指向不同对象，但不可以修改字符串本身。这样看起来是低效的，但由于编译器的 _共享_ 机制，使得程序无需因为重复的字符串对象浪费资源。引用可以有很多个，本源只能有一个。
+Java 的 `String` 类对象是*不可变字符串*，我们可以修改字符串的引用，指向不同对象，但不可以修改字符串本身。这样看起来是低效的，但由于编译器的 *共享* 机制，使得程序无需因为重复的字符串对象浪费资源。引用可以有很多个，本源只能有一个。
 
 > 通常是字符串常量才适用共享机制，字符串变量还是有可能会在堆中存储多个等值的字符串。因此比较两个字符串变量是否相等一般使用 `s1.equals(s2)` 或者 `if(s1.compareTo(s2) == 0)` 。字面量也可以直接使用这两个方法。
 
@@ -351,7 +313,7 @@ int indexOf(String str, int fromIndex)
 int indexOf(int cp)
 int indexOf(int cp, int fromIndex)
 // 从 fromIndex 或者 0 开始扫描字符串，
-// 查找子串 str 或者码点 cp 并返回第一个匹配的位置
+// 查找子串 str 或者码点 cp 并返回第一个匹配的位置 
 
 String replace(CharSequence oldString, CharSequence newString)
 // 用 newString 代替字符串中的 oldString，返回一个新字符串。
@@ -378,7 +340,7 @@ String join(CharSequence delimeter, CharSequence... elements)
 `StringBuilder` 和 `StringBuilder` 的 API 都大致相同，下面以 `StringBuilder` 为例。
 
 ```Java
-int length()
+int length() 
 // 返回的是代码单元的数量，区别于 String 的 length()
 
 // 插入类的 API 都是返回 this 对象，可以连续 append/insert/deleted
@@ -399,7 +361,7 @@ String toString()
 
 枚举类 `enum` 用来将变量限制在一个范围内，除了范围内的类型和 `null` 以外，其他取值都是非法的，这种方式用来写一些状态列表可以避免很多错误。
 
-```JAVA
+``` JAVA
 // 声明枚举类
 enum Size {SMALL, MEDIUM, LARGE, EXTRA_LARGE};
 
@@ -460,15 +422,14 @@ Java 利用 `final` 指示常量。常量只能被赋值一次。一旦被赋值
 
 合法的**隐式数值**类型转换：
 
-![picture 17](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/d2503db019b7d16e99c31cf06102b3b8ca4d4ca7056b91a841ac38b559f7084c.png)
+![picture 17](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/d2503db019b7d16e99c31cf06102b3b8ca4d4ca7056b91a841ac38b559f7084c.png)  
 
 实线代表不会丢失精度，虚线代表会丢失精度。
-
 > 这里的精度是从二进制的角度进行理解的，由于 `double` 的整数位数比 `long` 要短，所以会使得整数位数中的低位变成零，从而产生精度丢失的问题。
 
 显式类型转换需要在语句中声明，这种方式也可能丢失精度，比如从 `double` 转换成 `int`。
 
-```JAVA
+``` JAVA
 double x = 9.997;
 int y = (int)x; // 9，精度丢失方式是直接截断小数位数
 ```
@@ -482,15 +443,15 @@ int y = (int)x; // 9，精度丢失方式是直接截断小数位数
 `&(and) |(or) ^(xor) ~(not) >> << >>>`
 
 注意：
-
 - 没有 `<<<` 运算符；
 - `>> <<` 使用的是循环位移的方案；
 
 运算符优先级：
 
-![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/5c401c8fda09e83bd31b44457a34fb3a037a2df4102369b07e582553baebbe27.png)
+![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/5c401c8fda09e83bd31b44457a34fb3a037a2df4102369b07e582553baebbe27.png)  
 
-![picture 2](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/3724c3163da0cabfe2d667bba461a384b97f4e61149a10a575296c6163802b10.png)
+![picture 2](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/3724c3163da0cabfe2d667bba461a384b97f4e61149a10a575296c6163802b10.png)  
+
 
 #### 输入输出
 
@@ -498,7 +459,7 @@ int y = (int)x; // 9，精度丢失方式是直接截断小数位数
 
 使用 `Scanner` 类进行输入；
 
-```JAVA
+``` JAVA
 // 创建输入对象
 Scanner input = new Scanner(System.in);
 // 接受一个整数
@@ -517,7 +478,7 @@ boolean isNextInt = input.hasNextInt();
 
 为了提供更好的交互性，Java 提供了 `Console` 对象进行更多的交互；
 
-```JAVA
+``` JAVA
 Console cons = System.console();
 String username = cons.readLine("User name: ");
 // 这样使用，用户输入密码时不会显示出来
@@ -531,13 +492,13 @@ char[] password = cons.readPassword("Password: ");
 
 `patternString` 由固定部分和要插入的部分以及格式控制标志构成。
 
-![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/9b8ff6975f3aaca1f90d1885c908d543394ea030d7decff0d2cfac7c7d7e418e.png)
+![picture 1](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/9b8ff6975f3aaca1f90d1885c908d543394ea030d7decff0d2cfac7c7d7e418e.png)  
 
-![picture 4](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/5c5b94e4be9f7b14fbc9bbb01301165ab33162208d2145806e7d6609204ad565.png)
+![picture 4](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/5c5b94e4be9f7b14fbc9bbb01301165ab33162208d2145806e7d6609204ad565.png)  
 
-![picture 5](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8 %A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/4a2c07c37e0fec98440b997210198e5c7d36dd69b95160158a23161335af19da.png)
+![picture 5](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8  %A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/4a2c07c37e0fec98440b997210198e5c7d36dd69b95160158a23161335af19da.png)  
 
-![picture 3](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75539bb84f3a4f23804a17b3f613fd75a465d81ed03a0b0315b3a9d81fde4fe0.png)
+![picture 3](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75539bb84f3a4f23804a17b3f613fd75a465d81ed03a0b0315b3a9d81fde4fe0.png)  
 
 example:
 
@@ -548,4 +509,5 @@ System.out.printf("%,.2f", 10000.0 / 3.0);
 // 3,333.33
 ```
 
-![picture 6](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75ecde1f297b74f548e6f47d9c37275f92063c68031f0499fb0a96de0a8fcce1.png)
+![picture 6](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/75ecde1f297b74f548e6f47d9c37275f92063c68031f0499fb0a96de0a8fcce1.png)  
+
