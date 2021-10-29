@@ -2,16 +2,16 @@
 title: Markdown 快速入门
 date: 2021-07-06
 tags: []
-categories: 
-    - 工具
-    - markdown
+categories:
+  - 工具
+  - markdown
 ---
 
 ## Markdown 快速入门
 
 ### 标题
 
-``` code
+```code
 # 一级标题
 
 ## 二级标题
@@ -28,8 +28,7 @@ categories:
 
 ### 特殊字体
 
-
-``` code
+```code
 
 **加粗**
 
@@ -42,7 +41,7 @@ categories:
 
 ### 引用块
 
-``` code
+```code
 >一级引用
 >>二级引用
 >>>三级引用
@@ -50,7 +49,7 @@ categories:
 
 ### 分割线
 
-``` code
+```code
 ***分割线
 
 ---分割线
@@ -58,14 +57,14 @@ categories:
 
 ### 图片和超链接
 
-``` code
+```code
 ![图片alt](图片地址)
 [超链接名](超链接地址)
 ```
 
 ### 列表
 
-``` code
+```code
 * 一级无序列表
     * 二级无序列表
         * 三级无序列表
@@ -77,7 +76,7 @@ categories:
 
 ### 表格
 
-``` code
+```code
 | 表头 | 表头 | 表头 |
 | ---- | ---- | ---- |
 | 内容 | 内容 | 内容 |
@@ -100,7 +99,7 @@ block code
 
 ```
 
-``` mermaid
+```mermaid
 graph LR
   A-->B;
   A-->C;
@@ -111,14 +110,6 @@ graph LR
 脚注的写法：
 Content [^1]
 
-[^1]:abc:xxxxxxxxx
+[^1]: abc:xxxxxxxxx
 
-​```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-​```
+​`flow st=>start: 开始 op=>operation: My Operation cond=>condition: Yes or No? e=>end st->op->cond cond(yes)->e cond(no)->op ​`

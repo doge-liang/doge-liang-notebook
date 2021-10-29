@@ -2,14 +2,14 @@
 title: Linux 文件与目录
 date: 2021-03-12
 tags: []
-categories: 
-    - 操作系统
-    - Linux
+categories:
+  - 操作系统
+  - Linux
 ---
 
 ## Linux 文件与目录
 
-- *在 Linux 中，一切皆为文件。*
+- _在 Linux 中，一切皆为文件。_
 
 ### 文件系统概述
 
@@ -37,4 +37,3 @@ Linux 文件系统的结构像是**一棵**倒置的树，所有的存储目录�
 - Linux 的分区属于目录；
 
 另外， Linux 从设计之初则定位为多用户操作系统，所以权限配置部分做的比较完善，而 Windows 则刚好相反。
-

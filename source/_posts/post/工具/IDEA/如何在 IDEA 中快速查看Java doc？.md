@@ -2,9 +2,9 @@
 title: 如何在 IDEA 中快速查看Java doc？
 date: 2021-03-02
 tags: []
-categories: 
-    - 工具
-    - IDEA
+categories:
+  - 工具
+  - IDEA
 ---
 
 <style>
@@ -22,7 +22,7 @@ transform: translateX(-50%);
 }
 </style>
 
-## 如何在 IDEA 中快速查看Java doc？
+## 如何在 IDEA 中快速查看 Java doc？
 
 ### 选中需要查看的函数名（类名）
 
@@ -32,4 +32,4 @@ transform: translateX(-50%);
 
 `Ctrl` + `W` 便可以打开 Java Doc 文档了。
 
-![picture 27](../../../../assets/%E5%B7%A5%E5%85%B7/IDEA/%E5%A6%82%E4%BD%95%E5%9C%A8%20IDEA%20%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8BJava%20doc%EF%BC%9F/45279fcf37d4df1a914690452fb65fbbe6a14340a64a34fa319359d1a4c6943b.png)  
+![picture 27](../../../../assets/%E5%B7%A5%E5%85%B7/IDEA/%E5%A6%82%E4%BD%95%E5%9C%A8%20IDEA%20%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8BJava%20doc%EF%BC%9F/45279fcf37d4df1a914690452fb65fbbe6a14340a64a34fa319359d1a4c6943b.png)

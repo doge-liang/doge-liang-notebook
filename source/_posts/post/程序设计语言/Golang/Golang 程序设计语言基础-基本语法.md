@@ -2,9 +2,9 @@
 title: Golang 程序设计语言基础-基本语法
 date: 2021-03-05
 tags: []
-categories: 
-    - 程序设计语言
-    - Golang
+categories:
+  - 程序设计语言
+  - Golang
 ---
 
 <style>
@@ -166,7 +166,7 @@ i, _ = getTwoValue()
 
 ### 常量
 
-``` go
+```go
 // 声明常量，不能使用 := 定义
 const Pi = 3.14
 const world = "世界"
@@ -176,10 +176,10 @@ const (
     // float
     // 1000....00 左移位运算符
     // 相当于二进制 1后面跟了 100 个零
-    Big = 1 << 100 
+    Big = 1 << 100
     // 类型未定 int 还是 float 由上下文决定
     // (10)2 = (2)10 左移运算符
-    Small = Big >> 99 
+    Small = Big >> 99
 )
 
 func needInt(x int) int { return x*10 + 1 }
@@ -212,12 +212,12 @@ fmt.Println(x, " ", y, " ", z)
 
 ### 基本类型
 
-`bool` `string` 
+`bool` `string`
 `int` `int8` `int16` `int32` `int64`
 `uint` `uint8` `uint16` `uint32` `uint64` `uintptr`
 `byte` // uint8 的别名
 `rune` // int32 的别名 表示一个 unicode 码点
-`float32` `float64` 
+`float32` `float64`
 `complex32` `complex64`
 `int`, `uint` 和 `uintptr` 在 32 位系统上通常为 32 位宽，在 64 位系统上则为 64 位宽。 当你需要一个整数值时应使用 `int` 类型，除非你有特殊的理由使用固定大小或无符号的整数类型。
 

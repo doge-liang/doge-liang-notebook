@@ -2,20 +2,20 @@
 title: Linux 学习书单
 date: 2021-03-12
 tags: []
-categories: 
-    - 书单
+categories:
+  - 书单
 ---
 
 ## Linux 学习书单
 
 apue Unix 环境高级编程
 
-ioss 
+ioss
 
-linux kernel development Linux内核设计与实现
+linux kernel development Linux 内核设计与实现
 
-ulk 深入理解Linux内核
+ulk 深入理解 Linux 内核
 
 lvmm 深入理解 Linux 虚拟内存管理
 
-ldd Linux设备驱动程序
+ldd Linux 设备驱动程序

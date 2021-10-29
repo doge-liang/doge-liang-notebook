@@ -2,20 +2,24 @@
 title: python 连接mysql
 date: 2019-10-10
 tags: []
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
-## python 连接mysql
+
+## python 连接 mysql
+
+- [python 连接 mysql](#python-连接-mysql)
+  - [pyodbc](#pyodbc)
 
 1. PyMySQL
 2. pyodbc
 
 ### pyodbc
 
-连接mysql
+连接 mysql
 
-1. 下载odbc-MySQL驱动安装包
+1. 下载 odbc-MySQL 驱动安装包
 2. 安装驱动并在电脑的管理工具处配置数据源
 3. 经测试数据源可用后即可点击确定
 

@@ -2,10 +2,8 @@
 title: ubuntu-apt
 date: 2020-06-21
 tags: [ubuntu, apt]
-categories: 
-
-    - [操作系统]
-
+categories:
+  - [操作系统]
 ---
 
 ## ubuntu-apt 命令使用
@@ -20,7 +18,7 @@ categories:
 
 `apt -f install` 修复安装
 
-* `-f = --fix-missing` 
+- `-f = --fix-missing`
 
 `apt remove package` 删除包（会留下个人配置）
 

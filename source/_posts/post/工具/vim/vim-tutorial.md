@@ -2,11 +2,9 @@
 title: vim-tutorial
 date: 2020-06-20
 tags: [vim]
-categories: 
-
-    - 工具
-    - vim
-
+categories:
+  - 工具
+  - vim
 ---
 
 ## vim tutorial
@@ -15,7 +13,7 @@ categories:
 
 This part is the **SUMMARY** of the oficial basic interactive tutorial. By typing `vimtutor` in the terminal you can see the complete tutorial.
 
-`j`  `k`  `h`  `l` up down left right
+`j` `k` `h` `l` up down left right
 
 `x` delete
 
@@ -33,7 +31,7 @@ This part is the **SUMMARY** of the oficial basic interactive tutorial. By typin
 
 `dd` delete the whole line
 
-`d3w`  `d2e`  `d4$`  `9dd` delete `n` words/lines
+`d3w` `d2e` `d4$` `9dd` delete `n` words/lines
 
 `0` to the start of the line
 
@@ -49,7 +47,7 @@ This part is the **SUMMARY** of the oficial basic interactive tutorial. By typin
 
 `R` switch to the replace mode
 
-`ce`  `cw`  `c$` correct word/line
+`ce` `cw` `c$` correct word/line
 
 `ctrl G` file status
 
@@ -85,7 +83,7 @@ This part is the **SUMMARY** of the oficial basic interactive tutorial. By typin
 
 ### vimrc
 
-``` vimrc
+```vimrc
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

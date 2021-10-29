@@ -2,9 +2,9 @@
 title: Hyperledger 简介
 date: 2020-05-27
 tags: [区块链概述, Hyperledger Fabric]
-categories: 
-    - 区块链
-    - Hyperledger Fabric
+categories:
+  - 区块链
+  - Hyperledger Fabric
 ---
 
 ## Hyperledger 简介
@@ -13,7 +13,7 @@ Hyperledger 是由 Linux 基金会发起的大型开源项目，包含了许多�
 
 下图描述了 Fabric 的主要构成元素。
 
-![picture 28](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/HyperLedger%20Fabric%201.4%E6%A6%82%E8%BF%B0/32790cf3b7c91c39b3d5e705884baf3078f5af0a95b61550ed9101461edffb45.png)  
+![picture 28](../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/HyperLedger%20Fabric%201.4%E6%A6%82%E8%BF%B0/32790cf3b7c91c39b3d5e705884baf3078f5af0a95b61550ed9101461edffb45.png)
 
 - Chaincode 即链码，即链上代码，是工作在每个 Peer 内的脚本，当接收到服务端发起的 proposal 提案之后， Peer 开始执行链码产生相应的结果；
 - Shared Ledger 即共享账本，链上的每一个 Peer 都拥有一套相同的账本（部分节点私有的数据，未授权节点保留其 hashcode ），这也是区块链系统的基础；

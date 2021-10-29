@@ -2,13 +2,12 @@
 title: docker容器部署错误分析
 date: 2021-04-07
 tags: []
-categories: 
-
-    - 工具
-    - docker
+categories:
+  - 工具
+  - docker
 ---
 
-## docker容器部署错误分析
+## docker 容器部署错误分析
 
 今天用 docker-compose 部署 Hyperledger Fabric 网络的时候， peer1.subscriber.mynetwork.com 容器出现了 Exited(1) 的错误。
 

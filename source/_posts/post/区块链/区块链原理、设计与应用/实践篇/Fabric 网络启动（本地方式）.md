@@ -2,10 +2,10 @@
 title: Fabric 网络启动（本地方式）
 date: 2021-03-14
 tags: [Hyperledger Fabric]
-categories: 
-    - 区块链
-    - 《区块链原理、设计与应用》
-    - 实践篇
+categories:
+  - 区块链
+  - 《区块链原理、设计与应用》
+  - 实践篇
 ---
 
 ## Fabric 网络启动（本地方式）
@@ -22,7 +22,7 @@ categories:
 
 示例网络拓扑结构如图：
 
-![picture 1](../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/7d2ba45fa2972f19cecc140c1fd280702c0c7387d76d6e5edf1d83589c6d6a48.png)  
+![picture 1](../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/7d2ba45fa2972f19cecc140c1fd280702c0c7387d76d6e5edf1d83589c6d6a48.png)
 
 构成要素：
 
@@ -43,7 +43,7 @@ Fabric 网络启动之前需要准备一些相关的配置文件，主要包括�
 - 新建应用通道交易文件( `businesschannel.tx` )
 - 锚节点配置更新交易文件( `Org2MSPanchors.tx` 和 `Org2MSPanchors.tx` )
 
-![picture 7](../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/84a6bcf5b0d6805398efbebcfe616f64f1856081b2bbaab0738f43a6ad49e60a.png)  
+![picture 7](../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/84a6bcf5b0d6805398efbebcfe616f64f1856081b2bbaab0738f43a6ad49e60a.png)
 
 下面开始生成上述五类配置文件。
 
@@ -57,11 +57,11 @@ Fabric 网络启动之前需要准备一些相关的配置文件，主要包括�
 
 本次案例中， `crypto-config.yaml` 文件定义了一个 `OrdererOrgs` 类型的组织 `example.com` 包括 3 个节点；两个 `PeerOrgs` 类型的组织 `org1.example.com` 和 `org2.example.com` ，分别包括 2 个节点和 1 个普通用户身份，文件内容如下：
 
-``` yaml
+```yaml
 OrdererOrgs:
     - Name: Orderer
         Domain: example.com
-        CA: 
+        CA:
             Country: US
             Province: California
             Locality: San Francisco
@@ -97,7 +97,7 @@ PeerOrgs:
 
 生成身份文件：
 
-``` BASH
+```BASH
 cryptogen generate \
     --config=./crypto-config.yaml \
     --output ./crypto-config \
@@ -106,7 +106,7 @@ cryptogen generate \
 
 可以看到目录结构如下：
 
-``` BASH
+```BASH
 /crypto-config
 ├── ordererOrganizations
 │   └── example.com
@@ -167,7 +167,7 @@ cryptogen generate \
 
 我们看到 `ordererOrganizations` 目录下包括了如下三个排序节点的身份信息：
 
-``` BASH
+```BASH
 /crypto-config/ordererOrganizations/example.com/orderers
    ├── orderer0.example.com
    ├── orderer1.example.com
@@ -176,7 +176,7 @@ cryptogen generate \
 
 `peerOrganizations` 目录下包括了所有的 `Peer` 节点组织及其节点的身份信息：
 
-``` BASH
+```BASH
 /crypto-config/peerOrganizations
 ├── org1.example.com
 │   └── peers
@@ -192,7 +192,7 @@ cryptogen generate \
 
 接下来需要把节点对应的身份文件移动到 `/etc/hyperledger/fabric/` 目录下：
 
-``` BASH
+```BASH
 sudo cp -r \
 crypto-config/ordererOrganizations/example.com/orderers/* \
  crypto-config/peerOrganizations/org1.example.com/peers/* \
@@ -206,7 +206,7 @@ crypto-config/ordererOrganizations/example.com/orderers/* \
 
 结果如下：
 
-``` BASH
+```BASH
 /etc/hyperledger/fabric/
 ├── Admin@example.com
 │   ├── msp
@@ -257,9 +257,9 @@ crypto-config/ordererOrganizations/example.com/orderers/* \
 使用 `configtxgen` 工具生成初始区块文件：
 
 ```shell
-export SYS_CHANNEL=testchainid 
-export ORDERER_GENESIS_PROFILE=TwoOrgsOrdererGenesis 
-export ORDERER_GENESIS=orderer.genesis.block 
+export SYS_CHANNEL=testchainid
+export ORDERER_GENESIS_PROFILE=TwoOrgsOrdererGenesis
+export ORDERER_GENESIS=orderer.genesis.block
 configtxgen \
 -configPath ./ \
 -channelID ${SYS_CHANNEL} \

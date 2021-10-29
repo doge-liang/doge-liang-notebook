@@ -2,9 +2,9 @@
 title: mermaid 画流程图
 date: 2021-03-18
 tags: []
-categories: 
-    - 工具
-    - mermaid
+categories:
+  - 工具
+  - mermaid
 ---
 
 ## mermaid 画流程图
@@ -13,7 +13,7 @@ categories:
 
 [官网](https://mermaid-js.github.io/mermaid/#/flowchart?id=a-node-in-a-cylindrical-shape)的实例：
 
-``` mermaid
+```mermaid
 graph TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -22,7 +22,7 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-``` code
+```code
 graph TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -57,7 +57,7 @@ graph TD
 
 ### 子图
 
-``` mermaid
+```mermaid
 flowchart TB
     c1-->one
     subgraph one
@@ -74,7 +74,7 @@ flowchart TB
     two --> c2
 ```
 
-``` code
+```code
 flowchart TB
     c1-->a2
     subgraph one
@@ -93,13 +93,13 @@ flowchart TB
 
 ### 注释
 
-``` mermaid
+```mermaid
 graph LR
 %% this is a comment A -- text --> B{node}
    A -- text --> B -- text2 --> C
 ```
 
-``` code
+```code
 graph LR
 %% this is a comment A -- text --> B{node}
    A -- text --> B -- text2 --> C
@@ -109,7 +109,7 @@ graph LR
 
 可以为 node 绑定事件，使得流程图可以交互；
 
-``` mermaid
+```mermaid
 graph LR;
     A-->B;
     B-->C;
@@ -118,7 +118,7 @@ graph LR;
     click D href "http://www.github.com"
 ```
 
-``` code
+```code
 graph LR;
     A-->B;
     B-->C;
@@ -131,7 +131,7 @@ graph LR;
 
 #### 线条样式自定义
 
-``` mermaid
+```mermaid
 graph LR
     A --> B;
     B --> C;
@@ -140,7 +140,7 @@ graph LR
     linkStyle 3 stroke:#ff3,stroke-width:4px;
 ```
 
-``` code
+```code
 graph LR
     A --> B;
     B --> C;
@@ -153,14 +153,14 @@ graph LR
 
 #### 节点样式自定义
 
-``` mermaid
+```mermaid
 graph LR
     id1(Start)-->id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px
     style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
 
-``` code
+```code
 graph LR
     id1(Start)-->id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px
@@ -171,13 +171,13 @@ graph LR
 
 实际使用的时候更多会将样式定义为类，然后将类赋予节点来定义样式。避免了为每一个类都定义一个样式的麻烦。
 
-``` mermaid
+```mermaid
 graph LR
     A:::someclass --> B
     classDef someclass fill:#f96;
 ```
 
-``` code
+```code
 graph LR
     A:::someclass --> B
     classDef someclass fill:#f96;

@@ -2,11 +2,11 @@
 title: vscode+remote-ssh插件进行远程开发
 date: 2021-03-27
 tags: []
-categories: 
-    - 零碎
+categories:
+  - 零碎
 ---
 
-## vscode+remote-ssh插件进行远程开发
+## vscode+remote-ssh 插件进行远程开发
 
 > 经尝试，如果使用腾讯云提供的 ssh 密钥登录，可以做到 vscode + remote-ssh 远程登录不需要输入密钥。如果是自己生成的 ssh-key 进行配置好像还是要求我输入 rsa 的密钥。
 
@@ -35,7 +35,7 @@ categories:
 
 在 vscode 中点击 `ctrl` + `shift` + `P` ，输入 `remote-ssh:open` 打开默认的第一个配置文档，输入以下内容：
 
-``` BASH
+```BASH
 Host <Host Name>
     HostName <IP or Domain>
     User <Login Username>
@@ -69,7 +69,7 @@ d8596fae67b8: end
 
 ### 连接的时候遇到了 permissions are too open 问题
 
-``` BASH
+```BASH
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -92,7 +92,7 @@ windows 解决方案：打开配置中设置的 ssh 公钥文件，右键打开 
 su root
 vim /etc/ssh/ssh_config
 # 通过 /[pattern] 的方式搜索到 PermitRoot 那一行
-# 在下面重开一行，输入 PermitRoot yes 
+# 在下面重开一行，输入 PermitRoot yes
 # 输入 :wq ，退出 vim 编辑器
 cat /home/ubuntu/.ssh/authorized_keys >> /root/.ssh/authorized_keys
 ```

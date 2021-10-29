@@ -5,11 +5,11 @@
 # Site
 title: doge-liang-notebook
 subtitle: doge-liang's notebook
-description: '什么都记的笔记本'
+description: "什么都记的笔记本"
 keywords:
 author: doge-liang
 language: en
-timezone: 'asia/shanghai'
+timezone: "asia/shanghai"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -38,7 +38,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -56,7 +56,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
 
@@ -65,7 +65,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -108,7 +108,7 @@ theme: hexo-theme-next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   repository: https://github.com/doge-liang/doge-liang-notebook.git
-  type: 'git'
+  type: "git"
   branch: master
 
 # Math
@@ -124,8 +124,7 @@ math:
 
 # mermaid chart
 mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true  # default true
+  enable: true # default true
   version: "7.1.2" # default v7.1.2
-  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+  options:# find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
-    

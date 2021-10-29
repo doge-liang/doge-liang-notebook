@@ -2,14 +2,22 @@
 title: Python学习-xlwt/xlrd
 date: 2019-10-10
 tags: []
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
 
-## Python学习-xlwt/xlrd
+## Python 学习-xlwt/xlrd
 
-### 1.存Excel文件(对于数值型数据)
+- [Python 学习-xlwt/xlrd](#python学习-xlwtxlrd)
+  - [1.存 Excel 文件(对于数值型数据)](#1存excel文件对于数值型数据)
+  - [2.读 Excel 文件(对于数值型数据)](#2读excel文件对于数值型数据)
+  - [3.openpyxl](#3openpyxl)
+  - [4.xlsxwriter](#4xlsxwriter)
+    - [存 Excel 文件](#存excel文件)
+  - [format 参数表](#format参数表)
+
+### 1.存 Excel 文件(对于数值型数据)
 
 ```python
 import xlwt
@@ -31,7 +39,7 @@ workbook.save('test_xlwt.xls')
 
 ```
 
-### 2.读Excel文件(对于数值型数据)
+### 2.读 Excel 文件(对于数值型数据)
 
 ```python
 import xlrd
@@ -50,50 +58,50 @@ print(cell_11, cell_21,row_3)
 
 ### 3.openpyxl
 
-1. 存Excel文件
+1. 存 Excel 文件
 
-    ```python
-    from openpyxl import Workbook
+   ```python
+   from openpyxl import Workbook
 
-    workbook = Workbook()
-    booksheet = workbook.active #获取当前活跃的sheet,默认是第一个sheet
-    #存第一行单元格cell(1,1)
-    booksheet.cell(1,1).value = 6 #这个方法索引从1开始
-    booksheet.cell("B1").value = 7
-    #存一行数据
-    BookSheet.append([11,87])
-    #保存workbook到文件系统内
-    workbook.save("test_openpyxl.xlsx")
-    ```
+   workbook = Workbook()
+   booksheet = workbook.active #获取当前活跃的sheet,默认是第一个sheet
+   #存第一行单元格cell(1,1)
+   booksheet.cell(1,1).value = 6 #这个方法索引从1开始
+   booksheet.cell("B1").value = 7
+   #存一行数据
+   BookSheet.append([11,87])
+   #保存workbook到文件系统内
+   workbook.save("test_openpyxl.xlsx")
+   ```
 
-2. 读Excel文件
+2. 读 Excel 文件
 
-    ```python
-    from openpyxl import load_workbook
+   ```python
+   from openpyxl import load_workbook
 
-    workbook = load_workbook(rddir)
+   workbook = load_workbook(rddir)
 
-    #获取当前活跃的sheet，默认是第一个sheet
-    booksheet = workbook.active sheets = workbook.get_sheet_names() 
+   #获取当前活跃的sheet，默认是第一个sheet
+   booksheet = workbook.active sheets = workbook.get_sheet_names()
 
-    #从名称获取sheet
-    booksheet = workbook.get_sheet_by_name(sheets[0])
+   #从名称获取sheet
+   booksheet = workbook.get_sheet_by_name(sheets[0])
 
-    rows = booksheet.rows
-    columns = booksheet.columns
+   rows = booksheet.rows
+   columns = booksheet.columns
 
-    #迭代所有行
-    for row in rows:
-        line = [col.value for col in row]
+   #迭代所有行
+   for row in rows:
+       line = [col.value for col in row]
 
-    #通过坐标读取值
-    cell_11 = booksheet.cell('A1').value
-    cell_11 = booksheet.cell(row=1, column=1).value
-    ```
+   #通过坐标读取值
+   cell_11 = booksheet.cell('A1').value
+   cell_11 = booksheet.cell(row=1, column=1).value
+   ```
 
 ### 4.xlsxwriter
 
-#### 存Excel文件
+#### 存 Excel 文件
 
 ```python
 import xlsxwriter
@@ -137,10 +145,10 @@ worksheet.write(row, 1, '=SUM(B2:B5)', money)
 workbook.close()
 ```
 
-### format参数表
+### format 参数表
 
 | Category   | Description      | Property         | Method Name          |
-| ---------- | ---------------- | ---------------- | -------------------- |
+| ---------- | ---------------- | ---------------- | -------------------- | ------------------- |
 | Font       | Font type        | font_name'       | set_font_name()      |
 |            | Font size        | 'font_size'      | set_font_size()      |
 |            | Font color       | 'font_color'     | set_font_color()     |

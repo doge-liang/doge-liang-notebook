@@ -2,16 +2,16 @@
 title: Golang 依赖管理-go mod
 date: 2021-04-10
 tags: []
-categories: 
-    - 程序设计语言
-    - Golang
+categories:
+  - 程序设计语言
+  - Golang
 ---
 
 ## Golang 依赖管理-go mod
 
 ### Go Module
 
-Go 语言在1.11版本之后发布了 `go module` 是目前最新的依赖管理工具了。
+Go 语言在 1.11 版本之后发布了 `go module` 是目前最新的依赖管理工具了。
 通过设置 `GO111MODULE` 的值可以开启或禁用 `go module` 工具。
 `GO111MUDULE` 支持 `on` `auto` `off` 三种模式：
 
@@ -23,13 +23,13 @@ Go 语言在1.11版本之后发布了 `go module` 是目前最新的依赖管理
 
 在 Go 1.13 之后 `GOPROXY` 的默认值为 `https://proxy.golang.org` ，在国内无法访问，所以可以设置为： `goproxy.cn`
 
-``` BASH
+```BASH
 export GOPROXY=https://goproxy.cn
 ```
 
 ### go mod 命令
 
-``` BASH
+```BASH
 go mod download         下载依赖的module到本地cache（默认为$GOPATH/pkg/mod目录）
 go mod edit             编辑go.mod文件
 go mod grap             打印模块依赖图
@@ -44,7 +44,7 @@ go mod why              解释为什么需要依赖
 
 `go.mod` 文件记录了项目所有的依赖信息，其结构大致如下：
 
-``` code
+```code
 module github.com/Q1mi/studygo/blogger
 
 go 1.12
@@ -69,7 +69,7 @@ require (
 
 比如 `go get foo@v1.2.3` ，也可以跟 git 的 tag 或者 branch ，比如 `go get foo@master` ，当然也可以跟 git 提交 hashcode 比如 `go get foo@3702bed2` 。关于依赖的版本支持以下几种格式：
 
-``` code
+```code
 gopkg.in/tomb.v1 v1.0.1-20141024135613-dd632973f1e7
 gopkg.in/vmihailenco/msgpack.v2 v2.9.1
 gopkg.in/yaml.v2 <= v2.2.1

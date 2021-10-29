@@ -2,18 +2,16 @@
 title: myvimrc
 date: 2020-06-21
 tags: [vimrc]
-categories: 
-
-    - 工具
-    - vim
-
+categories:
+  - 工具
+  - vim
 ---
 
 ## My vimrc
 
 ### user .vimrc
 
-``` lua
+```lua
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -54,7 +52,7 @@ let g:tex_conceal='abdmg'
 
 set nu
 set tabstop=4
-set hls 
+set hls
 set is
 set bg=dark
 set autoindent

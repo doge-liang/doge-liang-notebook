@@ -2,9 +2,9 @@
 title: Linux cat 命令与重定向
 date: 2021-07-25
 tags: [cat]
-categories: 
-    - 操作系统
-    - linux
+categories:
+  - 操作系统
+  - linux
 ---
 
 ## Linux cat 命令与重定向
@@ -13,7 +13,7 @@ categories:
 
 重定向符包括：
 
-- 重定向输出 `>` `>>` 
+- 重定向输出 `>` `>>`
 - 重定向输入 `<` `<<`
 
 常用的命令：

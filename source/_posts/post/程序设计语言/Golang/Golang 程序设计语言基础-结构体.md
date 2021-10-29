@@ -2,16 +2,16 @@
 title: Golang 程序设计语言基础-结构体
 date: 2021-04-10
 tags: []
-categories: 
-    - 程序设计语言
-    - Golang
+categories:
+  - 程序设计语言
+  - Golang
 ---
 
 ## Golang 程序设计语言基础-结构体
 
 ### 自定义类型和类型别名
 
-``` Go
+```Go
 package main
 
 import "fmt"
@@ -37,7 +37,7 @@ func main() {
 
 输出：
 
-``` code
+```code
 100
 main.myInt
 200

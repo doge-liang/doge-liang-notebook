@@ -2,16 +2,17 @@
 title: python-matplotlib绘图
 date: 2020-07-17
 tags: [matplotlib]
-categories: 
-
-    - 程序设计语言
-    - python
-
+categories:
+  - 程序设计语言
+  - python
 ---
 
-## python-matplotlib绘图
+## python-matplotlib 绘图
 
-``` Python
+- [python-matplotlib 绘图](#python-matplotlib-绘图)
+  - [直方图](#直方图)
+
+```Python
 import matplotlib.pyplot as plt
 
 fig = plt.figure()
@@ -23,16 +24,16 @@ plt.show()
 
 效果如下：
 
-![picture 20](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/3e4d360ece4700a8ddfb9ebcd608058ca250166636995b9c13650462980aff6f.png)  
+![picture 20](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/3e4d360ece4700a8ddfb9ebcd608058ca250166636995b9c13650462980aff6f.png)
 
 若要正常显示中文，则添加如下代码：
 
-``` Python
+```Python
 plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 ```
 
-``` Python
+```Python
 fig = plt.figure()
 
 ax = fig.add_subplot(1,1,1)
@@ -42,11 +43,11 @@ plt.show()
 
 效果如下：
 
-![picture 21](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/0cee40a047a1274c79ef175291888b2f489add944880aa852d7e7e1a1421cf05.png)  
+![picture 21](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/0cee40a047a1274c79ef175291888b2f489add944880aa852d7e7e1a1421cf05.png)
 
 ### 直方图
 
-``` Python
+```Python
 np.random.seed(int(time.time()))
 x = np.arange(5)
 y = np.random.randn(5)
@@ -64,11 +65,11 @@ plt.show()
 
 效果如下：
 
-![picture 22](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/fbc8a69603c66302ff8275d07b048e6d61c2ecd88d95ec1d47b1d56b3a39258a.png)  
+![picture 22](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/fbc8a69603c66302ff8275d07b048e6d61c2ecd88d95ec1d47b1d56b3a39258a.png)
 
 加上图例和坐标轴：
 
-``` Python
+```Python
 np.random.seed(int(time.time()))
 x = np.arange(5)
 y = np.random.randn(5)
@@ -95,4 +96,4 @@ plt.show()
 
 效果如下：
 
-![picture 23](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/5c396afe104712e3846bfa939c1d318e4766b3a1791f47487f8674423209906a.png)  
+![picture 23](../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/5c396afe104712e3846bfa939c1d318e4766b3a1791f47487f8674423209906a.png)

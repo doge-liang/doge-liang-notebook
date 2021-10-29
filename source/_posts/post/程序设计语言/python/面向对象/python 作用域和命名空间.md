@@ -2,12 +2,16 @@
 title: python 作用域和命名空间
 date: 2021-04-08
 tags: []
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
 
 ## python 作用域和命名空间
+
+- [python 作用域和命名空间](#python-作用域和命名空间)
+  - [命名空间](#命名空间)
+  - [作用域](#作用域)
 
 ### 命名空间
 
@@ -27,7 +31,7 @@ categories:
 
 从例子中说明：
 
-``` Python
+```Python
 def scope_test():
     def do_local():
         # 作用域在 do_local() 内

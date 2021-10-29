@@ -2,10 +2,11 @@
 title: stash
 date: 2021-10-07
 tags: []
-categories: 
-    - 工具
-    - git
+categories:
+  - 工具
+  - git
 ---
+
 ## stash
 
 将更改存储在脏工作目录（脏应该是不同步的意思，类似于 dirty data ）中。

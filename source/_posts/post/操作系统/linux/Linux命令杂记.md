@@ -2,10 +2,8 @@
 title: Linux命令杂记
 date: 2019-10-01
 tags: [Linux]
-categories: 
-
-    - [操作系统]
-
+categories:
+  - [操作系统]
 ---
 
 ## 检查 Linux 版本
@@ -15,21 +13,21 @@ lsb_release -a
 uname -a #查看硬件架构
 ```
 
-## 转换到root用户
+## 转换到 root 用户
 
-``` code
+```code
 su root
 ```
 
-## 修改root用户密码
+## 修改 root 用户密码
 
-``` code
+```code
 sudo passwd root
 ```
 
-## 修改ssh密码
+## 修改 ssh 密码
 
-``` shell
+```shell
 passwd [用户]
 
 #输入新密码
@@ -38,21 +36,21 @@ passwd [用户]
 
 ## 安装软件
 
-``` code
+```code
 sudo yum install [Option] // RedHat-based
 sudo apt-get install [Option] // Debian-based
 ```
 
 ## 查看软件安装
 
-**因为linux安装软件的方式比较多，所以没有一个通用的办法能查到某些软件是否安装。总结起来就是这几类：**  
+**因为 linux 安装软件的方式比较多，所以没有一个通用的办法能查到某些软件是否安装。总结起来就是这几类：**
 
-1. rpm包安装的：用rpm -qa，如果查找某一软件包是否安装，用rpm -qa|grep "软件或包的名字";
-2. deb包安装的：用dpkg -l，如果指定软件包，用dpkg -l|grep "软件或者包的名字";
+1. rpm 包安装的：用 rpm -qa，如果查找某一软件包是否安装，用 rpm -qa|grep "软件或包的名字";
+2. deb 包安装的：用 dpkg -l，如果指定软件包，用 dpkg -l|grep "软件或者包的名字";
 
 ## 目录查阅命令
 
-``` code
+```code
 // 显示文件信息
 ls [OPTION]... [FILE]...
 // 按行显示
@@ -73,9 +71,9 @@ tree -help
 ## 软件安装/卸载
 
 - Debian 系列：
-apt:
+  apt:
 
-``` shell
+```shell
 apt-get install xxx xxx
 apt install xxx xxx # 看apt的版本，新版的apt == apt-get
 apt remove xxx xxx # 保留配置的卸载
@@ -85,9 +83,9 @@ apt upgrade xxx xxx
 ```
 
 - RedHat 系列：
-yum:
+  yum:
 
-``` BASH
+```BASH
 yum install [RPM package]
 yum remove [RPM package]
 yum update [RPM package]
@@ -97,7 +95,7 @@ yum list installed
 
 ## 后台启动命令
 
-``` shell
+```shell
 setsid [Option] [program]
 ```
 
@@ -116,7 +114,7 @@ mode 可以写成三个八进制数字的组合，第一个数字表示文件所
 
 例如：
 
-``` BASH
+```BASH
 $ ll
 
 # total 16
@@ -163,7 +161,7 @@ $ ll
 
 `cp` [参数] [文件]
 
-![picture 8](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/ef0b611502dc124d89efc8243f3fd852fca246f73c31c935e9bd7579c51c156d.png)  
+![picture 8](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/ef0b611502dc124d89efc8243f3fd852fca246f73c31c935e9bd7579c51c156d.png)
 
 ### 目录栈
 
@@ -183,40 +181,40 @@ $ ll
 
 使用例子：
 
-``` code
+```code
 #这个符号~代表根home目录
 root@localhost:ubuntu# pushd /root
-~ /home/ubuntu      
+~ /home/ubuntu
 
 #添加目录
 root@localhost:ubuntu# pushd /home/ubuntu/download/
-/home/ubuntu/download /home/ubuntu ~    
+/home/ubuntu/download /home/ubuntu ~
 
 #添加目录
 root@localhost:download# pushd /usr/local/
-/usr/local /home/ubuntu/download /home/ubuntu ~    
+/usr/local /home/ubuntu/download /home/ubuntu ~
 
 #切换到了原始目录
 root@localhost:download# pushd +1
 /home/ubuntu ~ /usr/local /home/ubuntu/download
-root@localhost:ubuntu#          
+root@localhost:ubuntu#
 
 #切换到home目录
 root@localhost:ubuntu# pushd +1
-~ /usr/local /home/ubuntu/download /home/ubuntu  
-root@localhost:~#              
+~ /usr/local /home/ubuntu/download /home/ubuntu
+root@localhost:~#
 
 #切换到了/usr/local目录
 root@localhost:~# pushd -2
 /usr/local /home/ubuntu/download /home/ubuntu ~
-root@localhost:local#          
+root@localhost:local#
 ```
 
 `popd` ：弹出目录栈
 用法： `popd [-n] [+N | -N | dir]`
 参数：
-`+n` 删除pushd添加的目录，以当前目录为准，从左向右数，删除第 n 个；
-`-n` 删除pushd添加的目录，以当前目录为准，从右向左数，删除第 n 个；
+`+n` 删除 pushd 添加的目录，以当前目录为准，从左向右数，删除第 n 个；
+`-n` 删除 pushd 添加的目录，以当前目录为准，从右向左数，删除第 n 个；
 
 ```code
 #添加目录
@@ -249,7 +247,7 @@ root@localhost:ubuntu# dirs
 /home/ubuntu /usr
 
 root@localhost:ubuntu# dirs -1
-/home/ubuntu 
+/home/ubuntu
 
 root@localhost:ubuntu# dirs +1
 /usr
@@ -261,8 +259,8 @@ root@localhost:ubuntu# dirs +1
 `$your_name` 或 `${your_name}` 代表定义过的变量；
 `$1` 或 `$2` ... 等等，代表了执行 bash 脚本时传递的参数，数字代表参数的位置；
 
-
 `export val_name` 设置环境变量；
+
 > 环境变量和本地变量的本质区别在于遗传性，不管开了几个子进程，只要都还在这个环境工作，那么都能用到这个环境变量，而本地变量则是各自维护的；
 
 #### shell 的字符串
@@ -280,7 +278,7 @@ root@localhost:ubuntu# dirs +1
 
 ##### 字符串拼接
 
-``` BASH
+```BASH
 your_name="runoob"
 # 使用双引号拼接
 greeting="hello, "$your_name" !"
@@ -294,28 +292,28 @@ echo $greeting_2  $greeting_3
 
 结果：
 
-``` BASH
+```BASH
 hello, runoob ! hello, runoob !
 hello, runoob ! hello, ${your_name} !
 ```
 
 ##### 获取字符串长度
 
-``` BASH
+```BASH
 string="abcd"
 echo ${#string} #输出 4
 ```
 
 ##### 提取子字符串
 
-``` BASH
+```BASH
 string="runoob is a great site"
 echo ${string:1:4} # 输出 unoo
 ```
 
 ##### 查找子字符串
 
-``` BASH
+```BASH
 string="runoob is a great site"
 echo `expr index "$string" io`  # 输出 4
 ```
@@ -329,13 +327,13 @@ echo `expr index "$string" io`  # 输出 4
 
 变量也可以指向语句：
 
-``` Bash
+```Bash
 file=`ls /etc`
 ```
 
 #### 数组
 
-``` BASH
+```BASH
 array_name=(value1 value2 ... valuen)
 
 # 读取
@@ -364,7 +362,7 @@ done
 `set` 命令是对 shell 的一些设置，
 例如 `set -x` 为打开调试回响模式，可以使脚本中的命令在控制台中打印出来。
 
-``` BASH
+```BASH
 set -x
 echo $(uanme -a)
 set +x
@@ -377,19 +375,19 @@ echo $(uname -a)
 
 #### 条件判断
 
-``` BASH
+```BASH
 if condition1
 then
     command1
-elif condition2 
-then 
+elif condition2
+then
     command2
 else
     commandN
 fi
 ```
 
-``` BASH
+```BASH
 if [[ ! -f tmp/mycc.tar.gz ]]; then
     pushd ~/workspace/chaincode/chaincode_example01/go
         ./build.sh
@@ -403,7 +401,7 @@ fi
 
 ##### 多重判断
 
-``` BASH
+```BASH
 case 值 in
 模式1)
     command1
@@ -422,7 +420,7 @@ esac
 
 #### 循环
 
-``` BASH
+```BASH
 for var in item1 item2 ... itemN
 do
     command1
@@ -432,10 +430,9 @@ do
 done
 ```
 
-``` BASH
+```BASH
 while condition
 do
     command
 done
 ```
-

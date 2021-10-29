@@ -2,16 +2,22 @@
 title: numpy的使用
 date: 2019-10-10
 tags: [Jupyter Notebook]
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
 
 ## 简介
 
+- [简介](#简介)
+  - [变量](#变量)
+  - [数据类型](#数据类型)
+  - [流程控制](#流程控制)
+  - [函数](#函数)
+
 ### 变量
 
-``` Python
+```Python
 a = a or b
 
 # 等价于

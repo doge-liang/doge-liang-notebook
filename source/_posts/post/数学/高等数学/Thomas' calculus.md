@@ -2,8 +2,8 @@
 title: Thomas' calculus
 date: 2021-03-07
 tags: [calculus]
-categories: 
-    - 数学
+categories:
+  - 数学
 ---
 
 <style>
@@ -47,8 +47,8 @@ We also discuss the use of
 Real numbers are numbers that can be expressed as decimals.  
 The real numbers can be represented geometrically as points on a number line called the **real line**.
 
-We use the symbol $\real$ denotes the real number or the real line  
+We use the symbol $\real$ denotes the real number or the real line
 
-We have three categories of the real number properties.  
+We have three categories of the real number properties.
 
 #### algebraic properties

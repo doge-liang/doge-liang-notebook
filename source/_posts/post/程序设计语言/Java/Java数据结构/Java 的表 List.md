@@ -2,9 +2,9 @@
 title: Java 的表 List
 date: 2021-03-12
 tags: []
-categories: 
-    - 程序设计语言
-    - Java
+categories:
+  - 程序设计语言
+  - Java
 ---
 
 <style>
@@ -26,7 +26,7 @@ transform: translateX(-50%);
 
 List<?> 转换成 ?[]
 
-``` JAVA
+```JAVA
 int[] array = list.stream().mapToInt(i -> i).toArray();
 ```
 

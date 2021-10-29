@@ -2,8 +2,8 @@
 title: ROM 开发入门
 date: 2021-07-11
 tags: []
-categories: 
-    - [零碎]
+categories:
+  - [零碎]
 ---
 
 ## ROM 开发入门
@@ -15,4 +15,4 @@ categories:
 - 阅读 Android 开发者文档
 - 学习 Git
 - 从 AOSP 编译安卓系统
-- 
+-

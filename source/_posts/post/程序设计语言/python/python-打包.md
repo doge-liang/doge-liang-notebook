@@ -2,11 +2,15 @@
 title: python打包方式
 date: 2019-10-10
 tags: []
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
-## python打包方式
+
+## python 打包方式
+
+- [python 打包方式](#python-打包方式)
+  - [通过 pyInstaller](#通过-pyinstaller)
 
 ### 通过 pyInstaller
 

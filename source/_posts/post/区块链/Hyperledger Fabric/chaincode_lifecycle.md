@@ -2,9 +2,9 @@
 title: chaincode_lifecycle
 date: 2021-03-30
 tags: []
-categories: 
-    - 区块链
-    - Hyperledger Fabric
+categories:
+  - 区块链
+  - Hyperledger Fabric
 ---
 
 ## Chaincode Lifecycle
@@ -12,13 +12,13 @@ categories:
 ### Environment Varibles
 
 - FABRIC_CFG_PATH
-path of `configtx.yaml` file
+  path of `configtx.yaml` file
 
 - CORE_PEER_LOCALMSPID
-ID of peer to be accessed
+  ID of peer to be accessed
 
 - CORE_PEER_ADDRESS
-IP/FQDN+PORT of peer to be accessed
+  IP/FQDN+PORT of peer to be accessed
 
 - CORE_PEER_TLS_ENABLED (required only for TLS)
 
@@ -44,7 +44,7 @@ export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.examp
 
 ### Steps
 
-- packaging chaincode （make *.tar.gz）
+- packaging chaincode （make \*.tar.gz）
 
 `peer lifecycle chaincode package`
 
@@ -65,7 +65,7 @@ export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.examp
 `peer lifecycle chaincode checkcommitreadiness`
 
 - commit chaincode
-`peer lifecycle chaincode commit`
+  `peer lifecycle chaincode commit`
 
 ### Example
 

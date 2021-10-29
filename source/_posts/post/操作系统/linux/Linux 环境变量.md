@@ -2,9 +2,9 @@
 title: Linux 环境配置
 date: 2021-03-29
 tags: []
-categories: 
-    - 操作系统
-    - linux 
+categories:
+  - 操作系统
+  - linux
 ---
 
 ## Linux 环境配置
@@ -14,7 +14,7 @@ Linux 有两种方式来进行环境的配置：
 - 交互式 login shell ：这种方式取得 bash 命令需要登录操作，比如系统刚刚开机时候需要输入用户密码才能够取得的相关命令；
 - 非交互式 non-login shell ：这种方式取得的 bash 命令则不需要进行登陆操作，比如登录系统之后执行的 `bash` 命令相当于打开了一个子 bash 环境；
 
-![picture 1](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/5c04f725230db3370ca9045c2adef6263fc3056f538f89c3019727833f304dee.png)  
+![picture 1](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/5c04f725230db3370ca9045c2adef6263fc3056f538f89c3019727833f304dee.png)
 
 ### 交互式 login shell
 
@@ -27,7 +27,7 @@ Linux 有两种方式来进行环境的配置：
 
 总结下来如下图所示，实线的方向是系统会自动读取的流程，虚线是文件中调用的配置文件；一般我们都会修改 `~/.bashrc` 进行用户专属的配置，方式管理混乱；
 
-![picture 2](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/439e6b62c3c44825587086a54f5c4439ae12663278834307f4664fad3cd13383.png)  
+![picture 2](../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/439e6b62c3c44825587086a54f5c4439ae12663278834307f4664fad3cd13383.png)
 
 ### 非交互式 non-login shell
 

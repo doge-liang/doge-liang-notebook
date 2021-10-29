@@ -2,11 +2,12 @@
 title: Fabric实战-环境搭建（编译方式）
 date: 2020-05-15
 tags: [Hyperledger Fabric]
-categories: 
-    - 区块链
-    - 《区块链设计、原理与应用》
-    - 实践篇
+categories:
+  - 区块链
+  - 《区块链设计、原理与应用》
+  - 实践篇
 ---
+
 ## Fabric 环境搭建
 
 简单说说 Fabric：
@@ -14,7 +15,7 @@ categories:
 - HyperLegder 下的
 - 模块化架构的
 - 分布式的账本解决方案**平台**
-特点是：
+  特点是：
 - 深度加密
 - 便捷扩展
 - 灵活部署（基于 Docker）
@@ -35,7 +36,7 @@ VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机
 HTTPS 访问依赖：
 
 ```BASH
-sudo apt install -y apt-transport-https ca-certificates software-properties-common 
+sudo apt install -y apt-transport-https ca-certificates software-properties-common
 ```
 
 解压缩工具、git（代码版本管理）、curl（文件传输）、vim（编辑器）、jq（JSON 解析器）、 tree （路径树查看器）安装：
@@ -44,38 +45,38 @@ sudo apt install -y apt-transport-https ca-certificates software-properties-comm
 sudo apt install -y unzip git curl vim jq tree
 ```
 
-#### GO语言环境搭建
+#### GO 语言环境搭建
 
 使用 `curl` 命令下载
 
-``` BASH
+```BASH
 curl -O https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
 ```
 
-如果由于网络环境无法下载成功，则去[go语言中文网](https://studygolang.com/dl)下载压缩包
+如果由于网络环境无法下载成功，则去[go 语言中文网](https://studygolang.com/dl)下载压缩包
 解压
 
-``` BASH
+```BASH
 sudo tar -xvf go1.14.15.linux-amd64.tar.gz -C /usr/local
 ```
 
 创建工作环境
 
-``` BASH
-sudo mkdir -p /opt/goworkspace/bin  
-sudo mkdir -p /opt/goworkspace/src  
-sudo mkdir -p /opt/goworkspace/pkg 
+```BASH
+sudo mkdir -p /opt/goworkspace/bin
+sudo mkdir -p /opt/goworkspace/src
+sudo mkdir -p /opt/goworkspace/pkg
 ```
 
 设置环境变量
 
-``` BASH
+```BASH
 sudo vim /etc/profile
 ```
 
 追加以下内容到文件末尾：
 
-``` BASH
+```BASH
 export GOROOT=/usr/local/go
 export GOPATH=/opt/goworkspace
 export PATH=$GOROOT/bin:$PATH
@@ -83,13 +84,13 @@ export PATH=$GOROOT/bin:$PATH
 
 应用环境变量：
 
-``` BASH
+```BASH
 source /etc/profile
 ```
 
 设置代理，（如果网络环境没问题可以不用设置）
 
-``` BASH
+```BASH
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
 ```
@@ -133,13 +134,13 @@ curl -fsSL https://get.docker.com/ | sh
 
 获取 docker 官方 GPG：
 
-``` BASH
+```BASH
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 由于国内网络环境，以上方法有可能不成功，可以通过科学手段访问链接，直接下载 GPG 文件，然后手动 add
 
-``` BASH
+```BASH
 sudo apt-key add [gpg path]
 ```
 
@@ -157,36 +158,34 @@ $(lsb_release -cs) stable"
 
 更新源并安装 docker-ce
 
-``` BASH
+```BASH
 sudo apt update && sudo apt install -y docker-ce
 docker --version
 ```
 
 测试 docker 安装情况：
 
-``` BASH
+```BASH
 sudo docker run hello-world
 ```
 
 由于国内的网络环境，为了加快拉取镜像的速度，需要将官方镜像源换成国内的：
 
-``` BASH
+```BASH
 sudo vim /etc/docker/daemon.json
 ```
 
 输入以下内容：
 
-``` json
+```json
 {
-        "registry-mirrors":[
-                "https://docker.mirrors.ustc.edu.cn"
-        ]
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
 }
 ```
 
 重载重启 docker 以应用设置：
 
-``` BASH
+```BASH
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
@@ -197,14 +196,14 @@ sudo systemctl restart docker
 
 创建 fabric 代码仓库目录：
 
-``` BASH
+```BASH
 sudo mkdir -p $GOPATH/src/github.com/hyperledger
 cd $GOPATH/src/github.com/hyperledger
 ```
 
 获取 fabric 代码：
 
-``` BASH
+```BASH
 # fabric
 sudo git clone https://github.com/hyperledger/fabric.git
 # fabric-ca
@@ -213,7 +212,7 @@ sudo git clone https://github.com/hyperledger/fabric-ca.git
 
 使用哪个版本的 Fabric 就要 checkout 到哪个发行版的分支，我这里使用的是 release-2.0 ：
 
-``` BASH
+```BASH
 git checkout release-2.0
 ```
 
@@ -221,7 +220,7 @@ git checkout release-2.0
 
 配置版本号和编译参数：
 
-``` BASH
+```BASH
 PROJECT_VERSION=2.0.0
 
 LD_FLAGS="-X github.com/hyperledger/fabric/common/metadata.Version=${PROJECT_VERSION} \
@@ -232,8 +231,8 @@ LD_FLAGS="-X github.com/hyperledger/fabric/common/metadata.Version=${PROJECT_VER
 
 编译并安装 Peer 组件到 `$GOPATH/bin` 下：
 
-``` BASH
-CGO_CFLAGS=" " 
+```BASH
+CGO_CFLAGS=" "
 go install -tags "" -ldflags "$LD_FLAGS" \
 github.com/hyperledger/fabric/cmd/peer
 ```
@@ -242,8 +241,8 @@ github.com/hyperledger/fabric/cmd/peer
 
 ### 编译安装 Orderer 组件
 
-``` BASH
-CGO_CFLAGS=" " 
+```BASH
+CGO_CFLAGS=" "
 go install -tags "" -ldflags "$LD_FLAGS" \
 github.com/hyperledger/fabric/cmd/orderer
 ```
@@ -254,7 +253,7 @@ github.com/hyperledger/fabric/cmd/orderer
 
 从源码编译安装 fabric-ca：
 
-``` BASH
+```BASH
 go install -ldflags \
 "-X github.com/hyperledger/fabric-ca/lib/metadata.Version=$PROJECT_VERSION \
 -linkmode external \
@@ -272,7 +271,7 @@ github.com/hyperledger/fabric-ca/cmd/...
 - discover：拓扑探测；
 - idemixgen：Idemix 证书生成；
 
-``` BASH
+```BASH
 # 编译安装 cryptogen，等价于执行 make cryptogen
 CGO_CFLAGS=" " \
   go install -tags "" -ldflags "$LD_FLAGS" \
@@ -297,7 +296,7 @@ CGO_CFLAGS=" " \
 
 ### 安装 Protobuf 支持和 Go 语言相关工具
 
-``` BASH
+```BASH
 go get github.com/golang/protobuf/protoc-gen-go \
 #   && go get github.com/maxbrunsfeld/counterfeiter \
   && go get github.com/axw/gocov/... \
@@ -311,7 +310,7 @@ go get github.com/golang/protobuf/protoc-gen-go \
 
 出现错误：
 
-``` BASH
+```BASH
 unrecognized import path "google.golang.org/protobuf/compiler/protogen": https fetch: Get "https://google.golang.org/protobuf/compiler/protogen?go-get=1": dial tcp 216.239.37.1:443: i/o timeout
 unrecognized import path "google.golang.org/protobuf/types/descriptorpb": https fetch: Get "https://google.golang.org/protobuf/types/descriptorpb?go-get=1": dial tcp 216.239.37.1:443: i/o timeout
 unrecognized import path "google.golang.org/protobuf/cmd/protoc-gen-go/internal_gengo": https fetch: Get "https://google.golang.org/protobuf/cmd/protoc-gen-go/internal_gengo?go-get=1": dial tcp 216.239.37.1:443: i/o timeout
@@ -321,7 +320,7 @@ unrecognized import path "google.golang.org/protobuf/cmd/protoc-gen-go/internal_
 
 配置代理打开了 `GO111MODULE` 之后，仍然出现错误：
 
-``` BASH
+```BASH
 go get github.com/maxbrunsfeld/counterfeiter: github.com/maxbrunsfeld/counterfeiter@v6.3.0: reading https://mirrors.aliyun.com/goproxy/github.com/maxbrunsfeld/counterfeiter/@v/v6.3.0.info: 404 Not Found
 ```
 

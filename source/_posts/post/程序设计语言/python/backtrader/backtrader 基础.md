@@ -2,17 +2,21 @@
 title: backtrader 基础
 date: 2021-04-12
 tags: []
-categories: 
-    - 程序设计语言
-    - python
-    - backtrader
+categories:
+  - 程序设计语言
+  - python
+  - backtrader
 ---
 
 ## backtrader 基础
 
+- [backtrader 基础](#backtrader-基础)
+  - [实现一个简单的移动平均线策略](#实现一个简单的移动平均线策略)
+  - [一个包含选股和择时的 RSI 策略](#一个包含选股和择时的-rsi-策略)
+
 ### 实现一个简单的移动平均线策略
 
-``` Python
+```Python
 from __future__ import (absolute_import, division, print_function, unicode_literals)
 
 # 导入 backtrader
@@ -182,7 +186,7 @@ if__name__== '"___main__":__main__':
 
 ### 一个包含选股和择时的 RSI 策略
 
-``` Python
+```Python
 from __future__ import (absolute_import, division, print_function, unicode_literals)
 
 # 导入 backtrader

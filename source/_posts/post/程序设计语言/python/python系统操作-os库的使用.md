@@ -2,11 +2,21 @@
 title: python系统操作-os库的使用
 date: 2020-05-27
 tags: [os]
-categories: 
-    - 程序设计语言
-    - python
+categories:
+  - 程序设计语言
+  - python
 ---
-## python-os库使用
+
+## python-os 库使用
+
+- [python-os 库使用](#python-os-库使用)
+  - [文件读写](#文件读写)
+  - [路径操作](#路径操作)
+    - [os.path](#ospath)
+    - [pathlib](#pathlib)
+  - [命令行读写文件](#命令行读写文件)
+  - [创建临时文件和目录](#创建临时文件和目录)
+  - [创建高级文件和目录](#创建高级文件和目录)
 
 官方文档：<https://docs.python.org/3/library/os.html>
 

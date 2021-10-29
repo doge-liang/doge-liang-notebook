@@ -2,9 +2,9 @@
 title: maven入门
 date: 2021-08-25
 tags: [maven, Draft]
-categories: 
-    - 工具
-    - maven
+categories:
+  - 工具
+  - maven
 ---
 
 ## Maven 入门

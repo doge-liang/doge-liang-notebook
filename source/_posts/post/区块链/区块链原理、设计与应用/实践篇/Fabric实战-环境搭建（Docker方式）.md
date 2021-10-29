@@ -2,13 +2,13 @@
 title: Fabric实战-环境搭建（Docker方式）
 date: 2021-03-13
 tags: [Hyperledger Fabric]
-categories: 
-    - 区块链
-    - 《区块链设计、原理与应用》
-    - 实践篇
+categories:
+  - 区块链
+  - 《区块链设计、原理与应用》
+  - 实践篇
 ---
 
-## Fabric实战-环境搭建（Docker方式）
+## Fabric 实战-环境搭建（Docker 方式）
 
 ### 安装 Docker
 
@@ -31,13 +31,13 @@ sudo apt-get remove docker \
 
 获取 docker 官方 GPG：
 
-``` BASH
+```BASH
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 由于国内网络环境，以上方法有可能不成功，可以通过科学手段访问链接，直接下载 GPG 文件，然后手动 add
 
-``` BASH
+```BASH
 sudo apt-key add [gpg path]
 ```
 
@@ -55,45 +55,45 @@ $(lsb_release -cs) stable"
 
 更新源并安装 docker-ce
 
-``` BASH
+```BASH
 sudo apt update && sudo apt install -y docker-ce
 docker --version
 ```
 
 测试 docker 安装情况：
 
-``` BASH
+```BASH
 sudo docker run hello-world
 ```
 
 由于国内的网络环境，为了加快拉取镜像的速度，需要将官方镜像源换成国内的：
 
-``` BASH
+```BASH
 sudo vim /etc/docker/daemon.json
 ```
 
 输入以下内容：
 
-``` json
+```json
 {
-        "registry-mirrors":[
-                "https://registry.docker-cn.com",
-                "http://hub-mirror.c.163.com",
-                "https://docker.mirrors.ustc.edu.cn"
-        ]
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
 }
 ```
 
 重载重启 docker 以应用设置：
 
-``` BASH
+```BASH
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
 ### 安装 docker-composer
 
-``` BASH
+```BASH
 # 安装 pip
 sudo apt install python-pip
 # 更新 pip
@@ -141,7 +141,7 @@ tools 安装了 bash 、 jq 、 peer 、 cryptogen 、 configtxgen 等常见命�
 
 #### 从 Dokerhub 获取镜像
 
-``` BASH
+```BASH
 ARCH=amd64
 BASEIMAGE_RELEASE=0.4.18
 LATEST=latest

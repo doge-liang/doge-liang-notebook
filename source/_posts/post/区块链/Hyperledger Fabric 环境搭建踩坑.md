@@ -2,8 +2,8 @@
 title: Hyperledger Fabric 环境搭建踩坑
 date: 2021-03-27
 tags: []
-categories: 
-    - 区块链
+categories:
+  - 区块链
 ---
 
 ## Hyperledger Fabric 环境搭建踩坑
@@ -38,7 +38,7 @@ Error: Error getting broadcast client: orderer client failed to connect to local
 
 /root/workspace/shutdown.sh
 
-``` BASH
+```BASH
 #!/bin/bash
 
 echo "Clearing"
@@ -59,15 +59,15 @@ sudo rm -rf organizations/fabric-ca/ordererOrg/*
 
 /root/workspace/teardown.sh
 
-``` BASH
+```BASH
 #!/bin/bash
 echo "Shutdown CA Services, Peers and Orderer in Network"
 COMPOSE_FILE_CA=docker/docker-compose-ca.yaml
 COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml
 COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml
-CA_IMAGE_TAG=${CA_VERSION} 
-IMAGE_TAG=${FABRIC_VERSION} 
-DB_IMAGE_TAG=${OTHER_VERSION} 
+CA_IMAGE_TAG=${CA_VERSION}
+IMAGE_TAG=${FABRIC_VERSION}
+DB_IMAGE_TAG=${OTHER_VERSION}
 docker-compose -f ${COMPOSE_FILE_CA} -f ${COMPOSE_FILE_BASE} -f ${COMPOSE_FILE_COUCH} down
 echo
 ```

@@ -2,22 +2,22 @@
 title: git安装和配置
 date: 2021-03-23
 tags: []
-categories: 
-    - 工具
-    - git
+categories:
+  - 工具
+  - git
 ---
 
-## git安装和配置
+## git 安装和配置
 
 ### 安装
 
-``` BASH
+```BASH
 sudo apt install git
 ```
 
 ### 初次配置
 
-``` BASH
+```BASH
 git config --global user.name "doge-liang"
 git config --global user.email "1542640147@qq.com"
 ```
@@ -27,4 +27,3 @@ git config --global user.email "1542640147@qq.com"
 如果 github 账户设置了 ssh 密钥的话，可以在本地生成一下 ssh-key
 
 步骤参照 git-ssh
-

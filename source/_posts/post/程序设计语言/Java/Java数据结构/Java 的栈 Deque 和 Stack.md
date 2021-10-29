@@ -2,8 +2,8 @@
 title: Java 的栈 Deque和Stack
 date: 2021-03-12
 tags: [数据结构, 栈]
-categories: 
-    - [程序设计语言]
+categories:
+  - [程序设计语言]
 ---
 
 <style>

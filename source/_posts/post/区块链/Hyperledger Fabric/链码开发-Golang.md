@@ -2,9 +2,9 @@
 title: 链码开发-Golang
 date: 2021-04-10
 tags: []
-categories: 
-    - 区块链
-    - Hyperledger Fabric
+categories:
+  - 区块链
+  - Hyperledger Fabric
 ---
 
 ## 链码开发
@@ -19,16 +19,16 @@ Golang 的链码开发有两套 api ：
 一个合约需要遵循以下的规则：
 
 1. 入参的第一个只能是 contratapi.TransactionContext 或者继承了这个结构的接口（自定义的或者 contractapi.TransactionContextInterface ）。其他的入参只能是如下的类型：
-    string
-    bool
-    int (including int8, int16, int32 and int64)
-    uint (including uint8, uint16, uint32 and uint64)
-    float32
-    float64
-    time.Time
-    Arrays/slices of any allowable type
-    Structs (whose public fields are all of the allowable types or another struct)
-    Pointers to structs
-    Maps with a key of type string and values of any of the allowable types
-    interface{} (Only allowed when directly taken in, will receive a string type when called via a transaction)
+   string
+   bool
+   int (including int8, int16, int32 and int64)
+   uint (including uint8, uint16, uint32 and uint64)
+   float32
+   float64
+   time.Time
+   Arrays/slices of any allowable type
+   Structs (whose public fields are all of the allowable types or another struct)
+   Pointers to structs
+   Maps with a key of type string and values of any of the allowable types
+   interface{} (Only allowed when directly taken in, will receive a string type when called via a transaction)
 2. 返回的参数只能是零个、一个或两个

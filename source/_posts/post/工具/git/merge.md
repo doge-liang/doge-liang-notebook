@@ -2,9 +2,9 @@
 title: merge
 date: 2021-10-07
 tags: []
-categories: 
-    - 工具
-    - git
+categories:
+  - 工具
+  - git
 ---
 
 ## merge

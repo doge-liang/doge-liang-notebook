@@ -5,7 +5,7 @@
 ```bash
 ############### common packages ####################
 # install utilities
-sudo apt-get install -y apt-transport-https ca-certificates software-properties-common 
+sudo apt-get install -y apt-transport-https ca-certificates software-properties-common
 sudo apt-get install -y unzip git  curl wget vim tree jq
 
 # install gradle
@@ -18,7 +18,7 @@ sudo cat >> ~/.bashrc <<EOF
 export PATH=$PATH:/usr/local/gradle/bin
 # =====================
 EOF
-source ~/.bashrc 
+source ~/.bashrc
 
 # download workspace from gitlab.com
 git clone https://gitlab.com/qubing/blockchain_lab_v2.git ~/workspace
@@ -45,10 +45,10 @@ docker images
 #Tips: Speed up docker hub access in China
 sudo cat >> /etc/docker/daemon.json <<EOF
 {
-    "registry-mirrors": ["https://registry.docker-cn.com"] 
+    "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 EOF
-sudo systemctl daemon-reload 
+sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 ############### docker images ####################
@@ -74,7 +74,7 @@ docker images
 
 ############### docker-compose ####################
 # download
-#wget https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` 
+#wget https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m`
 #wget https://get.daocloud.io/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m`
 wget https://blockchain-files.s3.cn-northwest-1.amazonaws.com.cn/docker-compose-`uname -s`-`uname -m`
 # copy to ` /usr/local/bin/ ` and rename
@@ -92,8 +92,8 @@ sudo cat >> ~/.bashrc <<EOF
 # setup go environments
 # =====================
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gopath 
-export GO111MODULE=on 
+export GOPATH=$HOME/gopath
+export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 # =====================
 EOF
@@ -128,7 +128,7 @@ npm -v
 # 2.1. startup CA servers
 # 2.2. register accounts for each organizations including (admin, users, peers)
 # 2.3. generate genesis blocks and channel setup transaction files
-# 2.4. startup Orderer and Peers with DB 
+# 2.4. startup Orderer and Peers with DB
 # 2.5. setup channel
 # 2.6. generate connection profile for each peer
 . ./init.sh
@@ -167,7 +167,9 @@ npm -v
 # access example01(java version) on v1.1
 . scripts/test_example01.sh mycc_java
 ```
+
 - Deploy & Access – example02
+
 ```bash
 # deploy example02(java version) on v1.0
 . scripts/deploy_chaincode.sh java ${PWD}/chaincode/chaincode_example02/java mycc_java02
@@ -184,7 +186,9 @@ npm -v
 ```
 
 ### 3. Lab3 SDK Development
+
 #### install Maven
+
 ```bash
 cd /tmp
 wget https://mirrors.cnnic.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
@@ -199,7 +203,9 @@ export MAVEN_HOME=/opt/apache-maven
 EOF
 source ~/.bashrc
 ```
+
 #### add mirror for apache-maven (modify `/opt/apache-maven/conf/settings.xml`)
+
 ```xml
 <mirrors>
     ...
@@ -232,6 +238,3 @@ java -classpath ./target/example02-1.0-SNAPSHOT-jar-with-dependencies.jar exampl
 cd /home/ubuntu/workspace/app/example02_java/
 java -classpath ./target/example02-1.0-SNAPSHOT-jar-with-dependencies.jar example02.InvokeTransfer
 ```
-
-
-

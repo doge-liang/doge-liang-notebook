@@ -2,10 +2,10 @@
 title: PAC
 date: 2021-03-09
 tags: [v2ray]
-categories: 
-    - 工具
-    - vpn
-    - v2ray
+categories:
+  - 工具
+  - vpn
+  - v2ray
 ---
 
 <style>
@@ -46,4 +46,3 @@ PAC 的一些编写规则：
 5. `||` 标记，如 `||example.com` 则 `http://example.com` 、`https://example.com` 、 `ftp://example.com` 等地址均满足条件；
 6. 注释 `!` 。 如 `!`我是注释；
 7. 分隔符 `^` ，表示除了字母、数字或者 `_` `-` `.` `%` 之外的任何字符；
-

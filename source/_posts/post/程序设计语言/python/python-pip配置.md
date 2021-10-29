@@ -2,25 +2,28 @@
 title: python-pip配置
 date: 2020-07-03
 tags: [pip]
-categories: 
-    - 程序设计语言
-    - python
-
+categories:
+  - 程序设计语言
+  - python
 ---
 
 ## python pip 配置
 
+- [python pip 配置](#python-pip-配置)
+  - [配置国内代理](#配置国内代理)
+  - [配置国内镜像](#配置国内镜像)
+
 ### 配置国内代理
 
-* 单次设置
+- 单次设置
 
-``` shell
+```shell
 pip install -r [package] --proxy=[IP]:[PORT]
 ```
 
-* 永久设置
+- 永久设置
 
-``` shell
+```shell
 # Unix 系
 vim /etc/profile：
     export http_proxy='http://[IP]:[PORT]'
@@ -37,15 +40,15 @@ echo. proxy='http://[IP]:[PORT]'>>pip.ini
 
 ### 配置国内镜像
 
-* 单次设置
+- 单次设置
 
-``` shell
+```shell
 pip install [package]  -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 ```
 
-* 永久设置
+- 永久设置
 
-``` shell
+```shell
 # Unix 系
 vim ~/.pip/pip.conf:
     [global]
