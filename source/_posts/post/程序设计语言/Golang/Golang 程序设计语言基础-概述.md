@@ -2,19 +2,25 @@
 title: Golang 程序设计语言基础-概述
 date: 2021-03-05
 tags: []
-categories:
-  - 程序设计语言
-  - Golang
+categories: 
+    - 程序设计语言
+    - Golang
 ---
 
-- [Golang 程序设计语言基础-概述](#golang-程序设计语言基础-概述)
-  - [优势领域](#优势领域)
-  - [设计背景](#设计背景)
-  - [语言特性](#语言特性)
-  - [开发工具](#开发工具)
-  - [第一个程序 Hello world](#第一个程序-hello-world)
-    - [执行方式](#执行方式)
-    - [依赖安装问题](#依赖安装问题)
+<style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
 
 ## Golang 程序设计语言基础-概述
 
@@ -26,7 +32,7 @@ categories:
 
 ### 设计背景
 
-现有编程语言没办法发挥多核 cpu 优势（cuda？）
+现有编程语言没办法发挥多核cpu优势（cuda？）
 编程风格不统一，计算能力不够强，并发处理差（Java？）
 编译语言编译过程慢，解释语言运行慢，要综合他们的优势。
 
@@ -91,13 +97,12 @@ func main() {
 #### 执行方式
 
 - `go build`：
-  编译生成 .exe 文件（编译语言的方式，一次编译，多次运行）
-  生成文件相对源代码大很多，自动添加环境变量；
-
+编译生成 .exe 文件（编译语言的方式，一次编译，多次运行）
+生成文件相对源代码大很多，自动添加环境变量；
   - `[-o]` 参数，后接生成文件名；
 
 - `go run`：
-  自动使用编译器将源代码编译，再执行（脚本语言的方式，一边解释，一边执行）
+自动使用编译器将源代码编译，再执行（脚本语言的方式，一边解释，一边执行）
 
 #### 依赖安装问题
 
@@ -108,58 +113,58 @@ func main() {
 - 通过设置代理 GOPROXY（推荐）
 
 1. 先写 GOPROXY 方法，其他的不知道为什么试了没用；
-   <https://goproxy.io/zh/>
-   就一条命令：
+    <https://goproxy.io/zh/>
+    就一条命令：
 
-   ```shell
-   go env -w GO111MODULE=on
-   go env -w GOPROXY=https://goproxy.io,direct
-   ```
+    ```shell
+    go env -w GO111MODULE=on
+    go env -w GOPROXY=https://goproxy.io,direct
+    ```
 
-   然后通过正常的安装命令完成安装，下一种方法贴了代码；
+    然后通过正常的安装命令完成安装，下一种方法贴了代码；
 
 2. 使用 git 源码再安装的方法。
-   在 Golang SDK 安装目录新建 `src/golang.org/x/`
+    在 Golang SDK 安装目录新建 `src/golang.org/x/`
 
-   ```shell
-   mkdir src/golang.org/x/
-   cd src/golang.org/x/
-   git clone https://github.com/golang/tools.git tools
-   git clone https://github.com/golang/lint.git lint
-   git clone https://github.com/golang/mod.git mod
-   git clone https://github.com/golang/xerrors.git xerrors
-   git clone https://github.com/golang/net.git net
-   ```
+    ```shell
+    mkdir src/golang.org/x/
+    cd src/golang.org/x/
+    git clone https://github.com/golang/tools.git tools
+    git clone https://github.com/golang/lint.git lint
+    git clone https://github.com/golang/mod.git mod
+    git clone https://github.com/golang/xerrors.git xerrors
+    git clone https://github.com/golang/net.git net
+    ```
 
-   获取依赖源代码：
+    获取依赖源代码：
 
-   ```shell
-   # 先从github下载依赖工具的源码，fetch提示timeout不要管
-   go get -v github.com/ramya-rao-a/go-outline
-   go get -v github.com/acroca/go-symbols
-   go get -v github.com/mdempsky/gocode
-   go get -v github.com/rogpeppe/godef
-   go get -v github.com/zmb3/gogetdoc
-   go get -v github.com/fatih/gomodifytags
-   go get -v sourcegraph.com/sqs/goreturns
-   go get -v github.com/cweill/gotests/...
-   go get -v github.com/josharian/impl
-   go get -v github.com/haya14busa/goplay/cmd/goplay
-   go get -v github.com/uudashr/gopkgs/cmd/gopkgs
-   go get -v github.com/davidrjenni/reftools/cmd/fillstruct
-   go get -v github.com/alecthomas/gometalinter
-   ```
+    ```shell
+    # 先从github下载依赖工具的源码，fetch提示timeout不要管
+    go get -v github.com/ramya-rao-a/go-outline
+    go get -v github.com/acroca/go-symbols
+    go get -v github.com/mdempsky/gocode
+    go get -v github.com/rogpeppe/godef
+    go get -v github.com/zmb3/gogetdoc
+    go get -v github.com/fatih/gomodifytags
+    go get -v sourcegraph.com/sqs/goreturns
+    go get -v github.com/cweill/gotests/...
+    go get -v github.com/josharian/impl
+    go get -v github.com/haya14busa/goplay/cmd/goplay
+    go get -v github.com/uudashr/gopkgs/cmd/gopkgs
+    go get -v github.com/davidrjenni/reftools/cmd/fillstruct
+    go get -v github.com/alecthomas/gometalinter
+    ```
 
-   开始安装相关依赖：
+    开始安装相关依赖：
 
-   ```shell
-   go install github.com/mdempsky/gocode
-   go install github.com/ramya-rao-a/go-outline
-   go install github.com/acroca/go-symbols
-   go install golang.org/x/tools/cmd/guru
-   go install golang.org/x/tools/cmd/gorename
-   go install github.com/stamblerre/gocode
-   go install github.com/ianthehat/godef
-   go install github.com/sqs/goreturns
-   go install golang.org/x/lint/golint
-   ```
+    ```shell
+    go install github.com/mdempsky/gocode
+    go install github.com/ramya-rao-a/go-outline
+    go install github.com/acroca/go-symbols
+    go install golang.org/x/tools/cmd/guru
+    go install golang.org/x/tools/cmd/gorename
+    go install github.com/stamblerre/gocode
+    go install github.com/ianthehat/godef
+    go install github.com/sqs/goreturns
+    go install golang.org/x/lint/golint
+    ```
