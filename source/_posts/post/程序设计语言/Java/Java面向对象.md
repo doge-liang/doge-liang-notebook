@@ -7,21 +7,6 @@ categories:
   - Java
 ---
 
-<style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-
 ## Java 面向对象
 
 ## 类和对象
@@ -44,5 +29,28 @@ public class genericClass<T> {
 
 //这是一个泛型接口
 public interface genericInterface<T> {
-...}
+	...
+}
+
+//可以定义多个类型参数
+public interface genericInterface<T, R> {
+	...
+}
 ```
+
+### 通配符
+
+- `? extends Employee` 代表这个泛型是 Employee 的子类；
+- `? super Manager` 代表这个泛型是 Manager 的父类；
+
+但是，在运行时阶段是不存在类型参数的。我们从编译器的角度考虑一下方法：
+
+```java
+void setFirst(? super Manager)
+? super Manger getFirst()
+```
+
+对于方法 `setFirst()` ：
+在经过类型擦除之后，编译器无法得知 `? super Manager` 指的是哪一个超类，因此不能接受类型 `Employee` 或 `Object` ，只能接受 `Manager` 类型。
+对于方法 `getFirst()` ：
+在经过类型擦除之后，编译器无法得知 `? super Manager` 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 `Object` 类；
