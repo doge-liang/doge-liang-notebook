@@ -46,11 +46,42 @@ public interface genericInterface<T, R> {
 但是，在运行时阶段是不存在类型参数的。我们从编译器的角度考虑一下方法：
 
 ```java
-void setFirst(? super Manager)
-? super Manger getFirst()
+void setFirst(? super Manager obj) {
+	//...
+}
+? super Manger getFirst() {
+	//...
+}
 ```
 
 对于方法 `setFirst()` ：
-在经过类型擦除之后，编译器无法得知 `? super Manager` 指的是哪一个超类，因此不能接受类型 `Employee` 或 `Object` ，只能接受 `Manager` 类型。
+编译器无法得知 `? super Manager` 指的是哪一个超类，因此不能接受类型 `Employee` 或 `Object` ，只能接受 `Manager` 类型。
 对于方法 `getFirst()` ：
-在经过类型擦除之后，编译器无法得知 `? super Manager` 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 `Object` 类；
+编译器无法得知 `? super Manager` 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 `Object` 类；
+
+```java
+void setFirst(Test<? extends Employee> obj) {
+	//...
+}
+? extends Employee getFirst() {
+	//...
+}
+```
+
+> **协变**：原父子类型关系在经过复杂类型构造之后，父子类型关系被保持下来了；
+> **逆变**：原父子类型经过类型构造之后，父子关系逆转；
+> **不变**：上述两种不适用；
+
+#### Producer Extend Consumer Super(PECS)
+
+考虑 `List<? extends T> list` ：
+`list.add(something)` 会报错，因为编译器只知道要存的是 `T` 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 `T` 的子类，所以可以生产 `T` 以及 `T` 的父类型的数据；
+考虑 `List<? super T> list` ：
+`list.get()` 会报错，因为编译器只知道里面存的是 `T` 的父类，但是不知道是哪个父类，不能保证类型安全。但编译器知道，`T` 以及 `T` 的子类都能够和 `T` 的某个父类兼容，所以可以使用 `list.add(t)` 存放对象。
+
+<!--
+考虑 `List<? extends Animal>` 和 `List<? extends Cat>` ：
+`Cat` 是 `Animal` 的子类，而 `List<? extends Cat>` 也是 `List<? extends Animal>` 的子类，我们称之为 *通配符类型是在**上界协变**的*；
+
+考虑 `List<? super Animal>` 和 `List<? super Cat>` ：
+`Animal` 是 `Cat` 的父类，而 `List<? super Animal>` 是 `List<? super Cat>`  -->

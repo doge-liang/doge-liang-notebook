@@ -1,3 +1,12 @@
+---
+title: Java Stream API
+date: 2019-10-01
+tags: []
+categories:
+	- 程序设计语言
+	- Java
+---
+
 ## Java Stream API
 
 ### 简介
@@ -43,3 +52,9 @@ Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript �
   - `streamInst.peek(Comsumer<? super T> action)` 把流中的元素抽取出来传给 `action` 执行某项动作，不返回结果，产生的新流与原来的流相同；
 
 ### 收集流
+
+=======
+创建流的各种方式：
+
+1. `CollectionInstance.stream()` 返回由集合的元素组成的流；
+2. `Stream.of(T)` 和 `Stream.of(T...)` 返回 T 类型的流；

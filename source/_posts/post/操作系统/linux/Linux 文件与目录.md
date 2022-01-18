@@ -4,7 +4,7 @@ date: 2021-03-12
 tags: []
 categories:
   - 操作系统
-  - Linux
+  - linux
 ---
 
 ## Linux 文件与目录

@@ -3,7 +3,9 @@ title: ubuntu-apt
 date: 2020-06-21
 tags: [ubuntu, apt]
 categories:
-  - [操作系统]
+  - 操作系统
+  - linux
+  - ubuntu
 ---
 
 ## ubuntu-apt 命令使用
