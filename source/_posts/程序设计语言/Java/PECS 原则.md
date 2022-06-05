@@ -9,4 +9,4 @@ categories:
 
 ## PECS 原则
 
-### 
+### “Producer Extends, Comsumer Super”
