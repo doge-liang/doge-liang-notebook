@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = async function(filePath, savePath, markdownPath) {
-    savePath = path.join(path.dirname(markdownPath).replace(/_posts/, 'assets'), savePath);
+    savePath = path.join(path.dirname(markdownPath).replace(/_posts\\article/, 'assets'), savePath);
     if (!fs.existsSync(path.dirname(savePath)))
         mkdirs(path.dirname(savePath));
 
