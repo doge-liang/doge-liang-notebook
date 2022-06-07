@@ -34,7 +34,7 @@ debug1: connect to address 127.0.0.1 port 22: Connection refused
 ssh: connect to host github.com port 22: Connection refused
 ```
 
-发现 `github.com` 被映射到 `127.0.0.1` 了，猜测是开启了科学上网，顺势给 git 配置代理，以提升推拉代码速度；
+发现 `github.com` 被映射到 `127.0.0.1` 了，猜测是开启了科学上网导致的，顺势给 git 配置代理，以提升推拉代码速度；
 
 在 `C:\User\Administrator\.ssh` 目录下建立 `config` 文件，输入如下内容：
 
@@ -52,3 +52,17 @@ Host github.com
 ```
 
 保存后即可连通；
+
+### 类似问题
+
+科学上网之后，使用 https 的方式推送代码也无法推送，猜测是同样的原因导致的。 https 的代理设置和 ssh 不同；
+只要设置 `git config` 即可
+
+```BASH
+git config --global http.proxy http://127.0.0.1:10809
+git config --global https.proxy http://127.0.0.1:10809
+
+# 取消设置
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
