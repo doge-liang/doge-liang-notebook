@@ -382,7 +382,7 @@ transform: translateX(-50%);
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:41:24" itemprop="dateModified" datetime="2022-03-13T17:41:24+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -434,7 +434,7 @@ transform: translateX(-50%);
 <p>构建分布式系统不需要复杂和容易出错。Spring Cloud 为最常见的分布式系统模式提供了一种简单且易于接受的<strong>编程模型</strong>，帮助开发人员构建有<strong>弹性的</strong>、<strong>可靠的</strong>、<strong>协调的</strong>应用程序。Spring Cloud 构建于 Spring Boot 之上，使得开发者很容易入手并快速应用于生产中。</p>
 </blockquote>
 <p>简而言之，Spring Cloud 就是一套简易的编程模型，帮助我们在 Spring Boot 之上建立微服务应用。而我们在建立微服务应用时需要做的工作如 <strong>服务发现注册、配置中心</strong> <strong>、消息总线</strong> <strong>、负载均衡</strong> <strong>、断路器</strong> <strong>、数据监控</strong> 等，在 Spring Cloud 中都有相应的编程模型。</p>
-<p><img src="../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/4fd82291c9dba25aff64b96dfec415164ae6484466ed485a1aba420c5ff8823a.jpg" alt="picture 2" /></p>
+<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/4fd82291c9dba25aff64b96dfec415164ae6484466ed485a1aba420c5ff8823a.jpg" alt="picture 2" /></p>
 <p><code>Spring Cloud</code> 的版本号均为英国伦敦地铁站的站名，根据字母表的顺序来对应版本时间顺序，比如：最早 的 Release 版本 <code>Angel</code>，第二个 Release 版本 <code>Brixton</code> （英国地名），然后是 <code>Camden</code> 、 <code>Dalston</code> 、 <code>Edgware</code> 、 <code>Finchley</code> 、 <code>Greenwich</code> 、 <code>Hoxton</code> 。</p>
 <p>下面从 Spring Cloud 的各个组件的介绍来了解 Spring Cloud 如何完成微服务的各项工作的，主要包括：</p>
 <p><code>Eureka</code> 服务发现框架<br />
@@ -462,7 +462,7 @@ transform: translateX(-50%);
 <li><strong>服务下线 Cancel</strong>： <code>Eureka Client Provider</code> 向 <code>Eureka Server</code> 发送取消服务请求， <code>Eureka Server</code> 执行 <code>DiscoveryManager.getInstance().shutdownComponent();</code> 删除该客户端注册的实例；</li>
 <li><strong>服务剔除 Eviction</strong>： 在默认的情况下，当 <code>Eureka Client</code> 连续 90s (3 个续约周期)没有向 <code>Eureka</code> 服务器发送服务续约，即心跳， <code>Eureka Server</code> 会将该服务实例从服务注册列表删除，即服务剔除</li>
 </ul>
-<p><img src="../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/c80bfb2d5450fe4e74c32a990c8d7037720bb3db8de8eb59281d36421a6cef04.png" alt="picture 3" /></p>
+<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/c80bfb2d5450fe4e74c32a990c8d7037720bb3db8de8eb59281d36421a6cef04.png" alt="picture 3" /></p>
 <p>带有服务发现功能的组件有许多，诸如： <code>Zookeeper</code> 、 <code>Consul</code> 等；</p>
 <p>更多的 <code>Eureka</code> 功能，待总结；</p>
 <blockquote>
@@ -1015,7 +1015,7 @@ transform: translateX(-50%);
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:41:17" itemprop="dateModified" datetime="2022-03-13T17:41:17+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1044,7 +1044,7 @@ transform: translateX(-50%);
           <h2 id="抽象工厂模式abstract-factory"><a class="markdownIt-Anchor" href="#抽象工厂模式abstract-factory"></a> 抽象工厂模式（Abstract Factory）</h2>
 <p>抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类；</p>
 <p>模式的结构如下：</p>
-<p><img src="../../../assets/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E5%9E%8B/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/d74a53c6f67c8633fca65dc51e73562af6d7c5f87ec6766762a3485105a9fe11.png" alt="picture 29" /></p>
+<p><img src="../../../../assets/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E5%9E%8B/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/d74a53c6f67c8633fca65dc51e73562af6d7c5f87ec6766762a3485105a9fe11.png" alt="picture 29" /></p>
 
       
     </div>

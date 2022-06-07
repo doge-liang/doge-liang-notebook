@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9) 解决方案：  关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入 mysql 数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, pass">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-13T08:42:09.430Z">
+<meta property="article:modified_time" content="2022-06-07T19:36:12.829Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 16:42:09" itemprop="dateModified" datetime="2022-03-13T16:42:09+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -516,7 +516,7 @@ curl: (7) Failed to connect to <a target="_blank" rel="noopener" href="http://ra
 <p>先备份原有的 hosts</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/hosts /etc/hosts.bak</span><br></pre></td></tr></table></figure>
 <p>查看网址的 ip，我这里使用的是 <a target="_blank" rel="noopener" href="http://ip.tool.chinaz.com/">http://ip.tool.chinaz.com/</a></p>
-<p><img src="../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png" alt="picture 14" /></p>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png" alt="picture 14" /></p>
 <p>修改正使用的 hosts</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 原文件 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 修改为 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br><span class="line"></span><br><span class="line">151.101.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>

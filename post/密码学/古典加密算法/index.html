@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="古典加密算法  两种基本技术  代替：将明文的字母替换成其他的数字、字母、符号； 置换：将信息的顺序按照某种规则打乱；   代替技术  凯撒密码 将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。 例如：  明文：Nice to meet your 密文：QLFH WR PHHW BRXU  加密算法可以如此表达： C&#x3D;E(3,p)&#x3D;(p+3)mod  26C &#x3D; E(3, p)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png">
 <meta property="article:published_time" content="2020-08-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-13T09:37:26.248Z">
+<meta property="article:modified_time" content="2022-06-07T19:36:21.463Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:37:26" itemprop="dateModified" datetime="2022-03-13T17:37:26+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,7 +287,7 @@
 <h5 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h5>
 <p>选定密钥词 monarchy 。<br />
 得到编码表：</p>
-<p><img src="../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8" /></p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8" /></p>
 <p><strong>编码表编制规则</strong>：将密钥词按顺序排在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn><mo>×</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">5 \times 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 的矩阵中，剩下的字母按照字母表顺序排列，I/L 代表同一个字母；</p>
 <p>处理明文的重复字母对，在重复字母对中插入别的字母（具体插入什么自己定），例如：balloon 转换成 ba lx lo on。</p>
 <p><strong>明文字母对处理逻辑</strong>：</p>
@@ -298,7 +298,7 @@
 </ol>
 <p>尽管 Playfair 密码看起来是安全的，但是仍然能够通过分析密码频率进行密码破译。</p>
 <p>字母频率出现表：</p>
-<p><img src="../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9" /></p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9" /></p>
 <p>曲线越平坦，代表加密效果越好，理想化的结果是完全平坦的曲线，这样代表明文中所有字母的频率都被隐藏起来了，所有字母的出现概率相等，唯密文攻击无法判断区分每个字母。</p>
 <h5 id="hill-密码"><a class="markdownIt-Anchor" href="#hill-密码"></a> Hill 密码</h5>
 <h4 id="多表代替加密"><a class="markdownIt-Anchor" href="#多表代替加密"></a> 多表代替加密</h4>
@@ -312,7 +312,7 @@
 <strong>例</strong>：<br />
 明文：“meet me after the toga party”<br />
 深度为 2 的加密：</p>
-<p><img src="../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10" /></p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10" /></p>
 <p>然后按行写出得到密文：<br />
 MEMATRHTGPRYETEFETEOAAT</p>
 

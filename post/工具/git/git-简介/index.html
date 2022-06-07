@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="git 简介 git 是一种版本管理软件工具。在软件开发、迭代、升级的过程中必然伴随着软件版本的更迭。在 git 之前，最早的版本管理系统都是本地的。  本地版本控制系统（VSC） RCS 是目前还活跃的一个本地版本控制系统，它伴随着操作系统的发行版一起分发到具体的机器上。它将文件的不同补丁保存在磁盘中，使得我们可以回退到任意版本。 但随着软件系统越来越复杂，软件开发需要多人协作来完成了，那么拘">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png">
 <meta property="article:published_time" content="2021-03-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-24T18:43:29.221Z">
+<meta property="article:modified_time" content="2022-06-07T19:36:12.831Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-%E7%AE%80%E4%BB%8B/">
@@ -211,7 +211,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-25 02:43:29" itemprop="dateModified" datetime="2022-03-25T02:43:29+08:00">2022-03-25</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,8 +244,8 @@
 <p>但随着软件系统越来越复杂，软件开发需要多人协作来完成了，那么拘束在本地的版本控制系统无法满足在不同系统间的版本管理了。所以中心化的版本管理诞生了。</p>
 <h3 id="中心化的版本控制系统cvcs"><a class="markdownIt-Anchor" href="#中心化的版本控制系统cvcs"></a> 中心化的版本控制系统（CVCS）</h3>
 <p>为了处理多机协作的问题，中心化的版本控制系统被开发出来了，使用一台独立的服务器保存版本文件，多个客户端通过访问这个共享的版本服务器完成版本管理。像 CVS ， Subversion 和 Perforce 等软件都是 CVCS 。 CVCS 作为版本管理系统的标准持续了多年。</p>
-<p><img src="../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1" /></p>
-<p><img src="../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2" /></p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2" /></p>
 
     </div>
 

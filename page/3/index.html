@@ -819,7 +819,7 @@ Content <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:34:13" itemprop="dateModified" datetime="2022-03-13T17:34:13+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1014,7 +1014,7 @@ ReadPositions()</p>
 </ol>
 <h3 id="量化策略回测"><a class="markdownIt-Anchor" href="#量化策略回测"></a> 量化策略回测</h3>
 <p>这部分打算用 python 的 flask 框架搭建一个简单的 web 服务器，暴露 restful 风格的接口供 Springboot 进行调用，以获取回测的结果；</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/%E6%AF%95%E8%AE%BE/820cd33c7d23edc3b568c9f5bcbc55f2f75436f6c79c9cba9c84593d954c6c1e.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/%E6%AF%95%E8%AE%BE/820cd33c7d23edc3b568c9f5bcbc55f2f75436f6c79c9cba9c84593d954c6c1e.png" alt="picture 1" /></p>
 <h3 id="web-设计"><a class="markdownIt-Anchor" href="#web-设计"></a> Web 设计</h3>
 <p>前端用 vue 进行开发<br />
 后端用 springboot 进行开发</p>
@@ -1177,7 +1177,7 @@ ReadPositions()</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:36:02" itemprop="dateModified" datetime="2022-03-13T17:36:02+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1236,7 +1236,7 @@ ReadPositions()</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;Path&quot;</span>: <span class="string">&quot;fabric-samples/asset-transfer-basic/chaincode-go&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;Type&quot;</span>: <span class="string">&quot;golang&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;Label&quot;</span>: <span class="string">&quot;basicv1&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>peer lifecycle chaincode package</code> 把链码 <code>*.tar.gz</code> 和元数据文件 <code>metadata.json</code> 文件打包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">peer lifecycle chaincode package tmp/<span class="variable">$&#123;CC_LABEL&#125;</span>.tar.gz \</span><br><span class="line">--path <span class="variable">$&#123;CC_PATH&#125;</span> \</span><br><span class="line">--lang <span class="variable">$CC_LANG</span> \</span><br><span class="line">--label <span class="variable">$&#123;CC_LABEL&#125;</span></span><br></pre></td></tr></table></figure>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/8fad11d96bc0bf425a43cd30f0963203eb52967ff1141b86176d6e6976944ef6.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/8fad11d96bc0bf425a43cd30f0963203eb52967ff1141b86176d6e6976944ef6.png" alt="picture 1" /></p>
 <p><em>链码由 Org1 和 Org2 单独打包。这两个组织都使用 MYCC_1 作为包标签，以便使用名称和版本来标识包。组织无需使用相同的包标签。</em></p>
 <h4 id="第二步安装链码到-peers-中"><a class="markdownIt-Anchor" href="#第二步安装链码到-peers-中"></a> 第二步：安装链码到 peers 中</h4>
 <p>每个需要执行交易和为交易背书的 Peer 节点上都要安装链码包。无论是使用 CLI 还是 SDK，你都需要使用 <strong>Peer Admin</strong> 完成此步骤。Peer 节点将在安装链码后构建链码，如果链码出现问题，则返回链码构建错误消息。建议组织只打包一次链码，然后在属于同一个组织的每个 Peer 上安装相同的链码包。如果一个通道想要确保每个组织运行相同的链码，一个组织可以打包一个链码并将其发送给带外的(out of band)的其他通道成员。</p>
@@ -1247,7 +1247,7 @@ ReadPositions()</p>
 <p>如果输出如下，则链码安装成功，我们可以看到这个包标识符一般是由 <code>链码名_版本号:哈希码</code> 构成的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PACKAGE_ID&#x3D;mycc_v1.0:03d34a995a0e6b5285746a7662ff42c3ca88145f3a265a5a4580c4c7c5e7e549</span><br></pre></td></tr></table></figure>
 <p>安装成功后，将返回一个由包标签与包的哈希组合而成的链码包标识符。此包标识符是用来关联安装在 Peer 上的链码包和组织批准的链码定义的。<strong>该标识符要保存</strong>起来为下一步准备。你还可以通过使用 Peer CLI 查询安装在 Peer 上的包来查找包标识符。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/20ea2f6a657756c8d8af8353bccf79909b26e95dbaaaa012aa2b8ea548135a0c.png" alt="picture 2" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/20ea2f6a657756c8d8af8353bccf79909b26e95dbaaaa012aa2b8ea548135a0c.png" alt="picture 2" /></p>
 <p><em>Org1 和 Org2 的 Peer 管理员在加入该通道的 Peer 上安装 MYCC_1 链码包。安装链码包的过程，完成了构建链码和创建包标识符 <code>MYCC_1:&lt;hashcode&gt;</code> 的的工作。</em></p>
 <h4 id="第三步为组织批准的链码定义"><a class="markdownIt-Anchor" href="#第三步为组织批准的链码定义"></a> 第三步：为组织批准的链码定义</h4>
 <p>代码如下：</p>
@@ -1266,11 +1266,11 @@ ReadPositions()</p>
 <p>如果你使用的是 Fabric Contract API ，则无需在链码中包含 <code>Init</code> 方法。但是，你仍然可以使用 <code>--init-required</code> 参数来请求通过应用程序的调用来初始化链码。如果使用 <code>--init-required</code> 标志，则每次将链码版本增加时，都需要将 <code>--isInit</code> 参数传递给链码调用，以初始化链码。你可以传递 <code>--isInit</code> 并使用链码中的任何函数来初始化链码。</p>
 <p>链码定义还包括<strong>程序包标识符</strong>。这是每个要使用链码的组织的必需参数。程序包标识符不必对于所有组织都相同。组织可以批准链码定义，而无需安装链码包或在定义中不包含标识符。</p>
 <p>每个想要使用链码的通道成员都需要为其组织批准链码定义。该批准需要提交给排序服务，然后再分发给所有 Peer 方。该批准需要由你的组织管理员提交。成功提交批准交易后，批准的定义将存储在一个集合中，该集合可供组织的所有 Peer 方用。因此，即使你有多个 Peer 方，你也只需要为组织批准一次链码。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/773efc2f61fbfcb4e51ca98bad97f41843741615bba5c7d97e96890e80154069.png" alt="picture 3" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/773efc2f61fbfcb4e51ca98bad97f41843741615bba5c7d97e96890e80154069.png" alt="picture 3" /></p>
 <p><em>Org1 和 Org2 的组织管理员批准其组织的 MYCC 链码定义。链码定义包括链码名称，版本和背书策略以及其他字段。由于两个组织都将使用链码来背书交易，因此两个组织的批准定义都需要包括程序包标识符。</em></p>
 <p>组织可以批准链码定义而不安装链码包。如果组织不需要使用链码，则可以批准不带程序包标识符的链码定义，以确保满足生命周期背书策略。</p>
 <p>在将链码定义提交到通道后，链码容器将在已安装链码的所有 Peer 上启动，从而允许通道成员开始使用链码。启动链码容器可能需要几分钟。你可以使用链码定义来要求调用 <code>Init</code> 函数来初始化链码。如果请求调用 <code>Init</code> 函数，则链码的第一次调用必须是对 <code>Init</code> 函数的调用。 <code>Init</code> 函数的调用受链码背书策略的约束。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png" alt="picture 4" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png" alt="picture 4" /></p>
 <p><em>一旦在通道上定义了 MYCC ， Org1 和 Org2 就可以开始使用链码了。每个 Peer 上的链码的第一次调用都会在该 Peer 上启动链码容器。</em></p>
 <h4 id="第四步提交链码定义到通道"><a class="markdownIt-Anchor" href="#第四步提交链码定义到通道"></a> 第四步：提交链码定义到通道</h4>
 <p>一旦足够多的通道成员同意一个链码定义，某个组织能够提交定义到通道。你可以用命令 <code>peer lifecycle chaincode checkcommitreadiness</code> 基于哪个通道成员已经批准了该定义，来检查提交链码定义是否应该成功，然后使用 Peer CLI 工具将链码定义提交到通道。（译者注：根据通道成员同意的状况，来判断提交是否可能成功）。提交交易请求首先发送给通道成员的 peer 节点，peer 节点会查询链码定义被他们组织同意的状况，并且为定义背书如果所在组织已经同意了。交易然后提交给排序服务，排序服务会把链码定义提交给通道。提交定义交易需要以 Organization Administrator 身份来提交。</p>
@@ -1282,11 +1282,11 @@ ReadPositions()</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer lifecycle chaincode querycommitted --channelID <span class="variable">$CHANNEL_NAME</span> --name <span class="variable">$&#123;CC_NAME&#125;</span></span><br></pre></td></tr></table></figure>
 <p>链码在被成功提交到通道之前，需要被同意的组织的数量是通过 <code>Channel/Application/LifecycleEndorsement</code> 策略来管理的。默认情况下，这个策略需要通道中大多数的组织来给交易背书。生命周期背书策略不同于链码背书策略。例如，尽管一个链码背书策略只需要一个或两个组织的签名，根据默认策略大多数的通道成员仍然需要批准链码定义。当提交一个通道定义，你需要面向足够多的 peer 组织，以确保你的生命周期背书策略被满足。你可以在 <a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/zh_CN/release-2.2/policies/policies.html">策略概念主题</a> 中了解到更多关于 Fabric 链码生命周期策略。</p>
 <p>你也可以设置 <code>Channel/Application/LifecycleEndorsement</code> 策略为一个签名策略并且明确指明通道上可以批准链码定义的组织集合。这允许你创建一个其中大多数组织作为链码管理者并且治理通道业务逻辑的通道。如果你的通道有大量的 Idemix（译者注：身份混合，实现零知识证明）组织，你也可以用一个签名策略（译者注：策略只需要一个签名），因为这些组织不能批准链码定义或者为链码背书并且可能阻碍通道达成大多数成员同意的结果。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/da656f5b6c2a5d4436b39753cc73755776951a65e2cedf4e6fcfc77befb77995.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/da656f5b6c2a5d4436b39753cc73755776951a65e2cedf4e6fcfc77befb77995.png" alt="picture 1" /></p>
 <p><em>Org1 或 Org2 的一个组织管理员提交链码定义到通道。通道上的定义不包含 packageID。</em></p>
 <p>一个组织在不安装链码包的条件下能够批准链码定义。如果一个组织不需要使用链码，他们可以在没有包身份的情况下批准一个链码定义来确保生命周期背书策略被满足。</p>
 <p>在链码定义已经提交到通道上后，链码容器会在所有的链码安装到的 peer 节点上启动，来允许通道成员开始使用链码。可能会花费几分钟的时间来启动链码容器。你可以用链码定义来要求调用 <code>Init</code> 方法初始化链码。如果 <code>Init</code> 方法调用是需要的，链码的第一个调用必须是调用 <code>Init</code> 方法。 <code>Init</code> 方法的调用服从于链码的背书策略。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png" alt="picture 2" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1abe222f69c7c7a4be86059a73571645878eeb5fc5ffd5d23d520a3e550ff247.png" alt="picture 2" /></p>
 <p><em>一旦 MYCC 链码在通道上定义，Org1 和 Org2 能开始使用链码。每个 peer 节点上的链码的第一个调用会启动该 peer 上的链码容器。</em></p>
 <p>调用链码的命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># BASH</span></span><br></pre></td></tr></table></figure>
@@ -1295,25 +1295,25 @@ ReadPositions()</p>
 <ol>
 <li>
 <p>重新打包链码：仅在升级链码二进制文件时才需要完成此步骤。<br />
-<img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/3f64011d821ef49bb71bf6a81063b7662f32d21df61293ea81e15760cd869694.png" alt="picture 5" /></p>
+<img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/3f64011d821ef49bb71bf6a81063b7662f32d21df61293ea81e15760cd869694.png" alt="picture 5" /></p>
 <p><em>Org1 和 Org2 升级链码二进制文件并重新打包链码。两家公司使用不同的链码包标签。</em></p>
 </li>
 <li>
 <p>在 Peer 上再次安装新的链码软件包：如果要升级链码二进制文件，则仅需要完成此步骤。安装新的链码软件包将生成一个程序包标识符 ，你需要将其传递给新的链码定义。你还需要更改链码版本，生命周期流程将使用它来追踪链码二进制文件，判断是否已升级。<br />
-<img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/af2b16ca63944a3cc441c6541065f26696cbfc0f650306005a2750d4611acaf6.png" alt="picture 6" /></p>
+<img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/af2b16ca63944a3cc441c6541065f26696cbfc0f650306005a2750d4611acaf6.png" alt="picture 6" /></p>
 <p><em>Org1 和 Org2 在其 Peer 节点上安装新软件包。安装将创建一个新的链码包标识符。</em></p>
 </li>
 <li>
 <p>批准新的链码定义：如果要升级链码二进制文件，则需要更新链码定义中的链码版本和程序包标识符。你也可以更新你的链码背书策略，而不必重新打包链码二进制文件。通道成员只需要批准新策略的定义。新定义需要将定义中的序列变量加 1。<br />
-<img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/77a875649c1a4477dadaca64c2761d7d1ee5c57ae8ec7e336149fde380820587.png" alt="picture 7" /></p>
+<img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/77a875649c1a4477dadaca64c2761d7d1ee5c57ae8ec7e336149fde380820587.png" alt="picture 7" /></p>
 <p><em>Org1 和 Org2 的组织管理员为各自的组织批准新的链码定义。新定义引用了新的链码包标识符并更改了链码版本。由于这是链码的第一次更新，因此序列从 1 递增到 2 。</em></p>
 </li>
 <li>
 <p>将定义提交给通道：当足够数量的通道成员批准了新的链码定义时，一个组织可以提交新定义以将链码定义升级到通道。作为生命周期过程的一部分，没有单独的升级命令。<br />
-<img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/f898ab88ed67fafd96f465837b0c60be5d6eb856d6fad376c122b24ef3c37b87.png" alt="picture 8" /></p>
+<img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/f898ab88ed67fafd96f465837b0c60be5d6eb856d6fad376c122b24ef3c37b87.png" alt="picture 8" /></p>
 <p><em>来自 Org1 或 Org2 的组织管理员将新的链码定义提交到通道。</em></p>
 <p>提交链码定义后，将使用升级的链码二进制文件中的代码启动新的链码容器。如果在链码定义中请求执行 <code>Init</code> 函数，则需要在成功提交新定义后再次调用 <code>Init</code> 函数来始化升级的链码。如果在不更改链码版本的情况下更新了链码定义，则链码容器将保持不变，并且不需要调用 <code>Init</code> 函数。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png" alt="picture 9" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png" alt="picture 9" /></p>
 <p><em>将新定义提交给通道后，每个 Peer 将自动启动新的链码容器。</em></p>
 <p>Fabric 链码生命周期使用链码定义中的 <strong>sequence</strong> 来跟踪升级。所有通道成员都需要将序列号加 1 ，并批准新的定义以升级链码。版本参数用于追踪链码二进制文件，仅在升级链码二进制文件时才需要更改。</p>
 </li>
@@ -1322,39 +1322,39 @@ ReadPositions()</p>
 <p>以下示例说明了如何使用 Fabric 链码生命周期来管理通道和链码。</p>
 <h4 id="加入通道"><a class="markdownIt-Anchor" href="#加入通道"></a> 加入通道</h4>
 <p>新的组织可以使用已定义的链码加入通道，在完成安装链码包和批准已经提交给该通道的链码定义两项工作后，可以开始使用链码。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/94e7b38589204b052917e10e27fcf88697387fe4c658503eb349c5fa61a196f6.png" alt="picture 10" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/94e7b38589204b052917e10e27fcf88697387fe4c658503eb349c5fa61a196f6.png" alt="picture 10" /></p>
 <p>org3 加入通道并批准先前由 org1 和 org2 提交给通道的相同链码定义。</p>
 <p>批准链码定义后，新组织可以在将 ​​ 软件包安装到 Peer 后开始使用链码。该定义不需要再次提交。如果将背书策略设置为要求大多数通道成员进行背书的默认策略，则背书策略将自动更新以囊括新组织。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/f45cb3b5e2b1423278824c4094b4bef5cc3cd4398985b4569b92ab1299599f95.png" alt="picture 11" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/f45cb3b5e2b1423278824c4094b4bef5cc3cd4398985b4569b92ab1299599f95.png" alt="picture 11" /></p>
 <p>链码容器将在 Org3 的 Peer 上首次调用链码后启动。</p>
 <h4 id="更新背书策略"><a class="markdownIt-Anchor" href="#更新背书策略"></a> 更新背书策略</h4>
 <p>你可以使用链码定义来更新背书策略，而不必重新打包或重新安装链码。通道成员可以批准带有新背书策略的链码定义，并将其提交给通道。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/ef6db262e497c790162d20ef9ad160ea87c5163a608fa8ba1595352945c9077b.png" alt="picture 12" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/ef6db262e497c790162d20ef9ad160ea87c5163a608fa8ba1595352945c9077b.png" alt="picture 12" /></p>
 <p>Org1 ， Org2 和 Org3 批准了一项新的背书策略，要求三个组织全部都背书一项交易。它们将定义中的 sequence 从 1 增加到 2 ，但是不需要更新链码版本。</p>
 <p>新的背书策略将在将新定义提交给通道后生效。通道成员不必通过调用链码或执行 <code>Init</code> 函数来重新启动链码容器即可更新背书策略。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/bdb9b29fc8c9bc926ca5b6dc8b02276f03f4d8219000a92476f9d18a80e3fbc9.png" alt="picture 13" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/bdb9b29fc8c9bc926ca5b6dc8b02276f03f4d8219000a92476f9d18a80e3fbc9.png" alt="picture 13" /></p>
 <p>一个组织将新的链码定义提交给通道以更新背书策略。</p>
 <h4 id="批准定义而不安装链码"><a class="markdownIt-Anchor" href="#批准定义而不安装链码"></a> 批准定义而不安装链码</h4>
 <p>你可以批准链码定义而不安装链码包。这使你可以在将链码定义提交到通道之前对其进行背书，即使你不想使用该链码对交易进背书或查询账本。你批准的链码定义要与通道的其他成员拥有相同的参数，但不需要将链码包标识符包含在链码定义中。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/c124306f2a6971e8798b61aa138fe3221dafa0d37be406a41135d3b7f081bc61.png" alt="picture 14" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/c124306f2a6971e8798b61aa138fe3221dafa0d37be406a41135d3b7f081bc61.png" alt="picture 14" /></p>
 <p>Org3 不会安装链码软件包。结果，他们不需要提供链码包标识符作为链码定义的一部分。但是， Org3 仍然可以背书已提交给该频道的 MYCC 的定义。</p>
 <h4 id="一个组织不同意链码定义"><a class="markdownIt-Anchor" href="#一个组织不同意链码定义"></a> 一个组织不同意链码定义</h4>
 <p>不批准已提交给通道的链码定义的组织不能使用该链码。未批准链码定义或批准其他链码定义的组织将无法在其 Peer 上执行链码。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/04965690dafc98426a2ea5e6b9b0cfa3869532833b4e1079332a616d38597e12.png" alt="picture 15" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/04965690dafc98426a2ea5e6b9b0cfa3869532833b4e1079332a616d38597e12.png" alt="picture 15" /></p>
 <p>Org3 批准的链码定义具有与 Org1 和 Org2 不同的背书 策略。结果， Org3 无法在通道上使用 MYCC 链码。但是， Org1 或 Org2 仍然可以获得足够的背书 ，以将定义提交到通道并使用链码。链码中的交易仍将添加到账本中，并存储在 Org3 的 Peer 中。但是， Org3 将无法背书 交易。</p>
 <p>组织可以批准具有任何序列号或版本的新链码定义。这使你可以批准已提交给通道的定义并开始使用链码。你也可以批准新的链码定义，以更正在批准或打包链码过程中犯的任何错误。</p>
 <h4 id="通道在链码定义上不一致"><a class="markdownIt-Anchor" href="#通道在链码定义上不一致"></a> 通道在链码定义上不一致</h4>
 <p>如果通道上的组织们不同意链码定义，则无法将该定义提交给通道。任何通道成员都将无法使用链码。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/0e146e68c6e0421ed61b2f30d7f272cdbe3d229cbb5affb971a3022f5c3f4fee.png" alt="picture 16" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/0e146e68c6e0421ed61b2f30d7f272cdbe3d229cbb5affb971a3022f5c3f4fee.png" alt="picture 16" /></p>
 <p>Org1 ， Org2 和 Org3 都批准不同的链码定义。结果，该通道的任何成员都无法获得足够的背书以将链码定义提交给该通道。任何通道成员都将无法使用链码。</p>
 <h4 id="组织安装不同的链码程序包"><a class="markdownIt-Anchor" href="#组织安装不同的链码程序包"></a> 组织安装不同的链码程序包</h4>
 <p>每个组织在批准链码定义时都可以使用不同的链码包标识符。这允许通道成员安装使用相同背书策略的不同链码二进制文件，并在同一链码命名空间中读取和写入数据。</p>
 <p>组织们可以使用此功能来安装拥有特定业务逻辑的智能合约。每个组织的智能合约都可以包含组织在其 Peer 背书交易之前所需的其他验证。每个组织还可以编写代码，以帮助将智能合约与他们现有系统中的数据集成在一起。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/02a1f0440f163b70aa09c010aba458b35393fbe65c06622ad0bc3cd88fd6d0ec.png" alt="picture 17" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/02a1f0440f163b70aa09c010aba458b35393fbe65c06622ad0bc3cd88fd6d0ec.png" alt="picture 17" /></p>
 <p>Org1 和 Org2 每个都安装拥有特定的业务逻辑版本的 MYCC 链码。</p>
 <h4 id="使用一个包创建多个链码"><a class="markdownIt-Anchor" href="#使用一个包创建多个链码"></a> 使用一个包创建多个链码</h4>
 <p>你可以使用一个链码包通过批准和提交多个链码定义，在一个通道上创建多个链码实例。每个定义都需要指定一个不同的链码名称。这使你可以在一个通道上运行智能合约的多个实例，但是要让该合约服从不同的背书策略。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/cff829c1624e7d747b94646b6ea08806bcea31631d022fb3ec54dd97b8a7a33e.png" alt="picture 18" /></p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20Fabric%20%E9%93%BE%E7%A0%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/cff829c1624e7d747b94646b6ea08806bcea31631d022fb3ec54dd97b8a7a33e.png" alt="picture 18" /></p>
 <p>Org1 和 Org2 使用 MYCC_1 链码包来批准和提交两个不同的链码定义。结果，两个 Peer 都有两个在其 Peer 上运行的链码容器。 MYCC1 的背书策略为两者之一背书，而 MYCC2 的背书策略为两者都要背书。</p>
 <h4 id="迁移到新的-fabric-生命周期"><a class="markdownIt-Anchor" href="#迁移到新的-fabric-生命周期"></a> 迁移到新的 Fabric 生命周期</h4>
 <p>有关迁移到新生命周期的信息，请查看<a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/en/release-2.3/upgrade_to_newest_version.html#chaincode-lifecycle">升级到 v2.0 的注意事项</a>。</p>

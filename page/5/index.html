@@ -786,7 +786,7 @@ IP/FQDN+PORT of peer to be accessed</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:38:55" itemprop="dateModified" datetime="2022-03-13T17:38:55+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -818,7 +818,7 @@ IP/FQDN+PORT of peer to be accessed</p>
 <li>交互式 login shell ：这种方式取得 bash 命令需要登录操作，比如系统刚刚开机时候需要输入用户密码才能够取得的相关命令；</li>
 <li>非交互式 non-login shell ：这种方式取得的 bash 命令则不需要进行登陆操作，比如登录系统之后执行的 <code>bash</code> 命令相当于打开了一个子 bash 环境；</li>
 </ul>
-<p><img src="../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/5c04f725230db3370ca9045c2adef6263fc3056f538f89c3019727833f304dee.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/5c04f725230db3370ca9045c2adef6263fc3056f538f89c3019727833f304dee.png" alt="picture 1" /></p>
 <h3 id="交互式-login-shell"><a class="markdownIt-Anchor" href="#交互式-login-shell"></a> 交互式 login shell</h3>
 <p>交互式 login shell 一般只会读取：</p>
 <ol>
@@ -827,7 +827,7 @@ IP/FQDN+PORT of peer to be accessed</p>
 </ol>
 <p>而通过打开上述的文件我们发现，他们还会判断另外一下配置文件是否存在，存在则执行；比如， <code>~/.bash_profile</code> 会去读取 <code>~/.bashrc</code> ，而 <code>~/.bashrc</code> 会去读取 <code>/etc/bashrc</code> 等等。</p>
 <p>总结下来如下图所示，实线的方向是系统会自动读取的流程，虚线是文件中调用的配置文件；一般我们都会修改 <code>~/.bashrc</code> 进行用户专属的配置，方式管理混乱；</p>
-<p><img src="../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/439e6b62c3c44825587086a54f5c4439ae12663278834307f4664fad3cd13383.png" alt="picture 2" /></p>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/439e6b62c3c44825587086a54f5c4439ae12663278834307f4664fad3cd13383.png" alt="picture 2" /></p>
 <h3 id="非交互式-non-login-shell"><a class="markdownIt-Anchor" href="#非交互式-non-login-shell"></a> 非交互式 non-login shell</h3>
 <p>非交互式 non-login shell 只会读取 <code>~/.bashrc</code> 文件，所以和上面的其实差不多；</p>
 <h3 id="通过-su-命令看到以上两者的区别"><a class="markdownIt-Anchor" href="#通过-su-命令看到以上两者的区别"></a> 通过 su 命令看到以上两者的区别</h3>
@@ -1235,7 +1235,7 @@ IP/FQDN+PORT of peer to be accessed</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-13 17:38:16" itemprop="dateModified" datetime="2022-03-13T17:38:16+08:00">2022-03-13</time>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1265,13 +1265,13 @@ IP/FQDN+PORT of peer to be accessed</p>
 <h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
 <p>docker 是一个容器，可以将应用打包安装在这个容器内，使得即使在不同的系统环境中也能使用；</p>
 <h2 id="docker-vs-vm"><a class="markdownIt-Anchor" href="#docker-vs-vm"></a> docker vs. VM</h2>
-<p><img src="../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/a501dbf474a0f9f65bd80babb718fb91427ad5dd82022ae4da670d4e9b55c0f5.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/a501dbf474a0f9f65bd80babb718fb91427ad5dd82022ae4da670d4e9b55c0f5.png" alt="picture 1" /></p>
 <p>对比虚拟机， docker 并不是在 Host OS 上实现了自己的 Guest OS ，而是使用了 Docker Engine 借助 Host OS 的 namespace 、 Control Group 等，对进程进行封装隔离——容器化。换言之，VM 在宿主系统上实现了自己的操作系统内核，而 Docker 是借助宿主系统的内核实现的应用封装。所以 Docker 属于更轻量化的技术，虚拟机包括操作系统内核以及一大堆乱七八糟的库，更笨重。</p>
 <h2 id="一些概念"><a class="markdownIt-Anchor" href="#一些概念"></a> 一些概念</h2>
 <h3 id="镜像image"><a class="markdownIt-Anchor" href="#镜像image"></a> 镜像（Image）</h3>
 <p>可以类比为集装箱，其中包含了一个应用的运行所需要的依赖以及应用本身。</p>
 <p>实际上，镜像的构建使用了联合文件系统的技术，从操作系统的引导，上一层是操作系统镜像，再上一层是 Tomcat 、 jdk 、……等等。镜像不包含任何动态数据，每层的内容在构建完成之后都不会删除。</p>
-<p><img src="../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/3582e10cecd9062825c1afc8464540228c16f3d461aa500be51077849b782187.png" alt="picture 2" /></p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/3582e10cecd9062825c1afc8464540228c16f3d461aa500be51077849b782187.png" alt="picture 2" /></p>
 <h3 id="容器container"><a class="markdownIt-Anchor" href="#容器container"></a> 容器（Container）</h3>
 <p>可以理解为集装箱内部的产品，集装箱运过来之后就可以拆箱即用了。</p>
 <p>实际上，是使用了联合文件系统的技术，以镜像为底层，在其上构建存储层。运行一个容器，实际上就是运行了一个进程，进程之间拥有隔离的命名空间、网络配置、用户 ID 空间等等。这种相对独立性也是 Docker 容易被混淆成虚拟机的重要原因。实际上，这种相对独立性让我们免去了很多的环境部署麻烦，运行环境是标准化的。</p>
