@@ -59,9 +59,9 @@ Java 的三个版本：
 ```JAVA
 // Welcome.java
 public class Welcome {
-	public static void main(String[] args) {
-		System.out.println("Welcome to Java!");
-	}
+ public static void main(String[] args) {
+  System.out.println("Welcome to Java!");
+ }
 }
 ```
 
@@ -96,7 +96,7 @@ java Welcome
 ```JAVA
 // 次行风格 next-line style
 public static void main(String[] args) {
-	...
+ ...
 }
 ```
 
@@ -104,7 +104,7 @@ public static void main(String[] args) {
 // 行尾风格 end-of-line style
 public static void main(String[] args)
 {
-	...
+ ...
 }
 ```
 
@@ -234,7 +234,7 @@ System.out.println(0XFFFFFF) // hex int
 
 ```JAVA
 public class ShowCurrentTime {
-	public static void main(String[] args) {
+ public static void main(String[] args) {
         long totalMilliseconds = System.currentTimeMillis();
 
         long totalSeconds = totalMilliseconds / 1000;
@@ -247,7 +247,7 @@ public class ShowCurrentTime {
         long currentHour = totalHours % 24;
 
         System.out.println("Current time is " + currentHour + ":" + currentMinute + ":" + currentSecond + " GMT");
-	}
+ }
 }
 ```
 
@@ -281,7 +281,7 @@ Java 使用 `+` 拼接字符串，不会改变原有的字符串，而是产生�
 
 ```Java
 if (s1 != null && s1.length() == 0) {
-	// 字符串非 Null 且非空
+ // 字符串非 Null 且非空
 }
 ```
 
@@ -289,7 +289,7 @@ if (s1 != null && s1.length() == 0) {
 
 ##### 字符串不可变
 
-Java 的 `String` 类对象是*不可变字符串*，我们可以修改字符串的引用，指向不同对象，但不可以修改字符串本身。这样看起来是低效的，但由于编译器的 _共享_ 机制，使得程序无需因为重复的字符串对象浪费资源。引用可以有很多个，本源只能有一个。
+Java 的 `String` 类对象是_不可变字符串_，我们可以修改字符串的引用，指向不同对象，但不可以修改字符串本身。这样看起来是低效的，但由于编译器的 _共享_ 机制，使得程序无需因为重复的字符串对象浪费资源。引用可以有很多个，本源只能有一个。
 
 > 通常是字符串常量才适用共享机制，字符串变量还是有可能会在堆中存储多个等值的字符串。因此比较两个字符串变量是否相等一般使用 `s1.equals(s2)` 或者 `if(s1.compareTo(s2) == 0)` 。字面量也可以直接使用这两个方法。
 
@@ -457,7 +457,7 @@ int y = (int)x; // 9，精度丢失方式是直接截断小数位数
 - 没有 `<<<` 运算符；
 - `>> <<` 使用的是循环位移的方案；
 
-运算符优先级：方法调用 > 一元运算符（右结合） > 乘除取余 > 加减 > 位运算符 > 
+运算符优先级：方法调用 > 一元运算符（右结合） > 乘除取余 > 加减 > 位运算符 >
 
 ![picture 1](../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/5c401c8fda09e83bd31b44457a34fb3a037a2df4102369b07e582553baebbe27.png)
 
