@@ -23,23 +23,23 @@
     <meta name="description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。  攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。  防御策略  验证 HTTP Referer 字段；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSRF">
-<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8-%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。  攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。  防御策略  验证 HTTP Referer 字段；">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png">
 <meta property="article:published_time" content="2022-06-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-05T17:46:17.122Z">
+<meta property="article:modified_time" content="2022-06-07T19:18:16.115Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png">
 
 
-<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8-%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8-%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/","path":"post/安全-常见攻击/csrf/","title":"CSRF"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/","path":"post/安全/常见攻击/csrf/","title":"CSRF"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>CSRF | doge-liang-notebook</title>
@@ -174,7 +174,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8-%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-06 01:46:17" itemprop="dateModified" datetime="2022-06-06T01:46:17+08:00">2022-06-06</time>
+      <time title="Modified: 2022-06-08 03:18:16" itemprop="dateModified" datetime="2022-06-08T03:18:16+08:00">2022-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,7 +218,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8-%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/" itemprop="url" rel="index"><span itemprop="name">+ 安全 + 常见攻击</span></a>
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/" itemprop="url" rel="index"><span itemprop="name">常见攻击</span></a>
         </span>
     </span>
 
@@ -301,7 +305,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7-git/git-ssh-%E5%8D%8F%E8%AE%AE%E5%87%BA%E7%8E%B0-22-%E7%AB%AF%E5%8F%A3%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/" rel="next" title="git ssh 协议出现 22 端口拒绝连接">
+                <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-ssh-%E5%8D%8F%E8%AE%AE%E5%87%BA%E7%8E%B0-22-%E7%AB%AF%E5%8F%A3%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/" rel="next" title="git ssh 协议出现 22 端口拒绝连接">
                   git ssh 协议出现 22 端口拒绝连接 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
