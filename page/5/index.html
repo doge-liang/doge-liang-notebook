@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">193</span>
+          <span class="site-state-item-count">195</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,213 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">python 作用域和命名空间</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-08T00:00:00+08:00">2021-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="python-作用域和命名空间"><a class="markdownIt-Anchor" href="#python-作用域和命名空间"></a> python 作用域和命名空间</h2>
+<ul>
+<li><a href="#python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">python 作用域和命名空间</a>
+<ul>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="命名空间"><a class="markdownIt-Anchor" href="#命名空间"></a> 命名空间</h3>
+<p>官方文档描述：</p>
+<blockquote>
+<p>namespace （命名空间）是一个从名字到对象的映射。</p>
+</blockquote>
+<p>我们在编程时使用的内置函数 <code>len()</code> 、 <code>try... catch ...</code> 中捕获的 <code>Exception</code> 类，并不是天然就存在的，他们都源自于 python 内建的包，也就是所谓的 <code>buildins</code> 。编译器从 <code>buildins</code> 中寻找这个“名”到“指令实体”的过程其实就是在命名空间中搜索。</p>
+<p>命名空间也可以由我们自己定义，比方说我定义了一个 <code>class</code> ，其中包含了若干的函数和变量。我在类外 <code>import</code> 这个类（其实就是导入了这个包的命名空间）我们在使用时，一般就是 <code>&lt;class_name&gt;.&lt;attribute&gt;</code> ，解释器就会去 <code>&lt;class_name&gt;</code> 下寻找这个 <code>&lt;attribute&gt;</code> 这个“名”对应的“对象”，然后调用之。</p>
+<h3 id="作用域"><a class="markdownIt-Anchor" href="#作用域"></a> 作用域</h3>
+<p>官方文档描述：</p>
+<blockquote>
+<p>一个 作用域 是一个命名空间可直接访问的 Python 程序的文本区域。</p>
+</blockquote>
+<p>从例子中说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_local</span>():</span></span><br><span class="line">        <span class="comment"># 作用域在 do_local() 内</span></span><br><span class="line">        spam = <span class="string">&quot;local spam&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_nonlocal</span>():</span></span><br><span class="line">        <span class="comment"># 受 nonlocal 关键字影响，对 spam 的赋值影响到了 scope_test() 了</span></span><br><span class="line">        <span class="keyword">nonlocal</span> spam</span><br><span class="line">        spam = <span class="string">&quot;nonlocal spam&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_global</span>():</span></span><br><span class="line">        <span class="comment"># 受 global 关键字影响，对 spam 的赋值影响到了整个模块</span></span><br><span class="line">        <span class="comment"># 在 scope_test() 外的使用受到了影响</span></span><br><span class="line">        <span class="keyword">global</span> spam</span><br><span class="line">        spam = <span class="string">&quot;global spam&quot;</span></span><br><span class="line"></span><br><span class="line">    spam = <span class="string">&quot;test spam&quot;</span></span><br><span class="line">    do_local()</span><br><span class="line">    print(<span class="string">&quot;After local assignment:&quot;</span>, spam)</span><br><span class="line">    do_nonlocal()</span><br><span class="line">    print(<span class="string">&quot;After nonlocal assignment:&quot;</span>, spam)</span><br><span class="line">    do_global()</span><br><span class="line">    print(<span class="string">&quot;After global assignment:&quot;</span>, spam)</span><br><span class="line"></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">&quot;In global scope:&quot;</span>, spam)</span><br></pre></td></tr></table></figure>
+<p>上述变量 <code>spam</code> 被多处定义，被绑定到多个作用域中了，</p>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">After local assignment: test spam</span><br><span class="line">After nonlocal assignment: nonlocal spam</span><br><span class="line">After global assignment: nonlocal spam</span><br><span class="line">In global scope: global spam</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">docker容器部署错误分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+08:00">2021-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="docker-容器部署错误分析"><a class="markdownIt-Anchor" href="#docker-容器部署错误分析"></a> docker 容器部署错误分析</h2>
+<p>今天用 docker-compose 部署 Hyperledger Fabric 网络的时候， <a target="_blank" rel="noopener" href="http://peer1.subscriber.mynetwork.com">peer1.subscriber.mynetwork.com</a> 容器出现了 Exited(1) 的错误。</p>
+<p>使用 <code>docker logs &lt;container_name&gt;</code> 命令，列出了这个容器的日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2021-04-07 03:49:03.657 UTC [main] InitCmd -&gt; ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory &#x2F;etc&#x2F;hyperledger&#x2F;fabric&#x2F;msp: administrators must be declared when no admin ou classification is set</span><br></pre></td></tr></table></figure>
+<p>查看 <code>/etc/hyperledger/fabric/msp</code> 目录挂载在哪里，将目录结构和另一个成功启动的节点对比，发现少了一个 <code>msp/config.yaml</code> 文件，然后将 <code>config.yaml</code> 文件从外面的 <code>msp</code> 目录复制进来就好了，像另一个节点那样操作。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1701,196 +1908,6 @@ IP/FQDN+PORT of peer to be accessed</p>
 <p>通过 <code>su root</code> 切换到 root 用户是按照 non-login shell 的方式切换到 root 的 shell 的；<br />
 通过 <code>su -</code> 或 <code>su - root</code> 切换到 root 用户是按照 login shell 的方式切换到 root 用户的 shell 的；<br />
 由于这两种方式加载配置文件的方式不一样，所以他们最后的 <code>env</code> 环境变量打印出来并不一样。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/" class="post-title-link" itemprop="url">linux使用v2ray</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-28T00:00:00+08:00">2021-03-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/" itemprop="url" rel="index"><span itemprop="name">vpn</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/v2ray/" itemprop="url" rel="index"><span itemprop="name">v2ray</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux-使用-v2ray"><a class="markdownIt-Anchor" href="#linux-使用-v2ray"></a> linux 使用 v2ray</h2>
-<p>下载好 v2ray 软件之后，设置好 <code>config.json</code> ，启动 v2ray 。</p>
-<p>然后配置 <code>http_proxy</code> 和 <code>https_proxy</code> 两个环境变量，可以使用 <code>export</code> 进行临时的配置，也可以写进 <code>~/.bashrc</code> 里面，每次启动终端自动执行。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">Hyperledger Fabric 环境搭建踩坑</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:52:59" itemprop="dateModified" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="hyperledger-fabric-环境搭建踩坑"><a class="markdownIt-Anchor" href="#hyperledger-fabric-环境搭建踩坑"></a> Hyperledger Fabric 环境搭建踩坑</h2>
-<h3 id="网络启动失败"><a class="markdownIt-Anchor" href="#网络启动失败"></a> 网络启动失败</h3>
-<p>在跑 <code>. ./init.sh</code> 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">5.Create &amp; Join Channel</span><br><span class="line">######## - (COMMON) setup variables - ########</span><br><span class="line">~&#x2F;workspace&#x2F;channel-artifacts ~&#x2F;workspace</span><br><span class="line">Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">~&#x2F;workspace</span><br><span class="line">######## - (ORG1) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:7051: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG1) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.708 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:9051: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:9051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.785 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br></pre></td></tr></table></figure>
-<p>意思是建立到本地的 7050 等等端口的 tcp 时失败了，原因是拒绝访问。</p>
-<p>原因暂时不明，但是我运行了 <code>. ./shutdown.sh</code> 和 <code>. ./teardown.sh</code> 两个脚本，把整个网络都删掉了，再重新执行接下来的脚本就搞定了。</p>
-<p>原因不明，但是先记录一下这两个脚本都做了什么吧，以后再出现了就再分析。</p>
-<p>/root/workspace/shutdown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Clearing&quot;</span></span><br><span class="line">docker rm -f `docker ps -qa`</span><br><span class="line">docker rmi -f $(docker images | awk <span class="string">&#x27;($1 ~ /dev-peer.*/) &#123;print $3&#125;&#x27;</span>)</span><br><span class="line">docker volume prune -f</span><br><span class="line">docker network prune -f</span><br><span class="line"></span><br><span class="line">rm -rf system-genesis-block/*.block</span><br><span class="line">rm -rf channel-artifacts</span><br><span class="line">rm -rf organizations/peerOrganizations</span><br><span class="line">rm -rf organizations/ordererOrganizations</span><br><span class="line">rm -rf tmp</span><br><span class="line">sudo rm -rf organizations/fabric-ca/org1/*</span><br><span class="line">sudo rm -rf organizations/fabric-ca/org2/*</span><br><span class="line">sudo rm -rf organizations/fabric-ca/ordererOrg/*</span><br></pre></td></tr></table></figure>
-<p>/root/workspace/teardown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Shutdown CA Services, Peers and Orderer in Network&quot;</span></span><br><span class="line">COMPOSE_FILE_CA=docker/docker-compose-ca.yaml</span><br><span class="line">COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml</span><br><span class="line">COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml</span><br><span class="line">CA_IMAGE_TAG=<span class="variable">$&#123;CA_VERSION&#125;</span></span><br><span class="line">IMAGE_TAG=<span class="variable">$&#123;FABRIC_VERSION&#125;</span></span><br><span class="line">DB_IMAGE_TAG=<span class="variable">$&#123;OTHER_VERSION&#125;</span></span><br><span class="line">docker-compose -f <span class="variable">$&#123;COMPOSE_FILE_CA&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_BASE&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_COUCH&#125;</span> down</span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
