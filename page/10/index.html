@@ -298,109 +298,6 @@ The real numbers can be represented geometrically as points on a number line cal
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" class="post-title-link" itemprop="url">Java 拆箱装箱</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-18 01:35:31" itemprop="dateModified" datetime="2022-05-18T01:35:31+08:00">2022-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="java-拆箱装箱"><a class="markdownIt-Anchor" href="#java-拆箱装箱"></a> Java 拆箱装箱</h2>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -515,6 +412,109 @@ transform: translateX(-50%);
 <p>这些类加载器是自上而下加载，自下而上检查是否加载完成的。此外我们还可以自定义类加载器；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取系统类加载器</span></span><br><span class="line">ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取系统类加载器的父类加载器--&gt;扩展类加载器</span></span><br><span class="line">ClassLoader extClassLoader = systemClassLoader.getParent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取扩展类加载器的父类加载器--&gt;根加载器（是用C/C++写的）</span></span><br><span class="line">ClassLoader rootClassLoader = systemClassLoader.getParent(); <span class="comment">//null，因为无法获取</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得系统类加载器可以加载的路径</span></span><br><span class="line">System.getProperty(<span class="string">&quot;java.class.path&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>双亲委派机制</strong>：假如我自己定义了一个类 <code>java.lang.String</code> ，JVM 会从用户类加载器一层一层往上找，如果找到了就不会加载自己定义的这个 <code>java.lang.String</code> 类，这是处于系统安全性的考虑；</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" class="post-title-link" itemprop="url">Java 拆箱装箱</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-18 01:35:31" itemprop="dateModified" datetime="2022-05-18T01:35:31+08:00">2022-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="java-拆箱装箱"><a class="markdownIt-Anchor" href="#java-拆箱装箱"></a> Java 拆箱装箱</h2>
 
       
     </div>
@@ -739,7 +739,7 @@ transform: translateX(-50%);
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-11 03:03:06" itemprop="dateModified" datetime="2022-07-11T03:03:06+08:00">2022-07-11</time>
+      <time title="Modified: 2022-07-11 03:04:45" itemprop="dateModified" datetime="2022-07-11T03:04:45+08:00">2022-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -804,12 +804,12 @@ transform: translateX(-50%);
 编译器无法得知 <code>? extends Employee</code> 指的是哪个子类，无论传 <code>Employee</code> 或者它的哪个子类都无法保证类型安全，因为 <code>?</code> 的真实类型可能是传入类型的子类（也可能没有任何关系，只是拥有同一个父亲 <code>Employee</code>)。<br />
 对于方法 <code>getFirst()</code> ：<br />
 方法返回值为 <code>Employee</code> 的或其子类型，因此我们可以用 <code>Employee</code> 或其父类接收；</p>
+<h3 id="producer-extend-consumer-superpecs"><a class="markdownIt-Anchor" href="#producer-extend-consumer-superpecs"></a> Producer Extend Consumer Super(PECS)</h3>
 <blockquote>
 <p><strong>协变</strong>：原父子类型关系在经过复杂类型构造之后，父子类型关系被保持下来了；<br />
 <strong>逆变</strong>：原父子类型经过类型构造之后，父子关系逆转；<br />
 <strong>不变</strong>：上述两种不适用；</p>
 </blockquote>
-<h4 id="producer-extend-consumer-superpecs"><a class="markdownIt-Anchor" href="#producer-extend-consumer-superpecs"></a> Producer Extend Consumer Super(PECS)</h4>
 <p>考虑 <code>List&lt;? extends T&gt; list</code> ：<br />
 <code>list.add(something)</code> 会报错，因为编译器只知道要存的是 <code>T</code> 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 <code>T</code> 的子类，所以可以使用 <code>T</code> 以及 <code>T</code> 的父类型的变量来接受 <code>list.get()</code> 的返回值，因为向上转换类型是安全的；<br />
 考虑 <code>List&lt;? super T&gt; list</code> ：<br />
