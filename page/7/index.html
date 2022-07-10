@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/" class="post-title-link" itemprop="url">什么是SQL？什么是NoSQL？</a>
+          <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" class="post-title-link" itemprop="url">事务隔离级别</a>
         </h2>
 
         <div class="post-meta-container">
@@ -234,8 +234,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是-sql什么是-nosql"><a class="markdownIt-Anchor" href="#什么是-sql什么是-nosql"></a> 什么是 SQL？什么是 NoSQL？</h2>
-<p>这篇 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/-maji/p/13098654.html">博客</a> 写得不错，等有空了整理一下，结合一些其他的书来谈谈。</p>
+          <h2 id="事务隔离级别"><a class="markdownIt-Anchor" href="#事务隔离级别"></a> 事务隔离级别</h2>
+<p><strong>事务</strong>：是一组不可分割的操作；</p>
+<p>事务的 <strong>ACID 特性</strong>：</p>
+<ol>
+<li>原子性：即不可分割</li>
+<li>一致性：数据库的完整性约束</li>
+<li>隔离性：事务串行执行，彼此不干扰</li>
+<li>持续性：事务完成了就不可恢复</li>
+</ol>
+<p>事务并发会产生一些问题：</p>
+<ol>
+<li>脏读：由于 B 的修改被回滚，导致 A 读到了 B 更新的数据，而数据库数据被回滚到原来的；</li>
+<li>不可重复读：多次读取同一数据时，由于别的事务修改，导致多次读数据不一致；</li>
+<li>幻读：由于 B 的新增或删除被回滚，导致 A 读到的数据是 B 事务完成之后的结果，而实际上存储的是原来的没变；</li>
+</ol>
+<p>四个事务隔离级别：（从低到高）</p>
+<ul>
+<li>Read uncommitted：事务可以读取到另一个未提交（committed）事务的结果，会导致脏读；</li>
+<li>Read commited：要等另一个事务提交（committed）之后才可以读取数据，解决了脏读问题，没有解决不可重复读；</li>
+<li>Repeatable read：事务开启时不允许修改操作，解决了不可重复读问题，没有解决幻读；</li>
+<li>Serializable：事务串行化，解决了所有并发带来的一致性问题，但效率低下；</li>
+</ul>
+<p>MySQL 默认事务隔离级别是 Repeatable read。<br />
+MySQL 通过 GAP 锁解决幻读问题。</p>
 
       
     </div>
