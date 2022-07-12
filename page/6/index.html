@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-count">197</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -250,159 +250,6 @@
 <li><code>./*.sh</code> 的执行方式等价于 <code>sh ./*.sh</code> 或者 <code>bash ./*.sh</code> ，此三种执行脚本的方式都是重新启动一个子 shell ，在子 shell 中执行此脚本。</li>
 <li><code>source ./*.sh</code> 和 <code>. ./*.sh</code> 的执行方式是等价的，即两种执行方式都是在当前 shell 进程中执行此脚本，而不是重新启动一个 shell 而在子 shell 进程中执行此脚本。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-ps-%E5%91%BD%E4%BB%A4%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-ps-%E5%91%BD%E4%BB%A4%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">docker ps 命令打印内容过多如何解决</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-30T00:00:00+08:00">2021-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="docker-ps-命令打印内容过多如何解决"><a class="markdownIt-Anchor" href="#docker-ps-命令打印内容过多如何解决"></a> docker ps 命令打印内容过多如何解决</h2>
-<p>可以自己指定显示的模板，例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps --format <span class="string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>table</code> - 表示显示表头列名</li>
-<li><code>&#123;&#123;.ID&#125;&#125;</code> - 容器 ID</li>
-<li><code>&#123;&#123;.Command&#125;&#125;</code> - 启动执行的命令<br />
-显示结果：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps --format <span class="string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br><span class="line">CONTAINER ID        NAMES                                   PORTS</span><br><span class="line">db3df460fe14        dev-peer0.org1.example.com-fabcar-1.0</span><br><span class="line">b6f803814cce        cli</span><br><span class="line">10724ca7364f        peer0.org1.example.com                  0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp</span><br><span class="line">20d930e6e9f7        ca.example.com                          0.0.0.0:7054-&gt;7054/tcp</span><br></pre></td></tr></table></figure>
-<p>可用的占位符</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.ID</td>
-<td>容器 ID</td>
-</tr>
-<tr>
-<td>.Image</td>
-<td>镜像 ID</td>
-</tr>
-<tr>
-<td>.Command</td>
-<td>执行的命令</td>
-</tr>
-<tr>
-<td>.CreatedAt</td>
-<td>容器创建时间</td>
-</tr>
-<tr>
-<td>.RunningFor</td>
-<td>运行时长</td>
-</tr>
-<tr>
-<td>.Ports</td>
-<td>暴露的端口</td>
-</tr>
-<tr>
-<td>.Status</td>
-<td>容器状态</td>
-</tr>
-<tr>
-<td>.Names</td>
-<td>容器名称</td>
-</tr>
-<tr>
-<td>.Label</td>
-<td>分配给容器的所有标签</td>
-</tr>
-<tr>
-<td>.Mounts</td>
-<td>容器挂载的卷</td>
-</tr>
-<tr>
-<td>.Networks</td>
-<td>容器所用的网络名称</td>
-</tr>
-</tbody>
-</table>
 
       
     </div>
@@ -1307,6 +1154,105 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只更新 .dat 資料檔</span></span><br><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)</span><br></pre></td></tr></table></figure>
 <p>移除 V2Ray</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">git安装和配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-23T00:00:00+08:00">2021-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-25 02:48:33" itemprop="dateModified" datetime="2022-03-25T02:48:33+08:00">2022-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="git-安装和配置"><a class="markdownIt-Anchor" href="#git-安装和配置"></a> git 安装和配置</h2>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<h3 id="初次配置"><a class="markdownIt-Anchor" href="#初次配置"></a> 初次配置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;doge-liang&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;1542640147@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里配置的用户名和密码属于不是 <a target="_blank" rel="noopener" href="http://github.com">github.com</a> 的用户名和密码，而是提交的时候，展示给仓库所有者查看的密码用户名和邮箱。</p>
+<p>如果 github 账户设置了 ssh 密钥的话，可以在本地生成一下 ssh-key</p>
+<p>步骤参照 git-ssh</p>
+<h3 id="控制台显示问题"><a class="markdownIt-Anchor" href="#控制台显示问题"></a> 控制台显示问题</h3>
+<h4 id="git-status-中文编码问题"><a class="markdownIt-Anchor" href="#git-status-中文编码问题"></a> <code>git status</code> 中文编码问题</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
