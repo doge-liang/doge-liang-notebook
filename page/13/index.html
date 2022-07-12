@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">195</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,378 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">第二章-物理层</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-18T00:00:00+08:00">2020-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="第二章-物理层"><a class="markdownIt-Anchor" href="#第二章-物理层"></a> 第二章 物理层</h2>
+<h3 id="传输介质"><a class="markdownIt-Anchor" href="#传输介质"></a> 传输介质</h3>
+<p>引导性（有线）</p>
+<ul>
+<li>
+<p>双绞线</p>
+<ul>
+<li>UTP（非屏蔽）便宜、易受干扰、距离短</li>
+<li>STP（屏蔽）两层屏蔽、贵、不易受干扰、安装麻烦（体积大）</li>
+<li>ScTP（网屏蔽）一个屏蔽层、折中方案</li>
+</ul>
+</li>
+<li>
+<p>同轴电缆</p>
+<ul>
+<li>基带同轴（传输数字）</li>
+<li>宽带同轴（传输模拟）</li>
+</ul>
+</li>
+<li>
+<p>光纤 贵（现在成本降低了）、容易受损、低损耗、长距离、无电磁干扰和射频干扰、防窃听</p>
+<ul>
+<li>单模（长距离、单模式）</li>
+<li>多模（多模式、多光源）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>直通线：两端设备一致，两端线序一样；<br />
+交叉线：两端设备不一致，两端线序不一样；<br />
+电力线：电线传输信号，新东西，少用</p>
+</blockquote>
+<p>非引导性（无线）</p>
+<h3 id="复用技术"><a class="markdownIt-Anchor" href="#复用技术"></a> 复用技术</h3>
+<ul>
+<li>频分复用 FDM：用户各自占有一定的带宽，相互之间有保护带</li>
+<li>正交频分不用 OFDM：没有保护带，且子带之间相互重叠</li>
+<li>波分多路复用 WDM：本质上和频分多路复用一样，不过工作在光纤上</li>
+<li>时分多路复用 TDM：划分为相同的时间片，供用户使用，如果用户需求不一致，则会造成浪费。要求用户时间同步</li>
+<li>统计时分复用 STDM：动态分配、按需分配，提高信道利用率，实现复杂；</li>
+<li>码分多路复用 CDMA：相当于多个人使用不同的语言交谈，允许每个站点同时使用整个频段进行通信，关键在于将特定用户发送的消息从信道中的多个信号中分离出来；</li>
+</ul>
+<h3 id="码分多路复用-cdma"><a class="markdownIt-Anchor" href="#码分多路复用-cdma"></a> 码分多路复用 CDMA</h3>
+<p>将每个比特时间细分成 m 个更短的时间间隔，这个时间间隔被称为码片。<br />
+要想知道某个站点发了什么，就使用该站点的码片序列与复用信号求归一化内积；<br />
+码片序列两两正交，所以能恢复出码片序列；</p>
+<h2 id="调制技术"><a class="markdownIt-Anchor" href="#调制技术"></a> 调制技术</h2>
+<p>调制机制<br />
+使用信号传输比特</p>
+<ul>
+<li>基带传输：占用全部的频率</li>
+<li>通带传输：通过调节信号的振幅、频率、相位来传输比特，占据以载波信号频率为中心的一段频带</li>
+</ul>
+<p>基带传输方式过于简单很少使用：</p>
+<h3 id="编码方式"><a class="markdownIt-Anchor" href="#编码方式"></a> 编码方式</h3>
+<ul>
+<li>不归零 NRZ</li>
+<li>不归零逆转 NRIZ</li>
+<li>曼彻斯特编码</li>
+<li>双极编码</li>
+<li>4B/5B 编码</li>
+</ul>
+<p>不归零 NRZ：高电平表示 1，低电平表示 0，连续 0/1 都无法识别几个 0/1；<br />
+不归零逆转 NRZI：用电压的跳变表示 1，高电压表示 0，连续 1 解决，连续 0 无法识别；（USB 中使用）<br />
+曼彻斯特编码：高到低表示 1，低到高表示 0（都反过来）具体因为标准的不同决定；（10Base 以太网中使用）编码效率只有 50％<br />
+双极编码：有+1 -1 0 三种级别，用 1 和-1 传输 1，0 表示 0；<br />
+4B/5B 编码：将 4bit 模式映射为 5bit，抛开了连续 0 的组合，提高曼彻斯特编码的编码效率到 80%；</p>
+<h3 id="通带传输"><a class="markdownIt-Anchor" href="#通带传输"></a> 通带传输</h3>
+<p>幅移键控：调幅<br />
+频移键控：调频<br />
+相移键控：调相</p>
+<p>QAM-16：正交振幅调制，有 16 种不同的振幅和相位的信号组合模式，每个码元能够表示 4bit 数据（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">2^4=16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">6</span></span></span></span>）</p>
+<blockquote>
+<p>因为 4bit 数据有 16 种 0-1 序列组合，而 QAM-16 调制技术中，一个信号通过调频调幅有 16 种信号组合，所以一个信号刚好能占满 16 种 0-1 组合，所以能够传输 4bit 数据；</p>
+</blockquote>
+<h4 id="码元"><a class="markdownIt-Anchor" href="#码元"></a> 码元</h4>
+<p>码元，是承载信息量的基本信号单位。<br />
+每秒钟发送的码元的个数，我们称之为<strong>波特率</strong>，又叫做符号率，采样率；<br />
+<strong>比特率</strong>，又叫位传输率、数据传输速率、数字带宽。<br />
+比特率-波特率：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>B</mi><msub><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">C = B \log_2 n
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span></span></p>
+<p>C：比特率<br />
+B：波特率<br />
+n：信号的种类个数</p>
+<h4 id="格子架编码调制-tcm"><a class="markdownIt-Anchor" href="#格子架编码调制-tcm"></a> 格子架编码调制 TCM</h4>
+<p>当我们的信号调制个数很多的时候，不同的信号之间的差别太小，容易混淆，所以我们通常会使用一部分的位用作纠错，一部分的位用作传输数据；</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/" class="post-title-link" itemprop="url">python-matplotlib绘图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-17T00:00:00+08:00">2020-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="python-matplotlib-绘图"><a class="markdownIt-Anchor" href="#python-matplotlib-绘图"></a> python-matplotlib 绘图</h2>
+<ul>
+<li><a href="#python-matplotlib-%E7%BB%98%E5%9B%BE">python-matplotlib 绘图</a>
+<ul>
+<li><a href="#%E7%9B%B4%E6%96%B9%E5%9B%BE">直方图</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax.<span class="built_in">set</span>(xlim=[<span class="number">0.5</span>, <span class="number">4.5</span>], ylim=[-<span class="number">2</span>, <span class="number">8</span>], title=<span class="string">&#x27;An Example Axes&#x27;</span>, ylabel=<span class="string">&#x27;Y-Axis&#x27;</span>, xlabel=<span class="string">&#x27;X-Axis&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/3e4d360ece4700a8ddfb9ebcd608058ca250166636995b9c13650462980aff6f.png" alt="picture 20" /></p>
+<p>若要正常显示中文，则添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>]=[<span class="string">&#x27;SimHei&#x27;</span>] <span class="comment">#用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>]=<span class="literal">False</span> <span class="comment">#用来正常显示负号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax.<span class="built_in">set</span>(xlim=[<span class="number">0.5</span>, <span class="number">4.5</span>], ylim=[-<span class="number">2</span>, <span class="number">8</span>], title=<span class="string">&#x27;这是标题&#x27;</span>, ylabel=<span class="string">&#x27;这是Y轴&#x27;</span>, xlabel=<span class="string">&#x27;这是X轴&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/0cee40a047a1274c79ef175291888b2f489add944880aa852d7e7e1a1421cf05.png" alt="picture 21" /></p>
+<h3 id="直方图"><a class="markdownIt-Anchor" href="#直方图"></a> 直方图</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="built_in">int</span>(time.time()))</span><br><span class="line">x = np.arange(<span class="number">5</span>)</span><br><span class="line">y = np.random.randn(<span class="number">5</span>)</span><br><span class="line">y</span><br><span class="line">fig, axes = plt.subplots(ncols=<span class="number">2</span>, figsize=plt.figaspect(<span class="number">1.</span>/<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># rgb 方式上色，(105, 35, 131)/255</span></span><br><span class="line">vert_bars = axes[<span class="number">0</span>].bar(x, y, color=(<span class="number">0.411765</span>, <span class="number">0.137255</span>, <span class="number">0.513725</span>), align=<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">horiz_bars = axes[<span class="number">1</span>].barh(x, y, color=<span class="string">&#x27;lightblue&#x27;</span>, align=<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line"><span class="comment">#在水平或者垂直方向上画线</span></span><br><span class="line">axes[<span class="number">0</span>].axhline(<span class="number">0</span>, color=<span class="string">&#x27;gray&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">axes[<span class="number">1</span>].axvline(<span class="number">0</span>, color=<span class="string">&#x27;gray&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/fbc8a69603c66302ff8275d07b048e6d61c2ecd88d95ec1d47b1d56b3a39258a.png" alt="picture 22" /></p>
+<p>加上图例和坐标轴：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="built_in">int</span>(time.time()))</span><br><span class="line">x = np.arange(<span class="number">5</span>)</span><br><span class="line">y = np.random.randn(<span class="number">5</span>)</span><br><span class="line">y</span><br><span class="line">fig, axes = plt.subplots(ncols=<span class="number">2</span>, figsize=plt.figaspect(<span class="number">1.</span>/<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加坐标轴信息</span></span><br><span class="line">axes[<span class="number">0</span>].<span class="built_in">set</span>(xlim=[<span class="number">0.5</span>, <span class="number">4.5</span>], ylim=[-<span class="number">2</span>, <span class="number">8</span>], title=<span class="string">&#x27;测试图&#x27;</span>, ylabel=<span class="string">&#x27;随机量&#x27;</span>, xlabel=<span class="string">&#x27;时间&#x27;</span>)</span><br><span class="line">axes[<span class="number">1</span>].<span class="built_in">set</span>(xlim=[<span class="number">0.5</span>, <span class="number">4.5</span>], ylim=[-<span class="number">2</span>, <span class="number">8</span>], title=<span class="string">&#x27;测试图&#x27;</span>, ylabel=<span class="string">&#x27;随机量&#x27;</span>, xlabel=<span class="string">&#x27;时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># rgb 方式上色，(105, 35, 131)/255</span></span><br><span class="line">vert_bars = axes[<span class="number">0</span>].bar(x, y, color=(<span class="number">0.411765</span>, <span class="number">0.137255</span>, <span class="number">0.513725</span>), align=<span class="string">&#x27;center&#x27;</span>, label=<span class="string">&#x27;随机量&#x27;</span>)</span><br><span class="line">horiz_bars = axes[<span class="number">1</span>].barh(x, y, color=<span class="string">&#x27;lightblue&#x27;</span>, align=<span class="string">&#x27;center&#x27;</span>, label=<span class="string">&#x27;随机量&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用图例</span></span><br><span class="line">axes[<span class="number">0</span>].legend()</span><br><span class="line">axes[<span class="number">1</span>].legend()</span><br><span class="line"></span><br><span class="line"><span class="comment">#在水平或者垂直方向上画线</span></span><br><span class="line">axes[<span class="number">0</span>].axhline(<span class="number">0</span>, color=<span class="string">&#x27;gray&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">axes[<span class="number">1</span>].axvline(<span class="number">0</span>, color=<span class="string">&#x27;gray&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-matplotlib%E7%BB%98%E5%9B%BE/5c396afe104712e3846bfa939c1d318e4766b3a1791f47487f8674423209906a.png" alt="picture 23" /></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bnumpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bnumpy/" class="post-title-link" itemprop="url">python-数据分析之numpy</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-17T00:00:00+08:00">2020-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="python-数据分析之-numpy"><a class="markdownIt-Anchor" href="#python-数据分析之-numpy"></a> python-数据分析之 numpy</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -843,187 +1215,6 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/" class="post-title-link" itemprop="url">use latex to wirte math note</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/Latex/" itemprop="url" rel="index"><span itemprop="name">Latex</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="prepare-package"><a class="markdownIt-Anchor" href="#prepare-package"></a> Prepare Package</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install texlive-full zathura xdotool vim</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/myvimrc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/myvimrc/" class="post-title-link" itemprop="url">myvimrc</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="my-vimrc"><a class="markdownIt-Anchor" href="#my-vimrc"></a> My vimrc</h2>
-<h3 id="user-vimrc"><a class="markdownIt-Anchor" href="#user-vimrc"></a> user .vimrc</h3>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/autoload/plug.vim <span class="comment">--create-dirs</span></span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall <span class="comment">--sync | source $MYVIMRC</span></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Plugin</span></span><br><span class="line"><span class="string">call plug#begin(&#x27;.vim-plugin&#x27;)</span></span><br><span class="line"><span class="string">Plug &#x27;lervag/vimtex&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdcommenter&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Track the engine.</span><br><span class="line">Plug <span class="string">&#x27;SirVer/ultisnips&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Snippets are separated from the engine. Add this if you want them:</span></span><br><span class="line"><span class="string">Plug &#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdtree&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;dense-analysis/ale&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Trigger configuration. Do <span class="keyword">not</span> use &lt;tab&gt; <span class="keyword">if</span> you use https://github.com/Valloric/YouCompleteMe.</span><br><span class="line">let g:UltiSnipsExpandTrigger=<span class="string">&quot;&lt;tab&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpForwardTrigger=<span class="string">&quot;&lt;c-b&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpBackwardTrigger=<span class="string">&quot;&lt;c-z&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; If you want :UltiSnipsEdit to split your window.</span></span><br><span class="line"><span class="string">let g:UltiSnipsEditSplit=&quot;</span>vertical<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> vimtex <span class="built_in">config</span></span><br><span class="line">let g:tex_flavor=<span class="string">&#x27;latex&#x27;</span></span><br><span class="line">let g:vimtex_view_method=<span class="string">&#x27;zathura&#x27;</span></span><br><span class="line">let g:vimtex_quickfix_mode=<span class="number">0</span></span><br><span class="line">set conceallevel=<span class="number">1</span></span><br><span class="line">let g:tex_conceal=<span class="string">&#x27;abdmg&#x27;</span></span><br><span class="line"></span><br><span class="line">set nu</span><br><span class="line">set tabstop=<span class="number">4</span></span><br><span class="line">set hls</span><br><span class="line">set is</span><br><span class="line">set bg=dark</span><br><span class="line">set autoindent</span><br><span class="line">set ru</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/ubuntu/ubuntu-apt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1138,7 +1329,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-tutorial/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -1156,7 +1347,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-tutorial/" class="post-title-link" itemprop="url">vim-tutorial</a>
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/" class="post-title-link" itemprop="url">use latex to wirte math note</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1167,7 +1358,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-06-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-20T00:00:00+08:00">2020-06-20</time>
+      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1186,7 +1377,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/Latex/" itemprop="url" rel="index"><span itemprop="name">Latex</span></a>
         </span>
     </span>
 
@@ -1200,149 +1391,8 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="vim-tutorial"><a class="markdownIt-Anchor" href="#vim-tutorial"></a> vim tutorial</h2>
-<h3 id="basic"><a class="markdownIt-Anchor" href="#basic"></a> basic</h3>
-<p>This part is the <strong>SUMMARY</strong> of the oficial basic interactive tutorial. By typing <code>vimtutor</code> in the terminal you can see the complete tutorial.</p>
-<p><code>j</code> <code>k</code> <code>h</code> <code>l</code> up down left right</p>
-<p><code>x</code> delete</p>
-<p><code>i</code> insert</p>
-<p><code>a</code> append</p>
-<p><code>A</code> append after the end of the line</p>
-<p><code>dw</code> delete one word to the head of next word</p>
-<p><code>de</code> delete one word to the end of the word</p>
-<p><code>d$</code> delete to the end of the line</p>
-<p><code>dd</code> delete the whole line</p>
-<p><code>d3w</code> <code>d2e</code> <code>d4$</code> <code>9dd</code> delete <code>n</code> words/lines</p>
-<p><code>0</code> to the start of the line</p>
-<p><code>u</code> undo one step</p>
-<p><code>U</code> undo the whole line to origin</p>
-<p><code>ctrl R</code> Redo one step</p>
-<p><code>p</code> put the content in the buffer</p>
-<p><code>r</code> replace the content in the cursor</p>
-<p><code>R</code> switch to the replace mode</p>
-<p><code>ce</code> <code>cw</code> <code>c$</code> correct word/line</p>
-<p><code>ctrl G</code> file status</p>
-<p><code>G</code> to the bottom of the file</p>
-<p><code>gg</code> to the head of the file</p>
-<p><code>/pattern</code> search pattern</p>
-<p><code>%</code> match the parentheses</p>
-<p><code>:%s/old/new</code> substitude old words with new words<br />
-<code>:%s/old/new/g</code> substitude old words with new words <strong>global</strong><br />
-<code>:%s/old/new/gc</code> substitude … global interactively</p>
-<p><code>:!&lt;command&gt;</code> execute an external command`</p>
-<p><code>:r &lt;FILENAME&gt;</code> retriving and merging file</p>
-<p><code>o</code> new line <strong>below</strong></p>
-<p><code>O</code> new line <strong>above</strong></p>
-<p><code>e</code> jump to next word</p>
-<p><code>y</code> yand(copy) the selection</p>
-<p><code>yy</code> yand(copy) the whole line into the buffer</p>
-<p><code>&lt;n&gt; yy</code> yand(copy) the next n line into the buffer</p>
-<p><code>ctrl W</code> jump to another window</p>
-<h3 id="vimrc"><a class="markdownIt-Anchor" href="#vimrc"></a> vimrc</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">if empty(glob(&#39;~&#x2F;.vim&#x2F;autoload&#x2F;plug.vim&#39;))</span><br><span class="line">    silent !curl -fLo ~&#x2F;.vim&#x2F;autoload&#x2F;plug.vim --create-dirs</span><br><span class="line">    \ https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;junegunn&#x2F;vim-plug&#x2F;master&#x2F;plug.vim</span><br><span class="line">    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">&quot; Plugin</span><br><span class="line">call plug#begin(&#39;.vim-plugin&#39;)</span><br><span class="line">Plug &#39;lervag&#x2F;vimtex&#39;</span><br><span class="line">Plug &#39;preservim&#x2F;nerdcommenter&#39;</span><br><span class="line"></span><br><span class="line">&quot; Track the engine.</span><br><span class="line">Plug &#39;SirVer&#x2F;ultisnips&#39;</span><br><span class="line"></span><br><span class="line">&quot; Snippets are separated from the engine. Add this if you want m:</span><br><span class="line">Plug &#39;honza&#x2F;vim-snippets&#39;</span><br><span class="line"></span><br><span class="line">Plug &#39;preservim&#x2F;nerdtree&#39;</span><br><span class="line">Plug &#39;dense-analysis&#x2F;ale&#39;</span><br><span class="line">Plug &#39;jiangmiao&#x2F;auto-pairs&#39;</span><br><span class="line"></span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">&quot; Trigger configuration. Do not use &lt;tab&gt; if you use https:&#x2F;&#x2F;hub.com&#x2F;Valloric&#x2F;YouCompleteMe.</span><br><span class="line">let g:UltiSnipsExpandTrigger&#x3D;&quot;&lt;tab&gt;&quot;</span><br><span class="line">let g:UltiSnipsJumpForwardTrigger&#x3D;&quot;&lt;c-b&gt;&quot;</span><br><span class="line">let g:UltiSnipsJumpBackwardTrigger&#x3D;&quot;&lt;c-z&gt;&quot;</span><br><span class="line"></span><br><span class="line">&quot; If you want :UltiSnipsEdit to split your window.</span><br><span class="line">let g:UltiSnipsEditSplit&#x3D;&quot;vertical&quot;</span><br><span class="line"></span><br><span class="line">&quot; vimtex config</span><br><span class="line">let g:tex_flavor&#x3D;&#39;latex&#39;</span><br><span class="line">let g:vimtex_view_method&#x3D;&#39;zathura&#39;</span><br><span class="line">let g:vimtex_quickfix_mode&#x3D;0</span><br><span class="line">set conceallevel&#x3D;1</span><br><span class="line">let g:tex_conceal&#x3D;&#39;abdmg&#39;</span><br><span class="line"></span><br><span class="line">set nu</span><br><span class="line">set tabstop&#x3D;4</span><br><span class="line">set hls</span><br><span class="line">set is</span><br><span class="line">set bg&#x3D;dark</span><br><span class="line">set autoindent</span><br><span class="line">set ru</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-ssh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-ssh/" class="post-title-link" itemprop="url">git-ssh</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-06-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-20T00:00:00+08:00">2020-06-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="how-to-use-ssh-in-git"><a class="markdownIt-Anchor" href="#how-to-use-ssh-in-git"></a> How to use ssh in git</h2>
-<h3 id="generate-the-ssh-key-in-local-pc"><a class="markdownIt-Anchor" href="#generate-the-ssh-key-in-local-pc"></a> generate the ssh key in local pc</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
-<p>随后提示输入 <code>id_rsa</code> 文件保存位置<br />
-随后输入两次密码，就设定成功了<br />
-在密码保存位置会出现四个文件分别是 <code>id_rsa</code> <code>id_rsa.pub</code> <code>known_hosts</code> <code>config</code>，其中的 <code>.pub</code> 文件中保存了公钥，运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>将文件内容复制下来</p>
-<h3 id="prepare-a-git-account"><a class="markdownIt-Anchor" href="#prepare-a-git-account"></a> prepare a git account</h3>
-<p>click the setting at the top-left corner.</p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git-ssh/b9ed120ce8a918731007a77fad7a3a4c838d2637d128a6c8e3e8bce743521f43.png" alt="picture 24" /></p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git-ssh/5e0cfef621cbe20c38a15094443810f3d7dda20aca7b1f35e20b66f3c4252b5d.png" alt="picture 25" /></p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git-ssh/36db3af5779fdf07bd2aeb5aae0b6c5eb4d2f95b53fee84507c27ad806aa069b.png" alt="picture 26" /></p>
-<p>点击图中的 <code>New Repository</code> 按钮，将刚刚复制的内容粘贴进去就可以完成 ssh key 的配置了。</p>
-<p>以后 push 内容到 github Repository 中便会要求输入 ssh 密码了。</p>
+          <h2 id="prepare-package"><a class="markdownIt-Anchor" href="#prepare-package"></a> Prepare Package</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install texlive-full zathura xdotool vim</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">195</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,396 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/" class="post-title-link" itemprop="url">Linux shell 脚本执行方法之间的异同</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-30T00:00:00+08:00">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="linux-shell-脚本执行方法之间的异同"><a class="markdownIt-Anchor" href="#linux-shell-脚本执行方法之间的异同"></a> Linux shell 脚本执行方法之间的异同</h2>
+<p>Linux shell 脚本的执行方式有很多，比如 <code>source &lt;bash path&gt;</code> 、 <code>sh|bash &lt;bash path&gt;</code> 、 <code>. &lt;bash path&gt;</code> 等等。</p>
+<p>这些执行方式分为两类：</p>
+<ol>
+<li>开启子 shell 执行脚本；</li>
+<li>以当前 shell 作为环境执行脚本；</li>
+</ol>
+<p>如果以子 shell 的方式执行脚本，那么父 shell 脚本定义的环境变量（未 export 的）是不会被子 shell 继承的；</p>
+<ul>
+<li><code>./*.sh</code> 的执行方式等价于 <code>sh ./*.sh</code> 或者 <code>bash ./*.sh</code> ，此三种执行脚本的方式都是重新启动一个子 shell ，在子 shell 中执行此脚本。</li>
+<li><code>source ./*.sh</code> 和 <code>. ./*.sh</code> 的执行方式是等价的，即两种执行方式都是在当前 shell 进程中执行此脚本，而不是重新启动一个 shell 而在子 shell 进程中执行此脚本。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-ps-%E5%91%BD%E4%BB%A4%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-ps-%E5%91%BD%E4%BB%A4%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">docker ps 命令打印内容过多如何解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-30T00:00:00+08:00">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="docker-ps-命令打印内容过多如何解决"><a class="markdownIt-Anchor" href="#docker-ps-命令打印内容过多如何解决"></a> docker ps 命令打印内容过多如何解决</h2>
+<p>可以自己指定显示的模板，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps --format <span class="string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>table</code> - 表示显示表头列名</li>
+<li><code>&#123;&#123;.ID&#125;&#125;</code> - 容器 ID</li>
+<li><code>&#123;&#123;.Command&#125;&#125;</code> - 启动执行的命令<br />
+显示结果：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps --format <span class="string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br><span class="line">CONTAINER ID        NAMES                                   PORTS</span><br><span class="line">db3df460fe14        dev-peer0.org1.example.com-fabcar-1.0</span><br><span class="line">b6f803814cce        cli</span><br><span class="line">10724ca7364f        peer0.org1.example.com                  0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp</span><br><span class="line">20d930e6e9f7        ca.example.com                          0.0.0.0:7054-&gt;7054/tcp</span><br></pre></td></tr></table></figure>
+<p>可用的占位符</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.ID</td>
+<td>容器 ID</td>
+</tr>
+<tr>
+<td>.Image</td>
+<td>镜像 ID</td>
+</tr>
+<tr>
+<td>.Command</td>
+<td>执行的命令</td>
+</tr>
+<tr>
+<td>.CreatedAt</td>
+<td>容器创建时间</td>
+</tr>
+<tr>
+<td>.RunningFor</td>
+<td>运行时长</td>
+</tr>
+<tr>
+<td>.Ports</td>
+<td>暴露的端口</td>
+</tr>
+<tr>
+<td>.Status</td>
+<td>容器状态</td>
+</tr>
+<tr>
+<td>.Names</td>
+<td>容器名称</td>
+</tr>
+<tr>
+<td>.Label</td>
+<td>分配给容器的所有标签</td>
+</tr>
+<tr>
+<td>.Mounts</td>
+<td>容器挂载的卷</td>
+</tr>
+<tr>
+<td>.Networks</td>
+<td>容器所用的网络名称</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Linux 环境配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-29T00:00:00+08:00">2021-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="linux-环境配置"><a class="markdownIt-Anchor" href="#linux-环境配置"></a> Linux 环境配置</h2>
+<p>Linux 有两种方式来进行环境的配置：</p>
+<ul>
+<li>交互式 login shell ：这种方式取得 bash 命令需要登录操作，比如系统刚刚开机时候需要输入用户密码才能够取得的相关命令；</li>
+<li>非交互式 non-login shell ：这种方式取得的 bash 命令则不需要进行登陆操作，比如登录系统之后执行的 <code>bash</code> 命令相当于打开了一个子 bash 环境；</li>
+</ul>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/5c04f725230db3370ca9045c2adef6263fc3056f538f89c3019727833f304dee.png" alt="picture 1" /></p>
+<h3 id="交互式-login-shell"><a class="markdownIt-Anchor" href="#交互式-login-shell"></a> 交互式 login shell</h3>
+<p>交互式 login shell 一般只会读取：</p>
+<ol>
+<li><code>/etc/profile</code> ：全局配置文件；</li>
+<li><code>[~/.bash_profile | ~/.bash_login | ~/.profile]</code> ：用户自己的配置文件，这三个只读取一个，按照顺序读取，先命中的则读取；</li>
+</ol>
+<p>而通过打开上述的文件我们发现，他们还会判断另外一下配置文件是否存在，存在则执行；比如， <code>~/.bash_profile</code> 会去读取 <code>~/.bashrc</code> ，而 <code>~/.bashrc</code> 会去读取 <code>/etc/bashrc</code> 等等。</p>
+<p>总结下来如下图所示，实线的方向是系统会自动读取的流程，虚线是文件中调用的配置文件；一般我们都会修改 <code>~/.bashrc</code> 进行用户专属的配置，方式管理混乱；</p>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/439e6b62c3c44825587086a54f5c4439ae12663278834307f4664fad3cd13383.png" alt="picture 2" /></p>
+<h3 id="非交互式-non-login-shell"><a class="markdownIt-Anchor" href="#非交互式-non-login-shell"></a> 非交互式 non-login shell</h3>
+<p>非交互式 non-login shell 只会读取 <code>~/.bashrc</code> 文件，所以和上面的其实差不多；</p>
+<h3 id="通过-su-命令看到以上两者的区别"><a class="markdownIt-Anchor" href="#通过-su-命令看到以上两者的区别"></a> 通过 su 命令看到以上两者的区别</h3>
+<blockquote>
+<p><code>su</code> - 运行替换用户和组标识的 shell<br />
+用法： <code>su [OPTION]... [-] [USER [ARG]...]</code><br />
+参数：</p>
+<pre><code>-, -l, --login
+      使得shell为可登录的shell
+
+`-c`, --commmand=COMMAND
+       传递单个COMMAND给-c的shell.
+
+-f, --fast
+       传递-f给shell(针对csh或tcsh)
+
+-m, --preserve-environment
+       不重置环境变量
+
+-p     与-m同
+
+-s, --shell=SHELL
+       如果/etc/shells允许,运行SHELL.
+
+--help 显示帮助并退出
+
+--version
+       输出版本信息并退出
+</code></pre>
+</blockquote>
+<p>通过 <code>su root</code> 切换到 root 用户是按照 non-login shell 的方式切换到 root 的 shell 的；<br />
+通过 <code>su -</code> 或 <code>su - root</code> 切换到 root 用户是按照 login shell 的方式切换到 root 用户的 shell 的；<br />
+由于这两种方式加载配置文件的方式不一样，所以他们最后的 <code>env</code> 环境变量打印出来并不一样。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -917,315 +1307,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只更新 .dat 資料檔</span></span><br><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)</span><br></pre></td></tr></table></figure>
 <p>移除 V2Ray</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">git安装和配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-23T00:00:00+08:00">2021-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-25 02:48:33" itemprop="dateModified" datetime="2022-03-25T02:48:33+08:00">2022-03-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="git-安装和配置"><a class="markdownIt-Anchor" href="#git-安装和配置"></a> git 安装和配置</h2>
-<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
-<h3 id="初次配置"><a class="markdownIt-Anchor" href="#初次配置"></a> 初次配置</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;doge-liang&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;1542640147@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
-<p>这里配置的用户名和密码属于不是 <a target="_blank" rel="noopener" href="http://github.com">github.com</a> 的用户名和密码，而是提交的时候，展示给仓库所有者查看的密码用户名和邮箱。</p>
-<p>如果 github 账户设置了 ssh 密钥的话，可以在本地生成一下 ssh-key</p>
-<p>步骤参照 git-ssh</p>
-<h3 id="控制台显示问题"><a class="markdownIt-Anchor" href="#控制台显示问题"></a> 控制台显示问题</h3>
-<h4 id="git-status-中文编码问题"><a class="markdownIt-Anchor" href="#git-status-中文编码问题"></a> <code>git status</code> 中文编码问题</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">某售房平台的房价爬虫</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-21T00:00:00+08:00">2021-03-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="某售房平台的房价爬虫"><a class="markdownIt-Anchor" href="#某售房平台的房价爬虫"></a> 某售房平台的房价爬虫</h2>
-<p>今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。</p>
-<p>通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。</p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/e1e7fcebeaa24f1f2dc7ff4fb165b95d6f0faedb5145a3829821bbb382fa3c3d.png" alt="picture 4" /></p>
-<p>打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚轮密码锁。</p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/924356a188a6133db4ad57c169097c5553e331a8a14c2d379cbc24b4346a82d6.png" alt="picture 5" /></p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/7b13f98902d2beac854701829b70a1d9818093c1e6fbf0ca548caad7d13b586e.png" alt="picture 6" /></p>
-<p>并且在不同时候刷新页面，得到的图片是不同的，进一步增加了爬虫的复杂度。</p>
-<p>监控页面的节点变化发现，目标节点部分从服务器发送到浏览器便一直都保持不变，这意味着从数据到图片的转换是在服务器后台完成的，而不是前端浏览器的 Javascript 脚本控制的。</p>
-<blockquote>
-<p>（这会给后端服务器带来比较大的压力吧，又要定期生成随机顺序的图片，又要建立数据和图片的关联关系，当然不排除其图片是已经生成好的，只是通过哈希索引进行查找出来罢了，如此一来数据和图片的对应关系相对来说也就不是那么损耗性能的了，用模板来生成 html 压力其实也还好）。</p>
-</blockquote>
-<p>这就切断了通过爬虫直接得到数值型数据的可能性了。</p>
-<p>目前没有想到更好的解决方案，有一种很蠢的方法就是把 background-image 和 background-position 都爬下来，然后根据 background-position 裁剪图片的一部分拿去做 OCR 识别出来的结果再和这个房子的信息一起保存下来。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" class="post-title-link" itemprop="url">事务隔离级别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-18T00:00:00+08:00">2021-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="事务隔离级别"><a class="markdownIt-Anchor" href="#事务隔离级别"></a> 事务隔离级别</h2>
-<p><strong>事务</strong>：是一组不可分割的操作；</p>
-<p>事务的 <strong>ACID 特性</strong>：</p>
-<ol>
-<li>原子性：即不可分割</li>
-<li>一致性：数据库的完整性约束</li>
-<li>隔离性：事务串行执行，彼此不干扰</li>
-<li>持续性：事务完成了就不可恢复</li>
-</ol>
-<p>事务并发会产生一些问题：</p>
-<ol>
-<li>脏读：由于 B 的修改被回滚，导致 A 读到了 B 更新的数据，而数据库数据被回滚到原来的；</li>
-<li>不可重复读：多次读取同一数据时，由于别的事务修改，导致多次读数据不一致；</li>
-<li>幻读：由于 B 的新增或删除被回滚，导致 A 读到的数据是 B 事务完成之后的结果，而实际上存储的是原来的没变；</li>
-</ol>
-<p>四个事务隔离级别：（从低到高）</p>
-<ul>
-<li>Read uncommitted：事务可以读取到另一个未提交（committed）事务的结果，会导致脏读；</li>
-<li>Read commited：要等另一个事务提交（committed）之后才可以读取数据，解决了脏读问题，没有解决不可重复读；</li>
-<li>Repeatable read：事务开启时不允许修改操作，解决了不可重复读问题，没有解决幻读；</li>
-<li>Serializable：事务串行化，解决了所有并发带来的一致性问题，但效率低下；</li>
-</ul>
-<p>MySQL 默认事务隔离级别是 Repeatable read。<br />
-MySQL 通过 GAP 锁解决幻读问题。</p>
 
       
     </div>

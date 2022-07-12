@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">195</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,321 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">多线程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:35:03" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="多线程"><a class="markdownIt-Anchor" href="#多线程"></a> 多线程</h2>
+<h3 id="cas"><a class="markdownIt-Anchor" href="#cas"></a> CAS</h3>
+<p><strong>CAS</strong>（Compare And Swap）：比较并替换，CAS 机制定义了三个基本的操作数：内存地址 V ，预期值 A ，要修改成值 B 。<br />
+当更新一个变量时，只有当地址 V 的变量为预期值 A 才将地址 V 中的值替换为值 B 。<br />
+考虑两个线程都在更新某个变量的场景：</p>
+<ol>
+<li>线程 1 想要将 V 出的值 10 增加 1 ，此时对于地址 V 变量的预期值为 10 ，要更新为 11；</li>
+<li>线程 1 执行更新操作时， CPU 被线程 2 抢占，地址 V 被抢先一步更新为 11 ；</li>
+<li>线程 1 开始执行更新操作时，<strong>比较</strong>地址 V 的值发现和预期值 10 不一样，更新失败；</li>
+<li>线程 1 重新获取地址 V 的值 11 ，要更新为新值 12 ，这个重试的操作被称为 <strong>自旋</strong>；</li>
+<li>这次线程 1 没有被抢占，<strong>比较</strong>地址 V 的值发现和预期值 11 相同，进行<strong>交换</strong>操作，将地址 V 的值替换为 12；</li>
+</ol>
+<p>CAS 对于并发程度的估计是乐观的，所以让线程不断地重试之前的操作，分类上叫 <strong>乐观锁</strong>。<br />
+而 Synchronized 属于 <strong>悲观锁</strong> ，对并发程度的估计是悲观的，所以对资源的访问严防死守。</p>
+<p>在 Java 中 Atomic 系列类和 Lock 系列类的底层实现都是使用 CAS 机制实现的。</p>
+<h4 id="实现原理"><a class="markdownIt-Anchor" href="#实现原理"></a> 实现原理</h4>
+<p>以 <code>incrementAndGet()</code> 方法为例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">incrementAndGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        <span class="keyword">int</span> current = get();</span><br><span class="line">        <span class="keyword">int</span> next = current + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (compareAndSet(current, next))</span><br><span class="line">            <span class="keyword">return</span> next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码是一个无限循环，也叫做 <strong>自旋</strong> ，循环主要完成：</p>
+<ol>
+<li>获取当前值；</li>
+<li>对值进行 +1 操作，计算出目标值；</li>
+<li>进行 CAS 操作，如果成功则跳出循环，如果失败则重复上述步骤；</li>
+</ol>
+<p>这里通过 <code>volatile</code> 保证获取的值是当前的最新值。</p>
+<p>接下来看 <code>compareAndSet()</code> 的实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>, valueOffset, expect, update);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Usafe unsafe = Unsafe.getUnsafe();</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> valueOffset;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclareField(<span class="string">&quot;value&quot;</span>));</span><br><span class="line">  &#125; <span class="keyword">catch</span>(Exception ex) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> Error(ex);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>compareAndSet()</code> 方法实现很简单，只有一行代码。涉及到两个对象，一个是 <strong>unsafe</strong> 一个是 <strong>valueOffset</strong> 。</p>
+<p><strong>unsafe</strong> 是 JVM 提供的后门，给 Java 提供了 <strong>硬件级别的原子操作</strong> 。<br />
+<strong>valueOffset</strong> 对象是通过 <code>unsafe.objectFieldOffset()</code> 方法得到的，代表的是 <code>AtomicInteger</code> 对象 value 成员变量在内存中的偏移量。可以简单理解为 value 变量的内存地址；</p>
+<p>这里的 valueOffset 、 expect 、 update 分别代码 CAS 的内存地址 V 、 预期值 A 和新值 B 。正是 unsafe 提供的 <code>compareAndSwapInt()</code> 方法包括了这三个基本元素，保证了 Compare 和 Swap 操作的原子性。</p>
+<h5 id="cas-的缺点"><a class="markdownIt-Anchor" href="#cas-的缺点"></a> CAS 的缺点</h5>
+<ol>
+<li>CPU 开销大，在并发程度高的时候，大量线程都在重复尝试更新变量，耗费了大量的时间在空转；</li>
+<li>不能保证代码块的原子性，只能保证针对某个变量操作的原子性，而无法同时保证多个变量的操作是原子的，这时候就不得不使用 synchronized 了；</li>
+<li>ABA 问题，由于线程只关心最新的值是否为预期值，所以线程并不知道变量在 compareAndSet 之前是否经历过变化，会直接通过检测，在某些场景下会产生错误；为了解决这个问题，引入了版本号的机制，每次比较的时候还要加上版本号一起比较，当提交了修改之后，版本号 +1 ，这样便让 <code>compareAndSet()</code> 方法更确切地保证在更新之前值没有被更新过；</li>
+</ol>
+<h3 id="偏向锁"><a class="markdownIt-Anchor" href="#偏向锁"></a> 偏向锁</h3>
+<p>jdk 1.5 以前 Java 的并发问题都是使用 <strong>Synchronized</strong> 解决的，这种 <strong>重量级锁</strong> 依赖于操作系统的调度，需要频繁在用户态和内核态之间切换，效率不行；</p>
+<p>后来出现了 CAS 使用，失败-重试机制，使加锁和释放锁的过程不需要上下文切换，竞争不激烈时有不错的性能。但是经过研究发现，大多数情况下，获得锁的都是同一个线程，即时是轻量级锁的方式获取，但还是会影响性能。<br />
+偏心锁在 CAS 的基础上，添加了了偏心机制，锁对象会记住线程的 ID ，当线程再次获取锁时，锁对象发现和上次的一样，就直接把锁给他。这种锁考虑的是只有一个线程进入临界区的情况。当有多个线程进入临界区时，为了提高效率，会被升级成 <strong>轻量级锁</strong> 也即 CAS ，如果竞争进一步加剧，那就会升级成 <strong>重量级锁</strong>。</p>
+<p>偏向锁和轻量级锁都不会调用系统互斥量（Mutex Lock），只是为了提升性能而多出的两种锁的状态，以便在不同场景下采取合适的锁。</p>
+<blockquote>
+<p>互斥量：是保证关键指令的原子性的一种机制，是最简单的线程同步方法。互斥量往往处于两种状态之一：解锁和加锁，就像厕所格子间的门锁，多人前来上厕所时，先进去的人把门锁锁上了，后面的人看到门上的状态是红的，说明有人在用，只能排队等待。</p>
+</blockquote>
+<p>Java 对象的锁的信息是维护在对象头上的， Java 对象头由三部分构成：</p>
+<ol>
+<li>MarkWord（对象锁信息维护在这里）</li>
+<li>ClassMetaData Address</li>
+<li>Array Length (如果是数组对象才会有)</li>
+</ol>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png" alt="picture 3" /></p>
+<p>从左到右，高位到低位，由于还有 GC 标志位，加上四个锁状态，至少需要 3 bit 来描述一个对象的锁状态，如上图所示。</p>
+<p>虽然说 jdk 1.6 版本后，是默认开启偏向锁的，但是实际上，由于 Java 中大量的 synchronized 的使用，直接开启偏向锁，进入同步块竞争的时候，就需要有锁升级，会带来额外的性能损耗。因此， JVM 提供了延迟策略，程序启动后大约 4s 的开启锁延迟。</p>
+<h3 id="happen-before-原则"><a class="markdownIt-Anchor" href="#happen-before-原则"></a> happen-before 原则</h3>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">多线程实现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:34:32" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="多线程实现"><a class="markdownIt-Anchor" href="#多线程实现"></a> 多线程实现</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">多线程设计模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:34:11" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="多线程设计模式"><a class="markdownIt-Anchor" href="#多线程设计模式"></a> 多线程设计模式</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -976,210 +1291,6 @@ JRE （Java Runtime  Environemnt）是 Java SE API 子集和 Java 虚拟机这�
 </li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-01-24 13:52:59" itemprop="dateCreated datePublished" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          {"version":"1.2.0","port":7054,"debug":false,"crlsizelimit":512000,"tls":{"enabled":true,"certfile":null,"keyfile":null,"clientauth":{"type":"noclientcert","certfiles":null}},"ca":{"name":"Org1CA","keyfile":null,"certfile":null,"chainfile":null},"crl":{"expiry":"24h"},"registry":{"maxenrollments":-1,"identities":[{"name":"admin","pass":"adminpw","type":"client","affiliation":"","attrs":{"hf.Registrar.Roles":"*","hf.Registrar.DelegateRoles":"*","hf.Revoker":true,"hf.IntermediateCA":true,"hf.GenCRL":true,"hf.Registrar.Attributes":"*","hf.AffiliationMgr":true}}]},"db":{"type":"sqlite3","datasource":"fabric-ca-server.db","tls":{"enabled":false,"certfiles":null,"client":{"certfile":null,"keyfile":null}}},"ldap":{"enabled":false,"url":"ldap://<adminDN>:<adminPassword>@<host>:<port>/<base>","tls":{"certfiles":null,"client":{"certfile":null,"keyfile":null}},"attribute":{"names":["uid","member"],"converters":[{"name":null,"value":null}],"maps":{"groups":[{"name":null,"value":null}]}}},"affiliations":{"org1":["department1","department2"],"org2":["department1"]},"signing":{"default":{"usage":["digital signature"],"expiry":"8760h"},"profiles":{"ca":{"usage":["cert sign","crl sign"],"expiry":"43800h","caconstraint":{"isca":true,"maxpathlen":0}},"tls":{"usage":["signing","key encipherment","server auth","client auth","key agreement"],"expiry":"8760h"}}},"csr":{"cn":"ca.org1.example.com","names":[{"C":"US","ST":"North Carolina","L":"Durham","O":"org1.example.com","OU":null}],"hosts":["localhost","org1.example.com"],"ca":{"expiry":"131400h","pathlength":1}},"bccsp":{"default":"SW","sw":{"hash":"SHA2","security":256,"filekeystore":{"keystore":"msp/keystore"}}},"cacount":null,"cafiles":null,"intermediate":{"parentserver":{"url":null,"caname":null},"enrollment":{"hosts":null,"profile":null,"label":null},"tls":{"certfiles":null,"client":{"certfile":null,"keyfile":null}}}}
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-01-24 13:52:59" itemprop="dateCreated datePublished" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          {"Organizations":[{"Name":"OrdererOrg","ID":"OrdererMSP","MSPDir":"../organizations/ordererOrganizations/example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('OrdererMSP.member')"},"Writers":{"Type":"Signature","Rule":"OR('OrdererMSP.member')"},"Admins":{"Type":"Signature","Rule":"OR('OrdererMSP.admin')"}},"OrdererEndpoints":["orderer.example.com:7050"]},{"Name":"Org1MSP","ID":"Org1MSP","MSPDir":"../organizations/peerOrganizations/org1.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.peer', 'Org1MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org1MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org1MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org1.example.com","Port":7051}]},{"Name":"Org2MSP","ID":"Org2MSP","MSPDir":"../organizations/peerOrganizations/org2.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.peer', 'Org2MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org2MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org2MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org2.example.com","Port":9051}]}],"Capabilities":{"Channel":{"V2_0":true},"Orderer":{"V2_0":true},"Application":{"V2_0":true}},"Application":{"Organizations":null,"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"},"LifecycleEndorsement":{"Type":"ImplicitMeta","Rule":"MAJORITY Endorsement"},"Endorsement":{"Type":"ImplicitMeta","Rule":"MAJORITY Endorsement"}},"Capabilities":{"V2_0":true}},"Orderer":{"OrdererType":"etcdraft","Addresses":["orderer1.example.com:6050"],"EtcdRaft":{"Consenters":[{"Host":"orderer.example.com","Port":7050,"ClientTLSCert":"../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt","ServerTLSCert":"../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt"}]},"BatchTimeout":"2s","BatchSize":{"MaxMessageCount":10,"AbsoluteMaxBytes":"99 MB","PreferredMaxBytes":"512 KB"},"Organizations":null,"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"},"BlockValidation":{"Type":"ImplicitMeta","Rule":"ANY Writers"}}},"Channel":{"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"}},"Capabilities":{"V2_0":true}},"Profiles":{"TwoOrgsOrdererGenesis":{"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"}},"Capabilities":{"V2_0":true},"Orderer":{"OrdererType":"etcdraft","Addresses":["orderer1.example.com:6050"],"EtcdRaft":{"Consenters":[{"Host":"orderer.example.com","Port":7050,"ClientTLSCert":"../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt","ServerTLSCert":"../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt"}]},"BatchTimeout":"2s","BatchSize":{"MaxMessageCount":10,"AbsoluteMaxBytes":"99 MB","PreferredMaxBytes":"512 KB"},"Organizations":[{"Name":"OrdererOrg","ID":"OrdererMSP","MSPDir":"../organizations/ordererOrganizations/example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('OrdererMSP.member')"},"Writers":{"Type":"Signature","Rule":"OR('OrdererMSP.member')"},"Admins":{"Type":"Signature","Rule":"OR('OrdererMSP.admin')"}},"OrdererEndpoints":["orderer.example.com:7050"]}],"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"},"BlockValidation":{"Type":"ImplicitMeta","Rule":"ANY Writers"}},"Capabilities":{"V2_0":true}},"Consortiums":{"SampleConsortium":{"Organizations":[{"Name":"Org1MSP","ID":"Org1MSP","MSPDir":"../organizations/peerOrganizations/org1.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.peer', 'Org1MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org1MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org1MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org1.example.com","Port":7051}]},{"Name":"Org2MSP","ID":"Org2MSP","MSPDir":"../organizations/peerOrganizations/org2.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.peer', 'Org2MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org2MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org2MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org2.example.com","Port":9051}]}]}}},"TwoOrgsChannel":{"Consortium":"SampleConsortium","Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"}},"Capabilities":{"V2_0":true},"Application":{"Organizations":[{"Name":"Org1MSP","ID":"Org1MSP","MSPDir":"../organizations/peerOrganizations/org1.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.peer', 'Org1MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org1MSP.admin', 'Org1MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org1MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org1MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org1.example.com","Port":7051}]},{"Name":"Org2MSP","ID":"Org2MSP","MSPDir":"../organizations/peerOrganizations/org2.example.com/msp","Policies":{"Readers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.peer', 'Org2MSP.client')"},"Writers":{"Type":"Signature","Rule":"OR('Org2MSP.admin', 'Org2MSP.client')"},"Admins":{"Type":"Signature","Rule":"OR('Org2MSP.admin')"},"Endorsement":{"Type":"Signature","Rule":"OR('Org2MSP.peer')"}},"AnchorPeers":[{"Host":"peer0.org2.example.com","Port":9051}]}],"Policies":{"Readers":{"Type":"ImplicitMeta","Rule":"ANY Readers"},"Writers":{"Type":"ImplicitMeta","Rule":"ANY Writers"},"Admins":{"Type":"ImplicitMeta","Rule":"MAJORITY Admins"},"LifecycleEndorsement":{"Type":"ImplicitMeta","Rule":"MAJORITY Endorsement"},"Endorsement":{"Type":"ImplicitMeta","Rule":"MAJORITY Endorsement"}},"Capabilities":{"V2_0":true}}}}}
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-01-24 13:52:59" itemprop="dateCreated datePublished" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
       
     </div>
 
