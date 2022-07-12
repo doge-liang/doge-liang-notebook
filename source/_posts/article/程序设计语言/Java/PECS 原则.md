@@ -10,3 +10,5 @@ categories:
 ## PECS 原则
 
 ### “Producer Extends, Comsumer Super”
+
+PECS 原则描述的是 Java 中的一种语法特性。我们知道，Java 的泛型编译之后都会进行类型擦除，
