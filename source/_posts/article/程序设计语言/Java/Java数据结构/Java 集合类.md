@@ -7,7 +7,29 @@ categories:
   + Java
 ---
 
-## Java 集合类
+## Java 集合框架
+
+### 实现思想
+
+Java 集合框架的实现思想为为常见的接口和实现分离思想。
+
+使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。
+
+```JAVA
+Queue<Customer> expressLane = new CircularArrayQueue<>(100);
+Queue<Customer> expressLane = new LinkedListQueue<>(100);
+expressLane.add(new Customer("Harry"));
+```
+
+这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；
+
+此外，Java API 库中还定义了一些 `Abstract` 前缀修饰的类，比如 `AbstractCollection` 里面对 `Collection` 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 `Abstract` 前缀修饰的集合类是省事儿的。
+
+### 基础接口
+
+Java 有两大类集合： `Map` 和 `Collection`
+
+![picture 1](../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png)  
 
 ### Collection
 
@@ -17,6 +39,8 @@ categories:
 2. 当 value 为 null 时，会抛出 `NullPointerException` ；
 
 ### List
+
+### Map
 
 #### WeakHashMap
 
@@ -48,6 +72,8 @@ key 和 uvaiue 都不允许出现 null
 > - 循环时间长开销大：
 > <https://blog.csdn.net/ls5718/article/details/52563959>
 
-### Map
-
 ### Set
+
+#### HashSet
+
+#### 

@@ -24,7 +24,9 @@ transform: translateX(-50%);
 
 ## Java 的表 List
 
-List<?> 转换成 ?[]
+![picture 1](../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E7%9A%84%E8%A1%A8%20List/653b516fdee70785f8e34b94cef2b5b81f40f302292c3ff911e040c0a9c9ca18.png)  
+
+### List<?> 转换成 ?[]
 
 ```JAVA
 int[] array = list.stream().mapToInt(i -> i).toArray();
