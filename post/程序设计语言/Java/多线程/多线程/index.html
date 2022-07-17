@@ -28,12 +28,12 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="多线程  CAS CAS（Compare And Swap）：比较并替换，CAS 机制定义了三个基本的操作数：内存地址 V ，预期值 A ，要修改成值 B 。 当更新一个变量时，只有当地址 V 的变量为预期值 A 才将地址 V 中的值替换为值 B 。 考虑两个线程都在更新某个变量的场景：  线程 1 想要将 V 出的值 10 增加 1 ，此时对于地址 V 变量的预期值为 10 ，要更新为 11；">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png">
 <meta property="article:published_time" content="2022-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T18:35:03.431Z">
+<meta property="article:modified_time" content="2022-07-17T08:21:43.040Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
@@ -132,13 +132,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -210,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:35:03" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+      <time title="Created: 2022-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-17 16:21:43" itemprop="dateModified" datetime="2022-07-17T16:21:43+08:00">2022-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,9 +299,9 @@
 <li>ClassMetaData Address</li>
 <li>Array Length (如果是数组对象才会有)</li>
 </ol>
-<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png" alt="picture 3" /></p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png" alt="picture 3" /></p>
 <p>从左到右，高位到低位，由于还有 GC 标志位，加上四个锁状态，至少需要 3 bit 来描述一个对象的锁状态，如上图所示。</p>
-<p>虽然说 jdk 1.6 版本后，是默认开启偏向锁的，但是实际上，由于 Java 中大量的 synchronized 的使用，直接开启偏向锁，进入同步块竞争的时候，就需要有锁升级，会带来额外的性能损耗。因此， JVM 提供了延迟策略，程序启动后大约 4s 的开启锁延迟。</p>
+<p>虽然说 jdk 1.6 版本后，是默认开启偏向锁的，但是实际上，由于 Java 中大量的 <code>synchronized</code> 的使用，直接开启偏向锁，进入同步块竞争的时候，就需要有锁升级，会带来额外的性能损耗。因此， JVM 提供了延迟策略，程序启动后大约 4s 的开启锁延迟。</p>
 <h3 id="happen-before-原则"><a class="markdownIt-Anchor" href="#happen-before-原则"></a> happen-before 原则</h3>
 
     </div>
@@ -310,11 +316,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/" rel="prev" title="多线程实现">
-                  <i class="fa fa-chevron-left"></i> 多线程实现
+                <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="prev" title="多线程设计模式">
+                  <i class="fa fa-chevron-left"></i> 多线程设计模式
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/kerberos%E8%AE%A4%E8%AF%81/" rel="next" title="Kerberos认证">
+                  Kerberos认证 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

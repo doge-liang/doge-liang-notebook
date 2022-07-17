@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,204 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/v2ray%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/v2ray%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" class="post-title-link" itemprop="url">v2ray的安装和卸载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-25T00:00:00+08:00">2021-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/" itemprop="url" rel="index"><span itemprop="name">vpn</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/v2ray/" itemprop="url" rel="index"><span itemprop="name">v2ray</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="v2ray-的安装和卸载"><a class="markdownIt-Anchor" href="#v2ray-的安装和卸载"></a> v2ray 的安装和卸载</h2>
+<p>安裝和更新 V2Ray</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安裝執行檔和 .dat 資料檔</span></span><br><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)</span><br></pre></td></tr></table></figure>
+<p>安裝最新發行的 geoip.dat 和 geosite.dat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只更新 .dat 資料檔</span></span><br><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)</span><br></pre></td></tr></table></figure>
+<p>移除 V2Ray</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">git安装和配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-23T00:00:00+08:00">2021-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-25 02:48:33" itemprop="dateModified" datetime="2022-03-25T02:48:33+08:00">2022-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="git-安装和配置"><a class="markdownIt-Anchor" href="#git-安装和配置"></a> git 安装和配置</h2>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<h3 id="初次配置"><a class="markdownIt-Anchor" href="#初次配置"></a> 初次配置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;doge-liang&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;1542640147@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里配置的用户名和密码属于不是 <a target="_blank" rel="noopener" href="http://github.com">github.com</a> 的用户名和密码，而是提交的时候，展示给仓库所有者查看的密码用户名和邮箱。</p>
+<p>如果 github 账户设置了 ssh 密钥的话，可以在本地生成一下 ssh-key</p>
+<p>步骤参照 git-ssh</p>
+<h3 id="控制台显示问题"><a class="markdownIt-Anchor" href="#控制台显示问题"></a> 控制台显示问题</h3>
+<h4 id="git-status-中文编码问题"><a class="markdownIt-Anchor" href="#git-status-中文编码问题"></a> <code>git status</code> 中文编码问题</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1002,200 +1200,6 @@ MySQL 通过 GAP 锁解决幻读问题。</p>
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="python-爬取-m3u8-视频流"><a class="markdownIt-Anchor" href="#python-爬取-m3u8-视频流"></a> python-爬取 m3u8 视频流</h2>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0%E7%BD%91%E7%AB%99%E7%9A%84%E7%88%AC%E5%8F%96%E7%BB%8F%E5%8E%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0%E7%BD%91%E7%AB%99%E7%9A%84%E7%88%AC%E5%8F%96%E7%BB%8F%E5%8E%86/" class="post-title-link" itemprop="url">记一次不可描述网站的爬取经历</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-15T00:00:00+08:00">2021-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="记一次不可描述网站的爬取经历"><a class="markdownIt-Anchor" href="#记一次不可描述网站的爬取经历"></a> 记一次不可描述网站的爬取经历</h2>
-<p>今天闲来无事，想练习一下视频爬取，又不想惹上麻烦。于是在外网找了个“澳门风云赌场，在线荷官发牌”的网站进行练习。（绝不是色心起了，不是！）</p>
-<h3 id="寻找目标网站"><a class="markdownIt-Anchor" href="#寻找目标网站"></a> 寻找目标网站</h3>
-<p>第一步当然是去外网寻找不可描述的网站了，依稀记得小时候在父辈的电脑里面看到的一些搜索关键词，什么“婷婷五月”之类的，试着去搜了一下，果然找到了网站。</p>
-<p>进入网站，打开一个分区的视频，按 <code>F12</code> 打开开发者工具，在 <code>network</code> 中过滤含有 <code>.m3u8</code> 的异步请求，一般的流媒体视频网站都会使用这个协议进行视频流的传输，将视频文件分割成成千上万个 <code>.ts</code> 文件流，根据 <code>.m3u8</code> 后缀的索引文件，下载一个个的 <code>.ts</code> 视频流文件，在浏览器上加载播放。</p>
-<h3 id="单线程爬取"><a class="markdownIt-Anchor" href="#单线程爬取"></a> 单线程爬取</h3>
-<p>一开始使用单线程爬取，先发送请求，下载 <code>index.m3u8</code> 文件，取得 <code>ts</code> 视频流的文件链接索引，一个一个发送请求爬取，并按顺序重命名方便使用批处理命令合并。但无奈速度太慢了。</p>
-<h3 id="多线程爬取"><a class="markdownIt-Anchor" href="#多线程爬取"></a> 多线程爬取</h3>
-<p>通过 <code>threading</code> 库建立多个线程来爬取，借助队列 <code>Queue</code> 为每个线程分配爬取、存储任务。</p>
-<blockquote>
-<p>注意： <code>start()</code> 方法后不能紧接着 <code>join()</code> 方法， <code>join()</code> 方法可以阻塞主线程以等待子线程完成。如果主线程每启动一个子线程都要等待子线程执行完成再启动下一个子线程，那么与单线程无异，一般是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threading_pool:</span><br><span class="line">    t.start()</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># other codes</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threading_pool:</span><br><span class="line">    t.join()</span><br></pre></td></tr></table></figure>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">git 简介</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-14T00:00:00+08:00">2021-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="git-简介"><a class="markdownIt-Anchor" href="#git-简介"></a> git 简介</h2>
-<p>git 是一种版本管理软件工具。在软件开发、迭代、升级的过程中必然伴随着软件版本的更迭。在 git 之前，最早的版本管理系统都是本地的。</p>
-<h3 id="本地版本控制系统vsc"><a class="markdownIt-Anchor" href="#本地版本控制系统vsc"></a> 本地版本控制系统（VSC）</h3>
-<p>RCS 是目前还活跃的一个本地版本控制系统，它伴随着操作系统的发行版一起分发到具体的机器上。它将文件的不同补丁保存在磁盘中，使得我们可以回退到任意版本。</p>
-<p>但随着软件系统越来越复杂，软件开发需要多人协作来完成了，那么拘束在本地的版本控制系统无法满足在不同系统间的版本管理了。所以中心化的版本管理诞生了。</p>
-<h3 id="中心化的版本控制系统cvcs"><a class="markdownIt-Anchor" href="#中心化的版本控制系统cvcs"></a> 中心化的版本控制系统（CVCS）</h3>
-<p>为了处理多机协作的问题，中心化的版本控制系统被开发出来了，使用一台独立的服务器保存版本文件，多个客户端通过访问这个共享的版本服务器完成版本管理。像 CVS ， Subversion 和 Perforce 等软件都是 CVCS 。 CVCS 作为版本管理系统的标准持续了多年。</p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1" /></p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2" /></p>
 
       
     </div>

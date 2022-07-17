@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,200 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0%E7%BD%91%E7%AB%99%E7%9A%84%E7%88%AC%E5%8F%96%E7%BB%8F%E5%8E%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0%E7%BD%91%E7%AB%99%E7%9A%84%E7%88%AC%E5%8F%96%E7%BB%8F%E5%8E%86/" class="post-title-link" itemprop="url">记一次不可描述网站的爬取经历</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-15T00:00:00+08:00">2021-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="记一次不可描述网站的爬取经历"><a class="markdownIt-Anchor" href="#记一次不可描述网站的爬取经历"></a> 记一次不可描述网站的爬取经历</h2>
+<p>今天闲来无事，想练习一下视频爬取，又不想惹上麻烦。于是在外网找了个“澳门风云赌场，在线荷官发牌”的网站进行练习。（绝不是色心起了，不是！）</p>
+<h3 id="寻找目标网站"><a class="markdownIt-Anchor" href="#寻找目标网站"></a> 寻找目标网站</h3>
+<p>第一步当然是去外网寻找不可描述的网站了，依稀记得小时候在父辈的电脑里面看到的一些搜索关键词，什么“婷婷五月”之类的，试着去搜了一下，果然找到了网站。</p>
+<p>进入网站，打开一个分区的视频，按 <code>F12</code> 打开开发者工具，在 <code>network</code> 中过滤含有 <code>.m3u8</code> 的异步请求，一般的流媒体视频网站都会使用这个协议进行视频流的传输，将视频文件分割成成千上万个 <code>.ts</code> 文件流，根据 <code>.m3u8</code> 后缀的索引文件，下载一个个的 <code>.ts</code> 视频流文件，在浏览器上加载播放。</p>
+<h3 id="单线程爬取"><a class="markdownIt-Anchor" href="#单线程爬取"></a> 单线程爬取</h3>
+<p>一开始使用单线程爬取，先发送请求，下载 <code>index.m3u8</code> 文件，取得 <code>ts</code> 视频流的文件链接索引，一个一个发送请求爬取，并按顺序重命名方便使用批处理命令合并。但无奈速度太慢了。</p>
+<h3 id="多线程爬取"><a class="markdownIt-Anchor" href="#多线程爬取"></a> 多线程爬取</h3>
+<p>通过 <code>threading</code> 库建立多个线程来爬取，借助队列 <code>Queue</code> 为每个线程分配爬取、存储任务。</p>
+<blockquote>
+<p>注意： <code>start()</code> 方法后不能紧接着 <code>join()</code> 方法， <code>join()</code> 方法可以阻塞主线程以等待子线程完成。如果主线程每启动一个子线程都要等待子线程执行完成再启动下一个子线程，那么与单线程无异，一般是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threading_pool:</span><br><span class="line">    t.start()</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># other codes</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threading_pool:</span><br><span class="line">    t.join()</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">git 简介</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-14T00:00:00+08:00">2021-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="git-简介"><a class="markdownIt-Anchor" href="#git-简介"></a> git 简介</h2>
+<p>git 是一种版本管理软件工具。在软件开发、迭代、升级的过程中必然伴随着软件版本的更迭。在 git 之前，最早的版本管理系统都是本地的。</p>
+<h3 id="本地版本控制系统vsc"><a class="markdownIt-Anchor" href="#本地版本控制系统vsc"></a> 本地版本控制系统（VSC）</h3>
+<p>RCS 是目前还活跃的一个本地版本控制系统，它伴随着操作系统的发行版一起分发到具体的机器上。它将文件的不同补丁保存在磁盘中，使得我们可以回退到任意版本。</p>
+<p>但随着软件系统越来越复杂，软件开发需要多人协作来完成了，那么拘束在本地的版本控制系统无法满足在不同系统间的版本管理了。所以中心化的版本管理诞生了。</p>
+<h3 id="中心化的版本控制系统cvcs"><a class="markdownIt-Anchor" href="#中心化的版本控制系统cvcs"></a> 中心化的版本控制系统（CVCS）</h3>
+<p>为了处理多机协作的问题，中心化的版本控制系统被开发出来了，使用一台独立的服务器保存版本文件，多个客户端通过访问这个共享的版本服务器完成版本管理。像 CVS ， Subversion 和 Perforce 等软件都是 CVCS 。 CVCS 作为版本管理系统的标准持续了多年。</p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1" /></p>
+<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2" /></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -593,97 +787,6 @@ tools 安装了 bash 、 jq 、 peer 、 cryptogen 、 configtxgen 等常见命�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E4%B9%A6%E5%8D%95/linux-%E5%AD%A6%E4%B9%A0%E4%B9%A6%E5%8D%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E4%B9%A6%E5%8D%95/linux-%E5%AD%A6%E4%B9%A0%E4%B9%A6%E5%8D%95/" class="post-title-link" itemprop="url">Linux 学习书单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:52:59" itemprop="dateModified" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E4%B9%A6%E5%8D%95/" itemprop="url" rel="index"><span itemprop="name">书单</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux-学习书单"><a class="markdownIt-Anchor" href="#linux-学习书单"></a> Linux 学习书单</h2>
-<p>apue Unix 环境高级编程</p>
-<p>ioss</p>
-<p>linux kernel development Linux 内核设计与实现</p>
-<p>ulk 深入理解 Linux 内核</p>
-<p>lvmm 深入理解 Linux 虚拟内存管理</p>
-<p>ldd Linux 设备驱动程序</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E4%B9%A6%E5%8D%95/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%A6%E5%8D%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -810,6 +913,97 @@ Tom DeMarco/Tim Lister 著</p>
 <p>《Soft Skills: The Software Developer’s Life Manual》<br />
 John Sonmez 著</p>
 <hr />
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E4%B9%A6%E5%8D%95/linux-%E5%AD%A6%E4%B9%A0%E4%B9%A6%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E4%B9%A6%E5%8D%95/linux-%E5%AD%A6%E4%B9%A0%E4%B9%A6%E5%8D%95/" class="post-title-link" itemprop="url">Linux 学习书单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:52:59" itemprop="dateModified" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E4%B9%A6%E5%8D%95/" itemprop="url" rel="index"><span itemprop="name">书单</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="linux-学习书单"><a class="markdownIt-Anchor" href="#linux-学习书单"></a> Linux 学习书单</h2>
+<p>apue Unix 环境高级编程</p>
+<p>ioss</p>
+<p>linux kernel development Linux 内核设计与实现</p>
+<p>ulk 深入理解 Linux 内核</p>
+<p>lvmm 深入理解 Linux 虚拟内存管理</p>
+<p>ldd Linux 设备驱动程序</p>
 
       
     </div>
@@ -1249,315 +1443,6 @@ transform: translateX(-50%);
 <p>为了满足身份认证的要求， <code>TLS</code> 使用非对称加密技术，私钥拥有方可以用自己的私钥对数据进行加密，公钥发布出去，公钥的拥有者可以用公钥去解密数据，将解密的结果和随消息发来的 <code>hashcode</code> 一起验证消息确实是私钥拥有者发出的。</p>
 <p>虽然私钥是私有的，但公钥是谁都可以发布的，所以引入了 <code>CA</code> 即 Certificate Authority ，证书认证机构，为发布的公钥提供认证，解决公钥的信任问题。</p>
 <p>证书申请人在自己的电脑生成一对密钥对，并将公钥和自己的私人信息打包成 <code>CSR</code> 文件，把这份文件交给 <code>CA</code> 机构，用 <code>CA</code> 机构的私钥进行签名，把签名后的证书发回给申请人，于是申请人就可以拿着这个证书去发布自己的公钥了。这样便保证了公钥发布的安全性。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">微服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h2>
-<h3 id="先说说单体应用"><a class="markdownIt-Anchor" href="#先说说单体应用"></a> 先说说单体应用</h3>
-<p>过去的 Web 项目还不庞大的时候，软件的各个功能组件常常使用 All in One 的开发方式，即各个内部组件组装在一个单体应用内部，再将其部署到多台服务器上，再由代理服务器接受外来请求，然后通过负载均衡技术，将大量的请求分摊到每台服务器上，来增强应用的健壮性和可用性。</p>
-<p>但这种 All in One 的架构在软件体量日渐庞大的今天，开发效率和单体应用的健壮性都会受到挑战。于是微服务架构就被提出了。</p>
-<h3 id="再说说微服务"><a class="markdownIt-Anchor" href="#再说说微服务"></a> 再说说微服务</h3>
-<p>微服务架构将软件的各个功能组件拆分开来，包装成相对独立的微服务，部署到不同的机器上，组件之间使用 http/https 等轻量可拓展的协议进行通信，来形成一个软件整体。这样的架构使得各个功能组件能够解耦，减少开发的错误，增强软件的健壮性。</p>
-<p>目前常用的微服务框架有 <code>Dubbo</code> 、 <code>Spring Cloud</code> 、 <code>Spring Boot</code> 、 <code>Dropwizard</code> 、 <code>Akka</code> 、 <code>Vert.x</code>/<code>Lagom</code>/<code>ReactiveX</code>/<code>Spring 5</code> 等。以上都是 Java 阵营的微服务框架；</p>
-<p>.NET 阵营有 <code>.NET Core</code> 、 <code>Service Fabric</code> 、 <code>Surging</code> 、 <code>Microdot Framework</code> 等；</p>
-<p>Node.js 阵营有 <code>Seneca</code> 、 <code>Hapi</code>/<code>Restify</code>/<code>LoopBack</code> 等；</p>
-<p>Go 阵营有 <code>Go-Kit</code>/<code>Goa</code>/<code>Dubbogo</code> 等；</p>
-<p>Python 阵营有 <code>Nameko</code> ；</p>
-<h4 id="springcloud"><a class="markdownIt-Anchor" href="#springcloud"></a> SpringCloud</h4>
-<blockquote>
-<p>构建分布式系统不需要复杂和容易出错。Spring Cloud 为最常见的分布式系统模式提供了一种简单且易于接受的<strong>编程模型</strong>，帮助开发人员构建有<strong>弹性的</strong>、<strong>可靠的</strong>、<strong>协调的</strong>应用程序。Spring Cloud 构建于 Spring Boot 之上，使得开发者很容易入手并快速应用于生产中。</p>
-</blockquote>
-<p>简而言之，Spring Cloud 就是一套简易的编程模型，帮助我们在 Spring Boot 之上建立微服务应用。而我们在建立微服务应用时需要做的工作如 <strong>服务发现注册、配置中心</strong> <strong>、消息总线</strong> <strong>、负载均衡</strong> <strong>、断路器</strong> <strong>、数据监控</strong> 等，在 Spring Cloud 中都有相应的编程模型。</p>
-<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/4fd82291c9dba25aff64b96dfec415164ae6484466ed485a1aba420c5ff8823a.jpg" alt="picture 2" /></p>
-<p><code>Spring Cloud</code> 的版本号均为英国伦敦地铁站的站名，根据字母表的顺序来对应版本时间顺序，比如：最早 的 Release 版本 <code>Angel</code>，第二个 Release 版本 <code>Brixton</code> （英国地名），然后是 <code>Camden</code> 、 <code>Dalston</code> 、 <code>Edgware</code> 、 <code>Finchley</code> 、 <code>Greenwich</code> 、 <code>Hoxton</code> 。</p>
-<p>下面从 Spring Cloud 的各个组件的介绍来了解 Spring Cloud 如何完成微服务的各项工作的，主要包括：</p>
-<p><code>Eureka</code> 服务发现框架<br />
-<code>Ribbon</code> 进程内负载均衡器<br />
-<code>Open Feign</code> 服务调用映射<br />
-<code>Hystrix</code> 服务降级熔断器<br />
-<code>Zuul</code> 微服务网关<br />
-<code>Config</code> 微服务统一配置中心<br />
-<code>Bus</code> 消息总线</p>
-<h5 id="服务发现框架-eureka"><a class="markdownIt-Anchor" href="#服务发现框架-eureka"></a> 服务发现框架（ Eureka ）</h5>
-<blockquote>
-<p><code>Eureka</code> 是基于 <code>REST</code> （代表性状态转移）的服务，主要在 AWS 云中用于<strong>定位服务</strong>，以实现负载均衡和中间层服务器的故障转移。我们称此服务为 <code>Eureka</code> 服务器。 <code>Eureka</code> 还带有一个基于 Java 的<strong>客户端组件</strong> <code>Eureka Client</code> ，它使与服务的交互变得更加容易。客户端还具有一个<strong>内置的负载平衡器</strong>，可以执行基本的循环负载平衡。在 Netflix ，更复杂的负载均衡器将 <code>Eureka</code> 包装起来，以基于流量，资源使用，错误条件等多种因素提供加权负载均衡，以提供出色的弹性。</p>
-</blockquote>
-<p>从上面关于微服务的概述中可以看出，微服务其实就是把一个单体应用中的每个模块拆出来，单独部署到服务器上，由调用者调用。到这里我们有了两个概念：</p>
-<ul>
-<li><strong>服务提供者 Eureka Client Provider</strong>：拥有某个模块（服务）的服务器；</li>
-<li><strong>服务消费者 Eureka Client Consumer</strong>：需要使用某个模块（服务）的“用户”；</li>
-</ul>
-<p>由于服务提供者和服务消费者都是散装的，如果提供者通过广播的方式让消费者发现自己，提供者需要耗费大量网络资源进行广播，而且网络上不是每个服务器都是消费者，所以存在资源浪费。这时，就需要一个中介，让提供者把自己的注册到上面，消费者只需要访问中介来寻找自己需要的服务；</p>
-<ul>
-<li><strong>服务中介 Eureka Server</strong> ：服务提供者和服务消费者之间的桥梁，为了防止单点故障，一般会设置多个服务中介；</li>
-<li><strong>服务注册 Register</strong>：服务提供者（ <code>Eureka Client Provider</code> ）把自己的服务元数据（ <code>metadata</code> ）放到服务中介上，例如 IP 地址、访问端口等等；</li>
-<li><strong>服务续约 Renew</strong>：为了保证服务的可用性，服务提供者需要定时（默认是 30s ）发送一次心跳信号，如果 <code>Server</code> 超过 90s 没有收到 <code>Client</code> 的信号，则将服务器中启动的实例删除以节约资源；</li>
-<li><strong>获取注册表信息 Fetch Registries</strong>：服务消费者（ <code>Eureka Client Consumer</code> ）从服务中介（ <code>Eureka server</code> ）中获取正在提供服务的服务列表，注册表随时都有可能更新，客户端需要定期维护自己的注册表缓存。 <code>Client</code> 和 <code>Server</code> 之间常常使用 <code>JSON</code> 或 <code>XML</code> 进行注册表通信；</li>
-<li><strong>服务下线 Cancel</strong>： <code>Eureka Client Provider</code> 向 <code>Eureka Server</code> 发送取消服务请求， <code>Eureka Server</code> 执行 <code>DiscoveryManager.getInstance().shutdownComponent();</code> 删除该客户端注册的实例；</li>
-<li><strong>服务剔除 Eviction</strong>： 在默认的情况下，当 <code>Eureka Client</code> 连续 90s (3 个续约周期)没有向 <code>Eureka</code> 服务器发送服务续约，即心跳， <code>Eureka Server</code> 会将该服务实例从服务注册列表删除，即服务剔除</li>
-</ul>
-<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/c80bfb2d5450fe4e74c32a990c8d7037720bb3db8de8eb59281d36421a6cef04.png" alt="picture 3" /></p>
-<p>带有服务发现功能的组件有许多，诸如： <code>Zookeeper</code> 、 <code>Consul</code> 等；</p>
-<p>更多的 <code>Eureka</code> 功能，待总结；</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5dd497e3f265da0ba7718018">深入理解 Eureka ——SnailClimb</a></p>
-</blockquote>
-<h5 id="负载均衡器-ribbon"><a class="markdownIt-Anchor" href="#负载均衡器-ribbon"></a> 负载均衡器（ Ribbon ）</h5>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">正则表达式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h2>
-<p>正则表达式（regular expression）是一种描述字符串的一种匹配模式（pattern）的表达式。借助正则表达式我们可以检查输入的字符串中是否包含我们需要的子串，并进行替换等操作；</p>
-<p>比如说我们需要完成如下任务：</p>
-<blockquote>
-<p>对一行给定的字符串，去除中间不满足条件的分隔符。<br />
-例如输入字符串：<code>I am an 20-years out--standing @ * -stu- dent</code><br />
-去除中间的除字母、数字的字符（保留两个字母之间的 <code>-</code>）。<br />
-输出：<code>I am an 20-years out standing stu dent</code></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">    String S = input.nextLine();</span><br><span class="line"></span><br><span class="line">        String S = s.replaceAll(<span class="string">&quot;((?&lt;=\\W|\\D)-(?=\\W|\\D))&quot;</span>, <span class="string">&quot; &quot;</span>);</span><br><span class="line"></span><br><span class="line">        S = S.replaceAll(<span class="string">&quot;[ ]&#123;2,&#125;&quot;</span>, <span class="string">&quot; &quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;S: &quot;</span> + S);</span><br><span class="line">        String[] subs = S.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line"></span><br><span class="line">        Deque&lt;String&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(String elem : subs) &#123;</span><br><span class="line">            stack.push(elem);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String res = String.join(<span class="string">&quot; &quot;</span>, stack);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Java 的 <code>String.matches(regex, str)</code> 方法，必须要整个字符串匹配这个模式才会返回 <code>true</code> 而不是 子串匹配即可，java doc 里面写了。</p>
-</blockquote>
-<h3 id="构成"><a class="markdownIt-Anchor" href="#构成"></a> 构成</h3>
-<p>正则表达式是由普通字符（a-z、0-9 等等）和特殊字符（元字符）构成文字模式（pattern），可以描述搜索文本时匹配一个或多个字串（模式中可以指定）。</p>
-<h4 id="匹配顺序"><a class="markdownIt-Anchor" href="#匹配顺序"></a> 匹配顺序</h4>
-<p>输入的字符串从左到右逐个字符地匹配正则表达式模式，匹配成功则会回到匹配成功的位置加一个字符去匹配，直到达到最长。默认的匹配模式就是像这样的贪心模式。</p>
-<h4 id="普通字符"><a class="markdownIt-Anchor" href="#普通字符"></a> 普通字符</h4>
-<p>普通字符包括可打印的（abcd1234 等等）和不可打印的（<code>\n</code>、<code>\t</code>等等空格或换行字符）</p>
-<h4 id="特殊字符"><a class="markdownIt-Anchor" href="#特殊字符"></a> 特殊字符</h4>
-<p>特殊字符在正则表达式中具有特定的含义，如果其中有字符需要参与匹配的话，则需要通过反斜杠 <code>\</code> 转义。</p>
-<h5 id="字符簇"><a class="markdownIt-Anchor" href="#字符簇"></a> 字符簇</h5>
-<p>字符簇代表了一簇可匹配的字符，但只能表示一个字符，配合限定符使用可以匹配多个字符模式；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[A-Z0-<span class="number">9</span>] <span class="comment">// 匹配一个大写字母或数字</span></span><br><span class="line">[^<span class="number">0</span>-<span class="number">9</span>] <span class="comment">// 匹配除数字以外的任意字符</span></span><br><span class="line">[<span class="number">12</span>][<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">3</span>&#125; <span class="comment">// 匹配1000-2999范围内的数字</span></span><br></pre></td></tr></table></figure>
-<h5 id="圆括号运算符"><a class="markdownIt-Anchor" href="#圆括号运算符"></a> 圆括号运算符</h5>
-<ul>
-<li><code>(?:pattern)</code> ：不保存匹配的 <code>pattern</code> ；</li>
-<li><code>pattern1(?=pattern2)</code> ：当 <code>pattern2</code> 匹配成功，字符串才从 <code>pattern2</code> 开始往前匹配 <code>pattern1</code> ，也就是括号内的先作预测用，不参与匹配中；</li>
-<li><code>pattern1(?!pattern2)</code> ：当 <code>pattern2</code> 匹配不成功，字符串才从 <code>pattern2</code> 开始往前匹配 <code>pattern1</code> ，和以上的命令相反；</li>
-<li><code>(?&lt;=pattern2)pattern1</code> ：当 <code>pattern2</code> 匹配成功，字符串才从 <code>pattern2</code> 开始往后匹配 <code>pattern1</code> ，也就是括号内的先作预测用，不参与匹配中；</li>
-<li><code>(?&lt;!pattern2)pattern1</code> ：当 <code>pattern2</code> 匹配成功，字符串才从 <code>pattern2</code> 开始往后匹配 <code>pattern1</code> ，和以上的命令相反；</li>
-</ul>
-<h5 id="限定符"><a class="markdownIt-Anchor" href="#限定符"></a> 限定符</h5>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[a-z]? <span class="comment">// 零次或一次</span></span><br><span class="line">[a-z]* <span class="comment">// 零次或多次</span></span><br><span class="line">[a-z]+ <span class="comment">// 一次或多次</span></span><br><span class="line">[a-z]&#123;<span class="number">0</span>,<span class="number">2</span>&#125; <span class="comment">// 0~2次</span></span><br><span class="line">[a-z]&#123;<span class="number">2</span>&#125; <span class="comment">// 两次</span></span><br><span class="line">[a-z]&#123;<span class="number">2</span>,&#125; <span class="comment">// 两次及以上</span></span><br></pre></td></tr></table></figure>
-<h5 id="定位符"><a class="markdownIt-Anchor" href="#定位符"></a> 定位符</h5>
-<ul>
-<li><code>^</code> 匹配开始位置；</li>
-<li><code>$</code> 匹配结束位置；</li>
-</ul>
-<h5 id="模式改变"><a class="markdownIt-Anchor" href="#模式改变"></a> 模式改变</h5>
-<p><code>?</code> 紧跟在限定符后可以将匹配模式改为<strong>非贪婪的</strong>；</p>
-<h5 id="一些有特别意义的匹配符"><a class="markdownIt-Anchor" href="#一些有特别意义的匹配符"></a> 一些有特别意义的匹配符</h5>
-<ul>
-<li><code>.</code> ：匹配除了 <code>\n</code> <code>\r</code> 以外的单个字符；</li>
-<li><code>\d</code> ：匹配一个数字，等同 <code>[0-9]</code></li>
-<li><code>\D</code> ：匹配一个非数字，等同 <code>[^0-9]</code></li>
-<li><code>\w</code> ：匹配一个字母、数字、下划线，等同 <code>[a-zA-Z0-9_]</code></li>
-<li><code>\W</code> ：匹配一个非字母、数字、下划线，等同 <code>[^a-zA-Z0-9_]</code></li>
-<li><code>\s</code> ：匹配任何空白字符，等同 <code>[\f\n\r\t\v]</code></li>
-<li><code>\S</code> ：匹配任何非空白字符，等同 <code>[^\f\n\r\t\v]</code>
-<ul>
-<li><code>\f</code> ：匹配换页符</li>
-<li><code>\n</code> ：匹配换行符</li>
-<li><code>\r</code> ：匹配回车符</li>
-<li><code>\t</code> ：匹配制表符</li>
-<li><code>\v</code> ：匹配垂直制表符</li>
-</ul>
-</li>
-<li><code>\b</code> ：匹配边界，比如 <code>er\b</code> 就可以匹配 <code>never</code> 而不能匹配 <code>verb</code></li>
-<li><code>\B</code> ：不匹配边界，比如 <code>er\b</code> 就可以匹配 <code>verb</code> 而不能匹配 <code>never</code></li>
-</ul>
-<p>更多的元字符可以看<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-metachar.html">菜鸟教程</a>。</p>
 
       
     </div>

@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -176,6 +176,215 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">签名和加密顺序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-18 00:00:00 / Modified: 04:39:32" itemprop="dateCreated datePublished" datetime="2022-07-18T00:00:00+08:00">2022-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/%E6%9D%82/" itemprop="url" rel="index"><span itemprop="name">杂</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="签名和加密顺序"><a class="markdownIt-Anchor" href="#签名和加密顺序"></a> 签名和加密顺序</h2>
+<p>先签名后加密，接收方只能知道消息是由签名者发送的，但消息的创建者并不一定是签名者。如果消息在中途被截获，替换成截获者的签名，存在中间人攻击的风险。如果使用先签名后加密的方案，则能够规避这种风险。</p>
+<p>先签名后加密的通信过程一般如下：</p>
+<ol>
+<li>A 使用 A 的私钥 PriKA 对明文消息 M 进行签名 MA；</li>
+<li>然后使用 B 的公钥 PubKB 对消息 M 进行加密称为密文 mA；</li>
+<li>密文 m 传输到 B 处， B 通过 PriKB 对消息解密回 MA；</li>
+<li>然后 B 使用 PubKA 对消息 MA 进行校验；</li>
+</ol>
+<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/58d3f5e4fe8d8673a7b2b30572e1c20701628353a7d496cb4d06e35cbca28543.png" alt="picture 4" /></p>
+<p>上述过程安全的保证来自于， A 和 B 的私钥是各自持有，不为第三方所知。A B 间可以约定一个固定的字符串，A 使用 A 的私钥对该字符串进行加密，然后将该字符串的密文附加在消息中，这串密文的作用类似于签名。 B 收到该密文后，可以使用 A 的公钥解密，校验该字符串是否为约定的字符串，这便可以校验签名是否为 A 的。</p>
+<p>一般来说，我们说加密能保证消息的机密性，签名能防止篡改，但是如果顺序不对还是会产生攻击的漏洞。</p>
+<p>看这种情况：</p>
+<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/3551efd2bd512906f97b97d2dc7a174e3f3f4c1bad5300a22400160ca94d88dd.png" alt="picture 6" /></p>
+<p>从上图可知，先签名后加密的话，存在中间人攻击的风险。</p>
+<p>虽然存在风险，但如果这种风险能够被消解，那么先加密后签名的方案也是可行的。</p>
+<p>中间人攻击能够成功的前提是：</p>
+<ol>
+<li>接收方 B 从签名的内容中找到对应的公钥 M 来验证签名；</li>
+<li>接收方 B 只用公钥签名认证消息的发送方；</li>
+</ol>
+<p>这两个前提都要满足才有构成中间人攻击的条件，所以能否使用先加密后签名的方案也需要看具体的场景。如果 B 使用固定的公钥来验证签名，比如通信双方约定一个可信的公证人，使用其签名保证消息无篡改；如果消息中带有用户身份的属性，比如用户的 ID 等，那么消息解密后 B 通过验证 A 的用户属性，那也能确认消息是 A 发出的（这时，这个用户属性充当了前面签名的角色，其实还是一种先签名后加密）。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/kerberos%E8%AE%A4%E8%AF%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/kerberos%E8%AE%A4%E8%AF%81/" class="post-title-link" itemprop="url">Kerberos认证</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-17T00:00:00+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-18 04:39:41" itemprop="dateModified" datetime="2022-07-18T04:39:41+08:00">2022-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/" itemprop="url" rel="index"><span itemprop="name">认证</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="kerberos-认证"><a class="markdownIt-Anchor" href="#kerberos-认证"></a> Kerberos 认证</h2>
+<h3 id="引导"><a class="markdownIt-Anchor" href="#引导"></a> 引导</h3>
+<p>以 Windows 登录过程来引入，当用户按下 <code>Ctrl</code> + <code>Alt</code> + <code>Del</code> 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTLM 服务沟通。 LSA 根据用户输入的 UPN 等信息会事先把身份认证请求传到 Kerberos SSP 中。</p>
+<p>Kerberos SSP 验证用户登入目标是本地计算机还是域，如果是域则继续向下处理，如果是本地计算机则会向 SSPI 返回一条错误消息， SSPI 将这个任务交回给 GINA 处理。</p>
+<p>SSPI 现在发送请求到下一个安全提供程序，NTLM 。NTLM SSP 会将请求交给 Netlogon 服务针对 LSAM (Local Security Account Manager，本地安全账户管理器)数据库进行身份认证。使用 NTLM SSP 的身份认证过程与 Windows NT 系统的身份认证方法是相同的。</p>
+<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2" /></p>
+<h3 id="基础概述"><a class="markdownIt-Anchor" href="#基础概述"></a> 基础概述</h3>
+<ul>
+<li>一个思想：Kerberos 认证只做认证，不鉴权，鉴权是服务账户所做的；</li>
+<li>关键角色：
+<ul>
+<li>PAC</li>
+<li>KDC</li>
+<li>TGT</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,9 +413,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:35:03" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+      <time title="Created: 2022-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-17 16:21:43" itemprop="dateModified" datetime="2022-07-17T16:21:43+08:00">2022-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,10 +502,103 @@
 <li>ClassMetaData Address</li>
 <li>Array Length (如果是数组对象才会有)</li>
 </ol>
-<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png" alt="picture 3" /></p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/457d78882154a8d0cbc9ef4829ce479dcf0ccb40f612d8473e26b72e7c4e9784.png" alt="picture 3" /></p>
 <p>从左到右，高位到低位，由于还有 GC 标志位，加上四个锁状态，至少需要 3 bit 来描述一个对象的锁状态，如上图所示。</p>
-<p>虽然说 jdk 1.6 版本后，是默认开启偏向锁的，但是实际上，由于 Java 中大量的 synchronized 的使用，直接开启偏向锁，进入同步块竞争的时候，就需要有锁升级，会带来额外的性能损耗。因此， JVM 提供了延迟策略，程序启动后大约 4s 的开启锁延迟。</p>
+<p>虽然说 jdk 1.6 版本后，是默认开启偏向锁的，但是实际上，由于 Java 中大量的 <code>synchronized</code> 的使用，直接开启偏向锁，进入同步块竞争的时候，就需要有锁升级，会带来额外的性能损耗。因此， JVM 提供了延迟策略，程序启动后大约 4s 的开启锁延迟。</p>
 <h3 id="happen-before-原则"><a class="markdownIt-Anchor" href="#happen-before-原则"></a> happen-before 原则</h3>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">多线程设计模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-16 03:57:52" itemprop="dateModified" datetime="2022-07-16T03:57:52+08:00">2022-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="多线程设计模式"><a class="markdownIt-Anchor" href="#多线程设计模式"></a> 多线程设计模式</h2>
 
       
     </div>
@@ -378,93 +686,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="多线程实现"><a class="markdownIt-Anchor" href="#多线程实现"></a> 多线程实现</h2>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">多线程设计模式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-07-13 00:00:00 / Modified: 02:34:11" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="多线程设计模式"><a class="markdownIt-Anchor" href="#多线程设计模式"></a> 多线程设计模式</h2>
 
       
     </div>
@@ -655,7 +876,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-io/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -673,7 +894,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-io/" class="post-title-link" itemprop="url">Java IO</a>
         </h2>
 
         <div class="post-meta-container">
@@ -684,7 +905,27 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-06-22 01:15:47" itemprop="dateCreated datePublished" datetime="2022-06-22T01:15:47+08:00">2022-06-22</time>
+      <time title="Created: 2022-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-22T00:00:00+08:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-16 03:56:09" itemprop="dateModified" datetime="2022-07-16T03:56:09+08:00">2022-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
     </span>
 
   
@@ -697,7 +938,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h2 id="java-io"><a class="markdownIt-Anchor" href="#java-io"></a> Java IO</h2>
+<p>Java 提供了庞大的输入/输出 API 供开发者使用。</p>
+<p>总的来说分为两种 IO 流：</p>
+<ul>
+<li>字节流，以字节为读写单位；</li>
+<li>二进制流，以二进制 byte 为读写单位</li>
+</ul>
+<h3 id="读写字节"><a class="markdownIt-Anchor" href="#读写字节"></a> 读写字节</h3>
+<p>InputStream/OutputStream 家族（FileInputStream、FileOutputStream…）</p>
+<p>InputStream 和 OutputStream 的 read() 和 write() 方法都是阻塞的，执行时都会阻塞到字节确实被读写，期间流如果暂时无法访问，则其他线程有机会抢占位置执行别的项目。</p>
+
       
     </div>
 
@@ -723,7 +974,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -741,7 +992,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">类加载机制</a>
         </h2>
 
         <div class="post-meta-container">
@@ -752,7 +1003,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-06-22 01:15:21" itemprop="dateCreated datePublished" datetime="2022-06-22T01:15:21+08:00">2022-06-22</time>
+      <time title="Created: 2022-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-22T00:00:00+08:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-16 03:56:11" itemprop="dateModified" datetime="2022-07-16T03:56:11+08:00">2022-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+        </span>
     </span>
 
   
@@ -765,7 +1040,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h2 id="类加载机制"><a class="markdownIt-Anchor" href="#类加载机制"></a> 类加载机制</h2>
+
       
     </div>
 
@@ -1009,213 +1285,6 @@ JRE （Java Runtime  Environemnt）是 Java SE API 子集和 Java 虚拟机这�
 只要设置 <code>git config</code> 即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:10809</span><br><span class="line">git config --global https.proxy http://127.0.0.1:10809</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消设置</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/" class="post-title-link" itemprop="url">CSRF</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-05T00:00:00+08:00">2022-06-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:41:40" itemprop="dateModified" datetime="2022-06-08T03:41:40+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/" itemprop="url" rel="index"><span itemprop="name">常见攻击</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="csrf"><a class="markdownIt-Anchor" href="#csrf"></a> CSRF</h2>
-<p>跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。</p>
-<h3 id="攻击原理"><a class="markdownIt-Anchor" href="#攻击原理"></a> 攻击原理</h3>
-<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png" alt="picture 1" /></p>
-<p>从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。</p>
-<h3 id="防御策略"><a class="markdownIt-Anchor" href="#防御策略"></a> 防御策略</h3>
-<ol>
-<li>验证 HTTP Referer 字段；</li>
-<li>在受限请求地址中添加 token 并验证；</li>
-<li>在 HTTP 头中自定义属性并验证；</li>
-</ol>
-<h4 id="http-referer-字段"><a class="markdownIt-Anchor" href="#http-referer-字段"></a> HTTP Referer 字段</h4>
-<p>在 HTTP 协议中，有一个请求头字段叫 Referer 这个字段记录了该 HTTP 请求的来源地址（比如在 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 中点击超链接到 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> ，那么发送到 baidu 服务器的请求中 Referer 中就是 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> ），服务器可以校验该字段是否为自己域名下的，来判断该请求的来源是否合法；</p>
-<ul>
-<li>优点：对于网站开发人员来说，简单易操作，只要给所有的接口添加一个统一的拦截器，校验 Referer 字段是否为当前域名的即可；</li>
-<li>缺点：
-<ul>
-<li>该安全策略依赖于浏览器对于 HTTP 协议的实现，有些浏览器（IE 6、FF2）存在安全漏洞，会被篡改 Referer 的值，导致网站误认请求来自于自己域名下而被攻击；</li>
-<li>对于 Open API 这种防护策略显然会影响业务的正常运行，比如开放的支付接口就是需要经过别的网站发起的调用的；</li>
-</ul>
-</li>
-</ul>
-<h4 id="token-验证"><a class="markdownIt-Anchor" href="#token-验证"></a> token 验证</h4>
-<p>由于 CSRF 发生原理是由于攻击者可以在用户的浏览器端伪造请求欺骗受害网站，所以我们可以验证浏览器的请求中是否有 token 来判断请求是否伪造的。这个 token 不能放在 Cookie 中，需要在用户登录的是否随机生成，放在服务器的 session 中，并在每次请求中以参数的形式返回给用户，并隐藏起来。</p>
-<ul>
-<li>优点：比 Referer 更加安全；</li>
-<li>缺点：
-<ul>
-<li>需要给每个接口都添加 token 参数，前端实现繁琐，容易有漏网之鱼；</li>
-<li>对于支持用户自己发布内容的系统，比如论坛、博客网站等，黑客可以在发布内容中写上自己的网站链接，如果网站没有判断该连接是否为外链，就当作是自己系统的链接给他加上了 CSRF token 那么当网站用户点击该地址，黑客网站拿到用户的 token 便马上可以发起 CSRF 攻击；</li>
-<li>即使 token 没有以请求的方式添加在链接中，黑客也可能通过 Referer 中获取到 token；</li>
-</ul>
-</li>
-</ul>
-<h4 id="请求头验证"><a class="markdownIt-Anchor" href="#请求头验证"></a> 请求头验证</h4>
-<p>该方法也是使用 token 防止黑客篡改，只不过 token 不是在参数中传输，而是在请求头中传输；</p>
-<ul>
-<li>优点：
-<ul>
-<li>token 不会被记录到地址栏中；</li>
-<li>token 不会在 Referer 中泄露；</li>
-<li>前端实现比上一种方式的实现简单，可以通过 XMLHttpRequest 一次性给所有的请求都加上请求头 token ；</li>
-</ul>
-</li>
-<li>缺点：
-<ul>
-<li>请求页面不会被浏览器记录，从而前进、后退、刷新、收藏等操作无效；</li>
-<li>对于没有 CSRF 防护的网站来说，请求方式需要全部替换成 XMLHttpRequest 请求，成本高；</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-01-24 13:52:59" itemprop="dateCreated datePublished" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          {"version":"1.2.0","port":7054,"debug":false,"crlsizelimit":512000,"tls":{"enabled":true,"certfile":null,"keyfile":null,"clientauth":{"type":"noclientcert","certfiles":null}},"ca":{"name":"Org1CA","keyfile":null,"certfile":null,"chainfile":null},"crl":{"expiry":"24h"},"registry":{"maxenrollments":-1,"identities":[{"name":"admin","pass":"adminpw","type":"client","affiliation":"","attrs":{"hf.Registrar.Roles":"*","hf.Registrar.DelegateRoles":"*","hf.Revoker":true,"hf.IntermediateCA":true,"hf.GenCRL":true,"hf.Registrar.Attributes":"*","hf.AffiliationMgr":true}}]},"db":{"type":"sqlite3","datasource":"fabric-ca-server.db","tls":{"enabled":false,"certfiles":null,"client":{"certfile":null,"keyfile":null}}},"ldap":{"enabled":false,"url":"ldap://<adminDN>:<adminPassword>@<host>:<port>/<base>","tls":{"certfiles":null,"client":{"certfile":null,"keyfile":null}},"attribute":{"names":["uid","member"],"converters":[{"name":null,"value":null}],"maps":{"groups":[{"name":null,"value":null}]}}},"affiliations":{"org1":["department1","department2"],"org2":["department1"]},"signing":{"default":{"usage":["digital signature"],"expiry":"8760h"},"profiles":{"ca":{"usage":["cert sign","crl sign"],"expiry":"43800h","caconstraint":{"isca":true,"maxpathlen":0}},"tls":{"usage":["signing","key encipherment","server auth","client auth","key agreement"],"expiry":"8760h"}}},"csr":{"cn":"ca.org1.example.com","names":[{"C":"US","ST":"North Carolina","L":"Durham","O":"org1.example.com","OU":null}],"hosts":["localhost","org1.example.com"],"ca":{"expiry":"131400h","pathlength":1}},"bccsp":{"default":"SW","sw":{"hash":"SHA2","security":256,"filekeystore":{"keystore":"msp/keystore"}}},"cacount":null,"cafiles":null,"intermediate":{"parentserver":{"url":null,"caname":null},"enrollment":{"hosts":null,"profile":null,"label":null},"tls":{"certfiles":null,"client":{"certfile":null,"keyfile":null}}}}
       
     </div>
 

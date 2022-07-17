@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,199 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-cat-%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-cat-%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91/" class="post-title-link" itemprop="url">Linux cat 命令与重定向</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-25T00:00:00+08:00">2021-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="linux-cat-命令与重定向"><a class="markdownIt-Anchor" href="#linux-cat-命令与重定向"></a> Linux cat 命令与重定向</h2>
+<p><code>cat</code> 命令用于连接文件并输出到标准输出设备（打印机、显示器、文件、 U 盘等等）。常常和重定向符一起使用。</p>
+<p>重定向符包括：</p>
+<ul>
+<li>重定向输出 <code>&gt;</code> <code>&gt;&gt;</code></li>
+<li>重定向输入 <code>&lt;</code> <code>&lt;&lt;</code></li>
+</ul>
+<p>常用的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从键盘读入，以 EOF 为结束符，输出到 aa.txt</span></span><br><span class="line">cat &lt;&lt; <span class="string">EOF &gt; aa.txt</span></span><br><span class="line"><span class="string"># &lt;&lt; 重定向符后面跟的是定界符，即输入结束的标识</span></span><br><span class="line"><span class="string"># &lt; 重定向符的参数是文件，标识从文件输入</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 将把文件 b.txt 内容追加到 a.txt 末尾，如果 a.txt 没有就创建</span></span><br><span class="line"><span class="string">cat b.txt &gt;&gt; a.txt</span></span><br><span class="line"><span class="string"># 用 b.txt 文件的内容覆盖 a.txt 原有内容</span></span><br><span class="line"><span class="string">cat b.txt &gt; a.txt</span></span><br></pre></td></tr></table></figure>
+<p>通过管道命令 <code>|</code> 我们还能将 <code>cat</code> 的输出重定向到别的命令，比如 <code>jq</code> ，然后重定向输出到某个文件即可完成文件的格式化。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; unformat.json | jq . &gt;&gt; format.json</span><br><span class="line"><span class="comment"># &lt; 可以省略</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/rom-%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/rom-%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">ROM 开发入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-11T00:00:00+08:00">2021-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="rom-开发入门"><a class="markdownIt-Anchor" href="#rom-开发入门"></a> ROM 开发入门</h2>
+<p><code>todo list:</code></p>
+<ul>
+<li>写一两个应用程序，从开发者角度理解 Android</li>
+<li>深入学习 Java</li>
+<li>阅读 Android 开发者文档</li>
+<li>学习 Git</li>
+<li>从 AOSP 编译安卓系统</li>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1313,193 +1506,6 @@ interface{} (Only allowed when directly taken in, will receive a string type whe
 <p>在代码中删除了依赖项之后，在 <code>go.mod</code> 文件中并不会删除，我们需要用 <code>go mod tidy</code> 命令更新 <code>go.mod</code> 中的依赖关系；</p>
 <h4 id="go-mod-edit"><a class="markdownIt-Anchor" href="#go-mod-edit"></a> go mod edit</h4>
 <p><code>go mod edit -fmt</code> 帮助我们格式化 <code>go.mod</code> 文件，使文件不会因为手动修改而太乱。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">Golang 程序设计语言基础-数据结构</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-10T00:00:00+08:00">2021-04-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="golang-程序设计语言基础-数据结构"><a class="markdownIt-Anchor" href="#golang-程序设计语言基础-数据结构"></a> Golang 程序设计语言基础-数据结构</h2>
-<h3 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是存放元素的容器</span></span><br><span class="line"><span class="comment">// 必须指定存放元素的类型和长度</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a1 [<span class="number">3</span>]<span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">&quot;a1:%T\n&quot;</span>, a1)</span><br><span class="line">	<span class="comment">// a1:[3]bool</span></span><br><span class="line">	<span class="comment">// 长度是类型的一部分，长度不同的数组是无法比较和赋值的</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 初始化</span></span><br><span class="line">	fmt.Println(a1)</span><br><span class="line">	<span class="comment">// [false false false]</span></span><br><span class="line">	<span class="comment">// 默认用零值初始化，bool-false，int-0，float-0，string-&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 1. 一般的初始化方式</span></span><br><span class="line">	a1 = [<span class="number">3</span>]<span class="keyword">bool</span>&#123;<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2. 根据初始值推断长度</span></span><br><span class="line">	a4 := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	fmt.Println(a4)</span><br><span class="line">	<span class="comment">// [1 2 3 4]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3. 使用索引初始化</span></span><br><span class="line">	a5 := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">4</span>: <span class="number">2</span>&#125;</span><br><span class="line">	fmt.Println(a5)</span><br><span class="line">	<span class="comment">// [1 0 0 0 2]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 数组的遍历</span></span><br><span class="line">	citys := [<span class="number">5</span>]<span class="keyword">string</span>&#123;<span class="string">&quot;东莞&quot;</span>, <span class="string">&quot;广州&quot;</span>, <span class="string">&quot;深圳&quot;</span>, <span class="string">&quot;长春&quot;</span>, <span class="string">&quot;昆明&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 1. 根据索引遍历</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(citys); i++ &#123;</span><br><span class="line">		fmt.Println(citys[i])</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 东莞</span></span><br><span class="line">	<span class="comment">// 广州</span></span><br><span class="line">	<span class="comment">// 深圳</span></span><br><span class="line">	<span class="comment">// 长春</span></span><br><span class="line">	<span class="comment">// 昆明</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2. for range 遍历</span></span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> citys &#123;</span><br><span class="line">		fmt.Println(i, v)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0 东莞</span></span><br><span class="line">	<span class="comment">// 1 广州</span></span><br><span class="line">	<span class="comment">// 2 深圳</span></span><br><span class="line">	<span class="comment">// 3 长春</span></span><br><span class="line">	<span class="comment">// 4 昆明</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 多维数组</span></span><br><span class="line">	a11 := [<span class="number">3</span>][<span class="number">4</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">		&#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;,</span><br><span class="line">		&#123;<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(a11)</span><br><span class="line">	<span class="comment">// [[1 2 3 4] [5 6 7 8] [9 10 11 12]]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 数组是值类型</span></span><br><span class="line">	b1 := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	b2 := b1</span><br><span class="line">	b2[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">	fmt.Println(b1)</span><br><span class="line">	<span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(b2)</span><br><span class="line">	<span class="comment">// [3 2 3]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 因为是值类型，所以再赋值之后相当于重新创建了一个对象</span></span><br><span class="line">	<span class="comment">// 对新创建的对象的操作，不会影响原来的对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="切片"><a class="markdownIt-Anchor" href="#切片"></a> 切片</h3>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E7%BB%93%E6%9E%84%E4%BD%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E7%BB%93%E6%9E%84%E4%BD%93/" class="post-title-link" itemprop="url">Golang 程序设计语言基础-结构体</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-10T00:00:00+08:00">2021-04-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="golang-程序设计语言基础-结构体"><a class="markdownIt-Anchor" href="#golang-程序设计语言基础-结构体"></a> Golang 程序设计语言基础-结构体</h2>
-<h3 id="自定义类型和类型别名"><a class="markdownIt-Anchor" href="#自定义类型和类型别名"></a> 自定义类型和类型别名</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义类型</span></span><br><span class="line"><span class="keyword">type</span> myInt <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类型别名</span></span><br><span class="line"><span class="keyword">type</span> yourInt = <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> n myInt</span><br><span class="line">	n = <span class="number">100</span></span><br><span class="line">	fmt.Println(n)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, n)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> m yourInt</span><br><span class="line">	m = <span class="number">200</span></span><br><span class="line">	fmt.Println(m)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, m)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100</span><br><span class="line">main.myInt</span><br><span class="line">200</span><br><span class="line">int</span><br></pre></td></tr></table></figure>
-<p>类型别名的类型本质上还是原来的类型，源代码经过编译之后，还是会变成原来的类型。这是为了代码编写时，丰富类型的含义，尽管两种类型使用的底层类型是同一个类型，但我们能够从源码层面区分这两种类型，便于理解；<br />
-而自定义类型已经不是</p>
 
       
     </div>
