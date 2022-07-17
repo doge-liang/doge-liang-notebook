@@ -16,14 +16,15 @@ Java 集合框架的实现思想为为常见的接口和实现分离思想。
 使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。
 
 ```JAVA
-Queue<Customer> expressLane = new CircularArrayQueue<>(100);
-Queue<Customer> expressLane = new LinkedListQueue<>(100);
+List<Customer> expressLane = new ArrayList<>(100);
+List<Customer> expressLane = new LinkedList<>(100);
 expressLane.add(new Customer("Harry"));
 ```
 
+上述例子声明了两个 `List` ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；
 这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；
 
-此外，Java API 库中还定义了一些 `Abstract` 前缀修饰的类，比如 `AbstractCollection` 里面对 `Collection` 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 `Abstract` 前缀修饰的集合类是省事儿的。
+此外，Java API 库中还定义了一些 `Abstract` 前缀修饰的类，比如 `AbstractCollection` 里面对 `Collection` 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 `Abstract` 前缀修饰的集合类更方便。
 
 ### 基础接口
 
@@ -33,12 +34,31 @@ Java 有两大类集合： `Map` 和 `Collection`
 
 ### Collection
 
+```JAVA
+public interface Collection<E> {
+    boolean add(E element); // 添加元素
+    Iterator<E> iterator(); // 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素
+}
+```
+
+#### Iterator
+
+```JAVA
+public interface Iterator<E> {
+    E next(); // 如果到达了集合的末尾，会抛出异常 NoSuchElementException  
+    boolean hasNext();
+    void remove();
+    default void forEachRemaining(Consumer<? super E> action();
+}
+```
+
+
 在使用 `Collectors.toMap()` 时，要注意两个问题：
 
 1. 当 key 相同时会抛出 `IllegalStateException` ；
 2. 当 value 为 null 时，会抛出 `NullPointerException` ；
 
-### List
+#### List
 
 ### Map
 
@@ -75,5 +95,3 @@ key 和 uvaiue 都不允许出现 null
 ### Set
 
 #### HashSet
-
-#### 
