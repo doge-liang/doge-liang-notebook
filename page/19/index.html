@@ -1368,6 +1368,109 @@ cpu 调度<br />
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">汇编语言-概述</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">汇编语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="汇编语言assembly-language"><a class="markdownIt-Anchor" href="#汇编语言assembly-language"></a> 汇编语言(Assembly Language)</h2>
+<p>汇编语言是直接工作在硬件上的编程语言。</p>
+<h3 id="硬件基础知识概览"><a class="markdownIt-Anchor" href="#硬件基础知识概览"></a> 硬件基础知识概览</h3>
+<p>存储器被划分为一个个存储单位，每个存储单位有 8 位(bit)，一个存储单位称为 1Byte<br />
+，缩写为 1B。<br />
+CPU 要完成对存储器的读写就要通过地址线、数据线、控制线，向内存芯片进行信息交<br />
+换来指定对相应的地址进行相应的操作，并通过数据线传输数据。</p>
+<h4 id="机器语言"><a class="markdownIt-Anchor" href="#机器语言"></a> 机器语言</h4>
+<p>机器语言是机器指令的集合。由于每一种微处理器都有自己的指令集，所以对于不同<br />
+的微处理器，机器语言也会不一样，可移植性差，而且都是二进制数字，可读性差。</p>
+<h4 id="汇编语言"><a class="markdownIt-Anchor" href="#汇编语言"></a> 汇编语言</h4>
+<p>汇编语言是为了补足机器语言的可读性差而产生的，但因为不是机器能理解的机器指<br />
+令，所以需要编译器进行翻译，将汇编指令变成机器指令。</p>
+<h4 id="汇编语言的组成"><a class="markdownIt-Anchor" href="#汇编语言的组成"></a> 汇编语言的组成</h4>
+<ol>
+<li>汇编指令（核心，决定了汇编语言的特性）：机器码的助记符。</li>
+<li>伪指令：没有对应的机器码，有编译器执行，计算机不执行。</li>
+<li>其他符号：如+、-、*、/等，由编译器识别，没有对应的机器码。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1460,109 +1563,6 @@ cpu 调度<br />
 <li>并行进位</li>
 </ul>
 <p>速度从上到下逐渐变快</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">汇编语言-概述</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">汇编语言</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="汇编语言assembly-language"><a class="markdownIt-Anchor" href="#汇编语言assembly-language"></a> 汇编语言(Assembly Language)</h2>
-<p>汇编语言是直接工作在硬件上的编程语言。</p>
-<h3 id="硬件基础知识概览"><a class="markdownIt-Anchor" href="#硬件基础知识概览"></a> 硬件基础知识概览</h3>
-<p>存储器被划分为一个个存储单位，每个存储单位有 8 位(bit)，一个存储单位称为 1Byte<br />
-，缩写为 1B。<br />
-CPU 要完成对存储器的读写就要通过地址线、数据线、控制线，向内存芯片进行信息交<br />
-换来指定对相应的地址进行相应的操作，并通过数据线传输数据。</p>
-<h4 id="机器语言"><a class="markdownIt-Anchor" href="#机器语言"></a> 机器语言</h4>
-<p>机器语言是机器指令的集合。由于每一种微处理器都有自己的指令集，所以对于不同<br />
-的微处理器，机器语言也会不一样，可移植性差，而且都是二进制数字，可读性差。</p>
-<h4 id="汇编语言"><a class="markdownIt-Anchor" href="#汇编语言"></a> 汇编语言</h4>
-<p>汇编语言是为了补足机器语言的可读性差而产生的，但因为不是机器能理解的机器指<br />
-令，所以需要编译器进行翻译，将汇编指令变成机器指令。</p>
-<h4 id="汇编语言的组成"><a class="markdownIt-Anchor" href="#汇编语言的组成"></a> 汇编语言的组成</h4>
-<ol>
-<li>汇编指令（核心，决定了汇编语言的特性）：机器码的助记符。</li>
-<li>伪指令：没有对应的机器码，有编译器执行，计算机不执行。</li>
-<li>其他符号：如+、-、*、/等，由编译器识别，没有对应的机器码。</li>
-</ol>
 
       
     </div>

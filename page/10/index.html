@@ -1133,6 +1133,154 @@ transform: translateX(-50%);
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Java面向对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-11 03:26:11" itemprop="dateModified" datetime="2022-07-11T03:26:11+08:00">2022-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="java-面向对象"><a class="markdownIt-Anchor" href="#java-面向对象"></a> Java 面向对象</h2>
+<h2 id="类和对象"><a class="markdownIt-Anchor" href="#类和对象"></a> 类和对象</h2>
+<p>类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。<br />
+每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 <strong>成员变量</strong> 或 <strong>实例变量</strong> 或 <strong>属性域</strong> 等等 ……；<br />
+人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 <strong>类变量</strong> 、 <strong>静态变量</strong> 等等 ……；<br />
+每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行为只会影响到这一个个体的属性，不会对其他个体产生影响，称之为 <strong>成员方法</strong> 、 <strong>成员函数</strong> 、……；<br />
+个体的行为会影响到整个人类的属性：比如生育使得种群数量增长，这种影响类属性的方法称之为 <strong>静态方法</strong> 、<strong>类方法</strong>；</p>
+<h2 id="继承-封装-多态"><a class="markdownIt-Anchor" href="#继承-封装-多态"></a> 继承、封装、多态</h2>
+<h2 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h2>
+<p>有时候我们并不想定义一个类，只是想声明一个行为的集合，用于修饰类型，我们可以定义一个接口。接口可以用来描述一种类型应该会有怎样的行为，比如 Java 中的 <code>Comparable</code> 接口用于修饰一个可以比较大小的类，实现这个接口的类则需要实现 <code>compareTo()</code> 方法用于比较大小； <code>Runable</code> 接口用于修饰可以多线程运行的类，实现这个接口的类需要实现 <code>run()</code> 方法用于在执行时被调用。</p>
+<h2 id="泛型"><a class="markdownIt-Anchor" href="#泛型"></a> 泛型</h2>
+<p>这个特性使得我们可以将类型参数化，即，将类型定义为参数传入方法中，不需要在传入参数的时候再考虑传入对象类型问题，以及相关的程序调试问题。因此对于使用同样处理逻辑的类型，我们不需要为他们单独编写冗余的代码。</p>
+<p>借助于 <strong>自动装箱(autoboxing)</strong> 的特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">genericClass</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//这是一个泛型方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">genericMethod</span><span class="params">(T param)</span> </span>&#123;...&#125;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是一个泛型接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">genericInterface</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以定义多个类型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">genericInterface</span>&lt;<span class="title">T</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Java 不支持泛型之前，泛型程序设计的实现依赖于 Object 类，以及强制类型转换，这要求程序员写代码时对自己泛型中的 Object 类实际所指对象了如执掌，否则很容易发生错误的类型转换，导致程序崩溃。引入了泛型之后， 泛型的使用方可以使用 <code>&lt;&gt;</code> 告诉编译器，这是对哪个类型执行方法，给予了编译器检查的类型信息，更好地保障了类型转换的安全。<br />
+如下代码描述了没有引入泛型之前的时候：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有泛型的时候</span></span><br><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line">String string = list.get(<span class="number">0</span>); <span class="comment">// 这个方法在编译阶段不会报错，但在运行时会引发类型转换错误的异常</span></span><br></pre></td></tr></table></figure>
+<p>引入了泛型之后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line"><span class="comment">// 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败</span></span><br><span class="line">String list.get(<span class="number">0</span>); </span><br></pre></td></tr></table></figure>
+<h3 id="泛型类"><a class="markdownIt-Anchor" href="#泛型类"></a> 泛型类</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="泛型方法"><a class="markdownIt-Anchor" href="#泛型方法"></a> 泛型方法</h3>
+<p>普通类和泛型类都可以定义泛型方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getSecond</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getThird</span><span class="params">(T... t)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用泛型方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常调用</span></span><br><span class="line"><span class="keyword">new</span> Test().&lt;String&gt;getFirst();</span><br><span class="line"><span class="comment">// 借助类型推断，省略具体类型</span></span><br><span class="line">String str = Test.getSecond();</span><br></pre></td></tr></table></figure>
+<p>大多数情况下，类型推断都能正常工作，但偶尔也会遇到问题；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> middle = Test.getThird(<span class="number">3.14</span>, <span class="number">1729</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 在上述例子中，参数被自动装箱成包装类型，一个 Double 和两个 Integer</span></span><br><span class="line"><span class="comment">// 他们的共同超类型有两个， Number 和 Comparable 而 Comparable 也是个泛型类型</span></span><br><span class="line"><span class="comment">// 因此返回值应该是两个共同超类型中的一个，而不是 double</span></span><br></pre></td></tr></table></figure>
+<h3 id="通配符"><a class="markdownIt-Anchor" href="#通配符"></a> 通配符</h3>
+<p>通配符是为了限制泛型的使用范围而设计的。</p>
+<ul>
+<li><code>? extends Employee</code> 代表这个泛型是 Employee 的子类；</li>
+<li><code>? super Manager</code> 代表这个泛型是 Manager 的父类；</li>
+</ul>
+<p>这里 <code>extends</code> 和 <code>super</code> 关键字后面的不一定要是一个类，也可以是一个接口。也可以指定多个类表示 <code>?</code> 是多个类及其子（父）类：<code>? extends Function &amp; Serializable</code> 。</p>
+<p>在运行时阶段（JVM 所执行的代码）是不存在类型参数的，这个特性又叫做 <strong>类型擦除</strong> 。我们从编译器的角度考虑下面的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(? <span class="keyword">super</span> Manager obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">T <span class="keyword">super</span> Manger T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于方法 <code>setFirst()</code> ：<br />
+编译器无法得知 <code>? super Manager</code> 指的是哪一个超类，因此不能接受类型 <code>Employee</code> 或 <code>Object</code> ，只能接受 <code>Manager</code> 类型及其子类型。<br />
+对于方法 <code>getFirst()</code> ：<br />
+编译器无法得知 <code>? super Manager</code> 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 <code>Object</code> 类；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(Test&lt;? extends Employee&gt; obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;T extends Employee&gt; <span class="function">T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于方法 <code>setFirst()</code> ：<br />
+编译器无法得知 <code>? extends Employee</code> 指的是哪个子类，无论传 <code>Employee</code> 或者它的哪个子类都无法保证类型安全，因为 <code>?</code> 的真实类型可能是传入类型的子类（也可能没有任何关系，只是拥有同一个父亲 <code>Employee</code>)。<br />
+对于方法 <code>getFirst()</code> ：<br />
+方法返回值为 <code>Employee</code> 的或其子类型，因此我们可以用 <code>Employee</code> 或其父类接收；</p>
+<h3 id="producer-extend-consumer-superpecs"><a class="markdownIt-Anchor" href="#producer-extend-consumer-superpecs"></a> Producer Extend Consumer Super(PECS)</h3>
+<blockquote>
+<p><strong>协变</strong>：原父子类型关系在经过复杂类型构造之后，父子类型关系被保持下来了；<br />
+<strong>逆变</strong>：原父子类型经过类型构造之后，父子关系逆转；<br />
+<strong>不变</strong>：上述两种不适用；</p>
+</blockquote>
+<p>考虑 <code>List&lt;? extends T&gt; list</code> ：<br />
+<code>list.add(something)</code> 会报错，因为编译器只知道要存的是 <code>T</code> 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 <code>T</code> 的子类，所以可以使用 <code>T</code> 以及 <code>T</code> 的父类型的变量来接受 <code>list.get()</code> 的返回值，因为向上转换类型是安全的；<br />
+考虑 <code>List&lt;? super T&gt; list</code> ：<br />
+<code>list.get()</code> 只能使用 <code>Object</code> 类型来接收，因为我们不知道所存元素的上界，所以只能使用最大的上界来接收他的返回值，以保证类型安全。但编译器知道，<code>T</code> 以及 <code>T</code> 的子类都能够和 <code>T</code> 的某个父类兼容，所以可以使用 <code>list.add(t)</code> 存放 <code>T</code> 及其子类。</p>
+<p>考虑 <code>List&lt;? extends Animal&gt;</code> 和 <code>List&lt;? extends Cat&gt;</code> ：<br />
+<code>Cat</code> 是 <code>Animal</code> 的子类，而 <code>List&lt;? extends Cat&gt;</code> 也是 <code>List&lt;? extends Animal&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>上界协变</strong> 的</em>；</p>
+<p>考虑 <code>List&lt;? super Animal&gt;</code> 和 <code>List&lt;? super Cat&gt;</code> ：<br />
+<code>Animal</code> 是 <code>Cat</code> 的父类，而 <code>List&lt;? super Animal&gt;</code> 是 <code>List&lt;? super Cat&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>下界逆变</strong> 的</em>；</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1269,154 +1417,6 @@ transform: translateX(-50%);
 <li><code>Method getMethod(String name, Class.. T)</code> ：返回一个 <code>Method</code> 对象，此对象的形参类型为 <code>paramType</code>；</li>
 <li><code>Field[] getDeclaredFields()</code> ：返回 <code>Field</code> 对象的一个数组；</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Java面向对象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-11 03:26:11" itemprop="dateModified" datetime="2022-07-11T03:26:11+08:00">2022-07-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="java-面向对象"><a class="markdownIt-Anchor" href="#java-面向对象"></a> Java 面向对象</h2>
-<h2 id="类和对象"><a class="markdownIt-Anchor" href="#类和对象"></a> 类和对象</h2>
-<p>类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。<br />
-每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 <strong>成员变量</strong> 或 <strong>实例变量</strong> 或 <strong>属性域</strong> 等等 ……；<br />
-人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 <strong>类变量</strong> 、 <strong>静态变量</strong> 等等 ……；<br />
-每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行为只会影响到这一个个体的属性，不会对其他个体产生影响，称之为 <strong>成员方法</strong> 、 <strong>成员函数</strong> 、……；<br />
-个体的行为会影响到整个人类的属性：比如生育使得种群数量增长，这种影响类属性的方法称之为 <strong>静态方法</strong> 、<strong>类方法</strong>；</p>
-<h2 id="继承-封装-多态"><a class="markdownIt-Anchor" href="#继承-封装-多态"></a> 继承、封装、多态</h2>
-<h2 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h2>
-<p>有时候我们并不想定义一个类，只是想声明一个行为的集合，用于修饰类型，我们可以定义一个接口。接口可以用来描述一种类型应该会有怎样的行为，比如 Java 中的 <code>Comparable</code> 接口用于修饰一个可以比较大小的类，实现这个接口的类则需要实现 <code>compareTo()</code> 方法用于比较大小； <code>Runable</code> 接口用于修饰可以多线程运行的类，实现这个接口的类需要实现 <code>run()</code> 方法用于在执行时被调用。</p>
-<h2 id="泛型"><a class="markdownIt-Anchor" href="#泛型"></a> 泛型</h2>
-<p>这个特性使得我们可以将类型参数化，即，将类型定义为参数传入方法中，不需要在传入参数的时候再考虑传入对象类型问题，以及相关的程序调试问题。因此对于使用同样处理逻辑的类型，我们不需要为他们单独编写冗余的代码。</p>
-<p>借助于 <strong>自动装箱(autoboxing)</strong> 的特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">genericClass</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//这是一个泛型方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">genericMethod</span><span class="params">(T param)</span> </span>&#123;...&#125;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是一个泛型接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">genericInterface</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以定义多个类型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">genericInterface</span>&lt;<span class="title">T</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 Java 不支持泛型之前，泛型程序设计的实现依赖于 Object 类，以及强制类型转换，这要求程序员写代码时对自己泛型中的 Object 类实际所指对象了如执掌，否则很容易发生错误的类型转换，导致程序崩溃。引入了泛型之后， 泛型的使用方可以使用 <code>&lt;&gt;</code> 告诉编译器，这是对哪个类型执行方法，给予了编译器检查的类型信息，更好地保障了类型转换的安全。<br />
-如下代码描述了没有引入泛型之前的时候：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有泛型的时候</span></span><br><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line">String string = list.get(<span class="number">0</span>); <span class="comment">// 这个方法在编译阶段不会报错，但在运行时会引发类型转换错误的异常</span></span><br></pre></td></tr></table></figure>
-<p>引入了泛型之后：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line"><span class="comment">// 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败</span></span><br><span class="line">String list.get(<span class="number">0</span>); </span><br></pre></td></tr></table></figure>
-<h3 id="泛型类"><a class="markdownIt-Anchor" href="#泛型类"></a> 泛型类</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="泛型方法"><a class="markdownIt-Anchor" href="#泛型方法"></a> 泛型方法</h3>
-<p>普通类和泛型类都可以定义泛型方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getSecond</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getThird</span><span class="params">(T... t)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用泛型方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常调用</span></span><br><span class="line"><span class="keyword">new</span> Test().&lt;String&gt;getFirst();</span><br><span class="line"><span class="comment">// 借助类型推断，省略具体类型</span></span><br><span class="line">String str = Test.getSecond();</span><br></pre></td></tr></table></figure>
-<p>大多数情况下，类型推断都能正常工作，但偶尔也会遇到问题；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> middle = Test.getThird(<span class="number">3.14</span>, <span class="number">1729</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 在上述例子中，参数被自动装箱成包装类型，一个 Double 和两个 Integer</span></span><br><span class="line"><span class="comment">// 他们的共同超类型有两个， Number 和 Comparable 而 Comparable 也是个泛型类型</span></span><br><span class="line"><span class="comment">// 因此返回值应该是两个共同超类型中的一个，而不是 double</span></span><br></pre></td></tr></table></figure>
-<h3 id="通配符"><a class="markdownIt-Anchor" href="#通配符"></a> 通配符</h3>
-<p>通配符是为了限制泛型的使用范围而设计的。</p>
-<ul>
-<li><code>? extends Employee</code> 代表这个泛型是 Employee 的子类；</li>
-<li><code>? super Manager</code> 代表这个泛型是 Manager 的父类；</li>
-</ul>
-<p>这里 <code>extends</code> 和 <code>super</code> 关键字后面的不一定要是一个类，也可以是一个接口。也可以指定多个类表示 <code>?</code> 是多个类及其子（父）类：<code>? extends Function &amp; Serializable</code> 。</p>
-<p>在运行时阶段（JVM 所执行的代码）是不存在类型参数的，这个特性又叫做 <strong>类型擦除</strong> 。我们从编译器的角度考虑下面的方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(? <span class="keyword">super</span> Manager obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">T <span class="keyword">super</span> Manger T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于方法 <code>setFirst()</code> ：<br />
-编译器无法得知 <code>? super Manager</code> 指的是哪一个超类，因此不能接受类型 <code>Employee</code> 或 <code>Object</code> ，只能接受 <code>Manager</code> 类型及其子类型。<br />
-对于方法 <code>getFirst()</code> ：<br />
-编译器无法得知 <code>? super Manager</code> 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 <code>Object</code> 类；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(Test&lt;? extends Employee&gt; obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;T extends Employee&gt; <span class="function">T <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于方法 <code>setFirst()</code> ：<br />
-编译器无法得知 <code>? extends Employee</code> 指的是哪个子类，无论传 <code>Employee</code> 或者它的哪个子类都无法保证类型安全，因为 <code>?</code> 的真实类型可能是传入类型的子类（也可能没有任何关系，只是拥有同一个父亲 <code>Employee</code>)。<br />
-对于方法 <code>getFirst()</code> ：<br />
-方法返回值为 <code>Employee</code> 的或其子类型，因此我们可以用 <code>Employee</code> 或其父类接收；</p>
-<h3 id="producer-extend-consumer-superpecs"><a class="markdownIt-Anchor" href="#producer-extend-consumer-superpecs"></a> Producer Extend Consumer Super(PECS)</h3>
-<blockquote>
-<p><strong>协变</strong>：原父子类型关系在经过复杂类型构造之后，父子类型关系被保持下来了；<br />
-<strong>逆变</strong>：原父子类型经过类型构造之后，父子关系逆转；<br />
-<strong>不变</strong>：上述两种不适用；</p>
-</blockquote>
-<p>考虑 <code>List&lt;? extends T&gt; list</code> ：<br />
-<code>list.add(something)</code> 会报错，因为编译器只知道要存的是 <code>T</code> 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 <code>T</code> 的子类，所以可以使用 <code>T</code> 以及 <code>T</code> 的父类型的变量来接受 <code>list.get()</code> 的返回值，因为向上转换类型是安全的；<br />
-考虑 <code>List&lt;? super T&gt; list</code> ：<br />
-<code>list.get()</code> 只能使用 <code>Object</code> 类型来接收，因为我们不知道所存元素的上界，所以只能使用最大的上界来接收他的返回值，以保证类型安全。但编译器知道，<code>T</code> 以及 <code>T</code> 的子类都能够和 <code>T</code> 的某个父类兼容，所以可以使用 <code>list.add(t)</code> 存放 <code>T</code> 及其子类。</p>
-<p>考虑 <code>List&lt;? extends Animal&gt;</code> 和 <code>List&lt;? extends Cat&gt;</code> ：<br />
-<code>Cat</code> 是 <code>Animal</code> 的子类，而 <code>List&lt;? extends Cat&gt;</code> 也是 <code>List&lt;? extends Animal&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>上界协变</strong> 的</em>；</p>
-<p>考虑 <code>List&lt;? super Animal&gt;</code> 和 <code>List&lt;? super Cat&gt;</code> ：<br />
-<code>Animal</code> 是 <code>Cat</code> 的父类，而 <code>List&lt;? super Animal&gt;</code> 是 <code>List&lt;? super Cat&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>下界逆变</strong> 的</em>；</p>
 
       
     </div>
