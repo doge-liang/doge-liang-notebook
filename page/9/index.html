@@ -354,6 +354,155 @@ transform: translateX(-50%);
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">微服务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h2>
+<h3 id="先说说单体应用"><a class="markdownIt-Anchor" href="#先说说单体应用"></a> 先说说单体应用</h3>
+<p>过去的 Web 项目还不庞大的时候，软件的各个功能组件常常使用 All in One 的开发方式，即各个内部组件组装在一个单体应用内部，再将其部署到多台服务器上，再由代理服务器接受外来请求，然后通过负载均衡技术，将大量的请求分摊到每台服务器上，来增强应用的健壮性和可用性。</p>
+<p>但这种 All in One 的架构在软件体量日渐庞大的今天，开发效率和单体应用的健壮性都会受到挑战。于是微服务架构就被提出了。</p>
+<h3 id="再说说微服务"><a class="markdownIt-Anchor" href="#再说说微服务"></a> 再说说微服务</h3>
+<p>微服务架构将软件的各个功能组件拆分开来，包装成相对独立的微服务，部署到不同的机器上，组件之间使用 http/https 等轻量可拓展的协议进行通信，来形成一个软件整体。这样的架构使得各个功能组件能够解耦，减少开发的错误，增强软件的健壮性。</p>
+<p>目前常用的微服务框架有 <code>Dubbo</code> 、 <code>Spring Cloud</code> 、 <code>Spring Boot</code> 、 <code>Dropwizard</code> 、 <code>Akka</code> 、 <code>Vert.x</code>/<code>Lagom</code>/<code>ReactiveX</code>/<code>Spring 5</code> 等。以上都是 Java 阵营的微服务框架；</p>
+<p>.NET 阵营有 <code>.NET Core</code> 、 <code>Service Fabric</code> 、 <code>Surging</code> 、 <code>Microdot Framework</code> 等；</p>
+<p>Node.js 阵营有 <code>Seneca</code> 、 <code>Hapi</code>/<code>Restify</code>/<code>LoopBack</code> 等；</p>
+<p>Go 阵营有 <code>Go-Kit</code>/<code>Goa</code>/<code>Dubbogo</code> 等；</p>
+<p>Python 阵营有 <code>Nameko</code> ；</p>
+<h4 id="springcloud"><a class="markdownIt-Anchor" href="#springcloud"></a> SpringCloud</h4>
+<blockquote>
+<p>构建分布式系统不需要复杂和容易出错。Spring Cloud 为最常见的分布式系统模式提供了一种简单且易于接受的<strong>编程模型</strong>，帮助开发人员构建有<strong>弹性的</strong>、<strong>可靠的</strong>、<strong>协调的</strong>应用程序。Spring Cloud 构建于 Spring Boot 之上，使得开发者很容易入手并快速应用于生产中。</p>
+</blockquote>
+<p>简而言之，Spring Cloud 就是一套简易的编程模型，帮助我们在 Spring Boot 之上建立微服务应用。而我们在建立微服务应用时需要做的工作如 <strong>服务发现注册、配置中心</strong> <strong>、消息总线</strong> <strong>、负载均衡</strong> <strong>、断路器</strong> <strong>、数据监控</strong> 等，在 Spring Cloud 中都有相应的编程模型。</p>
+<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/4fd82291c9dba25aff64b96dfec415164ae6484466ed485a1aba420c5ff8823a.jpg" alt="picture 2" /></p>
+<p><code>Spring Cloud</code> 的版本号均为英国伦敦地铁站的站名，根据字母表的顺序来对应版本时间顺序，比如：最早 的 Release 版本 <code>Angel</code>，第二个 Release 版本 <code>Brixton</code> （英国地名），然后是 <code>Camden</code> 、 <code>Dalston</code> 、 <code>Edgware</code> 、 <code>Finchley</code> 、 <code>Greenwich</code> 、 <code>Hoxton</code> 。</p>
+<p>下面从 Spring Cloud 的各个组件的介绍来了解 Spring Cloud 如何完成微服务的各项工作的，主要包括：</p>
+<p><code>Eureka</code> 服务发现框架<br />
+<code>Ribbon</code> 进程内负载均衡器<br />
+<code>Open Feign</code> 服务调用映射<br />
+<code>Hystrix</code> 服务降级熔断器<br />
+<code>Zuul</code> 微服务网关<br />
+<code>Config</code> 微服务统一配置中心<br />
+<code>Bus</code> 消息总线</p>
+<h5 id="服务发现框架-eureka"><a class="markdownIt-Anchor" href="#服务发现框架-eureka"></a> 服务发现框架（ Eureka ）</h5>
+<blockquote>
+<p><code>Eureka</code> 是基于 <code>REST</code> （代表性状态转移）的服务，主要在 AWS 云中用于<strong>定位服务</strong>，以实现负载均衡和中间层服务器的故障转移。我们称此服务为 <code>Eureka</code> 服务器。 <code>Eureka</code> 还带有一个基于 Java 的<strong>客户端组件</strong> <code>Eureka Client</code> ，它使与服务的交互变得更加容易。客户端还具有一个<strong>内置的负载平衡器</strong>，可以执行基本的循环负载平衡。在 Netflix ，更复杂的负载均衡器将 <code>Eureka</code> 包装起来，以基于流量，资源使用，错误条件等多种因素提供加权负载均衡，以提供出色的弹性。</p>
+</blockquote>
+<p>从上面关于微服务的概述中可以看出，微服务其实就是把一个单体应用中的每个模块拆出来，单独部署到服务器上，由调用者调用。到这里我们有了两个概念：</p>
+<ul>
+<li><strong>服务提供者 Eureka Client Provider</strong>：拥有某个模块（服务）的服务器；</li>
+<li><strong>服务消费者 Eureka Client Consumer</strong>：需要使用某个模块（服务）的“用户”；</li>
+</ul>
+<p>由于服务提供者和服务消费者都是散装的，如果提供者通过广播的方式让消费者发现自己，提供者需要耗费大量网络资源进行广播，而且网络上不是每个服务器都是消费者，所以存在资源浪费。这时，就需要一个中介，让提供者把自己的注册到上面，消费者只需要访问中介来寻找自己需要的服务；</p>
+<ul>
+<li><strong>服务中介 Eureka Server</strong> ：服务提供者和服务消费者之间的桥梁，为了防止单点故障，一般会设置多个服务中介；</li>
+<li><strong>服务注册 Register</strong>：服务提供者（ <code>Eureka Client Provider</code> ）把自己的服务元数据（ <code>metadata</code> ）放到服务中介上，例如 IP 地址、访问端口等等；</li>
+<li><strong>服务续约 Renew</strong>：为了保证服务的可用性，服务提供者需要定时（默认是 30s ）发送一次心跳信号，如果 <code>Server</code> 超过 90s 没有收到 <code>Client</code> 的信号，则将服务器中启动的实例删除以节约资源；</li>
+<li><strong>获取注册表信息 Fetch Registries</strong>：服务消费者（ <code>Eureka Client Consumer</code> ）从服务中介（ <code>Eureka server</code> ）中获取正在提供服务的服务列表，注册表随时都有可能更新，客户端需要定期维护自己的注册表缓存。 <code>Client</code> 和 <code>Server</code> 之间常常使用 <code>JSON</code> 或 <code>XML</code> 进行注册表通信；</li>
+<li><strong>服务下线 Cancel</strong>： <code>Eureka Client Provider</code> 向 <code>Eureka Server</code> 发送取消服务请求， <code>Eureka Server</code> 执行 <code>DiscoveryManager.getInstance().shutdownComponent();</code> 删除该客户端注册的实例；</li>
+<li><strong>服务剔除 Eviction</strong>： 在默认的情况下，当 <code>Eureka Client</code> 连续 90s (3 个续约周期)没有向 <code>Eureka</code> 服务器发送服务续约，即心跳， <code>Eureka Server</code> 会将该服务实例从服务注册列表删除，即服务剔除</li>
+</ul>
+<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/c80bfb2d5450fe4e74c32a990c8d7037720bb3db8de8eb59281d36421a6cef04.png" alt="picture 3" /></p>
+<p>带有服务发现功能的组件有许多，诸如： <code>Zookeeper</code> 、 <code>Consul</code> 等；</p>
+<p>更多的 <code>Eureka</code> 功能，待总结；</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5dd497e3f265da0ba7718018">深入理解 Eureka ——SnailClimb</a></p>
+</blockquote>
+<h5 id="负载均衡器-ribbon"><a class="markdownIt-Anchor" href="#负载均衡器-ribbon"></a> 负载均衡器（ Ribbon ）</h5>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -607,155 +756,6 @@ transform: translateX(-50%);
 </ul>
 </li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">微服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h2>
-<h3 id="先说说单体应用"><a class="markdownIt-Anchor" href="#先说说单体应用"></a> 先说说单体应用</h3>
-<p>过去的 Web 项目还不庞大的时候，软件的各个功能组件常常使用 All in One 的开发方式，即各个内部组件组装在一个单体应用内部，再将其部署到多台服务器上，再由代理服务器接受外来请求，然后通过负载均衡技术，将大量的请求分摊到每台服务器上，来增强应用的健壮性和可用性。</p>
-<p>但这种 All in One 的架构在软件体量日渐庞大的今天，开发效率和单体应用的健壮性都会受到挑战。于是微服务架构就被提出了。</p>
-<h3 id="再说说微服务"><a class="markdownIt-Anchor" href="#再说说微服务"></a> 再说说微服务</h3>
-<p>微服务架构将软件的各个功能组件拆分开来，包装成相对独立的微服务，部署到不同的机器上，组件之间使用 http/https 等轻量可拓展的协议进行通信，来形成一个软件整体。这样的架构使得各个功能组件能够解耦，减少开发的错误，增强软件的健壮性。</p>
-<p>目前常用的微服务框架有 <code>Dubbo</code> 、 <code>Spring Cloud</code> 、 <code>Spring Boot</code> 、 <code>Dropwizard</code> 、 <code>Akka</code> 、 <code>Vert.x</code>/<code>Lagom</code>/<code>ReactiveX</code>/<code>Spring 5</code> 等。以上都是 Java 阵营的微服务框架；</p>
-<p>.NET 阵营有 <code>.NET Core</code> 、 <code>Service Fabric</code> 、 <code>Surging</code> 、 <code>Microdot Framework</code> 等；</p>
-<p>Node.js 阵营有 <code>Seneca</code> 、 <code>Hapi</code>/<code>Restify</code>/<code>LoopBack</code> 等；</p>
-<p>Go 阵营有 <code>Go-Kit</code>/<code>Goa</code>/<code>Dubbogo</code> 等；</p>
-<p>Python 阵营有 <code>Nameko</code> ；</p>
-<h4 id="springcloud"><a class="markdownIt-Anchor" href="#springcloud"></a> SpringCloud</h4>
-<blockquote>
-<p>构建分布式系统不需要复杂和容易出错。Spring Cloud 为最常见的分布式系统模式提供了一种简单且易于接受的<strong>编程模型</strong>，帮助开发人员构建有<strong>弹性的</strong>、<strong>可靠的</strong>、<strong>协调的</strong>应用程序。Spring Cloud 构建于 Spring Boot 之上，使得开发者很容易入手并快速应用于生产中。</p>
-</blockquote>
-<p>简而言之，Spring Cloud 就是一套简易的编程模型，帮助我们在 Spring Boot 之上建立微服务应用。而我们在建立微服务应用时需要做的工作如 <strong>服务发现注册、配置中心</strong> <strong>、消息总线</strong> <strong>、负载均衡</strong> <strong>、断路器</strong> <strong>、数据监控</strong> 等，在 Spring Cloud 中都有相应的编程模型。</p>
-<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/4fd82291c9dba25aff64b96dfec415164ae6484466ed485a1aba420c5ff8823a.jpg" alt="picture 2" /></p>
-<p><code>Spring Cloud</code> 的版本号均为英国伦敦地铁站的站名，根据字母表的顺序来对应版本时间顺序，比如：最早 的 Release 版本 <code>Angel</code>，第二个 Release 版本 <code>Brixton</code> （英国地名），然后是 <code>Camden</code> 、 <code>Dalston</code> 、 <code>Edgware</code> 、 <code>Finchley</code> 、 <code>Greenwich</code> 、 <code>Hoxton</code> 。</p>
-<p>下面从 Spring Cloud 的各个组件的介绍来了解 Spring Cloud 如何完成微服务的各项工作的，主要包括：</p>
-<p><code>Eureka</code> 服务发现框架<br />
-<code>Ribbon</code> 进程内负载均衡器<br />
-<code>Open Feign</code> 服务调用映射<br />
-<code>Hystrix</code> 服务降级熔断器<br />
-<code>Zuul</code> 微服务网关<br />
-<code>Config</code> 微服务统一配置中心<br />
-<code>Bus</code> 消息总线</p>
-<h5 id="服务发现框架-eureka"><a class="markdownIt-Anchor" href="#服务发现框架-eureka"></a> 服务发现框架（ Eureka ）</h5>
-<blockquote>
-<p><code>Eureka</code> 是基于 <code>REST</code> （代表性状态转移）的服务，主要在 AWS 云中用于<strong>定位服务</strong>，以实现负载均衡和中间层服务器的故障转移。我们称此服务为 <code>Eureka</code> 服务器。 <code>Eureka</code> 还带有一个基于 Java 的<strong>客户端组件</strong> <code>Eureka Client</code> ，它使与服务的交互变得更加容易。客户端还具有一个<strong>内置的负载平衡器</strong>，可以执行基本的循环负载平衡。在 Netflix ，更复杂的负载均衡器将 <code>Eureka</code> 包装起来，以基于流量，资源使用，错误条件等多种因素提供加权负载均衡，以提供出色的弹性。</p>
-</blockquote>
-<p>从上面关于微服务的概述中可以看出，微服务其实就是把一个单体应用中的每个模块拆出来，单独部署到服务器上，由调用者调用。到这里我们有了两个概念：</p>
-<ul>
-<li><strong>服务提供者 Eureka Client Provider</strong>：拥有某个模块（服务）的服务器；</li>
-<li><strong>服务消费者 Eureka Client Consumer</strong>：需要使用某个模块（服务）的“用户”；</li>
-</ul>
-<p>由于服务提供者和服务消费者都是散装的，如果提供者通过广播的方式让消费者发现自己，提供者需要耗费大量网络资源进行广播，而且网络上不是每个服务器都是消费者，所以存在资源浪费。这时，就需要一个中介，让提供者把自己的注册到上面，消费者只需要访问中介来寻找自己需要的服务；</p>
-<ul>
-<li><strong>服务中介 Eureka Server</strong> ：服务提供者和服务消费者之间的桥梁，为了防止单点故障，一般会设置多个服务中介；</li>
-<li><strong>服务注册 Register</strong>：服务提供者（ <code>Eureka Client Provider</code> ）把自己的服务元数据（ <code>metadata</code> ）放到服务中介上，例如 IP 地址、访问端口等等；</li>
-<li><strong>服务续约 Renew</strong>：为了保证服务的可用性，服务提供者需要定时（默认是 30s ）发送一次心跳信号，如果 <code>Server</code> 超过 90s 没有收到 <code>Client</code> 的信号，则将服务器中启动的实例删除以节约资源；</li>
-<li><strong>获取注册表信息 Fetch Registries</strong>：服务消费者（ <code>Eureka Client Consumer</code> ）从服务中介（ <code>Eureka server</code> ）中获取正在提供服务的服务列表，注册表随时都有可能更新，客户端需要定期维护自己的注册表缓存。 <code>Client</code> 和 <code>Server</code> 之间常常使用 <code>JSON</code> 或 <code>XML</code> 进行注册表通信；</li>
-<li><strong>服务下线 Cancel</strong>： <code>Eureka Client Provider</code> 向 <code>Eureka Server</code> 发送取消服务请求， <code>Eureka Server</code> 执行 <code>DiscoveryManager.getInstance().shutdownComponent();</code> 删除该客户端注册的实例；</li>
-<li><strong>服务剔除 Eviction</strong>： 在默认的情况下，当 <code>Eureka Client</code> 连续 90s (3 个续约周期)没有向 <code>Eureka</code> 服务器发送服务续约，即心跳， <code>Eureka Server</code> 会将该服务实例从服务注册列表删除，即服务剔除</li>
-</ul>
-<p><img src="../../../assets/%E9%9B%B6%E7%A2%8E/%E5%BE%AE%E6%9C%8D%E5%8A%A1/c80bfb2d5450fe4e74c32a990c8d7037720bb3db8de8eb59281d36421a6cef04.png" alt="picture 3" /></p>
-<p>带有服务发现功能的组件有许多，诸如： <code>Zookeeper</code> 、 <code>Consul</code> 等；</p>
-<p>更多的 <code>Eureka</code> 功能，待总结；</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5dd497e3f265da0ba7718018">深入理解 Eureka ——SnailClimb</a></p>
-</blockquote>
-<h5 id="负载均衡器-ribbon"><a class="markdownIt-Anchor" href="#负载均衡器-ribbon"></a> 负载均衡器（ Ribbon ）</h5>
 
       
     </div>
@@ -1291,7 +1291,7 @@ transform: translateX(-50%);
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%9A%84%E8%A1%A8-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -1309,7 +1309,7 @@ transform: translateX(-50%);
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/" class="post-title-link" itemprop="url">Java 集合类</a>
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%9A%84%E8%A1%A8-list/" class="post-title-link" itemprop="url">Java 的表 List</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1327,7 +1327,7 @@ transform: translateX(-50%);
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-24 23:41:10" itemprop="dateModified" datetime="2022-07-24T23:41:10+08:00">2022-07-24</time>
+      <time title="Modified: 2022-07-15 00:09:08" itemprop="dateModified" datetime="2022-07-15T00:09:08+08:00">2022-07-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1335,7 +1335,11 @@ transform: translateX(-50%);
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">+ 程序设计语言 + Java + Java数据结构</span></a>
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
@@ -1349,58 +1353,50 @@ transform: translateX(-50%);
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="java-集合框架"><a class="markdownIt-Anchor" href="#java-集合框架"></a> Java 集合框架</h2>
-<h3 id="实现思想"><a class="markdownIt-Anchor" href="#实现思想"></a> 实现思想</h3>
-<p>Java 集合框架的实现思想为为常见的接口和实现分离思想。</p>
-<p>使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> LinkedList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">expressLane.add(<span class="keyword">new</span> Customer(<span class="string">&quot;Harry&quot;</span>));</span><br></pre></td></tr></table></figure>
-<p>上述例子声明了两个 <code>List</code> ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；<br />
-这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；</p>
-<p>此外，Java API 库中还定义了一些 <code>Abstract</code> 前缀修饰的类，比如 <code>AbstractCollection</code> 里面对 <code>Collection</code> 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 <code>Abstract</code> 前缀修饰的集合类更方便。</p>
-<h3 id="基础接口"><a class="markdownIt-Anchor" href="#基础接口"></a> 基础接口</h3>
-<p>Java 有两大类集合： <code>Map</code> 和 <code>Collection</code></p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png" alt="picture 1" /></p>
-<h3 id="collection"><a class="markdownIt-Anchor" href="#collection"></a> Collection</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E element)</span></span>; <span class="comment">// 添加元素</span></span><br><span class="line">    <span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>; <span class="comment">// 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> Iterator</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>; <span class="comment">// 如果到达了集合的末尾，会抛出异常 NoSuchElementException  </span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用 <code>Collectors.toMap()</code> 时，要注意两个问题：</p>
-<ol>
-<li>当 key 相同时会抛出 <code>IllegalStateException</code> ；</li>
-<li>当 value 为 null 时，会抛出 <code>NullPointerException</code> ；</li>
-</ol>
-<h4 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h4>
-<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
-<h4 id="weakhashmap"><a class="markdownIt-Anchor" href="#weakhashmap"></a> WeakHashMap</h4>
-<p>适用于需要缓存的场景, 对 entry 进行弱引用管理 GC 时会自动释放弱引用的 entry 项<br />
-相对 HashMap 只增加弱引用管理, 并不保证线程安全</p>
-<h4 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> HashTable</h4>
-<p>读写方法都加了 <code>synchronized</code> 关键字 key 和 value 都不允许出现 null 值<br />
-与 HashMap 不同的是 HashTable 直接使用对象的 hashCode , 不会重新计算 has 值 <code>ConcurrentHashMap</code></p>
-<p>利用 CAS + Synchronized 来确保线程安全. 底层数据结构依然是数组+链表+红黑树, 对哈希项进行分段上锁, 效率上较之 HashTable 要高；<br />
-key 和 uvaiue 都不允许出现 null</p>
-<blockquote>
-<p>CAS(compare and swap) 并交换<br />
-在 Java 语言还未出现的时候，并发得到大量应用了，硬件厂商也给出了很多并发操作原语，从硬件层面提高并发效率。CAS 指令就是其中之一；<br />
-Java 语言初期还无法利用硬件提供的指令提高并发效率，后来随着语言的发展，诞生了 Java 本地方法(JNI) 让 JVM 便利地调用本地方法。<br />
-CAS 操作包含三个操作数：</p>
-<ol>
-<li>内存位置（V)；</li>
-<li>预期原值（A）；</li>
-<li>新值（B）；<br />
-如果内存位置的值 V 和预期原值 A 匹配，那边处理器会自动更新 V 为新值 B ，否则处理器不做任何处理；一般情况下，它都会在 CAS 指令之前返回该位置的值。<br />
-用自然语言描述这个过程就是：如果内存存的是值我预期的 A ，那么就把新值 B 放进去，否则更改失败，返回内存现在的值；<br />
-在多线程的时候无需害怕其他线程同时修改变量，如果被修改了，CAS 指令会执行失败；<br />
-存在的问题：</li>
-</ol>
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="java-的表-list"><a class="markdownIt-Anchor" href="#java-的表-list"></a> Java 的表 List</h2>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E7%9A%84%E8%A1%A8%20List/653b516fdee70785f8e34b94cef2b5b81f40f302292c3ff911e040c0a9c9ca18.png" alt="picture 1" /></p>
+<h3 id="list-转换成"><a class="markdownIt-Anchor" href="#list-转换成"></a> List&lt;?&gt; 转换成 ?[]</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = list.stream().mapToInt(i -&gt; i).toArray();</span><br></pre></td></tr></table></figure>
+<p>注意 <code>list.toArray()</code> 返回的是 <code>Object[]</code> 或者 <code>T[]</code></p>
+<h3 id="从-list-复制效率看浅拷贝与深拷贝"><a class="markdownIt-Anchor" href="#从-list-复制效率看浅拷贝与深拷贝"></a> 从 List 复制效率看浅拷贝与深拷贝</h3>
 <ul>
-<li>ABA 问题：内存中的值在预期值 A 和新值 B 之间反复横跳，对于执行 CAS 操作的线程来说，在计算新值 B 的过程中，实际上值已经发生了变化了。解决思路是加入一个版本号，在变量前加入变量的版本号，每次对变量的操作都进行累加。执行 CAS 指令时加上版本号校验；</li>
-<li>循环时间长开销大：<br />
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/ls5718/article/details/52563959">https://blog.csdn.net/ls5718/article/details/52563959</a></li>
+<li>浅拷贝：将 A 的指向 B 所指的对象，此时 A 、 B 所指对象相同，对象的改变会同时影响 A 、 B 的值；</li>
+<li>深拷贝：将 B 所指的对象在内存中复制一份， A 指向新的对象，此时 A 、 B 所指对象不同，变化不会互相影响；</li>
 </ul>
-</blockquote>
-<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h3>
-<h4 id="hashset"><a class="markdownIt-Anchor" href="#hashset"></a> HashSet</h4>
+<p>复制 List 的几种方法：</p>
+<ul>
+<li>实例化一个新的 List 与原 List 相同大小，循环遍历调用 <code>add()</code> 方法；</li>
+<li><code>Arrays.copyOf()</code> ，<code>new ArrayList&lt;&gt;(srcList)</code> 用源 List 构造新的 List 实际上使用的是 <code>Arrays.copyOf()</code> 方法，而 <code>Arrays.copyOf()</code> 实质上是使用 <code>System.arraycopy()</code> 方法；</li>
+<li>实例化一个空的 List ，然后调用 <code>destList.addAll(srcList)</code> 将 srcList 的元素全部添加到 destList 中；</li>
+<li><code>System.arraycopy()</code> 方法；</li>
+</ul>
+<p>上面这几种都属于是浅拷贝，原列表的对象发生变化，复制对象的元素也会发生改变；</p>
+<ul>
+<li>使用序列化方法</li>
+<li><code>Object.clone()</code></li>
+</ul>
+<p>这几种方法属于深拷贝方法；</p>
+<p>效率对比：</p>
+<ol>
+<li><code>System.arraycopy()</code> ，这是一个 native 方法，一般是效率更高的语言编写的，并且看 javadoc 可知，这个方法不用经过 JNI 的编译，而是直接用 cpp 写好的；</li>
+<li><code>clone()</code>，虽然该方法也是 native 方法，但是需要通过 JNI 编译才能执行，因此速度差一点；</li>
+<li><code>Arrays.copyOf()</code>，不是 native 方法，且依赖于 <code>System.arraycopy()</code> ，所以要更慢；</li>
+<li><code>for()</code>，是深拷贝了，比浅拷贝要慢得多；</li>
+</ol>
 
       
     </div>
