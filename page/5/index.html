@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,130 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86-go-mod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86-go-mod/" class="post-title-link" itemprop="url">Golang 依赖管理-go mod</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-10T00:00:00+08:00">2021-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="golang-依赖管理-go-mod"><a class="markdownIt-Anchor" href="#golang-依赖管理-go-mod"></a> Golang 依赖管理-go mod</h2>
+<h3 id="go-module"><a class="markdownIt-Anchor" href="#go-module"></a> Go Module</h3>
+<p>Go 语言在 1.11 版本之后发布了 <code>go module</code> 是目前最新的依赖管理工具了。<br />
+通过设置 <code>GO111MODULE</code> 的值可以开启或禁用 <code>go module</code> 工具。<br />
+<code>GO111MUDULE</code> 支持 <code>on</code> <code>auto</code> <code>off</code> 三种模式：</p>
+<ul>
+<li><code>GO111MODULE=on</code> 编译时会忽略 GOPATH 和 vendor 文件夹，只根据 <code>go.mod</code> 加载依赖；</li>
+<li><code>GO111MODULE=auto</code> 当项目在 <code>$GOPATH/src</code> 外，且项目根目录下有 <code>go.mod</code> 文件时，会开启模块支持；</li>
+<li><code>GO111MODULE=off</code> 禁用 <code>go module</code> 支持，编译时会从 <code>$GOPATH</code> 和 <code>vendor</code> 下寻找依赖；</li>
+</ul>
+<h3 id="go-proxy"><a class="markdownIt-Anchor" href="#go-proxy"></a> Go PROXY</h3>
+<p>在 Go 1.13 之后 <code>GOPROXY</code> 的默认值为 <code>https://proxy.golang.org</code> ，在国内无法访问，所以可以设置为： <code>goproxy.cn</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPROXY=https://goproxy.cn</span><br></pre></td></tr></table></figure>
+<h3 id="go-mod-命令"><a class="markdownIt-Anchor" href="#go-mod-命令"></a> go mod 命令</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">go mod download         下载依赖的module到本地cache（默认为<span class="variable">$GOPATH</span>/pkg/mod目录）</span><br><span class="line">go mod edit             编辑go.mod文件</span><br><span class="line">go mod grap             打印模块依赖图</span><br><span class="line">go mod init             初始化当前文件夹，删除无用的go.mod文件</span><br><span class="line">go mod tidy             增加缺少的module，删除无用的module</span><br><span class="line">go mod vendor           将依赖复制到vendor下</span><br><span class="line">go mod verify           校验依赖</span><br><span class="line">go mod why              解释为什么需要依赖</span><br></pre></td></tr></table></figure>
+<h3 id="gomod"><a class="markdownIt-Anchor" href="#gomod"></a> go.mod</h3>
+<p><code>go.mod</code> 文件记录了项目所有的依赖信息，其结构大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module github.com&#x2F;Q1mi&#x2F;studygo&#x2F;blogger</span><br><span class="line"></span><br><span class="line">go 1.12</span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">    github.com&#x2F;DeanThompson&#x2F;ginpprof v0.0.0-20190408063150-3be636683586</span><br><span class="line">    github.com&#x2F;gin-gonic&#x2F;gin v1.4.0</span><br><span class="line">    github.com&#x2F;go-sql-driver&#x2F;mysql v1.4.1</span><br><span class="line">    github.com&#x2F;jmoiron&#x2F;sqlx v1.2.0</span><br><span class="line">    github.com&#x2F;satori&#x2F;go.uuid v1.2.0</span><br><span class="line">    google.golang.org&#x2F;appengine v1.6.1 &#x2F;&#x2F;indirect</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>module</code> 定义了包名</li>
+<li><code>require</code> 定义依赖以及版本</li>
+<li><code>indirect</code> 表示间接引用</li>
+</ul>
+<h4 id="语义化的版本号"><a class="markdownIt-Anchor" href="#语义化的版本号"></a> 语义化的版本号</h4>
+<p>比如 <code>go get foo@v1.2.3</code> ，也可以跟 git 的 tag 或者 branch ，比如 <code>go get foo@master</code> ，当然也可以跟 git 提交 hashcode 比如 <code>go get foo@3702bed2</code> 。关于依赖的版本支持以下几种格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gopkg.in&#x2F;tomb.v1 v1.0.1-20141024135613-dd632973f1e7</span><br><span class="line">gopkg.in&#x2F;vmihailenco&#x2F;msgpack.v2 v2.9.1</span><br><span class="line">gopkg.in&#x2F;yaml.v2 &lt;&#x3D; v2.2.1</span><br><span class="line">github.com&#x2F;tatsushid&#x2F;go-fastping v0.0.0-20160109021039-d7bb493dee3e</span><br><span class="line">latest</span><br></pre></td></tr></table></figure>
+<h4 id="replace"><a class="markdownIt-Anchor" href="#replace"></a> replace</h4>
+<p>在国内访问 <a target="_blank" rel="noopener" href="http://golang.org/xxx">golang.org/xxx</a> 的包都要翻墙，可以在 <code>go.mod</code> 中使用 <code>replace</code> 语法将 <code>require</code> 的包替换成 github 或者 gitee 上相应的库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">replace (</span><br><span class="line">    golang.org&#x2F;x&#x2F;crypto v0.0.0-20180820150726-614d502a4dac &#x3D;&gt; github.com&#x2F;golang&#x2F;crypto v0.0.0-20180820150726-614d502a4dac</span><br><span class="line">    golang.org&#x2F;x&#x2F;net v0.0.0-20180821023952-922f4815f713 &#x3D;&gt; github.com&#x2F;golang&#x2F;net v0.0.0-20180826012351-8a410e7b638d</span><br><span class="line">    golang.org&#x2F;x&#x2F;text v0.3.0 &#x3D;&gt; github.com&#x2F;golang&#x2F;text v0.3.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="go-get"><a class="markdownIt-Anchor" href="#go-get"></a> go get</h4>
+<p><code>go get</code> 是下载依赖的命令，还可以指定版本。如果是下载所有依赖，可以用 <code>go mod download</code> 。</p>
+<h4 id="整理依赖"><a class="markdownIt-Anchor" href="#整理依赖"></a> 整理依赖</h4>
+<p>在代码中删除了依赖项之后，在 <code>go.mod</code> 文件中并不会删除，我们需要用 <code>go mod tidy</code> 命令更新 <code>go.mod</code> 中的依赖关系；</p>
+<h4 id="go-mod-edit"><a class="markdownIt-Anchor" href="#go-mod-edit"></a> go mod edit</h4>
+<p><code>go mod edit -fmt</code> 帮助我们格式化 <code>go.mod</code> 文件，使文件不会因为手动修改而太乱。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1589,188 +1713,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode invoke \</span><br><span class="line">    -o <span class="variable">$&#123;ORDERER_ADDRESS&#125;</span> \</span><br><span class="line">    --ordererTLSHostnameOverride orderer.example.com \</span><br><span class="line">    --tls <span class="variable">$CORE_PEER_TLS_ENABLED</span> \</span><br><span class="line">    --cafile <span class="variable">$ORDERER_CA</span> \</span><br><span class="line">    -C <span class="variable">$CHANNEL_NAME</span> \</span><br><span class="line">    -n <span class="variable">$&#123;CC_NAME&#125;</span>  \</span><br><span class="line">    --isInit -c <span class="string">&#x27;&#123;&quot;Function&quot;:&quot;Init&quot;,&quot;Args&quot;:[]&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 <h5 id="调用函数"><a class="markdownIt-Anchor" href="#调用函数"></a> 调用函数</h5>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -C <span class="variable">$CHANNEL_NAME</span> -n <span class="variable">$CC_NAME</span> -c <span class="string">&#x27;&#123;&quot;Function&quot;:&quot;Hi&quot;, &quot;Args&quot;:[]&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/python-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/python-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">python 面向对象入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-02T00:00:00+08:00">2021-04-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index"><span itemprop="name">面向对象</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="python-面向对象入门"><a class="markdownIt-Anchor" href="#python-面向对象入门"></a> python 面向对象入门</h2>
-<ul>
-<li>
-<p><a href="#python-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%A5%E9%97%A8">python 面向对象入门</a></p>
-<ul>
-<li>
-<p><a href="#%E7%B1%BB">类</a></p>
-</li>
-<li>
-<p><a href="#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95">私有方法</a></p>
-<ul>
-<li><a href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD">运算符重载</a></li>
-<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%AD%E4%BB%A3%E5%99%A8">自定义迭代器</a></li>
-<li><a href="#%E7%94%9F%E6%88%90%E5%99%A8">生成器</a>
-<ul>
-<li><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F">生成器表达式</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a href="#%E7%B1%BB">类</a></p>
-</li>
-<li>
-<p><a href="#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95">私有方法</a> - <a href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD">运算符重载</a> - <a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%AD%E4%BB%A3%E5%99%A8">自定义迭代器</a> - <a href="#%E7%94%9F%E6%88%90%E5%99%A8">生成器</a> - <a href="#%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F">生成器表达式</a><br />
-面向对象的要素：</p>
-</li>
-</ul>
-</li>
-<li>
-<p>类</p>
-</li>
-<li>
-<p>属性</p>
-</li>
-<li>
-<p>方法</p>
-</li>
-<li>
-<p>继承</p>
-</li>
-<li>
-<p>封装</p>
-</li>
-<li>
-<p>多态</p>
-</li>
-</ul>
-<h3 id="类"><a class="markdownIt-Anchor" href="#类"></a> 类</h3>
-<p>python 类对象支持两种操作：属性引用、实例化</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;A Car Class&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 类变量，在所有实例中共享</span></span><br><span class="line">    <span class="comment"># 类似于 Java 中的 static 变量</span></span><br><span class="line">    CarCount = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 私有变量，不能直接访问，也不能继承</span></span><br><span class="line">    __price = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, carNo, driver</span>):</span></span><br><span class="line">        <span class="comment"># 实例变量，为单个实例拥有</span></span><br><span class="line">        self.carNo = carNo</span><br><span class="line">        self.driver = driver</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 成员方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_price</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.__price)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_driver</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.driver)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 属性引用</span></span><br><span class="line">Car.CarCount</span><br><span class="line"><span class="comment"># 内置方法，返回 &quot;A Car Class&quot;</span></span><br><span class="line">Car.__doc__</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化</span></span><br><span class="line">car = Car(<span class="string">&quot;粤A2333&quot;</span>, <span class="string">&quot;老司机&quot;</span>)</span><br><span class="line">car.carNo <span class="comment"># 访问实例对象</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, age</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_driver</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.name, <span class="string">&#x27;是司机&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 私有方法，只能在类内访问</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get_IDcard</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;这是一个私有方法&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BMW</span>(<span class="params">Car</span>):</span></span><br><span class="line">    model = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, carNo, driver, model</span>):</span></span><br><span class="line">        <span class="comment"># 调用父类的构造函数</span></span><br><span class="line">        Car.__init__(self, carNo, driver):</span><br><span class="line">        self.model = model</span><br><span class="line">    <span class="comment"># 覆盖父类的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_driver</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.driver)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多继承</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">License</span>(<span class="params">Car, Driver</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, carNo, driver, name, age</span>):</span></span><br><span class="line">        Car.__init__(self, carNo, driver)</span><br><span class="line">        People.__init__(self, name, age)</span><br><span class="line"></span><br><span class="line">a = License(<span class="string">&#x27;粤A7846&#x27;</span>, <span class="string">&#x27;小明&#x27;</span>, <span class="string">&#x27;小明&#x27;</span>, <span class="number">22</span>)</span><br><span class="line">a.get_driver()</span><br><span class="line"><span class="comment"># 在遇到多继承的父类中都有同样方法的情况下，</span></span><br><span class="line"><span class="comment"># 默认执行在括号中，排前面的类的那个方法</span></span><br><span class="line"><span class="comment"># 所以输出:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 小明</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<h3 id="私有方法"><a class="markdownIt-Anchor" href="#私有方法"></a> 私有方法</h3>
-<p>除了可以自己定义私有方法外，这些方法都是类内可以使用的私有方法：</p>
-<p><strong>init</strong> : 构造函数，在生成对象时调用<br />
-<strong>del</strong> : 析构函数，释放对象时使用<br />
-<strong>repr</strong> : 打印，转换<br />
-<strong>setitem</strong> : 按照索引赋值<br />
-<strong>getitem</strong>: 按照索引获取值<br />
-<strong>next</strong>: 逐一访问容器内的下一个对象，直到触发 <code>StopIteration</code> 异常<br />
-<strong>iter</strong>: for 语句会执行这个方法，返回一个定义了 <code>__next__()</code> 方法的容器对象<br />
-<strong>len</strong>: 获得长度<br />
-<strong>cmp</strong>: 比较运算<br />
-<strong>call</strong>: 函数调用<br />
-<strong>add</strong>: 加运算<br />
-<strong>sub</strong>: 减运算<br />
-<strong>mul</strong>: 乘运算<br />
-<strong>truediv</strong>: 除运算<br />
-<strong>mod</strong>: 求余运算<br />
-<strong>pow</strong>: 乘方</p>
-<p>类型转换相关的方法：<br />
-<strong>int</strong><br />
-<strong>str</strong><br />
-<strong>bytes</strong><br />
-…</p>
-<p>此外还有很多预定义的函数，很多 python 的一些操作都可以通过重写预定义函数来定制化，比如下面的运算符重载。</p>
-<h4 id="运算符重载"><a class="markdownIt-Anchor" href="#运算符重载"></a> 运算符重载</h4>
-<p>通过对以上类内使用的私有方法的重新定义来达到运算符重载的效果，比如重载 <code>+</code> ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span>:</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    y = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x, y</span>):</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Vector (%d, %d)&#x27;</span> % (self.x, self.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span>(<span class="params">self, other</span>):</span></span><br><span class="line">        <span class="keyword">return</span> Vector(self.x + other.x, self.y + other.y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    v1 = Vector(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    v2 = Vector(<span class="number">10</span>, -<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    print(v1 + v2)</span><br></pre></td></tr></table></figure>
-<p>输出:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(10, -10)</span><br></pre></td></tr></table></figure>
-<h4 id="自定义迭代器"><a class="markdownIt-Anchor" href="#自定义迭代器"></a> 自定义迭代器</h4>
-<p><code>for</code> 语句会调用类的 <code>iter()</code> 方法，返回一个定义了 <code>next()</code> 函数的容器对象，然后不停调用 <code>next()</code> 方法，访问容器内的对象。直到 <code>__next__()</code> 方法触发 <code>StopIteration</code> 异常来通知 <code>for</code> 终止循环。下面定义了一个迭代器类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Reverse</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, data</span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.index = <span class="built_in">len</span>(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        self.index = self.index - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.data[self.index]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    r = Reverse([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> r:</span><br><span class="line">        print(i)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
-<h4 id="生成器"><a class="markdownIt-Anchor" href="#生成器"></a> 生成器</h4>
-<p>上面实现的迭代器是通过自定义 <code>__iter__()</code> 和 <code>__next__()</code> 方法实现的，实际上要完成同样的功能，生成器也可以实现，而且生成器的语法会更加紧凑。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">yield</span> data[index]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> reverse(<span class="string">&#x27;golf&#x27;</span>):</span><br><span class="line">        print(char)</span><br><span class="line"><span class="comment"># f</span></span><br><span class="line"><span class="comment"># l</span></span><br><span class="line"><span class="comment"># o</span></span><br><span class="line"><span class="comment"># g</span></span><br></pre></td></tr></table></figure>
-<p>通过 <code>next()</code> 函数调用生成器，就会在执行到 <code>yield</code> 的时候离开函数，每执行一次 <code>next()</code> 还会从上次离开的地方继续执行。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    r = reverse([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">    print(<span class="built_in">next</span>(r))</span><br><span class="line">    print(<span class="built_in">next</span>(r))</span><br><span class="line">    print(<span class="built_in">next</span>(r))</span><br><span class="line">    print(<span class="built_in">next</span>(r))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
-<h5 id="生成器表达式"><a class="markdownIt-Anchor" href="#生成器表达式"></a> 生成器表达式</h5>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    print([i <span class="keyword">for</span> i <span class="keyword">in</span> reverse(<span class="string">&#x27;abcd&#x27;</span>)])</span><br></pre></td></tr></table></figure>
 
       
     </div>

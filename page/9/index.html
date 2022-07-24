@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,184 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-title-link" itemprop="url">第6章-应用层</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="第-6-章-应用层"><a class="markdownIt-Anchor" href="#第-6-章-应用层"></a> 第 6 章-应用层</h2>
+<h3 id="应用层主要协议"><a class="markdownIt-Anchor" href="#应用层主要协议"></a> 应用层主要协议</h3>
+<h4 id="http"><a class="markdownIt-Anchor" href="#http"></a> HTTP</h4>
+<p>HTTP 即超文本传输协议的缩写，是计算机网络应用层中用于计算机之间传输文字、图片、音频、视频等多媒体信息的约定和规范。</p>
+<blockquote>
+<p>可以工作在客户机和服务器之间，也可以工作在服务器和服务器之间。</p>
+</blockquote>
+<h5 id="五大类状态码"><a class="markdownIt-Anchor" href="#五大类状态码"></a> 五大类状态码</h5>
+<ul>
+<li>1xx，<strong>提示信息</strong>，表示目前处于协议处理的中间状态，还需要后续操作；</li>
+<li>2xx，<strong>成功</strong>，报文到达并正确处理；（200、204、206）
+<ul>
+<li><code>[200 OK]</code> ：如果是非 <code>HEAD</code> 请求一般都会有 <code>body</code> 数据；</li>
+<li><code>[204 No Content]</code> ：没有 <code>body</code> 的成功请求；</li>
+<li><code>[206 Partial Content]</code> ：主要应用于 HTTP 分块或者断点续传，表示返回的数据只是一部分，并不全；</li>
+</ul>
+</li>
+<li>3xx，<strong>重定向</strong>，资源位置有变动，需要客户机重新发送请求；（301、302、304）
+<ul>
+<li><code>[301 Moved Permanently]</code> ：永久重定向，资源已不存在，需要客户端使用新的 url 请求；</li>
+<li><code>[302 Found]</code> ：临时重定向，表示资源还在，但临时需要用别的 url 请求；
+<blockquote>
+<p><code>301</code> 和 <code>302</code> 都会在 <code>Location</code> 字段指明重定向的新 url 浏览器会自动跳转；</p>
+</blockquote>
+</li>
+<li><code>[304 Not Modified]</code> ：不具有跳转的含义，表示资源未修改，重定向已存在的缓冲文件，也称缓存重定向，用于缓存控制；</li>
+</ul>
+</li>
+<li>4xx，<strong>客户端错误</strong>，请求有误，服务器无法处理；（400、403、404）
+<ul>
+<li><code>[400 Bad Request]</code> ：请求报文有误；（不知道哪里有误，反正有误）</li>
+<li><code>[403 Forbidden]</code> ：服务器禁止访问该资源；</li>
+<li><code>[404 Not Found]</code> ：请求资源在服务器未找到；</li>
+</ul>
+</li>
+<li>5xx，<strong>服务端错误</strong>，服务器在处理请求时发生内部错误；（500、501、502、503）
+<ul>
+<li><code>[500 Internal Server Error]</code> ：表示服务器发生错误；（不知道哪里错了，反正是错了）</li>
+<li><code>[501 Not Implemented]</code> ：表示所请求的功能尚未实现；（尽请期待）</li>
+<li><code>[502 Bad Gateway]</code> ：服务器作为网关或代理时返回的错误码，表示服务器自身工作正常，访问后端服务器发生了错误；（后端访问后端的后端时发生错误）</li>
+<li><code>[503 Service Unavailable]</code> ：服务器忙，稍后再试；</li>
+</ul>
+</li>
+</ul>
+<h5 id="报文字段"><a class="markdownIt-Anchor" href="#报文字段"></a> 报文字段</h5>
+<ul>
+<li>[起始行]
+<ul>
+<li><code>[GET|POST|PUT|DELETE|OPTIONS|TRACE|CONNECT|HEAD] [URL] [HTTP_VERSION]</code><br />
+一般最常用的是 <code>GET</code> 和 <code>POST</code> 方法，其他了解即可。</li>
+</ul>
+</li>
+<li>[请求头]
+<ul>
+<li><code>Host</code> ：指定访问域名；</li>
+<li><code>Connection</code> ：</li>
+<li><code>User-agent</code> ：</li>
+<li><code>Accept-language</code> ：</li>
+<li><code>Content-Length</code> ：回应的报文长度；</li>
+</ul>
+</li>
+</ul>
+<p>未完待续。。。</p>
+<h4 id="https"><a class="markdownIt-Anchor" href="#https"></a> HTTPS</h4>
+<p>由于 HTTP 协议一般是明文传输，所以很容易被攻击者窃取信息或者篡改信息。所以 HTTPS 应运而生， HTTPS = HTTP + SSL/TLS ，即在 HTTP 的基础上添加了身份认证和传输加密的 SSL/TLS 层，保证了传输过程的安全性。</p>
+<p>HTTPS 协议相比 HTTP 只有协议名和端口号的差别， HTTPS 的默认端口号是 443 。而其安全性的保证其实是有 TLS/SSL 提供的。</p>
+<h5 id="tlsssl"><a class="markdownIt-Anchor" href="#tlsssl"></a> TLS/SSL</h5>
+<p>TLS(Transport Layer Security) 是 SSL(Secure Socket Layer) 的后续版本，是用于计算机之间身份认证和加密的一种协议。这个协议是一个独立的协议，除了 HTTPS 还有其他协议可以使用这个协议，比如 <code>SMTP</code> 电子邮件协议、 <code>Telnet</code> 远程登陆协议。直到现在 <code>TLS</code> 发布了 1.1 、 1.2 、 1.3 三个版本。</p>
+<p><code>TLS</code> 由</p>
+<ul>
+<li>记录协议</li>
+<li>握手协议</li>
+<li>警告协议</li>
+<li>变更密码规范协议</li>
+<li>扩展协议</li>
+</ul>
+<p>等几个子协议组成，综合使用了对称加密、非对称加密、身份认证等密码学技术。</p>
+<p>为了满足身份认证的要求， <code>TLS</code> 使用非对称加密技术，私钥拥有方可以用自己的私钥对数据进行加密，公钥发布出去，公钥的拥有者可以用公钥去解密数据，将解密的结果和随消息发来的 <code>hashcode</code> 一起验证消息确实是私钥拥有者发出的。</p>
+<p>虽然私钥是私有的，但公钥是谁都可以发布的，所以引入了 <code>CA</code> 即 Certificate Authority ，证书认证机构，为发布的公钥提供认证，解决公钥的信任问题。</p>
+<p>证书申请人在自己的电脑生成一对密钥对，并将公钥和自己的私人信息打包成 <code>CSR</code> 文件，把这份文件交给 <code>CA</code> 机构，用 <code>CA</code> 机构的私钥进行签名，把签名后的证书发回给申请人，于是申请人就可以拿着这个证书去发布自己的公钥了。这样便保证了公钥发布的安全性。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -901,108 +1079,6 @@ transform: translateX(-50%);
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/java-%E7%9A%84%E6%A0%88-deque%E5%92%8Cstack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/java-%E7%9A%84%E6%A0%88-deque%E5%92%8Cstack/" class="post-title-link" itemprop="url">Java 的栈 Deque和Stack</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="java-的栈-deque-和-stack"><a class="markdownIt-Anchor" href="#java-的栈-deque-和-stack"></a> Java 的栈 Deque 和 Stack</h2>
-<p>Java 拥有双端队列 <code>Deque</code> 接口，<strong>没有属于栈的 <code>Stack</code> 接口</strong>，只有一个遗留的 <code>Stack</code> 类。</p>
-<p>双端队列 <code>Deque</code> 可以从两端插入和取出，既可以模拟栈也可以模拟队列。</p>
-<p>当用作栈时，有 <code>pop()/peek()/push()/</code> 等 <code>Stack</code> 风格的方法，而用作队列时又有。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%9A%84%E6%98%A0%E5%B0%84-hashmap-%E5%92%8C-treemap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1087,6 +1163,108 @@ transform: translateX(-50%);
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">&quot;key1&quot;</span>, <span class="string">&quot;value1&quot;</span>);</span><br><span class="line">map.put(<span class="string">&quot;key2&quot;</span>, <span class="string">&quot;value2&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>第二种方式使用了匿名内部类，</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;() &#123;</span><br><span class="line">    &#123;</span><br><span class="line">        put.(<span class="string">&quot;key1&quot;</span>, <span class="string">&quot;value2&quot;</span>);</span><br><span class="line">        put.(<span class="string">&quot;key2&quot;</span>, <span class="string">&quot;value2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E7%9A%84%E6%A0%88-deque%E5%92%8Cstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E7%9A%84%E6%A0%88-deque%E5%92%8Cstack/" class="post-title-link" itemprop="url">Java 的栈 Deque和Stack</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-24 23:41:39" itemprop="dateModified" datetime="2022-07-24T23:41:39+08:00">2022-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">+ 程序设计语言 + Java + Java数据结构</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="java-的栈-deque-和-stack"><a class="markdownIt-Anchor" href="#java-的栈-deque-和-stack"></a> Java 的栈 Deque 和 Stack</h2>
+<p>Java 拥有双端队列 <code>Deque</code> 接口，<strong>没有属于栈的 <code>Stack</code> 接口</strong>，只有一个遗留的 <code>Stack</code> 类。</p>
+<p>双端队列 <code>Deque</code> 可以从两端插入和取出，既可以模拟栈也可以模拟队列。</p>
+<p>当用作栈时，有 <code>pop()/peek()/push()/</code> 等 <code>Stack</code> 风格的方法，而用作队列时又有。</p>
 
       
     </div>
@@ -1219,142 +1397,6 @@ transform: translateX(-50%);
 <li><code>Arrays.copyOf()</code>，不是 native 方法，且依赖于 <code>System.arraycopy()</code> ，所以要更慢；</li>
 <li><code>for()</code>，是深拷贝了，比浅拷贝要慢得多；</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java/java-%E9%9B%86%E5%90%88%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java/java-%E9%9B%86%E5%90%88%E7%B1%BB/" class="post-title-link" itemprop="url">Java 集合类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-18 04:39:44" itemprop="dateModified" datetime="2022-07-18T04:39:44+08:00">2022-07-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java/" itemprop="url" rel="index"><span itemprop="name">+ 程序设计语言 + Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="java-集合框架"><a class="markdownIt-Anchor" href="#java-集合框架"></a> Java 集合框架</h2>
-<h3 id="实现思想"><a class="markdownIt-Anchor" href="#实现思想"></a> 实现思想</h3>
-<p>Java 集合框架的实现思想为为常见的接口和实现分离思想。</p>
-<p>使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> LinkedList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">expressLane.add(<span class="keyword">new</span> Customer(<span class="string">&quot;Harry&quot;</span>));</span><br></pre></td></tr></table></figure>
-<p>上述例子声明了两个 <code>List</code> ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；<br />
-这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；</p>
-<p>此外，Java API 库中还定义了一些 <code>Abstract</code> 前缀修饰的类，比如 <code>AbstractCollection</code> 里面对 <code>Collection</code> 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 <code>Abstract</code> 前缀修饰的集合类更方便。</p>
-<h3 id="基础接口"><a class="markdownIt-Anchor" href="#基础接口"></a> 基础接口</h3>
-<p>Java 有两大类集合： <code>Map</code> 和 <code>Collection</code></p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png" alt="picture 1" /></p>
-<h3 id="collection"><a class="markdownIt-Anchor" href="#collection"></a> Collection</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E element)</span></span>; <span class="comment">// 添加元素</span></span><br><span class="line">    <span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>; <span class="comment">// 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> Iterator</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>; <span class="comment">// 如果到达了集合的末尾，会抛出异常 NoSuchElementException  </span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用 <code>Collectors.toMap()</code> 时，要注意两个问题：</p>
-<ol>
-<li>当 key 相同时会抛出 <code>IllegalStateException</code> ；</li>
-<li>当 value 为 null 时，会抛出 <code>NullPointerException</code> ；</li>
-</ol>
-<h4 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h4>
-<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
-<h4 id="weakhashmap"><a class="markdownIt-Anchor" href="#weakhashmap"></a> WeakHashMap</h4>
-<p>适用于需要缓存的场景, 对 entry 进行弱引用管理 GC 时会自动释放弱引用的 entry 项<br />
-相对 HashMap 只增加弱引用管理, 并不保证线程安全</p>
-<h4 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> HashTable</h4>
-<p>读写方法都加了 <code>synchronized</code> 关键字 key 和 value 都不允许出现 null 值<br />
-与 HashMap 不同的是 HashTable 直接使用对象的 hashCode , 不会重新计算 has 值 <code>ConcurrentHashMap</code></p>
-<p>利用 CAS + Synchronized 来确保线程安全. 底层数据结构依然是数组+链表+红黑树, 对哈希项进行分段上锁, 效率上较之 HashTable 要高；<br />
-key 和 uvaiue 都不允许出现 null</p>
-<blockquote>
-<p>CAS(compare and swap) 并交换<br />
-在 Java 语言还未出现的时候，并发得到大量应用了，硬件厂商也给出了很多并发操作原语，从硬件层面提高并发效率。CAS 指令就是其中之一；<br />
-Java 语言初期还无法利用硬件提供的指令提高并发效率，后来随着语言的发展，诞生了 Java 本地方法(JNI) 让 JVM 便利地调用本地方法。<br />
-CAS 操作包含三个操作数：</p>
-<ol>
-<li>内存位置（V)；</li>
-<li>预期原值（A）；</li>
-<li>新值（B）；<br />
-如果内存位置的值 V 和预期原值 A 匹配，那边处理器会自动更新 V 为新值 B ，否则处理器不做任何处理；一般情况下，它都会在 CAS 指令之前返回该位置的值。<br />
-用自然语言描述这个过程就是：如果内存存的是值我预期的 A ，那么就把新值 B 放进去，否则更改失败，返回内存现在的值；<br />
-在多线程的时候无需害怕其他线程同时修改变量，如果被修改了，CAS 指令会执行失败；<br />
-存在的问题：</li>
-</ol>
-<ul>
-<li>ABA 问题：内存中的值在预期值 A 和新值 B 之间反复横跳，对于执行 CAS 操作的线程来说，在计算新值 B 的过程中，实际上值已经发生了变化了。解决思路是加入一个版本号，在变量前加入变量的版本号，每次对变量的操作都进行累加。执行 CAS 指令时加上版本号校验；</li>
-<li>循环时间长开销大：<br />
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/ls5718/article/details/52563959">https://blog.csdn.net/ls5718/article/details/52563959</a></li>
-</ul>
-</blockquote>
-<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h3>
-<h4 id="hashset"><a class="markdownIt-Anchor" href="#hashset"></a> HashSet</h4>
 
       
     </div>

@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/eaae6c32c4ed28431bf80beb0b0148009cf36631c4a371d50cd7306e7ebf25fe.png">
 <meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/b9f17c723c33a38135168812ddb4cbf1cc40e32542595c6b22d16a2419fd07ee.png">
 <meta property="article:published_time" content="2022-06-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-03T19:17:53.294Z">
+<meta property="article:modified_time" content="2022-07-23T14:27:37.937Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/eaae6c32c4ed28431bf80beb0b0148009cf36631c4a371d50cd7306e7ebf25fe.png">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text"> 内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">1.1.</span> <span class="nav-text"> 内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8program-counter-register"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88vm-stack"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 虚拟机栈（VM Stack）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"> 局部变量表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-%E5%A0%86"><span class="nav-number">1.1.4.</span> <span class="nav-text"> Java 堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.1.5.1.</span> <span class="nav-text"> 运行时常量池</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.1.6.</span> <span class="nav-text"> 直接内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text"> 对象的创建</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text"> 内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">1.1.</span> <span class="nav-text"> 内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8program-counter-register"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88vm-stack"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 虚拟机栈（VM Stack）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"> 局部变量表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-%E5%A0%86"><span class="nav-number">1.1.4.</span> <span class="nav-text"> Java 堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.1.5.1.</span> <span class="nav-text"> 运行时常量池</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.1.6.</span> <span class="nav-text"> 直接内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text"> 对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">1.3.</span> <span class="nav-text"> 对象的内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 对象头</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -133,7 +133,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-04 03:17:53" itemprop="dateModified" datetime="2022-07-04T03:17:53+08:00">2022-07-04</time>
+      <time title="Modified: 2022-07-23 22:27:37" itemprop="dateModified" datetime="2022-07-23T22:27:37+08:00">2022-07-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,7 +282,7 @@
 <h4 id="方法区"><a class="markdownIt-Anchor" href="#方法区"></a> 方法区</h4>
 <p>方法区(Method Area) 和 Java 堆一样是线程共享的内存区域，用于存储已经被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。在 JDK 6 的 HotSpot 虚拟机还有永久代的概念，当时的 HotSpot 将分代设计扩展到方法区，省去了专门为方法区编写内存管理的工作，但当时其他的 JVM 实现如 BEA JRockit 、 IBM J9 并没有永久代的概念，他们在本地内存(Native Memory)中实现了元空间(Meta-space)来存储这些元信息。这种不一致导致 HotSpot 在吸收其他 JVM 的优点时产生了麻烦，在后续的版本中 HotSpot 渐渐放弃了永久代的概念了。在 JDK 8 中， JVM 彻底采用了 Native Memory 的方式。</p>
 <h5 id="运行时常量池"><a class="markdownIt-Anchor" href="#运行时常量池"></a> 运行时常量池</h5>
-<p>运行时常量池（COnstant Pool Table）是方法区的一部分，用于存放编译期生成的各种字面量（常量）和符号引用，这些内容将在类加载后存放到运行时常量中。<br />
+<p>运行时常量池（COnstant Pool Table）是方法区的一部分，用于存放编译期生成的各种 <strong>字面量</strong> （常量）和 <strong>符号引用</strong> ，这些内容将在类加载后存放到运行时常量中。<br />
 不同于其他区域，这个区域 JVM 规范并没有提出任何细节上的要求。 Java 虚拟机对于 Class 文件的每个部分都有严格的要求，比如每个字节用于存放那种数据都必须符合 JVM 规范才能被加载和执行。<br />
 一般说来，除了保存 Class 文件的符号引用外，常量池还会存放从符号引用翻译过来的直接引用。<br />
 运行时常量池相对于 Class 文件常量池，还有 <strong>动态性</strong> ，并不是预先放入 Class 文件中的常量才会被放入运行时常量池中，运行期间也可以将新的常量放入池中，比如 <code>String.intern()</code> 方法。</p>
@@ -290,6 +290,7 @@
 <p>直接内存（Direct Memory）不是 JVM 运行时的数据区域之一，也没有被 JVM 规范定义。但是在编码中会频繁使用，比如 JDK1.4 后加入的 NIO 类，这种基于通道（channel）和缓冲区（buffer）的 IO 类，可以使用 Native 方法直接分配堆外内存，然后通过一个存储在 Java 堆里的 DirectByteBuffer 对象作为这块内存的引用进行操作。这样避免了在 Java 堆和 Native 堆间来回复制数据。<br />
 直接内存属于物理机本地的内存区域，通过 <code>-Xmx</code> 参数配置只能设置 Java 堆内存，因此在做虚拟机参数配置时，需要考虑到直接内存，如果直接将堆内存设置和物理机内存一致，就会突破物理机内存限制。</p>
 <h3 id="对象的创建"><a class="markdownIt-Anchor" href="#对象的创建"></a> 对象的创建</h3>
+<p>这里的对象指的是普通的 Java 对象，不包括数组和 Class 对象。当 JVM 遇到一个对象的 new 指令时，首先会去检查该指令的参数是否能在常量池中定位到一个类的符号引用，并检查该类是否被加载、解析和初始化过。如果没有，则首先要执行类加载过程。</p>
 <p>类加载检查通过之后， JVM 将为对象 <strong>分配内存</strong> 。分配内存有两种方式：</p>
 <ol>
 <li>指针碰撞（Bump The Pointer），当 Java 堆是规整的时，就像进度条一样，一边是空闲的空间，一边是被占用的空间，为对象分配内存时，就是将分界指针向空闲一边移动；</li>
@@ -318,9 +319,22 @@
 </blockquote>
 <p>内存分配完成后， JVM 将分配的空间都 <strong>初始化为零值</strong> ，如果使用 TLAB 的话，这项工作可以提前至 TLAB 分配时进行。这是为了保证对象的实例字段可以不用赋初始值就可以直接使用。</p>
 <p>然后， JVM 开始 <strong>设置对象头</strong> ，对象头包含了对象的一些元数据信息。</p>
-<p>经历上面的步骤， 从 JVM 的视角看来，一个对象已经创建完成了，然而这时还没进入 Java 程序的构造函数，即 Class 文件中的 <code>&lt;init&gt;()</code> 方法。 JVM 编译器在程序中遇到 <code>new</code> 关键字的地方同时生成 <code>new</code> 指令和 <code>invokespecial</code> 指令，<code>new</code> 指令后会接着执行 <code>&lt;init&gt;()</code> 方法。这时一个对象才真正被构造出来。</p>
+<p>经历上面的步骤， 从 JVM 的视角看来，一个对象已经创建完成了，然而这时尚未进入 Java 程序的构造函数，即 Class 文件中的 <code>&lt;init&gt;()</code> 方法。 JVM 编译器在程序中遇到 <code>new</code> 关键字的地方同时生成 <code>new</code> 指令和 <code>invokespecial</code> 指令，<code>new</code> 指令后会接着执行 <code>&lt;init&gt;()</code> 方法。这时一个对象才真正被构造出来。</p>
 <p>下面的代码片段来自于 Hotspot 的字节码解释器，可以用来描述前面所说的对象创建过程：</p>
 <p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/b9f17c723c33a38135168812ddb4cbf1cc40e32542595c6b22d16a2419fd07ee.png" alt="picture 2" /></p>
+<h3 id="对象的内存布局"><a class="markdownIt-Anchor" href="#对象的内存布局"></a> 对象的内存布局</h3>
+<p>对象在堆内存的存储分布如下：</p>
+<ol>
+<li>对象头（Header）</li>
+<li>实例数据（Instance Data）</li>
+<li>对齐填充（Padding）</li>
+</ol>
+<h4 id="对象头"><a class="markdownIt-Anchor" href="#对象头"></a> 对象头</h4>
+<p>对象头部分包含两类信息：</p>
+<ol>
+<li>对象的运行时数据（Mark Word），哈希码、 GC 分代年龄、锁状态标志、线程持有的锁、偏向线程 ID 、偏向时间戳等；</li>
+<li>类型指针，指向对象的类型元数据， JVM 通过该指针确定对象的类型。（该信息不是所有虚拟机实现都有，因为查找对象的元数据信息不一定要经过对象本身）</li>
+</ol>
 
     </div>
 

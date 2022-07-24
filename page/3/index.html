@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/stash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/stash/" class="post-title-link" itemprop="url">stash</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="stash"><a class="markdownIt-Anchor" href="#stash"></a> stash</h2>
+<p>将更改存储在脏工作目录（脏应该是不同步的意思，类似于 dirty data ）中。</p>
+<p>使用场景示例：</p>
+<p>修改了本地的代码，但还没 commit ，又需要去别的分支做一些操作。可以先把当前的更改 stash 起来，做完工作后 checkout 回来，然后把 stash 的内容从脏工作目录中读出来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash save <span class="string">&quot;Save Message&quot;</span> <span class="comment"># 保存时添加备注信息，方便读出</span></span><br><span class="line">git checkout someBranch</span><br><span class="line"><span class="comment"># do something</span></span><br><span class="line">git checkout stashTest</span><br><span class="line">git stash list <span class="comment"># 查看 stash 栈的列表</span></span><br><span class="line">git stash pop <span class="comment"># 从 stash 栈中 pop 出上次的修改</span></span><br><span class="line">git stash apply <span class="comment"># 应用 stash 栈的存储，但不删除</span></span><br><span class="line">git stash drop <span class="comment"># drop 掉第一个 stash 存储</span></span><br><span class="line">gti stash clear <span class="comment"># 删除所有 stash</span></span><br></pre></td></tr></table></figure>
+<p>当合并分支时，出现 <code>Your files ... will be overwritten by merge ...</code> 之类的错误，都可以使用 <code>stash</code> 对未提交文件进行临时保存，再进行同步的操作。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1253,105 +1347,6 @@
 Model - 模型层，指 JavaScript 脚本中的对象<br />
 ViewModel - 视图模型层</p>
 <p>Vue.js 通过创建 ViewModel 对象，一面监听视图层的数据变化，一面将模型层的对象更新到视图层，实现数据的双向绑定。开发者操作 DOM ，只需要关注业务逻辑即可，无需关心视图层的数据关联问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%A2%98%E7%BB%8F%E9%9D%A2%E7%BB%8F/%E8%80%83%E8%AF%95%E7%9A%84%E4%B8%89%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%A2%98%E7%BB%8F%E9%9D%A2%E7%BB%8F/%E8%80%83%E8%AF%95%E7%9A%84%E4%B8%89%E9%A2%98/" class="post-title-link" itemprop="url">考试的三题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-18T00:00:00+08:00">2021-08-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%A2%98%E7%BB%8F%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">题经面经</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="考试的三题"><a class="markdownIt-Anchor" href="#考试的三题"></a> 考试的三题</h2>
-<h3 id="子串相乘最大值"><a class="markdownIt-Anchor" href="#子串相乘最大值"></a> 子串相乘最大值</h3>
-<p>输入一个字符串（无前导零）将其分割为两个子串，计算子串相乘的最大值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in, StandardCharsets.UTF_8.name());</span><br><span class="line">        String numberStr = sc.next();</span><br><span class="line">        sc.close();</span><br><span class="line">        System.out.println(getMultiValue(numberStr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMultiValue</span><span class="params">(String numberStr)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; resList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left;</span><br><span class="line">        <span class="keyword">int</span> right;</span><br><span class="line">        <span class="keyword">int</span> len = numberStr.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numberStr.length(); i++) &#123;</span><br><span class="line">            left = Integer.parseInt(numberStr.substring(<span class="number">0</span>, i));</span><br><span class="line">            right = Integer.parseInt(numberStr.substring(i, len));</span><br><span class="line">            resList.add(left * right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resList.stream().max(Integer::compareTo).orElse(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="寻找最大比特子串"><a class="markdownIt-Anchor" href="#寻找最大比特子串"></a> 寻找最大比特子串</h3>
-<p>输入一个比特流（01 串）和一个目标比特，有一次反转非目标比特的机会，宣召最长的比特子串。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner cin = <span class="keyword">new</span> Scanner(System.in, StandardCharsets.UTF_8.name());</span><br><span class="line">        <span class="keyword">int</span> target = cin.nextInt();</span><br><span class="line">        <span class="keyword">int</span> length = cin.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] bits = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            bits[i] = cin.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        cin.close();</span><br><span class="line"></span><br><span class="line">        System.out.println(findMaxConsecutiveBits(target, bits));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findMaxConsecutiveBits</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span>[] bits)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 只有全为 target 值的才不用替换</span></span><br><span class="line">        <span class="keyword">boolean</span> isAllMatch = Arrays.stream(bits).allMatch((value) -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> value == target;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (isAllMatch) &#123;</span><br><span class="line">            <span class="keyword">return</span> bits.length;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 若不全为 target ，则遍历数组，数 target 子串的长度，将所有可能的长度存入数组中，再在数组中找最大值</span></span><br><span class="line">        <span class="comment">// 每一个非 target 的位都有一次机会变成 target ，机会用完了，又遇到非 target 就清空 counter 存入数组，</span></span><br><span class="line">        <span class="comment">// 回到上一次丢失 chance 的下一位继续数</span></span><br><span class="line">        <span class="keyword">int</span> chance = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> checkpoint = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        ArrayList&lt;Integer&gt; resList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bits.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (bits[i] == target) &#123;</span><br><span class="line">                counter++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (bits[i] != target) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chance == <span class="number">1</span>) &#123;</span><br><span class="line">                    chance = <span class="number">0</span>;</span><br><span class="line">                    checkpoint = i;</span><br><span class="line">                    counter++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    resList.add(counter);</span><br><span class="line">                    counter = <span class="number">0</span>;</span><br><span class="line">                    chance = <span class="number">1</span>;</span><br><span class="line">                    i = checkpoint;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        resList.add(counter);</span><br><span class="line">        <span class="keyword">return</span> resList.stream().max(Integer::compareTo).get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="停车记录筛选"><a class="markdownIt-Anchor" href="#停车记录筛选"></a> 停车记录筛选</h3>
-<p>输入记录有 <code>停车时间</code> <code>车牌号码</code> <code>停车小时数</code> ，输入记录有重复的，按照以下优先级筛选。</p>
-<ul>
-<li>停车时长长的优先</li>
-<li>停车次数（记录条数）多的优先</li>
-<li>按车牌号的字典顺序降序</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Record</span> </span>&#123;</span><br><span class="line">        String name;</span><br><span class="line">        String date;</span><br><span class="line">        <span class="keyword">int</span> time;</span><br><span class="line"></span><br><span class="line">        Record(String name, String date, <span class="keyword">int</span> time) &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.date = date;</span><br><span class="line">            <span class="keyword">this</span>.time = time;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">        String name;</span><br><span class="line">        <span class="keyword">int</span> times;</span><br><span class="line">        <span class="keyword">int</span> totalTime;</span><br><span class="line"></span><br><span class="line">        Car(String name, <span class="keyword">int</span> times, <span class="keyword">int</span> totalTime) &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.times = times;</span><br><span class="line">            <span class="keyword">this</span>.totalTime = totalTime;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getTopCars</span><span class="params">(<span class="keyword">int</span> month, List&lt;Record&gt; records)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 数字月份转换成字符串方便构建正则</span></span><br><span class="line">        String monthStr = (month &lt; <span class="number">10</span>) ? <span class="string">&quot;0&quot;</span> + month : <span class="string">&quot;&quot;</span> + month;</span><br><span class="line">        <span class="comment">// 排除非指定月份的记录</span></span><br><span class="line">        records.removeIf(record -&gt; !record.date.matches(<span class="string">&quot;.*-&quot;</span> + monthStr + <span class="string">&quot;-.*&quot;</span>));</span><br><span class="line">        <span class="comment">// 计算停留时长</span></span><br><span class="line">        Map&lt;String, Integer&gt; timeMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Record record : records) &#123;</span><br><span class="line">            timeMap.put(record.name, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Record record : records) &#123;</span><br><span class="line">            timeMap.replace(record.name, timeMap.get(record.name) + record.time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 计算停留次数</span></span><br><span class="line">        Map&lt;String, Integer&gt; timesMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Record record : records) &#123;</span><br><span class="line">            timesMap.put(record.name, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Record record : records) &#123;</span><br><span class="line">            timesMap.put(record.name, timesMap.get(record.name) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        ArrayList&lt;Car&gt; cars = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String name : timeMap.keySet()) &#123;</span><br><span class="line">            Car car = <span class="keyword">new</span> Car(name, timesMap.get(name), timeMap.get(name));</span><br><span class="line">            cars.add(car);</span><br><span class="line">        &#125;</span><br><span class="line">        cars.sort((o1, o2) -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (o1.totalTime &gt; o2.totalTime) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (o1.totalTime &lt; o2.totalTime) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (o1.times &gt; o2.times) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (o1.times &lt; o2.times) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            Integer num1 = Integer.parseInt(o1.name.substring(<span class="number">1</span>));</span><br><span class="line">            Integer num2 = Integer.parseInt(o2.name.substring(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> num1.compareTo(num2);</span><br><span class="line">        &#125;);</span><br><span class="line">        ArrayList&lt;String&gt; resList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Car car : cars) &#123;</span><br><span class="line">            resList.add(car.name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (resList.size() &gt; <span class="number">5</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> resList.subList(<span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Record&gt; records = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in, StandardCharsets.UTF_8.name());</span><br><span class="line">        <span class="keyword">int</span> month = scanner.nextInt();</span><br><span class="line">        <span class="keyword">int</span> num = scanner.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            Record record = <span class="keyword">new</span> Record(scanner.next(), scanner.next(), scanner.nextInt());</span><br><span class="line">            records.add(record);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(String.join(<span class="string">&quot; &quot;</span>, getTopCars(month, records)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

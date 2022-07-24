@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,171 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">古典加密算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-13T00:00:00+08:00">2020-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="古典加密算法"><a class="markdownIt-Anchor" href="#古典加密算法"></a> 古典加密算法</h2>
+<h2 id="两种基本技术"><a class="markdownIt-Anchor" href="#两种基本技术"></a> 两种基本技术</h2>
+<ul>
+<li>代替：将明文的字母替换成其他的数字、字母、符号；</li>
+<li>置换：将信息的顺序按照某种规则打乱；</li>
+</ul>
+<h3 id="代替技术"><a class="markdownIt-Anchor" href="#代替技术"></a> 代替技术</h3>
+<h4 id="凯撒密码"><a class="markdownIt-Anchor" href="#凯撒密码"></a> 凯撒密码</h4>
+<p>将明文的每个字母用它的后面第三个字母代替，没有第三个则循环到开头。<br />
+例如：</p>
+<ul>
+<li>明文：Nice to meet your</li>
+<li>密文：QLFH WR PHHW BRXU</li>
+</ul>
+<p>加密算法可以如此表达：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>E</mi><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mi>p</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy="false">)</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mn>26</mn></mrow><annotation encoding="application/x-tex">C = E(3, p) = (p + 3) \mod 26
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></span></p>
+<p>移位可以是任意大小，所以恺撒密码的一般表达为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>E</mi><mo stretchy="false">(</mo><mi>k</mi><mo separator="true">,</mo><mi>p</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy="false">)</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mn>26</mn></mrow><annotation encoding="application/x-tex">C = E(k, p) = (p + 3) \mod 26
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></span></p>
+<p>解密算法为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mi>D</mi><mo stretchy="false">(</mo><mi>k</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>C</mi><mo>−</mo><mn>3</mn><mo stretchy="false">)</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mn>26</mn></mrow><annotation encoding="application/x-tex">p = D(k, C) = (C - 3) \mod 26
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></span></p>
+<p>因为恺撒密码的以下性质，使得其很容易通过穷举破解：</p>
+<ol>
+<li>加解密算法已知</li>
+<li>密钥短，容易穷举</li>
+<li>语言已知，意义容易识别</li>
+</ol>
+<h4 id="单表代替密码"><a class="markdownIt-Anchor" href="#单表代替密码"></a> 单表代替密码</h4>
+<p>在恺撒密码的基础上，运用置换技术将密文打乱，使得实际上每个字母的移位 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 不同，密钥空间极具上升。</p>
+<ul>
+<li><strong>置换</strong>：对于集合 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">S = \{a, b, c\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mclose">}</span></span></span></span> 他的所有元素的一个有序排列称为一个置换，所以集合 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 有 6 个置换：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>b</mi><mi>c</mi><mo separator="true">,</mo><mi>a</mi><mi>c</mi><mi>b</mi><mo separator="true">,</mo><mi>b</mi><mi>a</mi><mi>c</mi><mo separator="true">,</mo><mi>b</mi><mi>c</mi><mi>a</mi><mo separator="true">,</mo><mi>c</mi><mi>a</mi><mi>b</mi><mo separator="true">,</mo><mi>c</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">abc, acb, bac, bca, cab, cba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">b</span><span class="mord mathdefault">a</span></span></span></span></li>
+</ul>
+<p>破解：由于单表代替带有原始字母的统计频率特征，所以可以通过统计字母的相对频率和英文文章中普遍出现的频率进行比较对比，发现其中的规律，可以部分破解密码，由于使用的语言是英语，所以可以依靠猜测将密码破解出来。</p>
+<p>通过使用“同音字”的方法（一个字母对应多个字母进行替换），每次代替的时候，循环或随机使用“同音字”代替就好了。这种方法虽然将密文中单个元素的对应关系隐藏起来了，但是<strong>多字母语法模式还是残留在密文</strong>中，为密码分析提供了一种思路。<br />
+解决明文结构残留在密文中的主要方法：</p>
+<ul>
+<li>对多个字母进行加密；</li>
+<li>使用多表代替密码</li>
+</ul>
+<h4 id="playfair-密码"><a class="markdownIt-Anchor" href="#playfair-密码"></a> Playfair 密码</h4>
+<p>Playfair 密码是最著名的多表替代密码。</p>
+<p>加密过程：</p>
+<ol>
+<li>确定密钥词</li>
+<li>排出编码表</li>
+<li>对明文的重复字母对进行去重处理</li>
+<li>根据编码表将明文转换为密文</li>
+</ol>
+<h5 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h5>
+<p>选定密钥词 monarchy 。<br />
+得到编码表：</p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/8f7432c1b8f3da7db7f4b5b160fb4970401c6489724d477d9dd8c7d7788a03d9.png" alt="picture 8" /></p>
+<p><strong>编码表编制规则</strong>：将密钥词按顺序排在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn><mo>×</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">5 \times 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 的矩阵中，剩下的字母按照字母表顺序排列，I/L 代表同一个字母；</p>
+<p>处理明文的重复字母对，在重复字母对中插入别的字母（具体插入什么自己定），例如：balloon 转换成 ba lx lo on。</p>
+<p><strong>明文字母对处理逻辑</strong>：</p>
+<ol>
+<li>落在矩阵同一行的字母对，使用向右移动一位的字母进行代替，如果到最后一个字母，循环到该行的开头取。例如：字母对 bd 用 DC 代替。</li>
+<li>落在矩阵同一列的字母对，使用向下移动一位的字母进行替代，如果到最后一个字母，循环到该列的开头取。例如：字母 pv 用 VO 代替。</li>
+<li>其余的字母对，按照行列交点进行代替。例如：hs 利用 bp 进行代替，cp 利用 HL 进行代替。</li>
+</ol>
+<p>尽管 Playfair 密码看起来是安全的，但是仍然能够通过分析密码频率进行密码破译。</p>
+<p>字母频率出现表：</p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/27e730caf680a750e89e303019adaeb6162055a7dca52930b5dd335971e7b7b6.png" alt="picture 9" /></p>
+<p>曲线越平坦，代表加密效果越好，理想化的结果是完全平坦的曲线，这样代表明文中所有字母的频率都被隐藏起来了，所有字母的出现概率相等，唯密文攻击无法判断区分每个字母。</p>
+<h5 id="hill-密码"><a class="markdownIt-Anchor" href="#hill-密码"></a> Hill 密码</h5>
+<h4 id="多表代替加密"><a class="markdownIt-Anchor" href="#多表代替加密"></a> 多表代替加密</h4>
+<h5 id="vigenere-密码"><a class="markdownIt-Anchor" href="#vigenere-密码"></a> Vigenere 密码</h5>
+<h5 id="vernam-密码"><a class="markdownIt-Anchor" href="#vernam-密码"></a> Vernam 密码</h5>
+<h4 id="一次一密"><a class="markdownIt-Anchor" href="#一次一密"></a> 一次一密</h4>
+<h3 id="置换技术"><a class="markdownIt-Anchor" href="#置换技术"></a> 置换技术</h3>
+<p>按照某种规则打乱明文，不加入新的信息；</p>
+<h4 id="一个简单的例子栅栏技术"><a class="markdownIt-Anchor" href="#一个简单的例子栅栏技术"></a> 一个简单的例子：栅栏技术</h4>
+<p>按照对角线的顺序写出明文，在按行写出密文；<br />
+<strong>例</strong>：<br />
+明文：“meet me after the toga party”<br />
+深度为 2 的加密：</p>
+<p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/3a8f32c90b09547c14c19661058984a4488185f0599c7160b57bc49f439841ee.png" alt="picture 10" /></p>
+<p>然后按行写出得到密文：<br />
+MEMATRHTGPRYETEFETEOAAT</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1274,96 +1439,6 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
 <h3 id="针对密码算法的攻击方式"><a class="markdownIt-Anchor" href="#针对密码算法的攻击方式"></a> 针对密码算法的攻击方式</h3>
 <p><img src="../../../assets/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/31f1ee6ca2c9c71063f021921911f0b26d4236ecb967bb7ec5fdd7f6b56d3515.png" alt="picture 12" /></p>
 <p>无论有多少密文都不足以唯一地确定密文所对应的明文，则称为无条件安全。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/Latex/use-latex-to-wirte-math-note/" class="post-title-link" itemprop="url">use latex to wirte math note</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/Latex/" itemprop="url" rel="index"><span itemprop="name">Latex</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="prepare-package"><a class="markdownIt-Anchor" href="#prepare-package"></a> Prepare Package</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install texlive-full zathura xdotool vim</span><br></pre></td></tr></table></figure>
 
       
     </div>

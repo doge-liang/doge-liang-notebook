@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,142 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/" class="post-title-link" itemprop="url">Java 集合类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-24 23:41:10" itemprop="dateModified" datetime="2022-07-24T23:41:10+08:00">2022-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">+ 程序设计语言 + Java + Java数据结构</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="java-集合框架"><a class="markdownIt-Anchor" href="#java-集合框架"></a> Java 集合框架</h2>
+<h3 id="实现思想"><a class="markdownIt-Anchor" href="#实现思想"></a> 实现思想</h3>
+<p>Java 集合框架的实现思想为为常见的接口和实现分离思想。</p>
+<p>使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> LinkedList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">expressLane.add(<span class="keyword">new</span> Customer(<span class="string">&quot;Harry&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p>上述例子声明了两个 <code>List</code> ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；<br />
+这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；</p>
+<p>此外，Java API 库中还定义了一些 <code>Abstract</code> 前缀修饰的类，比如 <code>AbstractCollection</code> 里面对 <code>Collection</code> 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 <code>Abstract</code> 前缀修饰的集合类更方便。</p>
+<h3 id="基础接口"><a class="markdownIt-Anchor" href="#基础接口"></a> 基础接口</h3>
+<p>Java 有两大类集合： <code>Map</code> 和 <code>Collection</code></p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png" alt="picture 1" /></p>
+<h3 id="collection"><a class="markdownIt-Anchor" href="#collection"></a> Collection</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E element)</span></span>; <span class="comment">// 添加元素</span></span><br><span class="line">    <span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>; <span class="comment">// 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> Iterator</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>; <span class="comment">// 如果到达了集合的末尾，会抛出异常 NoSuchElementException  </span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用 <code>Collectors.toMap()</code> 时，要注意两个问题：</p>
+<ol>
+<li>当 key 相同时会抛出 <code>IllegalStateException</code> ；</li>
+<li>当 value 为 null 时，会抛出 <code>NullPointerException</code> ；</li>
+</ol>
+<h4 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h4>
+<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
+<h4 id="weakhashmap"><a class="markdownIt-Anchor" href="#weakhashmap"></a> WeakHashMap</h4>
+<p>适用于需要缓存的场景, 对 entry 进行弱引用管理 GC 时会自动释放弱引用的 entry 项<br />
+相对 HashMap 只增加弱引用管理, 并不保证线程安全</p>
+<h4 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> HashTable</h4>
+<p>读写方法都加了 <code>synchronized</code> 关键字 key 和 value 都不允许出现 null 值<br />
+与 HashMap 不同的是 HashTable 直接使用对象的 hashCode , 不会重新计算 has 值 <code>ConcurrentHashMap</code></p>
+<p>利用 CAS + Synchronized 来确保线程安全. 底层数据结构依然是数组+链表+红黑树, 对哈希项进行分段上锁, 效率上较之 HashTable 要高；<br />
+key 和 uvaiue 都不允许出现 null</p>
+<blockquote>
+<p>CAS(compare and swap) 并交换<br />
+在 Java 语言还未出现的时候，并发得到大量应用了，硬件厂商也给出了很多并发操作原语，从硬件层面提高并发效率。CAS 指令就是其中之一；<br />
+Java 语言初期还无法利用硬件提供的指令提高并发效率，后来随着语言的发展，诞生了 Java 本地方法(JNI) 让 JVM 便利地调用本地方法。<br />
+CAS 操作包含三个操作数：</p>
+<ol>
+<li>内存位置（V)；</li>
+<li>预期原值（A）；</li>
+<li>新值（B）；<br />
+如果内存位置的值 V 和预期原值 A 匹配，那边处理器会自动更新 V 为新值 B ，否则处理器不做任何处理；一般情况下，它都会在 CAS 指令之前返回该位置的值。<br />
+用自然语言描述这个过程就是：如果内存存的是值我预期的 A ，那么就把新值 B 放进去，否则更改失败，返回内存现在的值；<br />
+在多线程的时候无需害怕其他线程同时修改变量，如果被修改了，CAS 指令会执行失败；<br />
+存在的问题：</li>
+</ol>
+<ul>
+<li>ABA 问题：内存中的值在预期值 A 和新值 B 之间反复横跳，对于执行 CAS 操作的线程来说，在计算新值 B 的过程中，实际上值已经发生了变化了。解决思路是加入一个版本号，在变量前加入变量的版本号，每次对变量的操作都进行累加。执行 CAS 指令时加上版本号校验；</li>
+<li>循环时间长开销大：<br />
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/ls5718/article/details/52563959">https://blog.csdn.net/ls5718/article/details/52563959</a></li>
+</ul>
+</blockquote>
+<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h3>
+<h4 id="hashset"><a class="markdownIt-Anchor" href="#hashset"></a> HashSet</h4>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -754,6 +890,109 @@ The real numbers can be represented geometrically as points on a number line cal
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" class="post-title-link" itemprop="url">Java 拆箱装箱</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-18 01:35:31" itemprop="dateModified" datetime="2022-05-18T01:35:31+08:00">2022-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="java-拆箱装箱"><a class="markdownIt-Anchor" href="#java-拆箱装箱"></a> Java 拆箱装箱</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -868,109 +1107,6 @@ The real numbers can be represented geometrically as points on a number line cal
 <p>这些类加载器是自上而下加载，自下而上检查是否加载完成的。此外我们还可以自定义类加载器；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取系统类加载器</span></span><br><span class="line">ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取系统类加载器的父类加载器--&gt;扩展类加载器</span></span><br><span class="line">ClassLoader extClassLoader = systemClassLoader.getParent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取扩展类加载器的父类加载器--&gt;根加载器（是用C/C++写的）</span></span><br><span class="line">ClassLoader rootClassLoader = systemClassLoader.getParent(); <span class="comment">//null，因为无法获取</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得系统类加载器可以加载的路径</span></span><br><span class="line">System.getProperty(<span class="string">&quot;java.class.path&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>双亲委派机制</strong>：假如我自己定义了一个类 <code>java.lang.String</code> ，JVM 会从用户类加载器一层一层往上找，如果找到了就不会加载自己定义的这个 <code>java.lang.String</code> 类，这是处于系统安全性的考虑；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" class="post-title-link" itemprop="url">Java 拆箱装箱</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-18 01:35:31" itemprop="dateModified" datetime="2022-05-18T01:35:31+08:00">2022-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="java-拆箱装箱"><a class="markdownIt-Anchor" href="#java-拆箱装箱"></a> Java 拆箱装箱</h2>
 
       
     </div>
@@ -1281,157 +1417,6 @@ transform: translateX(-50%);
 <code>Cat</code> 是 <code>Animal</code> 的子类，而 <code>List&lt;? extends Cat&gt;</code> 也是 <code>List&lt;? extends Animal&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>上界协变</strong> 的</em>；</p>
 <p>考虑 <code>List&lt;? super Animal&gt;</code> 和 <code>List&lt;? super Cat&gt;</code> ：<br />
 <code>Animal</code> 是 <code>Cat</code> 的父类，而 <code>List&lt;? super Animal&gt;</code> 是 <code>List&lt;? super Cat&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>下界逆变</strong> 的</em>；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Golang 程序设计语言基础-基本语法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-05T00:00:00+08:00">2021-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h2>
-<h3 id="常用转义字符"><a class="markdownIt-Anchor" href="#常用转义字符"></a> 常用转义字符</h3>
-<p><code>\t</code> 制表符<br />
-<code>\n</code> 换行符<br />
-<code>\r</code> 回车（从头覆盖，不会换行）<br />
-<code>\\</code> <br />
-<code>\&quot;</code> &quot;</p>
-<h3 id="导包"><a class="markdownIt-Anchor" href="#导包"></a> 导包</h3>
-<p>GO 的包的概念，有点像文件夹，包下面还有子包，文件下还有子文件夹，有对应关系；<br />
-如果使用 gomodules 管理项目的包，那么新建项目的时候需要执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init &lt;project name&gt;</span><br></pre></td></tr></table></figure>
-<p>项目路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">└─go_code</span><br><span class="line">    ├─ex-1</span><br><span class="line">    │  │  go.mod</span><br><span class="line">    │  │</span><br><span class="line">    │  ├─main</span><br><span class="line">    │  │      hello-world.exe</span><br><span class="line">    │  │      hello-world.go</span><br><span class="line">    │  │</span><br><span class="line">    │  └─package</span><br><span class="line">    └─ex-2</span><br></pre></td></tr></table></figure>
-<p>go.mod 文件内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module go_code&#x2F;ex-1</span><br><span class="line"></span><br><span class="line">go 1.14</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;math&quot;</span></span><br><span class="line">	<span class="string">&quot;math/rand&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getPi</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(math.Pi)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(rand.Intn(<span class="number">10</span>))</span><br><span class="line">	getPi()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 省略</span></span><br><span class="line"><span class="comment">// 1. 下面两个函数功能是一样的</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo1</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo2</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 返回多值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo3</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">string</span>, <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> x &gt; y &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;bigger&quot;</span>, <span class="string">&quot;smaller&quot;</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;smaller&quot;</span>, <span class="string">&quot;bigger&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 命名返回值，这样 return 就不需要省略返回对象了</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo4</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    sum = x + y</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="变量"><a class="markdownIt-Anchor" href="#变量"></a> 变量</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型声明在后面</span></span><br><span class="line"><span class="comment">// 局部变量不使用会报错</span></span><br><span class="line"><span class="comment">// 全局变量不会</span></span><br><span class="line"><span class="keyword">var</span> x <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量列表</span></span><br><span class="line"><span class="keyword">var</span> a, b <span class="keyword">int</span> = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类型省略</span></span><br><span class="line"><span class="keyword">var</span> c, cpp, java, python = <span class="number">1</span>, <span class="string">&quot;2&quot;</span>, <span class="literal">true</span>, <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 短变量声明</span></span><br><span class="line"><span class="comment">// 注意该方法只能在函数内使用</span></span><br><span class="line"><span class="comment">// 函数外的声明语句必须在关键字后面</span></span><br><span class="line">k := <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分组的方式定义</span></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    x_11, x_12, x_13 = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">    x_21, x_22, x_23 = <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span></span><br><span class="line">    x_31, x_32, x_33 = <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量默认值为零值</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span> <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">string</span> <span class="comment">// &quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> c <span class="keyword">bool</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类型转换，只能显式转换</span></span><br><span class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">42</span></span><br><span class="line"><span class="keyword">var</span> f float = float(i)</span><br><span class="line"><span class="keyword">var</span> u <span class="keyword">uint</span> = <span class="keyword">uint</span>(f)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类型推导</span></span><br><span class="line"><span class="comment">// 未定义类型的数据，类型由右值决定，取决于精度</span></span><br><span class="line">i := <span class="number">42</span>           <span class="comment">// int</span></span><br><span class="line">f := <span class="number">3.142</span>        <span class="comment">// float64</span></span><br><span class="line">g := <span class="number">0.867</span> + <span class="number">0.5i</span> <span class="comment">// complex128</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getTwoValue</span><span class="params">()</span> <span class="params">(<span class="keyword">string</span>, <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;看得到我&quot;</span>, <span class="string">&quot;看不到我&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 只有 i 接收到了值</span></span><br><span class="line"><span class="comment">// _ 不占用空间，相当于把后面的值丢弃了</span></span><br><span class="line">i, _ = getTwoValue()</span><br></pre></td></tr></table></figure>
-<h3 id="常量"><a class="markdownIt-Anchor" href="#常量"></a> 常量</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明常量，不能使用 := 定义</span></span><br><span class="line"><span class="keyword">const</span> Pi = <span class="number">3.14</span></span><br><span class="line"><span class="keyword">const</span> world = <span class="string">&quot;世界&quot;</span></span><br><span class="line"><span class="keyword">const</span> yes = <span class="literal">true</span></span><br><span class="line"><span class="comment">// 数值常量</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    <span class="comment">// float</span></span><br><span class="line">    <span class="comment">// 1000....00 左移位运算符</span></span><br><span class="line">    <span class="comment">// 相当于二进制 1后面跟了 100 个零</span></span><br><span class="line">    Big = <span class="number">1</span> &lt;&lt; <span class="number">100</span></span><br><span class="line">    <span class="comment">// 类型未定 int 还是 float 由上下文决定</span></span><br><span class="line">    <span class="comment">// (10)2 = (2)10 左移运算符</span></span><br><span class="line">    Small = Big &gt;&gt; <span class="number">99</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">needInt</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> x*<span class="number">10</span> + <span class="number">1</span> &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">needFloat</span><span class="params">(x <span class="keyword">float64</span>)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x * <span class="number">0.1</span></span><br><span class="line">&#125;</span><br><span class="line">needInt(Small) <span class="comment">// int</span></span><br><span class="line">needFloat(Small) <span class="comment">// float</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 缺省值自动填充</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a = <span class="number">100</span></span><br><span class="line">    b</span><br><span class="line">    c</span><br><span class="line">)</span><br><span class="line">fmt.Print(a, <span class="string">&quot;\t&quot;</span>, b, <span class="string">&quot;\t&quot;</span>, c)</span><br><span class="line"><span class="comment">// 100  100 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// iota 常量计数器</span></span><br><span class="line"><span class="comment">// 每增加一行常量，值就 +1</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    x = <span class="literal">iota</span></span><br><span class="line">    y</span><br><span class="line">    z</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fmt.Println(x, <span class="string">&quot; &quot;</span>, y, <span class="string">&quot; &quot;</span>, z)</span><br><span class="line"><span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
-<h3 id="基本类型"><a class="markdownIt-Anchor" href="#基本类型"></a> 基本类型</h3>
-<p><code>bool</code> <code>string</code><br />
-<code>int</code> <code>int8</code> <code>int16</code> <code>int32</code> <code>int64</code><br />
-<code>uint</code> <code>uint8</code> <code>uint16</code> <code>uint32</code> <code>uint64</code> <code>uintptr</code><br />
-<code>byte</code> // uint8 的别名<br />
-<code>rune</code> // int32 的别名 表示一个 unicode 码点<br />
-<code>float32</code> <code>float64</code><br />
-<code>complex32</code> <code>complex64</code><br />
-<code>int</code>, <code>uint</code> 和 <code>uintptr</code> 在 32 位系统上通常为 32 位宽，在 64 位系统上则为 64 位宽。 当你需要一个整数值时应使用 <code>int</code> 类型，除非你有特殊的理由使用固定大小或无符号的整数类型。</p>
-<h3 id="流程控制语句"><a class="markdownIt-Anchor" href="#流程控制语句"></a> 流程控制语句</h3>
-<h4 id="循环"><a class="markdownIt-Anchor" href="#循环"></a> 循环</h4>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 循环，定义的量作用域在大括号内</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略初始化和后置语句</span></span><br><span class="line">sum := <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> ; sum &lt; <span class="number">1000</span> ; &#123;</span><br><span class="line">    sum += sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面这种情况可以去掉分号</span></span><br><span class="line">sum := <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> sum &lt; <span class="number">1000</span> &#123;</span><br><span class="line">    sum += sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无限循环</span></span><br><span class="line">sum := <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;I can&#x27;t get out!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for range 写法</span></span><br><span class="line"><span class="comment">// 专门用来遍历数组、切片、字符串、map和通道</span></span><br><span class="line">s := <span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> s &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;%d %c \n&quot;</span>, i, v)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0 H</span></span><br><span class="line"><span class="comment">// 1 e</span></span><br><span class="line"><span class="comment">// 2 l</span></span><br><span class="line"><span class="comment">// 3 l</span></span><br><span class="line"><span class="comment">// 4 o</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳出循环</span></span><br><span class="line">i := <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span> &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    i--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳过一次循环</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span> &#123;</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="条件判断"><a class="markdownIt-Anchor" href="#条件判断"></a> 条件判断</h4>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 条件判断</span></span><br><span class="line"><span class="comment">// 简单的 if 语句</span></span><br><span class="line">x <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">5</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;bigger than 5&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行一个简短的语句在判断，作用域在大括号内</span></span><br><span class="line"><span class="keyword">if</span> v := math.Pow(x, n); v &lt; lim &#123;</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> lim</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果有 else 那么 else 块中也能使用</span></span><br><span class="line"><span class="keyword">if</span> v := math.Pow(x, n); v &lt; lim &#123;</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;%g &gt;= %g\n&quot;</span>, v, lim)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// switch 判断</span></span><br><span class="line"><span class="comment">// 1. 注意 Golang 的 switch 不需要 break</span></span><br><span class="line"><span class="comment">//  （已经自动添加了）</span></span><br><span class="line"><span class="comment">// 2. 如果要求执行后面的那个 case ，</span></span><br><span class="line"><span class="comment">//    就以 fallthrough 结束（最好不用）</span></span><br><span class="line"><span class="comment">// 3. case 无需为常量，取值也无需为整数</span></span><br><span class="line"><span class="keyword">switch</span> os := runtime.GOOS; os &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;darwins&quot;</span>:</span><br><span class="line">        fmt.Println(<span class="string">&quot;OS X.&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;linux&quot;</span>:</span><br><span class="line">        fmt.Println(<span class="string">&quot;Linux&quot;</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// freebsd, openbsd,</span></span><br><span class="line">        <span class="comment">// plan9, windows...</span></span><br><span class="line">        fmt.Printf(<span class="string">&quot;%s.\n&quot;</span>, os)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="占位符"><a class="markdownIt-Anchor" href="#占位符"></a> 占位符</h4>
-<p>上面的输出语句中用了比较多的<a target="_blank" rel="noopener" href="https://studygolang.com/articles/2644">占位符</a></p>
-<ul>
-<li><code>%g</code> ：紧凑格式输出的浮点数（复数）占位符；</li>
-<li><code>%v</code> ：相应值的默认格式；</li>
-<li><code>%+v</code> ：打印结构体的时候，会添加字段名；</li>
-<li><code>%t</code> ：布尔占位符；</li>
-<li><code>%b</code> ：二进制占位符；</li>
-<li><code>%d</code> ：十进制占位符；</li>
-<li><code>%o</code> ：八进制占位符；</li>
-<li><code>%x</code> 或 <code>%X</code> ：十六进制占位符，区别是 abc 和 ABC ；</li>
-<li><code>%T</code> ：显示相应类型；</li>
-</ul>
 
       
     </div>
