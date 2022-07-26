@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%9A%84%E8%A1%A8-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E7%B1%BB/" class="post-title-link" itemprop="url">Java 集合类</a>
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%9A%84%E8%A1%A8-list/" class="post-title-link" itemprop="url">Java 的表 List</a>
         </h2>
 
         <div class="post-meta-container">
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-24 23:41:10" itemprop="dateModified" datetime="2022-07-24T23:41:10+08:00">2022-07-24</time>
+      <time title="Modified: 2022-07-15 00:09:08" itemprop="dateModified" datetime="2022-07-15T00:09:08+08:00">2022-07-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -220,7 +220,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80-Java-Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">+ 程序设计语言 + Java + Java数据结构</span></a>
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
@@ -234,58 +238,50 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="java-集合框架"><a class="markdownIt-Anchor" href="#java-集合框架"></a> Java 集合框架</h2>
-<h3 id="实现思想"><a class="markdownIt-Anchor" href="#实现思想"></a> 实现思想</h3>
-<p>Java 集合框架的实现思想为为常见的接口和实现分离思想。</p>
-<p>使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> LinkedList&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">expressLane.add(<span class="keyword">new</span> Customer(<span class="string">&quot;Harry&quot;</span>));</span><br></pre></td></tr></table></figure>
-<p>上述例子声明了两个 <code>List</code> ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；<br />
-这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；</p>
-<p>此外，Java API 库中还定义了一些 <code>Abstract</code> 前缀修饰的类，比如 <code>AbstractCollection</code> 里面对 <code>Collection</code> 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 <code>Abstract</code> 前缀修饰的集合类更方便。</p>
-<h3 id="基础接口"><a class="markdownIt-Anchor" href="#基础接口"></a> 基础接口</h3>
-<p>Java 有两大类集合： <code>Map</code> 和 <code>Collection</code></p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png" alt="picture 1" /></p>
-<h3 id="collection"><a class="markdownIt-Anchor" href="#collection"></a> Collection</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E element)</span></span>; <span class="comment">// 添加元素</span></span><br><span class="line">    <span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>; <span class="comment">// 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> Iterator</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>; <span class="comment">// 如果到达了集合的末尾，会抛出异常 NoSuchElementException  </span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用 <code>Collectors.toMap()</code> 时，要注意两个问题：</p>
-<ol>
-<li>当 key 相同时会抛出 <code>IllegalStateException</code> ；</li>
-<li>当 value 为 null 时，会抛出 <code>NullPointerException</code> ；</li>
-</ol>
-<h4 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h4>
-<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
-<h4 id="weakhashmap"><a class="markdownIt-Anchor" href="#weakhashmap"></a> WeakHashMap</h4>
-<p>适用于需要缓存的场景, 对 entry 进行弱引用管理 GC 时会自动释放弱引用的 entry 项<br />
-相对 HashMap 只增加弱引用管理, 并不保证线程安全</p>
-<h4 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> HashTable</h4>
-<p>读写方法都加了 <code>synchronized</code> 关键字 key 和 value 都不允许出现 null 值<br />
-与 HashMap 不同的是 HashTable 直接使用对象的 hashCode , 不会重新计算 has 值 <code>ConcurrentHashMap</code></p>
-<p>利用 CAS + Synchronized 来确保线程安全. 底层数据结构依然是数组+链表+红黑树, 对哈希项进行分段上锁, 效率上较之 HashTable 要高；<br />
-key 和 uvaiue 都不允许出现 null</p>
-<blockquote>
-<p>CAS(compare and swap) 并交换<br />
-在 Java 语言还未出现的时候，并发得到大量应用了，硬件厂商也给出了很多并发操作原语，从硬件层面提高并发效率。CAS 指令就是其中之一；<br />
-Java 语言初期还无法利用硬件提供的指令提高并发效率，后来随着语言的发展，诞生了 Java 本地方法(JNI) 让 JVM 便利地调用本地方法。<br />
-CAS 操作包含三个操作数：</p>
-<ol>
-<li>内存位置（V)；</li>
-<li>预期原值（A）；</li>
-<li>新值（B）；<br />
-如果内存位置的值 V 和预期原值 A 匹配，那边处理器会自动更新 V 为新值 B ，否则处理器不做任何处理；一般情况下，它都会在 CAS 指令之前返回该位置的值。<br />
-用自然语言描述这个过程就是：如果内存存的是值我预期的 A ，那么就把新值 B 放进去，否则更改失败，返回内存现在的值；<br />
-在多线程的时候无需害怕其他线程同时修改变量，如果被修改了，CAS 指令会执行失败；<br />
-存在的问题：</li>
-</ol>
+          <style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="java-的表-list"><a class="markdownIt-Anchor" href="#java-的表-list"></a> Java 的表 List</h2>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E7%9A%84%E8%A1%A8%20List/653b516fdee70785f8e34b94cef2b5b81f40f302292c3ff911e040c0a9c9ca18.png" alt="picture 1" /></p>
+<h3 id="list-转换成"><a class="markdownIt-Anchor" href="#list-转换成"></a> List&lt;?&gt; 转换成 ?[]</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = list.stream().mapToInt(i -&gt; i).toArray();</span><br></pre></td></tr></table></figure>
+<p>注意 <code>list.toArray()</code> 返回的是 <code>Object[]</code> 或者 <code>T[]</code></p>
+<h3 id="从-list-复制效率看浅拷贝与深拷贝"><a class="markdownIt-Anchor" href="#从-list-复制效率看浅拷贝与深拷贝"></a> 从 List 复制效率看浅拷贝与深拷贝</h3>
 <ul>
-<li>ABA 问题：内存中的值在预期值 A 和新值 B 之间反复横跳，对于执行 CAS 操作的线程来说，在计算新值 B 的过程中，实际上值已经发生了变化了。解决思路是加入一个版本号，在变量前加入变量的版本号，每次对变量的操作都进行累加。执行 CAS 指令时加上版本号校验；</li>
-<li>循环时间长开销大：<br />
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/ls5718/article/details/52563959">https://blog.csdn.net/ls5718/article/details/52563959</a></li>
+<li>浅拷贝：将 A 的指向 B 所指的对象，此时 A 、 B 所指对象相同，对象的改变会同时影响 A 、 B 的值；</li>
+<li>深拷贝：将 B 所指的对象在内存中复制一份， A 指向新的对象，此时 A 、 B 所指对象不同，变化不会互相影响；</li>
 </ul>
-</blockquote>
-<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h3>
-<h4 id="hashset"><a class="markdownIt-Anchor" href="#hashset"></a> HashSet</h4>
+<p>复制 List 的几种方法：</p>
+<ul>
+<li>实例化一个新的 List 与原 List 相同大小，循环遍历调用 <code>add()</code> 方法；</li>
+<li><code>Arrays.copyOf()</code> ，<code>new ArrayList&lt;&gt;(srcList)</code> 用源 List 构造新的 List 实际上使用的是 <code>Arrays.copyOf()</code> 方法，而 <code>Arrays.copyOf()</code> 实质上是使用 <code>System.arraycopy()</code> 方法；</li>
+<li>实例化一个空的 List ，然后调用 <code>destList.addAll(srcList)</code> 将 srcList 的元素全部添加到 destList 中；</li>
+<li><code>System.arraycopy()</code> 方法；</li>
+</ul>
+<p>上面这几种都属于是浅拷贝，原列表的对象发生变化，复制对象的元素也会发生改变；</p>
+<ul>
+<li>使用序列化方法</li>
+<li><code>Object.clone()</code></li>
+</ul>
+<p>这几种方法属于深拷贝方法；</p>
+<p>效率对比：</p>
+<ol>
+<li><code>System.arraycopy()</code> ，这是一个 native 方法，一般是效率更高的语言编写的，并且看 javadoc 可知，这个方法不用经过 JNI 的编译，而是直接用 cpp 写好的；</li>
+<li><code>clone()</code>，虽然该方法也是 native 方法，但是需要通过 JNI 编译才能执行，因此速度差一点；</li>
+<li><code>Arrays.copyOf()</code>，不是 native 方法，且依赖于 <code>System.arraycopy()</code> ，所以要更慢；</li>
+<li><code>for()</code>，是深拷贝了，比浅拷贝要慢得多；</li>
+</ol>
 
       
     </div>
@@ -1331,7 +1327,7 @@ transform: translateX(-50%);
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-11 03:26:11" itemprop="dateModified" datetime="2022-07-11T03:26:11+08:00">2022-07-11</time>
+      <time title="Modified: 2022-07-27 02:07:30" itemprop="dateModified" datetime="2022-07-27T02:07:30+08:00">2022-07-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1417,6 +1413,25 @@ transform: translateX(-50%);
 <code>Cat</code> 是 <code>Animal</code> 的子类，而 <code>List&lt;? extends Cat&gt;</code> 也是 <code>List&lt;? extends Animal&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>上界协变</strong> 的</em>；</p>
 <p>考虑 <code>List&lt;? super Animal&gt;</code> 和 <code>List&lt;? super Cat&gt;</code> ：<br />
 <code>Animal</code> 是 <code>Cat</code> 的父类，而 <code>List&lt;? super Animal&gt;</code> 是 <code>List&lt;? super Cat&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>下界逆变</strong> 的</em>；</p>
+<h3 id="hashcode-与-equal"><a class="markdownIt-Anchor" href="#hashcode-与-equal"></a> hashcode() 与 equal()</h3>
+<p>在所有类的父类 <code>Object</code> 类中， <code>equal()</code> 方法是这样定义的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于基本数据类型 <code>==</code> 进行的是值比较，对于引用数据类型 <code>==</code> 比较的是变量的地址值；</p>
+<p><code>hashCode()</code> 方法是这样定义的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>可以看到是一个本地方法，其返回一个 <code>int</code> ，这个 <code>int</code> 是由对象的 <strong>内存地址</strong> 计算得来的。因为对于两个对象 <code>equal()</code> 方法返回 <code>true</code> ，其 <code>hashCode()</code> 必定相等。这是由哈希码的定义得到的，哈希码是一个对象的信息摘要，如果两个对象是相等的，那么他们的摘要必定相等；但是反过来，如果两个对象的 hashCode 相等，他们不一定相等，因为用 32 位长的 <code>int</code> 是无法描述世界上无穷无尽的对象的，所以必然存在 <strong>哈希碰撞</strong> 的情形。在哈希碰撞的情况下，对象的 hashCode 相等，但是却不是相等的对象。</p>
+<p>基于哈希码的定义我们有以下结论：</p>
+<ol>
+<li>两对象 equal ， hashCode 必定一样；</li>
+<li>两对象不 equal ， hashCode 可能一样，也可能不一样；</li>
+<li>两对象 hashCode 一样， 不一定 equal ；</li>
+<li>两对象 hashCode 不一样，必定不 equal ；</li>
+</ol>
+<p>进一步，我们有以下结论：</p>
+<ol>
+<li>重写 <code>equal()</code> 方法必须重写 <code>hashcode()</code> 方法；（因为重写 equal 之后，可能两个地址不同的对象也能 equal ，而 hashCode 返回的还是他们各自的地址，不符合上述的 <strong>结论 1</strong> ）</li>
+<li>重写 <code>hashcode()</code> 方法可以不重写 <code>equal()</code> 方法；（因为重写 <code>hashCode()</code> 方法要求，程序运行时，对于同一个对象无论调用多少次，返回的都是相同的结果，因此必须基于对象自身的信息计算 hashCode ，如果两个对象计算出来的 hashCode 不一样，那么他们必定不是同一个对象，地址肯定也不同， <code>equal()</code> 方法必定返回 <code>false</code> 所以不重写 <code>equal()</code> 也能满足要求；</li>
+</ol>
 
       
     </div>
