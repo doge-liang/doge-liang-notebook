@@ -1,5 +1,5 @@
 ---
-title: Java 集合类
+title: Java 集合框架
 date: 2021-03-12
 tags: []
 categories:
@@ -27,6 +27,17 @@ expressLane.add(new Customer("Harry"));
 
 此外，Java API 库中还定义了一些 `Abstract` 前缀修饰的类，比如 `AbstractCollection` 里面对 `Collection` 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 `Abstract` 前缀修饰的集合类更方便。
 
+### 优点
+
+最初的 Java 版本包含几种集合类： `Vector` 、 `Stack` 、 `HashTable` 、 `Array` 。随着版本的迭代，这些类由于各种原因，都过时了，虽然 jdk 中还包含着这些类，但有了更多新的替代方案了。随着集合的广泛使用， JDK 提出了包括所有集合接口、实现和算法的集合框架，在保证线程安全的情况下使用泛型和并发集合类，能够降低开发成本，使代码更加稳定高效。
+
+使用集合框架的部分优点如下：
+
+1. 使用核心集合类降低开发成本，无需自己实现；
+2. 使用经过严格测试的集合框架，代码质量得到提高；
+3. 使用 JDK 自带的集合类，降低代码维护成本；
+4. 提高复用性和可操作性；
+
 ### 基础接口
 
 Java 有两大类集合： `Map` 和 `Collection`
@@ -34,6 +45,8 @@ Java 有两大类集合： `Map` 和 `Collection`
 ![picture 1](../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png)  
 
 ### Collection
+
+`Collection` 继承于 `Iterator` 接口，主要有以下方法：
 
 ```JAVA
 public interface Collection<E> {
@@ -52,7 +65,6 @@ public interface Iterator<E> {
     default void forEachRemaining(Consumer<? super E> action();
 }
 ```
-
 
 在使用 `Collectors.toMap()` 时，要注意两个问题：
 

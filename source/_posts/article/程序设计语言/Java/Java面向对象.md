@@ -159,7 +159,6 @@ void setFirst(Test<? extends Employee> obj) {
 > **逆变**：原父子类型经过类型构造之后，父子关系逆转；
 > **不变**：上述两种不适用；
 
-
 考虑 `List<? extends T> list` ：
 `list.add(something)` 会报错，因为编译器只知道要存的是 `T` 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 `T` 的子类，所以可以使用 `T` 以及 `T` 的父类型的变量来接受 `list.get()` 的返回值，因为向上转换类型是安全的；
 考虑 `List<? super T> list` ：
@@ -170,3 +169,35 @@ void setFirst(Test<? extends Employee> obj) {
 
 考虑 `List<? super Animal>` 和 `List<? super Cat>` ：
 `Animal` 是 `Cat` 的父类，而 `List<? super Animal>` 是 `List<? super Cat>` 的子类，我们称之为 *通配符类型是在 **下界逆变** 的*；
+
+### hashcode() 与 equal()
+
+在所有类的父类 `Object` 类中， `equal()` 方法是这样定义的：
+
+```JAVA
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+```
+
+对于基本数据类型 `==` 进行的是值比较，对于引用数据类型 `==` 比较的是变量的地址值；
+
+`hashCode()` 方法是这样定义的：
+
+```JAVA
+public native int hashCode();
+```
+
+可以看到是一个本地方法，其返回一个 `int` ，这个 `int` 是由对象的 **内存地址** 计算得来的。因为对于两个对象 `equal()` 方法返回 `true` ，其 `hashCode()` 必定相等。这是由哈希码的定义得到的，哈希码是一个对象的信息摘要，如果两个对象是相等的，那么他们的摘要必定相等；但是反过来，如果两个对象的 hashCode 相等，他们不一定相等，因为用 32 位长的 `int` 是无法描述世界上无穷无尽的对象的，所以必然存在 **哈希碰撞** 的情形。在哈希碰撞的情况下，对象的 hashCode 相等，但是却不是相等的对象。
+
+基于哈希码的定义我们有以下结论：
+
+1. 两对象 equal ， hashCode 必定一样；
+2. 两对象不 equal ， hashCode 可能一样，也可能不一样；
+3. 两对象 hashCode 一样， 不一定 equal ；
+4. 两对象 hashCode 不一样，必定不 equal ；
+
+进一步，我们有以下结论：
+
+1. 重写 `equal()` 方法必须重写 `hashcode()` 方法；（因为重写 equal 之后，可能两个地址不同的对象也能 equal ，而 hashCode 返回的还是他们各自的地址，不符合上述的 **结论 1** ）
+2. 重写 `hashcode()` 方法可以不重写 `equal()` 方法；（因为重写 `hashCode()` 方法要求，程序运行时，对于同一个对象无论调用多少次，返回的都是相同的结果，因此必须基于对象自身的信息计算 hashCode ，如果两个对象计算出来的 hashCode 不一样，那么他们必定不是同一个对象，地址肯定也不同， `equal()` 方法必定返回 `false` 所以不重写 `equal()` 也能满足要求；
