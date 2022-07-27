@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/lstm%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/lstm%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">LSTM网络模型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-17T00:00:00+08:00">2021-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">神经网络模型</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="lstm-网络模型"><a class="markdownIt-Anchor" href="#lstm-网络模型"></a> LSTM 网络模型</h2>
+<h3 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h3>
+<p>传统神经网络在处理这一时刻的信息时，结果不会受到过去输入的信息的影响。举一个不恰当的例子，想象一下，我们在阅读文章的时候结合上下文才更能理解文章的含义，所以后来提出了递归神经网络（RNNs），来解决这一问题。</p>
+<p>RNNs 的网络结构如下：</p>
+<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/4ed4ff5e45d8667ebf6299f7801d4b3f33ac819556f171d1e24cba01588e4d6d.png" alt="picture 50" /></p>
+<p>将其展开等价于一个将历史信息不断地往后传递，每一时刻的信息都将影响下一次预测结果：</p>
+<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/f33e1667d4b4133afeddd9573fd9dba61933a2e5e2ac8af21235a1eec447fdd0.png" alt="picture 51" /></p>
+<p>由于 RNNs 具有记忆的特性，对于前后相关联信息的学习任务有较重要的应用，比如：语音识别、语言模型、机器翻译等；</p>
+<p>但是随着 RNNs 网络的深入应用，长时依赖问题（Long Term Dependencies problem）被发现了；</p>
+<h3 id="长时依赖问题"><a class="markdownIt-Anchor" href="#长时依赖问题"></a> 长时依赖问题</h3>
+<p>当我们在进行语句最后一个字的预测时：the clouds are in the sky。 RNNs 能够很好地解决这个问题，距离较短的数据对结果的影响还没被冲淡。</p>
+<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/b056de3de52d546896b6fe632f77f080f054f0ba29803b3069a29894a8f9c86b.png" alt="picture 52" /></p>
+<p>但面对间隔比较长的预测问题时， RNNs 就开始变弱了，可以理解为在很久以前的事情到现在已经记不清了，所以无法对现在的状况进行有效的预判；</p>
+<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/41c9d8c4c787822152d8510454ce5b74f953a36b61a23c6d7c246102ad99337d.png" alt="picture 53" /></p>
+<p>而长短期记忆网络模型（LSTMs）被设计出来，用于解决这个问题。</p>
+<p>长短期记忆能够记住较长时刻的信息，而不损失短期信息的记忆，并会过滤过长时刻的记忆。</p>
+<h3 id="lstms-网络结构"><a class="markdownIt-Anchor" href="#lstms-网络结构"></a> LSTMs 网络结构</h3>
+<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/7ce63cf49c80ed18138b8bb25f5af7349e9abd797167640f2dbe6976fc13b451.png" alt="picture 54" /></p>
+<p>（作用原理还没弄清楚，等我学了更多的神经网络的知识在更新）<br />
+<a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs379c/archive/2018/class_messages_listing/content/Artificial_Neural_Network_Technology_Tutorials/OlahLSTM-NEURAL-NETWORK-TUTORIAL-15.pdf">参考资料</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1238,146 +1346,8 @@ transform: translateX(-50%);
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC5%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC5%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">第5章-传输层</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="第-5-章-传输层"><a class="markdownIt-Anchor" href="#第-5-章-传输层"></a> 第 5 章-传输层</h2>
-<h1 id="传输层"><a class="markdownIt-Anchor" href="#传输层"></a> 传输层</h1>
-<h2 id="tcp-协议"><a class="markdownIt-Anchor" href="#tcp-协议"></a> TCP 协议</h2>
-<p>TCP 协议工作在传输层，是应用层协议的工作基础。</p>
-<ul>
-<li>HTTP/1.0 时代，TCP 连接是随着 HTTP 协议打开关闭的，每次打开关闭 TCP 连接都需要七次网络通信，如果都是和同一台服务器进行 HTTP 通信，那么就会造成资源的浪费；</li>
-<li>HTTP/1.1 时代，可以以某种方式声明 TCP 连接的保持，减少了无用的连接建立消耗；</li>
-<li>HTTP/2 中，更是可以在同一个 TCP 连接上并发地进行 HTTP 通信；</li>
-</ul>
-<h3 id="tcp-报文的结构"><a class="markdownIt-Anchor" href="#tcp-报文的结构"></a> TCP 报文的结构</h3>
-<p><img src="../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC5%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/5151d20f54d965932b953529430eb9b643866da45655ce33de503c1755e20a8d.png" alt="picture 41" /></p>
-<p>其中，重要的字段有：</p>
-<ol>
-<li>序号（sequence number）：占 32 位，用来标识从源端到目的端的字节流，防止混淆；</li>
-<li>确认号（acknowledgement number）：占 32 位，只有 flags 中的 ACK 位为 1 时，才有效，ack = seq + 1 ；</li>
-<li>flags（标志位）：共有六个，含义分别如下：
-<ul>
-<li>URG：紧急指针（urgent pointer）有效；</li>
-<li>ACK：确认序号有效；</li>
-<li>PSH：表示接收方应该尽快将这个报文发送给应用层；</li>
-<li>RST：重置连接；</li>
-<li>SYN：建立一个新的连接；</li>
-<li>FIN：释放现有的连接；</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>ps:不要搞混了确认号 ack 和标志位 ACK 前者是表示确认上一个收到的 TCP 数据段（segment）的序号为 ack - 1，后者是表示该数据段为确认请求的数据段；</p>
-</blockquote>
-<h3 id="建立连接三次握手"><a class="markdownIt-Anchor" href="#建立连接三次握手"></a> 建立连接——三次握手</h3>
-<p><img src="../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC5%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/2fcecac3c4af6473a5df917090b8750c2c1f2654fb1c8a0b8ac3fecbbd3ecc26.png" alt="picture 42" /></p>
-<p>上图的 TCP 建立请求的状态图，</p>
-<ol>
-<li>一开始服务器打开端口并进入监听状态；</li>
-<li>客户端发送 SYN 请求建立连接，进入 SYN-SENT 状态；</li>
-<li>服务端收到 SYN 请求，回复 ACK 请求，表示收到客户端的建立连接请求，进入 SYN-RCVD 状态；</li>
-<li>客户端收到 ACK 请求之后，回复 ACK 请求表示收到了服务端的 ACK 请求了，正式建立连接开始数据的传送（ESTABLISHED）；</li>
-<li>服务端收到 ACK 请求之后，也正式建立连接开始数据的传送；</li>
-</ol>
-<h3 id="释放连接四次挥手"><a class="markdownIt-Anchor" href="#释放连接四次挥手"></a> 释放连接——四次挥手</h3>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/doge-liang-notebook/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/20/">20</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/doge-liang-notebook/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/doge-liang-notebook/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/doge-liang-notebook/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/21/">21</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

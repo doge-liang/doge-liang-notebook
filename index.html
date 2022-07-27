@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,75 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/uncategorized/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/uncategorized/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-28 00:40:47 / Modified: 00:40:56" itemprop="dateCreated datePublished" datetime="2022-07-28T00:40:47+08:00">2022-07-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -752,7 +821,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-16 03:57:52" itemprop="dateModified" datetime="2022-07-16T03:57:52+08:00">2022-07-16</time>
+      <time title="Modified: 2022-07-28 00:39:31" itemprop="dateModified" datetime="2022-07-28T00:39:31+08:00">2022-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -783,6 +852,33 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="多线程设计模式"><a class="markdownIt-Anchor" href="#多线程设计模式"></a> 多线程设计模式</h2>
+<h3 id="latch-设计模式"><a class="markdownIt-Anchor" href="#latch-设计模式"></a> Latch 设计模式</h3>
+<p>Latch（阀门），该模式指定了一个屏障，只有所有的条件都达到满足的时候，门阀才能打开。</p>
+<p>首先定义一个无限等待的抽象类 <code>Latch</code> ，在 <code>Latch</code> 抽象类中定义了 <code>await()</code> 方法、 <code>countDown()</code> 方法以及 <code>getUnarrived()</code> 方法，这些方法的用途在代码注释中都有详细介绍，当然在 <code>Latch</code> 中的 <code>limit</code> 属性至关重要，当 <code>limit</code> 降低到 0 时门阀将会被打开。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Latch</span> </span>&#123;</span><br><span class="line">    <span class="comment">//用于控制多少个线程完成任务时才能打开阀门</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> limit;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//通过构造函数传入limit</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Latch</span><span class="params">(<span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.limit = limit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//该方法会使得当前线程一直等待，直到所有的线程都完成工作，被阻塞的线程是允许被中断的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当任务线程完成工作之后调用该方法使得计数器减一</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">countDown</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取当前还有多少个线程没有完成任务</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">getUnarrived</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当完成的子任务数量达到 <code>limit</code> 的时候，门阀才能打开， <code>await()</code> 方法用于等待所有的子任务完成，如果到达数量未达到 <code>limit</code> 的时候，将会无限等待下去，当子任务完成的时候调用 <code>countDown()</code> 方法使计数器减少一个，表明我已经完成任务了， <code>getUnarrived()</code> 方法主要用于查询当前有多少个子任务还未结束。</p>
+<h4 id="无限等待的-countdownlatch-实现"><a class="markdownIt-Anchor" href="#无限等待的-countdownlatch-实现"></a> 无限等待的 CountDownLatch 实现</h4>
+<h5 id="countdownlatch-实现"><a class="markdownIt-Anchor" href="#countdownlatch-实现"></a> CountDownLatch 实现</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatch</span> <span class="keyword">extends</span> <span class="title">Latch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountDownLatch</span><span class="params">(<span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(limit);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="comment">//当limit&gt;0时，当前线程进入阻塞状态</span></span><br><span class="line">            <span class="keyword">while</span> (limit &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (limit &lt;= <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">&quot;all of task already arrived&quot;</span>);</span><br><span class="line">            <span class="comment">//使limit减一，并且通知阻塞线程</span></span><br><span class="line">            limit--;</span><br><span class="line">            <span class="keyword">this</span>.notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUnarrived</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//返回有多少线程还未完成任务</span></span><br><span class="line">        <span class="keyword">return</span> limit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当 <code>limit</code> &gt; 0 时调用 <code>await()</code> 方法的线程将会进入无限的等待。 <code>await()</code> 方法不断判断 <code>limit</code> 的数量，大于 0 时门阀将不能打开，需要持续等待直到 <code>limit</code> 数量为 0 为止； <code>countDown()</code> 方法调用之后会导致 <code>limit--</code> 操作，并且通知 waiting 的线程再次判断 <code>limit</code> 的值是否等于 0 ，当 <code>limit</code> 被减少到了 0 以下，则抛出状态非法的异常；</p>
+<blockquote>
+<p><code>getUnarrived()</code> 获取当前还有多少个子任务未完成，这个返回值并不一定就是准确的，在多线程的情况下，某个线程在获得 Unarrived 任务数量并且返回之后，有可能 <code>limit</code> 又被减少，因此 <code>getUnarrived()</code> 是一个评估值。</p>
+</blockquote>
+<h5 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgrammerTravel</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="comment">//门阀</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Latch latch;</span><br><span class="line">    <span class="comment">//程序员</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String programmer;</span><br><span class="line">    <span class="comment">//交通工具</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String transportation;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//通过构造函数传入latch，programmer，transportation</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProgrammerTravel</span><span class="params">(Latch latch, String programmer, String transportation)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.latch = latch;</span><br><span class="line">        <span class="keyword">this</span>.programmer = programmer;</span><br><span class="line">        <span class="keyword">this</span>.transportation = transportation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(programmer + <span class="string">&quot; start take the transportation [&quot;</span> + transportation + <span class="string">&quot;]&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 程序员乘坐交通工具花费在路上的时间（使用随机数字模拟）</span></span><br><span class="line">            TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(<span class="number">10</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(programmer + <span class="string">&quot; arrived by &quot;</span> + transportation);</span><br><span class="line">        <span class="comment">//完成任务时使计数器减一</span></span><br><span class="line">        latch.countDown();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Latch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">4</span>);</span><br><span class="line">        <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Alex&quot;</span>, <span class="string">&quot;Bus&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Gavin&quot;</span>, <span class="string">&quot;Walking&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Jack&quot;</span>, <span class="string">&quot;Subway&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Dillon&quot;</span>, <span class="string">&quot;Bicycle&quot;</span>).start();</span><br><span class="line">        <span class="comment">//当前线程（main线程会进入阻塞，直到四个程序员全部都到达目的地）</span></span><br><span class="line">        latch.await();</span><br><span class="line">        System.out.println(<span class="string">&quot;== all of programmer arrived ==&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行 <code>latch.await()</code> 的方法会进入阻塞，知道前面四个子线程都执行过 <code>countdown()</code> 方法之后才能往下继续执行，否则会无限期等待下去。</p>
+<h4 id="超时机制"><a class="markdownIt-Anchor" href="#超时机制"></a> 超时机制</h4>
+<p>当子线程存在超时执行的可能性是，我们需要为 <code>Latch</code> 设置超时机制。</p>
+<h5 id="超时机制实现"><a class="markdownIt-Anchor" href="#超时机制实现"></a> 超时机制实现</h5>
+<p><code>Latch</code> 抽象类中增加带时间参数的 <code>await(TimeUnit unit，long time)</code> 方法；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Latch</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">(TimeUnit unit, <span class="keyword">long</span> time)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> InterruptedException, WaitTimeoutException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>CountDownLatch</code> 中实现超时接口；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">(TimeUnit unit, <span class="keyword">long</span> time)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, WaitTimeoutException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (time &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;The time is invalid.&quot;</span>);</span><br><span class="line">    <span class="keyword">long</span> remainingNanos = unit.toNanos(time); <span class="comment">//将time转换为纳秒</span></span><br><span class="line">    <span class="comment">//等待任务将在endNanos纳秒后超时</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">long</span> endNanos = System.nanoTime() + remainingNanos;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (limit &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//如果超时则抛出WaitTimeoutException异常</span></span><br><span class="line">            <span class="keyword">if</span> (TimeUnit.NANOSECONDS.toMillis(remainingNanos) &lt;= <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> WaitTimeoutException(<span class="string">&quot;The wait time over specify time.&quot;</span>);</span><br><span class="line">            <span class="comment">//等待remainingNanos，在等待的过程中有可能会被中断，需要重新计算remainingNanos</span></span><br><span class="line">            <span class="keyword">this</span>.wait(TimeUnit.NANOSECONDS.toMillis(remainingNanos));</span><br><span class="line">            remainingNanos = endNanos - System.nanoTime();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="超时机制测试"><a class="markdownIt-Anchor" href="#超时机制测试"></a> 超时机制测试</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    Latch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">4</span>);</span><br><span class="line">    <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Alex&quot;</span>, <span class="string">&quot;Bus&quot;</span>).start();</span><br><span class="line">    <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Gavin&quot;</span>, <span class="string">&quot;Walking&quot;</span>).start();</span><br><span class="line">    <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Jack&quot;</span>, <span class="string">&quot;Subway&quot;</span>).start();</span><br><span class="line">    <span class="keyword">new</span> ProgrammerTravel(latch, <span class="string">&quot;Dillon&quot;</span>, <span class="string">&quot;Bicycle&quot;</span>).start();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        latch.await(TimeUnit.SECONDS, <span class="number">5</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;== all of programmer arrived ==&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (WaitTimeoutException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序等待 5s 后，子任务未完成， <code>CountdownLatch</code> 抛出 <code>WaitTimeoutException</code> 异常通知主线程；</p>
+<h5 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h5>
+<p>Latch 设计模式提供了前置任务完成后再进行后面工作的设计方法，可以用在程序的缓存加载上，提高效率的同时，保证缓存加载完成之前任务阻塞，防止异常。自从 JDK 1.5 起也提供了 <code>CountdownLatch</code> 工具类，其实现是基于阻塞队列，但暴露的接口和上述相同。另外， <code>CountdownLatch</code> 只提供了门阀的阻塞功能，并不负责线程的管理，比如当子任务超时后， <code>Latch</code> 不会让超时的子任务停止，而是需要程序员自己控制任务的关闭。</p>
 
       
     </div>
@@ -1170,149 +1266,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">简介</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-12T00:00:00+08:00">2022-06-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-20 02:03:56" itemprop="dateModified" datetime="2022-06-20T02:03:56+08:00">2022-06-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
-<p>JVM (Java Virtual Machine) Java 虚拟机是物理机与高级语言之间的一层抽象层。用于封装各个硬件平台的不同，让各种高级语言只要面向虚拟机编程，不用了解硬件上的差别。最终“实现一次编写，到处运行”的目的。</p>
-<h3 id="java-技术体系"><a class="markdownIt-Anchor" href="#java-技术体系"></a> Java 技术体系</h3>
-<p>广义上来讲，用 JVM 运行的 Kotlin 、 Clojure 、 JRuby 、 Groovy 等语言都属于 Java 技术体系。但按照 JCP 官方定义的 Java 技术体系分为：</p>
-<ul>
-<li>Java 程序设计语言</li>
-<li>各个硬件平台上的 Java 虚拟机实现</li>
-<li>Class 文件格式</li>
-<li>Java 类库 API</li>
-<li>来自商业机构和开源社区的第三方 Java 类库</li>
-</ul>
-<p>JDK （Java Development Kit）是 Java语言、Java 虚拟机、 Java 类库这三部分的统称 ，是支持 Java 程序开发的最小环境。<br />
-JRE （Java Runtime  Environemnt）是 Java SE API 子集和 Java 虚拟机这两部分的统称，是支持 Java 程序运行的最标准境。</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%AE%80%E4%BB%8B/0a5ca6d1e78d45da31077e5cb7e30cbb5c88d91dff7141432d90f9128133eeec.png" alt="picture 1" /></p>
-<p>上图是 Java 技术体系的各个组成部分，以及 JDK 和 JRE 所包含的范围。</p>
-<p>JDK = JRE + Java 语言 + Java 工具</p>
-<p>上述是按照<strong>功能组件</strong>来分的。</p>
-<p>从<strong>产品线</strong>来划分， Java 技术体系包括：</p>
-<ul>
-<li>Java Card ：支持 Java 小程序运行在小内存设备（智能卡）上的平台；</li>
-<li>Java ME（Micro Edition）：移动终端（手机、PDA）的运行平台；</li>
-<li>Java SE（Standard Edition）：桌面级应用的平台，提供了完整的 Java 核心 API；</li>
-<li>Java EE（Enterprise Edition）：支持多层架构的企业级应用，这条产品线在 JDK 10 之后被 Oracle 放弃，捐献给 Eclipse 基金会管理，后称 Jakarta EE；</li>
-</ul>
-<p>Java EE 针对 SE 做了很多针对性的补充，这些补充包一般以 <code>javax.*</code> 开头，后来一部分这些包被加入到 <code>java.*</code> 的核心包中。</p>
-<h3 id="jvm-家族"><a class="markdownIt-Anchor" href="#jvm-家族"></a> JVM 家族</h3>
-<ul>
-<li>Sun Classic/Exact VM：
-<ul>
-<li>Classic 是 Java 的第一个虚拟机，只能用纯解释的方式来运行 Java 代码，如果需要即时编译器（用于将字节码编译成本机能立刻执行的机器码），则即时编译器会完全接管虚拟机的执行系统，即解释和编译只能二选一。如果外挂即时编译器，那么不管代码是否有编译价值，都会被编译，但是基于程序响应时间的压力，编译器不敢使用耗时高的优化技术，导致编译后的机器码执行效率不如 C/C++ ，解释执行就更不用说了，所以这时的 Java 代码执行很慢；</li>
-<li>Exact VM　由于使用了准确式内存管理（Exact Memory Management）而得名。准确式内存管理就是能准确地知道内存某个位置的数据具体是值类型还是引用类型，这可以在垃圾收集阶段判断堆上数据是否还可能被使用。Exact VM 还抛弃了 Classic VM 的基于句柄（广义指针）的对象查找方式，节省了一次间接查找的时间；</li>
-</ul>
-</li>
-<li>Hotspot VM：Hotspot VM 继承了 Exact VM 的准确式内存管理，并提供了热点代码探测技术，如果一段代码被频繁调用，将会分别触发标准即时编译器和栈上替换编译（On-Stack Replacement，OSR）行为；</li>
-<li>Mobile/Embedded VM：这个虚拟机是面向移动端和嵌入式时常的，在现在面临 Android 和 IOS 平分天下的格局，这类虚拟机只在性能很有限的功能机上使用了；</li>
-<li>BEA JRockit/IBM J9 VM
-<ul>
-<li>BEA JRockit：曾经是号称世界上最快的 JVM ，最开始主要面向服务器端，所以不在意程序的启动速度，所以没有解释器，完全由即时编译器构成，现已不再发展；</li>
-<li>IBM J9 VM：市场定位与 Hotspot 相近，模块化比 Hotspot 做的更优秀，核心组件库（垃圾收集器、即时编译器、诊断监控子系统等）都单独构成了 IBM OMR 项目，可以在其他语言平台快速组装出相应的功能；</li>
-</ul>
-</li>
-<li>BEA Liquid VM/Azul VM：与特定硬件平台绑定、软硬件配合工作的专有虚拟机，具有更高的执行性能；</li>
-<li>Apache Harmony/Google Android Dalvik VM：Harmony VM 没有被商用过，代码被吸纳进 Dalvik VM 中，Dalvik VM 后来被 ART 虚拟机取代；</li>
-<li>其他。。。</li>
-</ul>
-<h3 id="无语言倾向的虚拟机-graal-vm"><a class="markdownIt-Anchor" href="#无语言倾向的虚拟机-graal-vm"></a> 无语言倾向的虚拟机 Graal VM</h3>
-<p>Graal VM 的基本工作原理是将语言的源代码或者源代码编译后的中间格式，通过解释器转换成 Graal VM 可读的中间格式。例如对于 LLVM 语言 C/C++ 专门设计一个解释器来满足输出字节码的转换，这个过程被称为程序特化（Specialized）。这种虚拟机可以把本来运行速度不快的平台，比如 python 和 javascript 通过运行时的自动优化以达到更高的执行效率，并且无论什么语言，无论什么平台都能够在上面运行。</p>
-<h3 id="新一代的即时编译器-graal-编译器"><a class="markdownIt-Anchor" href="#新一代的即时编译器-graal-编译器"></a> 新一代的即时编译器 Graal 编译器</h3>
-<p>自 JDK 10 起，Hotspot VM 替换了 原有的 C2 编译器，改用 Graal 编译器。这个新编译器能够比旧编译器执行更复杂的优化，比如 部分逃逸分析（Partial Escape Analysis），也比 C2 更容易进行激进预测性优化（Aggressive Speculative Optimization），支持自定义的预测性假设；实现时，可以采用了和 C2 编译器相同的名为 Sea-of-nodes 的高级中间表示形式，更容易继承 C2 的优点。总的来说前途可期。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/doge-liang-notebook/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/20/">20</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/doge-liang-notebook/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/doge-liang-notebook/page/21/">21</a><a class="extend next" rel="next" href="/doge-liang-notebook/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
