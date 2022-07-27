@@ -176,109 +176,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-clone-%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-clone-%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git clone 命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-25T00:00:00+08:00">2021-03-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="git-clone-命令"><a class="markdownIt-Anchor" href="#git-clone-命令"></a> git clone 命令</h2>
-<h3 id="参数以及用法"><a class="markdownIt-Anchor" href="#参数以及用法"></a> 参数以及用法</h3>
-<h3 id="常用用法"><a class="markdownIt-Anchor" href="#常用用法"></a> 常用用法</h3>
-<ul>
-<li>项目版本迭代过多，为了加快拉取速度只拉取最新版本</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/aaa.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>显示详细拉取过程的详细信息</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aaa.git --progress --verbose</span><br></pre></td></tr></table></figure>
-<ul>
-<li>克隆某个指定版本的仓库</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果是使用 tag 来区分版本可以这样 clone</span></span><br><span class="line"><span class="comment"># 他会新建一个 branch ，目的是为了防止游离的 HEAD</span></span><br><span class="line">git <span class="built_in">clone</span> --branch v0.35.3 https://github.com/nvm-sh/nvm.git</span><br><span class="line"><span class="comment"># 如果是使用 branch 来区分版本可以这样 clone ，他只会拉取那个分支的代码</span></span><br><span class="line">git <span class="built_in">clone</span> -b release-2.2 https://github.com/hyperledger/fabric.git</span><br><span class="line"><span class="comment"># 也可以直接 clone 整个项目然后通过 checkout -b 来切换版本分支</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/example.git</span><br><span class="line">git checkout -b release-2.2</span><br><span class="line">git branch -a <span class="comment"># 查看分支所在的版本</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/clone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -350,6 +247,109 @@
 </li>
 </ul>
 <h2 id="clone"><a class="markdownIt-Anchor" href="#clone"></a> clone</h2>
+<h3 id="参数以及用法"><a class="markdownIt-Anchor" href="#参数以及用法"></a> 参数以及用法</h3>
+<h3 id="常用用法"><a class="markdownIt-Anchor" href="#常用用法"></a> 常用用法</h3>
+<ul>
+<li>项目版本迭代过多，为了加快拉取速度只拉取最新版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/aaa.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示详细拉取过程的详细信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aaa.git --progress --verbose</span><br></pre></td></tr></table></figure>
+<ul>
+<li>克隆某个指定版本的仓库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果是使用 tag 来区分版本可以这样 clone</span></span><br><span class="line"><span class="comment"># 他会新建一个 branch ，目的是为了防止游离的 HEAD</span></span><br><span class="line">git <span class="built_in">clone</span> --branch v0.35.3 https://github.com/nvm-sh/nvm.git</span><br><span class="line"><span class="comment"># 如果是使用 branch 来区分版本可以这样 clone ，他只会拉取那个分支的代码</span></span><br><span class="line">git <span class="built_in">clone</span> -b release-2.2 https://github.com/hyperledger/fabric.git</span><br><span class="line"><span class="comment"># 也可以直接 clone 整个项目然后通过 checkout -b 来切换版本分支</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/example.git</span><br><span class="line">git checkout -b release-2.2</span><br><span class="line">git branch -a <span class="comment"># 查看分支所在的版本</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-clone-%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/git/git-clone-%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git clone 命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-25T00:00:00+08:00">2021-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="git-clone-命令"><a class="markdownIt-Anchor" href="#git-clone-命令"></a> git clone 命令</h2>
 <h3 id="参数以及用法"><a class="markdownIt-Anchor" href="#参数以及用法"></a> 参数以及用法</h3>
 <h3 id="常用用法"><a class="markdownIt-Anchor" href="#常用用法"></a> 常用用法</h3>
 <ul>
