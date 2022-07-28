@@ -805,106 +805,6 @@ IP/FQDN+PORT of peer to be accessed</p>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/" class="post-title-link" itemprop="url">Linux shell 脚本执行方法之间的异同</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-30T00:00:00+08:00">2021-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux-shell-脚本执行方法之间的异同"><a class="markdownIt-Anchor" href="#linux-shell-脚本执行方法之间的异同"></a> Linux shell 脚本执行方法之间的异同</h2>
-<p>Linux shell 脚本的执行方式有很多，比如 <code>source &lt;bash path&gt;</code> 、 <code>sh|bash &lt;bash path&gt;</code> 、 <code>. &lt;bash path&gt;</code> 等等。</p>
-<p>这些执行方式分为两类：</p>
-<ol>
-<li>开启子 shell 执行脚本；</li>
-<li>以当前 shell 作为环境执行脚本；</li>
-</ol>
-<p>如果以子 shell 的方式执行脚本，那么父 shell 脚本定义的环境变量（未 export 的）是不会被子 shell 继承的；</p>
-<ul>
-<li><code>./*.sh</code> 的执行方式等价于 <code>sh ./*.sh</code> 或者 <code>bash ./*.sh</code> ，此三种执行脚本的方式都是重新启动一个子 shell ，在子 shell 中执行此脚本。</li>
-<li><code>source ./*.sh</code> 和 <code>. ./*.sh</code> 的执行方式是等价的，即两种执行方式都是在当前 shell 进程中执行此脚本，而不是重新启动一个 shell 而在子 shell 进程中执行此脚本。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-ps-%E5%91%BD%E4%BB%A4%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,6 +932,106 @@ IP/FQDN+PORT of peer to be accessed</p>
 </tr>
 </tbody>
 </table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/" class="post-title-link" itemprop="url">Linux shell 脚本执行方法之间的异同</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-30T00:00:00+08:00">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="linux-shell-脚本执行方法之间的异同"><a class="markdownIt-Anchor" href="#linux-shell-脚本执行方法之间的异同"></a> Linux shell 脚本执行方法之间的异同</h2>
+<p>Linux shell 脚本的执行方式有很多，比如 <code>source &lt;bash path&gt;</code> 、 <code>sh|bash &lt;bash path&gt;</code> 、 <code>. &lt;bash path&gt;</code> 等等。</p>
+<p>这些执行方式分为两类：</p>
+<ol>
+<li>开启子 shell 执行脚本；</li>
+<li>以当前 shell 作为环境执行脚本；</li>
+</ol>
+<p>如果以子 shell 的方式执行脚本，那么父 shell 脚本定义的环境变量（未 export 的）是不会被子 shell 继承的；</p>
+<ul>
+<li><code>./*.sh</code> 的执行方式等价于 <code>sh ./*.sh</code> 或者 <code>bash ./*.sh</code> ，此三种执行脚本的方式都是重新启动一个子 shell ，在子 shell 中执行此脚本。</li>
+<li><code>source ./*.sh</code> 和 <code>. ./*.sh</code> 的执行方式是等价的，即两种执行方式都是在当前 shell 进程中执行此脚本，而不是重新启动一个 shell 而在子 shell 进程中执行此脚本。</li>
+</ul>
 
       
     </div>
