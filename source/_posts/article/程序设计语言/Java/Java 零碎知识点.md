@@ -201,3 +201,46 @@ public native int hashCode();
 
 1. 重写 `equal()` 方法必须重写 `hashcode()` 方法；（因为重写 equal 之后，可能两个地址不同的对象也能 equal ，而 hashCode 返回的还是他们各自的地址，不符合上述的 **结论 1** ）
 2. 重写 `hashcode()` 方法可以不重写 `equal()` 方法；（因为重写 `hashCode()` 方法要求，程序运行时，对于同一个对象无论调用多少次，返回的都是相同的结果，因此必须基于对象自身的信息计算 hashCode ，如果两个对象计算出来的 hashCode 不一样，那么他们必定不是同一个对象，地址肯定也不同， `equal()` 方法必定返回 `false` 所以不重写 `equal()` 也能满足要求；
+
+### this 关键字在不同上下文中的指向
+
+#### lambda 表达式
+
+lambda 表达式在匿名内部类的基础上进一步省去了接口名和函数名，但实际上 lambda 表达式并不仅仅是匿名内部类的语法糖， JVM 内部通过 `invokedynamic` 指令实现。在 JVM 层面，匿名内部类依然是一个类，只是不需要类名，编译器会自动取一个类名，编译后会出现两个 class 文件。 `MainAnonymousClass.class` 和 `MainAnonymousClass$1.class` 。而 lambda 表达式会被编译成主类的一个私有方法，并通过 `invokedynamic` 指令进行调用。
+
+```JAVA
+// javap -c -p MainLambda.class
+public class MainLambda {
+  ...
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class java/lang/Thread
+       3: dup
+       4: invokedynamic #3,  0              // InvokeDynamic #0:run:()Ljava/lang/Runnable; /*使用invokedynamic指令调用*/
+       9: invokespecial #4                  // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+      12: invokevirtual #5                  // Method java/lang/Thread.start:()V
+      15: return
+
+  private static void lambda$main$0();  /*Lambda表达式被封装成主类的私有方法*/
+    Code:
+       0: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #7                  // String Lambda Thread run()
+       5: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
+```
+
+因此，在 lambda 表达式中， `this` 关键字和在表达式外的含义一样，都是指向 lambda 表达式所在的类的实例。
+
+#### 匿名内部类
+
+```JAVA
+new Thread(new Runnable() {// 接口名
+    @Override
+    public void run() {// 方法名
+        System.out.println("Thread run()");
+    }
+}).start();
+```
+
+匿名内部类常见于模板方法设计中（比如 Thread 类），由于不需要声明类名，因此叫匿名内部类。而匿名内部类实际上是一个独立的类，编译后生成的 class 文件也是一个独立的文件，因此 `this` 关键字指向的是这个匿名内部类的实例。
