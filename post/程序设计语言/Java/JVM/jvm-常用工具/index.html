@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="JVM 常用工具  基础故障处理工具  java  javac  javap  jps  jstat  jinfo  jmap  jhat  jstack">
+    <meta name="description" content="JVM 常用工具  基础故障处理工具  java  javac  javap  jps 虚拟机进程状况工具，类似于 linux 的 ps 命令，不过这个命令专门对 Java 程序服务，可以列出正在运行的虚拟机进 程，并显示虚拟机执行主类（Main Class，main()函数所在的类）名称以及这些进程的本地虚拟机唯一 ID（LVMID，Local Virtual Machine Identifi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm 常用工具">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/jvm-%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="JVM 常用工具  基础故障处理工具  java  javac  javap  jps  jstat  jinfo  jmap  jhat  jstack">
+<meta property="og:description" content="JVM 常用工具  基础故障处理工具  java  javac  javap  jps 虚拟机进程状况工具，类似于 linux 的 ps 命令，不过这个命令专门对 Java 程序服务，可以列出正在运行的虚拟机进 程，并显示虚拟机执行主类（Main Class，main()函数所在的类）名称以及这些进程的本地虚拟机唯一 ID（LVMID，Local Virtual Machine Identifi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-23T14:37:53.397Z">
+<meta property="article:modified_time" content="2022-07-31T20:59:41.805Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
 
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-23 00:00:00 / Modified: 22:37:53" itemprop="dateCreated datePublished" datetime="2022-07-23T00:00:00+08:00">2022-07-23</time>
+      <time title="Created: 2022-07-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-23T00:00:00+08:00">2022-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-01 04:59:41" itemprop="dateModified" datetime="2022-08-01T04:59:41+08:00">2022-08-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,11 +252,24 @@
 <h4 id="javac"><a class="markdownIt-Anchor" href="#javac"></a> javac</h4>
 <h4 id="javap"><a class="markdownIt-Anchor" href="#javap"></a> javap</h4>
 <h4 id="jps"><a class="markdownIt-Anchor" href="#jps"></a> jps</h4>
+<p>虚拟机进程状况工具，类似于 linux 的 ps 命令，不过这个命令专门对 Java 程序服务，可以列出正在运行的虚拟机进 程，并显示虚拟机执行主类（Main Class，main()函数所在的类）名称以及这些进程的本地虚拟机唯一 ID（LVMID，Local Virtual Machine Identifier）。</p>
+<p>命令格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps [option] [hostId]</span><br></pre></td></tr></table></figure>
+<p>选项：</p>
+<ul>
+<li><code>-q</code> 只输出 LVMID ，省略主类名称；</li>
+<li><code>-m</code> 输出虚拟机进程启动时传递给主类 main() 函数的参数；</li>
+<li><code>-l</code> 输出主类的全名，如果进程执行的是 jar 包，则输出 jar 包路径；</li>
+<li><code>-v</code> 输出虚拟机进程启动时的 JVM 参数；</li>
+</ul>
 <h4 id="jstat"><a class="markdownIt-Anchor" href="#jstat"></a> jstat</h4>
 <h4 id="jinfo"><a class="markdownIt-Anchor" href="#jinfo"></a> jinfo</h4>
 <h4 id="jmap"><a class="markdownIt-Anchor" href="#jmap"></a> jmap</h4>
 <h4 id="jhat"><a class="markdownIt-Anchor" href="#jhat"></a> jhat</h4>
 <h4 id="jstack"><a class="markdownIt-Anchor" href="#jstack"></a> jstack</h4>
+<p>用于生成虚拟机当前时刻的线程快照，（一般称为threaddump或者 javacore文件）。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的 目的通常是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间挂 起等，都是导致线程长时间停顿的常见原因。<br />
+线程出现停顿时通过jstack来查看各个线程的调用堆栈， 就可以获知没有响应的线程到底在后台做些什么事情，或者等待着什么资源。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usage:</span><br><span class="line">    jstack [option] vmId</span><br><span class="line"></span><br><span class="line">-F 正常输出的请求不被响应时，强制输出线程堆栈</span><br><span class="line">-l 除堆栈外，还输出关于锁的详细信息</span><br><span class="line">-m 如果调用到本地方法，还显示 C/C++ 的堆栈</span><br></pre></td></tr></table></figure>
 
     </div>
 
