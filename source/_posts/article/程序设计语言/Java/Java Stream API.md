@@ -58,3 +58,13 @@ Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript �
 
 1. `CollectionInstance.stream()` 返回由集合的元素组成的流；
 2. `Stream.of(T)` 和 `Stream.of(T...)` 返回 T 类型的流；
+
+### 并行流
+
+Stream 默认创建一个顺序流来处理集合的元素。当流处理的终端操作开始后，才开始遍历、拆分、查询拆分器获取估计的大小。官方建议拆分器应该具有 immutable 或者 concurrent 的特征，否则使用顺序流。
+
+`parallelStream` 是并行的，返回一个可能并行执行的 Stream ，以**集合**作为数据源，默认从集合的 `Spliterator` 创建并行 Stream 。
+
+#### parallelStream 流式陷阱
+
+使用并行流时，内部的处理逻辑是使用了多个线程执行的，如果内部没有保证线程安全，很容易出现莫名其妙的 `java.util.ConcurrentModificationException` 比如使用了非线程安全的集合收集数据，对非线程安全的集合的并发操作很容易导致集合扩容不及时而报错，或者其他数据竞争的问题（写入空值、读出空值等）。

@@ -29,7 +29,7 @@ categories:
 
 借助于 **自动装箱(autoboxing)** 的特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。
 
-``` Java
+```Java
 //这是一个泛型类
 public class genericClass<T> {
     //这是一个泛型方法
@@ -51,7 +51,7 @@ public interface genericInterface<T, R> {
 在 Java 不支持泛型之前，泛型程序设计的实现依赖于 Object 类，以及强制类型转换，这要求程序员写代码时对自己泛型中的 Object 类实际所指对象了如执掌，否则很容易发生错误的类型转换，导致程序崩溃。引入了泛型之后， 泛型的使用方可以使用 `<>` 告诉编译器，这是对哪个类型执行方法，给予了编译器检查的类型信息，更好地保障了类型转换的安全。
 如下代码描述了没有引入泛型之前的时候：
 
-``` java
+```java
 // 没有泛型的时候
 List list = new ArrayList();
 list.add(new File());
@@ -64,7 +64,7 @@ String string = list.get(0); // 这个方法在编译阶段不会报错，但在
 List<File> list = new ArrayList<>();
 list.add(new File());
 // 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败
-String list.get(0); 
+String list.get(0);
 ```
 
 ### 泛型类
@@ -165,10 +165,10 @@ void setFirst(Test<? extends Employee> obj) {
 `list.get()` 只能使用 `Object` 类型来接收，因为我们不知道所存元素的上界，所以只能使用最大的上界来接收他的返回值，以保证类型安全。但编译器知道，`T` 以及 `T` 的子类都能够和 `T` 的某个父类兼容，所以可以使用 `list.add(t)` 存放 `T` 及其子类。
 
 考虑 `List<? extends Animal>` 和 `List<? extends Cat>` ：
-`Cat` 是 `Animal` 的子类，而 `List<? extends Cat>` 也是 `List<? extends Animal>` 的子类，我们称之为 *通配符类型是在 **上界协变** 的*；
+`Cat` 是 `Animal` 的子类，而 `List<? extends Cat>` 也是 `List<? extends Animal>` 的子类，我们称之为 _通配符类型是在 **上界协变** 的_；
 
 考虑 `List<? super Animal>` 和 `List<? super Cat>` ：
-`Animal` 是 `Cat` 的父类，而 `List<? super Animal>` 是 `List<? super Cat>` 的子类，我们称之为 *通配符类型是在 **下界逆变** 的*；
+`Animal` 是 `Cat` 的父类，而 `List<? super Animal>` 是 `List<? super Cat>` 的子类，我们称之为 _通配符类型是在 **下界逆变** 的_；
 
 ### hashcode() 与 equal()
 
@@ -248,4 +248,3 @@ new Thread(new Runnable() {// 接口名
 #### 常量池机制
 
 Java 的 `Integer` 类在值的范围为 -128 ~ 127 时， `valueOf()` 方法会复用 `IntegerCache` 中的值。对于在这个范围内的 `Integer` 如果不使用 `new` 关键字新建一个 `Integer` 对象，那么返回的都是同一块地址的值，使用 `==` 判断都会返回 `true` 。
-
