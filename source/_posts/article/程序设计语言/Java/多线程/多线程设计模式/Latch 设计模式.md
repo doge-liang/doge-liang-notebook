@@ -1,5 +1,5 @@
 ---
-title: Latch
+title: Latch 设计模式
 date: 2022-09-01
 tags: []
 categories:
@@ -9,7 +9,7 @@ categories:
   - 多线程设计模式
 ---
 
-### Latch 设计模式
+## Latch 设计模式
 
 Latch（阀门），该模式指定了一个屏障，只有所有的条件都达到满足的时候，门阀才能打开。
 
@@ -39,9 +39,9 @@ public abstract class Latch {
 
 当完成的子任务数量达到 `limit` 的时候，门阀才能打开， `await()` 方法用于等待所有的子任务完成，如果到达数量未达到 `limit` 的时候，将会无限等待下去，当子任务完成的时候调用 `countDown()` 方法使计数器减少一个，表明我已经完成任务了， `getUnarrived()` 方法主要用于查询当前有多少个子任务还未结束。
 
-#### 无限等待的 CountDownLatch 实现
+### 无限等待的 CountDownLatch 实现
 
-##### CountDownLatch 实现
+#### CountDownLatch 实现
 
 ```JAVA
 public class CountDownLatch extends Latch {
@@ -83,7 +83,7 @@ public class CountDownLatch extends Latch {
 
 > `getUnarrived()` 获取当前还有多少个子任务未完成，这个返回值并不一定就是准确的，在多线程的情况下，某个线程在获得 Unarrived 任务数量并且返回之后，有可能 `limit` 又被减少，因此 `getUnarrived()` 是一个评估值。
 
-##### 测试
+#### 测试
 
 ```JAVA
 public class ProgrammerTravel extends Thread {
@@ -130,11 +130,11 @@ public class ProgrammerTravel extends Thread {
 
 执行 `latch.await()` 的方法会进入阻塞，知道前面四个子线程都执行过 `countdown()` 方法之后才能往下继续执行，否则会无限期等待下去。
 
-#### 超时机制
+### 超时机制
 
 当子线程存在超时执行的可能性是，我们需要为 `Latch` 设置超时机制。
 
-##### 超时机制实现
+#### 超时机制实现
 
 `Latch` 抽象类中增加带时间参数的 `await(TimeUnit unit，long time)` 方法；
 
@@ -172,7 +172,7 @@ public void await(TimeUnit unit, long time)
 }
 ```
 
-##### 超时机制测试
+#### 超时机制测试
 
 ```JAVA
 public static void main(String[] args)
@@ -193,6 +193,6 @@ public static void main(String[] args)
 
 程序等待 5s 后，子任务未完成， `CountdownLatch` 抛出 `WaitTimeoutException` 异常通知主线程；
 
-##### 小结
+#### 小结
 
 Latch 设计模式提供了前置任务完成后再进行后面工作的设计方法，可以用在程序的缓存加载上，提高效率的同时，保证缓存加载完成之前任务阻塞，防止异常。自从 JDK 1.5 起也提供了 `CountdownLatch` 工具类，其实现是基于阻塞队列，但暴露的接口和上述相同。另外， `CountdownLatch` 只提供了门阀的阻塞功能，并不负责线程的管理，比如当子任务超时后， `Latch` 不会让超时的子任务停止，而是需要程序员自己控制任务的关闭。
