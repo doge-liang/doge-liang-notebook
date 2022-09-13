@@ -29,7 +29,7 @@
 <meta property="og:description" content="Java 面向对象  类和对象 类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。 每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 成员变量 或 实例变量 或 属性域 等等 ……； 人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 类变量 、 静态变量 等等 ……； 每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-08T13:49:19.457Z">
+<meta property="article:modified_time" content="2022-08-31T17:10:42.129Z">
 <meta property="article:author" content="doge-liang">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -131,13 +131,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-08 21:49:19" itemprop="dateModified" datetime="2022-08-08T21:49:19+08:00">2022-08-08</time>
+      <time title="Modified: 2022-09-01 01:10:42" itemprop="dateModified" datetime="2022-09-01T01:10:42+08:00">2022-09-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
 如下代码描述了没有引入泛型之前的时候：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有泛型的时候</span></span><br><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line">String string = list.get(<span class="number">0</span>); <span class="comment">// 这个方法在编译阶段不会报错，但在运行时会引发类型转换错误的异常</span></span><br></pre></td></tr></table></figure>
 <p>引入了泛型之后：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line"><span class="comment">// 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败</span></span><br><span class="line">String list.get(<span class="number">0</span>); </span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="keyword">new</span> File());</span><br><span class="line"><span class="comment">// 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败</span></span><br><span class="line">String list.get(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="泛型类"><a class="markdownIt-Anchor" href="#泛型类"></a> 泛型类</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="泛型方法"><a class="markdownIt-Anchor" href="#泛型方法"></a> 泛型方法</h3>
@@ -353,8 +353,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/" rel="next" title="Java 程序的运行过程">
-                  Java 程序的运行过程 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" rel="next" title="Java 拆箱装箱">
+                  Java 拆箱装箱 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

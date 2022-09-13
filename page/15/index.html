@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,666 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vim/vim-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">vim 笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-19T00:00:00+08:00">2020-06-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="vim-应用"><a class="markdownIt-Anchor" href="#vim-应用"></a> vim 应用</h2>
+<h3 id="块注释"><a class="markdownIt-Anchor" href="#块注释"></a> 块注释</h3>
+<p>添加注释：</p>
+<ol>
+<li><code>ctrl</code> + <code>v</code> 进入列模式， <code>I</code> 进入插入模式，输入注释符号</li>
+<li><code>esc</code> 退出列模式和视图模式</li>
+</ol>
+<p>取消注释：</p>
+<ol>
+<li><code>ctrl</code> + <code>v</code> 控制方向键选中注释代码， <code>d</code> 删除注释符号</li>
+</ol>
+<h2 id="vim-使用笔记"><a class="markdownIt-Anchor" href="#vim-使用笔记"></a> Vim 使用笔记</h2>
+<h6 id="窗口多开和切换"><a class="markdownIt-Anchor" href="#窗口多开和切换"></a> 窗口多开和切换</h6>
+<ul>
+<li>横向切割窗口</li>
+</ul>
+<p><code>:new [windowName]</code> 横向切割，保存之后 windowName 就是文件名<br />
+<code>:split [windowName]</code> 同上</p>
+<ul>
+<li>纵向切割窗口</li>
+</ul>
+<p><code>:vsplit [windowName]</code></p>
+<ul>
+<li>关闭多窗口</li>
+</ul>
+<p><code>:close</code> 关闭窗口，内容还在缓存中<br />
+<code>:q!</code> 强制退出，不保存<br />
+<code>:w!</code> 强制保存退出<br />
+<code>:x</code> 同上<br />
+<code>:tabc</code> 关闭当前窗口<br />
+<code>:tabo</code> 关闭所有窗口</p>
+<ul>
+<li>
+<p>窗口大小调整</p>
+<ul>
+<li>
+<p>纵向调整</p>
+</li>
+<li>
+<p><code>ctrl+w</code> + 纵向扩大（行数增加）</p>
+</li>
+<li>
+<p><code>ctrl+w</code> - 纵向缩小 （行数减少）</p>
+</li>
+<li>
+<p><code>res(ize) num</code> 例如：:res 5，显示行数调为 5 行</p>
+</li>
+<li>
+<p><code>res(ize)+num</code> 把当前窗口高度增加 num 行</p>
+</li>
+<li>
+<p><code>res(ize)-num</code> 把当前窗口高度减少 num 行</p>
+</li>
+<li>
+<p>横向调整</p>
+<ul>
+<li><code>:vertical res(ize) num</code> 指定当前窗口为 num 列</li>
+<li><code>:vertical res(ize)+num</code> 把当前窗口增加 num 列</li>
+<li><code>:vertical res(ize)-num</code> 把当前窗口减少 num 列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>:f [fileName]</code> 窗口重命名<br />
+<code>vim fileA, fileB, fileC</code> 多文件打开<br />
+<code>:n ||[fileName]</code> 跳至下一个文件<br />
+<code>:Ex</code> 文件浏览器<br />
+<code>:[S/V]ex</code> 横向/纵向分割出文件浏览器<br />
+<code>:ls</code> 当前具体窗口信息</p>
+<p><code>:shell</code> 在不关闭 vim 的情况下，跳转到 shell</p>
+<p>vim 有三个模式：命令模式、视图模式、编辑模式</p>
+<h6 id="命令模式normal"><a class="markdownIt-Anchor" href="#命令模式normal"></a> 命令模式(Normal)</h6>
+<ul>
+<li><code>i</code> → 进入*Insert 模式，按 Esc 可退回 Normal 模式</li>
+<li><code>x</code> → 删除光标所在的字符</li>
+<li><code>:wq</code> → 存盘退出（<em>:w</em>存盘，<em>:q</em>退出，<em>:w</em>后面可以加文件名)</li>
+<li><code>dd</code> → 删除当前行，并保存到剪切板</li>
+<li><code>p</code> → 粘贴</li>
+<li><code>hjkl</code> → 左上下右</li>
+<li><code>:help \&lt;command\&gt;</code> → 显示相关命令的帮助</li>
+</ul>
+<h6 id="命令模式拓展"><a class="markdownIt-Anchor" href="#命令模式拓展"></a> 命令模式拓展</h6>
+<ol>
+<li>
+<p>各种插入模式</p>
+<ul>
+<li><code>a</code> → 在光标后插入</li>
+<li><code>o</code> → 在当前行后插入一个新行</li>
+<li><code>cw</code> → 替换光标所在未知到下一个空格处的字符</li>
+</ul>
+</li>
+<li>
+<p>简单的移动光标</p>
+<ul>
+<li><code>0</code> → 到行头</li>
+<li><code>^</code> → 到本行第一个不是空格字符的位置</li>
+<li><code>$</code> → 到本行行尾</li>
+<li><code>g_</code> → 到本行最后一个不是空格字符的位置</li>
+<li><code>/pattern</code> → 向下搜索 <em>pattern</em> 字符串，有多个匹配可使用<em>n</em>去往下一个匹配字符串</li>
+<li><code>?pattern</code> → 向上搜索 <em>pattern</em> 字符串，同上</li>
+<li><code>%s/xenial/bionic/g</code> → 整个文件内将 ‘xenial’ 替换成 ‘bionic’ ， 也可以指定行 <code>1,10s/xenial/bionic/g</code></li>
+</ul>
+</li>
+<li>
+<p>拷贝/粘贴</p>
+<ul>
+<li><code>p</code> → 粘贴在当前位置之后</li>
+<li><code>P</code> → 粘贴在当前位置之前</li>
+<li><code>yy</code> → 拷贝当前行到 ddp</li>
+</ul>
+</li>
+<li>
+<p>Undo/Redo</p>
+<ul>
+<li><code>u</code> → undo</li>
+<li><code>&lt;ctrl-R&gt;</code> → redo</li>
+</ul>
+</li>
+<li>
+<p>打开/保存/退出/改变文件(Buffer)</p>
+<ul>
+<li><code>e &lt;path/to/file&gt;</code> → 打开一个文件</li>
+<li><code>:w</code> → 存盘</li>
+<li><code>:savea &lt;path/to/file&gt;</code> → 另存为 <code>&lt;path/to/file&gt;</code></li>
+<li><code>:x, ZZ</code> 或 <code>:wq</code> → 保存并退出( <code>:x</code> 表示仅在需要时保存)</li>
+<li><code>:bn和:bp</code> → 同时打开很多文件时，可以用这两个命令进行切换上一个文件和下一个文件，<em>:n</em>也可以切换到下一个文件</li>
+</ul>
+</li>
+</ol>
+<h6 id="更好更快更强"><a class="markdownIt-Anchor" href="#更好更快更强"></a> 更好更快更强</h6>
+<ul>
+<li>
+<p><code>.</code> → 重复上一次命令</p>
+</li>
+<li>
+<p><code>N \&lt;command&gt;</code> → 重复某个命令 n 次</p>
+</li>
+<li>
+<p><code>2dd</code> → 删除 2 行</p>
+</li>
+<li>
+<p><code>3p</code> → 粘贴文本 3 次</p>
+</li>
+<li>
+<p><code>100idesu [ESC]</code> → 会写下 “desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu “</p>
+</li>
+<li>
+<p><code>.</code> → 重复上一个命令—— 100 “desu “.</p>
+</li>
+<li>
+<p><code>3.</code> → 重复 3 次 “desu” (注意：不是 300，你看，VIM 多聪明啊)</p>
+</li>
+<li>
+<p><code>NG</code> → 移动到第 N 行</p>
+</li>
+<li>
+<p><code>gg</code> → 移动到第一行</p>
+</li>
+<li>
+<p><code>G</code> → 到最后一行</p>
+</li>
+<li>
+<p>按单词移动</p>
+<ul>
+<li><code>w</code> → 到下一个单词开头</li>
+<li><code>e</code> → 到下一个单词结尾</li>
+<li><code>%</code> → 匹配括号移动</li>
+<li><code>*</code> 和 <code>#</code> → 匹配光标当前单词， <code>*</code> 下一个， <code>#</code> 上一个</li>
+</ul>
+</li>
+<li>
+<p>命令联动</p>
+<ul>
+<li><code>0y$</code> → 从行头拷贝到行尾</li>
+<li><code>ye</code> → 从当前光标拷贝到本单词最后一个字符</li>
+<li><code>gU</code> → 变大写</li>
+<li><code>gu</code> → 变小写</li>
+</ul>
+</li>
+</ul>
+<h6 id="视图模式visual-mode"><a class="markdownIt-Anchor" href="#视图模式visual-mode"></a> 视图模式(visual mode)</h6>
+<p><code>v</code> 进入视图模式，字符选择<br />
+<code>V</code> 进入视图模式，行选择<br />
+<code>&lt;C-v&gt;</code> 块选择<br />
+<code>y</code> 高亮位置复制<br />
+<code>d</code> 高亮位置删除</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B8%A9%E5%9D%91%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B8%A9%E5%9D%91%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">小程序开发教程以及踩坑集合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-16T00:00:00+08:00">2020-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">小程序</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="小程序开发踩坑集"><a class="markdownIt-Anchor" href="#小程序开发踩坑集"></a> 小程序开发踩坑集</h2>
+<p>小程序本质上仍然是一个 web 应用，整体的代码是存储在微信的服务器上的。手机在微信客户端点击一个小程序的连接，微信向服务器发起请求，拉取小程序的代码（页面以及逻辑代码），依托于微信客户端提供的运行时环境，完成他的功能。</p>
+<h3 id="微信小程序架构"><a class="markdownIt-Anchor" href="#微信小程序架构"></a> 微信小程序架构</h3>
+<p>与传统网页开发的区别：</p>
+<ul>
+<li>渲染层和逻辑层分离；</li>
+<li>没有完整的浏览器对象，无法调用 DOM API 和 BOM API；</li>
+</ul>
+<p>小程序不同运行环境的区别：</p>
+<table>
+<thead>
+<tr>
+<th>运行环境</th>
+<th>逻辑层</th>
+<th>渲染层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IOS</td>
+<td>JavaScriptCore</td>
+<td>WKWebView</td>
+</tr>
+<tr>
+<td>安卓</td>
+<td>V8</td>
+<td>chromium 定制内核</td>
+</tr>
+<tr>
+<td>小程序开发工具</td>
+<td>NWJS</td>
+<td>Chrome WebView</td>
+</tr>
+</tbody>
+</table>
+<h3 id="起步准备"><a class="markdownIt-Anchor" href="#起步准备"></a> 起步准备</h3>
+<p>由于本人只开发过个人小程序账号，所以下面的流程不保证企业小程序也有效；<br />
+微信公众平台注册账号，注意<strong>已有公众号的个人账户</strong>无法申请绑定小程序，只能用<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#%E7%94%B3%E8%AF%B7%E5%B8%90%E5%8F%B7">新邮箱再注册一个账号</a>来开发小程序；</p>
+<h3 id="代码构成"><a class="markdownIt-Anchor" href="#代码构成"></a> 代码构成</h3>
+<ul>
+<li>JSON：一般做配置说明文件用，比如引用什么组件、TabBar 什么样式；</li>
+<li>WXML：布置页面结构用，类似于 HTML，但又自成体系，标签和 HTML 不通用；</li>
+<li>CSS：样式文件，同网页开发；</li>
+<li>JS：工作在逻辑层的 JavaScript 脚本；</li>
+<li>WXS：工作在渲染层的脚本语言，与 JS 是不同的语言，仅有部分语法相似，能完成的功能比较简单；（可选项）</li>
+</ul>
+<p>局部和全局：</p>
+<h3 id="page-vs-component"><a class="markdownIt-Anchor" href="#page-vs-component"></a> Page vs. Component</h3>
+<p>注册简单的页面一般使用 Page ，不用做太多的属性配置；<br />
+注册复杂功能的页面推荐使用 Component ，能支持更高级的一些特性，如页面间的属性，方法的共享 ( <code>behavior</code> 特性)</p>
+<h3 id="动画的实现方式"><a class="markdownIt-Anchor" href="#动画的实现方式"></a> 动画的实现方式</h3>
+<ul>
+<li>canvas</li>
+<li>WXS</li>
+<li>css3</li>
+</ul>
+<p>三种方式各自都有局限性， canvas 能实现的功能最复杂，但不适合实现简单的动画（代码也会相应得很复杂） css3 符合传统 Web 的实现方式，编码可移植，WXS 为腾讯自有的脚本体系，现如今更新比较少，能支持的动画也相对较少。</p>
+<h3 id="canvas-2d"><a class="markdownIt-Anchor" href="#canvas-2d"></a> canvas 2d</h3>
+<p>微信小程序为了解决原生组件无法同级渲染（即默认在顶级展示，无法遮盖）的问题，推出了 canvas 2d 组件；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 待补充 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-08T00:00:00+08:00">2020-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="线性表"><a class="markdownIt-Anchor" href="#线性表"></a> 线性表</h2>
+<h3 id="问题导入"><a class="markdownIt-Anchor" href="#问题导入"></a> 问题导入</h3>
+<p><strong>如何存储一个多项式？</strong></p>
+<ul>
+<li>
+<p>采用数组，每个元素的 Index 代表指数，对应的 value 代表系数；</p>
+<ul>
+<li>优点：操作方便，直接用遍历相加每个元素即可；</li>
+<li>缺点：对于稀疏向量的表示，浪费存储空间，例如 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>2000</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">x^{2000} + 2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">0</span><span class="mord mtight">0</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">x</span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p>采用结构数组，每个元素有两个值，一个是指数，一个是系数；</p>
+<ul>
+<li>优点：只表示非零项，节省空间；</li>
+<li>缺点：操作稍微复杂一点，数组需要按照指数大小有序的保存；</li>
+</ul>
+</li>
+<li>
+<p>采用链表：同上；</p>
+</li>
+</ul>
+<h3 id="什么是线性表"><a class="markdownIt-Anchor" href="#什么是线性表"></a> 什么是线性表</h3>
+<p>相同类型的 <strong>数据元素</strong> 构成 <strong>有序序列</strong> 的线性结构</p>
+<p>类型名称：线性表（List）<br />
+数据对象集：线性表 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个元素构成的有序序列<br />
+操作集：</p>
+<ul>
+<li>表长</li>
+<li>表头、表尾</li>
+</ul>
+<blockquote>
+<p>注意：线性表是一种逻辑结构，而顺序表和链表指存储结构，两者的概念层次不同，不能混淆；</p>
+</blockquote>
+<h3 id="线性表的基本操作"><a class="markdownIt-Anchor" href="#线性表的基本操作"></a> 线性表的基本操作</h3>
+<p>包括：</p>
+<ul>
+<li>初始化表</li>
+<li>求表长</li>
+<li>按值查找</li>
+<li>按位查找</li>
+<li>插入操作</li>
+<li>删除操作</li>
+<li>输出操作</li>
+<li>判空操作</li>
+<li>销毁操作</li>
+</ul>
+<h3 id="线性表的两种物理实现"><a class="markdownIt-Anchor" href="#线性表的两种物理实现"></a> 线性表的两种物理实现</h3>
+<ul>
+<li>顺序表</li>
+<li>链表</li>
+</ul>
+<h4 id="顺序表"><a class="markdownIt-Anchor" href="#顺序表"></a> 顺序表</h4>
+<ul>
+<li>静态分配</li>
+<li>动态分配</li>
+</ul>
+<p>特点：</p>
+<ol>
+<li>逻辑顺序和物理顺序相同；</li>
+<li><em>随机访问</em>，通过首地址和元素序号可以在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 时间内找到指定元素；</li>
+<li>存储密度高；</li>
+<li>删除和插入需要大量移动元素；</li>
+</ol>
+<h5 id="插入"><a class="markdownIt-Anchor" href="#插入"></a> 插入</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListInsert</span><span class="params">(SqList &amp;L, <span class="keyword">int</span> i, ElemType e)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;L.length+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (L.length&gt;=MaxSize)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j=L.length;j&gt;=i;i--)</span><br><span class="line">    L.data[j]=L.data[j<span class="number">-1</span>];</span><br><span class="line">    L.data[i<span class="number">-1</span>]=e;</span><br><span class="line">    L.length++;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br />
+最好：从表尾插入，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span><br />
+最坏：从表头插入，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span><br />
+平均：每个位置插入概率相等，平均下来是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<h5 id="删除"><a class="markdownIt-Anchor" href="#删除"></a> 删除</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(SqList  &amp;L, <span class="keyword">int</span> i, ElemType &amp;e)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;L.length)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  e=L.data[i<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j=i;j&lt;L.length;j++)</span><br><span class="line">    L.data[j<span class="number">-1</span>]=L.data[j];</span><br><span class="line">  L.length++;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br />
+同插入</p>
+<h5 id="按值查找顺序表"><a class="markdownIt-Anchor" href="#按值查找顺序表"></a> 按值查找（顺序表）</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocatteElem</span><span class="params">(SqList L, ElemType e)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;L.length;i++)</span><br><span class="line">    <span class="keyword">if</span> （L.data[i]==e)</span><br><span class="line">      <span class="keyword">return</span> i+;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br />
+同上</p>
+<h4 id="链表"><a class="markdownIt-Anchor" href="#链表"></a> 链表</h4>
+<p>每个节点都有一个指针数据域，指向下一个节点，这是<strong>单链表</strong>。<br />
+<strong>头指针</strong> 为 NULL 表示一个空链表；<br />
+<strong>头节点</strong> <code>data</code> 数据区域为 <code>null</code> 的节点。可有可无，但头指针一定有。一般为了操作的实现方便，会带有头结点；</p>
+<blockquote>
+<p>有无头结点在链表操作的实现上会产生差别。这种差别主要来源于第一个节点的判断。有头结点的链表，头指针会指向 <code>head</code> ，我们可以通过改变 <code>head.next</code> 指向下一节点来添加新节点，无论链表是否为空都是如此实现的；而没有头节点的空链表由于头指针指向 <code>null</code> 所以我们无法像非空链表那样，使用 <code>head.next = node</code> 来添加节点，所以每次插入时都需要一个特殊情况的判断，实现起来会麻烦一点。删除同理。</p>
+</blockquote>
+<h5 id="头插法"><a class="markdownIt-Anchor" href="#头插法"></a> 头插法</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="尾插法"><a class="markdownIt-Anchor" href="#尾插法"></a> 尾插法</h5>
+<h5 id="按序号查找"><a class="markdownIt-Anchor" href="#按序号查找"></a> 按序号查找</h5>
+<h5 id="按值查找链表"><a class="markdownIt-Anchor" href="#按值查找链表"></a> 按值查找（链表）</h5>
+<h5 id="插入节点前插后插"><a class="markdownIt-Anchor" href="#插入节点前插后插"></a> 插入节点（前插/后插）</h5>
+<h5 id="删除节点操作"><a class="markdownIt-Anchor" href="#删除节点操作"></a> 删除节点操作</h5>
+<h5 id="求表长"><a class="markdownIt-Anchor" href="#求表长"></a> 求表长</h5>
+<h4 id="双向链表"><a class="markdownIt-Anchor" href="#双向链表"></a> 双向链表</h4>
+<p>克服了单链表无法反向查找前驱节点的弱点。</p>
+<h4 id="循环链表"><a class="markdownIt-Anchor" href="#循环链表"></a> 循环链表</h4>
+<p>与单链表不同，循环链表结尾的指针不是 NULL，而是头结点。</p>
+<h4 id="循环双链表"><a class="markdownIt-Anchor" href="#循环双链表"></a> 循环双链表</h4>
+<p>头节点的前驱是尾结点，尾结点的后继是头结点；</p>
+<h4 id="静态链表"><a class="markdownIt-Anchor" href="#静态链表"></a> 静态链表</h4>
+<p>结合了顺序表和链表，需要一段连续的内存空间。链表的指针域存放的是这段连续的内存空间的下标。</p>
+<h4 id="广义表"><a class="markdownIt-Anchor" href="#广义表"></a> 广义表</h4>
+<p>数据域不一定是单元素，可能是另一个线性表</p>
+<h4 id="多重链表"><a class="markdownIt-Anchor" href="#多重链表"></a> 多重链表</h4>
+<p>一个结点不止隶属于一个链表，有多个指针域，树和网通常使用多重链表实现</p>
+<h4 id="十字链表"><a class="markdownIt-Anchor" href="#十字链表"></a> 十字链表</h4>
+<p>常用于存储稀疏矩阵，只存储非零元素，避免了大量零元素占据存储空间。数据域有：横坐标、纵坐标、值；指针域有：右指针和下指针；</p>
+<h3 id="栈"><a class="markdownIt-Anchor" href="#栈"></a> 栈</h3>
+<p>先进后出(FILO)</p>
+<p>卡特兰数： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个不同的元素入栈，出栈元素的不同排列个数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mstyle><msubsup><mi>C</mi><mrow><mn>2</mn><mi>n</mi></mrow><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\dfrac{1}{n+1} C^n_{2n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="顺序栈"><a class="markdownIt-Anchor" href="#顺序栈"></a> 顺序栈</h4>
+<p>存储空间预先确定，拥有最大长度，元素之间连续。</p>
+<h5 id="共享栈"><a class="markdownIt-Anchor" href="#共享栈"></a> 共享栈</h5>
+<p>顺序表的两侧分别为两个栈的栈底，从两端插入到中间，使得存储空间真正被利用到；<br />
+栈满条件：两个栈的栈顶指针碰撞了就是满了；</p>
+<h4 id="链式栈"><a class="markdownIt-Anchor" href="#链式栈"></a> 链式栈</h4>
+<h3 id="队列"><a class="markdownIt-Anchor" href="#队列"></a> 队列</h3>
+<p>先进先出(FIFO)</p>
+<h4 id="顺序存储"><a class="markdownIt-Anchor" href="#顺序存储"></a> 顺序存储</h4>
+<p>连续存储单元，是在尾指针插入，头指针输出<br />
+队列空条件：头指针等于尾指针等于零</p>
+<p>缺陷：当队列的尾指针到达了顺序表的最大长度，就无法插入了，但是如果队列内的元素通过头指针全都取出了，队列其实还有空间，但是无法插入了，这种情况叫做“上溢出”，这也是顺序队列的缺点；</p>
+<h5 id="循环队列"><a class="markdownIt-Anchor" href="#循环队列"></a> 循环队列</h5>
+<p>为了解决这个缺点，我们构造循环队列，让头部和尾部连接起来；<br />
+队列判空条件：头指针等于尾指针等于零<br />
+队列满条件：</p>
+<ol>
+<li>牺牲一个存储单元，当队头指针在队尾指针的下一个的时候，判断队满；</li>
+<li>增加表示队列元素个数的数据成员；</li>
+<li>增加 tag 数据成员，用以区分队满还是队空；</li>
+</ol>
+<h4 id="链式存储"><a class="markdownIt-Anchor" href="#链式存储"></a> 链式存储</h4>
+<p>不带头结点的队列的操作往往比较麻烦，通常使用带头结点的链式队列，统一空和非空的插入和删除操作。</p>
+<p>链式存储不会产生不合理的“溢出问题”也不会出现分配不合理的情况；</p>
+<h5 id="双端队列"><a class="markdownIt-Anchor" href="#双端队列"></a> 双端队列</h5>
+<ul>
+<li>两端都可以插入删除的队列</li>
+<li>输出受限的双端队列（有一端只能插入）</li>
+<li>输入受限的双端队列（有一端只能删除）</li>
+</ul>
+<p>可以当作是栈和队列的组合；</p>
+<h3 id="栈和队列的应用"><a class="markdownIt-Anchor" href="#栈和队列的应用"></a> 栈和队列的应用</h3>
+<ul>
+<li>栈
+<ul>
+<li>括号匹配</li>
+<li>表达式求值（中缀式转后缀式）</li>
+<li>递归</li>
+</ul>
+</li>
+<li>队列
+<ul>
+<li>层次遍历</li>
+<li>计算机系统内的应用（缓冲区、任务队列、消息/请求队列）</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -944,631 +1604,6 @@ organization</p>
 <p>tempfile</p>
 <h3 id="创建高级文件和目录"><a class="markdownIt-Anchor" href="#创建高级文件和目录"></a> 创建高级文件和目录</h3>
 <p>shutil</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-title-link" itemprop="url">第三章-数据链路层</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-24T00:00:00+08:00">2020-05-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="第三章-数据链路层"><a class="markdownIt-Anchor" href="#第三章-数据链路层"></a> 第三章-数据链路层</h2>
-<h3 id="41-信道分配问题"><a class="markdownIt-Anchor" href="#41-信道分配问题"></a> 4.1 信道分配问题</h3>
-<p>网络链路分为两大类：点到点连接(WAN)和广播信道(LAN)<br />
-广播信道的节点共用一条信道进行通信，那么就存在着<strong>信道竞争</strong>的问题。</p>
-<blockquote>
-<p>广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)</p>
-</blockquote>
-<p>两种解决信道分配问题的方案：信道静态分配、信道动态分配</p>
-<h4 id="411-静态信道分配"><a class="markdownIt-Anchor" href="#411-静态信道分配"></a> 4.1.1 静态信道分配</h4>
-<p>这种信道分配方式，相当于把一条马路中间用护栏隔开，车辆不能换道。以前讨论的多路复用技术就是这种方式，如 频分多路 FDM。<br />
-网络流量是具有突发性的，变化很大，空闲时这种方案就浪费了信道；繁忙时，就会造成堵塞。</p>
-<p>。。。数学论证待补充。。。</p>
-<h4 id="412-动态信道分配方案"><a class="markdownIt-Anchor" href="#412-动态信道分配方案"></a> 4.1.2 动态信道分配方案</h4>
-<p>构建模型的 5 个假设：</p>
-<ol>
-<li>流量独立：有 N 台流量恒定独立的计算机；</li>
-<li>单信道：N 台计算机使用共享的信道；</li>
-<li>冲突可观察：冲突可以被计算机侦察到，并重新发送；</li>
-<li>时间连续或分槽：在一段连续的时间内，任意时段都可发送；或者将时间分成一段段的时间槽，只能在时间槽的开始时发送；</li>
-<li>载波侦听或不侦听：用户可以侦听信道是否有信息在传输（载波）；不侦听就是不能侦听；</li>
-</ol>
-<p>第一个假设表示流量的产生符合泊松分布，方便我们建立模型分析，尽管这不符合显示流量的流动方式；<br />
-单信道是我们分析的核心，冲突可观察是保证传输可靠的必要条件；<br />
-后面的讨论我们能知道，时间槽和载波侦听能够提高最大传输率；</p>
-<h3 id="42-多路访问协议"><a class="markdownIt-Anchor" href="#42-多路访问协议"></a> 4.2 多路访问协议</h3>
-<h4 id="421-aloha"><a class="markdownIt-Anchor" href="#421-aloha"></a> 4.2.1 ALOHA</h4>
-<p>ALOHA 是夏威夷大学研究员为了解决偏远岛屿和远程计算机连接而设计的协议，这个原始的协议采用了一种简单而巧妙的方式解决了信道分配的问题，虽然该协议本身使用的是地面无线电广播通信，但它的基本思路同样适用其他的单信道竞争系统；</p>
-<p>下面讨论两个版本的 ALOHA</p>
-<h5 id="纯-aloha"><a class="markdownIt-Anchor" href="#纯-aloha"></a> 纯 ALOHA</h5>
-<p>这种 ALOHA 协议十分简单，节点在任意时候，有需要就发送；如果产生了冲突，就等待一个随机时间后，重发；<br />
-冲突检测机制为：远程计算机收到数据之后，将其广播回节点中，节点收到数据后，对比发送的，如果不同就说明发生了冲突。<br />
-（后检测的机制，其实冲突在发生时，就应该被节点检测到，然后停止发送。这样的机制浪费了冲突发生后的带宽以及时间；）</p>
-<p>。。。数学说明待补充。。。</p>
-<p>通过建模分析得到，该协议最好情况下，信道利用率为 18%。</p>
-<h5 id="分槽-aloha"><a class="markdownIt-Anchor" href="#分槽-aloha"></a> 分槽 ALOHA</h5>
-<p>在前一种协议的基础上，增加了时间槽。信道利用率提高了一倍，36%。<br />
-前一种方式，每个发送出去的帧都要占用两个帧时作为高冲突区，而增加时间槽后，强行将帧限制到时间槽的开头开始发送，高冲突区变成了一个帧时</p>
-<p>。。。数学说明待补充。。。</p>
-<h4 id="422-载波侦听多路访问协议"><a class="markdownIt-Anchor" href="#422-载波侦听多路访问协议"></a> 4.2.2 载波侦听多路访问协议</h4>
-<h5 id="1-坚持-csma-p-坚持-csma-非坚持-csma"><a class="markdownIt-Anchor" href="#1-坚持-csma-p-坚持-csma-非坚持-csma"></a> 1-坚持 CSMA、p-坚持 CSMA、非坚持 CSMA</h5>
-<ol>
-<li>1-坚持 CSMA：计算机侦听信道，一空闲马上发，若冲突，等待随机时间后，重复上述过程；</li>
-<li>p-坚持 CSMA：计算机侦听信道，若空闲，以概率 p 发送（可能发，可能不发），以概率 1-p 推迟发送；这个过程一直重复，直到数据发送了，或者别人占了信道；若别人占了信道，则和冲突使用同样的方式处理；</li>
-<li>非坚持 CSMA：计算机侦听信道，若空闲，就发送，若忙碌，则放弃侦听，等一个随机时间后，再看看是否空闲，以便发送；</li>
-</ol>
-<p>很显然，贪婪的 1-坚持 CSMA 在 2 台以上的计算机竞争时，大家都很急躁争抢信道，冲突会频繁发生；<br />
-稍微没那么贪婪的 p-坚持 CSMA 表现良好，IEEE 802.11 是对这种方式的改良；<br />
-非坚持的 CSMA，很佛系，提高了高竞争系统的信道利用率，但是这种方式的延迟更大了（每次遇到冲突，都等一个随机时间，这个随机时间很可能有能够发送出去的机会，但错失了）；</p>
-<h5 id="带有冲突检测的-csma"><a class="markdownIt-Anchor" href="#带有冲突检测的-csma"></a> 带有冲突检测的 CSMA</h5>
-<p>CSMA/CD 协议工作流程：当空闲时，多个计算机都要发送，冲突就会发生。如果一个站检测到冲突，就会停止发送，并发送一个冲突加强信号，通知网络上各个站点已经发生冲突，所有计算机都等待一段随机时间再发送；</p>
-<p>用下图模型描述，我们可以看到，CSMA/CD 模型将会交替出现竞争期、传输期、空闲期；</p>
-<p><img src="../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png" alt="picture 40" /></p>
-<p>冲突检测机制：考虑一个极端情况，网络中距离最远的两台计算机，计算机 A 在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时刻发送一个帧，在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + \tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span> 时刻（该帧几乎到达另一台计算机 B 时），另一台计算机 B 刚好发送了一个帧，这时冲突了，计算机 B 立刻检测到了，马上停止发送，而计算机 A 要等到，冲突信号回传才能知道冲突了，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mn>2</mn><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + 2\tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span> 时刻。<br />
-通过以上极端情况讨论，我们得到了一个结论，当计算机发送的数据，经过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 时长之后没有收到冲突信号，那么就可以认为，数据安全的发送出去了。那么我们可以试着按照 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 将时间分成时间槽，这时的 CSMA/CD 协议就很像是带时间槽的 ALOHA 协议了。差异在于，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 往往比时间槽的长度（帧时）短，这个差距越大，带来的性能提升就越高。</p>
-<h5 id="无冲突协议"><a class="markdownIt-Anchor" href="#无冲突协议"></a> 无冲突协议</h5>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0%E4%BB%A5%E5%8F%8Ahyperledger/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0%E4%BB%A5%E5%8F%8Ahyperledger/" class="post-title-link" itemprop="url">区块链概述以及Hyperledger</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:21" itemprop="dateModified" datetime="2022-06-08T03:36:21+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <style>
-.center {
-width: auto;
-display: table;
-margin - left: auto;
-margin - right: auto;
-}
-// 图片居中
-img {
-position: relative;
-left: 50%;
-transform: translateX(-50%);
-}
-</style>
-<h2 id="区块链概述"><a class="markdownIt-Anchor" href="#区块链概述"></a> 区块链概述</h2>
-<h3 id="区块链是什么"><a class="markdownIt-Anchor" href="#区块链是什么"></a> 区块链是什么？</h3>
-<ul>
-<li>分布式数据库</li>
-<li>分布式数据采集、传输、分析处理</li>
-<li>分布式账本</li>
-<li>一种特殊的数据结构</li>
-<li>…</li>
-</ul>
-<p>区块链起源于 2009 年由化名“中本聪”的学者发出的白皮书《比特币：一种点对点的电子现金》。文中描述了一个去中心化的分布式系统，用于解决双重支付问题和拜占庭将军问题。</p>
-<ul>
-<li>双重支付问题：利用电子货币的数字特征达到两次及以上的支付。举个例子，我有 10 元的电子现金，该电子现金以一串唯一的字符串表示。我把这串字符给 A 看，A 知晓了这串字符，代表他收到帐了。但我同时把这串字符串给 B 看了，这就达成了双重支付。若用时间戳标识，只承认先支付的那笔交易，看起来是解决了，但是现实的网络是存在时延的，在时延间隔内</li>
-</ul>
-<p>狭义来讲, 区块链是一种按照时间顺序将<strong>数据区块</strong>以链条的方式组合成特定<strong>数据结构</strong>, 并以密码学方式保证的<strong>不可篡改</strong>和<strong>不可伪造</strong>的<strong>去中心化</strong>共享总账 (Decentral-ized shared ledger), 能够安全存储简单的、有先后关系的、能在系统内验证的<strong>数据</strong>.</p>
-<p>特点：</p>
-<ul>
-<li>去中心化</li>
-<li>时序数据</li>
-<li>集体维护</li>
-<li>可编程性</li>
-<li>安全可信</li>
-</ul>
-<h4 id="演化"><a class="markdownIt-Anchor" href="#演化"></a> 演化</h4>
-<ol>
-<li>区块链 1.0——数字货币：货币数字化</li>
-<li>区块链 2.0——智能合约：资产数字化<br />
-——基于区块链的图灵完备的编程脚本语言，适合各种区块链数据结构和共识协议；</li>
-<li>区块链 3.0——衍生应用：广义资产数字化</li>
-</ol>
-<p>上述演化不是递进的，而是平行的。</p>
-<p>根据应用场景不同，区块链被进一步分为了：私有链、联盟链、公有链。</p>
-<ul>
-<li>私有链其实是中心化的</li>
-<li>联盟链是多中心化的，经过许可认证的节点才能参与到造块的流程中，使用的共识算法可以不用浪费那么多资源</li>
-<li>公有链是去中心化的，使用的共识算法往往需要算力竞赛，造成算力资源的浪费</li>
-</ul>
-<h3 id="基础模型和关键技术"><a class="markdownIt-Anchor" href="#基础模型和关键技术"></a> 基础模型和关键技术</h3>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/aa2f1fe815ec3895f29eb7d146379a1cc7ec8addf7341bd6852557252dc41b8f.png" alt="picture 24" /></p>
-<p>一般说来, 区块链系统由数据层、网络层、共识层、激励层、合约层和应用层组成.</p>
-<ul>
-<li>数据层：数据区块、加密技术、时间戳的封装；</li>
-<li>网络层：分布式组网机制、数据传播机制、数据验证机制</li>
-<li>共识层：共识算法</li>
-<li>激励层：集成经济因素</li>
-<li>合约层：脚本、程序、算法、智能合约</li>
-<li>应用层：具体的应用场景</li>
-</ul>
-<h4 id="数据层"><a class="markdownIt-Anchor" href="#数据层"></a> 数据层</h4>
-<p>狭义的区块链就是指的上述模型的数据层。每个分布式节点都可以通过特定的 <strong>Hash 算法</strong>和 <strong>Merkle 树</strong>结构，将一段时间内收到的交易数据和代码封装到带有时间戳的数据区块中，并链接到当前最长的<strong>主链</strong>中，形成最新的<strong>区块</strong>。</p>
-<ul>
-<li>数据区块：每个区块都包含一个区块头（Header）和区块体（Body）
-<ul>
-<li>区块头：封装了该区块的版本号（Version）、前一区块的地址（Pre-block）、当前区块的目标哈希值（Bits）、当前区块 PoW 共识过程的解随机数（Nonce）、Merkle 根（Merkle-root）、时间戳（Timestamp）</li>
-<li>区块体：该区块的交易数量以及合法的所有的交易记录<br />
-最先找到区块的 Nonce 值的矿工节点将获得当前区块的记账权，比特币网络可以动态调整 dificulty 的值，该表 PoW 共识过程的难度，从而达到控制比特币发行量。<br />
-<img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/0f67b60edac2e684f6caa566eaa00cc3f77e61cb47f1577796a3e5e6f7e0851a.png" alt="picture 25" /></li>
-</ul>
-</li>
-</ul>
-<p>取得记账权的矿工会将当前区块链接到前一区块后，形成链条主链；</p>
-<ul>
-<li>链式结构：理想的情况下，按照上述流程能够形成一条由区块构成的链条。但在极端情况下有可能由两个矿工同时挖出区块，这时链条会出现分叉。解决方案是约定添加区块要添加到工作量证明最大的区块链上；</li>
-<li>时间戳：每个区块头必须包含一个时间戳，代表的是区块形成时的时间。为区块提供了存在性证明（Proof of existence），为区块链在时间敏感的领域提供了应用空间，比如知识产权注册、公证等领域；</li>
-<li>Hash 函数：Hash 函数的单向性、定时性、定长性、随机性为数据存储在区块链上提供了各种各样的便利，雪崩效应也区块数据起到防篡改的帮助；</li>
-<li>Merkle 树：主要作用是快速归纳和校验数据的存在性和完整性。当某一条交易被篡改或者缺失，这种变动都会通过层层的 Hash 反映到 Merkle-root 中，区块头只要存放 Merkle-root 用于验证即可，增强了区块链的扩展性。另外，树结构使得节点可以在区块没有下载完整的交易数据的情况下，向其他节点索要缺失部分所在子树的 Hash 节点即可，降低了网络开销和验证时间；</li>
-<li>非对称加密：非对称加密算法主要有：RSA、Elgmal、Rabin、D-H、ECC 等。加密过程中使用了公钥和私钥两个密钥，相互不能推导。用于加密时，使用公钥加密信息发送给私钥持有者，由于其他人持有的是只能加密的公钥无法解密，故保证了信息的机密性；用于签名时，使用私钥进行加密，发送给持有公钥的验证者，由于只有签名者拥有用于加密的私钥，故能验证信息的来源；</li>
-</ul>
-<p>下图是比特币使用的非对称加密流程图，其中私钥是通过随机数生成器得到的。</p>
-<p><img src="../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/38152adc677d66f088143c8d3eaacc75b3a9918770a2512a2cb21a5ca21d8e26.png" alt="picture 26" /></p>
-<h4 id="网络层"><a class="markdownIt-Anchor" href="#网络层"></a> 网络层</h4>
-<p>网络层封装了组网方式、消息传播协议、数据验证机制等要素。需结合实际应用需求，设计适当的传播协议和验证机制，使得系统中每一个节点都能参与到区块的校验和记账过程，仅当大部分节点都通过验证后，区块才可上链。</p>
-<ul>
-<li>组网方式：</li>
-<li>数据传播协议：</li>
-<li>数据验证机制：</li>
-</ul>
-<h4 id="共识层"><a class="markdownIt-Anchor" href="#共识层"></a> 共识层</h4>
-<p>在分布式系统中，如何达成共识是必须要讨论的问题。类似于如何在社会系统中保证民主的同时，实现全社会统一的决策。区块链中的共识层便是封装共识算法的层次。<br />
-早期的比特币使用的是基于算力的工作量证明机制（PoW,Proof of work），随着区块链技术的发展，越来越多的共识机制被开发出来，例如点点币首创的权益证明机制（PoS,Proof of service），比特股提出的股份证明机制（DPos,Delegated proof of stake）。</p>
-<h5 id="pow-共识机制"><a class="markdownIt-Anchor" href="#pow-共识机制"></a> PoW 共识机制</h5>
-<p>在比特币系统中，各节点 (即矿工) 基于各自的算力，相互竞争来共同解决一个求解复杂但验证容易的 SHA256 数学难题 (即挖矿), 最快解决该难题的节点将获得<strong>区块记账权</strong>和系统自动生成的<strong>比特币奖励</strong>。</p>
-<p>该数学难题可表述为: 根据当前难度值, 通过搜索求解一个合适的随机数 ( <code>Nonce</code> ) 使得图 3 区块头各元数据的双 SHA256 哈希值小于或等于目标哈希值。通过灵活调整随机数搜索的难度值 （ <code>difficulty</code> ） 来控制区块的平均生成时间为 10 分钟左右。</p>
-<p>具体来讲 PoW 共识过程包括如下四个步骤：</p>
-<ol>
-<li>搜集全网当前尚未确认的交易，增加一个用于发行新比特币的 <code>coinbase</code> 交易，形成当前待确认的交易集合区块体；</li>
-<li>计算区块体交易集合的 <code>Merkle</code> 根记入区块头，并填写区块头的其他元数据，随机数 <code>Nonce</code> 记为 0；</li>
-<li>对 <code>Nonce</code> 进行累加，并计算区块头整体的双 <code>SHA256</code> 值，若小于等于目标哈希值则该 <code>Nonce</code> 为答案，该节点获得记账权，否则继续循环；</li>
-<li>一段时间之后未成功则更新时间戳、交易集合和区块头，继续寻找 <code>Nonce</code> 值；</li>
-</ol>
-<p>符合要求的区块头哈希值一般有多个前导 0 ，每增加一个前导 0 ，寻找难度就成倍地增加。这是哈希算法的性质使然。目标哈希值的计算是通过使用常数除以 <code>diffculty</code> 值得到的。因此，比特币系统可以通过控制 <code>difficulty</code> 值来控制目标哈希值，从而控制出块概率。</p>
-<p>通过算力竞赛支撑的 PoW 最显著的缺陷就是巨大的能源消耗，各个节点为了争夺区块记账权而开展的算力竞赛造成了显著的资源浪费。</p>
-<h5 id="pos-共识机制"><a class="markdownIt-Anchor" href="#pos-共识机制"></a> PoS 共识机制</h5>
-<p>PoS 的提出就是为了解决 PoW 的资源浪费问题的。</p>
-<p>PoS 使用权益证明替代了 PoW 的工作量证明机制，让系统中拥有最高权益的节点作为记账节点。而权益的体现为：币龄（coin days），即特定数量的货币与其最后一次交易的时间长度的乘积，每次交易，节点都会消耗掉一定的币龄。</p>
-<p>和 PoW 的其他不同点：</p>
-<ol>
-<li>挖矿难度：
-<ul>
-<li>PoW：对于所有节点来说，挖矿难度都是一样的，不同的是算力；</li>
-<li>PoS：挖矿难度和交易输入的币龄成反比，消耗币龄越多则挖矿难度越低；</li>
-</ul>
-</li>
-<li>主链判断：
-<ul>
-<li>PoW：拥有最大工作量的链为主链；</li>
-<li>PoS：用于最高币龄消耗的链为主链；</li>
-</ul>
-</li>
-</ol>
-<h5 id="dpos-共识机制"><a class="markdownIt-Anchor" href="#dpos-共识机制"></a> DPoS 共识机制</h5>
-<p>DPoS 是一种选举机制。过程可以大概描述为：由网络中的股东节点通过投票的方式，选举出前 101 个愿意记账的节点。由这 101 个节点按照定好的时间表轮流对交易打包并签署（生产）一个新区块，且签署之前必须验证前一个区块已经被记账节点签署了。记账节点在这个过程中可以取得一定的收益，但要想成为记账节点需要缴纳相当于一次出块收益 100 倍的保证金。若记账节点错过了自己的时间段，造成交易未签署，股东节点便会将其“投出”。因此为了保证盈利，记账节点需要保证自己高可用性。</p>
-<p>与 PoW 和 PoS 不同，DPoS 并非基于某种节点内部的能力或指标进行记账权的赋予，而是由每个节点自由选择的，这种方式能够减少参与交易验证和记账的节点数量，使得共识能快速达成。</p>
-<h5 id="其他共识机制"><a class="markdownIt-Anchor" href="#其他共识机制"></a> 其他共识机制</h5>
-<p>除了上述三种主流的共识机制，还衍生出了许多诸如 PoW + PoS 、行动证明等多个变种机制，各有优劣。PoW 发展成熟，支持者众多。新生的机制虽然环保、安全、高效，但尚未得到广泛的认可。</p>
-<h4 id="激励层"><a class="markdownIt-Anchor" href="#激励层"></a> 激励层</h4>
-<p>区块链本质上是一种共识节点间的任务众包过程，记账节点是为了获得利益而参与到记账的过程中的。因此设计合理的众包激励制度，让记账节点的自利行为能够服务于区块链系统的安全和有效的目标。</p>
-<p>比特币通过提供出块节点比特币奖励和手续费为记账节点提供激励，这是大量矿工购买专业设备进行工作量证明帮助比特币网络完成共识过程的动力。矿工可以将获得的比特币奖励通过交易中心换成一定的法币来实现盈利。</p>
-<p>激励层主要通过发行机制和分配机制对记账节点进行激励：</p>
-<ul>
-<li>发行机制：比特币的发行数量是每四年减半的，总额大概在 2100 万，另外每笔交易会产生万分之一比特币的默认手续费，这笔手续费能防止大量微额交易对比特币网络发起“粉尘”攻击。在未来比特币发行数量越来越少的情况下，矿工的激励将由出块奖励为主转变为手续费为主；</li>
-<li>分配机制：比特币系统中，大量小算力会选择加入矿池形成一个整体节点进行挖矿。出块奖励和手续费将通过一定的分配机制分配给矿池下面的小算力。主流的分配方式有：PPLNS、PROP、PPS。PPLNS 根据最后 N 个节点贡献的实际算力，按比例分配；PPS 根据所有节点的算力（不管有没有实际参与到挖矿中），按比例分配，这种分配方式的矿池常常要收一定的手续费以弥补矿池替偷懒节点承担的风险；PROP 相当于 PPLNS 去掉了最后 N 个节点的限制；</li>
-</ul>
-<p>总的来说，矿池的出现让比特币网络面临着安全风险，过于集中的算力可能导致比特币的去中心化优势被颠覆。</p>
-<h4 id="合约层"><a class="markdownIt-Anchor" href="#合约层"></a> 合约层</h4>
-<p>合约层封装区块链系统的各类脚本代码、算法以及由此生成的更为复杂的智能合约.</p>
-<!--
-
-### 有什么特点？
-
-- 去中心化
-- 去信任化
-- 不可篡改
-
-### 如何实现？
-
-#### 要素
-
-- 智能合约
-    类似于业务规则，嵌入在blockchain里面，在交易时执行的脚本；
-- 商业网络
-    包括市场参与者的对等架构、伙伴间的共识等
-- 隐私加密技术
-  - 记录通过哈希、加密和个人签名得到保护，
-  - 客户收据和参考号都有唯一的ID，
-  - 交易隐私化，
-  - ID和交易不直接联系，
-  - 交易认证
-- 共享账簿
-  - 记录网络上的所有交易，在参与者间共享且每个人都有自己的副本
-  - 许可制
-  - 存储
-- 共识
-  - 共识算法确保每个副本的一致性，降低伪冒交易的风险
-  - 所有成员都同意且要验证过
-  - 可以建立交易验证的规则
-
-产业数字化升级战略:
-
-1. 传统的产业
-1. 数字化升级，科技赋能
-2. 依托产业本身的优势，结合科技的赋能，形成平台
-
-“产业互联网”发展模式：
-
-1. 业务优化和**数字化**
-2. 产业数据**智能化**
-1. 数据资产**金融化**
-
-面临的问题：
-
-1. 区块链平台很多，用户难以认识和评估企业合适那种服务；
-2. 很多项目停留在Poc阶段，没有进入生产系统和大规模应用，未形成真正的行业/场景解决方案；
-3. 缺乏产品化和评测标准，缺少“开箱即用”的区块链产业化平台；
-
-## Hyperledger Fabric 1.4 LTS
-
-## 项目概览
-
-- Hyperledger 是什么？
-一套**开源软件**，分布式账本（数据库）
-- 遵守 Apache v2 License 适合商业软件的开源协议
-- 属于 Linux Foundation Linux基金会
-- 用于实现区块链的理论
-  - 身份
-  - 智能合约
-
-- Fabric 是 Hyperledger 软件套中的一个顶级软件，其他还有11个
-- GO 语言实现
-
-- 定位：建立分布式账本的框架，身份识别主要靠链码，隐私性保证有加密包
-- 框架：
-  !['Fabric架构'](./_assets/Fabric架构.jpg)
-- SDK语言支持：
-[Node.js](https://github.com/hyperledger/fabric/fabric-sdk-node])
-[Python](https://github.com/hyperledger/fabric/fabric-sdk-py)
-[Java](https://github.com/hyperledger/fabric/fabric-sdk-java')
-[Golang]('https://github.com/hyperledger/fabric/fabric-sdk-go)
-
-- 什么是 Sawtooth？
-Hyperledger 软件套中的一个顶级软件，Python实现
-- 有什么特性？（解决了什么问题？）
-  - PoET consensus（PoET 共识机制，性能和可拓展性有一定优势）
-  - 交易族（使用交易族，开发链码的时候可以更方便）
-  - 可拓展性
-
-- 什么是 Iroha?
-Hyperledger 软件套中的一个顶级软件，C++实现
-- 有什么特性？
-  - C++ 环境支持
-  - 移动和Web应用的支持
-  - Sumeragi consensus（又一个共识机制）
-
-- 什么是 Explorer？
-Hyperledger 软件套中的一个顶级软件，Node.js实现，Intel，DTCC，IBM共同提出
-- 什么特性？
-  - 区块链的Web UI
-  - 单页应用
-
-- 什么是 Cello？
-Hyperledger 软件套中的一个顶级软件，Python和JavaScript实现，由IBM提出
-- 什么特性？
-  - 区块链的操作系统
-  - 高性能
-  - 可拓展
-  - 可插拔
-
-- 什么是 Indy？
-Hyperledger 软件套中的一个顶级软件，Python实现，Sovrin 基金会
-- 什么特性？
-  - 分布式数字身份管理机制
-  - 跨链，跨应用
-
-- 什么是 Composer？
-Hyperledger 软件套中的一个顶级软件，JavaScript实现，IBM
-- 什么特性？
-  - 配合 fabric 更快速地开发智能合约
-  - 资产管理模型
-
-- 什么是 Burrow？
-Hyperledger 软件套中的一个顶级软件，GOlang实现，Monax，Intel
-- 什么特性？
-  - 以太坊 VM 支持（由于Ethereum VM 不是Golang开发的，所以在hyperledger 环境中使用以太坊虚机有困难）
-  - Proof-of-Stake 共识机制
-
-- 什么是 Quilt？
-Hyperledger 软件套中的一个顶级软件，Java实现，Everis，Rippole，Applied Payments
-- 什么特性？
-  - W3C 互联账本协议
-  - 跨链交易信息传输
-
-- 什么是 Caliper？
-Hyperledger 软件套中的一个顶级软件，Node.js实现，Huawei
-- 什么特性？
-  - fabric，sawtooth 性能评估
-
-- 什么是 Usra？
-Hyperledger 软件套中的一个顶级软件，Rust实现，Fujitsu，Sovrin，Intel
-- 什么特性？
-  - 现代密码学工具库
-  - 各国密码学标准支持
-  - 零知识证明工具库
-
-- 什么是 Grid？
-Hyperledger 软件套中的一个顶级软件，Python实现
-- 什么特性？
-  - 基于区块链的供应链模型
-  - 智能合约，领域模型，应用样板 -->
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">区块链相关概念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="区块链相关算法整理"><a class="markdownIt-Anchor" href="#区块链相关算法整理"></a> 区块链相关算法整理</h2>
-<h2 id="拜占庭算法"><a class="markdownIt-Anchor" href="#拜占庭算法"></a> 拜占庭算法</h2>
-<ul>
-<li>
-<p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
-</li>
-<li>
-<p>现实问题：</p>
-</li>
-</ul>
-<ol>
-<li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
-<li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
-</ol>
-<h2 id="零知识证明"><a class="markdownIt-Anchor" href="#零知识证明"></a> 零知识证明</h2>
-<ul>
-<li>
-<p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
-</li>
-<li>
-<p>问题本质：<br />
-如何在保证信息的隐秘性的情况下，证明该信息的正确性；</p>
-</li>
-<li>
-<p>解决方案：<br />
-两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
-</li>
-</ul>
-<h3 id="1-工作量证明机制"><a class="markdownIt-Anchor" href="#1-工作量证明机制"></a> 1、工作量证明机制</h3>
-<p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
-<h3 id="2-互联网共识机制"><a class="markdownIt-Anchor" href="#2-互联网共识机制"></a> 2、互联网共识机制</h3>
-<p>以共识确保正确，无需甄别好坏；</p>
-<h3 id="3-智能合约机制"><a class="markdownIt-Anchor" href="#3-智能合约机制"></a> 3、智能合约机制</h3>
-<p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
-<h3 id="4-互联网透明机制"><a class="markdownIt-Anchor" href="#4-互联网透明机制"></a> 4、互联网透明机制</h3>
-<p>账号全网公开，而户名隐藏</p>
-<h2 id="边缘计算"><a class="markdownIt-Anchor" href="#边缘计算"></a> 边缘计算</h2>
 
       
     </div>

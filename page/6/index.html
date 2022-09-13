@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,745 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">python 作用域和命名空间</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-08T00:00:00+08:00">2021-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="python-作用域和命名空间"><a class="markdownIt-Anchor" href="#python-作用域和命名空间"></a> python 作用域和命名空间</h2>
+<ul>
+<li><a href="#python-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">python 作用域和命名空间</a>
+<ul>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="命名空间"><a class="markdownIt-Anchor" href="#命名空间"></a> 命名空间</h3>
+<p>官方文档描述：</p>
+<blockquote>
+<p>namespace （命名空间）是一个从名字到对象的映射。</p>
+</blockquote>
+<p>我们在编程时使用的内置函数 <code>len()</code> 、 <code>try... catch ...</code> 中捕获的 <code>Exception</code> 类，并不是天然就存在的，他们都源自于 python 内建的包，也就是所谓的 <code>buildins</code> 。编译器从 <code>buildins</code> 中寻找这个“名”到“指令实体”的过程其实就是在命名空间中搜索。</p>
+<p>命名空间也可以由我们自己定义，比方说我定义了一个 <code>class</code> ，其中包含了若干的函数和变量。我在类外 <code>import</code> 这个类（其实就是导入了这个包的命名空间）我们在使用时，一般就是 <code>&lt;class_name&gt;.&lt;attribute&gt;</code> ，解释器就会去 <code>&lt;class_name&gt;</code> 下寻找这个 <code>&lt;attribute&gt;</code> 这个“名”对应的“对象”，然后调用之。</p>
+<h3 id="作用域"><a class="markdownIt-Anchor" href="#作用域"></a> 作用域</h3>
+<p>官方文档描述：</p>
+<blockquote>
+<p>一个 作用域 是一个命名空间可直接访问的 Python 程序的文本区域。</p>
+</blockquote>
+<p>从例子中说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_local</span>():</span></span><br><span class="line">        <span class="comment"># 作用域在 do_local() 内</span></span><br><span class="line">        spam = <span class="string">&quot;local spam&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_nonlocal</span>():</span></span><br><span class="line">        <span class="comment"># 受 nonlocal 关键字影响，对 spam 的赋值影响到了 scope_test() 了</span></span><br><span class="line">        <span class="keyword">nonlocal</span> spam</span><br><span class="line">        spam = <span class="string">&quot;nonlocal spam&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_global</span>():</span></span><br><span class="line">        <span class="comment"># 受 global 关键字影响，对 spam 的赋值影响到了整个模块</span></span><br><span class="line">        <span class="comment"># 在 scope_test() 外的使用受到了影响</span></span><br><span class="line">        <span class="keyword">global</span> spam</span><br><span class="line">        spam = <span class="string">&quot;global spam&quot;</span></span><br><span class="line"></span><br><span class="line">    spam = <span class="string">&quot;test spam&quot;</span></span><br><span class="line">    do_local()</span><br><span class="line">    print(<span class="string">&quot;After local assignment:&quot;</span>, spam)</span><br><span class="line">    do_nonlocal()</span><br><span class="line">    print(<span class="string">&quot;After nonlocal assignment:&quot;</span>, spam)</span><br><span class="line">    do_global()</span><br><span class="line">    print(<span class="string">&quot;After global assignment:&quot;</span>, spam)</span><br><span class="line"></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">&quot;In global scope:&quot;</span>, spam)</span><br></pre></td></tr></table></figure>
+<p>上述变量 <code>spam</code> 被多处定义，被绑定到多个作用域中了，</p>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">After local assignment: test spam</span><br><span class="line">After nonlocal assignment: nonlocal spam</span><br><span class="line">After global assignment: nonlocal spam</span><br><span class="line">In global scope: global spam</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">docker容器部署错误分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+08:00">2021-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="docker-容器部署错误分析"><a class="markdownIt-Anchor" href="#docker-容器部署错误分析"></a> docker 容器部署错误分析</h2>
+<p>今天用 docker-compose 部署 Hyperledger Fabric 网络的时候， <a target="_blank" rel="noopener" href="http://peer1.subscriber.mynetwork.com">peer1.subscriber.mynetwork.com</a> 容器出现了 Exited(1) 的错误。</p>
+<p>使用 <code>docker logs &lt;container_name&gt;</code> 命令，列出了这个容器的日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2021-04-07 03:49:03.657 UTC [main] InitCmd -&gt; ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory &#x2F;etc&#x2F;hyperledger&#x2F;fabric&#x2F;msp: administrators must be declared when no admin ou classification is set</span><br></pre></td></tr></table></figure>
+<p>查看 <code>/etc/hyperledger/fabric/msp</code> 目录挂载在哪里，将目录结构和另一个成功启动的节点对比，发现少了一个 <code>msp/config.yaml</code> 文件，然后将 <code>config.yaml</code> 文件从外面的 <code>msp</code> 目录复制进来就好了，像另一个节点那样操作。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/fabric-ca%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/fabric-ca%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">Fabric CA部署过程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-05T00:00:00+08:00">2021-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/" itemprop="url" rel="index"><span itemprop="name">Hyperledger Fabric</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="fabric-ca-部署过程"><a class="markdownIt-Anchor" href="#fabric-ca-部署过程"></a> Fabric CA 部署过程</h2>
+<h3 id="下载二进制文件"><a class="markdownIt-Anchor" href="#下载二进制文件"></a> 下载二进制文件</h3>
+<p>这些二进制文件中，您可能想改用 Fabric CA 映像，例如在 Kubernetes 或 Docker 部署。不过，到目前为止，本主题的目的是教您如何正确使用二进制文件。服务器和 CA 客户端二进制文件。掌握了使用部署和运行 CA 之后 Fabric CA 服务器和 CA 客户端二进制文件可以从 github 下载。向下滚动到 Assets ，然后为您的计算机类型选择最新的二进制文件。 .zip 文件包含两个 CA 。</p>
+<h4 id="服务器二进制文件"><a class="markdownIt-Anchor" href="#服务器二进制文件"></a> 服务器二进制文件</h4>
+<p>在本主题中，我们使用服务器二进制文件来部署三种不同类型的 CA：TLS CA ，组织 CA ，以及可选的中间 CA 。 TLS CA 颁发安全的证书在组织中的所有节点之间进行通信。组织 CA 颁发身份证书。如果您决定包括一个中间 CA ，则组织 CA 将充当根 CA 规划 CA 以了解每种类型的 CA 的目的及其差异。我们跑 CA 或中间 CA 的父服务器。如果您还没有，请查看该主题 TLS CA ，组织 CA 和来自不同文件夹的中间 CAS 。我们将 CA 服务器二进制文件复制到每个文件夹。</p>
+<h4 id="客户端二进制文件"><a class="markdownIt-Anchor" href="#客户端二进制文件"></a> 客户端二进制文件</h4>
+<p>同样，我们将 Fabric CA 客户端二进制文件复制到其自己的目录中。将 CA 客户端放在其自己的文件夹中可简化证书管理，尤其是当您需要与多个 CA 进行交互时。当您从 CA 客户端向 CA 服务器发出命令时，可以通过修改请求中的 CA 服务器 URL 来定位特定的 CA 。因此，仅需要单个 Fabric CA client 二进制文件，即可用于与多个 CA 进行事务处理。有关在下面使用 Fabric CA 客户端的更多信息。</p>
+<h3 id="fabric-ca-客户端"><a class="markdownIt-Anchor" href="#fabric-ca-客户端"></a> Fabric CA 客户端</h3>
+<p>在部署 Fabric CA 服务器之前，您需要了解 Fabric CA 客户端的角色。Fabric CA 客户本主题假定正在使用单个 Fabric CA 客户端。注册身份或用户是使用 LDAP 服务器进行用户注册，则不需要注册步骤，因为将注册 ID 和机密添加到 CA 数据库“用户注册表”的过程。如果你是虽然可以使用 Fabric SDK 与 CA 进行交互，但建议您使用 Fabric CA 客户端注册和注册节点管理员身 ​​ 份。在此提供的说明 LDAP 数据库中已经存在身份。注册用户后，您可以使用结构需要作为组织的一部分进行交易。当您提交注册请求时， CA 客户端“注册”身份，该身份是生成证书的过程由于您将使用单个 CA 客户端向多个 CA 提交注册和注册请求，因此在使用 CA 客户端时，证书管理至关重要。最佳做法专用和公用密钥首先由 Fabric CA 客户端在本地生成，然后将公用密钥发送到 CA ， CA 返回编码的“签名证书”。因此，将为 CA 客户端将与之交互的每个 CA 服务器创建子文件夹，以存储生成的证书。</p>
+<p>由于您将使用单个 CA 客户端向多个 CA 提交注册和注册请求，因此在使用 CA 客户端时，证书管理至关重要。最佳做法因此，将为 CA 客户端将与之交互的每个 CA 服务器创建子文件夹，以存储生成的证书。</p>
+<ul>
+<li>创建一个子文件夹以连接到每个 CA 服务器，例如 <code>/tls-ca</code> 或， <code>/orgl.ca</code> 或。该文件夹可以在 Fabric CA 客户端下，也可以在 CA 客户端可以访问的任何位置下 <code>/int-ca</code> 访问路径。出于这些说明的目的，这些文件夹位于 <code>fabric-ca-client</code> 目录内。例如：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir fabric-ca-client</span><br><span class="line"><span class="built_in">cd</span> fabric-ca-client</span><br><span class="line">mkdir tls-ca org1-ca int-ca</span><br></pre></td></tr></table></figure>
+<p>提示：虽然您可以从任何首选的文件夹中运行 Fabric CA 客户端二进制文件，但为了方便起见，在遵循这些说明时，我们将在其自己的目录中对其进行引用按客户要求的结构。</p>
+<p>SSL 握手。名为的 TLS CA 根证书在 TLS CA 上生成客户端与服务器之间的通信。例如，当 Fabric CA 客户端发出注册或向 CA 服务器注册请求，客户端请求包括该根证书以执行客户结构将 Fabric CA 客户端二进制文件复制到该文件夹 ​​ 中。</p>
+<ul>
+<li>将 Fabric CA 客户端二进制文件复制到 <code>fabric-ca-client</code> 文件夹中。</li>
+<li>因为在生产网络上启用了 TLS 通信，所以组织的 TLS CA 负责生成证书，以保护组织中所有节点之间的通信安全。因此， Fabric CA 客户端每次与该组织中的 CA 服务器进行交易时，都需要提供 TLS CA “根证书”以保护 <code>ca-cert.pem</code> ，在服务器配置 <code>.yaml</code> 文件中启用 TLS 之后。要为您的 CA 客户端启用 TLS 通信，您需要一个子文件夹来存储<code>tls-root-cert</code> 。在本主题的稍后部分，我们将把根证书复制到该文件夹 ​​ 中。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir tls-root-cert</span><br></pre></td></tr></table></figure>
+<p>产生的文件夹结构类似于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  ├── int-ca</span><br><span class="line">  ├── org1-ca</span><br><span class="line">  ├── tls-ca</span><br><span class="line">  └── tls-root-cert</span><br></pre></td></tr></table></figure>
+<p>重要提示：如果您的 Fabric CA 客户端将与来自受不同 TLS 服务器保护的多个组织的 CAS 进行交易，则您将需要创建不同的 <code>tls-root-cert</code> 文件夹来保存每个组织的 TLS CA 根证书，或者在内部简单地命名不同文件夹以区分它们。<br />
+由于我们的 Fabric CA 客户端将仅与同一组织中的 CA 服务器进行事务处理，而所有这些服务器均由相同的 TLS CA 保护，因此我们在此文件夹中将只有一个根证书。</p>
+<p>您可以在 CLI 命令上使用环境变量或标志来指定证书和 Fabric CA 客户端二进制文件的位置：</p>
+<ul>
+<li><code>FABRIC_CA_CLIENT_HOME</code> ：指定 Fabric CA 客户端二进制文件所在的标准路径。</li>
+<li><code>FABRIC_CA_CLIENT_TLS_CERTFILES</code> ：指定 TLS CA 根证书的位置和名称。如果环境变量 <code>FABRIC_CA_CLIENT_TLS_CERTFILES</code> 的路径不是绝对路径，则将其解析为相对于 <code>FABRIC_CA_CLIENT_HOME</code> 指定的 Fabric CA 客户端主目录的相对路径。在这些说明中，我们在命令上使用 <code>--tls.certfiles</code> 标志，而不是指定 TLS CA 根证书的位置。</li>
+<li><code>FABRIC_CA_CLIENT_MSPDIR</code> ：尽管您可以使用此环境变量来指定证书所在的文件夹的名称，但是由于客户端与多个 CA 进行通信，所以更好的选择是在 register 上显式传递 <code>--mspdir</code> 标志，并注册命令以指定位置。如果未在命令上指定，则该位置默认为 <code>$FABRIC_CA_CLIENT_HOME/msp</code> ，如果 Fabric CA 客户端与组织中的多个 CA 服务器进行交易，则该位置将成问题。</li>
+</ul>
+<p>提示：第一次从 CA 客户端发出 <code>enroll</code> 命令时，如果 <code>$FABRIC_CA_CLIENT_HOME</code> 目录中尚不存在 <code>fabric-ca-client-config.yaml</code> ，则会生成该命令。当您自定义此文件中的值时， CA 客户端会自动使用它们，而不必在后续的 <code>enroll</code> 命令中在命令行中传递它们。</p>
+<p>在这些说明中，始终使用单个 Fabric CA 客户端与多个 CA 服务器进行交互，但这不一定是必需的模式。另一种选择是为每个 CA 服务器使用单个 Fabric CA 客户端。在这种情况下，当为 CA 服务器管理员发出初始注册命令时，将生成到服务器的 Fabric CA 客户端连接设置，并将其存储在 <code>fabric-ca-client-config.yaml</code> 文件中。</p>
+<h3 id="从-cli-提交事务"><a class="markdownIt-Anchor" href="#从-cli-提交事务"></a> 从 CLI 提交事务</h3>
+<p>CA 服务器和 CA 客户端二进制文件随附了两组 CLI 命令：</p>
+<ul>
+<li>使用 Fabric CA 服务器 CLI 命令来部署和更新 CA 服务器。</li>
+<li>设置后，使用 Fabric CA 客户端 CLI 命令将请求提交到您的 CA 服务器，例如注册，注册或吊销身份。</li>
+</ul>
+<p>在本主题中，我们将同时使用这两个 CLI 命令。</p>
+<h3 id="我应该按什么顺序部署-ca"><a class="markdownIt-Anchor" href="#我应该按什么顺序部署-ca"></a> 我应该按什么顺序部署 CA ？</h3>
+<p>假设您将不部署同时包含 TLS CA 和组织 CA 的双头 CA ，则可以按以下顺序部署 CA ：</p>
+<ol>
+<li>
+<p>部署 TLS CA<br />
+由于生产网络中需要 TLS 通信，因此必须在每个 CA，对等方和订购节点上启用 TLS。尽管《 CA Operations 指南》中的示例配置在所有组织中共享一个 TLS CA，但建议的生产配置是为每个组织部署 TLSCA。 TLS CA 颁发 TLS 证书，以确保网络上所有节点之间的通信安全。因此，需要首先对其进行部署以为节点之间发生的 TLS 握手生成 TLS 证书。</p>
+</li>
+<li>
+<p>部署组织 CA<br />
+这是组织的身份注册 CA ，用于注册和注册将要从该组织参与网络的身份。</p>
+</li>
+<li>
+<p>部署中间 CA （可选）<br />
+如果您决定在网络中包括中间 CA，则必须先部署中间 CA 的父服务器（关联的根 CA ），然后再部署任何中间 CA 。</p>
+</li>
+</ol>
+<h3 id="部署-tls-ca"><a class="markdownIt-Anchor" href="#部署-tls-ca"></a> 部署 TLS CA</h3>
+<p>无论您是设置 TLS CA ，组织 CA 还是中间 CA ，该过程都遵循相同的总体步骤。区别在于您对 CA 服务器配置 .yaml 文件所做的修改。以下步骤概述了该过程：</p>
+<ol>
+<li>初始化 CA 服务器</li>
+<li>修改 CA 服务器配置</li>
+<li>删除 CA 服务器证书</li>
+<li>启动 CA 服务器</li>
+<li>使用 TLS CA 注册引导用户</li>
+</ol>
+<p>部署任何节点时， TLS 配置都有三个选项：</p>
+<ul>
+<li>没有 TLS。不建议用于生产网络。</li>
+<li>服务器端 TLS。</li>
+<li>相互 TLS。</li>
+</ul>
+<p>此过程将配置一个启用了服务器端 TLS 的 CA ，推荐用于生产网络。默认情况下，相互 TLS 是禁用的。如果需要使用双向 TLS ，请参考 TLS 配置设置。</p>
+<h4 id="在你开始之前"><a class="markdownIt-Anchor" href="#在你开始之前"></a> 在你开始之前</h4>
+<p>您应该已经下载了 Fabric CA 服务器二进制文件 <code>fabric-ca-server</code> 并将其复制到计算机上的干净目录中。出于这些说明的目的，我们将二进制文件放入其自己的名为 <code>fabric-ca-server-tls</code> 的文件夹中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir fabric-ca-server-tls</span><br></pre></td></tr></table></figure>
+<p>将 <code>fabric-ca-server</code> 二进制文件复制到此文件夹中。</p>
+<h4 id="初始化-tls-ca-服务器"><a class="markdownIt-Anchor" href="#初始化-tls-ca-服务器"></a> 初始化 TLS CA 服务器</h4>
+<p>部署 CA 服务器的第一步是对其进行“初始化”。通过指定 CA 的管理员用户 ID 和密码，运行以下 CA Server CLI 命令以初始化服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server init -b &lt;ADMIN_USER&gt;:&lt;ADMIN_PWD&gt;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> fabric-ca-server-tls</span><br><span class="line">./fabric-ca-server init -b tls-admin:tls-adminpw</span><br></pre></td></tr></table></figure>
+<p><code>-b</code> （引导程序身份）标志将管理员用户名和密码引导至 CA 服务器，该服务器名有效地为您向服务器“注册”了 CA admin 用户，因此引导用户不需要显式的 Fabric CA 客户端 CLI 册命令。除了使用 <code>-b</code> 标志隐式注册的该 CA 管理员身份外，所有 CA 用户都需要先“注册”然后再“注册”到 CA 。注册过程会将用户插入到 CA 数据库中。当将配置 LDAP 时，不需要 <code>-b</code> 选项进行初始化。</p>
+<p>注意：此示例仅用于说明目的。显然，在生产环境中，您永远不会使用 <code>tls-admin</code> 和 <code>tls-adminpw</code> 作为引导程序用户名和密码。确保记录了您指定的管理员 ID 和密码。稍后当您向 CA 发出注册和注册命令时，它们是必需的。使用有意义的 ID 可以帮助您区分与哪个服务器进行交易并遵循安全密码惯例。</p>
+<h4 id="ca-服务器初始化命令有什么作用"><a class="markdownIt-Anchor" href="#ca-服务器初始化命令有什么作用"></a> CA 服务器初始化命令有什么作用？</h4>
+<p><code>init</code> 命令实际上不会启动服务器，但是会生成所需的元数据（如果该元数据对于服务器而言尚不存在）：</p>
+<ul>
+<li>将默认的 CA Home 目录（在这些说明中称为 <code>FABRIC_CA_HOME</code> ）设置为运行 <code>fabric-ca-server init</code> 命令的位置。</li>
+<li>生成默认配置文件 <code>fabric-ca-server-config.yaml</code> ，该文件用作 <code>FABRIC_CA_HOME</code> 目录中服务器配置的模板。在整个说明中，我们将此文件称为“ configuration .yaml”文件。</li>
+<li>创建 TLS CA 根签名证书文件 <code>ca-cert.pem</code>（如果它在 CA Home 目录中尚不存在）。这是自签名的根证书，这意味着它是由 TLS CA 本身生成和签名的，而不是来自其他来源。该证书是必须与要与组织中的任何节点进行交易的所有客户端共享的公用密钥。当任何客户端或节点向另一个节点提交事务时，它必须将此证书作为事务的一部分。</li>
+<li>生成 CA 服务器私钥，并将其存储在 <code>/msp /keystore</code> 下的 <code>FABRIC_CA_HOME</code> 目录中。</li>
+<li>初始化服务器的默认 SQLite 数据库，尽管您可以修改配置.yaml 文件中的数据库设置以使用您选择的支持的数据库。每次启动服务器时，它将从该数据库加载数据。如果您稍后切换到其他数据库（例如 PostgreSQL 或 MySQL ），并且配置 .yaml 文件的 <code>registry.identites</code> 部分中定义的身份在该数据库中不存在，则将对其进行注册。</li>
+<li>将由 <code>-b</code> 标志参数 <code>&lt;ADMIN_USER&gt;</code> 和 <code>&lt;ADMIN_PWD&gt;</code> 指定的 CA 服务器管理员引导到服务器上。随后启动 CA 服务器时，将使用配置 .yaml 文件 <code>registry</code> 部分中提供的 admin 属性来注册 admin 用户。如果此 CA 将用于注册具有这些属性中任何一个的其他用户，则 CA 管理员用户需要拥有这些属性。换句话说，注册服务商必须具有 <code>hf.Registrar.Roles</code> 属性，然后才能使用这些属性中的任何一个注册另一个身份。因此，如果此 CA 管理员将用于注册中级 CA 的管理员身份，则即使该 CA 可能不是中级 CA 服务器，该 CA 管理员也必须将 <code>hf.IntermediateCA</code> 设置为 <code>true</code> 。默认设置已包含这些属性。</li>
+</ul>
+<p>重要说明：在配置 .yaml 文件中修改设置并重新启动服务器时，不会替换以前颁发的证书。如果要在启动服务器时重新生成证书，则需要删除它们并运行 <code>fabric-ca-server start</code> 命令。例如，如果在启动服务器后修改 <code>csr</code> 值，则需要删除以前生成的证书，然后运行 <code>fabric-ca-server start</code> 命令。但是请注意，当您使用新的签名证书和私钥重新启动 CA 服务器时，所有以前颁发的证书将不再能够通过 CA 进行身份验证。</p>
+<h4 id="修改-tls-ca-服务器配置"><a class="markdownIt-Anchor" href="#修改-tls-ca-服务器配置"></a> 修改 TLS CA 服务器配置</h4>
+<p>现在，您已经初始化了服务器，您可以根据生产 CA 服务器的清单，编辑生成的 <code>fabric-ca-server-config.yaml</code> 文件，以修改用例的默认配置设置。</p>
+<p>至少应执行以下操作：</p>
+<ul>
+<li><code>port</code> - 输入要用于此服务器的端口。这些说明使用 7054 ，但是您可以选择端口。</li>
+<li><code>tls.enabled</code> - 回忆默认配置文件中禁用了 TLS 。由于这是生产服务器，因此可以通过将该值设置为 <code>true</code> 来启用它。将此值设置为 <code>true</code> 会导致在下一步中启动服务器时生成 TLS 签名证书 <code>tls-cert.pem</code> 文件。 <code>tls-cert.pem</code> 是服务器在 TLS 握手期间将提供给客户端的证书，然后客户端将使用 TLS CA 的 <code>ca-cert.pem</code> 对其进行验证。</li>
+<li><code>ca.name</code> - 通过编辑参数为 CA 命名，例如 <code>tls-ca</code> 。</li>
+<li><code>csr.hosts</code> - 更新此参数以包括此服务器运行所在的主机名和 IP 地址（如果此文件中已存在的主机名和 IP 地址不同）。</li>
+<li><code>signing.profiles.ca</code> - 由于这是不会颁发 CA 证书的 TLS CA ，因此可以删除“ ca 个人资料”部分。 <code>signing.profiles</code> 块应仅包含 <code>tls</code> 配置文件。</li>
+<li><code>Operations.listenAddress:</code>-在不太可能的情况下，该主机和端口上正在运行另一个节点，那么您需要更新此参数以使用其他端口。</li>
+</ul>
+<h4 id="删除-tls-ca-服务器证书"><a class="markdownIt-Anchor" href="#删除-tls-ca-服务器证书"></a> 删除 TLS CA 服务器证书</h4>
+<p>启动服务器之前，如果您修改了配置 .yaml 文件的 csr 块中的任何值，则需要删除 <code>fabric-ca-server-tls/ca-cert.pem</code> 文件和整个 fabric-ca-server <code>-tls/msp</code> 文件夹。在下一步中启动 CA 服务器时，将重新生成这些证书。</p>
+<h4 id="启动-tls-ca-服务器"><a class="markdownIt-Anchor" href="#启动-tls-ca-服务器"></a> 启动 TLS CA 服务器</h4>
+<p>运行以下命令以启动 CA 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server start</span><br></pre></td></tr></table></figure>
+<p>服务器成功启动后，您将看到类似以下内容的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Listening on https:&#x2F;&#x2F;0.0.0.0:7054</span><br></pre></td></tr></table></figure>
+<p>因为您已启用 TLS 通信，所以请注意 TLS 签名证书 <code>tls-cert.pem</code> 文件是在 <code>FABRIC_CA_HOME</code> 位置下生成的。</p>
+<p>提示：在 <code>init</code> 命令上设置的 CA <code>ADMIN_USER</code> 和 <code>ADMIN_PWD</code> 不能用 <code>start</code> 命令上的 <code>-b</code> 标志覆盖。当您需要修改 CA 管理员密码时，请使用 Fabric CA 客户端身份命令。</p>
+<p>可选标志：</p>
+<ul>
+<li><code>-d</code> - 如果要在调试模式下运行服务器（这有助于问题诊断），则可以在启动命令中包括 <code>-d</code> 标志。但是，通常不建议在启用调试的情况下运行服务器，因为这将导致服务器性能降低。</li>
+<li><code>-p</code> - 如果希望服务器在与配置 .yaml 文件中指定的端口不同的端口上运行，则可以覆盖现有端口。</li>
+</ul>
+<h4 id="使用-tls-ca-注册引导程序用户"><a class="markdownIt-Anchor" href="#使用-tls-ca-注册引导程序用户"></a> 使用 TLS CA 注册引导程序用户</h4>
+<p>既然已经配置了 TLS CA ，并且可以为组织部署任何其他节点，则需要注册 TLS CA 的引导（管理员）用户。由于 CA 服务器已启动并正在运行，因此现在不再使用 Fabric CA 服务器 CLI 命令，而是使用 Fabric CA 客户端 CLI 命令向服务器提交注册请求。</p>
+<p>通过使用 Fabric CA 客户端执行，注册过程将用于生成形成节点身份的证书和私钥对。您应该已经在 Fabric CA 客户端部分中设置了所需的文件夹。</p>
+<p>我们用于这些 Fabric CA 客户端命令的文件夹结构为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  └── tls-ca</span><br><span class="line">  └── tls-root-cert</span><br></pre></td></tr></table></figure>
+<p>Fabric CA 客户端将这些文件夹用于：</p>
+<ul>
+<li>存储对 TLS CA 服务器运行 Fabric CA client enroll 命令以注册 TLS CA 引导程序标识时颁发的证书。 （ tls-ca 文件夹）</li>
+<li>知道 TLS CA 根证书所在的位置，该证书允许 Fabric CA 客户端与 TLS CA 服务器进行通信。 （ tls-root-cert 文件夹）</li>
+</ul>
+<ol>
+<li>
+<p>将启动 TLS CA 服务器时生成的 TLS CA 根证书文件 <code>fabric-ca-server-tls/ca-cert.pem</code> 复制到 <code>fabric-ca-client/tls-root-cert/tls-ca- cert.pem</code> 文件夹。请注意，文件名已更改为 <code>tls-ca-cert.pem</code> ，以使其清楚这是来自 TLS CA 的根证书。重要说明： TLS CA 根证书必须在每个针对 TLS CA 运行命令的客户端系统上都可用。</p>
+</li>
+<li>
+<p>Fabric CA 客户端还需要知道 Fabric CA 客户端二进制文件的位置。 <code>FABRIC_CA_CLIENT_HOME</code> 环境变量用于设置位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export FABRIC_CA_CLIENT_HOME&#x3D;&lt;FULLY-QUALIFIED-PATH-TO-FABRIC-CA-BINARY&gt;</span><br></pre></td></tr></table></figure>
+<p>例如，如果您位于 <code>fabric-ca-client</code> 文件夹中，则可以使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export FABRIC_CA_CLIENT_HOME&#x3D;$PWD</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>您已准备好使用 Fabric CA 客户端 CLI 注册 TLS CA 管理员用户。运行命令：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;fabric-ca-client enroll -d -u https:&#x2F;&#x2F;&lt;ADMIN&gt;:&lt;ADMIN-PWD&gt;@&lt;CA-URL&gt;:&lt;PORT&gt; --tls.certfiles &lt;RELATIVE-PATH-TO-TLS-CERT&gt; --enrollment.profile tls --csr.hosts &#39;&lt;CA_HOSTNAME&gt;&#39; --mspdir tls-ca&#x2F;tlsadmin&#x2F;msp</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;ADMIN&gt;</code> - 使用 <code>init</code> 命令中指定的 TLS CA 管理员。</li>
+<li><code>&lt;ADMIN-PWD&gt;</code> - 使用 <code>init</code> 命令中指定的 TLS CA 管理员密码。</li>
+<li><code>&lt;CA-URL&gt;</code> - 使用在 TLS CA 配置.yaml 文件的 <code>csr</code> 部分中指定的主机名。</li>
+<li><code>&lt;PORT&gt;</code> - 使用 TLS CA 正在侦听的端口。</li>
+<li><code>&lt;RELATIVE-PATH-TO-TLS-CERT&gt;</code> - 带有从 TLS CA 复制的根 TLS 证书文件的路径和名称。此路径是相对于 <code>FABRIC_CA_CLIENT_HOME</code> 的。如果您遵循本教程中的文件夹结构，则为 <code>tls-root-cert/tls-ca-cert.pem</code> 。</li>
+<li><code>&lt;CA_HOSTNAME&gt;</code> - 带有逗号分隔的证书名称的主机名列表。如果未指定，则使用 <code>fabric-ca-client-config.yaml</code> 中的默认值。您可以为域指定一个通配符。例如，当包含标志 <code>--csr.hosts'host1，*。example.com'</code> 时，意味着主机名 <code>host1</code> 以及 <code>example.com</code> 域中的任何主机均被识别。这些值将插入到生成的证书使用者备用名称（ SAN ）属性中。此处指定的值对应于您为 CA 服务器指定的 <code>csr.hosts</code> 参数。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;fabric-ca-client enroll -d -u https:&#x2F;&#x2F;tls-admin:tls-adminpw@my-machine.example.com:7054 --tls.certfiles tls-root-cert&#x2F;tls-ca-cert.pem --enrollment.profile tls --csr.hosts &#39;host1,*.example.com&#39; --mspdir tls-ca&#x2F;tlsadmin&#x2F;msp</span><br></pre></td></tr></table></figure>
+<p>在这种情况下， <code>-d</code> 参数以 DEBUG 模式运行客户端，这对于调试注册失败很有用。</p>
+<p>请注意，在命令上使用了 <code>--mspdir</code> 标志，以指定在哪里存储由 enroll 命令生成的 TLS CA 管理员证书。</p>
+<p>之所以指定 <code>--enrollment.profile tls</code> 标志，是因为我们正在针对 TLS CA 进行注册。使用此标志意味着注册是根据配置 .yaml 文件的 <code>signing</code> 部分中定义的 TLS 配置文件的 <code>usage</code> 和 <code>expiry</code> 设置执行的。**注意：**如果从 TLS CA 配置 .yaml 文件中删除了 <code>signing.profiles.ca</code> 块，则可以省略 <code>--enrollment.profile tls</code> 标志。</p>
+<p>成功完成此命令后，将生成 <code>fabric-ca-client/tls-ca/tlsadmin/msp</code> 文件夹，其中包含 TLS CA 管理员身份的签名证书和私钥。如果 enroll 命令由于某种原因而失败，为了避免以后造成混淆，您应该在重新尝试 enroll 命令之前从 <code>fabric-ca-client/tls-ca/admin/msp/keystore</code> 文件夹中删除生成的私钥。当需要在 TLS CA 中注册其他身份时，我们将在以后引用此加密材料。</p>
+<p>提示：从 Fabric CA 客户端发出此第一个 <code>enroll</code> 命令后，检查生成的 <code>fabric-ca-client/fabric-ca-client-config.yaml</code> 文件的内容，以熟悉 Fabric 使用的默认设置。 CA 客户端。因为我们使用单个 Fabric CA 客户端与多个 CA 服务器进行交互，所以我们需要在客户端 CLI 命令上使用 <code>-u</code> 标志来定位正确的 CA 服务器。 <code>--mspdir</code> 标志指示在 <code>register</code> 命令上使用的加密材料的位置，或在 <code>enroll</code> 命令上存储生成的证书的位置。</p>
+<p>下图是您创建 TLS CA 服务器并使用 Fabric CA 客户端注册引导程序标识所执行的步骤的概念性摘要：</p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Fabric%20CA%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/92e199190128e0a4397f93fcc76cb491e1248f77d7d310f4c34729346f0bc047.png" alt="picture 1" /></p>
+<h4 id="使用-tls-ca-注册并注册组织-ca-引导程序标识"><a class="markdownIt-Anchor" href="#使用-tls-ca-注册并注册组织-ca-引导程序标识"></a> 使用 TLS CA 注册并注册组织 CA 引导程序标识</h4>
+<p>TLS CA 服务器以引导程序身份启动，该身份具有服务器的完全管理员特权。管理员的关键能力之一是注册新身份的能力。组织中在网络上进行交易的每个节点都需要向 TLS CA 注册。因此，在设置组织 CA 之前，我们需要使用 TLS CA 来注册和注册组织 CA 引导程序标识，以获取其 TLS 证书和私钥。以下命令将组织 CA 引导程序身份 <code>rcaadmin</code> 和 <code>rcaadminpw</code> 注册到 TLS CA。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;fabric-ca-client register -d --id.name rcaadmin --id.secret rcaadminpw -u https:&#x2F;&#x2F;my-machine.example.com:7054  --tls.certfiles tls-root-cert&#x2F;tls-ca-cert.pem --mspdir tls-ca&#x2F;tlsadmin&#x2F;msp</span><br></pre></td></tr></table></figure>
+<p>请注意，命令上的 <code>--mspdir</code> 标志指向我们在上一步中生成的 TLS CA admin msp 证书的位置。需要使用这种加密材料才能向 TLS CA 注册其他用户。</p>
+<p>接下来，我们需要注册 <code>rcaadmin</code> 用户以为该身份生成 TLS 证书。在这种情况下，我们在 enroll 命令上使用 <code>--mspdir</code> 标志来指定应为 <code>rcaadmin</code> 用户存储生成的组织 CA TLS 证书的位置。因为这些证书具有不同的身份，所以最佳做法是将它们放在自己的文件夹中。因此，我们将它们放置在 <code>tlsadmin</code> 文件夹旁边，而不是将它们放置在默认的 <code>msp</code> 文件夹中，而不是将其放置在名为 <code>rcaadmin</code> 的新文件夹中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client enroll -d -u https://rcaadmin:rcaadminpw@my-machine.example.com:7054 --tls.certfiles tls-root-cert/tls-ca-cert.pem --enrollment.profile tls --csr.hosts <span class="string">&#x27;host1,*.example.com&#x27;</span> --mspdir tls-ca/rcaadmin/msp</span><br></pre></td></tr></table></figure>
+<p>在这种情况下，<code>--mspdir</code> 标志的工作原理略有不同。对于 <code>enroll</code> 命令，<code>--mspdir</code> 标志指示将生成的证书用于 <code>rcaadmin</code> 身份的存储位置。</p>
+<p>重要提示：组织 CA TLS 签名证书是在 <code>fabric-ca-client/tls-ca/rcaadmin/msp/signcert</code> 下生成的，私钥在 <code>fabric-ca-client/tls-ca/rcaadmin/msp/keystore</code> 下可用。部署组织 CA 时，您需要在 CA 配置 .yaml 文件的 <code>tls</code> 部分中指向这两个文件的位置。为了便于参考，您可以将 <code>keystore</code> 文件夹中的文件重命名为 <code>key.pem</code> 。</p>
+<h4 id="可选使用-tls-ca-注册并注册中级-ca-管理员"><a class="markdownIt-Anchor" href="#可选使用-tls-ca-注册并注册中级-ca-管理员"></a> （可选）使用 TLS CA 注册并注册中级 CA 管理员</h4>
+<p>同样，如果您计划拥有一个可以代表组织 CA 发行证书的中间 CA ，那么您现在也应该注册并注册该中间 CA 管理员用户。以下命令向 TLS CA 注册中间 CA 管理员 ID <code>icaadmin</code> 和 <code>icaadminpw</code> 。您可以使用选择的任何值作为身份名称和密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client register -d --id.name icaadmin --id.secret icaadminpw -u https://my-machine.example.com:7054  --tls.certfiles tls-root-cert/tls-ca-cert.pem --mspdir tls-ca/tlsadmin/msp</span><br></pre></td></tr></table></figure>
+<p>同样，register 命令上的 <code>--mspdir</code> 标志指向 TLS CA admin msp 证书的位置，这些证书才能够向 TLS CA 注册其他用户。</p>
+<p>现在也将是通过注册该用户为 <code>icaadmin</code> 用户生成中间 CA TLS 证书的好时机。对于 enroll 命令，我们使用 <code>--mspdir</code> 标志指定应为 <code>icaadmin</code> 用户存储生成的中间 CA TLS 证书的位置。在这种情况下，我们将它们放在 <code>tlsadmin</code> 文件夹旁边的新文件夹 <code>icaadmin/msp</code> 中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client enroll -d -u https://icaadmin:icaadminpw@my-machine.example.com:7054 --tls.certfiles tls-root-cert/tls-ca-cert.pem --enrollment.profile tls --csr.hosts <span class="string">&#x27;host1,*.example.com&#x27;</span> --mspdir tls-ca/icaadmin/msp</span><br></pre></td></tr></table></figure>
+<p>重要提示：中间 CA TLS 签名证书是在 <code>fabric-ca-client/tls-ca/icaadmin/signcert</code> 下生成的，私钥在 <code>fabric-ca-client/tls-ca/icaadmin/keystore</code> 下是可用的。部署中间 CA 时，您需要在中间 CA 配置 .yaml 文件的 <code>tls</code> 部分中引用这两个文件。为了便于参考，您可以将 <code>keystore</code> 文件夹中的文件重命名为 <code>key.pem</code> 。</p>
+<p>产生的文件夹结构类似于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  └── tls-ca</span><br><span class="line">    └── tlsadmin</span><br><span class="line">      └── msp</span><br><span class="line">    └── rcaadmin</span><br><span class="line">      └── msp</span><br><span class="line">    └── icaadmin</span><br><span class="line">      └── msp</span><br><span class="line">    └── tls-root-cert</span><br><span class="line">      └── tls-ca-cert.pem</span><br></pre></td></tr></table></figure>
+<p>提示：在 TLS CA 中注册了所有节点之后，可以安全地关闭它。</p>
+<h3 id="部署组织-ca"><a class="markdownIt-Anchor" href="#部署组织-ca"></a> 部署组织 CA</h3>
+<p>部署过程概述描述了每个组织对组织 CA 和 TLS CA 的需求。 TLS CA 颁发 TLS 证书，以允许组织内进行安全交易。组织 CA （也称为“注册 CA ”或“ eCert CA ”）用于为组织颁发身份。您已经在上一组步骤中部署了 TLS CA ，现在我们准备部署组织 CA 。在本主题的稍后部分，您可以选择创建中间 CA 。因此，该 CA 成为该信任链中的“根 CA ”。</p>
+<p>由于您已在上一步中使用 TLS CA 注册并注册了组织 CA 引导程序身份 <code>rcaadmin</code> ，因此您可以按照部署 TLS CA 时所使用的相同步骤模式来部署 CA 。</p>
+<h4 id="在开始之前"><a class="markdownIt-Anchor" href="#在开始之前"></a> 在开始之前</h4>
+<ul>
+<li>将 Fabric CA 服务器二进制文件 <code>fabric-ca-server</code> 复制到计算机上的新目录。出于这些说明的目的，我们将二进制文件放入名为 <code>fabric-ca-server-org1</code> 的文件夹中。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir fabric-ca-server-org1</span><br></pre></td></tr></table></figure>
+<p>现在，将 <code>fabric-ca-server</code> 二进制文件复制到此文件夹中。</p>
+<ul>
+<li>使用以下命令，将您在上一步中生成的组织 CA TLS 证书和密钥对复制到此 CA 服务器可以访问的位置，例如 <code>fabric-ca-server-org1/tls</code> 。这些是由 enroll 命令生成的 <code>fabric-ca-client/tls-ca/rcaadmin/msp/signcerts/cert.pem</code> 和 <code>fabric-ca-client/tls-ca/rcaadmin/msp/keystore/</code> 文件。<br />
+注意：以下命令假定：
+<ul>
+<li>在 <code>fabric-ca-client/tls-ca/rcaadmin/msp/keystore/</code> 下生成的私钥已重命名为 <code>key.pem</code> 。</li>
+<li><code>fabric-ca-client</code> 和 <code>fabric-ca-server-org1</code> 文件夹在文件结构中处于同一级别。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> fabric-ca-server-org1</span><br><span class="line">mkdir tls</span><br><span class="line">cp ../fabric-ca-client/tls-ca/rcaadmin/msp/signcerts/cert.pem tls &amp;&amp; cp ../fabric-ca-client/tls-ca/rcaadmin/msp/keystore/key.pem tls</span><br></pre></td></tr></table></figure>
+<p>生成的文件夹结构类似于下图。（为清楚起见，一些文件夹和文件已被省略）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  └── tls-ca</span><br><span class="line">        ├── rcaadmin</span><br><span class="line">          ├── msp</span><br><span class="line">             ├── IssuerPublicKey</span><br><span class="line">             ├── IssuerRevocationPublicKey</span><br><span class="line">             ├── cacerts</span><br><span class="line">             ├── keystore</span><br><span class="line">                 └── key.pem</span><br><span class="line">             ├── signcerts</span><br><span class="line">                 └── cert.pem</span><br><span class="line">fabric-ca-server-org1</span><br><span class="line">  └── tls</span><br><span class="line">    └── cert.pem</span><br><span class="line">    └── key.pem</span><br></pre></td></tr></table></figure>
+<h4 id="初始化-ca-服务器"><a class="markdownIt-Anchor" href="#初始化-ca-服务器"></a> 初始化 CA 服务器</h4>
+<p>运行命令以初始化服务器，并为 CA 指定新的管理员用户 ID 和密码。我们使用在上一组步骤中向 TLS CA 注册的身份 <code>rcaadmin</code> 作为组织 CA 的引导身份。从 <code>fabric-ca-server-org1</code> 文件夹运行此命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server init -b &lt;ADMIN_USER&gt;:&lt;ADMIN_PWD&gt;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server init -b rcaadmin:rcaadminpw</span><br></pre></td></tr></table></figure>
+<h4 id="修改-ca-服务器配置"><a class="markdownIt-Anchor" href="#修改-ca-服务器配置"></a> 修改 CA 服务器配置</h4>
+<p>与使用 TLS CA 一样，我们需要为组织 CA 编辑生成的 <code>fabric-ca-server-config.yaml</code> 文件，以根据生产 CA 服务器的清单修改您的用例的默认配置设置。</p>
+<p>至少，您应该编辑以下字段：</p>
+<ul>
+<li><code>port</code> - 输入要用于此服务器的端口。这些说明使用 <code>7055</code> ，但您可以选择端口。</li>
+<li><code>tls.enabled</code> - 通过将此值设置为 <code>true</code> 来启用 TLS。</li>
+<li><code>tls.certfile</code> 和 <code>tls.keystore</code> - 输入在 TLS CA 中注册该 CA 的引导管理员时生成的 TLS CA 签名证书和私钥的相对路径和文件名。签名证书 <code>cert.pem</code> 是使用 Fabric CA 客户端生成的，可以在 <code>fabric-ca-client/tls-ca/rcaadmin/msp/signcerts/cert.pem</code> 下找到。私钥位于 <code>fabric-ca-client/tls-ca/rcaadmin/msp/keystore</code> 下。指定的路径名 ​​ 是相对于 <code>FABRIC_CA_CLIENT_HOME</code> 的，因此，如果您遵循这些说明中使用的文件夹结构，则只需为 <code>tls.certfile</code> 指定 <code>tls/cert.pem</code> ，为 <code>tls.keystore</code> 定 <code>tls/key.pem</code> 。指定标准路径名。</li>
+<li><code>ca.name</code> - 通过在此参数中指定值来为组织 CA 命名，例如 <code>org1-ca</code> 。</li>
+<li><code>csr.hosts</code> - 更新此参数以包含此服务器运行所在的主机名和 IP 地址（如果该文件与文件中已有的名称不同）。</li>
+<li><code>Operations.listenAddress:</code> - 如果此主机上正在运行另一个 CA ，则需要更新此参数以使用其他端口。</li>
+<li><code>csr.ca.pathlength</code> ：此字段用于限制 CA 证书层次结构。根 CA 将此值设置为 1 意味着根 CA 可以颁发中间 CA 证书，但是这些中间 CA 不能依次颁发其他 CA 证书。换句话说，中间 CA 无法注册其他中间 CA ，但可以为用户颁发注册证书。默认值为 1。</li>
+<li><code>signing.profiles.ca.caconstraint.maxpathlen</code> - 此字段表示证书链中可以跟随此证书的非自发行中间证书的最大数量。如果这将是中间 CA 的父服务器，并且您希望该中间 CA 充当另一个中间 CA 的父 CA ，则此根 CA 需要在配置 .yaml 文件中将此值设置为大于 0。请参阅“签名”部分的说明。默认值为 0。</li>
+<li><code>Operations.listenAddress:</code> - 在不太可能的情况下，该主机和端口上正在运行另一个节点，则需要更新此参数以使用其他端口。</li>
+</ul>
+<h4 id="删除-ca-服务器证书"><a class="markdownIt-Anchor" href="#删除-ca-服务器证书"></a> 删除 CA 服务器证书</h4>
+<p>启动服务器之前，如果您修改了配置 .yaml 文件的 <code>csr</code> 块中的任何值，则需要删除 <code>fabric-ca-server-org1/ca-cert.pem</code> 文件和整个 <code>fabric-ca-server-org1/msp</code> 文件夹。在下一步中启动 CA 服务器时，将根据配置 .yaml 文件中的新设置重新生成这些证书。</p>
+<h4 id="启动-ca-服务器"><a class="markdownIt-Anchor" href="#启动-ca-服务器"></a> 启动 CA 服务器</h4>
+<p>运行以下命令以启动 CA 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server start</span><br></pre></td></tr></table></figure>
+<h4 id="注册-ca-管理员"><a class="markdownIt-Anchor" href="#注册-ca-管理员"></a> 注册 CA 管理员</h4>
+<p>部署 CA 的最后一步是注册 CA 管理员引导程序身份，该身份会生成节点签名的证书和私钥。密钥对是此管理员身份所必需的，以便能够注册其他身份。同样，我们将使用 Fabric CA 客户端 CLI 来注册管理员。您应该已经在 Fabric CA 客户端部分中设置了所需的文件夹。</p>
+<p>我们用于这些命令的文件夹结构是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  └── org1-ca</span><br><span class="line">  └── tls-root-cert</span><br></pre></td></tr></table></figure>
+<p>Fabric CA 客户端将这些文件夹用于：</p>
+<ul>
+<li>存储对 TLS CA 服务器运行 Fabric CA 客户端注册命令时颁发的证书。（org1-ca 文件夹）</li>
+<li>知道 TLS 证书位于的位置，该证书允许 Fabric CA 客户端与 TLS CA 服务器进行通信。（tls-root-cert 文件夹）</li>
+</ul>
+<ol>
+<li>
+<p>以前使用 Fabric CA 客户端为 TLS CA 生成证书时，您指定了 <code>FABRIC_CA_CLIENT_HOME</code> 的值。假设仍然设置，则可以继续执行下一步。否则，您应该在 Fabric CA 客户端二进制文件所在的目录中，并运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> FABRIC_CA_CLIENT_HOME=<span class="variable">$PWD</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>现在，您可以使用 Fabric CA 客户端生成 CA 管理员证书和私钥。您需要此证书和私钥才能使用此 CA 颁发身份。我们在 enroll 命令上使用 <code>--mspdir</code> 标志来指定将生成的证书存储在何处。运行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client enroll -d -u https://&lt;ADMIN&gt;:&lt;ADMIN-PWD&gt;@&lt;CA-URL&gt;:&lt;PORT&gt; --tls.certfiles &lt;RELATIVE-PATH-TO-TLS-CERT&gt; --csr.hosts <span class="string">&#x27;&lt;CA_HOSTNAME&gt;&#x27;</span> --mspdir org1-ca/rcaadmin/msp</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;ADMIN&gt;</code> - 使用 <code>init</code> 命令中指定的组织 CA admin 。</li>
+<li><code>&lt;ADMIN-PWD&gt;</code> - 使用 <code>init</code> 命令中指定的组织 CA 管理员密码。</li>
+<li><code>&lt;CA-URL&gt;</code> - 使用在组织 CA 配置.yaml 文件的 <code>csr</code> 部分中指定的主机名。</li>
+<li><code>&lt;PORT&gt;</code> - 使用组织 CA 正在侦听的端口。</li>
+<li><code>&lt;RELATIVE-PATH-TO-TLS-CERT&gt;</code> - 包含从 TLS CA 复制的 tls-ca-cert.pem 文件的路径。这是相对于 <code>FABRIC_CA_CLIENT_HOME</code> 的路径。</li>
+<li><code>&lt;CA_HOSTNAME&gt;</code> - 带有逗号分隔的证书名称的主机名列表。如果未指定，则使用 <code>fabric-ca-client-config.yaml</code> 中的默认值。如果主机名是动态的，则可以为域指定通配符。例如，当包含标志 <code>--csr.hosts 'host1,*.example.com'</code> 时，意味着主机名 <code>host1</code> 以及 <code>example.com</code> 域中的任何主机均被识别。</li>
+</ul>
+<p>在这种情况下， <code>-d</code> 参数以 DEBUG 模式运行客户机，这对于调试命令失败很有用。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client enroll -d -u https://rcaadmin:rcaadminpw@my-machine.example.com:7055 --tls.certfiles tls-root-cert/tls-ca-cert.pem --csr.hosts <span class="string">&#x27;host1,*.example.com&#x27;</span> --mspdir org1-ca/rcaadmin/msp</span><br></pre></td></tr></table></figure>
+<p>运行此命令时，enroll 命令将创建 <code>fabric-ca-client/org1-ca/rcaadmin/msp</code> 文件夹，其中包含组织 CA 的签名证书和私钥，其外观类似于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">└── msp</span><br><span class="line">    ├── cacerts</span><br><span class="line">        └── my-machine-example-com-7055.pem</span><br><span class="line">    ├── keystore</span><br><span class="line">        └── 60b6a16b8b5ba3fc3113c522cce86a724d7eb92d6c3961cfd9afbd27bf11c37f_sk</span><br><span class="line">    ├── signcerts</span><br><span class="line">        └── cert.pem</span><br><span class="line">    ├── user</span><br><span class="line">    ├── IssuerPublicKey</span><br><span class="line">    └── IssuerRevocationPublicKey</span><br></pre></td></tr></table></figure>
+<p>位置：</p>
+<ul>
+<li><code>my-machine-example-com-7055.pem</code> 是组织 CA 根证书。</li>
+<li><code>60b6a16b8b5ba3fc3113c522cce86a724d7eb92d6c3961cfd9afbd27bf11c37f_sk</code> 是组- 织 CA 管理员身份的私钥。此密钥需要受到保护，不应与任何人共享。需要能够在此 CA 中注册- 和注册其他身份。可以将这个文件重命名为更易于引用的名称，例如 <code>org1-key.pem</code> 。</li>
+<li><code>cert.pem</code> 是 CA 管理员身份签名的证书。</li>
+</ul>
+</li>
+<li>
+<p>（可选）向组织（根）CA 注册中间 CA 引导程序标识。</p>
+</li>
+</ol>
+<p>如果计划部署中间 CA ，则必须向其根 CA 注册中间 CA 引导程序标识，以形成信任链。回想一下，您已经在 TLS CA 中注册了 <code>icaadmin</code> 身份。您还需要在（根）组织 CA 中注册相同的身份。并且由于这将是中间 CA ，因此必须包含 <code>hf.IntermediateCA = true</code> 属性。（从在上一步中注册组织 CA admin 的同一终端窗口中运行此命令。）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-client register -u https://my-machine.example.com:7055  --id.name icaadmin --id.secret icaadminpw --id.attrs <span class="string">&#x27;&quot;hf.Registrar.Roles=user,admin&quot;,&quot;hf.Revoker=true&quot;,&quot;hf.IntermediateCA=true&quot;&#x27;</span> --tls.certfiles tls-root-cert/tls-ca-cert.pem --mspdir org1-ca/rcaadmin/msp</span><br></pre></td></tr></table></figure>
+<p>register 命令上的 <code>--mspdir</code> 标志指向我们在上一步中注册的组织 CA admin 的加密材料，并被授权注册新用户。我们不会在组织 CA 中注册 <code>icaadmin</code> 身份。相反，此中间 CA 管理员身份稍后将针对中间 CA 进行注册。</p>
+<h3 id="可选部署中间-ca"><a class="markdownIt-Anchor" href="#可选部署中间-ca"></a> （可选）部署中间 CA</h3>
+<p>中间 CA 与组织根 CA 形成信任链，可用于将特定组织的注册请求定向到单个 CA ，以及通过关闭根 CA 来保护信任根。因此，当使用中间 CA 来处理所有注册请求时，可以关闭根 CA 。</p>
+<p>注意：本节假定您已经在 TLS CA 和上级组织 CA 中注册并注册了 <code>icaadmin</code> 身份（本节之前的第 3 步）。</p>
+<p>在你开始之前</p>
+<ul>
+<li>将 Fabric CA 服务器二进制 <code>fabric-ca-server</code> 复制到计算机上的新目录。出于这些说明的目的，我们将二进制文件放入其自己的名为 <code>fabric-ca-server-int-ca</code>的文件夹中。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir fabric-ca-server-int-ca</span><br></pre></td></tr></table></figure>
+<p>将 <code>fabric-ca-server</code> 二进制文件复制到此文件夹中。</p>
+<ul>
+<li>
+<p>使用以下命令将在上一步中生成的 CA admin TLS 证书和密钥对复制到此 CA 服务器可以访问的位置，例如 <code>fabric-ca-server-int-ca/tls</code> 。这些是由 enroll 命令生成的 <code>fabric-ca-client/tls-ca/icaadmin/msp/signcerts/cert.pem</code> 和 <code>fabric-ca-client/tls-ca/icaadmin/msp/keystore/</code> 文件。<br />
+注意：以下命令假定：</p>
+<ul>
+<li>在 <code>fabric-ca-client/tls-ca/icaadmin/keystore/</code> 下生成的私钥被重命名为 <code>key.pem</code> 。</li>
+<li><code>fabric-ca-client</code> 和 <code>fabric-ca-server-int-ca</code> 文件夹在文件结构中处于同一级别。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> fabric-ca-server-int-ca</span><br><span class="line">mkdir tls</span><br><span class="line">cp ../fabric-ca-client/tls-ca/icaadmin/msp/signcerts/cert.pem tls &amp;&amp; cp ../fabric-ca-client/tls-ca/icaadmin/msp/keystore/key.pem tls</span><br></pre></td></tr></table></figure>
+<ul>
+<li>因为启用了 TLS 通信，所以中间 CA 需要 TLS CA 根证书才能与上级组织 CA 安全通信。因此，您需要将初始化 TLS CA 服务器时生成的 <code>fabric-ca-server-tls/ca-cert.pem</code> 复到 <code>tls</code> 文件夹。请注意，文件名已更改为 <code>tls-ca-cert.pem</code> ，以使其清楚这是来自 TLS CA 的根证书。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ../fabric-ca-server-tls/ca-cert.pem tls/tls-ca-cert.pem</span><br></pre></td></tr></table></figure>
+<p>生成的文件夹结构类似于以下结构。（为清楚起见，一些文件夹和文件已被省略）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fabric-ca-client</span><br><span class="line">  └── tls-ca</span><br><span class="line">        ├── icaadmin</span><br><span class="line">          ├── msp</span><br><span class="line">             ├── cacerts</span><br><span class="line">             ├── keystore</span><br><span class="line">                 └── key.pem</span><br><span class="line">             ├── signcerts</span><br><span class="line">                 └── cert.pem</span><br><span class="line">             ├── tlscacerts</span><br><span class="line">             ├── user</span><br><span class="line">             ├── IssuerPublicKey</span><br><span class="line">             └── IssuerRevocationPublicKey</span><br><span class="line">fabric-ca-server-int-ca</span><br><span class="line">  └── tls</span><br><span class="line">    └── tls-ca-cert.pem</span><br><span class="line">    └── cert.pem</span><br><span class="line">    └── key.pem</span><br></pre></td></tr></table></figure>
+<p>因为您已经部署了父组织（根） CA ，所以可以使用以下步骤来创建中间 CA：</p>
+<ol>
+<li>
+<p>在中间 CA 主目录中，通过运行 <code>init</code> 命令并引导您已经在 TLS CA 和父组织 CA 中注册的 <code>icaadmin</code> id 来初始化 CA 。<br />
+例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fabric-ca-server init -b icaadmin:icaadminpw</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 <code>fabric-ca-server-config.yaml</code> 文件。</p>
+</li>
+</ol>
+<p>未完。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/msp-%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/msp-%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/" class="post-title-link" itemprop="url">MSP 成员服务提供者</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-05T00:00:00+08:00">2021-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/" itemprop="url" rel="index"><span itemprop="name">Hyperledger Fabric</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="msp-成员服务提供者"><a class="markdownIt-Anchor" href="#msp-成员服务提供者"></a> MSP 成员服务提供者</h2>
+<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
+<p>MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。</p>
+<p>具体来说，用户要想加入一个网络进行交易，需要满足以下条件：</p>
+<ol>
+<li>拥有被信任的 CA 颁发的身份；</li>
+<li>成为一个被网络成员认可和认可的 组织 的成员。MSP 将身份与组织的成员资格联系在一起。成员资格是通过将成员的公钥(也称为证书、签名证书或签证)添加到组织的 MSP 来实现的。</li>
+<li>将 MSP 添加到网络上的一个联盟 或者通道。</li>
+<li>确保 MSP 包括在网络中的<a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/zh_CN/release-2.2/policies/policies.html">策略</a>定义。</li>
+</ol>
+<h3 id="msp-域"><a class="markdownIt-Anchor" href="#msp-域"></a> MSP 域</h3>
+<p>网络中， MSP 出现在两个位置：</p>
+<ul>
+<li>在参与者节点本地（<strong>本地 MSP</strong>）</li>
+<li>在通道配置中（<strong>通道 MSP</strong>）</li>
+</ul>
+<p>它们的使用范围不同，每个 MSP 列出特定管理级别上的角色和权限。</p>
+<h4 id="本地-msp"><a class="markdownIt-Anchor" href="#本地-msp"></a> 本地 MSP</h4>
+<p>本地 MSP 是为<strong>客户端</strong>和<strong>节点</strong>( peer 节点和排序节点)定义的。 本地 MSPs 定义节点的权限(例如，谁是可以操作节点的 peer 节点管理员)。客户端的本地 MSP ，允许用户作为一个通道成员或作为一个特定角色的所有者，如组织管理者，在其交易(如链码交易)时进行身份验证从而进入系统，例如，进行配置交易。</p>
+<p><strong>每个节点都必须定义一个本地 MSP</strong>，因为它定义了在该级别上谁拥有管理权或参与权( peer 节点管理员不一定是通道管理员，反之亦然)。这允许在通道上下文之外对成员消息进行身份验证，并定义特定节点(例如，能够在 peer 节点上安装链码的节点)的权限。请注意，一个组织可以拥有一个或多个节点。 MSP 定义了组织管理员。组织、组织的管理员、节点的管理员以及节点本身都应该具有相同的信任根。</p>
+<p>排序节点的本地 MSP 也在节点的文件系统上定义，并且只应用于该节点。与 peer 节点一样，排序节点也由单个组织拥有，因此有一个 MSP 来列出它信任的参与者角色或节点。</p>
+<h4 id="通道-msp"><a class="markdownIt-Anchor" href="#通道-msp"></a> 通道 MSP</h4>
+<p>通道 MSP 在通道层面上定义了管理权和参与权。应用程序通道上的 peer 节点和排序节点共用通道 MSP 的相同视图，因此能够正确地对通道参与者进行身份验证。这意味着，如果组织希望加入通道，则需要在通道配置中添加包含组织成员信任链的 MSP。否则，来自该组织身份的交易将被拒绝。本地 MSP 表现为<strong>文件系统上的文件夹结构</strong>，而通道 MSP 则<strong>在通道配置中被描述</strong>。</p>
+<p>通道 MSP 识别谁在通道层次拥有权限。通道 MSP 定义通道成员(本身是 MSP )的身份和通道级策略的执行之间的 关系 。通道 MSP 包含通道成员组织的 MSP 。</p>
+<p>每个参与通道的组织都必须为其定义一个 MSP。</p>
+<p>系统通道 MSP 包括参与排序服务的所有组织的 MSP。</p>
+<ul>
+<li>本地 MSP 仅在其应用的节点或用户的文件系统上定义。每个节点只有一个本地 MSP；</li>
+<li>由于通道 MSP 对通道内的所有节点都可用，它们在通道配置中逻辑上仅定义一次，而通道 MSP 也在通道中的每个节点的文件系统上实例化，并通过共识保持同步；</li>
+</ul>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/42c2719412b013108ddd074bac2351aed145979e59286659dbd0444252014d0f.png" alt="picture 2" /></p>
+<h3 id="组织和-msp"><a class="markdownIt-Anchor" href="#组织和-msp"></a> 组织和 MSP</h3>
+<p>组织可以作为 MSP 的身份标识，像用户组一样管理组织成员。同时，一个组织也可以被划分为多个<strong>组织单元( ou )</strong>，每个单元有一定职责（ <code>affiliations</code> ）。例如，组织 <code>Org1</code> 可能同时拥有 <code>org1.Manufacturing</code> 和 <code>org1.Distribution</code> 组织单元，这两个组织单元反映了互相隔离的流水线。这样使用组织单元可以让策略的定义更简单，在组织内部实现更细粒度的访问控制。或者使用基于属性进行访问控制的智能合约。 <code>OU</code> 字段是可选的，如果不使用 MSP 中的所有身份都被 CA 视为组织成员。</p>
+<h5 id="节点组织单元和-msp"><a class="markdownIt-Anchor" href="#节点组织单元和-msp"></a> 节点组织单元和 MSP</h5>
+<p>一类特殊的组织单元，有时也被称为<strong>节点组织单元</strong>，用于为角色赋予身份。这些节点组织单元被定义在 <code>FABRIC_CFG_PATH/msp/config.yaml</code> 配置文件中。这些单元成员被认为是 MSP 所代表的组织的一部分，通过节点组织单元，您可以实现更细粒度的背书策略，该策略要求 Org1 的 peer 节点(而不是 Org1 的任何成员)为交易背书。</p>
+<p>例如我们可以这样定义节点组织单元：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">NodeOUs:</span></span><br><span class="line">  <span class="attr">Enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">ClientOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">client</span></span><br><span class="line">  <span class="attr">PeerOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">peer</span></span><br><span class="line">  <span class="attr">AdminOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">admin</span></span><br><span class="line">  <span class="attr">OrdererOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">orderer</span></span><br></pre></td></tr></table></figure>
+<p>以上代码定义了四个节点组织单元：</p>
+<ul>
+<li>client</li>
+<li>peer</li>
+<li>admin</li>
+<li>orderer</li>
+</ul>
+<p>经过上述配置，当使用 Fabric CA 或 SDK 注册带有 CA 的用户时，这些角色和 <code>OU</code> 属性会被分配给一个身份标识。随后 <code>enroll</code> 用户命令会在用户的 <code>/msp</code> 文件夹中生成证书。</p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/e905af5fd5cacc68043ed9b7fe374adb2685be11bcbca4f4b16b8874a981911e.png" alt="picture 3" /></p>
+<p>生成的角色和 OU 属性在位于 <code>/signcerts</code> 文件夹中的 X.509 签名证书中可见。 <code>ROLE</code> 属性被标识为 <code>hf.Type</code> ，其指的是参与者在其组织中的角色(例如，指定参与者是一个 <code>peer</code> 节点)。请参阅以下来自签名证书的代码片段，它显示了角色和 ou 在证书中是如何表示的。</p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/78c16733d6209be583fbf1273cae814c7200f2ef12448c310f727310fc1a82df.png" alt="picture 4" /></p>
+<p>另外，节点是否有权管理特定资源，还要看实际分配权力的 <strong>策略</strong> 如何编写，如果策略要求持有 <code>Org1.Manufaturing</code> msp 的管理者（即 <code>admin</code> 角色）才有权向通道添加新的组织，那么单单持有其中一个 msp 是无权限的。</p>
+<h3 id="msp-结构"><a class="markdownIt-Anchor" href="#msp-结构"></a> MSP 结构</h3>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1169,460 +1908,6 @@ IP/FQDN+PORT of peer to be accessed</p>
 <p>通过 <code>su root</code> 切换到 root 用户是按照 non-login shell 的方式切换到 root 的 shell 的；<br />
 通过 <code>su -</code> 或 <code>su - root</code> 切换到 root 用户是按照 login shell 的方式切换到 root 用户的 shell 的；<br />
 由于这两种方式加载配置文件的方式不一样，所以他们最后的 <code>env</code> 环境变量打印出来并不一样。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/" class="post-title-link" itemprop="url">linux使用v2ray</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-28T00:00:00+08:00">2021-03-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/" itemprop="url" rel="index"><span itemprop="name">vpn</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/vpn/v2ray/" itemprop="url" rel="index"><span itemprop="name">v2ray</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux-使用-v2ray"><a class="markdownIt-Anchor" href="#linux-使用-v2ray"></a> linux 使用 v2ray</h2>
-<p>下载好 v2ray 软件之后，设置好 <code>config.json</code> ，启动 v2ray 。</p>
-<p>然后配置 <code>http_proxy</code> 和 <code>https_proxy</code> 两个环境变量，可以使用 <code>export</code> 进行临时的配置，也可以写进 <code>~/.bashrc</code> 里面，每次启动终端自动执行。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">Hyperledger Fabric 环境搭建踩坑</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:52:59" itemprop="dateModified" datetime="2022-01-24T13:52:59+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="hyperledger-fabric-环境搭建踩坑"><a class="markdownIt-Anchor" href="#hyperledger-fabric-环境搭建踩坑"></a> Hyperledger Fabric 环境搭建踩坑</h2>
-<h3 id="网络启动失败"><a class="markdownIt-Anchor" href="#网络启动失败"></a> 网络启动失败</h3>
-<p>在跑 <code>. ./init.sh</code> 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">5.Create &amp; Join Channel</span><br><span class="line">######## - (COMMON) setup variables - ########</span><br><span class="line">~&#x2F;workspace&#x2F;channel-artifacts ~&#x2F;workspace</span><br><span class="line">Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">~&#x2F;workspace</span><br><span class="line">######## - (ORG1) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:7051: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG1) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.708 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:9051: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:9051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.785 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc &#x3D; &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br></pre></td></tr></table></figure>
-<p>意思是建立到本地的 7050 等等端口的 tcp 时失败了，原因是拒绝访问。</p>
-<p>原因暂时不明，但是我运行了 <code>. ./shutdown.sh</code> 和 <code>. ./teardown.sh</code> 两个脚本，把整个网络都删掉了，再重新执行接下来的脚本就搞定了。</p>
-<p>原因不明，但是先记录一下这两个脚本都做了什么吧，以后再出现了就再分析。</p>
-<p>/root/workspace/shutdown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Clearing&quot;</span></span><br><span class="line">docker rm -f `docker ps -qa`</span><br><span class="line">docker rmi -f $(docker images | awk <span class="string">&#x27;($1 ~ /dev-peer.*/) &#123;print $3&#125;&#x27;</span>)</span><br><span class="line">docker volume prune -f</span><br><span class="line">docker network prune -f</span><br><span class="line"></span><br><span class="line">rm -rf system-genesis-block/*.block</span><br><span class="line">rm -rf channel-artifacts</span><br><span class="line">rm -rf organizations/peerOrganizations</span><br><span class="line">rm -rf organizations/ordererOrganizations</span><br><span class="line">rm -rf tmp</span><br><span class="line">sudo rm -rf organizations/fabric-ca/org1/*</span><br><span class="line">sudo rm -rf organizations/fabric-ca/org2/*</span><br><span class="line">sudo rm -rf organizations/fabric-ca/ordererOrg/*</span><br></pre></td></tr></table></figure>
-<p>/root/workspace/teardown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Shutdown CA Services, Peers and Orderer in Network&quot;</span></span><br><span class="line">COMPOSE_FILE_CA=docker/docker-compose-ca.yaml</span><br><span class="line">COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml</span><br><span class="line">COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml</span><br><span class="line">CA_IMAGE_TAG=<span class="variable">$&#123;CA_VERSION&#125;</span></span><br><span class="line">IMAGE_TAG=<span class="variable">$&#123;FABRIC_VERSION&#125;</span></span><br><span class="line">DB_IMAGE_TAG=<span class="variable">$&#123;OTHER_VERSION&#125;</span></span><br><span class="line">docker-compose -f <span class="variable">$&#123;COMPOSE_FILE_CA&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_BASE&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_COUCH&#125;</span> down</span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/vscode-remote-ssh%E6%8F%92%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E9%9B%B6%E7%A2%8E/vscode-remote-ssh%E6%8F%92%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">vscode+remote-ssh插件进行远程开发</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 13:53:00" itemprop="dateModified" datetime="2022-01-24T13:53:00+08:00">2022-01-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E9%9B%B6%E7%A2%8E/" itemprop="url" rel="index"><span itemprop="name">零碎</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="vscoderemote-ssh-插件进行远程开发"><a class="markdownIt-Anchor" href="#vscoderemote-ssh-插件进行远程开发"></a> vscode+remote-ssh 插件进行远程开发</h2>
-<blockquote>
-<p>经尝试，如果使用腾讯云提供的 ssh 密钥登录，可以做到 vscode + remote-ssh 远程登录不需要输入密钥。如果是自己生成的 ssh-key 进行配置好像还是要求我输入 rsa 的密钥。</p>
-</blockquote>
-<h3 id="插件准备"><a class="markdownIt-Anchor" href="#插件准备"></a> 插件准备</h3>
-<p>客户端需要准备的插件：</p>
-<ul>
-<li>remote-ssh</li>
-<li>Remote - SSH: Editing Configuration Files</li>
-<li>Remote - Containers</li>
-<li>Remote - WSL</li>
-<li>Remote Development</li>
-</ul>
-<p>服务端需要准备的插件：</p>
-<ul>
-<li>openssh （一般的云服务器都会带有 ssh 功能的插件的，功能类似的就可以了）</li>
-</ul>
-<h3 id="生成-ssh-公钥"><a class="markdownIt-Anchor" href="#生成-ssh-公钥"></a> 生成 ssh 公钥</h3>
-<p>有两种方式可以生成 ssh 公钥：</p>
-<ol>
-<li>自己使用 <code>ssh-genkey</code> 命令生成 ssh 公钥对，将公钥文件（默认是 <code>id_rsa.pub</code> ）放到服务器上（可以使用 <code>ssh-copy-file</code> 命令将文件传输到服务器的 <code>~/.ssh/</code> 目录中，替换 <code>authorized_keys</code> 中的内容；</li>
-<li>使用腾讯云控制台中的 ssh 密钥生成工具，创建密钥并绑定到实例中。创建时还会自动将私钥下载下来，是一个 <code>*pem</code> 文件；</li>
-</ol>
-<h3 id="编写配置文档"><a class="markdownIt-Anchor" href="#编写配置文档"></a> 编写配置文档</h3>
-<p>在 vscode 中点击 <code>ctrl</code> + <code>shift</code> + <code>P</code> ，输入 <code>remote-ssh:open</code> 打开默认的第一个配置文档，输入以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host &lt;Host Name&gt;</span><br><span class="line">    HostName &lt;IP or Domain&gt;</span><br><span class="line">    User &lt;Login Username&gt;</span><br><span class="line">    IdentityFile &lt;Public Key FilePath Like *.pem or Other&gt;</span><br></pre></td></tr></table></figure>
-<p>然后通过 <code>remote-ssh:connect a host</code> 开启到远程的连接便可。</p>
-<p>Terminal 卡在这里就表示连接成功了，只需要开启一个新的 Terminal 便可远程操作了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Checking server status on port 37403 with wget</span><br><span class="line">d8596fae67b8: start</span><br><span class="line">SSH_AUTH_SOCK====</span><br><span class="line">DISPLAY====</span><br><span class="line">webUiAccessToken====</span><br><span class="line">listeningOn==37403==</span><br><span class="line">osReleaseId==ubuntu==</span><br><span class="line">arch==x86_64==</span><br><span class="line">tmpDir==/run/user/0==</span><br><span class="line">platform==linux==</span><br><span class="line">unpackResult====</span><br><span class="line">didLocalDownload==0==</span><br><span class="line">downloadTime====</span><br><span class="line">installTime====</span><br><span class="line">extInstallTime====</span><br><span class="line">serverStartTime====</span><br><span class="line">connectionToken==51a92f61-ac3c-42c1-92b0-1032c4078bc8==</span><br><span class="line">d8596fae67b8: end</span><br></pre></td></tr></table></figure>
-<h3 id="连接的时候遇到了-permissions-are-too-open-问题"><a class="markdownIt-Anchor" href="#连接的时候遇到了-permissions-are-too-open-问题"></a> 连接的时候遇到了 permissions are too open 问题</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions <span class="keyword">for</span> <span class="string">&#x27;vscode_rsa&#x27;</span> are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key <span class="string">&quot;vscode_rsa&quot;</span>: bad permissions</span><br></pre></td></tr></table></figure>
-<p>问题成因： 私钥文件的权限太开放了， ssh 工具觉得不安全，如果是 Linux 可以使用 <code>chmod</code> 命令解决，而 windows 稍微麻烦些。</p>
-<p>windows 解决方案：打开配置中设置的 ssh 公钥文件，右键打开 <code>属性</code> ， <code>安全</code> ， <code>高级</code> ， <code>禁用继承</code> ， <code>将已继承的权限转换为此对象的显式权限</code> ，然后将除了自己以外的用户都删除；</p>
-<h3 id="需要使用-root-用户进行登录"><a class="markdownIt-Anchor" href="#需要使用-root-用户进行登录"></a> 需要使用 root 用户进行登录</h3>
-<ul>
-<li>腾讯云</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录服务器后</span></span><br><span class="line">su root</span><br><span class="line">vim /etc/ssh/ssh_config</span><br><span class="line"><span class="comment"># 通过 /[pattern] 的方式搜索到 PermitRoot 那一行</span></span><br><span class="line"><span class="comment"># 在下面重开一行，输入 PermitRoot yes</span></span><br><span class="line"><span class="comment"># 输入 :wq ，退出 vim 编辑器</span></span><br><span class="line">cat /home/ubuntu/.ssh/authorized_keys &gt;&gt; /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/%E5%B7%A5%E5%85%B7/docker/docker-%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">docker 简介</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-08 03:36:12" itemprop="dateModified" datetime="2022-06-08T03:36:12+08:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/%E5%B7%A5%E5%85%B7/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="docker-简介"><a class="markdownIt-Anchor" href="#docker-简介"></a> docker 简介</h2>
-<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
-<p>docker 是一个容器，可以将应用打包安装在这个容器内，使得即使在不同的系统环境中也能使用；</p>
-<h2 id="docker-vs-vm"><a class="markdownIt-Anchor" href="#docker-vs-vm"></a> docker vs. VM</h2>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/a501dbf474a0f9f65bd80babb718fb91427ad5dd82022ae4da670d4e9b55c0f5.png" alt="picture 1" /></p>
-<p>对比虚拟机， docker 并不是在 Host OS 上实现了自己的 Guest OS ，而是使用了 Docker Engine 借助 Host OS 的 namespace 、 Control Group 等，对进程进行封装隔离——容器化。换言之，VM 在宿主系统上实现了自己的操作系统内核，而 Docker 是借助宿主系统的内核实现的应用封装。所以 Docker 属于更轻量化的技术，虚拟机包括操作系统内核以及一大堆乱七八糟的库，更笨重。</p>
-<h2 id="一些概念"><a class="markdownIt-Anchor" href="#一些概念"></a> 一些概念</h2>
-<h3 id="镜像image"><a class="markdownIt-Anchor" href="#镜像image"></a> 镜像（Image）</h3>
-<p>可以类比为集装箱，其中包含了一个应用的运行所需要的依赖以及应用本身。</p>
-<p>实际上，镜像的构建使用了联合文件系统的技术，从操作系统的引导，上一层是操作系统镜像，再上一层是 Tomcat 、 jdk 、……等等。镜像不包含任何动态数据，每层的内容在构建完成之后都不会删除。</p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/3582e10cecd9062825c1afc8464540228c16f3d461aa500be51077849b782187.png" alt="picture 2" /></p>
-<h3 id="容器container"><a class="markdownIt-Anchor" href="#容器container"></a> 容器（Container）</h3>
-<p>可以理解为集装箱内部的产品，集装箱运过来之后就可以拆箱即用了。</p>
-<p>实际上，是使用了联合文件系统的技术，以镜像为底层，在其上构建存储层。运行一个容器，实际上就是运行了一个进程，进程之间拥有隔离的命名空间、网络配置、用户 ID 空间等等。这种相对独立性也是 Docker 容易被混淆成虚拟机的重要原因。实际上，这种相对独立性让我们免去了很多的环境部署麻烦，运行环境是标准化的。</p>
-<h3 id="仓库repository"><a class="markdownIt-Anchor" href="#仓库repository"></a> 仓库（Repository）</h3>
-<p>可以类比为码头，docker 可以想象成鲸鱼，就像图标中的一样，可以将镜像运送到目标港口。</p>
-<p>实际上，就是远程的镜像仓库。 Docker 官方提供了<a target="_blank" rel="noopener" href="https://hub.docker.com/">仓库</a>，而国内也有一些云服务商提供自己的 Docker 仓库，比如 <a target="_blank" rel="noopener" href="https://account.aliyun.com/login/login.htm">阿里云</a>、<a target="_blank" rel="noopener" href="https://c.163.com/hub#/m/home/">网易云</a></p>
-<h2 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h2>
-<p><code>docker search [keyword]</code>：检索镜像（一般从 docker hub 检索）<br />
-<code>docker pull [imagename]</code>：拉取镜像<br />
-<code>docker images</code>：获取镜像列表<br />
-<code>docker rmi [imageId]</code>：删除指定镜像<br />
-<code>docker rm [containerId]</code>：删除指定容器<br />
-<code>docker rm $(docker ps -a)</code>：删除所有容器<br />
-<code>docker ps</code>：查看运行中的容器<br />
-<code>docker ps -a</code>：查看所有容器<br />
-<code>docker start/stop/kill [containerId]|[containerName]</code>：开启/停止/强制停止指定容器<br />
-<code>docker run --name [containerName] -d -p [VM-Port]:[Container-Port] [imageName]</code>：docker 启动容器<br />
-<code>docker run -it --name [containerName] [imageName]</code>：交互式启动容器<br />
-<code>docker run -d --name [containerName] [imageName]</code>：守护进程式启动容器（若未分配事情给容器做，容器没有前台会自杀）<br />
-<code>docker run -it --name mysql_test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code>：指定初始 root 密码启动一个 mysql 容器<br />
-<code>docker exec -it [containerName] [/bin/bash]</code>：进入容器的 bash，进入 bash 的命令可以替换为其他命令，exec 命令可以使容器开启新进程<br />
-<code>docker attach -it [containerName]</code>：进入容器的 shell，不会开启新的线程<br />
-<code>docker cp [containerId]:[directory] [directory-in-VM]</code>：从容器内复制文件进入宿主机</p>
-<h2 id="打包项目并部署"><a class="markdownIt-Anchor" href="#打包项目并部署"></a> 打包项目并部署</h2>
-<p>整体流程：在本地安装 Docker 之后，在对应项目的目录下新建 Dockerfile ，通过配置 Dockerfile 告诉 Docker 如何构建镜像。</p>
-<p>下面是 Dockerfile 的一些配置参数含义：</p>
-<ul>
-<li><code>FROM</code>：指定创建镜像的基础镜像；</li>
-<li><code>MAINTAINER</code>：Dockerfile 作者信息，一般写的是联系方式；</li>
-<li><code>RUN</code>：运行 Linux 系统的命令使用；</li>
-<li><code>CMD</code>：指定容器启动执行的命令；启动容器中的服务；</li>
-<li><code>LABEL</code>：指定生成镜像的源数据标签；</li>
-<li><code>EXPOSE</code>：指定镜像容器监听端口号；发布服务使用；</li>
-<li><code>ENV</code>：使用环境变量；</li>
-<li><code>ADD</code>：对压缩文件进行解压缩；将数据移动到指定的目录；</li>
-<li><code>COPY</code>：复制宿主机数据到镜像内部使用；</li>
-<li><code>WORKDIR</code>：切换到镜像容器中的指定目录中；</li>
-<li><code>VOLUME</code>：挂载数据卷到镜像容器中；</li>
-<li><code>USER</code>：指定运行容器的用户；</li>
-<li><code>ARG</code>：指定镜像的版本号信息；</li>
-<li><code>ONBUILD</code>：创建镜像，作为其他镜像的基础镜像运行操作指令；</li>
-<li><code>ENTRYPOINT</code>：指定运行容器启动过程执行命令，覆盖 CMD 参数；</li>
-</ul>
 
       
     </div>
