@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="某售房平台的房价爬虫 今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。 通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。  打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚">
+    <meta name="description" content="某售房平台的房价爬虫 今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。 通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。  打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚轮">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某售房平台的房价爬虫">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="某售房平台的房价爬虫 今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。 通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。  打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚">
+<meta property="og:description" content="某售房平台的房价爬虫 今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。 通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。  打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚轮">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/e1e7fcebeaa24f1f2dc7ff4fb165b95d6f0faedb5145a3829821bbb382fa3c3d.png">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/924356a188a6133db4ad57c169097c5553e331a8a14c2d379cbc24b4346a82d6.png">
@@ -55,7 +55,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB"><span class="nav-number">1.</span> <span class="nav-text"> 某售房平台的房价爬虫</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB"><span class="nav-number">1.</span> <span class="nav-text">某售房平台的房价爬虫</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +250,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="某售房平台的房价爬虫"><a class="markdownIt-Anchor" href="#某售房平台的房价爬虫"></a> 某售房平台的房价爬虫</h2>
+        <h2 id="某售房平台的房价爬虫">某售房平台的房价爬虫</h2>
 <p>今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。</p>
 <p>通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。</p>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/e1e7fcebeaa24f1f2dc7ff4fb165b95d6f0faedb5145a3829821bbb382fa3c3d.png" alt="picture 4"></p>

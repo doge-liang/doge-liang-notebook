@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="MySQL 踩坑合集  Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)  查看事务隔离级别  123select @@transaction_isolation;REPEATABLE-READ &#x2F;&#x2F; MySQL默认的事务隔离级别就是REPEATABLE-READ  查看当前数据库的线程情">
+    <meta name="description" content="MySQL 踩坑合集 Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)  查看事务隔离级别  123select @@transaction_isolation;REPEATABLE-READ &#x2F;&#x2F; MySQL默认的事务隔离级别就是REPEATABLE-READ  查看当前数据库的线程情况，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 踩坑合集">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="MySQL 踩坑合集  Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)  查看事务隔离级别  123select @@transaction_isolation;REPEATABLE-READ &#x2F;&#x2F; MySQL默认的事务隔离级别就是REPEATABLE-READ  查看当前数据库的线程情">
+<meta property="og:description" content="MySQL 踩坑合集 Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)  查看事务隔离级别  123select @@transaction_isolation;REPEATABLE-READ &#x2F;&#x2F; MySQL默认的事务隔离级别就是REPEATABLE-READ  查看当前数据库的线程情况，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.259Z">
@@ -52,7 +52,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text"> MySQL 踩坑合集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lock-wait-timeout-exceeded-try-restarting-transaction-1205-sqlexecdirectw"><span class="nav-number">1.1.</span> <span class="nav-text"> Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">MySQL 踩坑合集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lock-wait-timeout-exceeded-try-restarting-transaction-1205-sqlexecdirectw"><span class="nav-number">1.1.</span> <span class="nav-text">Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,8 +243,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="mysql-踩坑合集"><a class="markdownIt-Anchor" href="#mysql-踩坑合集"></a> MySQL 踩坑合集</h2>
-<h3 id="lock-wait-timeout-exceeded-try-restarting-transaction-1205-sqlexecdirectw"><a class="markdownIt-Anchor" href="#lock-wait-timeout-exceeded-try-restarting-transaction-1205-sqlexecdirectw"></a> Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)</h3>
+        <h2 id="mysql-踩坑合集">MySQL 踩坑合集</h2>
+<h3 id="lock-wait-timeout-exceeded-try-restarting-transaction-1205-sqlexecdirectw">Lock wait timeout exceeded; try restarting transaction (1205) (SQLExecDirectW)</h3>
 <ul>
 <li>查看事务隔离级别</li>
 </ul>
@@ -282,8 +282,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/" rel="next" title="C语言程序设计基础-变量">
-                  C语言程序设计基础-变量 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c-%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/" rel="next" title="C++语言程序设计基础（2）">
+                  C++语言程序设计基础（2） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

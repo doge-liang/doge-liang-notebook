@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Java Stream API  简介 Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript 的函数式处理集合的方法。这种方法使我们更加关注对于集合的操作，而无需关注元素的处理顺序，这也让并行处理集合元素成为可能；  入门 使用步骤如下：  创建流； 对流做过滤、聚合、映射等中间操作； 从流中收集元素生成集合。   创建流  有限流  collecti">
+    <meta name="description" content="Java Stream API 简介 Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript 的函数式处理集合的方法。这种方法使我们更加关注对于集合的操作，而无需关注元素的处理顺序，这也让并行处理集合元素成为可能； 入门 使用步骤如下：  创建流； 对流做过滤、聚合、映射等中间操作； 从流中收集元素生成集合。  创建流  有限流  collectionIn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Stream API">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-stream-api/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Java Stream API  简介 Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript 的函数式处理集合的方法。这种方法使我们更加关注对于集合的操作，而无需关注元素的处理顺序，这也让并行处理集合元素成为可能；  入门 使用步骤如下：  创建流； 对流做过滤、聚合、映射等中间操作； 从流中收集元素生成集合。   创建流  有限流  collecti">
+<meta property="og:description" content="Java Stream API 简介 Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript 的函数式处理集合的方法。这种方法使我们更加关注对于集合的操作，而无需关注元素的处理顺序，这也让并行处理集合元素成为可能； 入门 使用步骤如下：  创建流； 对流做过滤、聚合、映射等中间操作； 从流中收集元素生成集合。  创建流  有限流  collectionIn">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
@@ -51,7 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-stream-api"><span class="nav-number">1.</span> <span class="nav-text"> Java Stream API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8"><span class="nav-number">1.2.</span> <span class="nav-text"> 入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="nav-number">1.3.</span> <span class="nav-text"> 创建流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text"> 中间操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E6%B5%81"><span class="nav-number">1.5.</span> <span class="nav-text"> 收集流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E6%B5%81"><span class="nav-number">1.6.</span> <span class="nav-text"> 并行流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#parallelstream-%E6%B5%81%E5%BC%8F%E9%99%B7%E9%98%B1"><span class="nav-number">1.6.1.</span> <span class="nav-text"> parallelStream 流式陷阱</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-stream-api"><span class="nav-number">1.</span> <span class="nav-text">Java Stream API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8"><span class="nav-number">1.2.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="nav-number">1.3.</span> <span class="nav-text">创建流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text">中间操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E6%B5%81"><span class="nav-number">1.5.</span> <span class="nav-text">收集流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E6%B5%81"><span class="nav-number">1.6.</span> <span class="nav-text">并行流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#parallelstream-%E6%B5%81%E5%BC%8F%E9%99%B7%E9%98%B1"><span class="nav-number">1.6.1.</span> <span class="nav-text">parallelStream 流式陷阱</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,17 +246,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="java-stream-api"><a class="markdownIt-Anchor" href="#java-stream-api"></a> Java Stream API</h2>
-<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
+        <h2 id="java-stream-api">Java Stream API</h2>
+<h3 id="简介">简介</h3>
 <p>Stream API 是 Java SE 8 引入的新特性。是一系列类似于 JavaScript 的函数式处理集合的方法。这种方法使我们更加关注对于集合的操作，而无需关注元素的处理顺序，这也让并行处理集合元素成为可能；</p>
-<h3 id="入门"><a class="markdownIt-Anchor" href="#入门"></a> 入门</h3>
+<h3 id="入门">入门</h3>
 <p>使用步骤如下：</p>
 <ol>
 <li>创建流；</li>
 <li>对流做过滤、聚合、映射等中间操作；</li>
 <li>从流中收集元素生成集合。</li>
 </ol>
-<h3 id="创建流"><a class="markdownIt-Anchor" href="#创建流"></a> 创建流</h3>
+<h3 id="创建流">创建流</h3>
 <ul>
 <li>有限流
 <ul>
@@ -280,7 +280,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="中间操作"><a class="markdownIt-Anchor" href="#中间操作"></a> 中间操作</h3>
+<h3 id="中间操作">中间操作</h3>
 <ul>
 <li><code>filter(Predicate&lt;T&gt; conditions)</code> 通过条件过滤流；</li>
 <li><code>map(Function&lt;? super T, ? extends R&gt; mapper)</code> 对流中的每一个元素传入 mapper 函数中，将返回值生成新的流；</li>
@@ -301,17 +301,17 @@
 </ul>
 </li>
 </ul>
-<h3 id="收集流"><a class="markdownIt-Anchor" href="#收集流"></a> 收集流</h3>
+<h3 id="收集流">收集流</h3>
 <p>=======<br>
 创建流的各种方式：</p>
 <ol>
 <li><code>CollectionInstance.stream()</code> 返回由集合的元素组成的流；</li>
 <li><code>Stream.of(T)</code> 和 <code>Stream.of(T...)</code> 返回 T 类型的流；</li>
 </ol>
-<h3 id="并行流"><a class="markdownIt-Anchor" href="#并行流"></a> 并行流</h3>
+<h3 id="并行流">并行流</h3>
 <p>Stream 默认创建一个顺序流来处理集合的元素。当流处理的终端操作开始后，才开始遍历、拆分、查询拆分器获取估计的大小。官方建议拆分器应该具有 immutable 或者 concurrent 的特征，否则使用顺序流。</p>
 <p><code>parallelStream</code> 是并行的，返回一个可能并行执行的 Stream ，以<strong>集合</strong>作为数据源，默认从集合的 <code>Spliterator</code> 创建并行 Stream 。</p>
-<h4 id="parallelstream-流式陷阱"><a class="markdownIt-Anchor" href="#parallelstream-流式陷阱"></a> parallelStream 流式陷阱</h4>
+<h4 id="parallelstream-流式陷阱">parallelStream 流式陷阱</h4>
 <p>使用并行流时，内部的处理逻辑是使用了多个线程执行的，如果内部没有保证线程安全，很容易出现莫名其妙的 <code>java.util.ConcurrentModificationException</code> 比如使用了非线程安全的集合收集数据，对非线程安全的集合的并发操作很容易导致集合扩容不及时而报错，或者其他数据竞争的问题（写入空值、读出空值等）。</p>
 
     </div>
@@ -326,13 +326,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD/" rel="prev" title="极限和连续">
-                  <i class="fa fa-chevron-left"></i> 极限和连续
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="prev" title="Java 基础语法">
+                  <i class="fa fa-chevron-left"></i> Java 基础语法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="next" title="Java 基础语法">
-                  Java 基础语法 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/" rel="next" title="Linux踩坑合集">
+                  Linux踩坑合集 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

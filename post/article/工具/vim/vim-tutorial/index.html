@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="vim tutorial  basic This part is the SUMMARY of the oficial basic interactive tutorial. By typing vimtutor in the terminal you can see the complete tutorial. j k h l up down left right x delete i ins">
+    <meta name="description" content="vim tutorial basic This part is the SUMMARY of the oficial basic interactive tutorial. By typing vimtutor in the terminal you can see the complete tutorial. j k h l up down left right x delete i inser">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim-tutorial">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/vim/vim-tutorial/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="vim tutorial  basic This part is the SUMMARY of the oficial basic interactive tutorial. By typing vimtutor in the terminal you can see the complete tutorial. j k h l up down left right x delete i ins">
+<meta property="og:description" content="vim tutorial basic This part is the SUMMARY of the oficial basic interactive tutorial. By typing vimtutor in the terminal you can see the complete tutorial. j k h l up down left right x delete i inser">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
@@ -52,7 +52,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-tutorial"><span class="nav-number">1.</span> <span class="nav-text"> vim tutorial</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#basic"><span class="nav-number">1.1.</span> <span class="nav-text"> basic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vimrc"><span class="nav-number">1.2.</span> <span class="nav-text"> vimrc</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-tutorial"><span class="nav-number">1.</span> <span class="nav-text">vim tutorial</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#basic"><span class="nav-number">1.1.</span> <span class="nav-text">basic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vimrc"><span class="nav-number">1.2.</span> <span class="nav-text">vimrc</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,8 +247,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="vim-tutorial"><a class="markdownIt-Anchor" href="#vim-tutorial"></a> vim tutorial</h2>
-<h3 id="basic"><a class="markdownIt-Anchor" href="#basic"></a> basic</h3>
+        <h2 id="vim-tutorial">vim tutorial</h2>
+<h3 id="basic">basic</h3>
 <p>This part is the <strong>SUMMARY</strong> of the oficial basic interactive tutorial. By typing <code>vimtutor</code> in the terminal you can see the complete tutorial.</p>
 <p><code>j</code> <code>k</code> <code>h</code> <code>l</code> up down left right</p>
 <p><code>x</code> delete</p>
@@ -285,7 +285,7 @@
 <p><code>yy</code> yand(copy) the whole line into the buffer</p>
 <p><code>&lt;n&gt; yy</code> yand(copy) the next n line into the buffer</p>
 <p><code>ctrl W</code> jump to another window</p>
-<h3 id="vimrc"><a class="markdownIt-Anchor" href="#vimrc"></a> vimrc</h3>
+<h3 id="vimrc">vimrc</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">if empty(glob(&#x27;~/.vim/autoload/plug.vim&#x27;))</span><br><span class="line">    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs</span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">&quot; Plugin</span><br><span class="line">call plug#begin(&#x27;.vim-plugin&#x27;)</span><br><span class="line">Plug &#x27;lervag/vimtex&#x27;</span><br><span class="line">Plug &#x27;preservim/nerdcommenter&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Track the engine.</span><br><span class="line">Plug &#x27;SirVer/ultisnips&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Snippets are separated from the engine. Add this if you want m:</span><br><span class="line">Plug &#x27;honza/vim-snippets&#x27;</span><br><span class="line"></span><br><span class="line">Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">Plug &#x27;dense-analysis/ale&#x27;</span><br><span class="line">Plug &#x27;jiangmiao/auto-pairs&#x27;</span><br><span class="line"></span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">&quot; Trigger configuration. Do not use &lt;tab&gt; if you use https://hub.com/Valloric/YouCompleteMe.</span><br><span class="line">let g:UltiSnipsExpandTrigger=&quot;&lt;tab&gt;&quot;</span><br><span class="line">let g:UltiSnipsJumpForwardTrigger=&quot;&lt;c-b&gt;&quot;</span><br><span class="line">let g:UltiSnipsJumpBackwardTrigger=&quot;&lt;c-z&gt;&quot;</span><br><span class="line"></span><br><span class="line">&quot; If you want :UltiSnipsEdit to split your window.</span><br><span class="line">let g:UltiSnipsEditSplit=&quot;vertical&quot;</span><br><span class="line"></span><br><span class="line">&quot; vimtex config</span><br><span class="line">let g:tex_flavor=&#x27;latex&#x27;</span><br><span class="line">let g:vimtex_view_method=&#x27;zathura&#x27;</span><br><span class="line">let g:vimtex_quickfix_mode=0</span><br><span class="line">set conceallevel=1</span><br><span class="line">let g:tex_conceal=&#x27;abdmg&#x27;</span><br><span class="line"></span><br><span class="line">set nu</span><br><span class="line">set tabstop=4</span><br><span class="line">set hls</span><br><span class="line">set is</span><br><span class="line">set bg=dark</span><br><span class="line">set autoindent</span><br><span class="line">set ru</span><br></pre></td></tr></table></figure>
 
     </div>

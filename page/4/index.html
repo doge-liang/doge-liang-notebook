@@ -49,7 +49,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -250,10 +250,10 @@
 </ul>
 </li>
 </ul>
-<h2 id="模块化"><a class="markdownIt-Anchor" href="#模块化"></a> 模块化</h2>
-<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
+<h2 id="模块化">模块化</h2>
+<h3 id="简介">简介</h3>
 <p>ES Modules (ESM) 是 JavaScript 官方的标准化模块系统。提供了模块化的方式组织变量和函数。</p>
-<h3 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h3>
+<h3 id="背景">背景</h3>
 <p>JavaScript 原生的变量管理方式是基于作用域的，不同的作用域之间需要共享变量，需要提升变量的作用域，比如使用 JQuery 组件时，一定要保证组件被导入之前导入 JQuery 否则会出现未定义变量使用的问题。这种<strong>依赖是不透明</strong>的，面对复杂的组件依赖关系，导入顺序让人头疼。其次，由于变量在全局作用域中，意味着可以被<strong>随处改变</strong>，有可能被恶意代码攻击，或者被意外改变出现无法预期的问题。最初的脚本小而简单，这些问题不会显露，但随着语言的发展，代码变得越来越复杂，问题便暴露了。</p>
 <p>为了解决这个问题社区用了很多方法来把代码组织成模块，历史上出现过很多，下面列举一些：</p>
 <ul>
@@ -262,156 +262,6 @@
 <li>UMD —— 兼容以上两者的模块系统；</li>
 </ul>
 <p>2015 年提出的 ES6 标准中，提出了 语言级的模块系统，现已被所有主流浏览器和 Node.js 支持。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/" class="post-title-link" itemprop="url">回调</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-25T00:00:00+08:00">2021-08-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="回调"><a class="markdownIt-Anchor" href="#回调"></a> 回调</h2>
-<ul>
-<li><a href="#%E5%9B%9E%E8%B0%83">回调</a>
-<ul>
-<li><a href="#%E5%9B%9E%E8%B0%83%E7%AE%80%E4%BB%8B">回调简介</a></li>
-<li><a href="#promise-%E5%AF%B9%E8%B1%A1"><code>Promise</code> 对象</a>
-<ul>
-<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C">消费者处理结果</a></li>
-<li><a href="#then"><code>then()</code></a></li>
-<li><a href="#catch"><code>catch()</code></a></li>
-<li><a href="#finally"><code>finally()</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="回调简介"><a class="markdownIt-Anchor" href="#回调简介"></a> 回调简介</h3>
-<p>回调是一种异步编程风格，将函数作为变量传入函数中，当触发某个条件时，调用该函数。</p>
-<p>这是一个动态加载 js 脚本的函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadScript</span>(<span class="params">src, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">  script.<span class="property">src</span> = src;</span><br><span class="line"></span><br><span class="line">  script.<span class="property">onload</span> = <span class="title function_">callback</span>(<span class="literal">null</span>, script);</span><br><span class="line">  script.<span class="property">onerror</span> = <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`Script load error for <span class="subst">$&#123;src&#125;</span>`</span>));</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">append</span>(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用该函数加载脚本。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">loadScript</span>(<span class="string">&quot;/myscript.js&quot;</span>, <span class="keyword">function</span> (<span class="params">error, script</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="comment">// fail</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// success</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>回调可以嵌套，即在回调要执行的动作中传入回调函数本身。但这种方式不建议使用，嵌套过多很容易损害代码可读性。</p>
-<h3 id="promise-对象"><a class="markdownIt-Anchor" href="#promise-对象"></a> <code>Promise</code> 对象</h3>
-<p>异步操作一般是因为某些函数从执行操作，到产生结果中间有时间差，为了提高效率我们一般会阻塞这部分代码知道接受到返回结果，再执行相应的逻辑。</p>
-<ul>
-<li>生产者：我们可以理解为异步的源头；</li>
-<li>消费者：接受生产者返回结果的代码；</li>
-</ul>
-<p>而 JavaScript 内置的 <code>Promise</code> 对象，就是用于连接生产者代码和消费者代码的对象。<br>
-构造语法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> success = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// executor （生产者代码）</span></span><br><span class="line">  <span class="keyword">if</span> (success) &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><code>Promise</code> 对象有两个内置变量 <code>state</code> 和 <code>result</code> ，外部无法访问，只能通过 resolve 和 reject 两个函数改变，并且这种改变都是<strong>最终的</strong>。</p>
-<ul>
-<li>初始态 <code>&#123;state: &quot;pending&quot;, result: undefined&#125;</code>
-<ul>
-<li>调用 <code>resolve(value)</code> 后 <code>&#123;state: &quot;fulfilled&quot;, result: value&#125;</code></li>
-<li>调用 <code>reject(error)</code> 后 <code>&#123;state: &quot;rejected&quot;, result: error&#125;</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="消费者处理结果"><a class="markdownIt-Anchor" href="#消费者处理结果"></a> 消费者处理结果</h4>
-<p>消费者通过 <code>then</code> 和 <code>catch</code> 捕获 <code>Promise</code> 相应的状态，并执行相应的逻辑：</p>
-<h4 id="then"><a class="markdownIt-Anchor" href="#then"></a> <code>then()</code></h4>
-<p><code>then(f, f)</code> 通过箭头函数向 <code>promise.then()</code> 传入两个函数，如果 resolve 了执行第一个，如果 reject 执行第二个。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result), <span class="comment">// alert(&quot;done&quot;);</span></span><br><span class="line">  <span class="function"><span class="params">error</span>  =&gt;</span> <span class="title function_">alert</span>(error) <span class="comment">// alert(&quot;Error&quot;);</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>相当于对消费者 resolve 做出 promise 如果 promise 被生产者 resolve 了，便执行 <code>promise.then()</code> 的第一个函数，如果 reject 便执行第二个。<br>
-另外，如果我们只关心是否 resolve 或是否 reject ，代码如下：</p>
-<h4 id="catch"><a class="markdownIt-Anchor" href="#catch"></a> <code>catch()</code></h4>
-<p><code>catch(f)</code> 可以捕获 reject 的 Error 对象，执行相应的回调。（其实不是 Error 对象也可以，reject 和 resolve 一样对参数类型无要求，后面再说）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只看是否 resolve</span></span><br><span class="line">promise.<span class="title function_">then</span>(alert);</span><br><span class="line"><span class="comment">// 只看是否 reject</span></span><br><span class="line">promise.<span class="title function_">catch</span>(alert);</span><br></pre></td></tr></table></figure>
-<h4 id="finally"><a class="markdownIt-Anchor" href="#finally"></a> <code>finally()</code></h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无论什么结果都执行的，一般用来执行清理的操作。</span></span><br><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">exit</span>());</span><br></pre></td></tr></table></figure>
-<ol>
-<li><code>finally(f)</code> 的回调 <code>f</code> 是没有参数的，它并不关心 promise 是否成功，只知道 promise 已经执行完了。</li>
-<li><code>finally(f)</code> 会将 promise 的结果传递到下面的处理程序中去，即可以被 <code>finally</code> 后面的 <code>then()</code> 和 <code>catch()</code> 捕获并处理。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">alert</span>(<span class="string">&quot;Promise ready&quot;</span>));</span><br><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result),</span><br><span class="line">  <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">alert</span>(err)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -504,22 +354,172 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="maven-入门"><a class="markdownIt-Anchor" href="#maven-入门"></a> Maven 入门</h2>
-<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
+          <h2 id="maven-入门">Maven 入门</h2>
+<h3 id="简介">简介</h3>
 <p>Maven 是一个</p>
 <ul>
 <li>构建工具：清理-编译-测试-报告-打包-部署</li>
 <li>依赖管理工具</li>
 <li>信息聚合工具</li>
 </ul>
-<h3 id="核心概念"><a class="markdownIt-Anchor" href="#核心概念"></a> 核心概念</h3>
+<h3 id="核心概念">核心概念</h3>
 <ul>
 <li>坐标</li>
 <li>依赖</li>
 <li>仓库</li>
 <li>生命周期</li>
 </ul>
-<h4 id="坐标"><a class="markdownIt-Anchor" href="#坐标"></a> 坐标</h4>
+<h4 id="坐标">坐标</h4>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/" class="post-title-link" itemprop="url">回调</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-25T00:00:00+08:00">2021-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="回调">回调</h2>
+<ul>
+<li><a href="#%E5%9B%9E%E8%B0%83">回调</a>
+<ul>
+<li><a href="#%E5%9B%9E%E8%B0%83%E7%AE%80%E4%BB%8B">回调简介</a></li>
+<li><a href="#promise-%E5%AF%B9%E8%B1%A1"><code>Promise</code> 对象</a>
+<ul>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C">消费者处理结果</a></li>
+<li><a href="#then"><code>then()</code></a></li>
+<li><a href="#catch"><code>catch()</code></a></li>
+<li><a href="#finally"><code>finally()</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="回调简介">回调简介</h3>
+<p>回调是一种异步编程风格，将函数作为变量传入函数中，当触发某个条件时，调用该函数。</p>
+<p>这是一个动态加载 js 脚本的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadScript</span>(<span class="params">src, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">  script.<span class="property">src</span> = src;</span><br><span class="line"></span><br><span class="line">  script.<span class="property">onload</span> = <span class="title function_">callback</span>(<span class="literal">null</span>, script);</span><br><span class="line">  script.<span class="property">onerror</span> = <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`Script load error for <span class="subst">$&#123;src&#125;</span>`</span>));</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">append</span>(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用该函数加载脚本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">loadScript</span>(<span class="string">&quot;/myscript.js&quot;</span>, <span class="keyword">function</span> (<span class="params">error, script</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="comment">// fail</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// success</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>回调可以嵌套，即在回调要执行的动作中传入回调函数本身。但这种方式不建议使用，嵌套过多很容易损害代码可读性。</p>
+<h3 id="promise-对象"><code>Promise</code> 对象</h3>
+<p>异步操作一般是因为某些函数从执行操作，到产生结果中间有时间差，为了提高效率我们一般会阻塞这部分代码知道接受到返回结果，再执行相应的逻辑。</p>
+<ul>
+<li>生产者：我们可以理解为异步的源头；</li>
+<li>消费者：接受生产者返回结果的代码；</li>
+</ul>
+<p>而 JavaScript 内置的 <code>Promise</code> 对象，就是用于连接生产者代码和消费者代码的对象。<br>
+构造语法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> success = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// executor （生产者代码）</span></span><br><span class="line">  <span class="keyword">if</span> (success) &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>Promise</code> 对象有两个内置变量 <code>state</code> 和 <code>result</code> ，外部无法访问，只能通过 resolve 和 reject 两个函数改变，并且这种改变都是<strong>最终的</strong>。</p>
+<ul>
+<li>初始态 <code>&#123;state: &quot;pending&quot;, result: undefined&#125;</code>
+<ul>
+<li>调用 <code>resolve(value)</code> 后 <code>&#123;state: &quot;fulfilled&quot;, result: value&#125;</code></li>
+<li>调用 <code>reject(error)</code> 后 <code>&#123;state: &quot;rejected&quot;, result: error&#125;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="消费者处理结果">消费者处理结果</h4>
+<p>消费者通过 <code>then</code> 和 <code>catch</code> 捕获 <code>Promise</code> 相应的状态，并执行相应的逻辑：</p>
+<h4 id="then"><code>then()</code></h4>
+<p><code>then(f, f)</code> 通过箭头函数向 <code>promise.then()</code> 传入两个函数，如果 resolve 了执行第一个，如果 reject 执行第二个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result), <span class="comment">// alert(&quot;done&quot;);</span></span><br><span class="line">  <span class="function"><span class="params">error</span>  =&gt;</span> <span class="title function_">alert</span>(error) <span class="comment">// alert(&quot;Error&quot;);</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>相当于对消费者 resolve 做出 promise 如果 promise 被生产者 resolve 了，便执行 <code>promise.then()</code> 的第一个函数，如果 reject 便执行第二个。<br>
+另外，如果我们只关心是否 resolve 或是否 reject ，代码如下：</p>
+<h4 id="catch"><code>catch()</code></h4>
+<p><code>catch(f)</code> 可以捕获 reject 的 Error 对象，执行相应的回调。（其实不是 Error 对象也可以，reject 和 resolve 一样对参数类型无要求，后面再说）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只看是否 resolve</span></span><br><span class="line">promise.<span class="title function_">then</span>(alert);</span><br><span class="line"><span class="comment">// 只看是否 reject</span></span><br><span class="line">promise.<span class="title function_">catch</span>(alert);</span><br></pre></td></tr></table></figure>
+<h4 id="finally"><code>finally()</code></h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无论什么结果都执行的，一般用来执行清理的操作。</span></span><br><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">exit</span>());</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>finally(f)</code> 的回调 <code>f</code> 是没有参数的，它并不关心 promise 是否成功，只知道 promise 已经执行完了。</li>
+<li><code>finally(f)</code> 会将 promise 的结果传递到下面的处理程序中去，即可以被 <code>finally</code> 后面的 <code>then()</code> 和 <code>catch()</code> 捕获并处理。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">alert</span>(<span class="string">&quot;Promise ready&quot;</span>));</span><br><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result),</span><br><span class="line">  <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">alert</span>(err)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -616,8 +616,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="入门"><a class="markdownIt-Anchor" href="#入门"></a> 入门</h2>
-<h3 id="vue-mvvm"><a class="markdownIt-Anchor" href="#vue-mvvm"></a> vue-mvvm</h3>
+          <h2 id="入门">入门</h2>
+<h3 id="vue-mvvm">vue-mvvm</h3>
 <p>MVVM 全称 Model-View-ViewModel。</p>
 <p><img src="https://img2020.cnblogs.com/blog/2490228/202108/2490228-20210825000404646-1426038671.png" alt="image"></p>
 <p>View - 视图层，指 DOM<br>
@@ -712,14 +712,14 @@ ViewModel - 视图模型层</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="考试的三题"><a class="markdownIt-Anchor" href="#考试的三题"></a> 考试的三题</h2>
-<h3 id="子串相乘最大值"><a class="markdownIt-Anchor" href="#子串相乘最大值"></a> 子串相乘最大值</h3>
+          <h2 id="考试的三题">考试的三题</h2>
+<h3 id="子串相乘最大值">子串相乘最大值</h3>
 <p>输入一个字符串（无前导零）将其分割为两个子串，计算子串相乘的最大值。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in, StandardCharsets.UTF_8.name());</span><br><span class="line">        <span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> sc.next();</span><br><span class="line">        sc.close();</span><br><span class="line">        System.out.println(getMultiValue(numberStr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getMultiValue</span><span class="params">(String numberStr)</span> &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; resList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> left;</span><br><span class="line">        <span class="type">int</span> right;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> numberStr.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; numberStr.length(); i++) &#123;</span><br><span class="line">            left = Integer.parseInt(numberStr.substring(<span class="number">0</span>, i));</span><br><span class="line">            right = Integer.parseInt(numberStr.substring(i, len));</span><br><span class="line">            resList.add(left * right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resList.stream().max(Integer::compareTo).orElse(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="寻找最大比特子串"><a class="markdownIt-Anchor" href="#寻找最大比特子串"></a> 寻找最大比特子串</h3>
+<h3 id="寻找最大比特子串">寻找最大比特子串</h3>
 <p>输入一个比特流（01 串）和一个目标比特，有一次反转非目标比特的机会，宣召最长的比特子串。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">cin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in, StandardCharsets.UTF_8.name());</span><br><span class="line">        <span class="type">int</span> <span class="variable">target</span> <span class="operator">=</span> cin.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> cin.nextInt();</span><br><span class="line">        <span class="type">int</span>[] bits = <span class="keyword">new</span> <span class="title class_">int</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            bits[i] = cin.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        cin.close();</span><br><span class="line"></span><br><span class="line">        System.out.println(findMaxConsecutiveBits(target, bits));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findMaxConsecutiveBits</span><span class="params">(<span class="type">int</span> target, <span class="type">int</span>[] bits)</span> &#123;</span><br><span class="line">        <span class="comment">// 只有全为 target 值的才不用替换</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">isAllMatch</span> <span class="operator">=</span> Arrays.stream(bits).allMatch((value) -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> value == target;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (isAllMatch) &#123;</span><br><span class="line">            <span class="keyword">return</span> bits.length;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 若不全为 target ，则遍历数组，数 target 子串的长度，将所有可能的长度存入数组中，再在数组中找最大值</span></span><br><span class="line">        <span class="comment">// 每一个非 target 的位都有一次机会变成 target ，机会用完了，又遇到非 target 就清空 counter 存入数组，</span></span><br><span class="line">        <span class="comment">// 回到上一次丢失 chance 的下一位继续数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">chance</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">checkpoint</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">counter</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        ArrayList&lt;Integer&gt; resList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; bits.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (bits[i] == target) &#123;</span><br><span class="line">                counter++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (bits[i] != target) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chance == <span class="number">1</span>) &#123;</span><br><span class="line">                    chance = <span class="number">0</span>;</span><br><span class="line">                    checkpoint = i;</span><br><span class="line">                    counter++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    resList.add(counter);</span><br><span class="line">                    counter = <span class="number">0</span>;</span><br><span class="line">                    chance = <span class="number">1</span>;</span><br><span class="line">                    i = checkpoint;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        resList.add(counter);</span><br><span class="line">        <span class="keyword">return</span> resList.stream().max(Integer::compareTo).get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="停车记录筛选"><a class="markdownIt-Anchor" href="#停车记录筛选"></a> 停车记录筛选</h3>
+<h3 id="停车记录筛选">停车记录筛选</h3>
 <p>输入记录有 <code>停车时间</code> <code>车牌号码</code> <code>停车小时数</code> ，输入记录有重复的，按照以下优先级筛选。</p>
 <ul>
 <li>停车时长长的优先</li>
@@ -815,7 +815,7 @@ ViewModel - 视图模型层</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="linux-cat-命令与重定向"><a class="markdownIt-Anchor" href="#linux-cat-命令与重定向"></a> Linux cat 命令与重定向</h2>
+          <h2 id="linux-cat-命令与重定向">Linux cat 命令与重定向</h2>
 <p><code>cat</code> 命令用于连接文件并输出到标准输出设备（打印机、显示器、文件、 U 盘等等）。常常和重定向符一起使用。</p>
 <p>重定向符包括：</p>
 <ul>
@@ -914,7 +914,7 @@ ViewModel - 视图模型层</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="rom-开发入门"><a class="markdownIt-Anchor" href="#rom-开发入门"></a> ROM 开发入门</h2>
+          <h2 id="rom-开发入门">ROM 开发入门</h2>
 <p><code>todo list:</code></p>
 <ul>
 <li>写一两个应用程序，从开发者角度理解 Android</li>
@@ -1016,34 +1016,27 @@ ViewModel - 视图模型层</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="markdown-快速入门"><a class="markdownIt-Anchor" href="#markdown-快速入门"></a> Markdown 快速入门</h2>
-<h3 id="标题"><a class="markdownIt-Anchor" href="#标题"></a> 标题</h3>
+          <h2 id="markdown-快速入门">Markdown 快速入门</h2>
+<h3 id="标题">标题</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line"></span><br><span class="line">## 二级标题</span><br><span class="line"></span><br><span class="line">### 三级标题</span><br><span class="line"></span><br><span class="line">#### 四级标题</span><br><span class="line"></span><br><span class="line">##### 五级标题</span><br><span class="line"></span><br><span class="line">###### 六级标题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="特殊字体"><a class="markdownIt-Anchor" href="#特殊字体"></a> 特殊字体</h3>
+<h3 id="特殊字体">特殊字体</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**加粗**</span><br><span class="line"></span><br><span class="line">*斜体*</span><br><span class="line"></span><br><span class="line">***斜体加粗***</span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
-<h3 id="引用块"><a class="markdownIt-Anchor" href="#引用块"></a> 引用块</h3>
+<h3 id="引用块">引用块</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;一级引用</span><br><span class="line">&gt;&gt;二级引用</span><br><span class="line">&gt;&gt;&gt;三级引用</span><br></pre></td></tr></table></figure>
-<h3 id="分割线"><a class="markdownIt-Anchor" href="#分割线"></a> 分割线</h3>
+<h3 id="分割线">分割线</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***分割线</span><br><span class="line"></span><br><span class="line">---分割线</span><br></pre></td></tr></table></figure>
-<h3 id="图片和超链接"><a class="markdownIt-Anchor" href="#图片和超链接"></a> 图片和超链接</h3>
+<h3 id="图片和超链接">图片和超链接</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址)</span><br><span class="line">[超链接名](超链接地址)</span><br></pre></td></tr></table></figure>
-<h3 id="列表"><a class="markdownIt-Anchor" href="#列表"></a> 列表</h3>
+<h3 id="列表">列表</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 一级无序列表</span><br><span class="line">    * 二级无序列表</span><br><span class="line">        * 三级无序列表</span><br><span class="line"></span><br><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br><span class="line">3. 有序列表3</span><br></pre></td></tr></table></figure>
-<h3 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格</h3>
+<h3 id="表格">表格</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">| 表头 | 表头 | 表头 |</span><br><span class="line">| ---- | ---- | ---- |</span><br><span class="line">| 内容 | 内容 | 内容 |</span><br><span class="line"></span><br><span class="line">表格居中、居左、居右</span><br><span class="line"></span><br><span class="line">| 标题一         | 标题二         |         标题三 |     标题四     |</span><br><span class="line">| -------------- | :------------- | -------------: | :------------: |</span><br><span class="line">| xxxxxxxxx      | xxxxxxxxx      |      xxxxxxxxx |   xxxxxxxxx    |</span><br><span class="line">| xxxxxxxxxxxxxx | xxxxxxxxxxxxxx | xxxxxxxxxxxxxx | xxxxxxxxxxxxxx |</span><br><span class="line">| xxxxxxxxx      | xxxxxxxxx      |      xxxxxxxxx |   xxxxxxxxx    |</span><br></pre></td></tr></table></figure>
-<h3 id="代码块"><a class="markdownIt-Anchor" href="#代码块"></a> 代码块</h3>
+<h3 id="代码块">代码块</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">`inline code`</span><br><span class="line"></span><br><span class="line">block code</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">  A--&gt;B;</span><br><span class="line">  A--&gt;C;</span><br><span class="line">  B--&gt;D;</span><br><span class="line">  C--&gt;D;</span><br></pre></td></tr></table></figure>
 <p>脚注的写法：<br>
-Content <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+Content <a href="abc:xxxxxxxxx">^1</a></p>
 <p>​<code>flow st=&gt;start: 开始 op=&gt;operation: My Operation cond=&gt;condition: Yes or No? e=&gt;end st-&gt;op-&gt;cond cond(yes)-&gt;e cond(no)-&gt;op ​</code></p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>abc:xxxxxxxxx <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
       
     </div>
@@ -1140,7 +1133,7 @@ Content <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="jupyter-theme-修改主题"><a class="markdownIt-Anchor" href="#jupyter-theme-修改主题"></a> Jupyter-Theme 修改主题</h2>
+          <h2 id="jupyter-theme-修改主题">Jupyter-Theme 修改主题</h2>
 <ul>
 <li><a href="#jupyter-theme-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98">Jupyter-Theme 修改主题</a>
 <blockquote>
@@ -1246,7 +1239,7 @@ Content <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="backtrader-基础"><a class="markdownIt-Anchor" href="#backtrader-基础"></a> backtrader 基础</h2>
+          <h2 id="backtrader-基础">backtrader 基础</h2>
 <ul>
 <li><a href="#backtrader-%E5%9F%BA%E7%A1%80">backtrader 基础</a>
 <ul>
@@ -1255,9 +1248,9 @@ Content <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 </ul>
 </li>
 </ul>
-<h3 id="实现一个简单的移动平均线策略"><a class="markdownIt-Anchor" href="#实现一个简单的移动平均线策略"></a> 实现一个简单的移动平均线策略</h3>
+<h3 id="实现一个简单的移动平均线策略">实现一个简单的移动平均线策略</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> (absolute_import, division, print_function, unicode_literals)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 backtrader</span></span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入其他包</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> sys  <span class="comment"># 找出脚本名称 (in argv[0])</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建策策略</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestStrategy</span>(bt.Strategy):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 自定义一些参数</span></span><br><span class="line">    params = (</span><br><span class="line">        (<span class="string">&#x27;maperiod&#x27;</span>, <span class="number">25</span>),</span><br><span class="line">        (<span class="string">&#x27;printlog&#x27;</span>, <span class="literal">True</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">self, txt, dt=<span class="literal">None</span>, doprint=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; Logging function fot this strategy&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> self.p.printlog <span class="keyword">or</span> doprint:</span><br><span class="line">            dt = dt <span class="keyword">or</span> self.datas[<span class="number">0</span>].datetime.date(<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s, %s&#x27;</span> % (dt.isoformat(), txt))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 从 self.datas 中能访问到 cerebro.adddata(data) 中的数据</span></span><br><span class="line">        <span class="comment"># self.datas[0] 即是加载的第一条价格数据，它被框架默认使用。</span></span><br><span class="line">        <span class="comment"># 引用 data [0] 数据序列中“收盘价”行</span></span><br><span class="line">        self.dataclose = self.datas[<span class="number">0</span>].close</span><br><span class="line">        self.dataopen = self.datas[<span class="number">0</span>].<span class="built_in">open</span></span><br><span class="line">        self.bar_executed = <span class="built_in">len</span>(self)</span><br><span class="line">        <span class="comment"># 跟踪挂单</span></span><br><span class="line">        self.order = <span class="literal">None</span></span><br><span class="line">        self.buyprice = <span class="literal">None</span></span><br><span class="line">        self.buycomm = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 添加移动平均线指标</span></span><br><span class="line">        self.sma = bt.indicators.SMA(self.datas[<span class="number">0</span>], period=self.p.maperiod)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_order</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Submitted, order.Accepted]:</span><br><span class="line">            <span class="comment"># 购买订单已提交给经纪人/接受经纪人的卖单 - 啥也不干</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查订单是否已完成</span></span><br><span class="line">        <span class="comment"># 注意：如果现金不足，经纪人可能会拒绝订单</span></span><br><span class="line">        <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Completed]:</span><br><span class="line">            <span class="keyword">if</span> order.isbuy():</span><br><span class="line">                self.log(<span class="string">&#x27;BUY EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                         (order.executed.price,</span><br><span class="line">                          order.executed.value,</span><br><span class="line">                          order.executed.comm))</span><br><span class="line"></span><br><span class="line">                self.buyprice = order.executed.price</span><br><span class="line">                self.buycomm = order.executed.comm</span><br><span class="line">            <span class="keyword">elif</span> order.issell():</span><br><span class="line">                self.log(<span class="string">&#x27;SELL EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                         (order.executed.price,</span><br><span class="line">                          order.executed.value,</span><br><span class="line">                          order.executed.comm))</span><br><span class="line"></span><br><span class="line">            self.bar_executed = <span class="built_in">len</span>(self)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> order.status <span class="keyword">in</span> [order.Canceled, order.Margin, order.Rejected]:</span><br><span class="line">            self.log(<span class="string">&#x27;Order Canceled/Margin/Rejected&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 写下：没有挂单</span></span><br><span class="line">        self.order = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_trade</span>(<span class="params">self, trade</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> trade.isclosed:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.log(<span class="string">&#x27;OPERATION PROFIT, GROSS %.2f, NET %.2f&#x27;</span> %</span><br><span class="line">                 (trade.pnl, trade.pnlcomm))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当经过一个K线柱的时候 next() 方法就会被调用一次。</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># Simply log the closing price of the series from the reference</span></span><br><span class="line">        <span class="comment"># 只需从引用中打印该收盘价序列</span></span><br><span class="line">        self.log(<span class="string">&#x27;Open: %.2f, Close, %.2f&#x27;</span> % (self.dataopen[<span class="number">0</span>], self.dataclose[<span class="number">0</span>]))</span><br><span class="line">        <span class="comment"># 检查我们是否入市</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.position:</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 尚未入市...如果...的话，我们可能会买</span></span><br><span class="line">            <span class="keyword">if</span> self.dataclose[<span class="number">0</span>] &gt; self.sma[<span class="number">0</span>]:</span><br><span class="line">                <span class="comment"># 当前收盘价小于之前的收盘价</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> self.dataclose[-<span class="number">1</span>] &lt; self.dataclose[-<span class="number">2</span>]:</span><br><span class="line">                    <span class="comment"># 前一个收盘价小于再前一个收盘价</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 买，买，买！！！ (with all possible default parameters)</span></span><br><span class="line">                    self.log(<span class="string">&#x27;BUY CREATE, %.2f&#x27;</span> % self.dataclose[<span class="number">0</span>])</span><br><span class="line">                    self.buy()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 已经入市...我们可能会出售</span></span><br><span class="line">            <span class="keyword">if</span> self.dataclose[<span class="number">0</span>] &lt; self.sma[<span class="number">0</span>]:</span><br><span class="line">                <span class="comment"># 卖，卖，卖！！！ (with all possible default parameters)</span></span><br><span class="line">                self.log(<span class="string">&#x27;SELL CREATE, %.2f&#x27;</span> % self.dataclose[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 跟踪创建的订单以避免第二订单</span></span><br><span class="line">                self.order = self.sell()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        self.log(<span class="string">&#x27;(MA Period %2d) Ending Value %.2f&#x27;</span> %</span><br><span class="line">                 (self.p.maperiod, self.broker.getvalue()), doprint=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if__name__== <span class="string">&#x27;&quot;___main__&quot;:__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 实例化 Cerebro 引擎</span></span><br><span class="line">    cerebro = bt.Cerebro()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加一个策略</span></span><br><span class="line">    cerebro.addstrategy(TestStrategy)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 参数调优</span></span><br><span class="line">    <span class="comment"># strats = cerebro.optstrategy(</span></span><br><span class="line">    <span class="comment">#     TestStrategy,</span></span><br><span class="line">    <span class="comment">#     maperiod=range(10, 31))</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 数据在样本的子文件夹中。</span></span><br><span class="line">    <span class="comment"># 需要查找脚本的位置，因为它可以从任何地方调用</span></span><br><span class="line">    modpath = os.path.dirname(os.path.abspath(sys.argv[<span class="number">0</span>]))</span><br><span class="line">    datapath = os.path.join(modpath, <span class="string">&#x27;../../datas/orcl-1995-2014.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个数据文件</span></span><br><span class="line">    data = bt.feeds.YahooFinanceCSVData(</span><br><span class="line">        dataname=datapath,</span><br><span class="line">        <span class="comment"># 在此日期之前不要传递值</span></span><br><span class="line">        fromdate=datetime.datetime(<span class="number">2000</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">        <span class="comment"># 在此日期之后不要传递值</span></span><br><span class="line">        <span class="comment"># 这里有一个问题，把所有的净收益 Net 即落入口袋的钱，加起来会发现和最后的余额增加不一致</span></span><br><span class="line">        <span class="comment"># sum(Net) = 12.09</span></span><br><span class="line">        <span class="comment"># Starting Portfolio - Final Portfolio = 13.13</span></span><br><span class="line">        <span class="comment"># 观察输出会发现，在 2000-12-29 创建了一笔交易，但还没有执行这笔交易，所以 Net 是少了一单的</span></span><br><span class="line">        <span class="comment"># 而且，最后输出的余额是拿了卖单挂单的那天，即 2000-12-29 那天的收盘价来加的，实际上应该是拿 2001-01-02 那天的开盘价来算的</span></span><br><span class="line">        <span class="comment"># 在两重误差下，最后的余额肯定是不对的</span></span><br><span class="line">        <span class="comment"># 拓展交易日后，加上 2001-01-2 卖出去的那单的收益，并且最终余额也调整了后，就对了</span></span><br><span class="line">        <span class="comment"># sum(Net) = 12.09 + 1.41 = 13.50</span></span><br><span class="line">        <span class="comment"># Starting Portfolio - Final Portfolio = 13.50</span></span><br><span class="line">        <span class="comment"># close(2000-12-29) - open(2001-01-02) = 25.85 - 23.46 = 2.39</span></span><br><span class="line">        todate=datetime.datetime(<span class="number">2001</span>, <span class="number">1</span>, <span class="number">3</span>),</span><br><span class="line">        <span class="comment"># todate=datetime.datetime(2000, 12, 31),</span></span><br><span class="line">        reverse=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将数据添加到 Cerebro</span></span><br><span class="line">    cerebro.adddata(data)</span><br><span class="line">    <span class="comment"># 设定我们想要的初始金额</span></span><br><span class="line">    cerebro.broker.setcash(<span class="number">1000.0</span>)</span><br><span class="line">    <span class="comment"># 增加10倍的持仓大小</span></span><br><span class="line">    cerebro.addsizer(bt.sizers.FixedSize, stake=<span class="number">10</span>)</span><br><span class="line">    <span class="comment"># 设定手续费，国内一般是是0.0003</span></span><br><span class="line">    cerebro.broker.setcommission(<span class="number">0.003</span>)</span><br><span class="line">    <span class="comment"># 打印出初始金额</span></span><br><span class="line">    <span class="comment"># print(&#x27;Starting Portfolio Value: %.2f&#x27; % cerebro.broker.getvalue())</span></span><br><span class="line">    <span class="comment"># 跑起来！！！</span></span><br><span class="line">    cerebro.run()</span><br><span class="line">    <span class="comment"># 打印出最终结果</span></span><br><span class="line">    <span class="comment"># print(&#x27;Final Portfolio Value: %.2f&#x27; % cerebro.broker.getvalue())</span></span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    <span class="comment"># cerebro.plot()</span></span><br></pre></td></tr></table></figure>
-<h3 id="一个包含选股和择时的-rsi-策略"><a class="markdownIt-Anchor" href="#一个包含选股和择时的-rsi-策略"></a> 一个包含选股和择时的 RSI 策略</h3>
+<h3 id="一个包含选股和择时的-rsi-策略">一个包含选股和择时的 RSI 策略</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> (absolute_import, division, print_function, unicode_literals)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 backtrader</span></span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入其他包</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> sys  <span class="comment"># 找出脚本名称 (in argv[0])</span></span><br><span class="line"><span class="keyword">from</span> app.data_source.api.tushare_api <span class="keyword">import</span> Stock</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建策策略</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestStrategy</span>(bt.Strategy):</span><br><span class="line">    <span class="comment"># 自定义一些参数</span></span><br><span class="line">    params = (</span><br><span class="line">        (<span class="string">&#x27;maperiod&#x27;</span>, <span class="number">25</span>),</span><br><span class="line">        (<span class="string">&#x27;printlog&#x27;</span>, <span class="literal">False</span>),</span><br><span class="line">        (<span class="string">&#x27;stake&#x27;</span>, <span class="number">1000</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">self, txt, dt=<span class="literal">None</span>, doprint=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; Logging function fot this strategy&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> self.p.printlog <span class="keyword">or</span> doprint:</span><br><span class="line">            dt = dt <span class="keyword">or</span> self.datas[<span class="number">0</span>].datetime.date(<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s, %s&#x27;</span> % (dt.isoformat(), txt))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 从 self.data_source 中能访问到 cerebro.adddata(data) 中的数据</span></span><br><span class="line">        <span class="comment"># self.data_source[0] 即是加载的第一条价格数据，它被框架默认使用。</span></span><br><span class="line">        <span class="comment"># 引用 data [0] 数据序列中“收盘价”行</span></span><br><span class="line">        self.bar_executed = <span class="built_in">len</span>(self)</span><br><span class="line">        self.mas = &#123;stock: bt.ind.MovingAverageSimple(stock.close, period=self.p.maperiod) <span class="keyword">for</span> stock <span class="keyword">in</span> self.datas&#125;</span><br><span class="line">        <span class="comment"># 跟踪挂单</span></span><br><span class="line">        self.orderlist = []</span><br><span class="line">        self.buyprice = <span class="literal">None</span></span><br><span class="line">        self.comms = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_order</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="comment"># print(order.created)</span></span><br><span class="line">        <span class="keyword">for</span> order <span class="keyword">in</span> self.orderlist:</span><br><span class="line">            <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Submitted, order.Accepted]:</span><br><span class="line">                <span class="comment"># 购买订单已提交给经纪人/经纪人接受卖单 - 啥也不干</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 检查订单是否已完成</span></span><br><span class="line">            <span class="comment"># 注意：如果现金不足，经纪人可能会拒绝订单</span></span><br><span class="line">            <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Completed]:</span><br><span class="line">                <span class="keyword">if</span> order.isbuy():</span><br><span class="line">                    self.log(<span class="string">&#x27;BUY EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                             (order.executed.price,</span><br><span class="line">                              order.executed.value,</span><br><span class="line">                              order.executed.comm),</span><br><span class="line">                             <span class="comment"># doprint=True</span></span><br><span class="line">                             )</span><br><span class="line"></span><br><span class="line">                    self.buyprice = order.executed.price</span><br><span class="line">                    self.comms.append(<span class="built_in">round</span>(order.executed.comm, <span class="number">2</span>))</span><br><span class="line">                <span class="keyword">elif</span> order.issell():</span><br><span class="line">                    self.log(<span class="string">&#x27;SELL EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                             (order.executed.price,</span><br><span class="line">                              order.executed.value,</span><br><span class="line">                              order.executed.comm),</span><br><span class="line">                             <span class="comment"># doprint=True</span></span><br><span class="line">                             )</span><br><span class="line"></span><br><span class="line">                    self.comms.append(<span class="built_in">round</span>(order.executed.comm, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">                self.bar_executed = <span class="built_in">len</span>(self)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">elif</span> order.status <span class="keyword">in</span> [order.Canceled, order.Margin, order.Rejected]:</span><br><span class="line">                <span class="comment"># print([order.Canceled, order.Margin, order.Rejected])</span></span><br><span class="line">                <span class="comment"># 5 7 8</span></span><br><span class="line">                self.log(<span class="string">&#x27;Order %s&#x27;</span> % <span class="built_in">str</span>(order.status))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 订单终止</span></span><br><span class="line">            self.orderlist.remove(order)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_trade</span>(<span class="params">self, trade</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> trade.isclosed:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.log(<span class="string">&#x27;OPERATION PROFIT, GROSS %.2f, NET %.2f&#x27;</span> %</span><br><span class="line">                 (trade.pnl, trade.pnlcomm))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当经过一个K线柱的时候 next() 方法就会被调用一次。</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> o <span class="keyword">in</span> self.orderlist:</span><br><span class="line">            self.cancel(o)  <span class="comment"># 取消以往所有订单</span></span><br><span class="line">            self.orderlist = []  <span class="comment"># 置空</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> stock <span class="keyword">in</span> self.datas:</span><br><span class="line">            self.log(<span class="string">&#x27;%s, Open: %.2f, Close, %.2f&#x27;</span> % (stock._name, stock.<span class="built_in">open</span>[<span class="number">0</span>], stock.close[<span class="number">0</span>]))</span><br><span class="line">            <span class="comment"># 检查我们是否入市</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.getposition(stock):</span><br><span class="line">                <span class="comment"># 尚未入市...如果...的话，我们可能会买</span></span><br><span class="line">                <span class="keyword">if</span> stock.close[<span class="number">0</span>] &gt; self.mas[stock][<span class="number">0</span>]:</span><br><span class="line">                    <span class="comment"># 买，买，买！！！ (with all possible default parameters)</span></span><br><span class="line">                    self.log(<span class="string">&#x27;%s BUY CREATE, %.2f&#x27;</span> % (stock._name, stock.close[<span class="number">0</span>]))</span><br><span class="line">                    <span class="comment"># self.buy(data=data, size=self.p.stake)</span></span><br><span class="line">                    order = self.buy(data=stock, size=self.p.stake, exectype=bt.Order.Market, valid=bt.Order.DAY)</span><br><span class="line">                    self.orderlist.append(order)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 已经入市...我们可能会出售</span></span><br><span class="line">                <span class="keyword">if</span> stock.close[<span class="number">0</span>] &lt; self.mas[stock][<span class="number">0</span>]:</span><br><span class="line">                    <span class="comment"># 卖，卖，卖！！！ (with all possible default parameters)</span></span><br><span class="line">                    self.log(<span class="string">&#x27;%s SELL CREATE, %.2f&#x27;</span> % (stock._name, stock.close[<span class="number">0</span>]))</span><br><span class="line">                    order = self.sell(data=stock, size=self.p.stake, exectype=bt.Order.Market, valid=bt.Order.DAY)</span><br><span class="line">                    self.orderlist.append(order)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;==================== Results ====================&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Starting Value - %.2f&#x27;</span> % self.broker.startingcash)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Ending   Value - %.2f&#x27;</span> % self.broker.getvalue())</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;=================================================&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;___main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 实例化 Cerebro 引擎</span></span><br><span class="line">    cerebro = bt.Cerebro(tradehistory=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加一个策略</span></span><br><span class="line">    cerebro.addstrategy(TestStrategy)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 参数调优</span></span><br><span class="line">    <span class="comment"># strats = cerebro.optstrategy(</span></span><br><span class="line">    <span class="comment">#     TestStrategy,</span></span><br><span class="line">    <span class="comment">#     maperiod=range(10, 31))</span></span><br><span class="line"></span><br><span class="line">    data_api = Stock(<span class="string">&quot;20210412&quot;</span>, <span class="number">365</span>, <span class="number">0</span>)</span><br><span class="line">    stock_pool = data_api.selectStockPoolByRSI()</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> tqdm(stock_pool):</span><br><span class="line">        <span class="comment"># print(code)</span></span><br><span class="line">        now = data_api.now.strftime(data_api.TIME_STR)</span><br><span class="line">        OneYearBefore = (data_api.now - data_api.before).strftime(data_api.TIME_STR)</span><br><span class="line">        ohlc_data = data_api.getDailyKV(code, OneYearBefore, now)</span><br><span class="line">        ohlc_data = ohlc_data.iloc[::-<span class="number">1</span>]</span><br><span class="line">        <span class="comment"># print(ohlc_data)</span></span><br><span class="line">        stock = bt.feeds.PandasData(dataname=ohlc_data, nocase=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 将数据添加到 Cerebro</span></span><br><span class="line">        cerebro.adddata(stock, name=code)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设定我们想要的初始金额</span></span><br><span class="line">    cerebro.broker.setcash(<span class="number">100000.0</span>)</span><br><span class="line">    <span class="comment"># 设定手续费，国内一般是是0.0003</span></span><br><span class="line">    cerebro.broker.setcommission(<span class="number">0.003</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name=<span class="string">&quot;SharpeRatio&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.AnnualReturn, _name=<span class="string">&quot;AannualReturn&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.DrawDown, _name=<span class="string">&quot;DrawDown&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.PyFolio)</span><br><span class="line">    strats = cerebro.run()</span><br><span class="line">    strat = strats[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(strat.comms))</span><br><span class="line">    <span class="built_in">print</span>(strat.comms)</span><br><span class="line"></span><br><span class="line">    pyfolio = strat.analyzers.getbyname(<span class="string">&#x27;pyfolio&#x27;</span>)</span><br><span class="line">    returns, positions, transactions, gross_lev = pyfolio.get_pf_items()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(&#x27;Pyfolio:&#x27;, strat.analyzers.pyfolio.get_analysis())</span></span><br><span class="line">    sharpe_ratio = strat.analyzers.SharpeRatio.get_analysis()[<span class="string">&#x27;sharperatio&#x27;</span>]</span><br><span class="line">    max_drawdown = strat.analyzers.DrawDown.get_analysis()[<span class="string">&#x27;max&#x27;</span>][<span class="string">&#x27;drawdown&#x27;</span>]</span><br><span class="line">    annual_reaturn = strat.analyzers.AannualReturn.get_analysis()</span><br><span class="line">    transactions[<span class="string">&#x27;commision&#x27;</span>] = strat.comms</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;================== Performance ==================&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Sharpe Ratio:&#x27;</span>, sharpe_ratio)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Max DrawDown:&#x27;</span>, max_drawdown, <span class="string">&#x27;%&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> annual_reaturn.items():</span><br><span class="line">        v = <span class="built_in">round</span>(v, <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">print</span>(k, <span class="string">&#x27;Aannual Return:&#x27;</span>, v)</span><br><span class="line">        annual_reaturn[k] = v</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;=================================================&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(&quot;================== returns ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(returns)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== positions ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(positions)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== transactions ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(transactions)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== gross_lev ==================&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">round</span>(sharpe_ratio, <span class="number">2</span>), <span class="built_in">round</span>(max_drawdown, <span class="number">2</span>), annual_reaturn, transactions</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       

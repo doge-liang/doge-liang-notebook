@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9) 解决方案：  关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入 mysql 数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, pass">
+    <meta name="description" content="Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9) 解决方案：  关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入 mysql 数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, passw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux踩坑合集">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9) 解决方案：  关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入 mysql 数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, pass">
+<meta property="og:description" content="Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9) 解决方案：  关掉数据库 service mysqld stop 执行 mysqld_safe --skip-grant-tables 打开数据库并进入 mysql 数据库中 mysql -u root mysql 查看所有用户的信息 SELECT user, host, passw">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E9%97%AE%E9%A2%98%E9%9B%86/539f273abe7af7a48caf67c81e8a5e6e44abee32ebf339c8c56c006bd2c1652c.png">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
@@ -53,7 +53,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E5%BF%98%E8%AE%B0-mysql-root-%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E4%BB%A5%E5%8F%8A%E5%AF%86%E7%A0%81mysql-version-579"><span class="nav-number">1.</span> <span class="nav-text"> Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E5%BF%98%E8%AE%B0-mysql-root-%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E4%BB%A5%E5%8F%8A%E5%AF%86%E7%A0%81mysql-version-80"><span class="nav-number">2.</span> <span class="nav-text"> Linux 忘记 mysql root 密码，修改权限以及密码(mysql version 8.0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93-1251-%E9%94%99%E8%AF%AF%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text"> 连接数据库 1251 错误码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text"> 中文输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">5.</span> <span class="nav-text"> Ubuntu 修改分辨率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%E4%B8%B4%E6%97%B6%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text"> 方案一（临时性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%E6%B0%B8%E4%B9%85%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text"> 方案二（永久性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debian7-apt-get-%E6%97%A0%E6%B3%95%E5%8D%87%E7%BA%A7"><span class="nav-number">6.</span> <span class="nav-text"> Debian7 apt-get 无法升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-apt-get-dist-upgrade-%E6%97%A0%E6%B3%95%E5%8D%87%E7%BA%A7"><span class="nav-number">7.</span> <span class="nav-text"> Ubuntu apt-get dist-upgrade 无法升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E6%8D%A2%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text"> Ubuntu 换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-1810-%E5%AE%89%E8%A3%85-vim-%E5%A4%B1%E8%B4%A5"><span class="nav-number">9.</span> <span class="nav-text"> Ubuntu 18.10 安装 vim 失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%BE%9D%E8%B5%96%E7%89%88%E6%9C%AC%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98"><span class="nav-number">10.</span> <span class="nav-text"> Ubuntu 依赖版本不一致问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl-%E4%BB%8E-github-%E7%AD%89%E7%BD%91%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%87%BA%E9%94%99"><span class="nav-number">11.</span> <span class="nav-text"> curl 从 github 等网站下载文件出错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-hosts"><span class="nav-number">11.1.</span> <span class="nav-text"> 修改 hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu-%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%94%99%E8%AF%AF-%E6%97%B6%E5%8C%BA%E6%AD%A3%E7%A1%AE"><span class="nav-number">11.2.</span> <span class="nav-text"> Ubuntu 系统时间错误 时区正确</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E5%BF%98%E8%AE%B0-mysql-root-%E5%AF%86%E7%A0%81-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E4%BB%A5%E5%8F%8A%E5%AF%86%E7%A0%81-mysql-version-5-7-9"><span class="nav-number">1.</span> <span class="nav-text">Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E5%BF%98%E8%AE%B0-mysql-root-%E5%AF%86%E7%A0%81-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E4%BB%A5%E5%8F%8A%E5%AF%86%E7%A0%81-mysql-version-8-0"><span class="nav-number">2.</span> <span class="nav-text">Linux 忘记 mysql root 密码，修改权限以及密码(mysql version 8.0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93-1251-%E9%94%99%E8%AF%AF%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">连接数据库 1251 错误码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">中文输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">5.</span> <span class="nav-text">Ubuntu 修改分辨率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80-%E4%B8%B4%E6%97%B6%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">方案一（临时性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C-%E6%B0%B8%E4%B9%85%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">方案二（永久性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debian7-apt-get-%E6%97%A0%E6%B3%95%E5%8D%87%E7%BA%A7"><span class="nav-number">6.</span> <span class="nav-text">Debian7 apt-get 无法升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-apt-get-dist-upgrade-%E6%97%A0%E6%B3%95%E5%8D%87%E7%BA%A7"><span class="nav-number">7.</span> <span class="nav-text">Ubuntu apt-get dist-upgrade 无法升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E6%8D%A2%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">Ubuntu 换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-18-10-%E5%AE%89%E8%A3%85-vim-%E5%A4%B1%E8%B4%A5"><span class="nav-number">9.</span> <span class="nav-text">Ubuntu 18.10 安装 vim 失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%BE%9D%E8%B5%96%E7%89%88%E6%9C%AC%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98"><span class="nav-number">10.</span> <span class="nav-text">Ubuntu 依赖版本不一致问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl-%E4%BB%8E-github-%E7%AD%89%E7%BD%91%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%87%BA%E9%94%99"><span class="nav-number">11.</span> <span class="nav-text">curl 从 github 等网站下载文件出错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-hosts"><span class="nav-number">11.1.</span> <span class="nav-text">修改 hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu-%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%94%99%E8%AF%AF-%E6%97%B6%E5%8C%BA%E6%AD%A3%E7%A1%AE"><span class="nav-number">11.2.</span> <span class="nav-text">Ubuntu 系统时间错误 时区正确</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,7 +248,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="linux-忘记-mysql-root-密码修改权限以及密码mysql-version-579"><a class="markdownIt-Anchor" href="#linux-忘记-mysql-root-密码修改权限以及密码mysql-version-579"></a> Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9)</h2>
+        <h2 id="linux-忘记-mysql-root-密码-修改权限以及密码-mysql-version-5-7-9">Linux 忘记 mysql root 密码，修改权限以及密码(mysql version &lt; 5.7.9)</h2>
 <p>解决方案：</p>
 <ol>
 <li>关掉数据库 <code>service mysqld stop</code></li>
@@ -259,9 +259,9 @@
 <li>刷新权限表并执行 <code>FLUSH PRIVILEGES;</code></li>
 <li><code>exit</code></li>
 </ol>
-<h2 id="linux-忘记-mysql-root-密码修改权限以及密码mysql-version-80"><a class="markdownIt-Anchor" href="#linux-忘记-mysql-root-密码修改权限以及密码mysql-version-80"></a> Linux 忘记 mysql root 密码，修改权限以及密码(mysql version 8.0)</h2>
+<h2 id="linux-忘记-mysql-root-密码-修改权限以及密码-mysql-version-8-0">Linux 忘记 mysql root 密码，修改权限以及密码(mysql version 8.0)</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_root_password <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="连接数据库-1251-错误码"><a class="markdownIt-Anchor" href="#连接数据库-1251-错误码"></a> 连接数据库 1251 错误码</h2>
+<h2 id="连接数据库-1251-错误码">连接数据库 1251 错误码</h2>
 <p>原因：<br>
 由于 mysql8 之前的版本中加密规则是 mysql_native_password, 而在 mysql 8.0 之后, 加密规则是 caching_sha2_password。<br>
 解决方案：</p>
@@ -275,7 +275,7 @@
 <li>输入</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span> PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>; #更新一下用户的密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新权限</span><br></pre></td></tr></table></figure>
-<h2 id="中文输入法"><a class="markdownIt-Anchor" href="#中文输入法"></a> 中文输入法</h2>
+<h2 id="中文输入法">中文输入法</h2>
 <p>这里使用的是 googlepinyin<br>
 安装好相关的包之后，再设置-输入法-管理已安装语言中，安装中文，并修改输入法系统为：fcitx 随后重启。重启之后，右上角应该是有个白色的小按钮，点击之后配置输入法，注意有键盘(keyboard)字样的要放最上面，而且这个不代表输入法，是键盘布局的意思，是不会激活输入法的。</p>
 <ul>
@@ -286,10 +286,10 @@
 <li>Centos 系</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall chinese support //安装中文环境支持</span><br></pre></td></tr></table></figure>
-<h2 id="ubuntu-修改分辨率"><a class="markdownIt-Anchor" href="#ubuntu-修改分辨率"></a> Ubuntu 修改分辨率</h2>
-<h3 id="方案一临时性"><a class="markdownIt-Anchor" href="#方案一临时性"></a> 方案一（临时性）</h3>
+<h2 id="ubuntu-修改分辨率">Ubuntu 修改分辨率</h2>
+<h3 id="方案一-临时性">方案一（临时性）</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cvt 1920 1080</span><br><span class="line">sudo xrandr --newmode xxx <span class="comment"># 填写上一条命令出现的modeline信息</span></span><br><span class="line">sudo xrandr --addmode VGA-1 <span class="string">&quot;1920x1080_60&quot;</span> <span class="comment"># 添加显示模式</span></span><br><span class="line">sudo xrandr --output  VGA-1 --mode <span class="string">&quot;1920x1080_60.00&quot;</span> <span class="comment"># 输出显示模式</span></span><br></pre></td></tr></table></figure>
-<h3 id="方案二永久性"><a class="markdownIt-Anchor" href="#方案二永久性"></a> 方案二（永久性）</h3>
+<h3 id="方案二-永久性">方案二（永久性）</h3>
 <blockquote>
 <p>新版本的 Ubuntu 可能没有这个文件，所以这种方式可能失效。</p>
 </blockquote>
@@ -302,7 +302,7 @@
 <blockquote>
 <p>systemd 学习：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html</a></p>
 </blockquote>
-<h2 id="debian7-apt-get-无法升级"><a class="markdownIt-Anchor" href="#debian7-apt-get-无法升级"></a> Debian7 apt-get 无法升级</h2>
+<h2 id="debian7-apt-get-无法升级">Debian7 apt-get 无法升级</h2>
 <p>Debian7 官方已经不提供源了，我们应该升级系统。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>将所有的 wheezy 改成 jessie<br>
@@ -313,7 +313,7 @@
 <p>删除无用组件： <code>apt-get autoremove</code></p>
 <p>重启系统： <code>reboot</code></p>
 <p>删除无用内核： <code>apt purge linux-image-3.2.0-4-amd64 -y</code></p>
-<h2 id="ubuntu-apt-get-dist-upgrade-无法升级"><a class="markdownIt-Anchor" href="#ubuntu-apt-get-dist-upgrade-无法升级"></a> Ubuntu apt-get dist-upgrade 无法升级</h2>
+<h2 id="ubuntu-apt-get-dist-upgrade-无法升级">Ubuntu apt-get dist-upgrade 无法升级</h2>
 <p>错误信息：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11 Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/) is another process using it?</span><br></pre></td></tr></table></figure>
 <p>问题分析：<br>
@@ -329,7 +329,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br><span class="line">sudo kill -9 xxx</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="ubuntu-换源"><a class="markdownIt-Anchor" href="#ubuntu-换源"></a> Ubuntu 换源</h2>
+<h2 id="ubuntu-换源">Ubuntu 换源</h2>
 <p>备份原始 sources.list</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
 <p>修改源文件 sources.list</p>
@@ -507,15 +507,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ubuntu-1810-安装-vim-失败"><a class="markdownIt-Anchor" href="#ubuntu-1810-安装-vim-失败"></a> Ubuntu 18.10 安装 vim 失败</h2>
+<h2 id="ubuntu-18-10-安装-vim-失败">Ubuntu 18.10 安装 vim 失败</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following packages have unmet dependencies:</span><br><span class="line">    vim : Depends: vim-common (= 2:8.0.1453-1ubuntu1.1)</span><br></pre></td></tr></table></figure>
 <p>可能是 Ubuntu 18.10 版本自带的 vim-common 不满足 vim 的版本要求，解决方案是卸载自带版本，然后直接安装 vim 使用 apt 自行管理依赖。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge vim-common</span><br><span class="line">sudo apt intall vim</span><br></pre></td></tr></table></figure>
-<h2 id="ubuntu-依赖版本不一致问题"><a class="markdownIt-Anchor" href="#ubuntu-依赖版本不一致问题"></a> Ubuntu 依赖版本不一致问题</h2>
+<h2 id="ubuntu-依赖版本不一致问题">Ubuntu 依赖版本不一致问题</h2>
 <p>上面的版本不一致问题解决方案我觉得不太好，因为如果有两个软件使用的是不同版本的同一个依赖，但是这两个软件都要用，这就很麻烦。</p>
 <p>网上检索到除了卸载新版，退版本以外的另一种解决方案（我不知道这个软件具体是是如何实现的，难道只是把退版本这件事自动化了？）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install aptitude</span><br><span class="line"></span><br><span class="line">sudo aptitude install xxx</span><br></pre></td></tr></table></figure>
-<h2 id="curl-从-github-等网站下载文件出错"><a class="markdownIt-Anchor" href="#curl-从-github-等网站下载文件出错"></a> curl 从 github 等网站下载文件出错</h2>
+<h2 id="curl-从-github-等网站下载文件出错">curl 从 github 等网站下载文件出错</h2>
 <p>类似如下：<br>
 curl: (7) Failed to connect to <a target="_blank" rel="noopener" href="http://raw.githubusercontent.com">raw.githubusercontent.com</a> port 443: Connection refused</p>
 <p>如果打开网址也进不了页面的话，考虑网址被墙了，解决方案有几种：</p>
@@ -524,7 +524,7 @@ curl: (7) Failed to connect to <a target="_blank" rel="noopener" href="http://ra
 <li>挂代理（没有相关网络知识会比较麻烦）；</li>
 <li>找国内来源（比如百度网盘有没有人共享这些文件等等）；</li>
 </ol>
-<h3 id="修改-hosts"><a class="markdownIt-Anchor" href="#修改-hosts"></a> 修改 hosts</h3>
+<h3 id="修改-hosts">修改 hosts</h3>
 <p>先备份原有的 hosts</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/hosts /etc/hosts.bak</span><br></pre></td></tr></table></figure>
 <p>查看网址的 ip，我这里使用的是 <a target="_blank" rel="noopener" href="http://ip.tool.chinaz.com/">http://ip.tool.chinaz.com/</a></p>
@@ -533,7 +533,7 @@ curl: (7) Failed to connect to <a target="_blank" rel="noopener" href="http://ra
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 原文件 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 修改为 ##</span></span></span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost</span><br><span class="line">127.0.1.1   ubuntu</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The following lines are desirable <span class="keyword">for</span> IPv6 capable hosts</span></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br><span class="line"></span><br><span class="line">151.101.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
 <p>保存文件完成。</p>
-<h3 id="ubuntu-系统时间错误-时区正确"><a class="markdownIt-Anchor" href="#ubuntu-系统时间错误-时区正确"></a> Ubuntu 系统时间错误 时区正确</h3>
+<h3 id="ubuntu-系统时间错误-时区正确">Ubuntu 系统时间错误 时区正确</h3>
 <p>本来设置了清华的 apt 源，再执行 <code>apt update</code> 的时候，还是出现了 <code>Release file for ... is not valid yet</code> 的报错，发现是系统时间有问题，刚好是获取更新的 apt 源链接有问题。猜测是获取软件更新的时候需要校准系统时间和服务器的时间。</p>
 <p><strong>解决方案：</strong><br>
 通过服务器校准时间<br>
@@ -554,8 +554,8 @@ curl: (7) Failed to connect to <a target="_blank" rel="noopener" href="http://ra
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="prev" title="Java 基础语法">
-                  <i class="fa fa-chevron-left"></i> Java 基础语法
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-stream-api/" rel="prev" title="Java Stream API">
+                  <i class="fa fa-chevron-left"></i> Java Stream API
                 </a>
             </div>
             <div class="post-nav-item">

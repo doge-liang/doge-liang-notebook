@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Javascript 高阶函数  Javascript 高阶函数  3.1 闭包   3.2 箭头函数   3.1 闭包 闭包指的是能够读取其他函数内部变量的函数，使用函数作为返回值，我们可以实现闭包，函数的内部变量将无法从外部访问； 1234567891011&amp;#x27;use strict&amp;#x27;;function create_counter(initial) &amp;#123;    va">
+    <meta name="description" content="Javascript 高阶函数  Javascript 高阶函数  3.1 闭包   3.2 箭头函数  3.1 闭包 闭包指的是能够读取其他函数内部变量的函数，使用函数作为返回值，我们可以实现闭包，函数的内部变量将无法从外部访问； 1234567891011&amp;#x27;use strict&amp;#x27;;function create_counter(initial) &amp;#123;    var">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript——高阶函数">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/javascript%E2%80%94%E2%80%94%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Javascript 高阶函数  Javascript 高阶函数  3.1 闭包   3.2 箭头函数   3.1 闭包 闭包指的是能够读取其他函数内部变量的函数，使用函数作为返回值，我们可以实现闭包，函数的内部变量将无法从外部访问； 1234567891011&amp;#x27;use strict&amp;#x27;;function create_counter(initial) &amp;#123;    va">
+<meta property="og:description" content="Javascript 高阶函数  Javascript 高阶函数  3.1 闭包   3.2 箭头函数  3.1 闭包 闭包指的是能够读取其他函数内部变量的函数，使用函数作为返回值，我们可以实现闭包，函数的内部变量将无法从外部访问； 1234567891011&amp;#x27;use strict&amp;#x27;;function create_counter(initial) &amp;#123;    var">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-10-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
@@ -53,7 +53,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text"> Javascript 高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-%E9%97%AD%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text"> 3.1 闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text"> 3.2 箭头函数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">Javascript 高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E9%97%AD%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">3.2 箭头函数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,7 +248,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="javascript-高阶函数"><a class="markdownIt-Anchor" href="#javascript-高阶函数"></a> Javascript 高阶函数</h2>
+        <h2 id="javascript-高阶函数">Javascript 高阶函数</h2>
 <ul>
 <li><a href="#javascript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0">Javascript 高阶函数</a>
 <ul>
@@ -257,11 +257,11 @@
 </li>
 <li><a href="#32-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">3.2 箭头函数</a></li>
 </ul>
-<h3 id="31-闭包"><a class="markdownIt-Anchor" href="#31-闭包"></a> 3.1 闭包</h3>
+<h3 id="3-1-闭包">3.1 闭包</h3>
 <p>闭包指的是能够读取其他函数内部变量的函数，使用函数作为返回值，我们可以实现闭包，函数的内部变量将无法从外部访问；</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">create_counter</span>(<span class="params">initial</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> x = initial || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">inc</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            x += <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码中，函数<code>create_counter()</code>中有一个局部变量<code>x</code>。除了在函数调用时能够改变其值外，没有其他方式能够访问到<code>x</code>，相当于其他语言使用<code>private</code>封装了。</p>
-<h2 id="32-箭头函数"><a class="markdownIt-Anchor" href="#32-箭头函数"></a> 3.2 箭头函数</h2>
+<h2 id="3-2-箭头函数">3.2 箭头函数</h2>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(x, y, ...rest) =&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -285,8 +285,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/javascript%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/" rel="next" title="Javascript——函数">
-                  Javascript——函数 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/javascript%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/" rel="next" title="Javascript——基础">
+                  Javascript——基础 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

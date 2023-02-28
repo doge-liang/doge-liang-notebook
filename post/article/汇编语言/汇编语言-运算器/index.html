@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="运算器  全加器(FA) 实现一位二进制的加减法  加法单元   全加器有三个输入量（两个操作数和一个低位进位数，两个输出量（结果和进位数）   数字逻辑   真值表 逻辑公式 公式化简或转换 由公式写出电路图   加法器 实现八位加法  串行加法器 1 个 FA 进行 n 步计算 最终结果在 A 内保存，B 被清零，进位的结果保存在 C。  并行加法器 n 个 FA 进行 1 步计算 进位链">
+    <meta name="description" content="运算器 全加器(FA) 实现一位二进制的加减法  加法单元   全加器有三个输入量（两个操作数和一个低位进位数，两个输出量（结果和进位数）   数字逻辑   真值表 逻辑公式 公式化简或转换 由公式写出电路图  加法器 实现八位加法 串行加法器 1 个 FA 进行 n 步计算 最终结果在 A 内保存，B 被清零，进位的结果保存在 C。 并行加法器 n 个 FA 进行 1 步计算 进位链 进位线路结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言-运算器">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E5%99%A8/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="运算器  全加器(FA) 实现一位二进制的加减法  加法单元   全加器有三个输入量（两个操作数和一个低位进位数，两个输出量（结果和进位数）   数字逻辑   真值表 逻辑公式 公式化简或转换 由公式写出电路图   加法器 实现八位加法  串行加法器 1 个 FA 进行 n 步计算 最终结果在 A 内保存，B 被清零，进位的结果保存在 C。  并行加法器 n 个 FA 进行 1 步计算 进位链">
+<meta property="og:description" content="运算器 全加器(FA) 实现一位二进制的加减法  加法单元   全加器有三个输入量（两个操作数和一个低位进位数，两个输出量（结果和进位数）   数字逻辑   真值表 逻辑公式 公式化简或转换 由公式写出电路图  加法器 实现八位加法 串行加法器 1 个 FA 进行 n 步计算 最终结果在 A 内保存，B 被清零，进位的结果保存在 C。 并行加法器 n 个 FA 进行 1 步计算 进位链 进位线路结">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.259Z">
@@ -52,7 +52,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text"> 运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%8A%A0%E5%99%A8fa"><span class="nav-number">1.1.</span> <span class="nav-text"> 全加器(FA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text"> 加法器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 串行加法器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 并行加法器</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%8A%A0%E5%99%A8-fa"><span class="nav-number">1.1.</span> <span class="nav-text">全加器(FA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">加法器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">串行加法器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">并行加法器</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,8 +243,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="运算器"><a class="markdownIt-Anchor" href="#运算器"></a> 运算器</h2>
-<h3 id="全加器fa"><a class="markdownIt-Anchor" href="#全加器fa"></a> 全加器(FA)</h3>
+        <h2 id="运算器">运算器</h2>
+<h3 id="全加器-fa">全加器(FA)</h3>
 <p>实现一位二进制的加减法</p>
 <ul>
 <li>加法单元</li>
@@ -261,12 +261,12 @@
 <li>公式化简或转换</li>
 <li>由公式写出电路图</li>
 </ol>
-<h3 id="加法器"><a class="markdownIt-Anchor" href="#加法器"></a> 加法器</h3>
+<h3 id="加法器">加法器</h3>
 <p>实现八位加法</p>
-<h4 id="串行加法器"><a class="markdownIt-Anchor" href="#串行加法器"></a> 串行加法器</h4>
+<h4 id="串行加法器">串行加法器</h4>
 <p>1 个 FA 进行 n 步计算</p>
 <p>最终结果在 A 内保存，B 被清零，进位的结果保存在 C。</p>
-<h4 id="并行加法器"><a class="markdownIt-Anchor" href="#并行加法器"></a> 并行加法器</h4>
+<h4 id="并行加法器">并行加法器</h4>
 <p>n 个 FA 进行 1 步计算</p>
 <p>进位链</p>
 <p>进位线路结构：</p>

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="git clone 命令  参数以及用法  常用用法  项目版本迭代过多，为了加快拉取速度只拉取最新版本  1git clone --depth 1 https:&#x2F;&#x2F;github.com&#x2F;aaa.git  显示详细拉取过程的详细信息  1git clone https:&#x2F;&#x2F;github.com&#x2F;aaa.git --progress --verbose  克隆某个指定版本的仓库  12345678">
+    <meta name="description" content="git clone 命令 参数以及用法 常用用法  项目版本迭代过多，为了加快拉取速度只拉取最新版本  1git clone --depth 1 https:&#x2F;&#x2F;github.com&#x2F;aaa.git  显示详细拉取过程的详细信息  1git clone https:&#x2F;&#x2F;github.com&#x2F;aaa.git --progress --verbose  克隆某个指定版本的仓库  123456789#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git clone 命令">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/git-clone-%E5%91%BD%E4%BB%A4/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="git clone 命令  参数以及用法  常用用法  项目版本迭代过多，为了加快拉取速度只拉取最新版本  1git clone --depth 1 https:&#x2F;&#x2F;github.com&#x2F;aaa.git  显示详细拉取过程的详细信息  1git clone https:&#x2F;&#x2F;github.com&#x2F;aaa.git --progress --verbose  克隆某个指定版本的仓库  12345678">
+<meta property="og:description" content="git clone 命令 参数以及用法 常用用法  项目版本迭代过多，为了加快拉取速度只拉取最新版本  1git clone --depth 1 https:&#x2F;&#x2F;github.com&#x2F;aaa.git  显示详细拉取过程的详细信息  1git clone https:&#x2F;&#x2F;github.com&#x2F;aaa.git --progress --verbose  克隆某个指定版本的仓库  123456789#">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
@@ -51,7 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
   </noscript>
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text"> git clone 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BB%A5%E5%8F%8A%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text"> 参数以及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%94%A8%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> 常用用法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">git clone 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BB%A5%E5%8F%8A%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">参数以及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%94%A8%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">常用用法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,9 +246,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="git-clone-命令"><a class="markdownIt-Anchor" href="#git-clone-命令"></a> git clone 命令</h2>
-<h3 id="参数以及用法"><a class="markdownIt-Anchor" href="#参数以及用法"></a> 参数以及用法</h3>
-<h3 id="常用用法"><a class="markdownIt-Anchor" href="#常用用法"></a> 常用用法</h3>
+        <h2 id="git-clone-命令">git clone 命令</h2>
+<h3 id="参数以及用法">参数以及用法</h3>
+<h3 id="常用用法">常用用法</h3>
 <ul>
 <li>项目版本迭代过多，为了加快拉取速度只拉取最新版本</li>
 </ul>
