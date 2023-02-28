@@ -28,14 +28,14 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="类加载机制 类的加载过程 类的加载过程：（Load-Link-Initialize）   类的加载（Load）：  通过类的全限定名获取定义此类的二进制字节流； 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构； 在内存中创建一个代表这个类的 java.lang.Class 对象，作为方法区这个类的各种数据的访问入口； 整个过程由类加载器完成；   类的链接（Link）：将类的二进制数">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png">
 <meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.261Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
@@ -257,7 +257,7 @@
         <h2 id="类加载机制">类加载机制</h2>
 <h3 id="类的加载过程">类的加载过程</h3>
 <p>类的加载过程：（Load-Link-Initialize）</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png" alt="picture 4"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png" alt="picture 4"></p>
 <ol>
 <li>类的加载（Load）：
 <ul>
@@ -341,9 +341,9 @@
 </ul>
 <p>这里的四种加载器之间的关系不是上下级、不是继承关系，而是包含关系。</p>
 <p>这三个类加载器以及自定义加载器的层次结构如下：</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png" alt="picture 1"></p>
 <p>在代码中，类加载器的关系如下（这里只有 <code>ExtClassLoader</code> 和 <code>AppClassLoader</code> 没有 <code>BootstrapClassLoader</code> ，因为引导类加载器是 C/C++ 编写的，不在 java 源码里面）：</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png" alt="picture 3"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png" alt="picture 3"></p>
 <p><code>sun.misc.Launcher</code> 是 JVM 的入口应用， <code>ExtClassLoader</code> 和 <code>AppClassLoader</code> 都是 <code>Launcher</code> 的内部类。</p>
 <p>这些类加载器是自上而下加载，自下而上检查是否加载完成的。此外我们还可以自定义类加载器；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取系统类加载器</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">systemClassLoader</span> <span class="operator">=</span> ClassLoader.getSystemClassLoader();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取系统类加载器的父类加载器--&gt;扩展类加载器</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">extClassLoader</span> <span class="operator">=</span> systemClassLoader.getParent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取扩展类加载器的父类加载器--&gt;根加载器（是用C/C++写的）</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">rootClassLoader</span> <span class="operator">=</span> systemClassLoader.getParent(); <span class="comment">//null，因为无法获取</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得系统类加载器可以加载的路径</span></span><br><span class="line">System.getProperty(<span class="string">&quot;java.class.path&quot;</span>);</span><br></pre></td></tr></table></figure>

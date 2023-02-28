@@ -28,13 +28,13 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="Java IO Java 提供了庞大的输入&#x2F;输出 API 供开发者使用。在程序看来，所有的数据来源（磁盘 IO 、内存 IO 、网络 IO 、 ……）都可以看作是字节序列的读写，这个序列被称为 流 。具体来说，各种流的实现五花八门，所以 Java 提供了大量的流 IO 类给开发者。 按流的出入方向分，有两个抽象类： InputStream 和 OutputStream ； 另外，为了方便读写 Un">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/24808671026264201c60003800b569f61fd30b7f3d742b0dbe9ff57aa08eb103.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/24808671026264201c60003800b569f61fd30b7f3d742b0dbe9ff57aa08eb103.png">
 <meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/java-io/">
@@ -253,7 +253,7 @@
 <p>Java 提供了庞大的输入/输出 API 供开发者使用。在程序看来，所有的数据来源（磁盘 IO 、内存 IO 、网络 IO 、 ……）都可以看作是字节序列的读写，这个序列被称为 <strong>流</strong> 。具体来说，各种流的实现五花八门，所以 Java 提供了大量的流 IO 类给开发者。</p>
 <p>按流的出入方向分，有两个抽象类： <code>InputStream</code> 和 <code>OutputStream</code> ；<br>
 另外，为了方便读写 Unicode 文本（<code>char</code>），Java API 定义了 <code>Reader</code> 和 <code>Writer</code> ，从出入参可以看出，这些类是用于操作字符 <code>char</code> 的；</p>
-<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/156ab2410fcc549381cc37ac73843db03da780428721b26b7fd80e5bfc17f84b.png" alt="picture 2"></p>
 <p>上述的每个抽象类都实现了 <code>AutoCloseable</code> 接口，因此都支持 <code>try-with-resource</code> 语法，即 <code>try(InputStream ...)&#123;&#125;</code> 的写法，可以在 <code>try</code> 块中自动调用关闭流的 <code>close()</code> 方法。</p>
 <blockquote>
 <p>为什么 <code>Closeable</code> 和 <code>AutoCloseable</code> 都有 <code>close()</code> 方法？<br>
@@ -270,7 +270,7 @@
 <p>对每个流操作完毕后都需要调用 <code>close()</code> 方法将其关闭，如果不关闭可能会有耗尽系统资源的风险。随着输出流的关闭，其输出缓冲区也会被关闭，缓冲区中的内容也会被冲刷出，如果不关闭流，那么流中的内容永远得不到传递。</p>
 <p>实践中，我们会使用更具体的实现类来完成 IO 工作。比如 <code>FileInputStream</code> 读入文件流……</p>
 <p><code>CharBuffer</code> 类表示内存中的缓冲区，拥有按顺序和随机读写访问的方法；</p>
-<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/24808671026264201c60003800b569f61fd30b7f3d742b0dbe9ff57aa08eb103.png" alt="picture 3"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/24808671026264201c60003800b569f61fd30b7f3d742b0dbe9ff57aa08eb103.png" alt="picture 3"></p>
 <p><code>CharSequence</code> 接口描述一个 <code>char</code> 值序列的基本属性，<code>String</code> 、 <code>CharBuffer</code> 、 <code>StringBuilder</code> 和 <code>StringBuffer</code> 类都实现了他。</p>
 <h3 id="流的嵌套和组合">流的嵌套和组合</h3>
 <p><code>FileInputStream</code> 和 <code>FileOutputStream</code> 提供了对磁盘文件的读写方法。但他们与父类 <code>InputStream</code> 和 <code>OutputStream</code> 一样，都只能读写字节，如果需要读写具体的类型，需要借助 <code>DataInputStream</code> 和 <code>DataOutputStream</code> 。这是 Java 提供的一种职责分离设计， <code>FileInputStream</code> / <code>FileOutputStream</code> 等类负责从外部的介质中读取字节流（控制台输入、内存、磁盘、网络等），<code>DataInputStream</code> <code>DataOutputStream</code> 和 <code>FilterInputStream</code> <code>FilterOutputStream</code> 负责将字节流解析成需要的类型。</p>

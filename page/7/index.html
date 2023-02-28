@@ -471,13 +471,13 @@
 <h2 id="简介">简介</h2>
 <p>docker 是一个容器，可以将应用打包安装在这个容器内，使得即使在不同的系统环境中也能使用；</p>
 <h2 id="docker-vs-VM">docker vs. VM</h2>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/a501dbf474a0f9f65bd80babb718fb91427ad5dd82022ae4da670d4e9b55c0f5.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/a501dbf474a0f9f65bd80babb718fb91427ad5dd82022ae4da670d4e9b55c0f5.png" alt="picture 1"></p>
 <p>对比虚拟机， docker 并不是在 Host OS 上实现了自己的 Guest OS ，而是使用了 Docker Engine 借助 Host OS 的 namespace 、 Control Group 等，对进程进行封装隔离——容器化。换言之，VM 在宿主系统上实现了自己的操作系统内核，而 Docker 是借助宿主系统的内核实现的应用封装。所以 Docker 属于更轻量化的技术，虚拟机包括操作系统内核以及一大堆乱七八糟的库，更笨重。</p>
 <h2 id="一些概念">一些概念</h2>
 <h3 id="镜像（Image）">镜像（Image）</h3>
 <p>可以类比为集装箱，其中包含了一个应用的运行所需要的依赖以及应用本身。</p>
 <p>实际上，镜像的构建使用了联合文件系统的技术，从操作系统的引导，上一层是操作系统镜像，再上一层是 Tomcat 、 jdk 、……等等。镜像不包含任何动态数据，每层的内容在构建完成之后都不会删除。</p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/3582e10cecd9062825c1afc8464540228c16f3d461aa500be51077849b782187.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/3582e10cecd9062825c1afc8464540228c16f3d461aa500be51077849b782187.png" alt="picture 2"></p>
 <h3 id="容器（Container）">容器（Container）</h3>
 <p>可以理解为集装箱内部的产品，集装箱运过来之后就可以拆箱即用了。</p>
 <p>实际上，是使用了联合文件系统的技术，以镜像为底层，在其上构建存储层。运行一个容器，实际上就是运行了一个进程，进程之间拥有隔离的命名空间、网络配置、用户 ID 空间等等。这种相对独立性也是 Docker 容易被混淆成虚拟机的重要原因。实际上，这种相对独立性让我们免去了很多的环境部署麻烦，运行环境是标准化的。</p>
@@ -1044,10 +1044,10 @@
           <h2 id="某售房平台的房价爬虫">某售房平台的房价爬虫</h2>
 <p>今天某同学因为研究需要，想爬某个售房平台的房价数据做研究用，但由于反爬没能拿到。我拿过链接看了看，发现这种反爬技术比较新奇。</p>
 <p>通过 Chrome 浏览器的开发者工具查看，发现这个网站是把房价数据通过图片的形式发送到浏览器的。</p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/e1e7fcebeaa24f1f2dc7ff4fb165b95d6f0faedb5145a3829821bbb382fa3c3d.png" alt="picture 4"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/e1e7fcebeaa24f1f2dc7ff4fb165b95d6f0faedb5145a3829821bbb382fa3c3d.png" alt="picture 4"></p>
 <p>打开链接会发现是这样一张图片，通过控制 background-position 属性配合其他的 css 文件可以实现截取某个数字展示的效果。有点像滚轮密码锁。</p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/924356a188a6133db4ad57c169097c5553e331a8a14c2d379cbc24b4346a82d6.png" alt="picture 5"></p>
-<p><img src="../../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/7b13f98902d2beac854701829b70a1d9818093c1e6fbf0ca548caad7d13b586e.png" alt="picture 6"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/924356a188a6133db4ad57c169097c5553e331a8a14c2d379cbc24b4346a82d6.png" alt="picture 5"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E9%9B%B6%E7%A2%8E/%E7%88%AC%E8%99%AB/%E6%9F%90%E5%94%AE%E6%88%BF%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB/7b13f98902d2beac854701829b70a1d9818093c1e6fbf0ca548caad7d13b586e.png" alt="picture 6"></p>
 <p>并且在不同时候刷新页面，得到的图片是不同的，进一步增加了爬虫的复杂度。</p>
 <p>监控页面的节点变化发现，目标节点部分从服务器发送到浏览器便一直都保持不变，这意味着从数据到图片的转换是在服务器后台完成的，而不是前端浏览器的 Javascript 脚本控制的。</p>
 <blockquote>
@@ -1055,96 +1055,6 @@
 </blockquote>
 <p>这就切断了通过爬虫直接得到数值型数据的可能性了。</p>
 <p>目前没有想到更好的解决方案，有一种很蠢的方法就是把 background-image 和 background-position 都爬下来，然后根据 background-position 裁剪图片的一部分拿去做 OCR 识别出来的结果再和这个房子的信息一起保存下来。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/" class="post-title-link" itemprop="url">什么是SQL？什么是NoSQL？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-18T00:00:00+08:00">2021-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是-SQL？什么是-NoSQL？">什么是 SQL？什么是 NoSQL？</h2>
-<p>这篇 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/-maji/p/13098654.html">博客</a> 写得不错，等有空了整理一下，结合一些其他的书来谈谈。</p>
 
       
     </div>
@@ -1257,6 +1167,96 @@
 </ul>
 <p>MySQL 默认事务隔离级别是 Repeatable read。<br>
 MySQL 通过 GAP 锁解决幻读问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/" class="post-title-link" itemprop="url">什么是SQL？什么是NoSQL？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-18T00:00:00+08:00">2021-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="什么是-SQL？什么是-NoSQL？">什么是 SQL？什么是 NoSQL？</h2>
+<p>这篇 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/-maji/p/13098654.html">博客</a> 写得不错，等有空了整理一下，结合一些其他的书来谈谈。</p>
 
       
     </div>

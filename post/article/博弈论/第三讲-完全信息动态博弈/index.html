@@ -28,22 +28,22 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="第三讲 完全信息动态博弈 3.1 扩展式博弈 扩展式博弈(extensive form)的要素：  博弈的参与人 $N$ 参与人的决策顺序 $M$ 参与人的行动空间 $A$：每次决策参与人有什么选择 参与人的信息集 $H$：每次行动参与人知道什么 参与人的支付函数 $u(.)$；是所有参与人策略的函数  为了描述扩展式博弈的五要素，我们可以用博弈树(game tree)来表述。     $v_0$">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/13a276d6c651baefb8e5442b95d72f18d2cef9fbe2f67e3b1966f2a79bd52dde.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/8349f04bf634313ef577f851ec76b05e3ef70c39bac287fc2c556b1b52ea0315.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0e71379cd6cb519a56a3bb3aa1ff2e38f91a171397eb414e14ecdc22d6cfc1d4.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b88239d55356a509e457c231c6e812246198dab61907cff8ddaf761f0aa40e5a.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/a6611b722b95da4c85cd686aa2a88dfc6fb516351bc9c428dc8fba6081d3eb81.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/60b5d52d5f71501029250778837caa0d475b8bb137dceb8078bf3666ae338ca4.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/7b11ecb9f9b5df69e41e35c96806a0a604e300b12614aa70a61b7221e5acd877.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/13a276d6c651baefb8e5442b95d72f18d2cef9fbe2f67e3b1966f2a79bd52dde.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/8349f04bf634313ef577f851ec76b05e3ef70c39bac287fc2c556b1b52ea0315.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0e71379cd6cb519a56a3bb3aa1ff2e38f91a171397eb414e14ecdc22d6cfc1d4.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b88239d55356a509e457c231c6e812246198dab61907cff8ddaf761f0aa40e5a.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/a6611b722b95da4c85cd686aa2a88dfc6fb516351bc9c428dc8fba6081d3eb81.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/60b5d52d5f71501029250778837caa0d475b8bb137dceb8078bf3666ae338ca4.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/7b11ecb9f9b5df69e41e35c96806a0a604e300b12614aa70a61b7221e5acd877.png">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.258Z">
 <meta property="article:author" content="doge-liang">
 <meta property="article:tag" content="完全信息动态博弈">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%B8%89%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/">
@@ -266,7 +266,7 @@
 </ul>
 <p>为了描述扩展式博弈的五要素，我们可以用博弈树(game tree)来表述。</p>
 <div style="text-align: center">
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png" alt="picture 3"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b342f8dabd20228630efaee0ebf97133e427b9fd50511c2724bfbfc78b4147a4.png" alt="picture 3"></p>
 </div>
 <blockquote>
 <p>$v_0$ 为初始结，$v_1, v_2, v_5$ 为决策结，$v_3, v_4, v_7, v_8$ 为终点结。</p>
@@ -308,9 +308,9 @@
 <li>儿童 A 的策略集：(正， 反)</li>
 <li>儿童 B 的策略集：(正正，正反，反正，反反)</li>
 </ul>
-<div style='text-align: center; '>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/13a276d6c651baefb8e5442b95d72f18d2cef9fbe2f67e3b1966f2a79bd52dde.png" alt="picture 4"></p>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/8349f04bf634313ef577f851ec76b05e3ef70c39bac287fc2c556b1b52ea0315.png" alt="picture 5"></p>
+<div style="text-align: center; ">
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/13a276d6c651baefb8e5442b95d72f18d2cef9fbe2f67e3b1966f2a79bd52dde.png" alt="picture 4"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/8349f04bf634313ef577f851ec76b05e3ef70c39bac287fc2c556b1b52ea0315.png" alt="picture 5"></p>
 </div>
 <p>$$<br>
 s_1<br>
@@ -320,9 +320,9 @@ $$</p>
 <li>男生的策略集：{足球，芭蕾}</li>
 <li>女生的策略集：{足球足球，足球芭蕾，芭蕾芭蕾，芭蕾足球}</li>
 </ul>
-<div style='text-align: center'>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png" alt="picture 6"></p>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0e71379cd6cb519a56a3bb3aa1ff2e38f91a171397eb414e14ecdc22d6cfc1d4.png" alt="picture 7"></p>
+<div style="text-align: center">
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png" alt="picture 6"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0e71379cd6cb519a56a3bb3aa1ff2e38f91a171397eb414e14ecdc22d6cfc1d4.png" alt="picture 7"></p>
 </div>
 <h3 id="3-5-子博弈">3.5 子博弈</h3>
 <p>在动态性别战中，Nash 均衡有(足球，足球足球)、(足球，足球芭蕾)、(芭蕾，芭蕾芭蕾)，但是男生是先手，他没有理由选择主动选择芭蕾，所以均衡(芭蕾，芭蕾芭蕾)看起来并不合理；</p>
@@ -352,8 +352,8 @@ $$</p>
 <li>逆向归纳法：从那些直接与博弈终点相连接的决策节开始，寻找该决策节上参与人的最优选择；然后，退到上一层的决策节，寻找其参与者的最优选择；如此类推，直到初始节，即最高层次的子博弈。</li>
 </ul>
 <h4 id="例子-1：动态性别战的逆向归纳">例子 1：动态性别战的逆向归纳</h4>
-<div style='text-align: center'>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png" alt="picture 8"></p>
+<div style="text-align: center">
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/0c9497d70122bc8f8ac684673c397e6057fc2f93123599d40da88f3ca2ee905d.png" alt="picture 8"></p>
 </div>
 <ul>
 <li>在第二阶段，如果女生观察到男生在第一阶段选择足球，则其应该选择足球。反之，如果男生在第一阶段选择芭蕾，则女生会选择芭蕾。</li>
@@ -395,8 +395,8 @@ $$</p>
 <li>此外，还能将非单节信息集当作完全信息博弈来处理；</li>
 </ol>
 <h4 id="例子：不完美信息进入障碍博弈">例子：不完美信息进入障碍博弈</h4>
-<div style='text-align: center'>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b88239d55356a509e457c231c6e812246198dab61907cff8ddaf761f0aa40e5a.png" alt="picture 9"></p>
+<div style="text-align: center">
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/b88239d55356a509e457c231c6e812246198dab61907cff8ddaf761f0aa40e5a.png" alt="picture 9"></p>
 </div>
 <p>该博弈存在一个子博弈，该子博弈由于不完美信息集的存在，我们可以将其看作完全信息静态博弈来求解 Nash 均衡，解得 Nash 纯策略均衡为：（低价，容忍）；</p>
 <p>回到上一层博弈，初始节挑战者将选择进入市场（进入市场的均衡比不进入市场的支付要高），所以子博弈完美 Nash 均衡为（低价，容忍）；</p>
@@ -429,15 +429,15 @@ $$</p>
 <h5 id="例子：阶段博弈出现多个均衡的情况">例子：阶段博弈出现多个均衡的情况</h5>
 <p>折现因子 $\delta = 1$；<br>
 考虑以下博弈重复两阶段的的情况：</p>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/a6611b722b95da4c85cd686aa2a88dfc6fb516351bc9c428dc8fba6081d3eb81.png" alt="picture 10"></p>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/60b5d52d5f71501029250778837caa0d475b8bb137dceb8078bf3666ae338ca4.png" alt="picture 11"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/a6611b722b95da4c85cd686aa2a88dfc6fb516351bc9c428dc8fba6081d3eb81.png" alt="picture 10"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/60b5d52d5f71501029250778837caa0d475b8bb137dceb8078bf3666ae338ca4.png" alt="picture 11"></p>
 <p>考虑一个策略组合：<br>
 $(M_1L_1L_1L_1L_1R_1L_1L_1L_1L_1, M_2L_2L_2L_2L_2R_2L_2L_2L_2L_2)$<br>
 不是说这个博弈就是均衡博弈；<br>
 可以看到这个策略组合在第二阶段构成一个 Nash 均衡；<br>
 现在考察是否构成整个博弈的 Nash 均衡；<br>
 根据这个策略组合，通过加权和的计算得到下表；</p>
-<p><img src="../../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/7b11ecb9f9b5df69e41e35c96806a0a604e300b12614aa70a61b7221e5acd877.png" alt="picture 12"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC3%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/7b11ecb9f9b5df69e41e35c96806a0a604e300b12614aa70a61b7221e5acd877.png" alt="picture 12"></p>
 <p>可以看到该策略组合的确是整个博弈的 Nash 均衡；</p>
 <p>注：这里并不是在解一个 Nash 均衡，而是在验证一个策略集是否是整体博弈的 Nash 均衡解；</p>
 <h4 id="无限重复博弈">无限重复博弈</h4>
@@ -471,13 +471,13 @@ $(M_1L_1L_1L_1L_1R_1L_1L_1L_1L_1, M_2L_2L_2L_2L_2R_2L_2L_2L_2L_2)$<br>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E5%9B%9B%E8%AE%B2-%E4%B8%8D%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" rel="prev" title="第四讲 不完全信息静态博弈">
-                  <i class="fa fa-chevron-left"></i> 第四讲 不完全信息静态博弈
+                <a href="/doge-liang-notebook/post/article/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="prev" title="现代操作系统">
+                  <i class="fa fa-chevron-left"></i> 现代操作系统
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" rel="next" title="第二讲 完全信息静态博弈">
-                  第二讲 完全信息静态博弈 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC%E5%9B%9B%E8%AE%B2-%E4%B8%8D%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" rel="next" title="第四讲 不完全信息静态博弈">
+                  第四讲 不完全信息静态博弈 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

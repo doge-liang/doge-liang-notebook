@@ -958,7 +958,7 @@ flip 写模式 -&gt; 读模式；</p>
 <p>程序启动后我们可以使用 <code>jstack</code> 工具查看线程快照，线程快照中包含每个线程瞬时的方法调用栈，当程序死锁是可以使用该工具分析线程死锁的原因；<br>
 对以上程序我们会看到不止两个线程： <code>Thread-0</code> 是我们启动的线程， <code>main</code> 是主线程。另外还有一些守护线程，比如垃圾回收线程、 RMI 线程等。</p>
 <h3 id="线程的生命周期">线程的生命周期</h3>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/ac9ce161217ecb048e6b183f8a2217bf22eac0027f3f3f7f356aec4f9fc04932.png" alt="picture 7"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/ac9ce161217ecb048e6b183f8a2217bf22eac0027f3f3f7f356aec4f9fc04932.png" alt="picture 7"></p>
 <p>线程的生命周期大致分为五个阶段：</p>
 <ul>
 <li>NEW：没有调用 <code>start()</code> 方法启动该线程，那么线程的状态为 NEW 状态；</li>
@@ -1023,18 +1023,18 @@ flip 写模式 -&gt; 读模式；</p>
 <h4 id="线程与-JVM-虚拟机栈">线程与 JVM 虚拟机栈</h4>
 <p>在 Thread 的构造函数中，有一个带有 <code>stackSize</code> 参数的，这个参数越大，代表着线程能递归调用的深度就越深， <code>stackSize</code> 越小就越能创建更多的线程；这个参数一般不用在程序中设置，统一通过 <code>xss</code> 参数设置即可，或者使用默认值 0。</p>
 <p>JVM 的内存划分大致如下图：</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/f971aea4f5f0bb4ec2bf9c5a118e4f2222524313cceb0bb0e6eba39de32edf60.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/f971aea4f5f0bb4ec2bf9c5a118e4f2222524313cceb0bb0e6eba39de32edf60.png" alt="picture 1"></p>
 <p>其中浅色的三块内存区域是每个线程独立拥有的，互相不干扰。</p>
 <h5 id="程序计数器-PC">程序计数器 PC</h5>
 <p>无论什么语言，最终都是通过操作系统的控制总线发送机器指令给 CPU 执行。程序计数器就是用于存放当前线程接下来要执行的字节码指令、分支、循环、跳转、异常处理等。每一个时刻， CPU 的一个核心都只会处理一条指令，所以每个线程都需要有独立的程序计数器，用于记录各自的执行点，以便于 CPU 在切换上下文后恢复到上一次的执行点开始下一次执行，线程间互不干扰。</p>
 <h5 id="虚拟机栈">虚拟机栈</h5>
 <p>虚拟机栈和程序计数器类似，也是 <strong>线程私有</strong> 的，生命周期与线程相同，是在 JVM <strong>运行时</strong> 创建的。在线程中，方法在执行的时候都会创建一个名为栈帧（stack frame）的数据结构，这个数据结构主要用于存放 <strong>局部变量表</strong> 、 <strong>操作栈</strong> 、 <strong>动态链接</strong> 、 <strong>方法出口</strong> 等信息。方法的调用过程对应着栈帧的弹栈和压栈的过程，所以递归深度越深，程序不断地压栈而迟迟不弹栈，虚拟机栈就会爆掉，发生 <code>StackOverflowException</code> 。每一个线程在创建的时候，JVM 都会为其创建对应的虚拟机栈，虚拟机栈的大小可以通过 <code>-xss</code> 来配置。</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/5ed02adcf6b755f0c3b02c6450ea14d062b42455a06bcf69fa1e2973ecc5a2bc.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/5ed02adcf6b755f0c3b02c6450ea14d062b42455a06bcf69fa1e2973ecc5a2bc.png" alt="picture 2"></p>
 <h5 id="本地方法栈">本地方法栈</h5>
 <p>Java 中提供了调用本地方法的接口，即 JNI (Java Native Interface) 也就是 C/C++ 程序，Java 为本地方法划分的内存区域便是本地方法区，这块内存区域有很高的自由度， JVM 规范也没有做过多的限制，完全由各个 JVM 厂商自己实现，同样是 <strong>线程私有</strong> 的内存区域。常见的用到了 JNI 的方法有，网络通信、文件操作的底层、String 的 <code>intern</code> 等。</p>
 <h5 id="堆内存">堆内存</h5>
 <p>堆内存是 JVM 中最大的一块内存，被所有 <strong>线程共享</strong> ，在运行期间创建的所有对象几乎都在这个区域，也是垃圾回收机制重点作用的区域，有时候又叫 GC 堆。堆内存还会被划分为更细的新生代、老年代两块，新生代还能细分，这些细分都是为了制定垃圾收集策略方便而设置的。</p>
-<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/9a6698d1909b6a2a8df0a01efc6ef652e91e2b917e948be060885f53e102f58d.png" alt="picture 3"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86%E7%BA%BF%E7%A8%8B/9a6698d1909b6a2a8df0a01efc6ef652e91e2b917e948be060885f53e102f58d.png" alt="picture 3"></p>
 <h5 id="方法区">方法区</h5>
 <p>方法区是多个 <strong>线程共享</strong> 的区域，他的生命周期在线程之前，主要用于存储已经被虚拟机加载的类的信息、常量、静态变量、即时编译器 JIT 编译的代码等数据。在 Java 虚拟机规范中，将方法区划分为堆内存的一个逻辑分区，这意味着方法区也会发生 GC 。在 HotSpot JVM 中，方法区还会被细划分为持久代和代码缓存区，代码缓存区主要用于存储编译后的本地代码（和硬件相关）以及 JIT（Just In Time）编译器生成的代码，当然不同的 JVM 会有不同的实现。</p>
 <h5 id="JDK1-8-元空间">JDK1.8 元空间</h5>
@@ -1353,11 +1353,11 @@ flip 写模式 -&gt; 读模式；</p>
 <li>密文 $m$ 传输到 $B$ 处， $B$ 通过 $PriK_B$ 对消息解密回 $M_A$；</li>
 <li>然后 $B$ 使用 $PubK_A$ 对消息 $M_A$ 进行校验；</li>
 </ol>
-<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/58d3f5e4fe8d8673a7b2b30572e1c20701628353a7d496cb4d06e35cbca28543.png" alt="picture 4"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/58d3f5e4fe8d8673a7b2b30572e1c20701628353a7d496cb4d06e35cbca28543.png" alt="picture 4"></p>
 <p>上述过程安全的保证来自于， $A$ 和 $B$ 的私钥是各自持有，不为第三方所知。$A$ $B$ 间可以约定一个固定的字符串，$A$ 使用 $A$ 的私钥对该字符串进行加密，然后将该字符串的密文附加在消息中，这串密文的作用类似于签名。 $B$ 收到该密文后，可以使用 $A$ 的公钥解密，校验该字符串是否为约定的字符串，这便可以校验签名是否为 $A$ 的。</p>
 <p>一般来说，我们说加密能保证消息的机密性，签名能防止篡改，但是如果顺序不对还是会产生攻击的漏洞。</p>
 <p>看这种情况：</p>
-<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/3551efd2bd512906f97b97d2dc7a174e3f3f4c1bad5300a22400160ca94d88dd.png" alt="picture 6"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E6%9D%82/%E7%AD%BE%E5%90%8D%E5%92%8C%E5%8A%A0%E5%AF%86%E9%A1%BA%E5%BA%8F/3551efd2bd512906f97b97d2dc7a174e3f3f4c1bad5300a22400160ca94d88dd.png" alt="picture 6"></p>
 <p>从上图可知，先签名后加密的话，存在中间人攻击的风险。</p>
 <p>虽然存在风险，但如果这种风险能够被消解，那么先加密后签名的方案也是可行的。</p>
 <p>中间人攻击能够成功的前提是：</p>
@@ -1463,7 +1463,7 @@ flip 写模式 -&gt; 读模式；</p>
 <p>以 Windows 登录过程来引入，当用户按下 <code>Ctrl</code> + <code>Alt</code> + <code>Del</code> 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTLM 服务沟通。 LSA 根据用户输入的 UPN 等信息会事先把身份认证请求传到 Kerberos SSP 中。</p>
 <p>Kerberos SSP 验证用户登入目标是本地计算机还是域，如果是域则继续向下处理，如果是本地计算机则会向 SSPI 返回一条错误消息， SSPI 将这个任务交回给 GINA 处理。</p>
 <p>SSPI 现在发送请求到下一个安全提供程序，NTLM 。NTLM SSP 会将请求交给 Netlogon 服务针对 LSAM (Local Security Account Manager，本地安全账户管理器)数据库进行身份认证。使用 NTLM SSP 的身份认证过程与 Windows NT 系统的身份认证方法是相同的。</p>
-<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2"></p>
 <h3 id="基础概述">基础概述</h3>
 <ul>
 <li>一个思想：Kerberos 认证只做认证，不鉴权，鉴权是服务账户所做的；</li>

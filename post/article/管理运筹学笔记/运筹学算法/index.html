@@ -28,20 +28,20 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="单纯形法 基本思路： 找出一个基本可行解 $\to$ 检验是否为最优解 $\to$ 更换基变量 $\to$ 迭代以上步骤 基于线性规划标准化后可以写成：(S 为松弛变量或者调整变量) $$ \begin{aligned} max  \quad \boldsymbol{CX} &#x3D; 0, \ s.t  \quad \boldsymbol{AX} + \boldsymbol{S} &#x3D; \boldsymb">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2b6082cb8aa8d8f824ab3e94713da37530f2cdcb839ee47b2a968341724dd3e2.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/35769bd990cf01859e57a2a61f69121b112f3c08f2599aada99f8434b3e94643.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/fc14d277fa4031a8f9e1ee6d0c5ad2fc3a5bcfa01b6973cf624575de6d8a01e8.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/8e66a1be01101055337c3b9ce75fe38327885dfbd1dde5936b89df3c22b82a47.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/e82e721588aa6a06ee93125c9016b1850486b436c39cf0442ac656b2f8883b89.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2a386d26d31dd9294f20a61987b440a4d99d71ab64be67f3bd796f6a22e8bf29.png">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/dee078a557a33eb176e0fe7e865626ea8dcb99bf96c4eaac5316588347f375b7.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2b6082cb8aa8d8f824ab3e94713da37530f2cdcb839ee47b2a968341724dd3e2.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/35769bd990cf01859e57a2a61f69121b112f3c08f2599aada99f8434b3e94643.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/fc14d277fa4031a8f9e1ee6d0c5ad2fc3a5bcfa01b6973cf624575de6d8a01e8.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/8e66a1be01101055337c3b9ce75fe38327885dfbd1dde5936b89df3c22b82a47.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/e82e721588aa6a06ee93125c9016b1850486b436c39cf0442ac656b2f8883b89.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2a386d26d31dd9294f20a61987b440a4d99d71ab64be67f3bd796f6a22e8bf29.png">
+<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/dee078a557a33eb176e0fe7e865626ea8dcb99bf96c4eaac5316588347f375b7.png">
 <meta property="article:published_time" content="2020-02-01T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.259Z">
 <meta property="article:author" content="doge-liang">
 <meta property="article:tag" content="线性规划-单纯形解法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AE%97%E6%B3%95/">
@@ -290,9 +290,9 @@ $\boldsymbol{A}$中除了基$\boldsymbol{B}$之外的向量为非基向量。</l
 <li>再进行最优性检验，直至无最优解为止。</li>
 </ol>
 <p><strong>单纯形法的表格表示：</strong><br>
-<img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png" alt="picture 31"></p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2b6082cb8aa8d8f824ab3e94713da37530f2cdcb839ee47b2a968341724dd3e2.png" alt="picture 32"></p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/35769bd990cf01859e57a2a61f69121b112f3c08f2599aada99f8434b3e94643.png" alt="picture 34"></p>
+<img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/3bc922d5b00a18764474035b3a8ee59e5953b91680248370a810c4d987e524b4.png" alt="picture 31"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2b6082cb8aa8d8f824ab3e94713da37530f2cdcb839ee47b2a968341724dd3e2.png" alt="picture 32"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/35769bd990cf01859e57a2a61f69121b112f3c08f2599aada99f8434b3e94643.png" alt="picture 34"></p>
 <p>上面用圈圈住的的$a_{ij}$表示的是出基变量和入基变量的行列交叉系数。<br>
 最后一个迭代步骤的结果，得到的检验数都小于等于 0，说明到了最优的情况了。</p>
 <p><strong>求目标函数值最小的线性规划问题：</strong></p>
@@ -302,10 +302,10 @@ $\boldsymbol{A}$中除了基$\boldsymbol{B}$之外的向量为非基向量。</l
 出单位矩阵，然后对于人工变量，我们要求将他们尽早出基，于是便在目标函数中，<br>
 添加一个$-M$系数，$M$为一个尽可能大的数。这样使得它们对于目标函数有尽量大的<br>
 负面影响。</p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/fc14d277fa4031a8f9e1ee6d0c5ad2fc3a5bcfa01b6973cf624575de6d8a01e8.png" alt="picture 35"></p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/8e66a1be01101055337c3b9ce75fe38327885dfbd1dde5936b89df3c22b82a47.png" alt="picture 37"></p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/e82e721588aa6a06ee93125c9016b1850486b436c39cf0442ac656b2f8883b89.png" alt="picture 36"></p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2a386d26d31dd9294f20a61987b440a4d99d71ab64be67f3bd796f6a22e8bf29.png" alt="picture 38"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/fc14d277fa4031a8f9e1ee6d0c5ad2fc3a5bcfa01b6973cf624575de6d8a01e8.png" alt="picture 35"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/8e66a1be01101055337c3b9ce75fe38327885dfbd1dde5936b89df3c22b82a47.png" alt="picture 37"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/e82e721588aa6a06ee93125c9016b1850486b436c39cf0442ac656b2f8883b89.png" alt="picture 36"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/2a386d26d31dd9294f20a61987b440a4d99d71ab64be67f3bd796f6a22e8bf29.png" alt="picture 38"></p>
 <p><strong>2.两阶段法</strong><br>
 <strong>第一阶段：</strong><br>
 判断原线性规划问题是否有基本可行解：<br>
@@ -352,7 +352,7 @@ $$\boldsymbol{x’<em>B} = \boldsymbol{x_B} + B^{-1}\Delta b_k = (x</em>{B1},…
 常数项增加一单位，对目标的影响程度称为对偶价格，在单纯形表中体现为$z_i$。<br>
 影子价格：<br>
 对于剩余变量而言，常数项增加一单位，对目标有恶化作用，恶化程度称为影子价格，是对偶价格的相反数。</p>
-<p><img src="../../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/dee078a557a33eb176e0fe7e865626ea8dcb99bf96c4eaac5316588347f375b7.png" alt="picture 39"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0/%E7%AE%A1%E7%90%86%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95/dee078a557a33eb176e0fe7e865626ea8dcb99bf96c4eaac5316588347f375b7.png" alt="picture 39"></p>
 <p>通过要求最优解的大于等于 0 约束得到：<br>
 $$ max{ -\frac{x*{Bi}}{d’*{ik}} | d’<em>{ik} \lt 0 } \le \Delta b_k \le min {- \frac{x</em>{Bi}}{d’<em>{ik}} | d’</em>{ik} \lt 0 }.$$</p>
 <h5 id="系数矩阵-A-的灵敏度分析">系数矩阵 A 的灵敏度分析</h5>

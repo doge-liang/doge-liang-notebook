@@ -28,12 +28,12 @@
 <meta property="og:site_name" content="doge-liang-notebook">
 <meta property="og:description" content="Kerberos 认证 引导 以 Windows 登录过程来引入，当用户按下 Ctrl + Alt + Del 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTL">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png">
 <meta property="article:published_time" content="2022-07-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
 <meta property="article:author" content="doge-liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doge-liang.github.io/doge-liang-notebook/post/assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png">
+<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png">
 
 
 <link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/kerberos%E8%AE%A4%E8%AF%81/">
@@ -253,7 +253,7 @@
 <p>以 Windows 登录过程来引入，当用户按下 <code>Ctrl</code> + <code>Alt</code> + <code>Del</code> 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTLM 服务沟通。 LSA 根据用户输入的 UPN 等信息会事先把身份认证请求传到 Kerberos SSP 中。</p>
 <p>Kerberos SSP 验证用户登入目标是本地计算机还是域，如果是域则继续向下处理，如果是本地计算机则会向 SSPI 返回一条错误消息， SSPI 将这个任务交回给 GINA 处理。</p>
 <p>SSPI 现在发送请求到下一个安全提供程序，NTLM 。NTLM SSP 会将请求交给 Netlogon 服务针对 LSAM (Local Security Account Manager，本地安全账户管理器)数据库进行身份认证。使用 NTLM SSP 的身份认证过程与 Windows NT 系统的身份认证方法是相同的。</p>
-<p><img src="../../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2"></p>
 <h3 id="基础概述">基础概述</h3>
 <ul>
 <li>一个思想：Kerberos 认证只做认证，不鉴权，鉴权是服务账户所做的；</li>
@@ -278,8 +278,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/" rel="prev" title="多线程实现">
-                  <i class="fa fa-chevron-left"></i> 多线程实现
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="prev" title="多线程">
+                  <i class="fa fa-chevron-left"></i> 多线程
                 </a>
             </div>
             <div class="post-nav-item">

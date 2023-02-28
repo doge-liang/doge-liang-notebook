@@ -395,7 +395,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="设计模式概述">设计模式概述</h2>
-<p><img src="../../../assets/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/ccd737c8282ebc3641ae178e4c6be47a480b52e300456d011bcd60a765d00bee.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../assets/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/ccd737c8282ebc3641ae178e4c6be47a480b52e300456d011bcd60a765d00bee.png" alt="picture 1"></p>
 
       
     </div>
@@ -613,20 +613,20 @@
 <h3 id="概述">概述</h3>
 <p>传统神经网络在处理这一时刻的信息时，结果不会受到过去输入的信息的影响。举一个不恰当的例子，想象一下，我们在阅读文章的时候结合上下文才更能理解文章的含义，所以后来提出了递归神经网络（RNNs），来解决这一问题。</p>
 <p>RNNs 的网络结构如下：</p>
-<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/4ed4ff5e45d8667ebf6299f7801d4b3f33ac819556f171d1e24cba01588e4d6d.png" alt="picture 50"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/4ed4ff5e45d8667ebf6299f7801d4b3f33ac819556f171d1e24cba01588e4d6d.png" alt="picture 50"></p>
 <p>将其展开等价于一个将历史信息不断地往后传递，每一时刻的信息都将影响下一次预测结果：</p>
-<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/f33e1667d4b4133afeddd9573fd9dba61933a2e5e2ac8af21235a1eec447fdd0.png" alt="picture 51"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/f33e1667d4b4133afeddd9573fd9dba61933a2e5e2ac8af21235a1eec447fdd0.png" alt="picture 51"></p>
 <p>由于 RNNs 具有记忆的特性，对于前后相关联信息的学习任务有较重要的应用，比如：语音识别、语言模型、机器翻译等；</p>
 <p>但是随着 RNNs 网络的深入应用，长时依赖问题（Long Term Dependencies problem）被发现了；</p>
 <h3 id="长时依赖问题">长时依赖问题</h3>
 <p>当我们在进行语句最后一个字的预测时：the clouds are in the sky。 RNNs 能够很好地解决这个问题，距离较短的数据对结果的影响还没被冲淡。</p>
-<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/b056de3de52d546896b6fe632f77f080f054f0ba29803b3069a29894a8f9c86b.png" alt="picture 52"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/b056de3de52d546896b6fe632f77f080f054f0ba29803b3069a29894a8f9c86b.png" alt="picture 52"></p>
 <p>但面对间隔比较长的预测问题时， RNNs 就开始变弱了，可以理解为在很久以前的事情到现在已经记不清了，所以无法对现在的状况进行有效的预判；</p>
-<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/41c9d8c4c787822152d8510454ce5b74f953a36b61a23c6d7c246102ad99337d.png" alt="picture 53"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/41c9d8c4c787822152d8510454ce5b74f953a36b61a23c6d7c246102ad99337d.png" alt="picture 53"></p>
 <p>而长短期记忆网络模型（LSTMs）被设计出来，用于解决这个问题。</p>
 <p>长短期记忆能够记住较长时刻的信息，而不损失短期信息的记忆，并会过滤过长时刻的记忆。</p>
 <h3 id="LSTMs-网络结构">LSTMs 网络结构</h3>
-<p><img src="../../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/7ce63cf49c80ed18138b8bb25f5af7349e9abd797167640f2dbe6976fc13b451.png" alt="picture 54"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/LSTM%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/7ce63cf49c80ed18138b8bb25f5af7349e9abd797167640f2dbe6976fc13b451.png" alt="picture 54"></p>
 <p>（作用原理还没弄清楚，等我学了更多的神经网络的知识在更新）<br>
 <a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs379c/archive/2018/class_messages_listing/content/Artificial_Neural_Network_Technology_Tutorials/OlahLSTM-NEURAL-NETWORK-TUTORIAL-15.pdf">参考资料</a></p>
 
@@ -926,8 +926,8 @@
 <p>但随着软件系统越来越复杂，软件开发需要多人协作来完成了，那么拘束在本地的版本控制系统无法满足在不同系统间的版本管理了。所以中心化的版本管理诞生了。</p>
 <h3 id="中心化的版本控制系统（CVCS）">中心化的版本控制系统（CVCS）</h3>
 <p>为了处理多机协作的问题，中心化的版本控制系统被开发出来了，使用一台独立的服务器保存版本文件，多个客户端通过访问这个共享的版本服务器完成版本管理。像 CVS ， Subversion 和 Perforce 等软件都是 CVCS 。 CVCS 作为版本管理系统的标准持续了多年。</p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1"></p>
-<p><img src="../../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/0ec01f8a271a49a67b3ad21c1e95c52f56b3b8f3a3e65eb5740d7fbf9f899ed6.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/git/git%20%E7%AE%80%E4%BB%8B/539cd4d36127bff948a55f71ba6efe2acaba9c1dd4b4703da9314f4879b73517.png" alt="picture 2"></p>
 
       
     </div>
@@ -1035,7 +1035,7 @@
 </ol>
 <h3 id="规划初始网络拓扑">规划初始网络拓扑</h3>
 <p>示例网络拓扑结构如图：</p>
-<p><img src="../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/7d2ba45fa2972f19cecc140c1fd280702c0c7387d76d6e5edf1d83589c6d6a48.png" alt="picture 1"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/7d2ba45fa2972f19cecc140c1fd280702c0c7387d76d6e5edf1d83589c6d6a48.png" alt="picture 1"></p>
 <p>构成要素：</p>
 <ul>
 <li>3 个排序节点</li>
@@ -1053,7 +1053,7 @@
 <li>新建应用通道交易文件( <code>businesschannel.tx</code> )</li>
 <li>锚节点配置更新交易文件( <code>Org2MSPanchors.tx</code> 和 <code>Org2MSPanchors.tx</code> )</li>
 </ul>
-<p><img src="../../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/84a6bcf5b0d6805398efbebcfe616f64f1856081b2bbaab0738f43a6ad49e60a.png" alt="picture 7"></p>
+<p><img src="/doge-liang-notebook/.io//../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%20%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E6%96%B9%E5%BC%8F%EF%BC%89/84a6bcf5b0d6805398efbebcfe616f64f1856081b2bbaab0738f43a6ad49e60a.png" alt="picture 7"></p>
 <p>下面开始生成上述五类配置文件。</p>
 <h4 id="生成组织关系和身份证书">生成组织关系和身份证书</h4>
 <p>联盟链的成员之间通过身份进行识别，网络通过身份来限制资源的访问，所以所有的成员需要事先准备对应的身份文件，并部署到其所拥有的节点和客户端上。</p>
