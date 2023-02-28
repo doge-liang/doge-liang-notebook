@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。 攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。 防御策略  验证 HTTP Referer 字段； 在受限">
+    <meta name="description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。  攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。  防御策略  验证 HTTP Referer 字段；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSRF">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/csrf/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。 攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。 防御策略  验证 HTTP Referer 字段； 在受限">
+<meta property="og:description" content="CSRF 跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。  攻击原理  从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。  防御策略  验证 HTTP Referer 字段；">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png">
 <meta property="article:published_time" content="2022-06-04T16:00:00.000Z">
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-number">1.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">攻击原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.</span> <span class="nav-text">防御策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-Referer-%E5%AD%97%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTTP Referer 字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#token-%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">token 验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.3.</span> <span class="nav-text">请求头验证</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csrf"><span class="nav-number">1.</span> <span class="nav-text"> CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text"> 攻击原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.</span> <span class="nav-text"> 防御策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http-referer-%E5%AD%97%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text"> HTTP Referer 字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#token-%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.2.</span> <span class="nav-text"> token 验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 请求头验证</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,18 +248,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="CSRF">CSRF</h2>
+        <h2 id="csrf"><a class="markdownIt-Anchor" href="#csrf"></a> CSRF</h2>
 <p>跨站请求伪造 Cross-site request forgery ，也被称为 one-click attack 或者 session riding 通常缩写为 CSRF 或者 XSRF。</p>
-<h3 id="攻击原理">攻击原理</h3>
+<h3 id="攻击原理"><a class="markdownIt-Anchor" href="#攻击原理"></a> 攻击原理</h3>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB/CSRF/e5392f3403aa751c5a87b8b86a1d833a4edbc32b7d8b8bd12e78cdb6f335ed51.png" alt="picture 1"></p>
 <p>从上述攻击原理图可以看出， CSRF 攻击的原因在于网站 A （受攻击网站）单凭 Cookie 无法得知用户的浏览器是否可信任。</p>
-<h3 id="防御策略">防御策略</h3>
+<h3 id="防御策略"><a class="markdownIt-Anchor" href="#防御策略"></a> 防御策略</h3>
 <ol>
 <li>验证 HTTP Referer 字段；</li>
 <li>在受限请求地址中添加 token 并验证；</li>
 <li>在 HTTP 头中自定义属性并验证；</li>
 </ol>
-<h4 id="HTTP-Referer-字段">HTTP Referer 字段</h4>
+<h4 id="http-referer-字段"><a class="markdownIt-Anchor" href="#http-referer-字段"></a> HTTP Referer 字段</h4>
 <p>在 HTTP 协议中，有一个请求头字段叫 Referer 这个字段记录了该 HTTP 请求的来源地址（比如在 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 中点击超链接到 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> ，那么发送到 baidu 服务器的请求中 Referer 中就是 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> ），服务器可以校验该字段是否为自己域名下的，来判断该请求的来源是否合法；</p>
 <ul>
 <li>优点：对于网站开发人员来说，简单易操作，只要给所有的接口添加一个统一的拦截器，校验 Referer 字段是否为当前域名的即可；</li>
@@ -270,7 +270,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="token-验证">token 验证</h4>
+<h4 id="token-验证"><a class="markdownIt-Anchor" href="#token-验证"></a> token 验证</h4>
 <p>由于 CSRF 发生原理是由于攻击者可以在用户的浏览器端伪造请求欺骗受害网站，所以我们可以验证浏览器的请求中是否有 token 来判断请求是否伪造的。这个 token 不能放在 Cookie 中，需要在用户登录的是否随机生成，放在服务器的 session 中，并在每次请求中以参数的形式返回给用户，并隐藏起来。</p>
 <ul>
 <li>优点：比 Referer 更加安全；</li>
@@ -282,7 +282,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="请求头验证">请求头验证</h4>
+<h4 id="请求头验证"><a class="markdownIt-Anchor" href="#请求头验证"></a> 请求头验证</h4>
 <p>该方法也是使用 token 防止黑客篡改，只不过 token 不是在参数中传输，而是在请求头中传输；</p>
 <ul>
 <li>优点：

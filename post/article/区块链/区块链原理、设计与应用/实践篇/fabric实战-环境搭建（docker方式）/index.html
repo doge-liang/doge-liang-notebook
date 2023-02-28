@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Fabric 实战-环境搭建（Docker 方式） 安装 Docker  确保 Linux 内核在 3.2 以上，以及依赖已经更新。  卸载旧的 docker： 12345678910sudo apt-get remove docker \        docker-client \        docker-client-latest \        docker-common \">
+    <meta name="description" content="Fabric 实战-环境搭建（Docker 方式）  安装 Docker  确保 Linux 内核在 3.2 以上，以及依赖已经更新。  卸载旧的 docker： 12345678910sudo apt-get remove docker \        docker-client \        docker-client-latest \        docker-common \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric实战-环境搭建（Docker方式）">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88docker%E6%96%B9%E5%BC%8F%EF%BC%89/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Fabric 实战-环境搭建（Docker 方式） 安装 Docker  确保 Linux 内核在 3.2 以上，以及依赖已经更新。  卸载旧的 docker： 12345678910sudo apt-get remove docker \        docker-client \        docker-client-latest \        docker-common \">
+<meta property="og:description" content="Fabric 实战-环境搭建（Docker 方式）  安装 Docker  确保 Linux 内核在 3.2 以上，以及依赖已经更新。  卸载旧的 docker： 12345678910sudo apt-get remove docker \        docker-client \        docker-client-latest \        docker-common \">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-12T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.261Z">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fabric-%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Docker-%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">Fabric 实战-环境搭建（Docker 方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Docker"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-docker-composer"><span class="nav-number">1.2.</span> <span class="nav-text">安装 docker-composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Docker-%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.</span> <span class="nav-text">获取 Docker 镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E-Dokerhub-%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">从 Dokerhub 获取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Dockerfile-%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用 Dockerfile 生成镜像</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fabric-%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAdocker-%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text"> Fabric 实战-环境搭建（Docker 方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-docker"><span class="nav-number">1.1.</span> <span class="nav-text"> 安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-docker-composer"><span class="nav-number">1.2.</span> <span class="nav-text"> 安装 docker-composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-docker-%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.</span> <span class="nav-text"> 获取 Docker 镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E-dokerhub-%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 从 Dokerhub 获取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-dockerfile-%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 使用 Dockerfile 生成镜像</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -251,8 +251,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Fabric-实战-环境搭建（Docker-方式）">Fabric 实战-环境搭建（Docker 方式）</h2>
-<h3 id="安装-Docker">安装 Docker</h3>
+        <h2 id="fabric-实战-环境搭建docker-方式"><a class="markdownIt-Anchor" href="#fabric-实战-环境搭建docker-方式"></a> Fabric 实战-环境搭建（Docker 方式）</h2>
+<h3 id="安装-docker"><a class="markdownIt-Anchor" href="#安装-docker"></a> 安装 Docker</h3>
 <blockquote>
 <p>确保 Linux 内核在 3.2 以上，以及依赖已经更新。</p>
 </blockquote>
@@ -278,9 +278,9 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>重载重启 docker 以应用设置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h3 id="安装-docker-composer">安装 docker-composer</h3>
+<h3 id="安装-docker-composer"><a class="markdownIt-Anchor" href="#安装-docker-composer"></a> 安装 docker-composer</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 pip</span></span><br><span class="line">sudo apt install python-pip</span><br><span class="line"><span class="comment"># 更新 pip</span></span><br><span class="line">sudo pip install --upgrade pip</span><br><span class="line"><span class="comment"># 安装 docker-composer</span></span><br><span class="line">sudo pip install docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果报错了就用 pip3</span></span><br><span class="line">sudo apt install pip3</span><br><span class="line">sudo pip3 install --upgrade pip</span><br><span class="line">sudo pip3 install docker-compose</span><br></pre></td></tr></table></figure>
-<h3 id="获取-Docker-镜像">获取 Docker 镜像</h3>
+<h3 id="获取-docker-镜像"><a class="markdownIt-Anchor" href="#获取-docker-镜像"></a> 获取 Docker 镜像</h3>
 <p>fabric 相关的镜像有十几个，可以氛围三大类：核心镜像、辅助镜像和第三方镜像。</p>
 <p>核心镜像提供 Fabric 网络运行的核心功能，包括：</p>
 <ul>
@@ -307,9 +307,9 @@ tools 安装了 bash 、 jq 、 peer 、 cryptogen 、 configtxgen 等常见命�
 <li>fabric-zookeeper</li>
 </ul>
 <p>以上镜像除了 couchdb 以外，其余的都在 2.x 版本停用了。</p>
-<h4 id="从-Dokerhub-获取镜像">从 Dokerhub 获取镜像</h4>
+<h4 id="从-dokerhub-获取镜像"><a class="markdownIt-Anchor" href="#从-dokerhub-获取镜像"></a> 从 Dokerhub 获取镜像</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ARCH=amd64</span><br><span class="line">BASEIMAGE_RELEASE=0.4.18</span><br><span class="line">LATEST=latest</span><br><span class="line">CA_RELEASE=1.5</span><br><span class="line">PROJECT_VERSION=2.0.0</span><br><span class="line">TWO_DIGIT_VERSION=2.0</span><br><span class="line"></span><br><span class="line">sudo docker pull hyperledger/fabric-peer:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-orderer:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-ca:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-tools:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-ccenv:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-baseimage:<span class="variable">$LATEST</span> \</span><br><span class="line">&amp;&amp; sudo docker pull hyperledger/fabric-baseos:<span class="variable">$LATEST</span></span><br></pre></td></tr></table></figure>
-<h4 id="使用-Dockerfile-生成镜像">使用 Dockerfile 生成镜像</h4>
+<h4 id="使用-dockerfile-生成镜像"><a class="markdownIt-Anchor" href="#使用-dockerfile-生成镜像"></a> 使用 Dockerfile 生成镜像</h4>
 <p>待更新。。。</p>
 
     </div>
@@ -327,8 +327,8 @@ tools 安装了 bash 、 jq 、 peer 、 cryptogen 、 configtxgen 等常见命�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E4%B9%A6%E5%8D%95/linux-%E5%AD%A6%E4%B9%A0%E4%B9%A6%E5%8D%95/" rel="prev" title="Linux 学习书单">
-                  <i class="fa fa-chevron-left"></i> Linux 学习书单
+                <a href="/doge-liang-notebook/post/article/%E4%B9%A6%E5%8D%95/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%A6%E5%8D%95/" rel="prev" title="软件工程书单">
+                  <i class="fa fa-chevron-left"></i> 软件工程书单
                 </a>
             </div>
             <div class="post-nav-item">

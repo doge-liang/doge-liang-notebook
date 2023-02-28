@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="动态规划 动态规划问题：多阶段决策，通过多个阶段的决策最后得到的效益（损失），通过每个阶段选择合适的决策，最终得到最优的结果，这样的问题称之为多阶段决策问题。 状态：每个阶段的决策都会产生一个状态，每个阶段的状态都会影响到下一个阶段的初始状态。 决策：每个阶段所选择的方案。 决策和状态共同影响着该阶段的效益。 从每个阶段的状态都会影响到下一个阶段的状态来看，这其实满足一个递归问题的条件。 将递归问">
+    <meta name="description" content="动态规划 动态规划问题：多阶段决策，通过多个阶段的决策最后得到的效益（损失），通过每个阶段选择合适的决策，最终得到最优的结果，这样的问题称之为多阶段决策问题。 状态：每个阶段的决策都会产生一个状态，每个阶段的状态都会影响到下一个阶段的初始状态。 决策：每个阶段所选择的方案。 决策和状态共同影响着该阶段的效益。 从每个阶段的状态都会影响到下一个阶段的状态来看，这其实满足一个递归问题的条件。 将递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="动态规划 动态规划问题：多阶段决策，通过多个阶段的决策最后得到的效益（损失），通过每个阶段选择合适的决策，最终得到最优的结果，这样的问题称之为多阶段决策问题。 状态：每个阶段的决策都会产生一个状态，每个阶段的状态都会影响到下一个阶段的初始状态。 决策：每个阶段所选择的方案。 决策和状态共同影响着该阶段的效益。 从每个阶段的状态都会影响到下一个阶段的状态来看，这其实满足一个递归问题的条件。 将递归问">
+<meta property="og:description" content="动态规划 动态规划问题：多阶段决策，通过多个阶段的决策最后得到的效益（损失），通过每个阶段选择合适的决策，最终得到最优的结果，这样的问题称之为多阶段决策问题。 状态：每个阶段的决策都会产生一个状态，每个阶段的状态都会影响到下一个阶段的初始状态。 决策：每个阶段所选择的方案。 决策和状态共同影响着该阶段的效益。 从每个阶段的状态都会影响到下一个阶段的状态来看，这其实满足一个递归问题的条件。 将递归">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/doge-liang-notebook/assets/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/fa4c4a569823830a6953683c7fae4321de8c83909a85e5e3729d39223ebab942.png">
 <meta property="article:published_time" content="2020-09-07T16:00:00.000Z">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text"> 动态规划</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,7 +245,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="动态规划">动态规划</h2>
+        <h2 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h2>
 <p>动态规划问题：多阶段决策，通过多个阶段的决策最后得到的效益（损失），通过每个阶段选择合适的决策，最终得到最优的结果，这样的问题称之为多阶段决策问题。</p>
 <p><strong>状态</strong>：每个阶段的决策都会产生一个状态，每个阶段的状态都会影响到下一个阶段的初始状态。<br>
 <strong>决策</strong>：每个阶段所选择的方案。<br>
@@ -254,7 +254,7 @@
 将递归问题画成递归树的形式，我们用递归算法来解决，实际上是一个自顶向下的过程，随着递归树的深入我们往往会发现越来越多的计算都是重复的，例如斐波那契数列的递归树：</p>
 <p><img src="/doge-liang-notebook/.io//../../assets/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/fa4c4a569823830a6953683c7fae4321de8c83909a85e5e3729d39223ebab942.png" alt="picture 55"></p>
 <p>图中重复的结点个数就是重复计算的次数。<br>
-我们可以使用带备忘的递归算法，将每次计算的结果用一个 <code>map</code> 或者 <code>dict</code> 保存起来，但这样做无非是用空间换了时间，实际上我们要计算第 $n$ 次递归的结果，只需要知道最近两次计算的结果就好了（对于斐波那契数列的计算），所以我们如果采用自底向上的计算方法，每次只保存需要的数据，我们就能将空间复杂度控制下来，而时间复杂度和带备忘的递归是一样的。这种计算方法就是动态规划。</p>
+我们可以使用带备忘的递归算法，将每次计算的结果用一个 <code>map</code> 或者 <code>dict</code> 保存起来，但这样做无非是用空间换了时间，实际上我们要计算第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 次递归的结果，只需要知道最近两次计算的结果就好了（对于斐波那契数列的计算），所以我们如果采用自底向上的计算方法，每次只保存需要的数据，我们就能将空间复杂度控制下来，而时间复杂度和带备忘的递归是一样的。这种计算方法就是动态规划。</p>
 
     </div>
 

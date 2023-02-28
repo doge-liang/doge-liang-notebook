@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Linux shell 脚本执行方法之间的异同 Linux shell 脚本的执行方式有很多，比如 source &lt;bash path&gt; 、 sh|bash &lt;bash path&gt; 、 . &lt;bash path&gt; 等等。 这些执行方式分为两类：  开启子 shell 执行脚本； 以当前 shell 作为环境执行脚本；  如果以子 shell 的方式执行脚本，那么">
+    <meta name="description" content="Linux shell 脚本执行方法之间的异同 Linux shell 脚本的执行方式有很多，比如 source &lt;bash path&gt; 、 sh|bash &lt;bash path&gt; 、 . &lt;bash path&gt; 等等。 这些执行方式分为两类：  开启子 shell 执行脚本； 以当前 shell 作为环境执行脚本；  如果以子 shell 的方式执行脚本，那">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux shell 脚本执行方法之间的异同">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Linux shell 脚本执行方法之间的异同 Linux shell 脚本的执行方式有很多，比如 source &lt;bash path&gt; 、 sh|bash &lt;bash path&gt; 、 . &lt;bash path&gt; 等等。 这些执行方式分为两类：  开启子 shell 执行脚本； 以当前 shell 作为环境执行脚本；  如果以子 shell 的方式执行脚本，那么">
+<meta property="og:description" content="Linux shell 脚本执行方法之间的异同 Linux shell 脚本的执行方式有很多，比如 source &lt;bash path&gt; 、 sh|bash &lt;bash path&gt; 、 . &lt;bash path&gt; 等等。 这些执行方式分为两类：  开启子 shell 执行脚本； 以当前 shell 作为环境执行脚本；  如果以子 shell 的方式执行脚本，那">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-29T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">1.</span> <span class="nav-text">Linux shell 脚本执行方法之间的异同</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-shell-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">1.</span> <span class="nav-text"> Linux shell 脚本执行方法之间的异同</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,7 +246,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Linux-shell-脚本执行方法之间的异同">Linux shell 脚本执行方法之间的异同</h2>
+        <h2 id="linux-shell-脚本执行方法之间的异同"><a class="markdownIt-Anchor" href="#linux-shell-脚本执行方法之间的异同"></a> Linux shell 脚本执行方法之间的异同</h2>
 <p>Linux shell 脚本的执行方式有很多，比如 <code>source &lt;bash path&gt;</code> 、 <code>sh|bash &lt;bash path&gt;</code> 、 <code>. &lt;bash path&gt;</code> 等等。</p>
 <p>这些执行方式分为两类：</p>
 <ol>

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="MSP 成员服务提供者 简介 MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。 具体来说，用户要想加入一个网络进行交易，需要满足以下条件：  拥有被信任的 CA 颁发的身份； 成为一个被网络成员认可和认可的 组织 的成员">
+    <meta name="description" content="MSP 成员服务提供者  简介 MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。 具体来说，用户要想加入一个网络进行交易，需要满足以下条件：  拥有被信任的 CA 颁发的身份； 成为一个被网络成员认可和认可的 组织 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MSP 成员服务提供者">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/msp-%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="MSP 成员服务提供者 简介 MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。 具体来说，用户要想加入一个网络进行交易，需要满足以下条件：  拥有被信任的 CA 颁发的身份； 成为一个被网络成员认可和认可的 组织 的成员">
+<meta property="og:description" content="MSP 成员服务提供者  简介 MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。 具体来说，用户要想加入一个网络进行交易，需要满足以下条件：  拥有被信任的 CA 颁发的身份； 成为一个被网络成员认可和认可的 组织 的">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/42c2719412b013108ddd074bac2351aed145979e59286659dbd0444252014d0f.png">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/e905af5fd5cacc68043ed9b7fe374adb2685be11bcbca4f4b16b8874a981911e.png">
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MSP-%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85"><span class="nav-number">1.</span> <span class="nav-text">MSP 成员服务提供者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSP-%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">MSP 域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0-MSP"><span class="nav-number">1.2.1.</span> <span class="nav-text">本地 MSP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E9%81%93-MSP"><span class="nav-number">1.2.2.</span> <span class="nav-text">通道 MSP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E5%92%8C-MSP"><span class="nav-number">1.3.</span> <span class="nav-text">组织和 MSP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E7%BB%84%E7%BB%87%E5%8D%95%E5%85%83%E5%92%8C-MSP"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">节点组织单元和 MSP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSP-%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.</span> <span class="nav-text">MSP 结构</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#msp-%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85"><span class="nav-number">1.</span> <span class="nav-text"> MSP 成员服务提供者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#msp-%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text"> MSP 域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0-msp"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 本地 MSP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E9%81%93-msp"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 通道 MSP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E5%92%8C-msp"><span class="nav-number">1.3.</span> <span class="nav-text"> 组织和 MSP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E7%BB%84%E7%BB%87%E5%8D%95%E5%85%83%E5%92%8C-msp"><span class="nav-number">1.3.0.1.</span> <span class="nav-text"> 节点组织单元和 MSP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#msp-%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.</span> <span class="nav-text"> MSP 结构</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,8 +250,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="MSP-成员服务提供者">MSP 成员服务提供者</h2>
-<h3 id="简介">简介</h3>
+        <h2 id="msp-成员服务提供者"><a class="markdownIt-Anchor" href="#msp-成员服务提供者"></a> MSP 成员服务提供者</h2>
+<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
 <p>MSP（成员服务提供者）是一种机制，他为区块链网络内的组织成员提供身份认证的功能。因为 Fabric 是一个认证性的网络，网络中的通信和交易是建立在可信身份的基础上的。他让用户不用暴露自己的私钥而能够让网络中的成员识别他的身份。</p>
 <p>具体来说，用户要想加入一个网络进行交易，需要满足以下条件：</p>
 <ol>
@@ -260,18 +260,18 @@
 <li>将 MSP 添加到网络上的一个联盟 或者通道。</li>
 <li>确保 MSP 包括在网络中的<a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/zh_CN/release-2.2/policies/policies.html">策略</a>定义。</li>
 </ol>
-<h3 id="MSP-域">MSP 域</h3>
+<h3 id="msp-域"><a class="markdownIt-Anchor" href="#msp-域"></a> MSP 域</h3>
 <p>网络中， MSP 出现在两个位置：</p>
 <ul>
 <li>在参与者节点本地（<strong>本地 MSP</strong>）</li>
 <li>在通道配置中（<strong>通道 MSP</strong>）</li>
 </ul>
 <p>它们的使用范围不同，每个 MSP 列出特定管理级别上的角色和权限。</p>
-<h4 id="本地-MSP">本地 MSP</h4>
+<h4 id="本地-msp"><a class="markdownIt-Anchor" href="#本地-msp"></a> 本地 MSP</h4>
 <p>本地 MSP 是为<strong>客户端</strong>和<strong>节点</strong>( peer 节点和排序节点)定义的。 本地 MSPs 定义节点的权限(例如，谁是可以操作节点的 peer 节点管理员)。客户端的本地 MSP ，允许用户作为一个通道成员或作为一个特定角色的所有者，如组织管理者，在其交易(如链码交易)时进行身份验证从而进入系统，例如，进行配置交易。</p>
 <p><strong>每个节点都必须定义一个本地 MSP</strong>，因为它定义了在该级别上谁拥有管理权或参与权( peer 节点管理员不一定是通道管理员，反之亦然)。这允许在通道上下文之外对成员消息进行身份验证，并定义特定节点(例如，能够在 peer 节点上安装链码的节点)的权限。请注意，一个组织可以拥有一个或多个节点。 MSP 定义了组织管理员。组织、组织的管理员、节点的管理员以及节点本身都应该具有相同的信任根。</p>
 <p>排序节点的本地 MSP 也在节点的文件系统上定义，并且只应用于该节点。与 peer 节点一样，排序节点也由单个组织拥有，因此有一个 MSP 来列出它信任的参与者角色或节点。</p>
-<h4 id="通道-MSP">通道 MSP</h4>
+<h4 id="通道-msp"><a class="markdownIt-Anchor" href="#通道-msp"></a> 通道 MSP</h4>
 <p>通道 MSP 在通道层面上定义了管理权和参与权。应用程序通道上的 peer 节点和排序节点共用通道 MSP 的相同视图，因此能够正确地对通道参与者进行身份验证。这意味着，如果组织希望加入通道，则需要在通道配置中添加包含组织成员信任链的 MSP。否则，来自该组织身份的交易将被拒绝。本地 MSP 表现为<strong>文件系统上的文件夹结构</strong>，而通道 MSP 则<strong>在通道配置中被描述</strong>。</p>
 <p>通道 MSP 识别谁在通道层次拥有权限。通道 MSP 定义通道成员(本身是 MSP )的身份和通道级策略的执行之间的 关系 。通道 MSP 包含通道成员组织的 MSP 。</p>
 <p>每个参与通道的组织都必须为其定义一个 MSP。</p>
@@ -281,9 +281,9 @@
 <li>由于通道 MSP 对通道内的所有节点都可用，它们在通道配置中逻辑上仅定义一次，而通道 MSP 也在通道中的每个节点的文件系统上实例化，并通过共识保持同步；</li>
 </ul>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/42c2719412b013108ddd074bac2351aed145979e59286659dbd0444252014d0f.png" alt="picture 2"></p>
-<h3 id="组织和-MSP">组织和 MSP</h3>
+<h3 id="组织和-msp"><a class="markdownIt-Anchor" href="#组织和-msp"></a> 组织和 MSP</h3>
 <p>组织可以作为 MSP 的身份标识，像用户组一样管理组织成员。同时，一个组织也可以被划分为多个<strong>组织单元( ou )</strong>，每个单元有一定职责（ <code>affiliations</code> ）。例如，组织 <code>Org1</code> 可能同时拥有 <code>org1.Manufacturing</code> 和 <code>org1.Distribution</code> 组织单元，这两个组织单元反映了互相隔离的流水线。这样使用组织单元可以让策略的定义更简单，在组织内部实现更细粒度的访问控制。或者使用基于属性进行访问控制的智能合约。 <code>OU</code> 字段是可选的，如果不使用 MSP 中的所有身份都被 CA 视为组织成员。</p>
-<h5 id="节点组织单元和-MSP">节点组织单元和 MSP</h5>
+<h5 id="节点组织单元和-msp"><a class="markdownIt-Anchor" href="#节点组织单元和-msp"></a> 节点组织单元和 MSP</h5>
 <p>一类特殊的组织单元，有时也被称为<strong>节点组织单元</strong>，用于为角色赋予身份。这些节点组织单元被定义在 <code>FABRIC_CFG_PATH/msp/config.yaml</code> 配置文件中。这些单元成员被认为是 MSP 所代表的组织的一部分，通过节点组织单元，您可以实现更细粒度的背书策略，该策略要求 Org1 的 peer 节点(而不是 Org1 的任何成员)为交易背书。</p>
 <p>例如我们可以这样定义节点组织单元：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">NodeOUs:</span></span><br><span class="line">  <span class="attr">Enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">ClientOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">client</span></span><br><span class="line">  <span class="attr">PeerOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">peer</span></span><br><span class="line">  <span class="attr">AdminOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">admin</span></span><br><span class="line">  <span class="attr">OrdererOUIdentifier:</span></span><br><span class="line">    <span class="attr">Certificate:</span> <span class="string">cacerts/ca.sampleorg-cert.pem</span></span><br><span class="line">    <span class="attr">OrganizationalUnitIdentifier:</span> <span class="string">orderer</span></span><br></pre></td></tr></table></figure>
@@ -299,7 +299,7 @@
 <p>生成的角色和 OU 属性在位于 <code>/signcerts</code> 文件夹中的 X.509 签名证书中可见。 <code>ROLE</code> 属性被标识为 <code>hf.Type</code> ，其指的是参与者在其组织中的角色(例如，指定参与者是一个 <code>peer</code> 节点)。请参阅以下来自签名证书的代码片段，它显示了角色和 ou 在证书中是如何表示的。</p>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/MSP%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85/78c16733d6209be583fbf1273cae814c7200f2ef12448c310f727310fc1a82df.png" alt="picture 4"></p>
 <p>另外，节点是否有权管理特定资源，还要看实际分配权力的 <strong>策略</strong> 如何编写，如果策略要求持有 <code>Org1.Manufaturing</code> msp 的管理者（即 <code>admin</code> 角色）才有权向通道添加新的组织，那么单单持有其中一个 msp 是无权限的。</p>
-<h3 id="MSP-结构">MSP 结构</h3>
+<h3 id="msp-结构"><a class="markdownIt-Anchor" href="#msp-结构"></a> MSP 结构</h3>
 
     </div>
 

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="区块链相关算法整理 拜占庭算法   问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。   现实问题：    计算机网络中，如何保证在信道不可靠的情况下，消息能">
+    <meta name="description" content="区块链相关算法整理  拜占庭算法   问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。   现实问题：    计算机网络中，如何保证在信道不可靠的情况下，消">
 <meta property="og:type" content="article">
 <meta property="og:title" content="区块链相关概念">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="区块链相关算法整理 拜占庭算法   问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。   现实问题：    计算机网络中，如何保证在信道不可靠的情况下，消息能">
+<meta property="og:description" content="区块链相关算法整理  拜占庭算法   问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。   现实问题：    计算机网络中，如何保证在信道不可靠的情况下，消">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-14T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.258Z">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">区块链相关算法整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%9C%E5%8D%A0%E5%BA%AD%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">拜占庭算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">零知识证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%E6%9C%BA%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text">1、工作量证明机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BA%92%E8%81%94%E7%BD%91%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6"><span class="nav-number">3.2.</span> <span class="nav-text">2、互联网共识机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E6%9C%BA%E5%88%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3、智能合约机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E4%BA%92%E8%81%94%E7%BD%91%E9%80%8F%E6%98%8E%E6%9C%BA%E5%88%B6"><span class="nav-number">3.4.</span> <span class="nav-text">4、互联网透明机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97"><span class="nav-number">4.</span> <span class="nav-text">边缘计算</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text"> 区块链相关算法整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%9C%E5%8D%A0%E5%BA%AD%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text"> 拜占庭算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text"> 零知识证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%E6%9C%BA%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text"> 1、工作量证明机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%92%E8%81%94%E7%BD%91%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6"><span class="nav-number">3.2.</span> <span class="nav-text"> 2、互联网共识机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E6%9C%BA%E5%88%B6"><span class="nav-number">3.3.</span> <span class="nav-text"> 3、智能合约机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BA%92%E8%81%94%E7%BD%91%E9%80%8F%E6%98%8E%E6%9C%BA%E5%88%B6"><span class="nav-number">3.4.</span> <span class="nav-text"> 4、互联网透明机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97"><span class="nav-number">4.</span> <span class="nav-text"> 边缘计算</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,8 +243,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="区块链相关算法整理">区块链相关算法整理</h2>
-<h2 id="拜占庭算法">拜占庭算法</h2>
+        <h2 id="区块链相关算法整理"><a class="markdownIt-Anchor" href="#区块链相关算法整理"></a> 区块链相关算法整理</h2>
+<h2 id="拜占庭算法"><a class="markdownIt-Anchor" href="#拜占庭算法"></a> 拜占庭算法</h2>
 <ul>
 <li>
 <p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
@@ -257,7 +257,7 @@
 <li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
 <li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
 </ol>
-<h2 id="零知识证明">零知识证明</h2>
+<h2 id="零知识证明"><a class="markdownIt-Anchor" href="#零知识证明"></a> 零知识证明</h2>
 <ul>
 <li>
 <p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
@@ -271,15 +271,15 @@
 两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
 </li>
 </ul>
-<h3 id="1、工作量证明机制">1、工作量证明机制</h3>
+<h3 id="1-工作量证明机制"><a class="markdownIt-Anchor" href="#1-工作量证明机制"></a> 1、工作量证明机制</h3>
 <p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
-<h3 id="2、互联网共识机制">2、互联网共识机制</h3>
+<h3 id="2-互联网共识机制"><a class="markdownIt-Anchor" href="#2-互联网共识机制"></a> 2、互联网共识机制</h3>
 <p>以共识确保正确，无需甄别好坏；</p>
-<h3 id="3、智能合约机制">3、智能合约机制</h3>
+<h3 id="3-智能合约机制"><a class="markdownIt-Anchor" href="#3-智能合约机制"></a> 3、智能合约机制</h3>
 <p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
-<h3 id="4、互联网透明机制">4、互联网透明机制</h3>
+<h3 id="4-互联网透明机制"><a class="markdownIt-Anchor" href="#4-互联网透明机制"></a> 4、互联网透明机制</h3>
 <p>账号全网公开，而户名隐藏</p>
-<h2 id="边缘计算">边缘计算</h2>
+<h2 id="边缘计算"><a class="markdownIt-Anchor" href="#边缘计算"></a> 边缘计算</h2>
 
     </div>
 
@@ -296,13 +296,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E9%A2%98%E7%BB%8F%E9%9D%A2%E7%BB%8F/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="知识点整理">
-                  <i class="fa fa-chevron-left"></i> 知识点整理
+                <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/" rel="prev" title="区块链概述">
+                  <i class="fa fa-chevron-left"></i> 区块链概述
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/" rel="next" title="区块链概述">
-                  区块链概述 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" rel="next" title="第三章-数据链路层">
+                  第三章-数据链路层 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

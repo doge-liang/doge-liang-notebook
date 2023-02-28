@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="How to use ssh in git generate the ssh key in local pc 1ssh-keygen 随后提示输入 id_rsa 文件保存位置 随后输入两次密码，就设定成功了 在密码保存位置会出现四个文件分别是 id_rsa id_rsa.pub known_hosts config，其中的 .pub 文件中保存了公钥，运行 1cat id_rsa.pub 将文件内">
+    <meta name="description" content="How to use ssh in git  generate the ssh key in local pc 1ssh-keygen 随后提示输入 id_rsa 文件保存位置 随后输入两次密码，就设定成功了 在密码保存位置会出现四个文件分别是 id_rsa id_rsa.pub known_hosts config，其中的 .pub 文件中保存了公钥，运行 1cat id_rsa.pub 将文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git-ssh">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/git-ssh/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="How to use ssh in git generate the ssh key in local pc 1ssh-keygen 随后提示输入 id_rsa 文件保存位置 随后输入两次密码，就设定成功了 在密码保存位置会出现四个文件分别是 id_rsa id_rsa.pub known_hosts config，其中的 .pub 文件中保存了公钥，运行 1cat id_rsa.pub 将文件内">
+<meta property="og:description" content="How to use ssh in git  generate the ssh key in local pc 1ssh-keygen 随后提示输入 id_rsa 文件保存位置 随后输入两次密码，就设定成功了 在密码保存位置会出现四个文件分别是 id_rsa id_rsa.pub known_hosts config，其中的 .pub 文件中保存了公钥，运行 1cat id_rsa.pub 将文">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%B7%A5%E5%85%B7/git/git-ssh/b9ed120ce8a918731007a77fad7a3a4c838d2637d128a6c8e3e8bce743521f43.png">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%B7%A5%E5%85%B7/git/git-ssh/5e0cfef621cbe20c38a15094443810f3d7dda20aca7b1f35e20b66f3c4252b5d.png">
@@ -122,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use-ssh-in-git"><span class="nav-number">1.</span> <span class="nav-text">How to use ssh in git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-the-ssh-key-in-local-pc"><span class="nav-number">1.1.</span> <span class="nav-text">generate the ssh key in local pc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prepare-a-git-account"><span class="nav-number">1.2.</span> <span class="nav-text">prepare a git account</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-use-ssh-in-git"><span class="nav-number">1.</span> <span class="nav-text"> How to use ssh in git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-the-ssh-key-in-local-pc"><span class="nav-number">1.1.</span> <span class="nav-text"> generate the ssh key in local pc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prepare-a-git-account"><span class="nav-number">1.2.</span> <span class="nav-text"> prepare a git account</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -251,15 +251,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="How-to-use-ssh-in-git">How to use ssh in git</h2>
-<h3 id="generate-the-ssh-key-in-local-pc">generate the ssh key in local pc</h3>
+        <h2 id="how-to-use-ssh-in-git"><a class="markdownIt-Anchor" href="#how-to-use-ssh-in-git"></a> How to use ssh in git</h2>
+<h3 id="generate-the-ssh-key-in-local-pc"><a class="markdownIt-Anchor" href="#generate-the-ssh-key-in-local-pc"></a> generate the ssh key in local pc</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
 <p>随后提示输入 <code>id_rsa</code> 文件保存位置<br>
 随后输入两次密码，就设定成功了<br>
 在密码保存位置会出现四个文件分别是 <code>id_rsa</code> <code>id_rsa.pub</code> <code>known_hosts</code> <code>config</code>，其中的 <code>.pub</code> 文件中保存了公钥，运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>将文件内容复制下来</p>
-<h3 id="prepare-a-git-account">prepare a git account</h3>
+<h3 id="prepare-a-git-account"><a class="markdownIt-Anchor" href="#prepare-a-git-account"></a> prepare a git account</h3>
 <p>click the setting at the top-left corner.</p>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/git/git-ssh/b9ed120ce8a918731007a77fad7a3a4c838d2637d128a6c8e3e8bce743521f43.png" alt="picture 24"></p>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%B7%A5%E5%85%B7/git/git-ssh/5e0cfef621cbe20c38a15094443810f3d7dda20aca7b1f35e20b66f3c4252b5d.png" alt="picture 25"></p>

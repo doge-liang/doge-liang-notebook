@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Java 集合框架 实现思想 Java 集合框架的实现思想为为常见的接口和实现分离思想。 使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。 123List&lt;Customer&gt; expressLane &#x3D; new ArrayList&lt;&gt;(100);List&lt;Customer&gt; expressLane &#x3D; new LinkedList">
+    <meta name="description" content="Java 集合框架  实现思想 Java 集合框架的实现思想为为常见的接口和实现分离思想。 使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。 123List&lt;Customer&gt; expressLane &#x3D; new ArrayList&lt;&gt;(100);List&lt;Customer&gt; expressLane &#x3D; new LinkedLi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 集合框架">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Java 集合框架 实现思想 Java 集合框架的实现思想为为常见的接口和实现分离思想。 使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。 123List&lt;Customer&gt; expressLane &#x3D; new ArrayList&lt;&gt;(100);List&lt;Customer&gt; expressLane &#x3D; new LinkedList">
+<meta property="og:description" content="Java 集合框架  实现思想 Java 集合框架的实现思想为为常见的接口和实现分离思想。 使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。 123List&lt;Customer&gt; expressLane &#x3D; new ArrayList&lt;&gt;(100);List&lt;Customer&gt; expressLane &#x3D; new LinkedLi">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png">
 <meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Java 集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E6%83%B3"><span class="nav-number">1.1.</span> <span class="nav-text">实现思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">基础接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">1.4.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterator"><span class="nav-number">1.4.1.</span> <span class="nav-text">Iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">1.4.2.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Vector"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Stack"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">Stack</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.5.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WeakHashMap"><span class="nav-number">1.5.1.</span> <span class="nav-text">WeakHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashTable"><span class="nav-number">1.5.2.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Collections-synchronizedMap"><span class="nav-number">1.5.3.</span> <span class="nav-text">Collections.synchronizedMap()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.5.4.</span> <span class="nav-text">ConcurrentHashMap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.6.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet"><span class="nav-number">1.6.1.</span> <span class="nav-text">HashSet</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text"> Java 集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E6%83%B3"><span class="nav-number">1.1.</span> <span class="nav-text"> 实现思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text"> 优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text"> 基础接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#collection"><span class="nav-number">1.4.</span> <span class="nav-text"> Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iterator"><span class="nav-number">1.4.1.</span> <span class="nav-text"> Iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">1.4.2.</span> <span class="nav-text"> List</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vector"><span class="nav-number">1.4.2.1.</span> <span class="nav-text"> Vector</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#stack"><span class="nav-number">1.4.2.2.</span> <span class="nav-text"> Stack</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.5.</span> <span class="nav-text"> Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#weakhashmap"><span class="nav-number">1.5.1.</span> <span class="nav-text"> WeakHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashtable"><span class="nav-number">1.5.2.</span> <span class="nav-text"> HashTable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#collectionssynchronizedmap"><span class="nav-number">1.5.3.</span> <span class="nav-text"> Collections.synchronizedMap()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concurrenthashmap"><span class="nav-number">1.5.4.</span> <span class="nav-text"> ConcurrentHashMap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.6.</span> <span class="nav-text"> Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hashset"><span class="nav-number">1.6.1.</span> <span class="nav-text"> HashSet</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -252,15 +252,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Java-集合框架">Java 集合框架</h2>
-<h3 id="实现思想">实现思想</h3>
+        <h2 id="java-集合框架"><a class="markdownIt-Anchor" href="#java-集合框架"></a> Java 集合框架</h2>
+<h3 id="实现思想"><a class="markdownIt-Anchor" href="#实现思想"></a> 实现思想</h3>
 <p>Java 集合框架的实现思想为为常见的接口和实现分离思想。</p>
 <p>使用时只需根据自己的需要声明对应类型的变量，具体实现是哪个取决于构造了什么集合。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">List&lt;Customer&gt; expressLane = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">expressLane.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;Harry&quot;</span>));</span><br></pre></td></tr></table></figure>
 <p>上述例子声明了两个 <code>List</code> ，程序并不用关注具体的实现是数组列表还是链表（虽然对他们做某些操作时，效率不同），只需要调用顺序表的 API 即可；<br>
 这样对于变量的使用方来说，具体的实现方式就是透明的了，只需要关注使用的数据结构接口即可；</p>
 <p>此外，Java API 库中还定义了一些 <code>Abstract</code> 前缀修饰的类，比如 <code>AbstractCollection</code> 里面对 <code>Collection</code> 接口一些基本方法的实现，如果要实现自己的集合类，又不想重写所有的方法，继承 <code>Abstract</code> 前缀修饰的集合类更方便。</p>
-<h3 id="优点">优点</h3>
+<h3 id="优点"><a class="markdownIt-Anchor" href="#优点"></a> 优点</h3>
 <p>最初的 Java 版本包含几种集合类： <code>Vector</code> 、 <code>Stack</code> 、 <code>HashTable</code> 、 <code>Array</code> 。随着版本的迭代，这些类由于各种原因，都过时了，虽然 jdk 中还包含着这些类，但有了更多新的替代方案了。随着集合的广泛使用， JDK 提出了包括所有集合接口、实现和算法的集合框架，在保证线程安全的情况下使用泛型和并发集合类，能够降低开发成本，使代码更加稳定高效。</p>
 <p>使用集合框架的部分优点如下：</p>
 <ol>
@@ -269,21 +269,21 @@
 <li>使用 JDK 自带的集合类，降低代码维护成本；</li>
 <li>提高复用性和可操作性；</li>
 </ol>
-<h3 id="基础接口">基础接口</h3>
+<h3 id="基础接口"><a class="markdownIt-Anchor" href="#基础接口"></a> 基础接口</h3>
 <p>Java 有两大类集合： <code>Map</code> 和 <code>Collection</code></p>
 <p><img src="/doge-liang-notebook/.io//../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E9%9B%86%E5%90%88%E7%B1%BB/bb5ba2d657eeccd52915b6ed133b9e2cf3b272af3ae070137218ddcc16bbba84.png" alt="picture 1"></p>
-<h3 id="Collection">Collection</h3>
+<h3 id="collection"><a class="markdownIt-Anchor" href="#collection"></a> Collection</h3>
 <p><code>Collection</code> 继承于 <code>Iterator</code> 接口，主要有以下方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Collection</span>&lt;E&gt; &#123;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E element)</span>; <span class="comment">// 添加元素</span></span><br><span class="line">    Iterator&lt;E&gt; <span class="title function_">iterator</span><span class="params">()</span>; <span class="comment">// 返回实现了 Iterator 接口的对象，用于迭代方法集合中的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Iterator">Iterator</h4>
+<h4 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> Iterator</h4>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Iterator</span>&lt;E&gt; &#123;</span><br><span class="line">    E <span class="title function_">next</span><span class="params">()</span>; <span class="comment">// 如果到达了集合的末尾，会抛出异常 NoSuchElementException</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">hasNext</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">remove</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="built_in">super</span> E&gt; action()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在使用 <code>Collectors.toMap()</code> 时，要注意两个问题：</p>
 <ol>
 <li>当 key 相同时会抛出 <code>IllegalStateException</code> ；</li>
 <li>当 value 为 null 时，会抛出 <code>NullPointerException</code> ；</li>
 </ol>
-<h4 id="List">List</h4>
-<h5 id="Vector">Vector</h5>
+<h4 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h4>
+<h5 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> Vector</h5>
 <p>和 ArrayList 类似，但是所有方法都加了 <code>synchronized</code> 关键字，是 <strong>线程安全</strong> 的，但是不是所有操作都能保证线程安全。<br>
 当并发迭代时，修改元素就会抛出 <code>java.util.ConcurrentModificationException</code> 异常。<br>
 比如：</p>
@@ -294,20 +294,20 @@
 <li>使用 <code>Synchronized</code> 或者 <code>Lock</code> 对操作串行化；</li>
 <li>使用并发容器 <code>CopyOnWriteArrayList</code> ；</li>
 </ol>
-<h5 id="Stack">Stack</h5>
+<h5 id="stack"><a class="markdownIt-Anchor" href="#stack"></a> Stack</h5>
 <p>继承于 <code>Vector</code> ，也是一个同步容器， 和 <code>Vector</code> 的问题一样。</p>
-<h3 id="Map">Map</h3>
-<h4 id="WeakHashMap">WeakHashMap</h4>
+<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
+<h4 id="weakhashmap"><a class="markdownIt-Anchor" href="#weakhashmap"></a> WeakHashMap</h4>
 <p>适用于需要缓存的场景, 对 <code>entry</code> 进行弱引用管理 GC 时会自动释放弱引用的 <code>entry</code> 项<br>
 相对 <code>HashMap</code> 只增加弱引用管理, 并 <strong>不保证线程安全</strong> 。</p>
-<h4 id="HashTable">HashTable</h4>
+<h4 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> HashTable</h4>
 <p>读写方法都加了 <code>synchronized</code> 关键字 <code>key</code> 和 <code>value</code> 都不允许出现 <code>null</code> 值<br>
 与 <code>HashMap</code> 不同的是 <code>HashTable</code> 直接使用对象的 <code>hashCode</code> , 不会重新计算 hash 值。</p>
-<h4 id="Collections-synchronizedMap">Collections.synchronizedMap()</h4>
+<h4 id="collectionssynchronizedmap"><a class="markdownIt-Anchor" href="#collectionssynchronizedmap"></a> Collections.synchronizedMap()</h4>
 <p><code>Collections.synchronizedMap()</code> 方法用于给 <code>Map</code> 所有数据对象上一个重量级锁(<code>synchronized</code>)，代码示例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Map</span> <span class="variable">m</span> <span class="operator">=</span> Collections.synchronizedMap(<span class="keyword">new</span> <span class="title class_">HashMap</span>());</span><br></pre></td></tr></table></figure>
 <p>该方法可以对 <code>m</code> 中的所有数据上锁，但是并发修改情况下还是会发生 <code>ConcurrentModificationException</code> ；</p>
-<h4 id="ConcurrentHashMap">ConcurrentHashMap</h4>
+<h4 id="concurrenthashmap"><a class="markdownIt-Anchor" href="#concurrenthashmap"></a> ConcurrentHashMap</h4>
 <p>利用 <code>CAS</code> + <code>Synchronized</code> 来确保线程安全. 底层数据结构依然是数组 + 链表 + 红黑树, 对哈希项进行 <strong>分段上锁</strong> , 效率上较之 <code>HashTable</code> 要高；且读写同时进行是不会触发 <code>ConcurrentModificationException</code> 异常；<br>
 <code>key</code> 和 <code>uvaiue</code> 都不允许出现 <code>null</code> 。</p>
 <blockquote>
@@ -330,8 +330,8 @@ CAS 操作包含三个操作数：</p>
 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ls5718/article/details/52563959">https://blog.csdn.net/ls5718/article/details/52563959</a></li>
 </ul>
 </blockquote>
-<h3 id="Set">Set</h3>
-<h4 id="HashSet">HashSet</h4>
+<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h3>
+<h4 id="hashset"><a class="markdownIt-Anchor" href="#hashset"></a> HashSet</h4>
 
     </div>
 
@@ -345,13 +345,13 @@ CAS 操作包含三个操作数：</p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E7%9A%84%E6%A0%88/" rel="prev" title="Java 的栈">
-                  <i class="fa fa-chevron-left"></i> Java 的栈
+                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E7%9A%84%E6%98%A0%E5%B0%84/" rel="prev" title="Java 的映射">
+                  <i class="fa fa-chevron-left"></i> Java 的映射
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java-%E7%9A%84%E6%98%A0%E5%B0%84/" rel="next" title="Java 的映射">
-                  Java 的映射 <i class="fa fa-chevron-right"></i>
+                <a href="/doge-liang-notebook/post/article/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%93%E6%9E%84%E5%9E%8B/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="next" title="适配器模式">
+                  适配器模式 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

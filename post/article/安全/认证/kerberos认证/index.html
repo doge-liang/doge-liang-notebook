@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="Kerberos 认证 引导 以 Windows 登录过程来引入，当用户按下 Ctrl + Alt + Del 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTL">
+    <meta name="description" content="Kerberos 认证  引导 以 Windows 登录过程来引入，当用户按下 Ctrl + Alt + Del 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 N">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kerberos认证">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/kerberos%E8%AE%A4%E8%AF%81/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="Kerberos 认证 引导 以 Windows 登录过程来引入，当用户按下 Ctrl + Alt + Del 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTL">
+<meta property="og:description" content="Kerberos 认证  引导 以 Windows 登录过程来引入，当用户按下 Ctrl + Alt + Del 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 N">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://doge-liang.github.io/assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png">
 <meta property="article:published_time" content="2022-07-16T16:00:00.000Z">
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kerberos-%E8%AE%A4%E8%AF%81"><span class="nav-number">1.</span> <span class="nav-text">Kerberos 认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%AF%BC"><span class="nav-number">1.1.</span> <span class="nav-text">引导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">基础概述</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kerberos-%E8%AE%A4%E8%AF%81"><span class="nav-number">1.</span> <span class="nav-text"> Kerberos 认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%AF%BC"><span class="nav-number">1.1.</span> <span class="nav-text"> 引导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text"> 基础概述</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,13 +248,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Kerberos-认证">Kerberos 认证</h2>
-<h3 id="引导">引导</h3>
+        <h2 id="kerberos-认证"><a class="markdownIt-Anchor" href="#kerberos-认证"></a> Kerberos 认证</h2>
+<h3 id="引导"><a class="markdownIt-Anchor" href="#引导"></a> 引导</h3>
 <p>以 Windows 登录过程来引入，当用户按下 <code>Ctrl</code> + <code>Alt</code> + <code>Del</code> 时， Winlogon 服务将会被调用，同时提示用户输入用户名和密码。 Winlogon 读取完用户的身份凭证之后，会把它交给本地安全机构（LSA），LSA 对用户凭证进行加密操作比如 MD4 加密，加密后交给 SSPI （安全支持提供者接口），该接口负责与 Kerberos 和 NTLM 服务沟通。 LSA 根据用户输入的 UPN 等信息会事先把身份认证请求传到 Kerberos SSP 中。</p>
 <p>Kerberos SSP 验证用户登入目标是本地计算机还是域，如果是域则继续向下处理，如果是本地计算机则会向 SSPI 返回一条错误消息， SSPI 将这个任务交回给 GINA 处理。</p>
 <p>SSPI 现在发送请求到下一个安全提供程序，NTLM 。NTLM SSP 会将请求交给 Netlogon 服务针对 LSAM (Local Security Account Manager，本地安全账户管理器)数据库进行身份认证。使用 NTLM SSP 的身份认证过程与 Windows NT 系统的身份认证方法是相同的。</p>
 <p><img src="/doge-liang-notebook/.io//../../../assets/%E5%AE%89%E5%85%A8/%E8%AE%A4%E8%AF%81/Kerberos%E8%AE%A4%E8%AF%81/2da7dce4627606e18549b8fd770c54f9c54bed8846493242b8fcd579221447de.png" alt="picture 2"></p>
-<h3 id="基础概述">基础概述</h3>
+<h3 id="基础概述"><a class="markdownIt-Anchor" href="#基础概述"></a> 基础概述</h3>
 <ul>
 <li>一个思想：Kerberos 认证只做认证，不鉴权，鉴权是服务账户所做的；</li>
 <li>关键角色：

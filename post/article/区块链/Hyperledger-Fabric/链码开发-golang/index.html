@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="链码开发 Golang 的链码开发有两套 api ：  shim api 偏底层； contract api 实际上也不过是在 shim api 上做了一层封装，通过获取 shim api 的 stub 来调用 shim api 的 stub；  Contract api 一个合约需要遵循以下的规则：  入参的第一个只能是 contratapi.TransactionContext 或者继承了这个">
+    <meta name="description" content="链码开发 Golang 的链码开发有两套 api ：  shim api 偏底层； contract api 实际上也不过是在 shim api 上做了一层封装，通过获取 shim api 的 stub 来调用 shim api 的 stub；   Contract api 一个合约需要遵循以下的规则：  入参的第一个只能是 contratapi.TransactionContext 或者继承了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链码开发-Golang">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/%E9%93%BE%E7%A0%81%E5%BC%80%E5%8F%91-golang/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="链码开发 Golang 的链码开发有两套 api ：  shim api 偏底层； contract api 实际上也不过是在 shim api 上做了一层封装，通过获取 shim api 的 stub 来调用 shim api 的 stub；  Contract api 一个合约需要遵循以下的规则：  入参的第一个只能是 contratapi.TransactionContext 或者继承了这个">
+<meta property="og:description" content="链码开发 Golang 的链码开发有两套 api ：  shim api 偏底层； contract api 实际上也不过是在 shim api 上做了一层封装，通过获取 shim api 的 stub 来调用 shim api 的 stub；   Contract api 一个合约需要遵循以下的规则：  入参的第一个只能是 contratapi.TransactionContext 或者继承了">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.259Z">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E7%A0%81%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">链码开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Contract-api"><span class="nav-number">1.1.</span> <span class="nav-text">Contract api</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E7%A0%81%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text"> 链码开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#contract-api"><span class="nav-number">1.1.</span> <span class="nav-text"> Contract api</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,13 +246,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="链码开发">链码开发</h2>
+        <h2 id="链码开发"><a class="markdownIt-Anchor" href="#链码开发"></a> 链码开发</h2>
 <p>Golang 的链码开发有两套 api ：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://pkg.go.dev/github.com/hyperledger/fabric-chaincode-go/shim?utm_source=godoc#Chaincode">shim api</a> 偏底层；</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/hyperledger/fabric-contract-api-go/blob/main/tutorials/using-advanced-features.md">contract api</a> 实际上也不过是在 shim api 上做了一层封装，通过获取 shim api 的 stub 来调用 shim api 的 stub；</li>
 </ul>
-<h3 id="Contract-api">Contract api</h3>
+<h3 id="contract-api"><a class="markdownIt-Anchor" href="#contract-api"></a> Contract api</h3>
 <p>一个合约需要遵循以下的规则：</p>
 <ol>
 <li>入参的第一个只能是 contratapi.TransactionContext 或者继承了这个结构的接口（自定义的或者 contractapi.TransactionContextInterface ）。其他的入参只能是如下的类型：<br>
