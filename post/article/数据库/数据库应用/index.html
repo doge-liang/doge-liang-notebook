@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
 
-    <meta name="description" content="SQL 初级使用 增删改查 1234567891011121314151617181920212223242526&#x2F;&#x2F;切换到某个数据库USE [DataBaseName];&#x2F;&#x2F;设置字符集SET [ColumnName] utf8;&#x2F;&#x2F;简单查询SELECT * FROM [TableName];&#x2F;&#x2F;条件查询SELECT [ColumnName,...] FROM [TableName] WHERE">
+    <meta name="description" content="SQL 高级 关键字 逻辑关键字  NOT 表否定 IS 表肯定  搜索关键字 LIKE 用于模式搜索。  通配符搜索 LIKE &#39;G%&#39;表 G 开头的模式 LIKE &#39;%oo%表中间为 oo 的模式  通配符  % 代替 0 个或多个字符 _ 代替一个字符 [charlist] 字符列表中的任何一个字符 [^charlist]&#x2F;[!charlist] 不在字符列表中的任何一个字符  IN 用于规">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库应用">
 <meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8/">
 <meta property="og:site_name" content="doge-liang-notebook">
-<meta property="og:description" content="SQL 初级使用 增删改查 1234567891011121314151617181920212223242526&#x2F;&#x2F;切换到某个数据库USE [DataBaseName];&#x2F;&#x2F;设置字符集SET [ColumnName] utf8;&#x2F;&#x2F;简单查询SELECT * FROM [TableName];&#x2F;&#x2F;条件查询SELECT [ColumnName,...] FROM [TableName] WHERE">
+<meta property="og:description" content="SQL 高级 关键字 逻辑关键字  NOT 表否定 IS 表肯定  搜索关键字 LIKE 用于模式搜索。  通配符搜索 LIKE &#39;G%&#39;表 G 开头的模式 LIKE &#39;%oo%表中间为 oo 的模式  通配符  % 代替 0 个或多个字符 _ 代替一个字符 [charlist] 字符列表中的任何一个字符 [^charlist]&#x2F;[!charlist] 不在字符列表中的任何一个字符  IN 用于规">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-02-28T15:46:15.259Z">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-%E5%88%9D%E7%BA%A7%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">SQL 初级使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">1.1.</span> <span class="nav-text">增删改查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-%E5%88%A0%E9%99%A4-%E4%BF%AE%E6%94%B9%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">创建&#x2F;删除&#x2F;修改指令</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-%E9%AB%98%E7%BA%A7"><span class="nav-number">1.</span> <span class="nav-text">SQL 高级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.1.</span> <span class="nav-text">逻辑关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.2.</span> <span class="nav-text">搜索关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#like"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">LIKE</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">通配符</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#in"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">IN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#between"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">BETWEEN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AB%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">别名</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,11 +243,46 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="sql-初级使用">SQL 初级使用</h2>
-<h3 id="增删改查">增删改查</h3>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>切换到某个数据库</span><br><span class="line">USE [DataBaseName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>设置字符集</span><br><span class="line"><span class="keyword">SET</span> [ColumnName] utf8;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>简单查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>条件查询</span><br><span class="line"><span class="keyword">SELECT</span> [ColumnName,...] <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName [<span class="operator">&gt;</span> <span class="operator">=</span> <span class="operator">&lt;</span> <span class="operator">&lt;&gt;</span> <span class="operator">&gt;=</span> <span class="operator">&lt;=</span> ?] [<span class="keyword">BETWEEN</span> ? <span class="keyword">AND</span> ?] [<span class="keyword">LIKE</span> <span class="string">&#x27;regex&#x27;</span>] [<span class="keyword">IN</span> (?, ?, ?, ...)] [<span class="keyword">IS</span> <span class="keyword">NULL</span>]] <span class="keyword">AND</span> ... <span class="keyword">OR</span> ... ;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>合并重复值</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ...;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>按某列排序</span><br><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ColumnNames, ...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>是否降序];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>限制最大返回行数</span><br><span class="line"><span class="keyword">SELECT</span> TOP [MaxSize]...;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除记录</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName] <span class="operator">=</span> ?;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除所有记录而保留表结构</span><br><span class="line"><span class="keyword">DELETE</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>更改某几列的值</span><br><span class="line"><span class="keyword">UPDATE</span> [TableName] <span class="keyword">SET</span> [ColumnName1] <span class="operator">=</span> [value1], ... <span class="keyword">WHERE</span> some_column <span class="operator">=</span> some_value;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>插入</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [TableName][ColumnNames, ...] <span class="keyword">VALUES</span> [<span class="keyword">value</span>, ...];</span><br></pre></td></tr></table></figure>
-<h3 id="创建-删除-修改指令">创建/删除/修改指令</h3>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建索引列</span><br><span class="line"><span class="keyword">CREATE</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName]([ColumnName,...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>指定降序]);</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX ...;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="keyword">DROP</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName];</span><br></pre></td></tr></table></figure>
+        <h2 id="sql-高级">SQL 高级</h2>
+<h3 id="关键字">关键字</h3>
+<h4 id="逻辑关键字">逻辑关键字</h4>
+<ul>
+<li>NOT<br>
+表否定</li>
+<li>IS<br>
+表肯定</li>
+</ul>
+<h4 id="搜索关键字">搜索关键字</h4>
+<h5 id="like">LIKE</h5>
+<p>用于模式搜索。</p>
+<ul>
+<li>通配符搜索<br>
+<code>LIKE 'G%'</code>表 G 开头的模式<br>
+<code>LIKE '%oo%</code>表中间为 oo 的模式</li>
+</ul>
+<h6 id="通配符">通配符</h6>
+<ul>
+<li>%<br>
+代替 0 个或多个字符</li>
+<li>_<br>
+代替一个字符</li>
+<li>[charlist]<br>
+字符列表中的任何一个字符</li>
+<li>[^charlist]/[!charlist]<br>
+不在字符列表中的任何一个字符</li>
+</ul>
+<h5 id="in">IN</h5>
+<p>用于规定多个值，等于其中一个即可<br>
+<code>IN (value1, value2, ...)</code></p>
+<h5 id="between">BETWEEN</h5>
+<p>用于规定范围，在范围内即可<br>
+<code>BETWEEN valueA AND valueB</code></p>
+<h3 id="别名">别名</h3>
+<p>为了简化列名和函数书写，我们通常会为列或表声明别名。<br>
+列别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">AS</span> [AliasName] <span class="keyword">FROM</span> [TableName];</span><br></pre></td></tr></table></figure>
+<p>表别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">FROM</span> [TableName] <span class="keyword">AS</span> [AliasName];</span><br></pre></td></tr></table></figure>
 
     </div>
 
