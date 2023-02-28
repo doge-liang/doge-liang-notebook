@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
+
+    <meta name="description" content="导数的应用 极值 绝对极值（最值）（最大、最小） 相对极值（局部）（$\rightarrow f’©&#x3D;0$） 临界点（$\Leftrightarrow f’©&#x3D;0或f©&#x3D;0$） 极值相关定理   定理 1 连续函数的极值定理  对于在闭区间 $I$ 上的连续函数 $f(x)$ ，在某些点处能取到最大值 $M$ 和最小值 $m$ ，那么对于 $I$ 中的所有 $x$ ，都有 $m \le f(x)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="导数的应用">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="导数的应用 极值 绝对极值（最值）（最大、最小） 相对极值（局部）（$\rightarrow f’©&#x3D;0$） 临界点（$\Leftrightarrow f’©&#x3D;0或f©&#x3D;0$） 极值相关定理   定理 1 连续函数的极值定理  对于在闭区间 $I$ 上的连续函数 $f(x)$ ，在某些点处能取到最大值 $M$ 和最小值 $m$ ，那么对于 $I$ 中的所有 $x$ ，都有 $m \le f(x)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/566a0e74420937eb1ca573762e666b21bbd28d7f01db799a2be7324112a88719.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/0b2cf5724d1055590995d773163446a2d28d974d2d093f2c976ee0aed1c577a9.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/4732a2f533053d6636c61a23bee3fab2fb1fa7d9f21773e8c88e9bddf6d97e5a.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/21aa6329b5e98662d2fb81e6149eec48349c09a89d749d8ccca7adc41e822d6f.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/9b351870dd08ff8ee43133d0b406d09c6e0c5165d7a7a55bcbe2cb20bef02c19.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/46b2c79927ce596210fd3a6300a790686214a63ebd3f2bb3839e47285c666209.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/6d860dec727b4a23e052a56df243551408a4fbcf556dd76485caf0c2c0088cf2.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/7e9250e6bdc5ceab238a539df703746b0a413939b7f591d33d712014e29c3c82.png">
+<meta property="og:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/d22de7972b7a76c20c688a2facfcee83d8dcd984ea422aa519278f17f7d1cc4e.png">
+<meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-07T19:43:11.664Z">
+<meta property="article:author" content="doge-liang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://doge-liang.github.io/assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/566a0e74420937eb1ca573762e666b21bbd28d7f01db799a2be7324112a88719.png">
+
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/","path":"post/数学/托马斯微积分/导数的应用/","title":"导数的应用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>导数的应用 | doge-liang-notebook</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/doge-liang-notebook/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">doge-liang-notebook</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/doge-liang-notebook/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">导数的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">极值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E5%80%BC%E7%9B%B8%E5%85%B3%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">极值相关定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">微分中值定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="nav-number">1.4.</span> <span class="nav-text">图形的形状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%B2%BB%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E5%9B%BE%E5%BD%A2%E8%A7%A3"><span class="nav-number">1.5.</span> <span class="nav-text">自治微分方程的图形解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.</span> <span class="nav-text">三个案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%B7%E5%8D%B4"><span class="nav-number">1.6.1.</span> <span class="nav-text">冷却</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E6%9C%89%E9%98%BB%E5%8A%9B%E6%97%B6%E7%9A%84%E8%90%BD%E4%BD%93"><span class="nav-number">1.6.2.</span> <span class="nav-text">分析有阻力时的落体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logistic-%E5%A2%9E%E9%95%BF"><span class="nav-number">1.6.3.</span> <span class="nav-text">logistic 增长</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E5%92%8C%E6%9C%80%E4%BC%98%E5%8C%96"><span class="nav-number">1.7.</span> <span class="nav-text">建模和最优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8C%96%E5%92%8C%E5%BE%AE%E5%88%86"><span class="nav-number">1.8.</span> <span class="nav-text">线性化和微分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E5%8C%96%E7%9A%84%E6%95%8F%E6%84%9F%E5%BA%A6"><span class="nav-number">1.8.1.</span> <span class="nav-text">变化的敏感度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E5%8F%98%E5%8C%96%E4%BC%B0%E8%AE%A1%E5%AE%9E%E9%99%85%E5%8F%98%E5%8C%96%E7%9A%84%E8%AF%AF%E5%B7%AE"><span class="nav-number">1.8.2.</span> <span class="nav-text">微分变化估计实际变化的误差</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Newton-%E6%B3%95"><span class="nav-number">1.9.</span> <span class="nav-text">Newton 法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/doge-liang-notebook/archives/">
+          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/doge-liang-notebook/categories/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/doge-liang-notebook/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="导数的应用 | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          导数的应用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-08 03:43:11" itemprop="dateModified" datetime="2022-06-08T03:43:11+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">托马斯微积分</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="导数的应用">导数的应用</h2>
+<h3 id="极值">极值</h3>
+<p>绝对极值（最值）（最大、最小）</p>
+<p>相对极值（局部）（$\rightarrow f’©=0$）</p>
+<p>临界点（$\Leftrightarrow f’©=0或f©=0$）</p>
+<h3 id="极值相关定理">极值相关定理</h3>
+<ul>
+<li>
+<p><strong>定理 1</strong> 连续函数的极值定理</p>
+<blockquote>
+<p>对于在闭区间 $I$ 上的连续函数 $f(x)$ ，在某些点处能取到最大值 $M$ 和最小值 $m$ ，那么对于 $I$ 中的所有 $x$ ，都有 $m \le f(x) \le M$。<br>
+（废话）</p>
+</blockquote>
+</li>
+<li>
+<p><strong>定理 2</strong></p>
+<blockquote>
+<p>在函数$f$的定义域内点$c$处取到局部最大值或局部最小值，点$c$也存在导数，那么$f’©=0$。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="微分中值定理">微分中值定理</h3>
+<ul>
+<li>
+<p><strong>定理 1</strong> 罗尔定理</p>
+<blockquote>
+<p>定义在$[a,b]$的连续可微函数$f(x)$，如果<br>
+$$f(a)=f(b)=0$$<br>
+那么至少有一个数$c$使得$f’©=0$</p>
+</blockquote>
+</li>
+<li>
+<p><strong>定理 2</strong> 微分中值定理</p>
+<blockquote>
+<p>定义在$[a,b]$上的连续可微函数$f(x)$，那么$(a,b)$内存在一点 c，使得<br>
+$$\frac{f(b)-f(a)}{b-a}=f’©$$</p>
+</blockquote>
+</li>
+</ul>
+<p>我们可以看到，罗尔定理其实是微分中值定理的特殊情况。</p>
+<h3 id="图形的形状">图形的形状</h3>
+<p>增减函数检验</p>
+<ol>
+<li>定义检验</li>
+<li>一阶导数正负检验</li>
+</ol>
+<p>局部极值的检验<br>
+一阶导：</p>
+<ol>
+<li>局部<strong>极小值</strong>，$f’(x)$从负变正</li>
+<li>局部<strong>极大值</strong>，$f’(x)$从正变负</li>
+<li>没有局部极值，$f’(x)$两边同号</li>
+</ol>
+<p>二阶导：</p>
+<ol>
+<li>$f’©=0$ 且 $f’'© \gt 0$，那么$f$在$x=c$处取得极小值</li>
+<li>$f’©=0$ 且 $f’'© \lt 0$，那么$f$在$x=c$处取得极大值</li>
+</ol>
+<p>凹性</p>
+<ol>
+<li><strong>凹向上</strong>，$y’’ \gt 0$</li>
+<li><strong>凹向下</strong>，$y’’ \lt 0$</li>
+</ol>
+<p>拐点</p>
+<blockquote>
+<p>凹性改变的点，叫做<strong>拐点</strong>。<br>
+二阶导函数等于零，且一阶导函数有极大值或极小值的点是拐点。<br>
+但二阶导数等于零也不一定是拐点，二阶导数不存在也可能是拐点。</p>
+</blockquote>
+<h3 id="自治微分方程的图形解">自治微分方程的图形解</h3>
+<ul>
+<li><strong>自治微分方程</strong></li>
+</ul>
+<blockquote>
+<p>导数只是关于 y 的函数，我们称该方程为自治微分方程。</p>
+</blockquote>
+<ul>
+<li>平衡点/静止点</li>
+</ul>
+<blockquote>
+<p>使自治微分方程$\dfrac{dy}{dx}=g(y)$等于零的 y 值，称之为平衡点或静止点。</p>
+</blockquote>
+<ul>
+<li>相直线</li>
+</ul>
+<blockquote>
+<p>是一条用来表示函数的高阶导数的正负性的数轴。</p>
+</blockquote>
+<p>借助相直线，我们可以得到自洽微分方程的图形解（没有表达式，但知道解的函数大致图像）。</p>
+<h3 id="三个案例">三个案例</h3>
+<h4 id="冷却">冷却</h4>
+<p>假设环境摄氏温度为$P$，汤的温度为$H$，经过的时间为$t$，我们还假设环境足够大，使得汤的温度对环境的影响忽略不计。根据牛顿的冷却定律有：</p>
+<p>$$<br>
+\frac{dH}{dt} = -k(H - P)<br>
+$$</p>
+<p>当$H \gt P$时，$\dfrac{dH}{dt} \lt 0$。</p>
+<p>经过求导之后，画出相直线。<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/566a0e74420937eb1ca573762e666b21bbd28d7f01db799a2be7324112a88719.png" alt="picture 41"></p>
+<p>微分方程的图形解如图：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/0b2cf5724d1055590995d773163446a2d28d974d2d093f2c976ee0aed1c577a9.png" alt="picture 42"></p>
+<p>图中的 15 是一个稳定的平衡点，上下的两条直线都稳定朝 15 靠近。</p>
+<h4 id="分析有阻力时的落体">分析有阻力时的落体</h4>
+<p>按照动量定理，我们有：</p>
+<p>$$<br>
+F=\frac{d}{dt} (mv) = m \frac{dv}{dt} + v \frac{dm}{dt} = m \frac{dv}{dt}<br>
+$$</p>
+<p>当物体在介质中下落时，往往会受到阻力，阻力往往与速度相关，这时得到的公式为：</p>
+<p>$$<br>
+F = F_g - F_v = m (g -  kv),  \newline<br>
+a = g - \frac{kv}{m}.<br>
+$$</p>
+<p>当物体受到的合力$F=0$时，速度便稳定下来，故稳定速度为$v = \frac{mg}{k}$<br>
+我们考察速度的变化过程：</p>
+<p>$$<br>
+\frac{d^2v}{dt^2} = \frac{d}{dt} (g - \frac{k}{m} v) = - \frac{k}{m} \frac{dv}{dt}<br>
+$$</p>
+<p>画出相直线：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/4732a2f533053d6636c61a23bee3fab2fb1fa7d9f21773e8c88e9bddf6d97e5a.png" alt="picture 43"></p>
+<p>画出图形解：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/21aa6329b5e98662d2fb81e6149eec48349c09a89d749d8ccca7adc41e822d6f.png" alt="picture 44"></p>
+<p>阻力图形解</p>
+<h4 id="logistic-增长">logistic 增长</h4>
+<p>假设$P=P(t)$为某个种群的数目，在时间$\Delta t$内，种群的增长率为$k$，则种群数目为：<br>
+$$\frac{\Delta P}{\Delta t}=kP(t)$$<br>
+$k \gt 0$是种群的增长率，对增长率进行假设：在自然界中，由于<strong>有限的资源</strong>，我们通常会假设一个<strong>极限种群</strong>或<strong>承载容量</strong>$M$，资源变得短缺了，种族的增长率$k$便会降低，</p>
+<p>$$<br>
+k = r(M-P)<br>
+$$</p>
+<p>$r$代表了增长率变化的速度，对$k$进行代换得到：</p>
+<p>$$<br>
+\frac{dP}{dt} = r(M-P)P=rMP-rP^2<br>
+$$</p>
+<p>该模型称之为<strong>logistic 增长模型</strong>。</p>
+<p>考察该模型的函数性态，我们对上述模型两边求导：</p>
+<p>$$<br>
+\frac{d^2P}{dt^2} = rM \frac{dP}{dt} - 2rP \frac{dP}{dt}=r \frac{dP}{dt} (M - 2P)<br>
+$$</p>
+<p>画出相直线得：</p>
+<p><img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/9b351870dd08ff8ee43133d0b406d09c6e0c5165d7a7a55bcbe2cb20bef02c19.png" alt="picture 45"></p>
+<p>logistic 增长相直线</p>
+<p>画出图形解：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/46b2c79927ce596210fd3a6300a790686214a63ebd3f2bb3839e47285c666209.png" alt="picture 46"></p>
+<p>logistic 增长图形解</p>
+<p>我们可以看到，拐点在$\frac{M}{2}$位置处。</p>
+<h3 id="建模和最优化">建模和最优化</h3>
+<ul>
+<li>求解最大-最小问题
+<blockquote>
+<ol>
+<li>了解问题</li>
+<li>研制一个该问题的数学模型</li>
+<li>求该函数的定义域</li>
+<li>识别临界点和端点</li>
+<li>求解该数学模型</li>
+<li>对解进行解释</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>书中使用了 Fermat 原理和 Snell 定律来进行建模举例。</p>
+<blockquote>
+<p>Fermat 原理：光在介质中传播永远以时间最短的路径传播。<br>
+Snell 定律：在介质之间相互传播的时候，入射角和折射角满足一定的关系：</p>
+<p>$$<br>
+\frac{\sin \theta_1}{c_1} = \frac{\sin \theta_2}{c_2}<br>
+$$</p>
+</blockquote>
+<h3 id="线性化和微分">线性化和微分</h3>
+<ul>
+<li>线性化</li>
+</ul>
+<blockquote>
+<p>如果$f$在$x = a$可微，那么近似函数</p>
+<p>$$<br>
+L(x) = f(a) + f’(a) (x - a)<br>
+$$</p>
+<p>就是$f$在$a$的<strong>线性化</strong><br>
+近似$f(x) \approx L(x)$是$f$在$a$的<strong>标准线性近似</strong>，点$a$就是线性中心。</p>
+</blockquote>
+<ul>
+<li>微分</li>
+</ul>
+<blockquote>
+<p>设$y = f(x)$是一个可微函数，微分$dx$是一个自变量。微分$dy$是</p>
+<p>$$<br>
+dy = f’(x)dx<br>
+$$</p>
+<p>变量$dy$永远是一个因变量，它既依赖于$x$，又依赖$dx$.</p>
+</blockquote>
+<ul>
+<li>
+<p>根式函数和幂函数的线性化</p>
+<p>$$<br>
+(1+x)^k \approx 1 + kx<br>
+$$</p>
+</li>
+<li>
+<p>在$x = 0$附近常用线性化</p>
+<p>$$<br>
+\sin x \approx x ,\  \cos x = 1 ,\  \tan x \approx x<br>
+$$</p>
+</li>
+<li>
+<p>绝对变化</p>
+<ul>
+<li>估计变化<br>
+$$<br>
+\Delta f = f(a + dx) - f(a)<br>
+$$</li>
+<li>实际变化<br>
+$$<br>
+df = f’(a)dx<br>
+$$</li>
+</ul>
+</li>
+<li>
+<p>相对变化</p>
+<ul>
+<li>估计的变化<br>
+$$<br>
+\frac{df}{f(a)}<br>
+$$</li>
+<li>实际变化<br>
+$$<br>
+\frac{\Delta f}{f(a)}<br>
+$$</li>
+</ul>
+</li>
+</ul>
+<h4 id="变化的敏感度">变化的敏感度</h4>
+<p>由$df = f’(x)dx$，我们知道$f’(x)$可以衡量$f$对$dx$的敏感程度。（这一点可能在多变量的情形下起作用）</p>
+<h4 id="微分变化估计实际变化的误差">微分变化估计实际变化的误差</h4>
+<ul>
+<li>估计误差</li>
+</ul>
+<blockquote>
+<p>$$<br>
+\begin{aligned}<br>
+\Delta f - df<br>
+&amp; = f(a + \Delta x) - f(a) - f’(a) \Delta x \<br>
+&amp; = \Delta x  (\dfrac{f(a + \Delta x) - f(a)}{\Delta x} - f’(a))<br>
+\end{aligned}<br>
+$$</p>
+<p>令 $\dfrac{f(a + \Delta x) - f(a)}{\Delta x} - f’(a) = \epsilon,$<br>
+则上式 $= \Delta x \epsilon$<br>
+当 $\Delta x \rightarrow 0$ 时，$\epsilon \rightarrow 0$.</p>
+</blockquote>
+<h3 id="Newton-法">Newton 法</h3>
+<p>本节介绍一个求解根的方法：牛顿(Newton)法</p>
+<ul>
+<li>Newton 法</li>
+</ul>
+<blockquote>
+<p>通过切线的零点，确定下一条切线，再根据下一条切线的零点，确定再下一条切线…如此循环往复，最后得到要找的根。如下图：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/6d860dec727b4a23e052a56df243551408a4fbcf556dd76485caf0c2c0088cf2.png" alt="picture 47"><br>
+Newton 法<br>
+由线性化可知，牛顿法代数上计算就是根据给定的$x_0$求得$f(x_0)$和$f’(x_0)$再代入：</p>
+<p>$$<br>
+x = x_n - \frac{f(x_n)}{f’(x_n)}<br>
+$$</p>
+<p>然后循环以上步骤，直至$x_n$收敛于某个固定的值（也可能不收敛，此时$f(x)$无零点。</p>
+</blockquote>
+<p>Newton 法失效的情况：</p>
+<ul>
+<li>当$f’(x_n) = 0$时，Newton 法就会停下来，这时便需要选择别的起点；</li>
+<li>Newton 法有时会陷入无限循环，无法收敛。</li>
+</ul>
+<p>求得的根不是想要的根的情况：</p>
+<p><img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/7e9250e6bdc5ceab238a539df703746b0a413939b7f591d33d712014e29c3c82.png" alt="picture 48"></p>
+<p>Newton 法不是想要的根</p>
+<ul>
+<li>分形盆</li>
+</ul>
+<blockquote>
+<p>我们使用 Newton 法解 $z^6 - 1 = 0$，我们根据不同的起始点，经过多次迭代之后得到如图：<br>
+<img src="../../../../../assets/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-03-%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8/d22de7972b7a76c20c688a2facfcee83d8dcd984ea422aa519278f17f7d1cc4e.png" alt="分形盆"><br>
+这一个个盆形区域被称为<strong>分形盆</strong>，这六个分形盆他们分别导向这个复数方程的六个解$1,-1, \pm \sqrt{3} / 2, \pm 1/2$</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/" rel="prev" title="数论知识补充">
+                  <i class="fa fa-chevron-left"></i> 数论知识补充
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0/" rel="next" title="导数">
+                  导数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/doge-liang-notebook/js/comments.js"></script><script src="/doge-liang-notebook/js/utils.js"></script><script src="/doge-liang-notebook/js/motion.js"></script><script src="/doge-liang-notebook/js/schemes/muse.js"></script><script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
