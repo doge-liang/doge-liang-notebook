@@ -176,6 +176,131 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">区块链相关概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="区块链相关算法整理">区块链相关算法整理</h2>
+<h2 id="拜占庭算法">拜占庭算法</h2>
+<ul>
+<li>
+<p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
+</li>
+<li>
+<p>现实问题：</p>
+</li>
+</ul>
+<ol>
+<li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
+<li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
+</ol>
+<h2 id="零知识证明">零知识证明</h2>
+<ul>
+<li>
+<p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
+</li>
+<li>
+<p>问题本质：<br>
+如何在保证信息的隐秘性的情况下，证明该信息的正确性；</p>
+</li>
+<li>
+<p>解决方案：<br>
+两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
+</li>
+</ul>
+<h3 id="1-工作量证明机制">1、工作量证明机制</h3>
+<p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
+<h3 id="2-互联网共识机制">2、互联网共识机制</h3>
+<p>以共识确保正确，无需甄别好坏；</p>
+<h3 id="3-智能合约机制">3、智能合约机制</h3>
+<p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
+<h3 id="4-互联网透明机制">4、互联网透明机制</h3>
+<p>账号全网公开，而户名隐藏</p>
+<h2 id="边缘计算">边缘计算</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -519,131 +644,6 @@ Hyperledger 软件套中的一个顶级软件，Python实现
 - 什么特性？
   - 基于区块链的供应链模型
   - 智能合约，领域模型，应用样板 -->
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">区块链相关概念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="区块链相关算法整理">区块链相关算法整理</h2>
-<h2 id="拜占庭算法">拜占庭算法</h2>
-<ul>
-<li>
-<p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
-</li>
-<li>
-<p>现实问题：</p>
-</li>
-</ul>
-<ol>
-<li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
-<li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
-</ol>
-<h2 id="零知识证明">零知识证明</h2>
-<ul>
-<li>
-<p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
-</li>
-<li>
-<p>问题本质：<br>
-如何在保证信息的隐秘性的情况下，证明该信息的正确性；</p>
-</li>
-<li>
-<p>解决方案：<br>
-两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
-</li>
-</ul>
-<h3 id="1-工作量证明机制">1、工作量证明机制</h3>
-<p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
-<h3 id="2-互联网共识机制">2、互联网共识机制</h3>
-<p>以共识确保正确，无需甄别好坏；</p>
-<h3 id="3-智能合约机制">3、智能合约机制</h3>
-<p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
-<h3 id="4-互联网透明机制">4、互联网透明机制</h3>
-<p>账号全网公开，而户名隐藏</p>
-<h2 id="边缘计算">边缘计算</h2>
 
       
     </div>
@@ -1566,7 +1566,9 @@ r(\bm{A}^*) =
 <p><strong>回归</strong>：一种预测建模任务，目标属性<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>是连续的。</p>
 <p>用图表表示分类模型的任务:</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">	1[&quot;输入属性集(x)&quot;]--&gt;分类模型;</span><br><span class="line">	分类模型--&gt;2[&quot;输出类标号(y)&quot;];</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR;
+	1["输入属性集(x)"]-->分类模型;
+	分类模型-->2["输出类标号(y)"];</pre>
 </div>
 <p>分类法的主要例子有：决策树分类法、基于规则的分类法、神经网络、支持向量机和朴素贝叶斯分类法。<br>
 它们都使用了一种<strong>学习算法(learning algorithm)</strong>。使用学习算法得到的模型不仅要很好地拟合数<br>
@@ -1606,7 +1608,14 @@ r(\bm{A}^*) =
 <p><strong>非终结点(non-terminal node)</strong> 包括根节点和内部节点，包含属性测试条件，用以翻开具有不同特性的记录。</p>
 </blockquote>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((体温))--恒温--&gt;2((胎生));</span><br><span class="line">	1--冷血--&gt;3[非哺乳动物];</span><br><span class="line">	2--是--&gt;4[哺乳动物];</span><br><span class="line">	2--否--&gt;5[非哺乳动物];</span><br><span class="line">	6&#123;叶节点&#125;-.-&gt;3;</span><br><span class="line">	6-.-&gt;4;</span><br><span class="line">	6-.-&gt;5;</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((体温))--恒温-->2((胎生));
+	1--冷血-->3[非哺乳动物];
+	2--是-->4[哺乳动物];
+	2--否-->5[非哺乳动物];
+	6{叶节点}-.->3;
+	6-.->4;
+	6-.->5;</pre>
 <p>e.g.：哺乳动物分类问题的决策树</p>
 </div>
 <h4 id="如何建立决策树">如何建立决策树</h4>
@@ -1710,19 +1719,31 @@ r(\bm{A}^*) =
 </table>
 <p>第一次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	拖欠贷款者=否</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	拖欠贷款者=否</pre>
 </div>
 <p>第二次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;拖欠贷款者=否</span><br><span class="line">	1((有房者))--否--&gt;投钱贷款者=是</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->拖欠贷款者=否
+	1((有房者))--否-->投钱贷款者=是</pre>
 </div>
 <p>第三次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;2[拖欠贷款者=否]</span><br><span class="line">	1((有房者))--否--&gt;4((婚姻状况))</span><br><span class="line">	4((婚姻状况))--单身离异--&gt;拖欠贷款者=是</span><br><span class="line">	4((婚姻状况))--已婚--&gt;3[拖欠贷款者=否]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->2[拖欠贷款者=否]
+	1((有房者))--否-->4((婚姻状况))
+	4((婚姻状况))--单身离异-->拖欠贷款者=是
+	4((婚姻状况))--已婚-->3[拖欠贷款者=否]</pre>
 </div>
 第四次递归：
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;4[拖欠贷款者=否]</span><br><span class="line">	1((有房者))--否--&gt;2((婚姻状况))</span><br><span class="line">	2((婚姻状况))--单身离异--&gt;3((年收入))</span><br><span class="line">	3((年收入))--&gt;|&lt;80K|6[拖欠贷款者=否]</span><br><span class="line">	3((年收入))--&gt;|&gt;80K|拖欠贷款者=是</span><br><span class="line">	2((婚姻状况))--已婚--&gt;5[拖欠贷款者=否]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->4[拖欠贷款者=否]
+	1((有房者))--否-->2((婚姻状况))
+	2((婚姻状况))--单身离异-->3((年收入))
+	3((年收入))-->|<80K|6[拖欠贷款者=否] 3((年收入))-->|>80K|拖欠贷款者=是
+	2((婚姻状况))--已婚-->5[拖欠贷款者=否]</80K|6[拖欠贷款者=否]></pre>
 </div>
 <hr>
 <p>我们还需要继续递归调用 Hunt 算法，直到所有的记录都属于同一个类为止。</p>
@@ -1746,7 +1767,11 @@ r(\bm{A}^*) =
 </ul>
 <p>例子：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((体温))--恒温--&gt;恒温动物</span><br><span class="line">	1--冷血--&gt;冷血动物</span><br><span class="line">	2((婚姻状况))--已婚--&gt;已婚</span><br><span class="line">	2--单身/离异--&gt;单身/离异</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((体温))--恒温-->恒温动物
+	1--冷血-->冷血动物
+	2((婚姻状况))--已婚-->已婚
+	2--单身/离异-->单身/离异</pre>
 </div>
 <ul>
 <li>

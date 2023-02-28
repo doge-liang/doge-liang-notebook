@@ -428,143 +428,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">C语言程序设计基础-变量</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-01T00:00:00+08:00">2020-02-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="c-语言程序设计-基础-变量">C 语言程序设计-基础-变量</h2>
-<ul>
-<li><a href="#c-%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F">C 语言程序设计-基础-变量</a>
-<ul>
-<li><a href="#%E5%8F%98%E9%87%8F">变量</a>
-<ul>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">基本数据类型</a></li>
-<li><a href="#%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA">格式输出</a></li>
-<li><a href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89">常量定义</a></li>
-<li><a href="#io">I/O</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="变量">变量</h3>
-<p>C 程序的变量都必须声明后再使用</p>
-<h4 id="基本数据类型">基本数据类型</h4>
-<ul>
-<li>int16, int32</li>
-<li>short</li>
-<li>long</li>
-<li>float32</li>
-<li>double</li>
-<li>char8</li>
-</ul>
-<h4 id="格式输出">格式输出</h4>
-<ul>
-<li>%d 十进制整数</li>
-<li>%6d 按照至少 6 个字符宽打印整数</li>
-<li>%6f 按照至少 6 个字符宽打印浮点数</li>
-<li>%.2 按照小数点后至少 2 位打印浮点数</li>
-</ul>
-<h4 id="常量定义">常量定义</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LOWER 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> UPPER 300</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> STEP 20</span></span><br></pre></td></tr></table></figure>
-<h4 id="i-o">I/O</h4>
-<p>C 语言通常以流的方式读写字符；</p>
-<ul>
-<li>c = getchar() 读入一个 char</li>
-<li>putchar© 写出一个 char</li>
-<li>EOF</li>
-</ul>
-<blockquote>
-<p>识别文本流末尾，是一个常量标识符；</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -682,6 +545,143 @@
 </blockquote>
 </li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">C语言程序设计基础-变量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-01T00:00:00+08:00">2020-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="c-语言程序设计-基础-变量">C 语言程序设计-基础-变量</h2>
+<ul>
+<li><a href="#c-%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F">C 语言程序设计-基础-变量</a>
+<ul>
+<li><a href="#%E5%8F%98%E9%87%8F">变量</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">基本数据类型</a></li>
+<li><a href="#%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA">格式输出</a></li>
+<li><a href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89">常量定义</a></li>
+<li><a href="#io">I/O</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量">变量</h3>
+<p>C 程序的变量都必须声明后再使用</p>
+<h4 id="基本数据类型">基本数据类型</h4>
+<ul>
+<li>int16, int32</li>
+<li>short</li>
+<li>long</li>
+<li>float32</li>
+<li>double</li>
+<li>char8</li>
+</ul>
+<h4 id="格式输出">格式输出</h4>
+<ul>
+<li>%d 十进制整数</li>
+<li>%6d 按照至少 6 个字符宽打印整数</li>
+<li>%6f 按照至少 6 个字符宽打印浮点数</li>
+<li>%.2 按照小数点后至少 2 位打印浮点数</li>
+</ul>
+<h4 id="常量定义">常量定义</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LOWER 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> UPPER 300</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> STEP 20</span></span><br></pre></td></tr></table></figure>
+<h4 id="i-o">I/O</h4>
+<p>C 语言通常以流的方式读写字符；</p>
+<ul>
+<li>c = getchar() 读入一个 char</li>
+<li>putchar© 写出一个 char</li>
+<li>EOF</li>
+</ul>
+<blockquote>
+<p>识别文本流末尾，是一个常量标识符；</p>
+</blockquote>
 
       
     </div>
@@ -1122,7 +1122,16 @@ C++的标识符有五种作用域：函数原型、块、函数、类和文件�
 全局变量和局部变量：具有文件作用域的变量称为全局变量，在块内，同名全局变量会被屏蔽。</p>
 <h4 id="多文件程序结构">多文件程序结构</h4>
 <p>程序通常由.cpp 文件和.h 头文件构成。一个表达特定程序功能功能的模块由两部分构成：规范说明和实现部分。规范说明描述一个模块与其他模块的接口，包括函数原型、类说明、类型说明、全局量说明、包含指令、宏定义、注释等。规范说明通常集中在头文件中。实现部分则在.cpp 文件中，通常称为实现文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">  A1(头文件A.h)--&gt;A2[实现文件A.cpp]</span><br><span class="line">  B1(头文件B.h)--&gt;B2[实现文件B.cpp]</span><br><span class="line">  C1(头文件C.h)--&gt;C2[实现文件C.cpp]</span><br><span class="line">  A2--&gt;D</span><br><span class="line">  B2--&gt;D</span><br><span class="line">  C2--&gt;D</span><br><span class="line">  A1--&gt;D[主文件M.cpp]</span><br><span class="line">  B1--&gt;D</span><br><span class="line">  C1--&gt;D</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TD
+  A1(头文件A.h)-->A2[实现文件A.cpp]
+  B1(头文件B.h)-->B2[实现文件B.cpp]
+  C1(头文件C.h)-->C2[实现文件C.cpp]
+  A2-->D
+  B2-->D
+  C2-->D
+  A1-->D[主文件M.cpp]
+  B1-->D
+  C1-->D</pre>
 <h4 id="预处理指令">预处理指令</h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;文件名&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;文件名.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p><code>#define 标识符 文本</code><br>
@@ -1395,11 +1404,46 @@ C++中数组名表示的是数组首位的地址值，例如：a==&amp;a[0]，a+
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="sql-初级使用">SQL 初级使用</h2>
-<h3 id="增删改查">增删改查</h3>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>切换到某个数据库</span><br><span class="line">USE [DataBaseName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>设置字符集</span><br><span class="line"><span class="keyword">SET</span> [ColumnName] utf8;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>简单查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>条件查询</span><br><span class="line"><span class="keyword">SELECT</span> [ColumnName,...] <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName [<span class="operator">&gt;</span> <span class="operator">=</span> <span class="operator">&lt;</span> <span class="operator">&lt;&gt;</span> <span class="operator">&gt;=</span> <span class="operator">&lt;=</span> ?] [<span class="keyword">BETWEEN</span> ? <span class="keyword">AND</span> ?] [<span class="keyword">LIKE</span> <span class="string">&#x27;regex&#x27;</span>] [<span class="keyword">IN</span> (?, ?, ?, ...)] [<span class="keyword">IS</span> <span class="keyword">NULL</span>]] <span class="keyword">AND</span> ... <span class="keyword">OR</span> ... ;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>合并重复值</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ...;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>按某列排序</span><br><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ColumnNames, ...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>是否降序];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>限制最大返回行数</span><br><span class="line"><span class="keyword">SELECT</span> TOP [MaxSize]...;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除记录</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName] <span class="operator">=</span> ?;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除所有记录而保留表结构</span><br><span class="line"><span class="keyword">DELETE</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>更改某几列的值</span><br><span class="line"><span class="keyword">UPDATE</span> [TableName] <span class="keyword">SET</span> [ColumnName1] <span class="operator">=</span> [value1], ... <span class="keyword">WHERE</span> some_column <span class="operator">=</span> some_value;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>插入</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [TableName][ColumnNames, ...] <span class="keyword">VALUES</span> [<span class="keyword">value</span>, ...];</span><br></pre></td></tr></table></figure>
-<h3 id="创建-删除-修改指令">创建/删除/修改指令</h3>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建索引列</span><br><span class="line"><span class="keyword">CREATE</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName]([ColumnName,...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>指定降序]);</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX ...;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="keyword">DROP</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName];</span><br></pre></td></tr></table></figure>
+          <h2 id="sql-高级">SQL 高级</h2>
+<h3 id="关键字">关键字</h3>
+<h4 id="逻辑关键字">逻辑关键字</h4>
+<ul>
+<li>NOT<br>
+表否定</li>
+<li>IS<br>
+表肯定</li>
+</ul>
+<h4 id="搜索关键字">搜索关键字</h4>
+<h5 id="like">LIKE</h5>
+<p>用于模式搜索。</p>
+<ul>
+<li>通配符搜索<br>
+<code>LIKE 'G%'</code>表 G 开头的模式<br>
+<code>LIKE '%oo%</code>表中间为 oo 的模式</li>
+</ul>
+<h6 id="通配符">通配符</h6>
+<ul>
+<li>%<br>
+代替 0 个或多个字符</li>
+<li>_<br>
+代替一个字符</li>
+<li>[charlist]<br>
+字符列表中的任何一个字符</li>
+<li>[^charlist]/[!charlist]<br>
+不在字符列表中的任何一个字符</li>
+</ul>
+<h5 id="in">IN</h5>
+<p>用于规定多个值，等于其中一个即可<br>
+<code>IN (value1, value2, ...)</code></p>
+<h5 id="between">BETWEEN</h5>
+<p>用于规定范围，在范围内即可<br>
+<code>BETWEEN valueA AND valueB</code></p>
+<h3 id="别名">别名</h3>
+<p>为了简化列名和函数书写，我们通常会为列或表声明别名。<br>
+列别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">AS</span> [AliasName] <span class="keyword">FROM</span> [TableName];</span><br></pre></td></tr></table></figure>
+<p>表别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">FROM</span> [TableName] <span class="keyword">AS</span> [AliasName];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1488,46 +1532,11 @@ C++中数组名表示的是数组首位的地址值，例如：a==&amp;a[0]，a+
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="sql-高级">SQL 高级</h2>
-<h3 id="关键字">关键字</h3>
-<h4 id="逻辑关键字">逻辑关键字</h4>
-<ul>
-<li>NOT<br>
-表否定</li>
-<li>IS<br>
-表肯定</li>
-</ul>
-<h4 id="搜索关键字">搜索关键字</h4>
-<h5 id="like">LIKE</h5>
-<p>用于模式搜索。</p>
-<ul>
-<li>通配符搜索<br>
-<code>LIKE 'G%'</code>表 G 开头的模式<br>
-<code>LIKE '%oo%</code>表中间为 oo 的模式</li>
-</ul>
-<h6 id="通配符">通配符</h6>
-<ul>
-<li>%<br>
-代替 0 个或多个字符</li>
-<li>_<br>
-代替一个字符</li>
-<li>[charlist]<br>
-字符列表中的任何一个字符</li>
-<li>[^charlist]/[!charlist]<br>
-不在字符列表中的任何一个字符</li>
-</ul>
-<h5 id="in">IN</h5>
-<p>用于规定多个值，等于其中一个即可<br>
-<code>IN (value1, value2, ...)</code></p>
-<h5 id="between">BETWEEN</h5>
-<p>用于规定范围，在范围内即可<br>
-<code>BETWEEN valueA AND valueB</code></p>
-<h3 id="别名">别名</h3>
-<p>为了简化列名和函数书写，我们通常会为列或表声明别名。<br>
-列别名：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">AS</span> [AliasName] <span class="keyword">FROM</span> [TableName];</span><br></pre></td></tr></table></figure>
-<p>表别名：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [ColumnName] <span class="keyword">FROM</span> [TableName] <span class="keyword">AS</span> [AliasName];</span><br></pre></td></tr></table></figure>
+          <h2 id="sql-初级使用">SQL 初级使用</h2>
+<h3 id="增删改查">增删改查</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>切换到某个数据库</span><br><span class="line">USE [DataBaseName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>设置字符集</span><br><span class="line"><span class="keyword">SET</span> [ColumnName] utf8;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>简单查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>条件查询</span><br><span class="line"><span class="keyword">SELECT</span> [ColumnName,...] <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName [<span class="operator">&gt;</span> <span class="operator">=</span> <span class="operator">&lt;</span> <span class="operator">&lt;&gt;</span> <span class="operator">&gt;=</span> <span class="operator">&lt;=</span> ?] [<span class="keyword">BETWEEN</span> ? <span class="keyword">AND</span> ?] [<span class="keyword">LIKE</span> <span class="string">&#x27;regex&#x27;</span>] [<span class="keyword">IN</span> (?, ?, ?, ...)] [<span class="keyword">IS</span> <span class="keyword">NULL</span>]] <span class="keyword">AND</span> ... <span class="keyword">OR</span> ... ;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>合并重复值</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ...;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>按某列排序</span><br><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ColumnNames, ...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>是否降序];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>限制最大返回行数</span><br><span class="line"><span class="keyword">SELECT</span> TOP [MaxSize]...;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除记录</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> [TableName] <span class="keyword">WHERE</span> [ColumnName] <span class="operator">=</span> ?;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除所有记录而保留表结构</span><br><span class="line"><span class="keyword">DELETE</span> <span class="operator">*</span> <span class="keyword">FROM</span> [TableName];</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>更改某几列的值</span><br><span class="line"><span class="keyword">UPDATE</span> [TableName] <span class="keyword">SET</span> [ColumnName1] <span class="operator">=</span> [value1], ... <span class="keyword">WHERE</span> some_column <span class="operator">=</span> some_value;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>插入</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [TableName][ColumnNames, ...] <span class="keyword">VALUES</span> [<span class="keyword">value</span>, ...];</span><br></pre></td></tr></table></figure>
+<h3 id="创建-删除-修改指令">创建/删除/修改指令</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建索引列</span><br><span class="line"><span class="keyword">CREATE</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName]([ColumnName,...] [<span class="keyword">DESC</span> <span class="operator">/</span><span class="operator">/</span>指定降序]);</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX ...;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> DATABASE [DataBaseName];</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> [TableName];</span><br><span class="line"><span class="keyword">DROP</span> INDEX [IndexName] <span class="keyword">ON</span> [TableName];</span><br></pre></td></tr></table></figure>
 
       
     </div>

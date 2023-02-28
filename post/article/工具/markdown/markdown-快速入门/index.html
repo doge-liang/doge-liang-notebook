@@ -263,7 +263,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">| 表头 | 表头 | 表头 |</span><br><span class="line">| ---- | ---- | ---- |</span><br><span class="line">| 内容 | 内容 | 内容 |</span><br><span class="line"></span><br><span class="line">表格居中、居左、居右</span><br><span class="line"></span><br><span class="line">| 标题一         | 标题二         |         标题三 |     标题四     |</span><br><span class="line">| -------------- | :------------- | -------------: | :------------: |</span><br><span class="line">| xxxxxxxxx      | xxxxxxxxx      |      xxxxxxxxx |   xxxxxxxxx    |</span><br><span class="line">| xxxxxxxxxxxxxx | xxxxxxxxxxxxxx | xxxxxxxxxxxxxx | xxxxxxxxxxxxxx |</span><br><span class="line">| xxxxxxxxx      | xxxxxxxxx      |      xxxxxxxxx |   xxxxxxxxx    |</span><br></pre></td></tr></table></figure>
 <h3 id="代码块">代码块</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">`inline code`</span><br><span class="line"></span><br><span class="line">block code</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">  A--&gt;B;</span><br><span class="line">  A--&gt;C;</span><br><span class="line">  B--&gt;D;</span><br><span class="line">  C--&gt;D;</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;</pre>
 <p>脚注的写法：<br>
 Content <a href="abc:xxxxxxxxx">^1</a></p>
 <p>​<code>flow st=&gt;start: 开始 op=&gt;operation: My Operation cond=&gt;condition: Yes or No? e=&gt;end st-&gt;op-&gt;cond cond(yes)-&gt;e cond(no)-&gt;op ​</code></p>

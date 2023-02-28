@@ -273,7 +273,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/merge/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/stash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -291,7 +291,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/merge/" class="post-title-link" itemprop="url">merge</a>
+          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/stash/" class="post-title-link" itemprop="url">stash</a>
         </h2>
 
         <div class="post-meta-container">
@@ -339,13 +339,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="merge">merge</h2>
-<p>合并分支。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout target</span><br><span class="line">git merge dev <span class="comment">## 合并 dev 的内容到 target</span></span><br></pre></td></tr></table></figure>
-<p>合并过程：</p>
-<p>假设有如下分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">       E----F  <span class="built_in">test</span></span><br><span class="line">      /</span><br><span class="line">A----B----C----D  HEAD/master</span><br></pre></td></tr></table></figure>
-<p>执行 <code>git merge test</code></p>
+          <h2 id="stash">stash</h2>
+<p>将更改存储在脏工作目录（脏应该是不同步的意思，类似于 dirty data ）中。</p>
+<p>使用场景示例：</p>
+<p>修改了本地的代码，但还没 commit ，又需要去别的分支做一些操作。可以先把当前的更改 stash 起来，做完工作后 checkout 回来，然后把 stash 的内容从脏工作目录中读出来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash save <span class="string">&quot;Save Message&quot;</span> <span class="comment"># 保存时添加备注信息，方便读出</span></span><br><span class="line">git checkout someBranch</span><br><span class="line"><span class="comment"># do something</span></span><br><span class="line">git checkout stashTest</span><br><span class="line">git stash list <span class="comment"># 查看 stash 栈的列表</span></span><br><span class="line">git stash pop <span class="comment"># 从 stash 栈中 pop 出上次的修改</span></span><br><span class="line">git stash apply <span class="comment"># 应用 stash 栈的存储，但不删除</span></span><br><span class="line">git stash drop <span class="comment"># drop 掉第一个 stash 存储</span></span><br><span class="line">gti stash clear <span class="comment"># 删除所有 stash</span></span><br></pre></td></tr></table></figure>
+<p>当合并分支时，出现 <code>Your files ... will be overwritten by merge ...</code> 之类的错误，都可以使用 <code>stash</code> 对未提交文件进行临时保存，再进行同步的操作。</p>
 
       
     </div>
@@ -489,104 +488,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/stash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/stash/" class="post-title-link" itemprop="url">stash</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="stash">stash</h2>
-<p>将更改存储在脏工作目录（脏应该是不同步的意思，类似于 dirty data ）中。</p>
-<p>使用场景示例：</p>
-<p>修改了本地的代码，但还没 commit ，又需要去别的分支做一些操作。可以先把当前的更改 stash 起来，做完工作后 checkout 回来，然后把 stash 的内容从脏工作目录中读出来。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash save <span class="string">&quot;Save Message&quot;</span> <span class="comment"># 保存时添加备注信息，方便读出</span></span><br><span class="line">git checkout someBranch</span><br><span class="line"><span class="comment"># do something</span></span><br><span class="line">git checkout stashTest</span><br><span class="line">git stash list <span class="comment"># 查看 stash 栈的列表</span></span><br><span class="line">git stash pop <span class="comment"># 从 stash 栈中 pop 出上次的修改</span></span><br><span class="line">git stash apply <span class="comment"># 应用 stash 栈的存储，但不删除</span></span><br><span class="line">git stash drop <span class="comment"># drop 掉第一个 stash 存储</span></span><br><span class="line">gti stash clear <span class="comment"># 删除所有 stash</span></span><br></pre></td></tr></table></figure>
-<p>当合并分支时，出现 <code>Your files ... will be overwritten by merge ...</code> 之类的错误，都可以使用 <code>stash</code> 对未提交文件进行临时保存，再进行同步的操作。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -673,6 +574,105 @@
 <h3 id="撤销本地修改">撤销本地修改</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
 <p>该命令会使用最近一次提交的文件来覆盖本地的文件，会导致本地文件的任何修改丢失。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/merge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/git/merge/" class="post-title-link" itemprop="url">merge</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="merge">merge</h2>
+<p>合并分支。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout target</span><br><span class="line">git merge dev <span class="comment">## 合并 dev 的内容到 target</span></span><br></pre></td></tr></table></figure>
+<p>合并过程：</p>
+<p>假设有如下分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">       E----F  <span class="built_in">test</span></span><br><span class="line">      /</span><br><span class="line">A----B----C----D  HEAD/master</span><br></pre></td></tr></table></figure>
+<p>执行 <code>git merge test</code></p>
 
       
     </div>
@@ -999,6 +999,131 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E7%BB%84%E4%BB%B6-component/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E7%BB%84%E4%BB%B6-component/" class="post-title-link" itemprop="url">组件-component</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/" itemprop="url" rel="index"><span itemprop="name">前台</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><a href="#%E7%BB%84%E4%BB%B6-component">组件-component</a>
+<ul>
+<li><a href="#%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C">组件注册</a></li>
+<li><a href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1">组件间通信</a>
+<ul>
+<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87-props-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC">父组件通过 props 向子组件传值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件-component">组件-component</h2>
+<p>Vue 的页面是由一个个组件嵌套、拼装组成的。每个组件相当于一个单 Vue 文件应用。</p>
+<h3 id="组件注册">组件注册</h3>
+<p>组件需要注册之后才能使用，有本低注册和全局注册两种方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本地注册</span></span><br><span class="line"><span class="keyword">import</span> componentA <span class="keyword">from</span> <span class="string">&#x27;componentA.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="attr">componentA</span>: conponentA</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局注册，在 main.js 内</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">App</span> = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>()</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-a&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// options</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="组件间通信">组件间通信</h3>
+<p>前面说到 Vue 的组件其实是一个单 .vue 文件应用，文件之间的作用域相互隔离。但组件之间是有交互行为的，子组件收到不同父组件传来的消息，可以对这些消息作出变化。比如说 Post 组件是存放博客的，不同页面博客内容不同，这个内容是由父组件传进来的。子组件只关心样式。</p>
+<h4 id="父组件通过-props-向子组件传值">父组件通过 props 向子组件传值</h4>
+<p>子组件中，有两种定义 <code>props</code> 的方式：</p>
+<ul>
+<li>通过数组定义，接收类型只能是字符串；</li>
+<li>通过对象的方式定义可以指定具体类型；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// child-component</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">props</span>: [<span class="string">&#x27;title&#x27;</span>],</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props, context</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(props.<span class="property">title</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// child-component</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">pager</span>: <span class="title class_">Object</span>,</span><br><span class="line">    <span class="attr">today</span>: <span class="title class_">Number</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>父组件传值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent-component</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">title</span>=<span class="string">&quot;create&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E6%8F%92%E6%A7%BD-slot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1106,131 +1231,6 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">todo-list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:default</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in items&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123; item &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用这个组件：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">todo-list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fas fa-check&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;green&quot;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">todo-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E7%BB%84%E4%BB%B6-component/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E7%BB%84%E4%BB%B6-component/" class="post-title-link" itemprop="url">组件-component</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">框架</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/" itemprop="url" rel="index"><span itemprop="name">前台</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><a href="#%E7%BB%84%E4%BB%B6-component">组件-component</a>
-<ul>
-<li><a href="#%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C">组件注册</a></li>
-<li><a href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1">组件间通信</a>
-<ul>
-<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87-props-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC">父组件通过 props 向子组件传值</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="组件-component">组件-component</h2>
-<p>Vue 的页面是由一个个组件嵌套、拼装组成的。每个组件相当于一个单 Vue 文件应用。</p>
-<h3 id="组件注册">组件注册</h3>
-<p>组件需要注册之后才能使用，有本低注册和全局注册两种方式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本地注册</span></span><br><span class="line"><span class="keyword">import</span> componentA <span class="keyword">from</span> <span class="string">&#x27;componentA.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="attr">componentA</span>: conponentA</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局注册，在 main.js 内</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">App</span> = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>()</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-a&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// options</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="组件间通信">组件间通信</h3>
-<p>前面说到 Vue 的组件其实是一个单 .vue 文件应用，文件之间的作用域相互隔离。但组件之间是有交互行为的，子组件收到不同父组件传来的消息，可以对这些消息作出变化。比如说 Post 组件是存放博客的，不同页面博客内容不同，这个内容是由父组件传进来的。子组件只关心样式。</p>
-<h4 id="父组件通过-props-向子组件传值">父组件通过 props 向子组件传值</h4>
-<p>子组件中，有两种定义 <code>props</code> 的方式：</p>
-<ul>
-<li>通过数组定义，接收类型只能是字符串；</li>
-<li>通过对象的方式定义可以指定具体类型；</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// child-component</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">props</span>: [<span class="string">&#x27;title&#x27;</span>],</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props, context</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(props.<span class="property">title</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// child-component</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">pager</span>: <span class="title class_">Object</span>,</span><br><span class="line">    <span class="attr">today</span>: <span class="title class_">Number</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>父组件传值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent-component</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">title</span>=<span class="string">&quot;create&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

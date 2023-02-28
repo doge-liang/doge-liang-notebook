@@ -268,7 +268,9 @@
 <p><strong>回归</strong>：一种预测建模任务，目标属性<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>是连续的。</p>
 <p>用图表表示分类模型的任务:</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">	1[&quot;输入属性集(x)&quot;]--&gt;分类模型;</span><br><span class="line">	分类模型--&gt;2[&quot;输出类标号(y)&quot;];</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR;
+	1["输入属性集(x)"]-->分类模型;
+	分类模型-->2["输出类标号(y)"];</pre>
 </div>
 <p>分类法的主要例子有：决策树分类法、基于规则的分类法、神经网络、支持向量机和朴素贝叶斯分类法。<br>
 它们都使用了一种<strong>学习算法(learning algorithm)</strong>。使用学习算法得到的模型不仅要很好地拟合数<br>
@@ -308,7 +310,14 @@
 <p><strong>非终结点(non-terminal node)</strong> 包括根节点和内部节点，包含属性测试条件，用以翻开具有不同特性的记录。</p>
 </blockquote>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((体温))--恒温--&gt;2((胎生));</span><br><span class="line">	1--冷血--&gt;3[非哺乳动物];</span><br><span class="line">	2--是--&gt;4[哺乳动物];</span><br><span class="line">	2--否--&gt;5[非哺乳动物];</span><br><span class="line">	6&#123;叶节点&#125;-.-&gt;3;</span><br><span class="line">	6-.-&gt;4;</span><br><span class="line">	6-.-&gt;5;</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((体温))--恒温-->2((胎生));
+	1--冷血-->3[非哺乳动物];
+	2--是-->4[哺乳动物];
+	2--否-->5[非哺乳动物];
+	6{叶节点}-.->3;
+	6-.->4;
+	6-.->5;</pre>
 <p>e.g.：哺乳动物分类问题的决策树</p>
 </div>
 <h4 id="如何建立决策树">如何建立决策树</h4>
@@ -412,19 +421,31 @@
 </table>
 <p>第一次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	拖欠贷款者=否</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	拖欠贷款者=否</pre>
 </div>
 <p>第二次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;拖欠贷款者=否</span><br><span class="line">	1((有房者))--否--&gt;投钱贷款者=是</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->拖欠贷款者=否
+	1((有房者))--否-->投钱贷款者=是</pre>
 </div>
 <p>第三次递归：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;2[拖欠贷款者=否]</span><br><span class="line">	1((有房者))--否--&gt;4((婚姻状况))</span><br><span class="line">	4((婚姻状况))--单身离异--&gt;拖欠贷款者=是</span><br><span class="line">	4((婚姻状况))--已婚--&gt;3[拖欠贷款者=否]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->2[拖欠贷款者=否]
+	1((有房者))--否-->4((婚姻状况))
+	4((婚姻状况))--单身离异-->拖欠贷款者=是
+	4((婚姻状况))--已婚-->3[拖欠贷款者=否]</pre>
 </div>
 第四次递归：
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((有房者))--是--&gt;4[拖欠贷款者=否]</span><br><span class="line">	1((有房者))--否--&gt;2((婚姻状况))</span><br><span class="line">	2((婚姻状况))--单身离异--&gt;3((年收入))</span><br><span class="line">	3((年收入))--&gt;|&lt;80K|6[拖欠贷款者=否]</span><br><span class="line">	3((年收入))--&gt;|&gt;80K|拖欠贷款者=是</span><br><span class="line">	2((婚姻状况))--已婚--&gt;5[拖欠贷款者=否]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((有房者))--是-->4[拖欠贷款者=否]
+	1((有房者))--否-->2((婚姻状况))
+	2((婚姻状况))--单身离异-->3((年收入))
+	3((年收入))-->|<80K|6[拖欠贷款者=否] 3((年收入))-->|>80K|拖欠贷款者=是
+	2((婚姻状况))--已婚-->5[拖欠贷款者=否]</80K|6[拖欠贷款者=否]></pre>
 </div>
 <hr>
 <p>我们还需要继续递归调用 Hunt 算法，直到所有的记录都属于同一个类为止。</p>
@@ -448,7 +469,11 @@
 </ul>
 <p>例子：</p>
 <div style="text-align: center">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">	1((体温))--恒温--&gt;恒温动物</span><br><span class="line">	1--冷血--&gt;冷血动物</span><br><span class="line">	2((婚姻状况))--已婚--&gt;已婚</span><br><span class="line">	2--单身/离异--&gt;单身/离异</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+	1((体温))--恒温-->恒温动物
+	1--冷血-->冷血动物
+	2((婚姻状况))--已婚-->已婚
+	2--单身/离异-->单身/离异</pre>
 </div>
 <ul>
 <li>
