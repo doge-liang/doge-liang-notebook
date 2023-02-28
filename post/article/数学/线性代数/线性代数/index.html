@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
+
+    <meta name="description" content="矩阵 矩阵就是一组数据组成的方阵。  矩阵的迹 $\mathrm{tr}(\bm{A}) &#x3D; \sum \limits_{i&#x3D;1}^n a_{ii}$ 代表 $n$ 阶方阵的主对角线的和 对角矩阵 $\bm{A} &#x3D; \mathrm{diag}(a_{11}, a_{22}, \cdots, a_{nn})$ 代表除了主对角线以外的值都是 $0$ 的对角矩阵  矩阵运算  矩阵加法  交换律 结合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="矩阵 矩阵就是一组数据组成的方阵。  矩阵的迹 $\mathrm{tr}(\bm{A}) &#x3D; \sum \limits_{i&#x3D;1}^n a_{ii}$ 代表 $n$ 阶方阵的主对角线的和 对角矩阵 $\bm{A} &#x3D; \mathrm{diag}(a_{11}, a_{22}, \cdots, a_{nn})$ 代表除了主对角线以外的值都是 $0$ 的对角矩阵  矩阵运算  矩阵加法  交换律 结合">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="矩阵">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/","path":"post/article/数学/线性代数/线性代数/","title":"线性代数"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>线性代数 | doge-liang-notebook</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/doge-liang-notebook/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">doge-liang-notebook</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/doge-liang-notebook/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">1.</span> <span class="nav-text">矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="nav-number">1.1.</span> <span class="nav-text">矩阵运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%8F%98%E6%8D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">行列变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E9%98%B6%E6%A2%AF%E5%8C%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">矩阵阶梯化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86"><span class="nav-number">1.3.</span> <span class="nav-text">矩阵的逆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86"><span class="nav-number">1.3.1.</span> <span class="nav-text">矩阵求逆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E7%AD%89%E8%A1%8C%E5%88%97%E5%8F%98%E6%8D%A2"><span class="nav-number">1.4.</span> <span class="nav-text">初等行列变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E7%AD%89%E7%9F%A9%E9%98%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">初等矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">1.5.</span> <span class="nav-text">正交矩阵</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/doge-liang-notebook/archives/">
+          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/doge-liang-notebook/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/doge-liang-notebook/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="线性代数 | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          线性代数
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-22T00:00:00+08:00">2020-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">线性代数</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="矩阵">矩阵</h2>
+<p>矩阵就是一组数据组成的方阵。</p>
+<ul>
+<li>矩阵的迹 $\mathrm{tr}(\bm{A}) = \sum \limits_{i=1}^n a_{ii}$ 代表 $n$ 阶方阵的主对角线的和</li>
+<li>对角矩阵 $\bm{A} = \mathrm{diag}(a_{11}, a_{22}, \cdots, a_{nn})$ 代表除了主对角线以外的值都是 $0$ 的对角矩阵</li>
+</ul>
+<h3 id="矩阵运算">矩阵运算</h3>
+<ul>
+<li>矩阵加法
+<ul>
+<li>交换律</li>
+<li>结合律</li>
+<li>单位元为 $\bm{0}$</li>
+</ul>
+</li>
+<li>矩阵数乘
+<ul>
+<li>结合律</li>
+<li>分配律</li>
+<li>$1 \bm{A} = \bm{A}$</li>
+<li>$k \bm{A} = \bm{0} \Leftrightarrow k = 0 \quad \text{or} \quad \bm{A} = \bm{0}$</li>
+<li><strong>注意区分</strong>： $\vert k \bm{A} \vert = k^n \vert \bm{A} \vert$ , $( k \bm{A} ) = k^n ( \bm{A} )$</li>
+</ul>
+</li>
+<li>矩阵乘法
+<ul>
+<li>结合律</li>
+<li>分配律</li>
+<li><strong>不满足交换律</strong></li>
+<li>若 $\bm{A}$ 为方阵，则 $\bm{A}^n$，表示 $\bm{A}$ 的 $n$ 次幂</li>
+<li>等价矩阵和另一个矩阵的乘积<strong>不一定</strong>相等</li>
+<li>$\vert \bm{A} \bm{B} \vert = \vert \bm{A} \vert \cdot \vert \bm{B} \vert$</li>
+</ul>
+</li>
+<li>矩阵转置
+<ul>
+<li>自反律</li>
+<li>分配律
+<ul>
+<li>加法的分配律不改变位置</li>
+<li>乘法的分配律改变两个矩阵位置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>矩阵共轭
+<ul>
+<li>对复数而言的性质，没有什么限制</li>
+</ul>
+</li>
+</ul>
+<p>矩阵分块后同样满足以上的运算律，不过每一个子块都要运算后有意义才行，也就是行列能满足要求。<strong>特别提醒矩阵的转置</strong>，整个矩阵要转置，子块也要转置，</p>
+<p>$$<br>
+\bm{A}^T =<br>
+\begin{pmatrix}<br>
+\bm{A}^T_{11} &amp; \bm{A}^T_{12} &amp; \cdots &amp; \bm{A}^T_{1n} \<br>
+\bm{A}^T_{21} &amp; \bm{A}^T_{22} &amp; \cdots &amp; \bm{A}^T_{2n} \<br>
+\vdots        &amp; \vdots        &amp;        &amp; \vdots        \<br>
+\bm{A}^T_{n1} &amp; \bm{A}^T_{n2} &amp; \cdots &amp; \bm{A}^T_{nn} \<br>
+\end{pmatrix}<br>
+$$</p>
+<h3 id="行列变换">行列变换</h3>
+<ul>
+<li>初等变换</li>
+</ul>
+<ol>
+<li>$r_{i} \div(\times) k$（或 $c_{i} \div(\times) k$）：从第 $i$ 行（列）中提取公因子（乘以） $k$.</li>
+<li>$r_{i} + kr_{j}$（或 $c_{i} + kr_{j}$）：将第 $j$ 行（列）的 $k$ 倍加到第 $i$ 行（列）上.</li>
+<li>$r_{i} \lrarr r_{j}$（或 $c_{i} \lrarr c_{j}$）：将第 $i$ 行（列）和第 $j$ 列互换。</li>
+</ol>
+<p>$r(\bm{A}) = n$ $\Leftrightarrow$ $\vert \bm{A} \vert \ne 0$<br>
+$\bm{A}, \bm{B}$ 等价 $\Leftrightarrow$ $r(\bm{A}) = r(\bm{B})$ $\Leftrightarrow$ 矩阵有相等的等价标准型</p>
+<h4 id="矩阵阶梯化">矩阵阶梯化</h4>
+<p>满足以下条件的矩阵称为阶梯矩阵</p>
+<ol>
+<li>如果一行元素全都为 $0$ 那么该行下所有元素都为 $0$；</li>
+<li>所有有非零元素的行，最左边的非零元素的列号，从上往下严格递增。</li>
+</ol>
+<p>一切矩阵都可以通过初等变换变为阶梯矩阵。<br>
+将阶梯矩阵转置后，再通过初等变换可以将矩阵转换成型如：</p>
+<p>$$<br>
+\begin{pmatrix}<br>
+\bm{E_r} &amp; \bm{0} \<br>
+\bm{0}   &amp; \bm{0} \<br>
+\end{pmatrix}<br>
+$$</p>
+<p>的矩阵，称为<strong>等价标准型</strong>，其中 $r$ 是包含非零元素的行数，也叫<strong>矩阵的秩</strong>，矩阵的秩无法通过初等变换改变。</p>
+<p>关于矩阵的秩有一些重要的不等式常常在证明题中使用:</p>
+<ol>
+<li>$r(\bm{AB}) \leq = \min {r(\bm{A}, r(\bm{B})}$;</li>
+<li>$\bm{A_{m\times n}B_{n\times s}} = \bm{O} \Rightarrow r(\bm{A}) + r(\bm{B}) \le n$;</li>
+<li>$r(\bm{A+B}) \le r(\bm{A}) + r(\bm{B})$</li>
+</ol>
+<p>特别地，有两个 $n$ 维<strong>列</strong>向量 $\bm{\alpha}, \bm{\beta}$ 通过相乘可以得到一个 $n$ 阶矩阵 $\bm{A} = \bm{\alpha} \bm{\beta}^T$ ，这个矩阵的秩为 1.且有以下规律：$\bm{A}^n = l^{n-1}A$ 其中 $l=\rm{tr}(A)$</p>
+<h3 id="矩阵的逆">矩阵的逆</h3>
+<p>$\bm{A}$ 逆存在 $\Leftrightarrow$ $r(\bm{A}) = n$ $\Leftrightarrow$ $|\bm{A}| \neq 0$ $\Leftrightarrow$ $\bm{A}$ 的特征值中没有 0 $\Leftrightarrow$ $\bm{A}$ 的齐次线性方程组 $\bm{Ax} = \bm{0}$ 只有零解 $\Leftrightarrow$ $\bm{A}$ 的行（列）向量组线性无关 $\Leftrightarrow$ $\bm{A}$ 与单位矩阵等价</p>
+<ul>
+<li><strong>伴随矩阵</strong></li>
+</ul>
+<p>$$<br>
+\bm{A}^* =<br>
+\begin{pmatrix}<br>
+A_{11} &amp; A_{21} &amp; A_{31} &amp; \cdots &amp; A_{n1} \<br>
+A_{12} &amp; A_{22} &amp; A_{32} &amp; \cdots &amp; A_{n2} \<br>
+\vdots &amp; \vdots &amp; \vdots &amp;        &amp; \vdots \<br>
+A_{1n} &amp; A_{2n} &amp; A_{3n} &amp; \cdots &amp; A_{nn}<br>
+\end{pmatrix}<br>
+$$</p>
+<p>其中 $A_{ij}$ 矩阵 $A$ 的代数余子式。<br>
+<strong>注意这里的代数余子式的位置，位置 $ij$ 的代数余子式并不是 $A_{ij}$，而是转置。</strong><br>
+因为代数余子式有一个很好的性质：</p>
+<p>$$<br>
+a_{i1}A_{j1} + a_{i2}A_{j2} + \cdots + a_{in}A_{jn} = \begin{cases}<br>
+d, i = j, \<br>
+0, i \neq j. \<br>
+\end{cases}<br>
+$$</p>
+<p>$$<br>
+a_{1i}A_{1j} + a_{2i}A_{2j} + \cdots + a_{ni}A_{nj} =<br>
+\begin{cases}<br>
+d, i = j, \<br>
+0, i \neq j. \<br>
+\end{cases}<br>
+$$</p>
+<p>这个性质描述了行列式中第 $i$ 行如果使用第 $j$ 行的代数余子式进行展开，结果将为 0。</p>
+<blockquote>
+<p><strong>证明</strong>：<br>
+由于行列式的行列地位等价，所以对行证明的结论对列也适用。所以先只对行证明。假设对 $i$ 行展开， 第 $i$ 行不会出现在代数余子式中，$i$ 行影响的是 $D$ 的展开式中，代数余子式 $A_{ij}$ 的乘数。所以不妨令第 $j$ 为第 $i$ 行，然后使用第 $j$ 行展开，这样的结果与第 $i$ 行使用第 $j$ 行展开的展开结果是一致的（乘数是第 $i$ 行，代数余子式是第 $j$ 行的）。由于第 $i$ 行和第 $j$ 行相等，所以行列式 $D$ 的值为 $0$，结论得证。</p>
+</blockquote>
+<p>$$<br>
+\begin{aligned}<br>
+\bm{AA}^*<br>
+= &amp;<br>
+\begin{pmatrix}<br>
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \<br>
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \<br>
+\vdots &amp; \vdots &amp;        &amp; \vdots \<br>
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}<br>
+\end{pmatrix}<br>
+\begin{pmatrix}<br>
+A_{11} &amp; A_{21} &amp; \cdots &amp; A_{n1} \<br>
+A_{12} &amp; A_{22} &amp; \cdots &amp; A_{n2} \<br>
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \<br>
+A_{1n} &amp; A_{2n} &amp; \cdots &amp; A_{nn} \<br>
+\end{pmatrix} \<br>
+= &amp;<br>
+\begin{pmatrix}<br>
+d \<br>
+&amp; d \<br>
+&amp; &amp; \ddots \<br>
+&amp; &amp; &amp; d \<br>
+\end{pmatrix}<br>
+= d\bm{E}<br>
+\end{aligned}<br>
+$$</p>
+<p>于是便得到矩阵 $\bm{A}$ 的逆： $\bm{A}^{-1} = \dfrac{\bm{A}^<em>}{d} = \dfrac{\bm{A}^</em>}{|\bm{A}|}$</p>
+<p>特别地，我们有：</p>
+<p>$$<br>
+\begin{aligned}<br>
+\vert \bm{A}^{<em>} \vert = \vert \bm{A} \vert ^{n-1} \<br>
+\vert \bm{A}^{-1} \vert = \vert \bm{A} \vert ^{-1} \<br>
+(k\bm{A})^{-1} = \dfrac{1}{k} \bm{A}^{-1} \<br>
+(\bm{B}\bm{A})^{-1} =  \bm{A}^{-1} \bm{B}^{-1} \<br>
+r(\bm{A}^</em>) =<br>
+\begin{cases}<br>
+n, r(\bm{A}) = n \<br>
+1, r(\bm{A}) = n-1 \<br>
+0, r(\bm{A}) &lt; n-1<br>
+\end{cases}<br>
+\end{aligned}<br>
+$$</p>
+<h4 id="矩阵求逆">矩阵求逆</h4>
+<ol>
+<li>定义法，找到一个 $\bm{B}$ 使得 $\bm{A}\bm{B} = \bm{E}$</li>
+<li>伴随矩阵 $\bm{A}^{-1} = \dfrac{\bm{A}^*}{\vert \bm{A} \vert}$</li>
+<li>行变换 $(\bm{A} | \bm{E}) \to (\bm{E} | \bm{A}^{-1})$</li>
+<li>用分块<br>
+$$<br>
+\begin{bmatrix}<br>
+\bm{A} &amp; \bm{O}\<br>
+\bm{O} &amp; \bm{B}<br>
+\end{bmatrix}^{-1} =<br>
+\begin{bmatrix}<br>
+\bm{A}^{-1} &amp; \bm{O}\<br>
+\bm{O} &amp; \bm{B}^{-1}<br>
+\end{bmatrix} ,<br>
+\begin{bmatrix}<br>
+\bm{O} &amp; \bm{B}\<br>
+\bm{A} &amp; \bm{O}<br>
+\end{bmatrix}^{-1} =<br>
+\begin{bmatrix}<br>
+\bm{O} &amp; \bm{A}^{-1}\<br>
+\bm{B}^{-1} &amp; \bm{O}<br>
+\end{bmatrix}<br>
+$$</li>
+</ol>
+<h3 id="初等行列变换">初等行列变换</h3>
+<h4 id="初等矩阵">初等矩阵</h4>
+<p>将矩阵运算和矩阵初等变换联系起来的矩阵，通过左乘（右乘）初等矩阵，就可以实现行（列）变换。</p>
+<ul>
+<li>行（列）对换初等矩阵</li>
+</ul>
+<p>$$<br>
+\bm{P}(i, j) =<br>
+\begin{pmatrix}<br>
+1 \<br>
+&amp; 1 \<br>
+&amp; &amp; 0 &amp; \cdots &amp; 1 \<br>
+&amp; &amp; \vdots &amp; &amp; \vdots \<br>
+&amp; &amp; 1 &amp; \cdots &amp; 0 \<br>
+&amp; &amp; &amp; &amp; &amp; 1 \<br>
+&amp; &amp; &amp; &amp; &amp; &amp; 1 \<br>
+\end{pmatrix}<br>
+\begin{aligned}<br>
+(i) \<br>
+\<br>
+(j) \<br>
+\end{aligned}<br>
+$$</p>
+<ul>
+<li>行（列）数乘初等矩阵</li>
+</ul>
+<p>$$<br>
+\bm{P}(i(k)) =<br>
+\begin{pmatrix}<br>
+1 \<br>
+&amp; \ddots \<br>
+&amp; &amp; k \<br>
+&amp; &amp; &amp; \ddots \<br>
+&amp; &amp; &amp; &amp; 1 \<br>
+\end{pmatrix}<br>
+\begin{aligned}<br>
+(i)<br>
+\end{aligned}<br>
+$$</p>
+<ul>
+<li>行（列）数乘相加初等矩阵</li>
+</ul>
+<p>$$<br>
+\bm{P}(i, j(k)) =<br>
+\begin{pmatrix}<br>
+1 \<br>
+&amp; \ddots \<br>
+&amp; &amp; 1 &amp; &amp; k \<br>
+&amp; &amp; &amp; \ddots \<br>
+&amp; &amp; &amp; &amp; 1 \<br>
+&amp; &amp; &amp; &amp; &amp; \ddots \<br>
+&amp; &amp; &amp; &amp; &amp; &amp; 1 \<br>
+\end{pmatrix}<br>
+\begin{aligned}<br>
+(i) \<br>
+\<br>
+(j) \<br>
+\end{aligned}<br>
+$$</p>
+<p>以上各初等矩阵用来<strong>左乘</strong> $\bm{A}$ 时代表<strong>行变换</strong>；<strong>右乘</strong>时，代表<strong>列变换</strong>。<br>
+基于以上规律，矩阵的初等变换可以转换为连续左乘和右乘不同的初等矩阵。</p>
+<h3 id="正交矩阵">正交矩阵</h3>
+<p>$n$ 阶矩阵 $\bm{A}$ 满足 $\bm{AA}^T = \bm{E}$ 那么矩阵 $\bm{A}$ 被称为正交矩阵；<br>
+即矩阵的转置等于矩阵的逆的矩阵称为正交矩阵；<br>
+显然有正交矩阵 $|\bm{A}|^2 = 1$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/%E7%9F%A9%E9%98%B5/" rel="tag"># 矩阵</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%88%86%E7%B1%BB%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/" rel="prev" title="分类：基本概念、决策树与模型评估">
+                  <i class="fa fa-chevron-left"></i> 分类：基本概念、决策树与模型评估
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A24/" rel="next" title="文献检索4">
+                  文献检索4 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/doge-liang-notebook/js/comments.js"></script><script src="/doge-liang-notebook/js/utils.js"></script><script src="/doge-liang-notebook/js/motion.js"></script><script src="/doge-liang-notebook/js/schemes/muse.js"></script><script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
+
+    <meta name="description" content=".center {   width: auto;   display: table;   margin-left: auto;   margin-right: auto; } &#x2F;&#x2F; 图片居中 img {     position: relative;     left: 50%;     transform: translateX(-50%); }  线性方程组   非齐次线性方程组 $$ \b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性方程组">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content=".center {   width: auto;   display: table;   margin-left: auto;   margin-right: auto; } &#x2F;&#x2F; 图片居中 img {     position: relative;     left: 50%;     transform: translateX(-50%); }  线性方程组   非齐次线性方程组 $$ \b">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-28T15:46:15.260Z">
+<meta property="article:author" content="doge-liang">
+<meta property="article:tag" content="线性方程组">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/","path":"post/article/数学/线性代数/线性方程组/","title":"线性方程组"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>线性方程组 | doge-liang-notebook</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/doge-liang-notebook/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">doge-liang-notebook</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/doge-liang-notebook/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E8%A7%A3%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">线性方程组解的结构</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/doge-liang-notebook/archives/">
+          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/doge-liang-notebook/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/doge-liang-notebook/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="线性方程组 | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          线性方程组
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-18T00:00:00+08:00">2020-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">线性代数</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+// 图片居中
+img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+</style>
+<h2 id="线性方程组">线性方程组</h2>
+<ul>
+<li>
+<p>非齐次线性方程组</p>
+<p>$$<br>
+\begin{cases}<br>
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1, \<br>
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2, \<br>
+\cdots \<br>
+a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m,<br>
+\end{cases} \tag{1}<br>
+$$</p>
+</li>
+<li>
+<p>齐次线性方程组<br>
+$$<br>
+\begin{cases}<br>
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0, \<br>
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = 0, \<br>
+\cdots \<br>
+a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = 0,<br>
+\end{cases} \tag{2}<br>
+$$</p>
+</li>
+</ul>
+<p><strong>增广矩阵</strong> $\bm{\tilde{A}} = (\bm{A}, \bm{b})$<br>
+<strong>线性方程组解的情况：</strong></p>
+<ol>
+<li>唯一解，当且仅当 $r(\bm{\tilde{A}}) = r(\bm{A}) = n$;</li>
+<li>有无穷多解，当且仅当 $r(\bm{\tilde{A}}) = r(\bm{A}) \lt n$;</li>
+<li>无解，当且仅当 $r(\bm{\tilde{A}}) \neq r(\bm{A})$.</li>
+</ol>
+<p><strong>自由未知量</strong>，就是无穷多解的情形，有效方程数小于未知量数，剩下的就是自由未知量。</p>
+<p><strong>$n$ 维向量空间</strong>：以数域 $F$ 的元素为分量的 $n$ 维向量全体，包括定义在其中的加法和数量乘积（线性组合），称为数域 $F$ 上的 $n$ 维向量空间，记为 $F^n$。<br>
+<strong>基</strong>：在 $F^n$ 上的 $n$ 个线性无关的向量。</p>
+<p><strong>基变换公式</strong>：$(\bm{\beta_1}, \bm{\beta_2}, \cdots, \bm{\beta_n}) = (\bm{\alpha_1}, \bm{\alpha_2}, \cdots, \bm{\alpha_n}) \bm{A}$</p>
+<p><strong>坐标变换公式</strong>：根据基变换公式得到的公式，不同的基对同一向量有不同的线性组合，当基变换了，坐标就相应的要变换，下面是转换公式，${y_n}$ 对应上面的 ${\bm{\beta_n}}$ 的坐标， ${x_n}$ 对应 ${\alpha_n}$。</p>
+<p>$$<br>
+\begin{pmatrix}<br>
+x_{1} \<br>
+x_{2} \<br>
+\vdots \<br>
+x_{n} \<br>
+\end{pmatrix} =<br>
+\bm{A}<br>
+\begin{pmatrix}<br>
+y_{1} \<br>
+y_{2} \<br>
+\vdots \<br>
+y_{n} \<br>
+\end{pmatrix}<br>
+$$</p>
+<ul>
+<li>线性表出：存在一组不全为零的数 $(k_1, k_2, \dots, k_n)$ 使得向量组 ${\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_n}}$ 与之相乘之和等于另一个向量 $\bm{\alpha}$，我们称之为 $\bm{\alpha}$ 可由向量组 ${\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_n}}$ 线性表出。</li>
+<li>线性组合：我们将上面的 $\bm{\alpha}$ 称为向量组 ${\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_n}}$ 的线性组合。</li>
+<li>线性相关：如果上式的 $\bm{\alpha} = \bm{0}$ 我们说向量组 ${\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_n}}$ 线性相关，反之称为线性无关。</li>
+</ul>
+<p>将线性相关和线性方程组联系起来，我们可以把 $k$ 看作未知数，一个向量看成一个未知数的一组系数，是否线性相关，就相当于判断一个齐次线性方程组的解的情形，就能用上矩阵的秩进行判断；</p>
+<p><strong>极大线性无关组</strong>：一个向量组中，能够容纳的最多的线性无关向量向量组；也就是说在 $n$ 个向量的向量组中有 $s$ 个向量线性无关，并且再增加任何一个向量之后向量组便线性相关了，这 $s$ 个向量构成一个线性无关组。<strong>我们可以这样理解</strong>：极大线性无关组包含了整个向量组中最精炼的信息，向量组内的其他信息都可以用这个向量组来线性表出（因为再多一个向量都会变成线性相关组，而该向量组本身是线性无关的）；</p>
+<p><strong>向量组的秩</strong>：极大线性无关组的向量个数；</p>
+<p>一些比较重要的定理：</p>
+<ol>
+<li>若向量组 $\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_r}$ 被向量组 $\bm{\beta_1}, \bm{\beta_2}, \dots, \bm{\beta_s}$ 线性表出，且 $r \gt s$ ，那么向量组 $\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_r}$ 线性相关。
+<blockquote>
+<p>大的向量组被小的向量组表达了，那么大的向量组肯定包含了冗余的信息。</p>
+</blockquote>
+</li>
+<li>若向量组 $\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_r}$ 被向量组 $\bm{\beta_1}, \bm{\beta_2}, \dots, \bm{\beta_s}$ 线性表出，且向量组 $\bm{\alpha_1}, \bm{\alpha_2}, \dots, \bm{\alpha_r}$ 线性无关，那么 $r \leqslant s$.
+<blockquote>
+<p>是上一条命题的逆否命题，也就是一个向量组被另一个向量组表达了，而且被表达的向量组的信息没有冗余，那么被表达的向量组肯定不比另一个向量组大。</p>
+</blockquote>
+</li>
+<li>若向量组 $(\bm{\alpha})$ 被向量组 $(\bm{\beta})$ 线性表出，那么向量组 $(\bm{\alpha})$ 的秩小于等于向量组 $(\bm{\beta})$ 的秩。
+<blockquote>
+<p>如果一个向量组被另一个向量组表达了，那么该向量组的信息量必然不超过另一个向量组。</p>
+</blockquote>
+</li>
+<li>对于矩阵 $\bm{A}<em>{m \times n}$ 和矩阵 $\bm{B}</em>{n \times s}$ 我们有 $r(\bm{AB}) \leqslant \min {r(\bm{A}), r(\bm{B})}$.</li>
+<li>若矩阵 $\bm{A}\bm{B} = \bm{O}$ 则 $r(\bm{A}) + r(\bm{B}) \lt n$ 。</li>
+</ol>
+<h3 id="线性方程组解的结构">线性方程组解的结构</h3>
+<p>我们知道方程组 $(1)$ 的情况有三种：</p>
+<ol>
+<li>无解 $r(\bm{A}) &lt; r(\bm{\overline{A}})$</li>
+<li>唯一解 $r(\bm{A}) = r(\bm{\overline{A}}) = n$</li>
+<li>无穷解 $r(\bm{A}) = r(\bm{\overline{A}}) &lt; n$</li>
+</ol>
+<p>其中包含无穷多解的情形，通过对向量工具的利用，我们是否能够通过有限个解来表达无限个解的情况呢？</p>
+<p>为了方便研究我们使用</p>
+<p>$$<br>
+\begin{aligned}<br>
+\bm{AX} &amp; = \bm{b}, \<br>
+(\bm{\alpha_1}, \bm{\alpha_2}, \cdots, \bm{\alpha_n}) \bm{X} &amp; = \bm{b}<br>
+\end{aligned}<br>
+$$</p>
+<p>来表示方程组 $(1)$ ，<br>
+使用</p>
+<p>$$<br>
+\begin{aligned}<br>
+\bm{AX} &amp; = \bm{0}, \<br>
+(\bm{\alpha_1}, \bm{\alpha_2}, \cdots, \bm{\alpha_n}) \bm{X} &amp; = \bm{0}<br>
+\end{aligned}<br>
+$$</p>
+<p>来表示方程组 $(2)$。</p>
+<p>循序渐进，我们先来讨论相对简单的齐次线性方程组的情形。<br>
+对于齐次线性方程组 $(2)$ 根据之前的讨论，我们知道解的情形和系数矩阵的秩是有关的，而且齐次的时候唯一解就是零解。</p>
+<p><strong>定义</strong>：基础解系</p>
+<blockquote>
+<p>对于齐次方程组 $(2)$ 有一组解 $\bm{\eta}_1, \bm{\eta}_2, \cdots, \bm{\eta}_t$ 满足以下条件：<br>
+$(1)$ $\bm{\eta}_1, \bm{\eta}_2, \cdots, \bm{\eta}_t$ 线性无关；<br>
+$(2)$ 方程组任何一个解都是它的线性表出；<br>
+换言之，这组解是方程组 $(2)$ 整个解集的一组极大线性无关组，我们称之为基础解系。</p>
+</blockquote>
+<p>关于方程组 $(2)$ 的解，我们有以下性质和定理：</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>若 $\bm{\xi}_1, \bm{\xi}_2$ 是 $(1)$ 的两个解，那么 $\bm{\xi}_1 + \bm{\xi}_2$ 也是他的解。</li>
+<li>若 $\bm{\xi}$ 是 $(2)$ 的解，那么 $k\bm{\xi}$ 也是它的解。</li>
+</ol>
+<p>以上的性质说明方程组 $(2)$ 的解具有线性性质，联系之前基础解系的定义和先前对于向量空间的知识，我们可以知道，齐次方程组 $(2)$ 的所有解都可以使用基础解系进行描述；基础解系对应方程组的解的向量空间的基，以下是一些概念的对应关系：</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">线性方程组</th>
+<th style="text-align:center">向量组</th>
+<th style="text-align:center">向量空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">基础解系</td>
+<td style="text-align:center">极大线性无关组</td>
+<td style="text-align:center">向量空间的基</td>
+</tr>
+<tr>
+<td style="text-align:center">方程组的解</td>
+<td style="text-align:center">所有解构成的一组向量组</td>
+<td style="text-align:center">这组向量是一个线性空间</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>定理</strong>：（其证明过程也是求基础解系的方法）</p>
+<p>若方程组 $(2)$ 有非零解，则它一定有基础解系，并且基础解系包含的解的个数为 $n - r(\bm{A})$。</p>
+<blockquote>
+<p><strong>证明</strong><br>
+若 $r(\bm{A}) = n$ ，那么方程组 $(2)$ 只有零解，所以不存在基础解系；<br>
+若 $r(\bm{A}) &lt; n$ ，将方程组 $(2)$ 的 $n - r$ 个自由未知量转移到右边，得到：</p>
+<p>$$<br>
+\begin{cases}<br>
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1r}x_r = a_{1, r+1}x_{r+1} + \cdots + a_{rn}x_n, \<br>
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2r}x_r = a_{1, r+1}x_{r+1} + \cdots + a_{rn}x_n, \<br>
+\cdots \<br>
+a_{r1}x_1 + a_{r2}x_2 + \cdots + a_{rr}x_r = a_{r, r+1}x_{r+1} + \cdots + a_{rn}x_n.<br>
+\end{cases}<br>
+$$</p>
+<p>对于左边的 $r$ 个未知量，我们可以在知道右边的值后，使用克拉默法则求解，因此我们先来确定右边的值：<br>
+我们依次给定右边 $n - r$ 个自由未知量的值：</p>
+<p>$$<br>
+(x_{r+1}, x_{r+2}, \cdots, x_{n}) = (1, 0, \cdots, 0), (0, 1, 0, \cdots, 0), \cdots, (0, 0, \cdots, 1)<br>
+$$</p>
+<p>于是我们得到基础解系为：</p>
+<p>$$<br>
+\begin{cases}<br>
+\bm{\eta}<em>1 = (c</em>{11}, c_{12}, \cdots, c_{1r}, 1, 0, 0, \cdots, 0), \<br>
+\bm{\eta}<em>2 = (c</em>{21}, c_{22}, \cdots, c_{2r}, 0, 1, 0, \cdots, 0), \<br>
+\cdots \<br>
+\bm{\eta}<em>{n-r} = (c</em>{n-r, 1}, c_{n-r, 2}, \cdots, c_{n-r, r}, 0, 0, 0, \cdots, 1).<br>
+\end{cases}<br>
+$$</p>
+<p>要证明它是基础解系很简单，首先通过行列变换可以证明这个矩阵是满秩的，因此这个向量组是线性无关的；然后通过方程组 $(2)$ 的解的线性性质，再根据我们特意给定的后 $n - r$ 个分量的结构（形如：$(1, 0, 0, \cdots, 0), (0, 1, 0, \cdots, 0), \cdots$），可以控制向量组的后 $n - r$ 个与任意解的后 $n - r$ 个分量保持一致，又因为前 $r$ 个分量的值由后面的决定，所以该向量组可以线性表出任意解。因此该向量组是方程组 $(2)$ 的基础解系。</p>
+</blockquote>
+<p>下面开始讨论方程组 $(1)$ 的解的情形：</p>
+<p>我们有一些定理和解的性质：</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>设 $\gamma_1, \gamma_2$ 是 $\bm{AX} = \bm{b}$ 的解，则 $\gamma_1 - \gamma_2$ 是 $\bm{AX} = \bm{0}$ 的解。</li>
+<li>设 $\gamma$ 是 $\bm{AX} = \bm{b}$ 的解，$\eta$ 是 $\bm{AX} = \bm{0}$ 的解，则 $\gamma + \eta$ 也是 $\bm{AX} = \bm{b}$ 的解。
+<blockquote>
+<p>上述性质直接将解代入方程即可得到。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>定理</strong>：</p>
+<ol>
+<li>线性方程组 $(1)$ 有解的充要条件是 $\bm{b}$ 是可以由向量组 $(\bm{\alpha_1}, \bm{\alpha_2}, \cdots, \bm{\alpha_n})$ 线性表出。</li>
+<li>设 $\gamma_0$ 是方程组 $(1)$ 的解（通常为特解），他的任意一个解都可以表示成<br>
+$$\gamma = \gamma_0 + \eta$$<br>
+其中 $\eta$ 是他的导出组（对应系数矩阵相同的齐次线性方程）。</li>
+</ol>
+<blockquote>
+<p>根据定理，我们知道要表示方程组 $(2)$ 的任意一个解，我们需要知道<br>
+$\gamma_0$ ：方程组的任意一个特解<br>
+$\eta$ ：方程组 $(1)$ 的通解。通解可以通过计算方程组 $(1)$ 的导出组的基础解系得到。</p>
+<p>$$<br>
+\eta = k_1 \bm{\gamma}<em>{1} + k_2 \bm{\gamma}</em>{2} + \cdots + k_{n-r} \gamma_{n-r}<br>
+$$</p>
+<p>其中 $k_1, k_2, \cdots, k_{n-r}$ 是任意常数。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/doge-liang-notebook/tags/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" rel="tag"># 线性方程组</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/" rel="prev" title="向量代数与几何">
+                  <i class="fa fa-chevron-left"></i> 向量代数与几何
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" rel="next" title="特征值和特征向量">
+                  特征值和特征向量 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/doge-liang-notebook/js/comments.js"></script><script src="/doge-liang-notebook/js/utils.js"></script><script src="/doge-liang-notebook/js/motion.js"></script><script src="/doge-liang-notebook/js/schemes/muse.js"></script><script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/doge-liang-notebook/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doge-liang-notebook/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doge-liang-notebook/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doge-liang-notebook/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doge-liang-notebook/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"doge-liang.github.io","root":"/doge-liang-notebook/","images":"/doge-liang-notebook/images","scheme":"Muse","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/doge-liang-notebook/js/config.js"></script>
+
+    <meta name="description" content="连续与极限 1.1 变化率和极限 1.1.1 变化率  平均变化率  $y &#x3D; f(x)$关于$x$在$[x_1,x_2]$上的平均变化率是： $$\frac{\Delta y}{\Delta x} &#x3D; \frac{f(x_2) - f(x_1)}{x_2 - x_1} &#x3D; \frac{f(x_1 + h) - f(x_1)}{h}, h \ne 0.$$ 几何上是割线的斜率。    当区间$[x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="连续与极限">
+<meta property="og:url" content="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90/">
+<meta property="og:site_name" content="doge-liang-notebook">
+<meta property="og:description" content="连续与极限 1.1 变化率和极限 1.1.1 变化率  平均变化率  $y &#x3D; f(x)$关于$x$在$[x_1,x_2]$上的平均变化率是： $$\frac{\Delta y}{\Delta x} &#x3D; \frac{f(x_2) - f(x_1)}{x_2 - x_1} &#x3D; \frac{f(x_1 + h) - f(x_1)}{h}, h \ne 0.$$ 几何上是割线的斜率。    当区间$[x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-28T15:46:15.261Z">
+<meta property="article:author" content="doge-liang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90/","path":"post/article/数学/高等数学/托马斯微积分/连续与极限/","title":"连续与极限"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>连续与极限 | doge-liang-notebook</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/doge-liang-notebook/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/doge-liang-notebook/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">doge-liang-notebook</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">doge-liang's notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/doge-liang-notebook/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/doge-liang-notebook/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/doge-liang-notebook/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/doge-liang-notebook/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.</span> <span class="nav-text">连续与极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%8F%98%E5%8C%96%E7%8E%87%E5%92%8C%E6%9E%81%E9%99%90"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 变化率和极限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E5%8F%98%E5%8C%96%E7%8E%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 变化率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-%E6%9E%81%E9%99%90%EF%BC%88%E6%9C%89%E9%99%90%E6%9E%81%E9%99%90%E3%80%81%E6%97%A0%E7%A9%B7%E6%9E%81%E9%99%90%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 极限（有限极限、无穷极限）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-1-%E6%9E%81%E9%99%90%E7%9A%84%E6%AD%A3%E5%BC%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.1.2.1 极限的正式定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-2-%E6%9E%81%E9%99%90%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1.1.2.2 极限的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%89%E7%95%8C%E6%80%A7"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">有界性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="nav-number">1.1.2.2.2.</span> <span class="nav-text">存在性</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-3-%E6%B1%82%E6%9E%81%E9%99%90"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">1.1.2.3 求极限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-3-%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">1.1.2.3 渐近线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-4-%E7%BB%88%E6%9E%81%E6%80%A7%E6%80%81%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">1.1.2.4 终极性态模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 函数的连续性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 间断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 连续函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-%E4%BB%A3%E6%95%B0%E7%BB%84%E5%90%88"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 代数组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%AD%E9%97%B4%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 连续函数的中间值定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%88%87%E7%BA%BF"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 切线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E5%AF%BC%E6%95%B0%E5%88%9D%E6%8E%A2"><span class="nav-number">1.4.</span> <span class="nav-text">1.3.1 导数初探</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doge-liang</p>
+  <div class="site-description" itemprop="description">什么都记的笔记本</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/doge-liang-notebook/archives/">
+          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/doge-liang-notebook/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/doge-liang-notebook/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E8%BF%9E%E7%BB%AD%E4%B8%8E%E6%9E%81%E9%99%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="连续与极限 | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          连续与极限
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">高等数学</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">托马斯微积分</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="连续与极限">连续与极限</h2>
+<h3 id="1-1-变化率和极限">1.1 变化率和极限</h3>
+<h4 id="1-1-1-变化率">1.1.1 变化率</h4>
+<ul>
+<li>平均变化率
+<blockquote>
+<p>$y = f(x)$关于$x$在$[x_1,x_2]$上的平均变化率是：<br>
+$$\frac{\Delta y}{\Delta x} = \frac{f(x_2) - f(x_1)}{x_2 - x_1} = \frac{f(x_1 + h) - f(x_1)}{h}, h \ne 0.$$<br>
+几何上是割线的斜率。</p>
+</blockquote>
+</li>
+</ul>
+<p>当区间$[x_1, x_2]$足够小时，我们称之为瞬时变化率（极限）。<br>
+求瞬时变化率的过程，我们称之为求极限。</p>
+<p>极限不依赖于取极限处的函数值，有时候也会不存在。</p>
+<h4 id="1-1-2-极限（有限极限、无穷极限）">1.1.2 极限（有限极限、无穷极限）</h4>
+<h5 id="1-1-2-1-极限的正式定义">1.1.2.1 极限的正式定义</h5>
+<p>设$f(x)$定义在一个可能不包括$x_0$的区间上，我们说，当$x$趋近$x_0$时，$f(x)$趋近直线$L$，记为<br>
+$$\lim_{x \rightarrow x_0} f(x) = L$$<br>
+如果，对任何树$\varepsilon &gt; 0$，存在相应的数$\delta &gt; 0$使得对所有满足$0 \lt |x - x_0| \lt \delta$的 x，有<br>
+$$|f(x) - L| \lt \varepsilon$$</p>
+<h5 id="1-1-2-2-极限的性质">1.1.2.2 极限的性质</h5>
+<h6 id="有界性">有界性</h6>
+<h6 id="存在性">存在性</h6>
+<p>书中介绍了三种不存在的情况，尚未对存在性进行判定规范化。</p>
+<ul>
+<li><em>函数跳跃</em></li>
+<li><em>函数无限增大</em></li>
+<li><em>函数无限震荡并且没有振幅减小的趋势</em></li>
+</ul>
+<h5 id="1-1-2-3-求极限">1.1.2.3 求极限</h5>
+<ul>
+<li>
+<p>极限的和差商积幂</p>
+</li>
+<li>
+<p>夹逼定理</p>
+<blockquote>
+<p>若$\lim_{x \rightarrow x_0}h(x) = \lim_{x \rightarrow x_0}g(x), h(x) \lt f(x) \lt g(x)$，<br>
+则$\lim_{x \rightarrow x_0}f(x) = \lim_{x \rightarrow x_0}h(x)$</p>
+</blockquote>
+</li>
+<li>
+<p>单侧极限、双侧极限的关系</p>
+<blockquote>
+<p>当且仅当<br>
+$$\lim_{x \rightarrow x_0^+}f(x) = \lim_{x \rightarrow x0^-}f(x) = h$$<br>
+有<br>
+$$\lim_{x \rightarrow x_0}f(x) = h$$</p>
+</blockquote>
+</li>
+<li>
+<p>特殊极限</p>
+<blockquote>
+<p>$$\lim_{\theta \rightarrow 0} \frac{\sin \theta}{\theta} = 1$$</p>
+</blockquote>
+</li>
+<li>
+<p>有理函数极限求法：</p>
+<ul>
+<li>分子等于分母的次—&gt;直接除以最高次幂求极限</li>
+<li>分子大于分母的次—&gt;直接除以最高次幂求极限，一般是 $\infty$</li>
+<li>分子小于分母的次—&gt;直接除以最高次幂求极限，一般是 $0$</li>
+</ul>
+</li>
+<li>
+<p>变量替换</p>
+</li>
+</ul>
+<h5 id="1-1-2-3-渐近线">1.1.2.3 渐近线</h5>
+<ul>
+<li>
+<p>水平渐近线</p>
+<blockquote>
+<p>直线$y = b$是函数$y = f(x)$图形的<strong>水平渐近线</strong>，如果有$\lim \limits_{x \rightarrow \infty} f(x) = b$ 或 $\lim \limits_{x \rightarrow -\infty} f(x) = b$</p>
+</blockquote>
+</li>
+<li>
+<p>垂直渐近线</p>
+<blockquote>
+<p>直线$x = a$是该图形的<strong>垂直渐近线</strong>，如果有$\lim \limits_{x \rightarrow a^+} f(x) = \pm \infty$ 或 $\lim \limits_{x \rightarrow a^-} f(x) = \pm \infty$</p>
+</blockquote>
+</li>
+<li>
+<p>斜渐近线</p>
+<blockquote>
+<p>直线$y = ax + b$是该函数的<strong>斜渐近线</strong>渐近线，如果有$\lim \limits_{x \rightarrow \infty} f(x) = \lim \limits_{x \rightarrow \infty} (ax + b) \pm \lim \limits_{x \rightarrow \infty} h(x)$ 且 $\lim \limits_{x \rightarrow \infty} h(x) = 0$</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="1-1-2-4-终极性态模型">1.1.2.4 终极性态模型</h5>
+<p>对于数指很大的$x$，我们有时候可以对复杂函数的性态用一个简单的函数表示，实际上这两个函数的作用方式都是同样的。</p>
+<ul>
+<li>终极性态模型
+<blockquote>
+<p>函数$g$是<br>
+$f$的<strong>右侧</strong>终极性态模型，当且仅当<br>
+$$\lim_{x \rightarrow +\infty} \frac{f(x)}{g(x)} = 1$$ &gt; $f$的<strong>左侧</strong>终极性态模型，当且仅当<br>
+$$\lim_{x \rightarrow -\infty} \frac{f(x)}{g(x)} = 1.$$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-2-函数的连续性">1.2 函数的连续性</h3>
+<ul>
+<li>
+<p>连续性检验</p>
+<blockquote>
+<p>函数$f(x)$在$x = c$连续，当且仅当它满足以下条件：</p>
+<ol>
+<li>$f©$存在</li>
+<li>$\lim \limits_{x \rightarrow c} f(x)$ 存在</li>
+<li>$\lim \limits_{x \rightarrow c} f(x) = f©$</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>内点</p>
+<blockquote>
+<p>函数$f(x)$在其定义域的内点$c$处是连续的，如果$\lim \limits_{x \rightarrow c} f(x) = f©$</p>
+</blockquote>
+</li>
+<li>
+<p>端点</p>
+<blockquote>
+<p>函数$f(x)$在其定义域的左端点 $a$ 或右端点 $b$ 是连续的，如果分别有<br>
+$\lim \limits_{x \rightarrow a^+} f(x) = f(a)$ 或 $\lim \limits_{x \rightarrow b^-} f(x) = f(b)$</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-2-1-间断点">1.2.1 间断点</h4>
+<ul>
+<li>跳跃间断点</li>
+<li>无穷间断点</li>
+<li>振荡间断点</li>
+<li>可去间断点</li>
+</ul>
+<p>其中左侧极限和右侧极限相等，且极限存在的间断点我们认为是<strong>可去间断点</strong>。</p>
+<h4 id="1-2-2-连续函数">1.2.2 连续函数</h4>
+<p>连续函数要求定义域中每一点都是连续的函数。</p>
+<ul>
+<li>多项式</li>
+<li>根号函数</li>
+<li>反三角函数</li>
+<li>有理函数</li>
+<li>三角函数</li>
+<li>指数函数</li>
+<li>对数函数</li>
+</ul>
+<p>都是连续函数。</p>
+<h4 id="1-2-3-代数组合">1.2.3 代数组合</h4>
+<ul>
+<li>连续函数的和差积商、常数积都是连续的。</li>
+<li>连续复合函数
+<blockquote>
+<p>如果 $f$ 在 $c$ 连续而 $g$ 在 $f©$ 连续，那么复合函数 $g \circ f$ 在 $c$ 连续。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-2-4-连续函数的中间值定理">1.2.4 连续函数的中间值定理</h4>
+<ul>
+<li>连续函数的中间值定理
+<blockquote>
+<p>一个连续函数取得到两个值，那么该函数一定能取到这两个值之间的一切值。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-3-切线">1.3 切线</h3>
+<p>求切线的过程就是一个求极限的过程。</p>
+<blockquote>
+<p>曲线$y = f(x)$的在点$P(x_0, f(x_0))$的斜率是数<br>
+$$m = \lim_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h}$$<br>
+（若这个极限存在）</p>
+</blockquote>
+<h3 id="1-3-1-导数初探">1.3.1 导数初探</h3>
+<p>变化率：在一点处的导数<br>
+表达式<br>
+$$\frac{f(x_0 + h) - f(x_0)}{h}$$<br>
+称为$f$在$x_0$处增量为$h$的<strong>差商</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E5%AF%BC%E6%95%B0/" rel="prev" title="导数">
+                  <i class="fa fa-chevron-left"></i> 导数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/doge-liang-notebook/post/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD/" rel="next" title="极限和连续">
+                  极限和连续 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doge-liang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/doge-liang-notebook/js/comments.js"></script><script src="/doge-liang-notebook/js/utils.js"></script><script src="/doge-liang-notebook/js/motion.js"></script><script src="/doge-liang-notebook/js/schemes/muse.js"></script><script src="/doge-liang-notebook/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
