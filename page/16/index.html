@@ -176,6 +176,131 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">区块链相关概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="区块链相关算法整理">区块链相关算法整理</h2>
+<h2 id="拜占庭算法">拜占庭算法</h2>
+<ul>
+<li>
+<p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
+</li>
+<li>
+<p>现实问题：</p>
+</li>
+</ul>
+<ol>
+<li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
+<li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
+</ol>
+<h2 id="零知识证明">零知识证明</h2>
+<ul>
+<li>
+<p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
+</li>
+<li>
+<p>问题本质：<br>
+如何在保证信息的隐秘性的情况下，证明该信息的正确性；</p>
+</li>
+<li>
+<p>解决方案：<br>
+两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
+</li>
+</ul>
+<h3 id="1-工作量证明机制">1、工作量证明机制</h3>
+<p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
+<h3 id="2-互联网共识机制">2、互联网共识机制</h3>
+<p>以共识确保正确，无需甄别好坏；</p>
+<h3 id="3-智能合约机制">3、智能合约机制</h3>
+<p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
+<h3 id="4-互联网透明机制">4、互联网透明机制</h3>
+<p>账号全网公开，而户名隐藏</p>
+<h2 id="边缘计算">边缘计算</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -519,131 +644,6 @@ Hyperledger 软件套中的一个顶级软件，Python实现
 - 什么特性？
   - 基于区块链的供应链模型
   - 智能合约，领域模型，应用样板 -->
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">区块链相关概念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="区块链相关算法整理">区块链相关算法整理</h2>
-<h2 id="拜占庭算法">拜占庭算法</h2>
-<ul>
-<li>
-<p>问题引入：n 个将军被分隔在不同的地方，忠诚的将军希望通过某种协议达成某个命令的一致（比如一起进攻或者一起后退）。但其中一些背叛的将军会通过发送错误的消息阻挠忠诚的将军达成命令上的一致。Lamport 证明了在将军总数大于 3m ，背叛者为 m 或者更少时，忠诚的将军可以达成命令上的一致。</p>
-</li>
-<li>
-<p>现实问题：</p>
-</li>
-</ul>
-<ol>
-<li>计算机网络中，如何保证在信道不可靠的情况下，消息能够准确送达；</li>
-<li>区块链上的成员，在已知存在造假者的情况下，如何保证所有人达成共识；</li>
-</ol>
-<h2 id="零知识证明">零知识证明</h2>
-<ul>
-<li>
-<p>问题引入：数学家塔塔利亚和卡丹都宣称自己找到了三次方程的解法，他们需要向对方证明自己的确掌握了解法，而又不能告诉对方（否则就无法知道这个解法到底是谁发现的了）。</p>
-</li>
-<li>
-<p>问题本质：<br>
-如何在保证信息的隐秘性的情况下，证明该信息的正确性；</p>
-</li>
-<li>
-<p>解决方案：<br>
-两个数学家一起解 30 道三次方程，最终塔塔利亚解出了方程，卡丹失败。</p>
-</li>
-</ul>
-<h3 id="1-工作量证明机制">1、工作量证明机制</h3>
-<p>如果要篡改区块链上的数据，需要拥有全链 51%以上的算力，这样的工作量使得造假成本大于收益；</p>
-<h3 id="2-互联网共识机制">2、互联网共识机制</h3>
-<p>以共识确保正确，无需甄别好坏；</p>
-<h3 id="3-智能合约机制">3、智能合约机制</h3>
-<p>用程序代替合同，当约定条件达成，合同（程序）自动执行。金融活动从交换数据转变为交换代码；</p>
-<h3 id="4-互联网透明机制">4、互联网透明机制</h3>
-<p>账号全网公开，而户名隐藏</p>
-<h2 id="边缘计算">边缘计算</h2>
 
       
     </div>
@@ -1481,6 +1481,211 @@ r(\bm{A}^*) =
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A23/" class="post-title-link" itemprop="url">文献检索3</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-21T00:00:00+08:00">2020-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">文献检索</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>作业任务：按照课件提示，在 WOS 数据库检索金融科技 ABCD（人工智能、区块链、云计算、大数据）的文章，记录高引、高热点论文及领军人物。</p>
+<ul>
+<li>
+<p>金融科技+人工智能</p>
+<ul>
+<li>
+<p>高被引</p>
+<div style="text-align: center">
+</div></li>
+</ul>
+</li>
+</ul>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+人工智能+高引"></p>
+<pre><code>&lt;/div&gt;
+
+- 高热
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%AB%98%E7%83%AD.jpg" alt="金融科技+人工智能+高热"></p>
+<pre><code>&lt;/div&gt;
+
+
+
+- 领军人物
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+人工智能+领军人物"></p>
+<pre><code>&lt;/div&gt;
+</code></pre>
+<ul>
+<li>
+<p>金融科技+区块链</p>
+<ul>
+<li>
+<p>高被引</p>
+<div style="text-align: center">
+</div></li>
+</ul>
+</li>
+</ul>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+区块链+高引"></p>
+<pre><code>&lt;/div&gt;
+
+- 高热
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AB%98%E7%83%AD.jpg" alt="金融科技+区块链+高热"></p>
+<pre><code>&lt;/div&gt;
+
+- 领军人物
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+区块链+领军人物"></p>
+<pre><code>&lt;/div&gt;
+</code></pre>
+<ul>
+<li>
+<p>金融科技+云计算</p>
+<ul>
+<li>
+<p>高被引</p>
+<div style="text-align: center">
+</div></li>
+</ul>
+</li>
+</ul>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+云计算+高引"></p>
+<pre><code>&lt;/div&gt;
+
+- 高热
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%AB%98%E7%83%AD.jpg" alt="金融科技+云计算+高热"></p>
+<pre><code>&lt;/div&gt;
+
+
+
+- 领军人物
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+云计算+领军人物"></p>
+<pre><code>&lt;/div&gt;
+</code></pre>
+<ul>
+<li>
+<p>金融科技+大数据</p>
+<ul>
+<li>
+<p>高被引</p>
+<div style="text-align: center">
+</div></li>
+</ul>
+</li>
+</ul>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+大数据+高引"></p>
+<pre><code>&lt;/div&gt;
+
+- 高热
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%83%AD.jpg" alt="金融科技+大数据+高热"></p>
+<pre><code>&lt;/div&gt;
+
+- 领军人物
+
+&lt;div style='text-align: center'&gt;
+</code></pre>
+<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+大数据+领军人物"></p>
+<pre><code>&lt;/div&gt;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%88%86%E7%B1%BB%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1517,7 +1722,7 @@ r(\bm{A}^*) =
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-01 00:53:59" itemprop="dateModified" datetime="2023-03-01T00:53:59+08:00">2023-03-01</time>
+      <time title="Modified: 2023-03-01 00:56:18" itemprop="dateModified" datetime="2023-03-01T00:56:18+08:00">2023-03-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1543,7 +1748,7 @@ r(\bm{A}^*) =
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="第四章-分类：基本概念-决策树与模型评估">第四章 分类：基本概念、决策树与模型评估</h2>
+          <h2 id="分类：基本概念-决策树与模型评估">分类：基本概念、决策树与模型评估</h2>
 <h3 id="分类的基本概念">分类的基本概念</h3>
 <p><strong>分类</strong>：分类任务就是通过学习得到一个目标函数（target function)<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>，把每个属性集<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>映射到一个预先定义的类标号<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>。目标函数也称为<strong>分类模型</strong>(classification model)。</p>
 <ul>
@@ -1862,211 +2067,6 @@ stopping_cond()检查所有记录是否为同一个类，决定是否终止决�
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord">∣</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mclose">)</span></span></span></span></span></p>
 <p>右边的第一项是模型编码的开销，右边第二项是误分类记录编码的开销。</p>
 </blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A23/" class="post-title-link" itemprop="url">文献检索3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-03-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-21T00:00:00+08:00">2020-03-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">文献检索</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>作业任务：按照课件提示，在 WOS 数据库检索金融科技 ABCD（人工智能、区块链、云计算、大数据）的文章，记录高引、高热点论文及领军人物。</p>
-<ul>
-<li>
-<p>金融科技+人工智能</p>
-<ul>
-<li>
-<p>高被引</p>
-<div style="text-align: center">
-</div></li>
-</ul>
-</li>
-</ul>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+人工智能+高引"></p>
-<pre><code>&lt;/div&gt;
-
-- 高热
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%AB%98%E7%83%AD.jpg" alt="金融科技+人工智能+高热"></p>
-<pre><code>&lt;/div&gt;
-
-
-
-- 领军人物
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+人工智能+领军人物"></p>
-<pre><code>&lt;/div&gt;
-</code></pre>
-<ul>
-<li>
-<p>金融科技+区块链</p>
-<ul>
-<li>
-<p>高被引</p>
-<div style="text-align: center">
-</div></li>
-</ul>
-</li>
-</ul>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+区块链+高引"></p>
-<pre><code>&lt;/div&gt;
-
-- 高热
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AB%98%E7%83%AD.jpg" alt="金融科技+区块链+高热"></p>
-<pre><code>&lt;/div&gt;
-
-- 领军人物
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+区块链+领军人物"></p>
-<pre><code>&lt;/div&gt;
-</code></pre>
-<ul>
-<li>
-<p>金融科技+云计算</p>
-<ul>
-<li>
-<p>高被引</p>
-<div style="text-align: center">
-</div></li>
-</ul>
-</li>
-</ul>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+云计算+高引"></p>
-<pre><code>&lt;/div&gt;
-
-- 高热
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%AB%98%E7%83%AD.jpg" alt="金融科技+云计算+高热"></p>
-<pre><code>&lt;/div&gt;
-
-
-
-- 领军人物
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E4%BA%91%E8%AE%A1%E7%AE%97%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+云计算+领军人物"></p>
-<pre><code>&lt;/div&gt;
-</code></pre>
-<ul>
-<li>
-<p>金融科技+大数据</p>
-<ul>
-<li>
-<p>高被引</p>
-<div style="text-align: center">
-</div></li>
-</ul>
-</li>
-</ul>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E8%A2%AB%E5%BC%95.jpg" alt="金融科技+大数据+高引"></p>
-<pre><code>&lt;/div&gt;
-
-- 高热
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%83%AD.jpg" alt="金融科技+大数据+高热"></p>
-<pre><code>&lt;/div&gt;
-
-- 领军人物
-
-&lt;div style='text-align: center'&gt;
-</code></pre>
-<p><img src="/doge-liang-notebook/.io//%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80+%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%86%E5%86%9B%E4%BA%BA%E7%89%A9.jpg" alt="金融科技+大数据+领军人物"></p>
-<pre><code>&lt;/div&gt;
-</code></pre>
 
       
     </div>
