@@ -1,9 +1,10 @@
 ---
 title: vscode+remote-ssh插件进行远程开发
-date: 2021-03-27
 tags: []
 categories:
+  - article
   - 零碎
+date: 2021-03-27 00:00:00
 ---
 
 ## vscode+remote-ssh 插件进行远程开发

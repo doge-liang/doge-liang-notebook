@@ -1,11 +1,13 @@
 ---
 title: Fabric实战-环境搭建（Docker方式）
-date: 2021-03-13
-tags: [Hyperledger Fabric]
+tags:
+  - Hyperledger Fabric
 categories:
+  - article
   - 区块链
-  - 《区块链设计、原理与应用》
+  - 区块链原理、设计与应用
   - 实践篇
+date: 2021-03-13 00:00:00
 ---
 
 ## Fabric 实战-环境搭建（Docker 方式）

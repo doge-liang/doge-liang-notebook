@@ -1,10 +1,12 @@
 ---
 title: vim-plugin
-date: 2020-06-19
-tags: [vim]
+tags:
+  - vim
 categories:
+  - article
   - 工具
   - vim
+date: 2020-06-19 00:00:00
 ---
 
 ## vim 插件管理

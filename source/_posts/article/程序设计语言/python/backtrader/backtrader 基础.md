@@ -1,11 +1,12 @@
 ---
 title: backtrader 基础
-date: 2021-04-12
 tags: []
 categories:
+  - article
   - 程序设计语言
   - python
   - backtrader
+date: 2021-04-12 00:00:00
 ---
 
 ## backtrader 基础

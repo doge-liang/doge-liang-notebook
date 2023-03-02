@@ -1,12 +1,12 @@
 ---
 title: jvm 常用工具
-date: 2022-07-23
 tags: []
 categories:
-
+  - article
   - 程序设计语言
   - Java
   - JVM
+date: 2022-07-23 00:00:00
 ---
 
 ## JVM 常用工具

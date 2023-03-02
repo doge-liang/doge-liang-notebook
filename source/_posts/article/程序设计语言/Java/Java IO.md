@@ -1,10 +1,11 @@
 ---
 title: Java IO
-date: 2022-06-22
 tags: []
 categories:
+  - article
   - 程序设计语言
   - Java
+date: 2022-06-22 00:00:00
 ---
 
 ## Java IO

@@ -1,11 +1,12 @@
 ---
 title: Jupyter-Theme 修改主题
-date: 2021-07-06
 tags: []
 categories:
+  - article
   - 程序设计语言
   - python
   - Jupyter Notebook
+date: 2021-07-06 00:00:00
 ---
 
 ## Jupyter-Theme 修改主题

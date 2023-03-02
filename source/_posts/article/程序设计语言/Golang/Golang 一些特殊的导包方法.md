@@ -1,10 +1,11 @@
 ---
 title: Golang 一些特殊的导包方法
-date: 2021-04-11
 tags: []
 categories:
+  - article
   - 程序设计语言
   - Golang
+date: 2021-04-11 00:00:00
 ---
 
 ## Golang 一些特殊的导包方法

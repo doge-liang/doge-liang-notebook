@@ -1,10 +1,13 @@
 ---
 title: PECS 原则
-date: 2021-10-31
-tags: [面向对象, 泛型]
-categories: 
-    - 程序设计语言
-    - Java
+tags:
+  - 面向对象
+  - 泛型
+categories:
+  - article
+  - 程序设计语言
+  - Java
+date: 2021-10-31 00:00:00
 ---
 
 ## PECS 原则

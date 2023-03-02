@@ -1,9 +1,12 @@
 ---
 title: Thomas' calculus
-date: 2021-03-07
-tags: [calculus]
+tags:
+  - calculus
 categories:
+  - article
   - 数学
+  - 高等数学
+date: 2021-03-07 00:00:00
 ---
 
 <style>

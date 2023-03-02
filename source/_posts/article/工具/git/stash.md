@@ -1,10 +1,11 @@
 ---
 title: stash
-date: 2021-10-07
 tags: []
 categories:
+  - article
   - 工具
   - git
+date: 2021-10-07 00:00:00
 ---
 
 ## stash

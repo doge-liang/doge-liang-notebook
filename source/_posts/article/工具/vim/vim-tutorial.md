@@ -1,10 +1,12 @@
 ---
 title: vim-tutorial
-date: 2020-06-20
-tags: [vim]
+tags:
+  - vim
 categories:
+  - article
   - 工具
   - vim
+date: 2020-06-20 00:00:00
 ---
 
 ## vim tutorial

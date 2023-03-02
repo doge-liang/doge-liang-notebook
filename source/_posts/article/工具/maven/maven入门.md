@@ -1,10 +1,13 @@
 ---
 title: maven入门
-date: 2021-08-25
-tags: [maven, Draft]
+tags:
+  - maven
+  - Draft
 categories:
+  - article
   - 工具
   - maven
+date: 2021-08-25 00:00:00
 ---
 
 ## Maven 入门

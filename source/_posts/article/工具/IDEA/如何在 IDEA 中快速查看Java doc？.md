@@ -1,10 +1,11 @@
 ---
 title: 如何在 IDEA 中快速查看Java doc？
-date: 2021-03-02
 tags: []
 categories:
+  - article
   - 工具
   - IDEA
+date: 2021-03-02 00:00:00
 ---
 
 <style>

@@ -1,9 +1,10 @@
 ---
 title: Hyperledger Fabric 环境搭建踩坑
-date: 2021-03-27
 tags: []
 categories:
+  - article
   - 区块链
+date: 2021-03-27 00:00:00
 ---
 
 ## Hyperledger Fabric 环境搭建踩坑

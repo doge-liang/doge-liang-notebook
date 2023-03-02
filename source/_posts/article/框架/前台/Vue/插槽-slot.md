@@ -1,11 +1,12 @@
 ---
 title: 插槽-slot
-date: 2021-10-07
 tags: []
 categories:
+  - article
   - 框架
   - 前台
   - Vue
+date: 2021-10-07 00:00:00
 ---
 
 ## 插槽-slot

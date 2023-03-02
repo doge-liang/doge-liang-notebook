@@ -1,10 +1,11 @@
 ---
 title: commit
-date: 2021-10-07
 tags: []
 categories:
+  - article
   - 工具
-  - commit
+  - git
+date: 2021-10-07 00:00:00
 ---
 
 ## commmit

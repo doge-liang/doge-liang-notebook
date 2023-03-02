@@ -1,11 +1,13 @@
 ---
 title: PAC
-date: 2021-03-09
-tags: [v2ray]
+tags:
+  - v2ray
 categories:
+  - article
   - 工具
   - vpn
   - v2ray
+date: 2021-03-09 00:00:00
 ---
 
 <style>

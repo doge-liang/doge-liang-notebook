@@ -1,10 +1,12 @@
 ---
 title: LaTex常用符号写法
 mathjax: true
-date: 2020-01-01
-tags: [论文写法]
-categories: 
-	- [论文撰写要记]
+tags:
+  - 论文写法
+categories:
+  - article
+  - 论文规范
+date: 2020-01-01 00:00:00
 ---
 
 ## LaTex 常用数学符号

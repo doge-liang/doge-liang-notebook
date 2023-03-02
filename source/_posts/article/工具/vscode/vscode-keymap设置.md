@@ -1,10 +1,12 @@
 ---
 title: vscode-keymap设置
-date: 2020-06-01
-tags: [vscode]
+tags:
+  - vscode
 categories:
+  - article
   - 工具
   - vscode
+date: 2020-06-01 00:00:00
 ---
 
 ## 打开设置文件

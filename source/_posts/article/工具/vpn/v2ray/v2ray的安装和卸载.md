@@ -1,11 +1,12 @@
 ---
 title: v2ray的安装和卸载
-date: 2021-03-25
 tags: []
 categories:
+  - article
   - 工具
   - vpn
   - v2ray
+date: 2021-03-25 00:00:00
 ---
 
 ## v2ray 的安装和卸载

@@ -1,10 +1,11 @@
 ---
 title: Linux踩坑合集
-date: 2019-10-01
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2019-10-01 00:00:00
 ---
 
 ## Linux 忘记 mysql root 密码，修改权限以及密码(mysql version < 5.7.9)

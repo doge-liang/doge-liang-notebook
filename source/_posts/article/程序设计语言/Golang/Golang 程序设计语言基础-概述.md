@@ -1,10 +1,11 @@
 ---
 title: Golang 程序设计语言基础-概述
-date: 2021-03-05
 tags: []
 categories:
+  - article
   - 程序设计语言
   - Golang
+date: 2021-03-05 00:00:00
 ---
 
 <style>

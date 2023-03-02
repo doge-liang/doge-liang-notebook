@@ -1,10 +1,11 @@
 ---
 title: python 连接mysql
-date: 2019-10-10
 tags: []
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2019-10-10 00:00:00
 ---
 
 ## python 连接 mysql

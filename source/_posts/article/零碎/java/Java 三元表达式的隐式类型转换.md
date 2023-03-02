@@ -1,10 +1,11 @@
 ---
 title: Java 三元表达式的隐式类型转换
-date: 2022-08-31
 tags: []
 categories:
+  - article
   - 零碎
   - java
+date: 2022-08-31 00:00:00
 ---
 
 ## Java 三元表达式的隐式类型转换

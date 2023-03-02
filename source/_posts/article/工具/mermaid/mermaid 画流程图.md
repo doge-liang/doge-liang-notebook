@@ -1,10 +1,11 @@
 ---
 title: mermaid 画流程图
-date: 2021-03-18
 tags: []
 categories:
+  - article
   - 工具
   - mermaid
+date: 2021-03-18 00:00:00
 ---
 
 ## mermaid 画流程图

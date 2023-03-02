@@ -1,10 +1,11 @@
 ---
 title: git ssh 协议出现 22 端口拒绝连接
-date: 2022-06-06
 tags: []
 categories:
+  - article
   - 工具
   - git
+date: 2022-06-06 00:00:00
 ---
 
 ## git ssh 协议出现 22 端口拒绝连接

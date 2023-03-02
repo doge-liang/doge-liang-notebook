@@ -1,9 +1,11 @@
 ---
 title: 数据库应用
-date: 2020-01-01
-tags: [数据库（应用知识）]
+tags:
+  - 数据库（应用知识）
 categories:
+  - article
   - 数据库
+date: 2020-01-01 00:00:00
 ---
 
 ## SQL 高级

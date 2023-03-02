@@ -1,10 +1,12 @@
 ---
 title: git-ssh
-date: 2020-06-20
-tags: [ssh]
+tags:
+  - ssh
 categories:
+  - article
   - 工具
   - git
+date: 2020-06-20 00:00:00
 ---
 
 ## How to use ssh in git

@@ -1,10 +1,11 @@
 ---
 title: Hyperledger Fabric 链码生命周期
-date: 2021-04-10
 tags: []
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2021-04-10 00:00:00
 ---
 
 ## Hyperledger Fabric 链码生命周期

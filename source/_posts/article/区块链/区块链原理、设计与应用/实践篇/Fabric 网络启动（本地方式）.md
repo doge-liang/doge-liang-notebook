@@ -1,11 +1,13 @@
 ---
 title: Fabric 网络启动（本地方式）
-date: 2021-03-14
-tags: [Hyperledger Fabric]
+tags:
+  - Hyperledger Fabric
 categories:
+  - article
   - 区块链
-  - 《区块链原理、设计与应用》
+  - 区块链原理、设计与应用
   - 实践篇
+date: 2021-03-14 00:00:00
 ---
 
 ## Fabric 网络启动（本地方式）

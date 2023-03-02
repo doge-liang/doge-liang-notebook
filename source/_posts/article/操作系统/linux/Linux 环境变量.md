@@ -1,10 +1,11 @@
 ---
 title: Linux 环境配置
-date: 2021-03-29
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2021-03-29 00:00:00
 ---
 
 ## Linux 环境配置

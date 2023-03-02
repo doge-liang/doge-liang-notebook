@@ -1,10 +1,11 @@
 ---
 title: git 简介
-date: 2021-03-14
 tags: []
 categories:
+  - article
   - 工具
   - git
+date: 2021-03-14 00:00:00
 ---
 
 ## git 简介

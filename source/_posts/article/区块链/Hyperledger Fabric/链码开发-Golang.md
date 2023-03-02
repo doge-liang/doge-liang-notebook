@@ -1,10 +1,11 @@
 ---
 title: 链码开发-Golang
-date: 2021-04-10
 tags: []
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2021-04-10 00:00:00
 ---
 
 ## 链码开发

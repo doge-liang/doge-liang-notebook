@@ -1,10 +1,13 @@
 ---
 title: Hyperledger 简介
-date: 2020-05-27
-tags: [区块链概述, Hyperledger Fabric]
+tags:
+  - 区块链概述
+  - Hyperledger Fabric
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2020-05-27 00:00:00
 ---
 
 ## Hyperledger 简介

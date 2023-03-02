@@ -1,9 +1,10 @@
 ---
 title: 什么是SQL？什么是NoSQL？
-date: 2021-03-18
 tags: []
 categories:
+  - article
   - 数据库
+date: 2021-03-18 00:00:00
 ---
 
 ## 什么是 SQL？什么是 NoSQL？

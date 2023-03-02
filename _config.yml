@@ -29,7 +29,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: 
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -41,7 +41,7 @@ external_link:
   exclude: ""
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 
 # <<< update
 # post_asset_foler: true
@@ -116,8 +116,8 @@ deploy:
 math:
   engine: katex
   katex:
-    css: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css
-    js: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js
+    css: https://cdn.bootcss.com/KaTeX/0.16.4/katex.min.css
+    js: https://cdn.bootcss.com/KaTeX/0.16.4/katex.min.css
     config:
       # KaTeX config
       throwOnError: false
@@ -129,3 +129,8 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   version: "7.1.2" # default v7.1.2
   options: # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     startOnload: true  // default true
+
+# hexo-auto-category
+auto_category:
+ enable: true
+ depth: 5

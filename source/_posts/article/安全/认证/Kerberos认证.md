@@ -1,11 +1,11 @@
 ---
 title: Kerberos认证
-date: 2022-07-17
 tags: []
 categories:
-
+  - article
   - 安全
   - 认证
+date: 2022-07-17 00:00:00
 ---
 
 ## Kerberos 认证

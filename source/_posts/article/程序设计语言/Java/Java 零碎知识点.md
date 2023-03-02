@@ -1,10 +1,12 @@
 ---
 title: Java面向对象
-date: 2021-03-07
-tags: [Java]
+tags:
+  - Java
 categories:
+  - article
   - 程序设计语言
   - Java
+date: 2021-03-07 00:00:00
 ---
 
 ## Java 面向对象

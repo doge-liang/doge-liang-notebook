@@ -1,10 +1,11 @@
 ---
 title: Linux命令杂记
-date: 2019-10-01
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2019-10-01 00:00:00
 ---
 
 ## 检查 Linux 版本

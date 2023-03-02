@@ -1,10 +1,11 @@
 ---
 title: Java 基础语法
-date: 2019-10-01
 tags: []
 categories:
-	- 程序设计语言
-	- Java
+  - article
+  - 程序设计语言
+  - Java
+date: 2019-10-01 00:00:00
 ---
 
 ## Java 基础语法

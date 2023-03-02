@@ -1,10 +1,12 @@
 ---
 title: Java注解与反射
-date: 2021-03-07
-tags: [Java]
+tags:
+  - Java
 categories:
+  - article
   - 程序设计语言
   - Java
+date: 2021-03-07 00:00:00
 ---
 
 <style>

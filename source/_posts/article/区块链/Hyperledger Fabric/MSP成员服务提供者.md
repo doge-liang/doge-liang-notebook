@@ -1,10 +1,11 @@
 ---
 title: MSP 成员服务提供者
-date: 2021-04-05
 tags: []
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2021-04-05 00:00:00
 ---
 
 ## MSP 成员服务提供者
