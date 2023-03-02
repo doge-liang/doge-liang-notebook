@@ -1517,7 +1517,7 @@ r(\bm{A}^*) =
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-03 01:27:18" itemprop="dateModified" datetime="2023-03-03T01:27:18+08:00">2023-03-03</time>
+      <time title="Modified: 2023-03-03 01:30:49" itemprop="dateModified" datetime="2023-03-03T01:30:49+08:00">2023-03-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1732,7 +1732,8 @@ r(\bm{A}^*) =
     1((有房者))--否-->2((婚姻状况));
     2((婚姻状况))--单身离异-->3((年收入));
     2((婚姻状况))--已婚-->5[拖欠贷款者=否];
-    3((年收入))-->|<80K| 6[拖欠贷款者="否];" 3((年收入))-->|80K| 7[拖欠贷款者=是];</80K|></pre>
+    3((年收入))-->|大于80K| 6[拖欠贷款者=否];
+    3((年收入))-->|小于80K| 7[拖欠贷款者=是];</pre>
 <hr>
 <p>我们还需要继续递归调用 Hunt 算法，直到所有的记录都属于同一个类为止。</p>
 <p>如果属性值的每种组合都在训练数据中出现，并且每种组合都具有唯一的类标号，则 Hunt 算法是有效的。<br>
