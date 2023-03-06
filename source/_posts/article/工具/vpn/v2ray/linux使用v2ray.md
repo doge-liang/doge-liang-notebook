@@ -1,11 +1,12 @@
 ---
 title: linux使用v2ray
-date: 2021-03-28
 tags: []
 categories:
+  - article
   - 工具
   - vpn
   - v2ray
+date: 2021-03-28 00:00:00
 ---
 
 ## linux 使用 v2ray

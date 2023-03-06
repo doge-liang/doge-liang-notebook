@@ -1,10 +1,11 @@
 ---
 title: docker ps 命令打印内容过多如何解决
-date: 2021-03-30
 tags: []
 categories:
+  - article
   - 工具
   - docker
+date: 2021-03-30 00:00:00
 ---
 
 ## docker ps 命令打印内容过多如何解决

@@ -1,10 +1,13 @@
 ---
 title: RSA
 mathjax: true
-date: 2020-06-24
-tags: [RSA]
+tags:
+  - RSA
 categories:
-  - [密码学]
+  - article
+  - 安全
+  - 密码学
+date: 2020-06-24 00:00:00
 ---
 
 ## RSA 加密算法

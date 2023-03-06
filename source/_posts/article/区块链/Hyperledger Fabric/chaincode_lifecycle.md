@@ -1,10 +1,11 @@
 ---
 title: chaincode_lifecycle
-date: 2021-03-30
 tags: []
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2021-03-30 00:00:00
 ---
 
 ## Chaincode Lifecycle

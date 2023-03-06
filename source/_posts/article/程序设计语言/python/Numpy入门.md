@@ -1,10 +1,12 @@
 ---
 title: numpy的使用
-date: 2019-10-10
-tags: [Jupyter Notebook]
+tags:
+  - Jupyter Notebook
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2019-10-10 00:00:00
 ---
 
 ## 简介

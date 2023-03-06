@@ -1,10 +1,11 @@
 ---
 title: use latex to wirte math note
-date: 2020-06-21
 tags: []
 categories:
+  - article
   - 工具
   - Latex
+date: 2020-06-21 00:00:00
 ---
 
 ## Prepare Package

@@ -1,10 +1,11 @@
 ---
 title: git clone 命令
-date: 2021-03-25
 tags: []
 categories:
+  - article
   - 工具
   - git
+date: 2021-03-25 00:00:00
 ---
 
 ## git clone 命令

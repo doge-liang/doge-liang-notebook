@@ -1,10 +1,11 @@
 ---
 title: CSRF
-date: 2022-06-05
 tags: []
 categories:
-	- 安全
-	- 常见攻击
+  - article
+  - 安全
+  - 常见攻击
+date: 2022-06-05 00:00:00
 ---
 
 ## CSRF

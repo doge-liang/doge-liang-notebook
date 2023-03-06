@@ -1,11 +1,12 @@
 ---
 title: flask 入门
-date: 2021-04-08
 tags: []
 categories:
+  - article
   - 程序设计语言
   - python
   - flask
+date: 2021-04-08 00:00:00
 ---
 
 ## flask 入门

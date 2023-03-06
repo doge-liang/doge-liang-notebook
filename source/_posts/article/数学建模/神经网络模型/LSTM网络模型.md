@@ -1,10 +1,11 @@
 ---
 title: LSTM网络模型
-date: 2021-03-17
 tags: []
 categories:
+  - article
   - 数学建模
   - 神经网络模型
+date: 2021-03-17 00:00:00
 ---
 
 ## LSTM 网络模型

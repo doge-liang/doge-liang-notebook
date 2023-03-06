@@ -1,10 +1,11 @@
 ---
 title: Linux知识杂记
-date: 2019-10-01
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2019-10-01 00:00:00
 ---
 
 ## Linux 文件系统

@@ -1,10 +1,12 @@
 ---
 title: python-matplotlib绘图
-date: 2020-07-17
-tags: [matplotlib]
+tags:
+  - matplotlib
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2020-07-17 00:00:00
 ---
 
 ## python-matplotlib 绘图

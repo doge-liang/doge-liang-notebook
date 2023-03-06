@@ -1,10 +1,12 @@
 ---
 title: python-pip配置
-date: 2020-07-03
-tags: [pip]
+tags:
+  - pip
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2020-07-03 00:00:00
 ---
 
 ## python pip 配置

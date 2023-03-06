@@ -1,10 +1,13 @@
 ---
 title: AES
 mathjax: true
-date: 2020-08-13
-tags: [对称加密算法]
+tags:
+  - 对称加密算法
 categories:
+  - article
+  - 安全
   - 密码学
+date: 2020-08-13 00:00:00
 ---
 
 ## AES

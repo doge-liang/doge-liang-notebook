@@ -1,10 +1,12 @@
 ---
 title: python数据分析-pandas的使用
-date: 2020-05-28
-tags: [pandas]
+tags:
+  - pandas
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2020-05-28 00:00:00
 ---
 
 ## python 数据分析-pandas 的使用

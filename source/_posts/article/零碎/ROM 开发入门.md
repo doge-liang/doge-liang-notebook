@@ -1,9 +1,10 @@
 ---
 title: ROM 开发入门
-date: 2021-07-11
 tags: []
 categories:
-  - [零碎]
+  - article
+  - 零碎
+date: 2021-07-11 00:00:00
 ---
 
 ## ROM 开发入门

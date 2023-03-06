@@ -1,11 +1,12 @@
 ---
 title: 组件-component
-date: 2021-10-07
 tags: []
 categories:
+  - article
   - 框架
   - 前台
   - Vue
+date: 2021-10-07 00:00:00
 ---
 
 - [组件-component](#组件-component)

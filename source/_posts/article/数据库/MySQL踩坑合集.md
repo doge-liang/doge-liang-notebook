@@ -1,9 +1,11 @@
 ---
 title: MySQL 踩坑合集
-date: 2020-01-01
-tags: [数据库（踩坑）]
+tags:
+  - 数据库（踩坑）
 categories:
+  - article
   - 数据库
+date: 2020-01-01 00:00:00
 ---
 
 ## MySQL 踩坑合集

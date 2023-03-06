@@ -1,10 +1,11 @@
 ---
 title: Golang 程序设计语言基础-数据结构
-date: 2021-04-10
 tags: []
 categories:
+  - article
   - 程序设计语言
   - Golang
+date: 2021-04-10 00:00:00
 ---
 
 ## Golang 程序设计语言基础-数据结构

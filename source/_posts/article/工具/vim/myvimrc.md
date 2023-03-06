@@ -1,10 +1,12 @@
 ---
 title: myvimrc
-date: 2020-06-21
-tags: [vimrc]
+tags:
+  - vimrc
 categories:
+  - article
   - 工具
   - vim
+date: 2020-06-21 00:00:00
 ---
 
 ## My vimrc

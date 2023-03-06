@@ -1,10 +1,11 @@
 ---
 title: Linux cat 命令与重定向
-date: 2021-07-25
-tags: [cat]
+tags:
+  - cat
 categories:
-  - 操作系统
-  - linux
+  - article
+  - 零碎
+date: 2021-07-25 00:00:00
 ---
 
 ## Linux cat 命令与重定向

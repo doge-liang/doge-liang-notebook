@@ -1,11 +1,11 @@
 ---
 title: cxf
-date: 2022-09-22
 tags: []
 categories:
-
+  - article
   - 零碎
   - web service
+date: 2022-09-22 00:00:00
 ---
 
 ## cxf

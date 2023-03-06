@@ -1,10 +1,12 @@
 ---
 title: python系统操作-os库的使用
-date: 2020-05-27
-tags: [os]
+tags:
+  - os
 categories:
+  - article
   - 程序设计语言
   - python
+date: 2020-05-27 00:00:00
 ---
 
 ## python-os 库使用

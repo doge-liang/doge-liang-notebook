@@ -1,9 +1,10 @@
 ---
 title: Linux 学习书单
-date: 2021-03-12
 tags: []
 categories:
+  - article
   - 书单
+date: 2021-03-12 00:00:00
 ---
 
 ## Linux 学习书单

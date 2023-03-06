@@ -1,10 +1,12 @@
 ---
 title: python 作用域和命名空间
-date: 2021-04-08
 tags: []
 categories:
+  - article
   - 程序设计语言
   - python
+  - 面向对象
+date: 2021-04-08 00:00:00
 ---
 
 ## python 作用域和命名空间

@@ -1,11 +1,13 @@
 ---
 title: ubuntu-apt
-date: 2020-06-21
-tags: [ubuntu, apt]
+tags:
+  - ubuntu
+  - apt
 categories:
+  - article
   - 操作系统
   - linux
-  - ubuntu
+date: 2020-06-21 00:00:00
 ---
 
 ## ubuntu-apt 命令使用

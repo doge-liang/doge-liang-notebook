@@ -1,10 +1,11 @@
 ---
 title: Linux shell 脚本执行方法之间的异同
-date: 2021-03-30
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2021-03-30 00:00:00
 ---
 
 ## Linux shell 脚本执行方法之间的异同

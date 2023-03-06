@@ -1,10 +1,11 @@
 ---
 title: git安装和配置
-date: 2021-03-23
 tags: []
 categories:
+  - article
   - 工具
   - git
+date: 2021-03-23 00:00:00
 ---
 
 ## git 安装和配置

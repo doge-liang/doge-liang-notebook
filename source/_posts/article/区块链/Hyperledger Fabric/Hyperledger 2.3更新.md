@@ -1,10 +1,11 @@
 ---
 title: Hyperledger 2.3更新
-date: 2021-04-08
 tags: []
 categories:
+  - article
   - 区块链
   - Hyperledger Fabric
+date: 2021-04-08 00:00:00
 ---
 
 ## Hyperledger 2.3 更新

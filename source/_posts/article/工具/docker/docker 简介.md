@@ -1,10 +1,11 @@
 ---
 title: docker 简介
-date: 2021-03-27
 tags: []
 categories:
+  - article
   - 工具
   - docker
+date: 2021-03-27 00:00:00
 ---
 
 ## docker 简介

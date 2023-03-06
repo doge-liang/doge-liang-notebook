@@ -1,10 +1,12 @@
 ---
 title: vscode-代码模板
-date: 2020-05-31
-tags: [vscode]
+tags:
+  - vscode
 categories:
+  - article
   - 工具
   - vscode
+date: 2020-05-31 00:00:00
 ---
 
 ## vscode-代码模板

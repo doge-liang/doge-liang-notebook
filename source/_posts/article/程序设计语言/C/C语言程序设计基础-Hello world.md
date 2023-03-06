@@ -1,10 +1,11 @@
 ---
 title: C语言程序设计基础-Hello world
-date: 2020-02-01
 tags: []
 categories:
+  - article
   - 程序设计语言
   - C
+date: 2020-02-01 00:00:00
 ---
 
 ## C 程序设计语言

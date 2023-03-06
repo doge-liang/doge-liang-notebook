@@ -1,10 +1,11 @@
 ---
 title: Linux 简介
-date: 2021-01-14
 tags: []
 categories:
+  - article
   - 操作系统
   - linux
+date: 2021-01-14 00:00:00
 ---
 
 <style>
