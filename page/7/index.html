@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">Hyperledger Fabric 环境搭建踩坑</a>
+          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/vpn/v2ray/linux%E4%BD%BF%E7%94%A8v2ray/" class="post-title-link" itemprop="url">linux使用v2ray</a>
         </h2>
 
         <div class="post-meta-container">
@@ -205,7 +205,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
+      <time title="Created: 2021-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-28T00:00:00+08:00">2021-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -224,7 +224,15 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/vpn/" itemprop="url" rel="index"><span itemprop="name">vpn</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/vpn/v2ray/" itemprop="url" rel="index"><span itemprop="name">v2ray</span></a>
         </span>
     </span>
 
@@ -238,17 +246,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="hyperledger-fabric-环境搭建踩坑">Hyperledger Fabric 环境搭建踩坑</h2>
-<h3 id="网络启动失败">网络启动失败</h3>
-<p>在跑 <code>. ./init.sh</code> 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">5.Create &amp; Join Channel</span><br><span class="line">######## - (COMMON) setup variables - ########</span><br><span class="line">~/workspace/channel-artifacts ~/workspace</span><br><span class="line">Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">~/workspace</span><br><span class="line">######## - (ORG1) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:7051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG1) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.708 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:9051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:9051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.785 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br></pre></td></tr></table></figure>
-<p>意思是建立到本地的 7050 等等端口的 tcp 时失败了，原因是拒绝访问。</p>
-<p>原因暂时不明，但是我运行了 <code>. ./shutdown.sh</code> 和 <code>. ./teardown.sh</code> 两个脚本，把整个网络都删掉了，再重新执行接下来的脚本就搞定了。</p>
-<p>原因不明，但是先记录一下这两个脚本都做了什么吧，以后再出现了就再分析。</p>
-<p>/root/workspace/shutdown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Clearing&quot;</span></span><br><span class="line">docker <span class="built_in">rm</span> -f `docker ps -qa`</span><br><span class="line">docker rmi -f $(docker images | awk <span class="string">&#x27;($1 ~ /dev-peer.*/) &#123;print $3&#125;&#x27;</span>)</span><br><span class="line">docker volume prune -f</span><br><span class="line">docker network prune -f</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf system-genesis-block/*.block</span><br><span class="line"><span class="built_in">rm</span> -rf channel-artifacts</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/peerOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/ordererOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf tmp</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/org1/*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/org2/*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/ordererOrg/*</span><br></pre></td></tr></table></figure>
-<p>/root/workspace/teardown.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Shutdown CA Services, Peers and Orderer in Network&quot;</span></span><br><span class="line">COMPOSE_FILE_CA=docker/docker-compose-ca.yaml</span><br><span class="line">COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml</span><br><span class="line">COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml</span><br><span class="line">CA_IMAGE_TAG=<span class="variable">$&#123;CA_VERSION&#125;</span></span><br><span class="line">IMAGE_TAG=<span class="variable">$&#123;FABRIC_VERSION&#125;</span></span><br><span class="line">DB_IMAGE_TAG=<span class="variable">$&#123;OTHER_VERSION&#125;</span></span><br><span class="line">docker-compose -f <span class="variable">$&#123;COMPOSE_FILE_CA&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_BASE&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_COUCH&#125;</span> down</span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
+          <h2 id="linux-使用-v2ray">linux 使用 v2ray</h2>
+<p>下载好 v2ray 软件之后，设置好 <code>config.json</code> ，启动 v2ray 。</p>
+<p>然后配置 <code>http_proxy</code> 和 <code>https_proxy</code> 两个环境变量，可以使用 <code>export</code> 进行临时的配置，也可以写进 <code>~/.bashrc</code> 里面，每次启动终端自动执行。</p>
 
       
     </div>
@@ -375,6 +375,105 @@
 <li>腾讯云</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录服务器后</span></span><br><span class="line">su root</span><br><span class="line">vim /etc/ssh/ssh_config</span><br><span class="line"><span class="comment"># 通过 /[pattern] 的方式搜索到 PermitRoot 那一行</span></span><br><span class="line"><span class="comment"># 在下面重开一行，输入 PermitRoot yes</span></span><br><span class="line"><span class="comment"># 输入 :wq ，退出 vim 编辑器</span></span><br><span class="line"><span class="built_in">cat</span> /home/ubuntu/.ssh/authorized_keys &gt;&gt; /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E5%8C%BA%E5%9D%97%E9%93%BE/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">Hyperledger Fabric 环境搭建踩坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="hyperledger-fabric-环境搭建踩坑">Hyperledger Fabric 环境搭建踩坑</h2>
+<h3 id="网络启动失败">网络启动失败</h3>
+<p>在跑 <code>. ./init.sh</code> 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">5.Create &amp; Join Channel</span><br><span class="line">######## - (COMMON) setup variables - ########</span><br><span class="line">~/workspace/channel-artifacts ~/workspace</span><br><span class="line">Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">~/workspace</span><br><span class="line">######## - (ORG1) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:7051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG1) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.708 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:9051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:9051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.785 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br></pre></td></tr></table></figure>
+<p>意思是建立到本地的 7050 等等端口的 tcp 时失败了，原因是拒绝访问。</p>
+<p>原因暂时不明，但是我运行了 <code>. ./shutdown.sh</code> 和 <code>. ./teardown.sh</code> 两个脚本，把整个网络都删掉了，再重新执行接下来的脚本就搞定了。</p>
+<p>原因不明，但是先记录一下这两个脚本都做了什么吧，以后再出现了就再分析。</p>
+<p>/root/workspace/shutdown.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Clearing&quot;</span></span><br><span class="line">docker <span class="built_in">rm</span> -f `docker ps -qa`</span><br><span class="line">docker rmi -f $(docker images | awk <span class="string">&#x27;($1 ~ /dev-peer.*/) &#123;print $3&#125;&#x27;</span>)</span><br><span class="line">docker volume prune -f</span><br><span class="line">docker network prune -f</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf system-genesis-block/*.block</span><br><span class="line"><span class="built_in">rm</span> -rf channel-artifacts</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/peerOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/ordererOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf tmp</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/org1/*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/org2/*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf organizations/fabric-ca/ordererOrg/*</span><br></pre></td></tr></table></figure>
+<p>/root/workspace/teardown.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Shutdown CA Services, Peers and Orderer in Network&quot;</span></span><br><span class="line">COMPOSE_FILE_CA=docker/docker-compose-ca.yaml</span><br><span class="line">COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml</span><br><span class="line">COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml</span><br><span class="line">CA_IMAGE_TAG=<span class="variable">$&#123;CA_VERSION&#125;</span></span><br><span class="line">IMAGE_TAG=<span class="variable">$&#123;FABRIC_VERSION&#125;</span></span><br><span class="line">DB_IMAGE_TAG=<span class="variable">$&#123;OTHER_VERSION&#125;</span></span><br><span class="line">docker-compose -f <span class="variable">$&#123;COMPOSE_FILE_CA&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_BASE&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_COUCH&#125;</span> down</span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1167,96 +1266,6 @@
 </ul>
 <p>MySQL 默认事务隔离级别是 Repeatable read。<br>
 MySQL 通过 GAP 锁解决幻读问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%80%E4%B9%88%E6%98%AFsql%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFnosql%EF%BC%9F/" class="post-title-link" itemprop="url">什么是SQL？什么是NoSQL？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-18T00:00:00+08:00">2021-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是-sql？什么是-nosql？">什么是 SQL？什么是 NoSQL？</h2>
-<p>这篇 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/-maji/p/13098654.html">博客</a> 写得不错，等有空了整理一下，结合一些其他的书来谈谈。</p>
 
       
     </div>

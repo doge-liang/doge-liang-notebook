@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/doge-liang-notebook/archives/">
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/doge-liang-notebook/categories/">
-        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -167,6 +167,103 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/vim/vim-plugin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E5%B7%A5%E5%85%B7/vim/vim-plugin/" class="post-title-link" itemprop="url">vim-plugin</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-19T00:00:00+08:00">2020-06-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="vim-插件管理">vim 插件管理</h2>
+<h3 id="vim-plugin">vim-plugin</h3>
+<p>自动检测是否安装并拉取脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs</span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall --<span class="built_in">sync</span> | <span class="built_in">source</span> <span class="variable">$MYVIMRC</span></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -212,7 +309,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
+      <time title="Modified: 2023-03-19 20:19:40" itemprop="dateModified" datetime="2023-03-19T20:19:40+08:00">2023-03-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1369,149 +1466,6 @@ organization</p>
 <p>tempfile</p>
 <h3 id="创建高级文件和目录">创建高级文件和目录</h3>
 <p>shutil</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-title-link" itemprop="url">第三章-数据链路层</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-24T00:00:00+08:00">2020-05-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-28 23:46:15" itemprop="dateModified" datetime="2023-02-28T23:46:15+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="第三章-数据链路层">第三章-数据链路层</h2>
-<h3 id="4-1-信道分配问题">4.1 信道分配问题</h3>
-<p>网络链路分为两大类：点到点连接(WAN)和广播信道(LAN)<br>
-广播信道的节点共用一条信道进行通信，那么就存在着<strong>信道竞争</strong>的问题。</p>
-<blockquote>
-<p>广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)</p>
-</blockquote>
-<p>两种解决信道分配问题的方案：信道静态分配、信道动态分配</p>
-<h4 id="4-1-1-静态信道分配">4.1.1 静态信道分配</h4>
-<p>这种信道分配方式，相当于把一条马路中间用护栏隔开，车辆不能换道。以前讨论的多路复用技术就是这种方式，如 频分多路 FDM。<br>
-网络流量是具有突发性的，变化很大，空闲时这种方案就浪费了信道；繁忙时，就会造成堵塞。</p>
-<p>。。。数学论证待补充。。。</p>
-<h4 id="4-1-2-动态信道分配方案">4.1.2 动态信道分配方案</h4>
-<p>构建模型的 5 个假设：</p>
-<ol>
-<li>流量独立：有 N 台流量恒定独立的计算机；</li>
-<li>单信道：N 台计算机使用共享的信道；</li>
-<li>冲突可观察：冲突可以被计算机侦察到，并重新发送；</li>
-<li>时间连续或分槽：在一段连续的时间内，任意时段都可发送；或者将时间分成一段段的时间槽，只能在时间槽的开始时发送；</li>
-<li>载波侦听或不侦听：用户可以侦听信道是否有信息在传输（载波）；不侦听就是不能侦听；</li>
-</ol>
-<p>第一个假设表示流量的产生符合泊松分布，方便我们建立模型分析，尽管这不符合显示流量的流动方式；<br>
-单信道是我们分析的核心，冲突可观察是保证传输可靠的必要条件；<br>
-后面的讨论我们能知道，时间槽和载波侦听能够提高最大传输率；</p>
-<h3 id="4-2-多路访问协议">4.2 多路访问协议</h3>
-<h4 id="4-2-1-aloha">4.2.1 ALOHA</h4>
-<p>ALOHA 是夏威夷大学研究员为了解决偏远岛屿和远程计算机连接而设计的协议，这个原始的协议采用了一种简单而巧妙的方式解决了信道分配的问题，虽然该协议本身使用的是地面无线电广播通信，但它的基本思路同样适用其他的单信道竞争系统；</p>
-<p>下面讨论两个版本的 ALOHA</p>
-<h5 id="纯-aloha">纯 ALOHA</h5>
-<p>这种 ALOHA 协议十分简单，节点在任意时候，有需要就发送；如果产生了冲突，就等待一个随机时间后，重发；<br>
-冲突检测机制为：远程计算机收到数据之后，将其广播回节点中，节点收到数据后，对比发送的，如果不同就说明发生了冲突。<br>
-（后检测的机制，其实冲突在发生时，就应该被节点检测到，然后停止发送。这样的机制浪费了冲突发生后的带宽以及时间；）</p>
-<p>。。。数学说明待补充。。。</p>
-<p>通过建模分析得到，该协议最好情况下，信道利用率为 18%。</p>
-<h5 id="分槽-aloha">分槽 ALOHA</h5>
-<p>在前一种协议的基础上，增加了时间槽。信道利用率提高了一倍，36%。<br>
-前一种方式，每个发送出去的帧都要占用两个帧时作为高冲突区，而增加时间槽后，强行将帧限制到时间槽的开头开始发送，高冲突区变成了一个帧时</p>
-<p>。。。数学说明待补充。。。</p>
-<h4 id="4-2-2-载波侦听多路访问协议">4.2.2 载波侦听多路访问协议</h4>
-<h5 id="1-坚持-csma-p-坚持-csma-非坚持-csma">1-坚持 CSMA、p-坚持 CSMA、非坚持 CSMA</h5>
-<ol>
-<li>1-坚持 CSMA：计算机侦听信道，一空闲马上发，若冲突，等待随机时间后，重复上述过程；</li>
-<li>p-坚持 CSMA：计算机侦听信道，若空闲，以概率 p 发送（可能发，可能不发），以概率 1-p 推迟发送；这个过程一直重复，直到数据发送了，或者别人占了信道；若别人占了信道，则和冲突使用同样的方式处理；</li>
-<li>非坚持 CSMA：计算机侦听信道，若空闲，就发送，若忙碌，则放弃侦听，等一个随机时间后，再看看是否空闲，以便发送；</li>
-</ol>
-<p>很显然，贪婪的 1-坚持 CSMA 在 2 台以上的计算机竞争时，大家都很急躁争抢信道，冲突会频繁发生；<br>
-稍微没那么贪婪的 p-坚持 CSMA 表现良好，IEEE 802.11 是对这种方式的改良；<br>
-非坚持的 CSMA，很佛系，提高了高竞争系统的信道利用率，但是这种方式的延迟更大了（每次遇到冲突，都等一个随机时间，这个随机时间很可能有能够发送出去的机会，但错失了）；</p>
-<h5 id="带有冲突检测的-csma">带有冲突检测的 CSMA</h5>
-<p>CSMA/CD 协议工作流程：当空闲时，多个计算机都要发送，冲突就会发生。如果一个站检测到冲突，就会停止发送，并发送一个冲突加强信号，通知网络上各个站点已经发生冲突，所有计算机都等待一段随机时间再发送；</p>
-<p>用下图模型描述，我们可以看到，CSMA/CD 模型将会交替出现竞争期、传输期、空闲期；</p>
-<p><img src="/doge-liang-notebook/.io//../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png" alt="picture 40"></p>
-<p>冲突检测机制：考虑一个极端情况，网络中距离最远的两台计算机，计算机 A 在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时刻发送一个帧，在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + \tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span> 时刻（该帧几乎到达另一台计算机 B 时），另一台计算机 B 刚好发送了一个帧，这时冲突了，计算机 B 立刻检测到了，马上停止发送，而计算机 A 要等到，冲突信号回传才能知道冲突了，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mn>2</mn><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + 2\tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span> 时刻。<br>
-通过以上极端情况讨论，我们得到了一个结论，当计算机发送的数据，经过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 时长之后没有收到冲突信号，那么就可以认为，数据安全的发送出去了。那么我们可以试着按照 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 将时间分成时间槽，这时的 CSMA/CD 协议就很像是带时间槽的 ALOHA 协议了。差异在于，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 往往比时间槽的长度（帧时）短，这个差距越大，带来的性能提升就越高。</p>
-<h5 id="无冲突协议">无冲突协议</h5>
 
       
     </div>
