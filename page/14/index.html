@@ -874,6 +874,105 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/myvimrc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
+      <meta itemprop="name" content="doge-liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doge-liang-notebook">
+      <meta itemprop="description" content="什么都记的笔记本">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | doge-liang-notebook">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/myvimrc/" class="post-title-link" itemprop="url">myvimrc</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-19 20:44:36" itemprop="dateModified" datetime="2023-03-19T20:44:36+08:00">2023-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="my-vimrc">My vimrc</h2>
+<h3 id="user-vimrc">user .vimrc</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/autoload/plug.vim <span class="comment">--create-dirs</span></span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall <span class="comment">--sync | source $MYVIMRC</span></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Plugin</span></span><br><span class="line"><span class="string">call plug#begin(&#x27;.vim-plugin&#x27;)</span></span><br><span class="line"><span class="string">Plug &#x27;lervag/vimtex&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdcommenter&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Track the engine.</span><br><span class="line">Plug <span class="string">&#x27;SirVer/ultisnips&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Snippets are separated from the engine. Add this if you want them:</span></span><br><span class="line"><span class="string">Plug &#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdtree&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;dense-analysis/ale&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Trigger configuration. Do <span class="keyword">not</span> use &lt;tab&gt; <span class="keyword">if</span> you use https://github.com/Valloric/YouCompleteMe.</span><br><span class="line">let g:UltiSnipsExpandTrigger=<span class="string">&quot;&lt;tab&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpForwardTrigger=<span class="string">&quot;&lt;c-b&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpBackwardTrigger=<span class="string">&quot;&lt;c-z&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; If you want :UltiSnipsEdit to split your window.</span></span><br><span class="line"><span class="string">let g:UltiSnipsEditSplit=&quot;</span>vertical<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> vimtex <span class="built_in">config</span></span><br><span class="line">let g:tex_flavor=<span class="string">&#x27;latex&#x27;</span></span><br><span class="line">let g:vimtex_view_method=<span class="string">&#x27;zathura&#x27;</span></span><br><span class="line">let g:vimtex_quickfix_mode=<span class="number">0</span></span><br><span class="line">set conceallevel=<span class="number">1</span></span><br><span class="line">let g:tex_conceal=<span class="string">&#x27;abdmg&#x27;</span></span><br><span class="line"></span><br><span class="line">set nu</span><br><span class="line">set tabstop=<span class="number">4</span></span><br><span class="line">set hls</span><br><span class="line">set is</span><br><span class="line">set bg=dark</span><br><span class="line">set autoindent</span><br><span class="line">set ru</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/ubuntu-apt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -966,105 +1065,6 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
 <p><code>apt source package</code> 下载该包的源代码</p>
 <p><code>apt clean &amp;&amp; sudo apt autoclean</code> 清理无用的包</p>
 <p><code>apt-get check</code> 检查是否有损坏的依赖</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/myvimrc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
-      <meta itemprop="name" content="doge-liang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="doge-liang-notebook">
-      <meta itemprop="description" content="什么都记的笔记本">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | doge-liang-notebook">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/myvimrc/" class="post-title-link" itemprop="url">myvimrc</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00+08:00">2020-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-19 20:44:36" itemprop="dateModified" datetime="2023-03-19T20:44:36+08:00">2023-03-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/doge-liang-notebook/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="my-vimrc">My vimrc</h2>
-<h3 id="user-vimrc">user .vimrc</h3>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/autoload/plug.vim <span class="comment">--create-dirs</span></span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall <span class="comment">--sync | source $MYVIMRC</span></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Plugin</span></span><br><span class="line"><span class="string">call plug#begin(&#x27;.vim-plugin&#x27;)</span></span><br><span class="line"><span class="string">Plug &#x27;lervag/vimtex&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdcommenter&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Track the engine.</span><br><span class="line">Plug <span class="string">&#x27;SirVer/ultisnips&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Snippets are separated from the engine. Add this if you want them:</span></span><br><span class="line"><span class="string">Plug &#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdtree&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;dense-analysis/ale&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> Trigger configuration. Do <span class="keyword">not</span> use &lt;tab&gt; <span class="keyword">if</span> you use https://github.com/Valloric/YouCompleteMe.</span><br><span class="line">let g:UltiSnipsExpandTrigger=<span class="string">&quot;&lt;tab&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpForwardTrigger=<span class="string">&quot;&lt;c-b&gt;&quot;</span></span><br><span class="line">let g:UltiSnipsJumpBackwardTrigger=<span class="string">&quot;&lt;c-z&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; If you want :UltiSnipsEdit to split your window.</span></span><br><span class="line"><span class="string">let g:UltiSnipsEditSplit=&quot;</span>vertical<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> vimtex <span class="built_in">config</span></span><br><span class="line">let g:tex_flavor=<span class="string">&#x27;latex&#x27;</span></span><br><span class="line">let g:vimtex_view_method=<span class="string">&#x27;zathura&#x27;</span></span><br><span class="line">let g:vimtex_quickfix_mode=<span class="number">0</span></span><br><span class="line">set conceallevel=<span class="number">1</span></span><br><span class="line">let g:tex_conceal=<span class="string">&#x27;abdmg&#x27;</span></span><br><span class="line"></span><br><span class="line">set nu</span><br><span class="line">set tabstop=<span class="number">4</span></span><br><span class="line">set hls</span><br><span class="line">set is</span><br><span class="line">set bg=dark</span><br><span class="line">set autoindent</span><br><span class="line">set ru</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1338,7 +1338,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/vim-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://doge-liang.github.io/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/vim-plugin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/doge-liang-notebook/images/avatar.gif">
@@ -1356,7 +1356,7 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/vim-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">vim 笔记</a>
+          <a href="/doge-liang-notebook/post/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/vim/vim-plugin/" class="post-title-link" itemprop="url">vim-plugin</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1408,193 +1408,11 @@ IP^{-1}(L_0 R_0) &amp;\to (&lt;64bits&gt;)
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="vim-应用">vim 应用</h2>
-<h3 id="块注释">块注释</h3>
-<p>添加注释：</p>
-<ol>
-<li><code>ctrl</code> + <code>v</code> 进入列模式， <code>I</code> 进入插入模式，输入注释符号</li>
-<li><code>esc</code> 退出列模式和视图模式</li>
-</ol>
-<p>取消注释：</p>
-<ol>
-<li><code>ctrl</code> + <code>v</code> 控制方向键选中注释代码， <code>d</code> 删除注释符号</li>
-</ol>
-<h2 id="vim-使用笔记">Vim 使用笔记</h2>
-<h6 id="窗口多开和切换">窗口多开和切换</h6>
-<ul>
-<li>横向切割窗口</li>
-</ul>
-<p><code>:new [windowName]</code> 横向切割，保存之后 windowName 就是文件名<br>
-<code>:split [windowName]</code> 同上</p>
-<ul>
-<li>纵向切割窗口</li>
-</ul>
-<p><code>:vsplit [windowName]</code></p>
-<ul>
-<li>关闭多窗口</li>
-</ul>
-<p><code>:close</code> 关闭窗口，内容还在缓存中<br>
-<code>:q!</code> 强制退出，不保存<br>
-<code>:w!</code> 强制保存退出<br>
-<code>:x</code> 同上<br>
-<code>:tabc</code> 关闭当前窗口<br>
-<code>:tabo</code> 关闭所有窗口</p>
-<ul>
-<li>
-<p>窗口大小调整</p>
-<ul>
-<li>
-<p>纵向调整</p>
-</li>
-<li>
-<p><code>ctrl+w</code> + 纵向扩大（行数增加）</p>
-</li>
-<li>
-<p><code>ctrl+w</code> - 纵向缩小 （行数减少）</p>
-</li>
-<li>
-<p><code>res(ize) num</code> 例如：:res 5，显示行数调为 5 行</p>
-</li>
-<li>
-<p><code>res(ize)+num</code> 把当前窗口高度增加 num 行</p>
-</li>
-<li>
-<p><code>res(ize)-num</code> 把当前窗口高度减少 num 行</p>
-</li>
-<li>
-<p>横向调整</p>
-<ul>
-<li><code>:vertical res(ize) num</code> 指定当前窗口为 num 列</li>
-<li><code>:vertical res(ize)+num</code> 把当前窗口增加 num 列</li>
-<li><code>:vertical res(ize)-num</code> 把当前窗口减少 num 列</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><code>:f [fileName]</code> 窗口重命名<br>
-<code>vim fileA, fileB, fileC</code> 多文件打开<br>
-<code>:n ||[fileName]</code> 跳至下一个文件<br>
-<code>:Ex</code> 文件浏览器<br>
-<code>:[S/V]ex</code> 横向/纵向分割出文件浏览器<br>
-<code>:ls</code> 当前具体窗口信息</p>
-<p><code>:shell</code> 在不关闭 vim 的情况下，跳转到 shell</p>
-<p>vim 有三个模式：命令模式、视图模式、编辑模式</p>
-<h6 id="命令模式-normal">命令模式(Normal)</h6>
-<ul>
-<li><code>i</code> → 进入*Insert 模式，按 Esc 可退回 Normal 模式</li>
-<li><code>x</code> → 删除光标所在的字符</li>
-<li><code>:wq</code> → 存盘退出（<em>:w</em>存盘，<em>:q</em>退出，<em>:w</em>后面可以加文件名)</li>
-<li><code>dd</code> → 删除当前行，并保存到剪切板</li>
-<li><code>p</code> → 粘贴</li>
-<li><code>hjkl</code> → 左上下右</li>
-<li><code>:help \&lt;command\&gt;</code> → 显示相关命令的帮助</li>
-</ul>
-<h6 id="命令模式拓展">命令模式拓展</h6>
-<ol>
-<li>
-<p>各种插入模式</p>
-<ul>
-<li><code>a</code> → 在光标后插入</li>
-<li><code>o</code> → 在当前行后插入一个新行</li>
-<li><code>cw</code> → 替换光标所在未知到下一个空格处的字符</li>
-</ul>
-</li>
-<li>
-<p>简单的移动光标</p>
-<ul>
-<li><code>0</code> → 到行头</li>
-<li><code>^</code> → 到本行第一个不是空格字符的位置</li>
-<li><code>$</code> → 到本行行尾</li>
-<li><code>g_</code> → 到本行最后一个不是空格字符的位置</li>
-<li><code>/pattern</code> → 向下搜索 <em>pattern</em> 字符串，有多个匹配可使用<em>n</em>去往下一个匹配字符串</li>
-<li><code>?pattern</code> → 向上搜索 <em>pattern</em> 字符串，同上</li>
-<li><code>%s/xenial/bionic/g</code> → 整个文件内将 ‘xenial’ 替换成 ‘bionic’ ， 也可以指定行 <code>1,10s/xenial/bionic/g</code></li>
-</ul>
-</li>
-<li>
-<p>拷贝/粘贴</p>
-<ul>
-<li><code>p</code> → 粘贴在当前位置之后</li>
-<li><code>P</code> → 粘贴在当前位置之前</li>
-<li><code>yy</code> → 拷贝当前行到 ddp</li>
-</ul>
-</li>
-<li>
-<p>Undo/Redo</p>
-<ul>
-<li><code>u</code> → undo</li>
-<li><code>&lt;ctrl-R&gt;</code> → redo</li>
-</ul>
-</li>
-<li>
-<p>打开/保存/退出/改变文件(Buffer)</p>
-<ul>
-<li><code>e &lt;path/to/file&gt;</code> → 打开一个文件</li>
-<li><code>:w</code> → 存盘</li>
-<li><code>:savea &lt;path/to/file&gt;</code> → 另存为 <code>&lt;path/to/file&gt;</code></li>
-<li><code>:x, ZZ</code> 或 <code>:wq</code> → 保存并退出( <code>:x</code> 表示仅在需要时保存)</li>
-<li><code>:bn和:bp</code> → 同时打开很多文件时，可以用这两个命令进行切换上一个文件和下一个文件，<em>:n</em>也可以切换到下一个文件</li>
-</ul>
-</li>
-</ol>
-<h6 id="更好更快更强">更好更快更强</h6>
-<ul>
-<li>
-<p><code>.</code> → 重复上一次命令</p>
-</li>
-<li>
-<p><code>N \&lt;command&gt;</code> → 重复某个命令 n 次</p>
-</li>
-<li>
-<p><code>2dd</code> → 删除 2 行</p>
-</li>
-<li>
-<p><code>3p</code> → 粘贴文本 3 次</p>
-</li>
-<li>
-<p><code>100idesu [ESC]</code> → 会写下 “desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu “</p>
-</li>
-<li>
-<p><code>.</code> → 重复上一个命令—— 100 “desu “.</p>
-</li>
-<li>
-<p><code>3.</code> → 重复 3 次 “desu” (注意：不是 300，你看，VIM 多聪明啊)</p>
-</li>
-<li>
-<p><code>NG</code> → 移动到第 N 行</p>
-</li>
-<li>
-<p><code>gg</code> → 移动到第一行</p>
-</li>
-<li>
-<p><code>G</code> → 到最后一行</p>
-</li>
-<li>
-<p>按单词移动</p>
-<ul>
-<li><code>w</code> → 到下一个单词开头</li>
-<li><code>e</code> → 到下一个单词结尾</li>
-<li><code>%</code> → 匹配括号移动</li>
-<li><code>*</code> 和 <code>#</code> → 匹配光标当前单词， <code>*</code> 下一个， <code>#</code> 上一个</li>
-</ul>
-</li>
-<li>
-<p>命令联动</p>
-<ul>
-<li><code>0y$</code> → 从行头拷贝到行尾</li>
-<li><code>ye</code> → 从当前光标拷贝到本单词最后一个字符</li>
-<li><code>gU</code> → 变大写</li>
-<li><code>gu</code> → 变小写</li>
-</ul>
-</li>
-</ul>
-<h6 id="视图模式-visual-mode">视图模式(visual mode)</h6>
-<p><code>v</code> 进入视图模式，字符选择<br>
-<code>V</code> 进入视图模式，行选择<br>
-<code>&lt;C-v&gt;</code> 块选择<br>
-<code>y</code> 高亮位置复制<br>
-<code>d</code> 高亮位置删除</p>
+          <h2 id="vim-插件管理">vim 插件管理</h2>
+<h3 id="vim-plugin">vim-plugin</h3>
+<p>自动检测是否安装并拉取脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> empty(glob(<span class="string">&#x27;~/.vim/autoload/plug.vim&#x27;</span>))</span><br><span class="line">  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs</span><br><span class="line">    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br><span class="line">  autocmd VimEnter * PlugInstall --<span class="built_in">sync</span> | <span class="built_in">source</span> <span class="variable">$MYVIMRC</span></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
 
       
     </div>
