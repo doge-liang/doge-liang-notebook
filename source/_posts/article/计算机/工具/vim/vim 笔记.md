@@ -100,6 +100,8 @@ vim 有三个模式：命令模式、视图模式、编辑模式
    - `?pattern` → 向上搜索 _pattern_ 字符串，同上
    - `%s/xenial/bionic/g` → 整个文件内将 'xenial' 替换成 'bionic' ， 也可以指定行 `1,10s/xenial/bionic/g`
 
+> vim 中关于正则的具体使用和标准有细微差别，要了解更多可以看这个 [链接]<https://zhuanlan.zhihu.com/p/26708976>
+
 3. 拷贝/粘贴
 
    - `p` → 粘贴在当前位置之后
