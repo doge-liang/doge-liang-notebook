@@ -94,10 +94,10 @@ DES 算法中的选择代换是由 8 个不同的 S 盒组成的：
 
   $$
   \begin{aligned}
-  (<64bit>)IP &\to L_0 R_0 \\
-  R_{t-1} &\to L_t \quad t \in [1,16] \\
-  f(R_{t-1}, k_{t-1}) \oplus L_{t-1} &\to R_t \quad t \in [1,16] \\
-  IP^{-1}(R_{16} L_{16}) &\to (<64bits>)
+    (<64bit>)IP &\to L_0 R_0 \\
+    R_{t-1} &\to L_t \quad t \in [1,16] \\
+    f(R_{t-1}, k_{t-1}) \oplus L_{t-1} &\to R_t \quad t \in [1,16] \\
+    IP^{-1}(R_{16} L_{16}) &\to (<64bits>)
   \end{aligned}
   $$
 
@@ -105,9 +105,9 @@ DES 算法中的选择代换是由 8 个不同的 S 盒组成的：
 
   $$
   \begin{aligned}
-  (<64bit>)IP &\to R_{16} L_{16} \\
-  R_t &\to L_{t-1} \quad t \in [1,16] \\
-  f(R_t, k_t) \oplus L_t &\to R_{t-1} \quad t \in [1,16] \\
-  IP^{-1}(L_0 R_0) &\to (<64bits>)
+    (<64bit>)IP &\to R_{16} L_{16} \\
+    R_t &\to L_{t-1} \quad t \in [1,16] \\
+    f(R_t, k_t) \oplus L_t &\to R_{t-1} \quad t \in [1,16] \\
+    IP^{-1}(L_0 R_0) &\to (<64bits>)
   \end{aligned}
   $$

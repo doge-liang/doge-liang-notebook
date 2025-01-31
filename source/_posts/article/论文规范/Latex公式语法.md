@@ -97,7 +97,7 @@ $$
 
 - 二元关系运算符
   $$
-  \le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists \\
+  \le  \ge  \ne  \approx  \sim  \subseteq  \in \ni \notin \circ \cdot \times  \div  \pm  \Rightarrow  \rightarrow  \infty  \partial  \angle  \triangle \forall \exists
   $$
 
 > \le \ge \ne \approx \sim \subseteq \in \ni \notin \circ \cdot \times \div \pm \Rightarrow \rightarrow \infty \partial \angle \triangle \forall \exists \overbrace
@@ -129,7 +129,7 @@ $$
 
 - 上下括号
   $$
-  \overbrace{ (a+b+...+z) }^{26} \underbrace{ (a+b+...+z) }_{26} \\
+  \overbrace{ (a+b+...+z) }^{26} \underbrace{ (a+b+...+z) }_{26}
   $$
 
 > \overbrace{} \underbrace{}
