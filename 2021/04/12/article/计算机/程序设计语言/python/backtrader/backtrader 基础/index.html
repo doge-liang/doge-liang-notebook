@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="backtrader 基础  backtrader 基础  实现一个简单的移动平均线策略 一个包含选股和择时的 RSI 策略    实现一个简单的移动平均线策略 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta property="og:type" content="article">
+<meta property="og:title" content="backtrader 基础">
+<meta property="og:url" content="http://example.com/2021/04/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/backtrader/backtrader%20%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="backtrader 基础  backtrader 基础  实现一个简单的移动平均线策略 一个包含选股和择时的 RSI 策略    实现一个简单的移动平均线策略 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/04/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/backtrader/backtrader%20%E5%9F%BA%E7%A1%80/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/04/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/backtrader/backtrader%20%E5%9F%BA%E7%A1%80/","path":"2021/04/12/article/计算机/程序设计语言/python/backtrader/backtrader 基础/","title":"backtrader 基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>backtrader 基础 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#backtrader-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">backtrader 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF%E7%AD%96%E7%95%A5"><span class="nav-number">1.1.</span> <span class="nav-text">实现一个简单的移动平均线策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%AB%E9%80%89%E8%82%A1%E5%92%8C%E6%8B%A9%E6%97%B6%E7%9A%84-RSI-%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.</span> <span class="nav-text">一个包含选股和择时的 RSI 策略</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/backtrader/backtrader%20%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="backtrader 基础 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          backtrader 基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-12T00:00:00+08:00">2021-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/backtrader/" itemprop="url" rel="index"><span itemprop="name">backtrader</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="backtrader-基础">backtrader 基础</h2>
+<ul>
+<li><a href="#backtrader-%E5%9F%BA%E7%A1%80">backtrader 基础</a>
+<ul>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF%E7%AD%96%E7%95%A5">实现一个简单的移动平均线策略</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%AB%E9%80%89%E8%82%A1%E5%92%8C%E6%8B%A9%E6%97%B6%E7%9A%84-rsi-%E7%AD%96%E7%95%A5">一个包含选股和择时的 RSI 策略</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="实现一个简单的移动平均线策略">实现一个简单的移动平均线策略</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> (absolute_import, division, print_function, unicode_literals)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 backtrader</span></span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入其他包</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> sys  <span class="comment"># 找出脚本名称 (in argv[0])</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建策策略</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestStrategy</span>(bt.Strategy):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 自定义一些参数</span></span><br><span class="line">    params = (</span><br><span class="line">        (<span class="string">&#x27;maperiod&#x27;</span>, <span class="number">25</span>),</span><br><span class="line">        (<span class="string">&#x27;printlog&#x27;</span>, <span class="literal">True</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">self, txt, dt=<span class="literal">None</span>, doprint=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; Logging function fot this strategy&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.p.printlog <span class="keyword">or</span> doprint:</span><br><span class="line">            dt = dt <span class="keyword">or</span> <span class="variable language_">self</span>.datas[<span class="number">0</span>].datetime.date(<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s, %s&#x27;</span> % (dt.isoformat(), txt))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 从 self.datas 中能访问到 cerebro.adddata(data) 中的数据</span></span><br><span class="line">        <span class="comment"># self.datas[0] 即是加载的第一条价格数据，它被框架默认使用。</span></span><br><span class="line">        <span class="comment"># 引用 data [0] 数据序列中“收盘价”行</span></span><br><span class="line">        <span class="variable language_">self</span>.dataclose = <span class="variable language_">self</span>.datas[<span class="number">0</span>].close</span><br><span class="line">        <span class="variable language_">self</span>.dataopen = <span class="variable language_">self</span>.datas[<span class="number">0</span>].<span class="built_in">open</span></span><br><span class="line">        <span class="variable language_">self</span>.bar_executed = <span class="built_in">len</span>(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="comment"># 跟踪挂单</span></span><br><span class="line">        <span class="variable language_">self</span>.order = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.buyprice = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.buycomm = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 添加移动平均线指标</span></span><br><span class="line">        <span class="variable language_">self</span>.sma = bt.indicators.SMA(<span class="variable language_">self</span>.datas[<span class="number">0</span>], period=<span class="variable language_">self</span>.p.maperiod)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_order</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Submitted, order.Accepted]:</span><br><span class="line">            <span class="comment"># 购买订单已提交给经纪人/接受经纪人的卖单 - 啥也不干</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查订单是否已完成</span></span><br><span class="line">        <span class="comment"># 注意：如果现金不足，经纪人可能会拒绝订单</span></span><br><span class="line">        <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Completed]:</span><br><span class="line">            <span class="keyword">if</span> order.isbuy():</span><br><span class="line">                <span class="variable language_">self</span>.log(<span class="string">&#x27;BUY EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                         (order.executed.price,</span><br><span class="line">                          order.executed.value,</span><br><span class="line">                          order.executed.comm))</span><br><span class="line"></span><br><span class="line">                <span class="variable language_">self</span>.buyprice = order.executed.price</span><br><span class="line">                <span class="variable language_">self</span>.buycomm = order.executed.comm</span><br><span class="line">            <span class="keyword">elif</span> order.issell():</span><br><span class="line">                <span class="variable language_">self</span>.log(<span class="string">&#x27;SELL EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                         (order.executed.price,</span><br><span class="line">                          order.executed.value,</span><br><span class="line">                          order.executed.comm))</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">self</span>.bar_executed = <span class="built_in">len</span>(<span class="variable language_">self</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> order.status <span class="keyword">in</span> [order.Canceled, order.Margin, order.Rejected]:</span><br><span class="line">            <span class="variable language_">self</span>.log(<span class="string">&#x27;Order Canceled/Margin/Rejected&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 写下：没有挂单</span></span><br><span class="line">        <span class="variable language_">self</span>.order = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_trade</span>(<span class="params">self, trade</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> trade.isclosed:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.log(<span class="string">&#x27;OPERATION PROFIT, GROSS %.2f, NET %.2f&#x27;</span> %</span><br><span class="line">                 (trade.pnl, trade.pnlcomm))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当经过一个K线柱的时候 next() 方法就会被调用一次。</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># Simply log the closing price of the series from the reference</span></span><br><span class="line">        <span class="comment"># 只需从引用中打印该收盘价序列</span></span><br><span class="line">        <span class="variable language_">self</span>.log(<span class="string">&#x27;Open: %.2f, Close, %.2f&#x27;</span> % (<span class="variable language_">self</span>.dataopen[<span class="number">0</span>], <span class="variable language_">self</span>.dataclose[<span class="number">0</span>]))</span><br><span class="line">        <span class="comment"># 检查我们是否入市</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.position:</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 尚未入市...如果...的话，我们可能会买</span></span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.dataclose[<span class="number">0</span>] &gt; <span class="variable language_">self</span>.sma[<span class="number">0</span>]:</span><br><span class="line">                <span class="comment"># 当前收盘价小于之前的收盘价</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="variable language_">self</span>.dataclose[-<span class="number">1</span>] &lt; <span class="variable language_">self</span>.dataclose[-<span class="number">2</span>]:</span><br><span class="line">                    <span class="comment"># 前一个收盘价小于再前一个收盘价</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 买，买，买！！！ (with all possible default parameters)</span></span><br><span class="line">                    <span class="variable language_">self</span>.log(<span class="string">&#x27;BUY CREATE, %.2f&#x27;</span> % <span class="variable language_">self</span>.dataclose[<span class="number">0</span>])</span><br><span class="line">                    <span class="variable language_">self</span>.buy()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 已经入市...我们可能会出售</span></span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.dataclose[<span class="number">0</span>] &lt; <span class="variable language_">self</span>.sma[<span class="number">0</span>]:</span><br><span class="line">                <span class="comment"># 卖，卖，卖！！！ (with all possible default parameters)</span></span><br><span class="line">                <span class="variable language_">self</span>.log(<span class="string">&#x27;SELL CREATE, %.2f&#x27;</span> % <span class="variable language_">self</span>.dataclose[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 跟踪创建的订单以避免第二订单</span></span><br><span class="line">                <span class="variable language_">self</span>.order = <span class="variable language_">self</span>.sell()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.log(<span class="string">&#x27;(MA Period %2d) Ending Value %.2f&#x27;</span> %</span><br><span class="line">                 (<span class="variable language_">self</span>.p.maperiod, <span class="variable language_">self</span>.broker.getvalue()), doprint=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if__name__== <span class="string">&#x27;&quot;___main__&quot;:__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 实例化 Cerebro 引擎</span></span><br><span class="line">    cerebro = bt.Cerebro()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加一个策略</span></span><br><span class="line">    cerebro.addstrategy(TestStrategy)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 参数调优</span></span><br><span class="line">    <span class="comment"># strats = cerebro.optstrategy(</span></span><br><span class="line">    <span class="comment">#     TestStrategy,</span></span><br><span class="line">    <span class="comment">#     maperiod=range(10, 31))</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 数据在样本的子文件夹中。</span></span><br><span class="line">    <span class="comment"># 需要查找脚本的位置，因为它可以从任何地方调用</span></span><br><span class="line">    modpath = os.path.dirname(os.path.abspath(sys.argv[<span class="number">0</span>]))</span><br><span class="line">    datapath = os.path.join(modpath, <span class="string">&#x27;../../datas/orcl-1995-2014.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个数据文件</span></span><br><span class="line">    data = bt.feeds.YahooFinanceCSVData(</span><br><span class="line">        dataname=datapath,</span><br><span class="line">        <span class="comment"># 在此日期之前不要传递值</span></span><br><span class="line">        fromdate=datetime.datetime(<span class="number">2000</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">        <span class="comment"># 在此日期之后不要传递值</span></span><br><span class="line">        <span class="comment"># 这里有一个问题，把所有的净收益 Net 即落入口袋的钱，加起来会发现和最后的余额增加不一致</span></span><br><span class="line">        <span class="comment"># sum(Net) = 12.09</span></span><br><span class="line">        <span class="comment"># Starting Portfolio - Final Portfolio = 13.13</span></span><br><span class="line">        <span class="comment"># 观察输出会发现，在 2000-12-29 创建了一笔交易，但还没有执行这笔交易，所以 Net 是少了一单的</span></span><br><span class="line">        <span class="comment"># 而且，最后输出的余额是拿了卖单挂单的那天，即 2000-12-29 那天的收盘价来加的，实际上应该是拿 2001-01-02 那天的开盘价来算的</span></span><br><span class="line">        <span class="comment"># 在两重误差下，最后的余额肯定是不对的</span></span><br><span class="line">        <span class="comment"># 拓展交易日后，加上 2001-01-2 卖出去的那单的收益，并且最终余额也调整了后，就对了</span></span><br><span class="line">        <span class="comment"># sum(Net) = 12.09 + 1.41 = 13.50</span></span><br><span class="line">        <span class="comment"># Starting Portfolio - Final Portfolio = 13.50</span></span><br><span class="line">        <span class="comment"># close(2000-12-29) - open(2001-01-02) = 25.85 - 23.46 = 2.39</span></span><br><span class="line">        todate=datetime.datetime(<span class="number">2001</span>, <span class="number">1</span>, <span class="number">3</span>),</span><br><span class="line">        <span class="comment"># todate=datetime.datetime(2000, 12, 31),</span></span><br><span class="line">        reverse=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将数据添加到 Cerebro</span></span><br><span class="line">    cerebro.adddata(data)</span><br><span class="line">    <span class="comment"># 设定我们想要的初始金额</span></span><br><span class="line">    cerebro.broker.setcash(<span class="number">1000.0</span>)</span><br><span class="line">    <span class="comment"># 增加10倍的持仓大小</span></span><br><span class="line">    cerebro.addsizer(bt.sizers.FixedSize, stake=<span class="number">10</span>)</span><br><span class="line">    <span class="comment"># 设定手续费，国内一般是是0.0003</span></span><br><span class="line">    cerebro.broker.setcommission(<span class="number">0.003</span>)</span><br><span class="line">    <span class="comment"># 打印出初始金额</span></span><br><span class="line">    <span class="comment"># print(&#x27;Starting Portfolio Value: %.2f&#x27; % cerebro.broker.getvalue())</span></span><br><span class="line">    <span class="comment"># 跑起来！！！</span></span><br><span class="line">    cerebro.run()</span><br><span class="line">    <span class="comment"># 打印出最终结果</span></span><br><span class="line">    <span class="comment"># print(&#x27;Final Portfolio Value: %.2f&#x27; % cerebro.broker.getvalue())</span></span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    <span class="comment"># cerebro.plot()</span></span><br></pre></td></tr></table></figure>
+<h3 id="一个包含选股和择时的-RSI-策略">一个包含选股和择时的 RSI 策略</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> (absolute_import, division, print_function, unicode_literals)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 backtrader</span></span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入其他包</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> sys  <span class="comment"># 找出脚本名称 (in argv[0])</span></span><br><span class="line"><span class="keyword">from</span> app.data_source.api.tushare_api <span class="keyword">import</span> Stock</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建策策略</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestStrategy</span>(bt.Strategy):</span><br><span class="line">    <span class="comment"># 自定义一些参数</span></span><br><span class="line">    params = (</span><br><span class="line">        (<span class="string">&#x27;maperiod&#x27;</span>, <span class="number">25</span>),</span><br><span class="line">        (<span class="string">&#x27;printlog&#x27;</span>, <span class="literal">False</span>),</span><br><span class="line">        (<span class="string">&#x27;stake&#x27;</span>, <span class="number">1000</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">self, txt, dt=<span class="literal">None</span>, doprint=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; Logging function fot this strategy&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.p.printlog <span class="keyword">or</span> doprint:</span><br><span class="line">            dt = dt <span class="keyword">or</span> <span class="variable language_">self</span>.datas[<span class="number">0</span>].datetime.date(<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s, %s&#x27;</span> % (dt.isoformat(), txt))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 从 self.data_source 中能访问到 cerebro.adddata(data) 中的数据</span></span><br><span class="line">        <span class="comment"># self.data_source[0] 即是加载的第一条价格数据，它被框架默认使用。</span></span><br><span class="line">        <span class="comment"># 引用 data [0] 数据序列中“收盘价”行</span></span><br><span class="line">        <span class="variable language_">self</span>.bar_executed = <span class="built_in">len</span>(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="variable language_">self</span>.mas = &#123;stock: bt.ind.MovingAverageSimple(stock.close, period=<span class="variable language_">self</span>.p.maperiod) <span class="keyword">for</span> stock <span class="keyword">in</span> <span class="variable language_">self</span>.datas&#125;</span><br><span class="line">        <span class="comment"># 跟踪挂单</span></span><br><span class="line">        <span class="variable language_">self</span>.orderlist = []</span><br><span class="line">        <span class="variable language_">self</span>.buyprice = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.comms = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_order</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="comment"># print(order.created)</span></span><br><span class="line">        <span class="keyword">for</span> order <span class="keyword">in</span> <span class="variable language_">self</span>.orderlist:</span><br><span class="line">            <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Submitted, order.Accepted]:</span><br><span class="line">                <span class="comment"># 购买订单已提交给经纪人/经纪人接受卖单 - 啥也不干</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 检查订单是否已完成</span></span><br><span class="line">            <span class="comment"># 注意：如果现金不足，经纪人可能会拒绝订单</span></span><br><span class="line">            <span class="keyword">if</span> order.status <span class="keyword">in</span> [order.Completed]:</span><br><span class="line">                <span class="keyword">if</span> order.isbuy():</span><br><span class="line">                    <span class="variable language_">self</span>.log(<span class="string">&#x27;BUY EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                             (order.executed.price,</span><br><span class="line">                              order.executed.value,</span><br><span class="line">                              order.executed.comm),</span><br><span class="line">                             <span class="comment"># doprint=True</span></span><br><span class="line">                             )</span><br><span class="line"></span><br><span class="line">                    <span class="variable language_">self</span>.buyprice = order.executed.price</span><br><span class="line">                    <span class="variable language_">self</span>.comms.append(<span class="built_in">round</span>(order.executed.comm, <span class="number">2</span>))</span><br><span class="line">                <span class="keyword">elif</span> order.issell():</span><br><span class="line">                    <span class="variable language_">self</span>.log(<span class="string">&#x27;SELL EXECUTED, %.2f, Cost: %.2f, Comm: %.2f&#x27;</span> %</span><br><span class="line">                             (order.executed.price,</span><br><span class="line">                              order.executed.value,</span><br><span class="line">                              order.executed.comm),</span><br><span class="line">                             <span class="comment"># doprint=True</span></span><br><span class="line">                             )</span><br><span class="line"></span><br><span class="line">                    <span class="variable language_">self</span>.comms.append(<span class="built_in">round</span>(order.executed.comm, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">                <span class="variable language_">self</span>.bar_executed = <span class="built_in">len</span>(<span class="variable language_">self</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">elif</span> order.status <span class="keyword">in</span> [order.Canceled, order.Margin, order.Rejected]:</span><br><span class="line">                <span class="comment"># print([order.Canceled, order.Margin, order.Rejected])</span></span><br><span class="line">                <span class="comment"># 5 7 8</span></span><br><span class="line">                <span class="variable language_">self</span>.log(<span class="string">&#x27;Order %s&#x27;</span> % <span class="built_in">str</span>(order.status))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 订单终止</span></span><br><span class="line">            <span class="variable language_">self</span>.orderlist.remove(order)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">notify_trade</span>(<span class="params">self, trade</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> trade.isclosed:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.log(<span class="string">&#x27;OPERATION PROFIT, GROSS %.2f, NET %.2f&#x27;</span> %</span><br><span class="line">                 (trade.pnl, trade.pnlcomm))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当经过一个K线柱的时候 next() 方法就会被调用一次。</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> o <span class="keyword">in</span> <span class="variable language_">self</span>.orderlist:</span><br><span class="line">            <span class="variable language_">self</span>.cancel(o)  <span class="comment"># 取消以往所有订单</span></span><br><span class="line">            <span class="variable language_">self</span>.orderlist = []  <span class="comment"># 置空</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> stock <span class="keyword">in</span> <span class="variable language_">self</span>.datas:</span><br><span class="line">            <span class="variable language_">self</span>.log(<span class="string">&#x27;%s, Open: %.2f, Close, %.2f&#x27;</span> % (stock._name, stock.<span class="built_in">open</span>[<span class="number">0</span>], stock.close[<span class="number">0</span>]))</span><br><span class="line">            <span class="comment"># 检查我们是否入市</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.getposition(stock):</span><br><span class="line">                <span class="comment"># 尚未入市...如果...的话，我们可能会买</span></span><br><span class="line">                <span class="keyword">if</span> stock.close[<span class="number">0</span>] &gt; <span class="variable language_">self</span>.mas[stock][<span class="number">0</span>]:</span><br><span class="line">                    <span class="comment"># 买，买，买！！！ (with all possible default parameters)</span></span><br><span class="line">                    <span class="variable language_">self</span>.log(<span class="string">&#x27;%s BUY CREATE, %.2f&#x27;</span> % (stock._name, stock.close[<span class="number">0</span>]))</span><br><span class="line">                    <span class="comment"># self.buy(data=data, size=self.p.stake)</span></span><br><span class="line">                    order = <span class="variable language_">self</span>.buy(data=stock, size=<span class="variable language_">self</span>.p.stake, exectype=bt.Order.Market, valid=bt.Order.DAY)</span><br><span class="line">                    <span class="variable language_">self</span>.orderlist.append(order)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 已经入市...我们可能会出售</span></span><br><span class="line">                <span class="keyword">if</span> stock.close[<span class="number">0</span>] &lt; <span class="variable language_">self</span>.mas[stock][<span class="number">0</span>]:</span><br><span class="line">                    <span class="comment"># 卖，卖，卖！！！ (with all possible default parameters)</span></span><br><span class="line">                    <span class="variable language_">self</span>.log(<span class="string">&#x27;%s SELL CREATE, %.2f&#x27;</span> % (stock._name, stock.close[<span class="number">0</span>]))</span><br><span class="line">                    order = <span class="variable language_">self</span>.sell(data=stock, size=<span class="variable language_">self</span>.p.stake, exectype=bt.Order.Market, valid=bt.Order.DAY)</span><br><span class="line">                    <span class="variable language_">self</span>.orderlist.append(order)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;==================== Results ====================&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Starting Value - %.2f&#x27;</span> % <span class="variable language_">self</span>.broker.startingcash)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Ending   Value - %.2f&#x27;</span> % <span class="variable language_">self</span>.broker.getvalue())</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;=================================================&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;___main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 实例化 Cerebro 引擎</span></span><br><span class="line">    cerebro = bt.Cerebro(tradehistory=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加一个策略</span></span><br><span class="line">    cerebro.addstrategy(TestStrategy)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 参数调优</span></span><br><span class="line">    <span class="comment"># strats = cerebro.optstrategy(</span></span><br><span class="line">    <span class="comment">#     TestStrategy,</span></span><br><span class="line">    <span class="comment">#     maperiod=range(10, 31))</span></span><br><span class="line"></span><br><span class="line">    data_api = Stock(<span class="string">&quot;20210412&quot;</span>, <span class="number">365</span>, <span class="number">0</span>)</span><br><span class="line">    stock_pool = data_api.selectStockPoolByRSI()</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> tqdm(stock_pool):</span><br><span class="line">        <span class="comment"># print(code)</span></span><br><span class="line">        now = data_api.now.strftime(data_api.TIME_STR)</span><br><span class="line">        OneYearBefore = (data_api.now - data_api.before).strftime(data_api.TIME_STR)</span><br><span class="line">        ohlc_data = data_api.getDailyKV(code, OneYearBefore, now)</span><br><span class="line">        ohlc_data = ohlc_data.iloc[::-<span class="number">1</span>]</span><br><span class="line">        <span class="comment"># print(ohlc_data)</span></span><br><span class="line">        stock = bt.feeds.PandasData(dataname=ohlc_data, nocase=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 将数据添加到 Cerebro</span></span><br><span class="line">        cerebro.adddata(stock, name=code)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设定我们想要的初始金额</span></span><br><span class="line">    cerebro.broker.setcash(<span class="number">100000.0</span>)</span><br><span class="line">    <span class="comment"># 设定手续费，国内一般是是0.0003</span></span><br><span class="line">    cerebro.broker.setcommission(<span class="number">0.003</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name=<span class="string">&quot;SharpeRatio&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.AnnualReturn, _name=<span class="string">&quot;AannualReturn&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.DrawDown, _name=<span class="string">&quot;DrawDown&quot;</span>)</span><br><span class="line">    cerebro.addanalyzer(bt.analyzers.PyFolio)</span><br><span class="line">    strats = cerebro.run()</span><br><span class="line">    strat = strats[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(strat.comms))</span><br><span class="line">    <span class="built_in">print</span>(strat.comms)</span><br><span class="line"></span><br><span class="line">    pyfolio = strat.analyzers.getbyname(<span class="string">&#x27;pyfolio&#x27;</span>)</span><br><span class="line">    returns, positions, transactions, gross_lev = pyfolio.get_pf_items()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(&#x27;Pyfolio:&#x27;, strat.analyzers.pyfolio.get_analysis())</span></span><br><span class="line">    sharpe_ratio = strat.analyzers.SharpeRatio.get_analysis()[<span class="string">&#x27;sharperatio&#x27;</span>]</span><br><span class="line">    max_drawdown = strat.analyzers.DrawDown.get_analysis()[<span class="string">&#x27;max&#x27;</span>][<span class="string">&#x27;drawdown&#x27;</span>]</span><br><span class="line">    annual_reaturn = strat.analyzers.AannualReturn.get_analysis()</span><br><span class="line">    transactions[<span class="string">&#x27;commision&#x27;</span>] = strat.comms</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;================== Performance ==================&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Sharpe Ratio:&#x27;</span>, sharpe_ratio)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Max DrawDown:&#x27;</span>, max_drawdown, <span class="string">&#x27;%&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> annual_reaturn.items():</span><br><span class="line">        v = <span class="built_in">round</span>(v, <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">print</span>(k, <span class="string">&#x27;Aannual Return:&#x27;</span>, v)</span><br><span class="line">        annual_reaturn[k] = v</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;=================================================&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(&quot;================== returns ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(returns)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== positions ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(positions)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== transactions ==================&quot;)</span></span><br><span class="line">    <span class="comment"># print(transactions)</span></span><br><span class="line">    <span class="comment"># print(&quot;================== gross_lev ==================&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">round</span>(sharpe_ratio, <span class="number">2</span>), <span class="built_in">round</span>(max_drawdown, <span class="number">2</span>), annual_reaturn, transactions</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/11/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/%E6%AF%95%E8%AE%BE/" rel="prev" title="毕设">
+                  <i class="fa fa-angle-left"></i> 毕设
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/06/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20Notebook/Jupyter-Theme%20%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/" rel="next" title="Jupyter-Theme 修改主题">
+                  Jupyter-Theme 修改主题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

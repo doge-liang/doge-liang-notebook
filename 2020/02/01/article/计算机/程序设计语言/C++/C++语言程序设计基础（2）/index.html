@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="C++语言程序设计基础（2）  C++语言程序设计基础（2）  概述 数据类型 指针 表达式与运算符 程序控制语句 函数  函数的定义 函数原型 函数的参数传递  值传递 指针传递 引用传递   函数返回  返回基本类型 返回指针类型 返回引用类型   函数调用  递归调用   函数地址和函数指针  函数地址 函数指针   内联函数和重载函数 变量存储特性与标识符作用域 多文件程序结构 预处理指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++语言程序设计基础（2）">
+<meta property="og:url" content="http://example.com/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C++/C++%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++语言程序设计基础（2）  C++语言程序设计基础（2）  概述 数据类型 指针 表达式与运算符 程序控制语句 函数  函数的定义 函数原型 函数的参数传递  值传递 指针传递 引用传递   函数返回  返回基本类型 返回指针类型 返回引用类型   函数调用  递归调用   函数地址和函数指针  函数地址 函数指针   内联函数和重载函数 变量存储特性与标识符作用域 多文件程序结构 预处理指令">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C++/C++%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C++/C++%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/","path":"2020/02/01/article/计算机/程序设计语言/C++/C++语言程序设计基础（2）/","title":"C++语言程序设计基础（2）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++语言程序设计基础（2） | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">C++语言程序设计基础（2）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">1.3.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">表达式与运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.5.</span> <span class="nav-text">程序控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.6.1.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.6.2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.6.3.</span> <span class="nav-text">函数的参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">值传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">指针传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">引用传递</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E"><span class="nav-number">1.6.4.</span> <span class="nav-text">函数返回</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">返回基本类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">返回指针类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">返回引用类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">1.6.5.</span> <span class="nav-text">函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8"><span class="nav-number">1.6.5.1.</span> <span class="nav-text">递归调用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80%E5%92%8C%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">1.6.6.</span> <span class="nav-text">函数地址和函数指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80"><span class="nav-number">1.6.6.1.</span> <span class="nav-text">函数地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">1.6.6.2.</span> <span class="nav-text">函数指针</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0"><span class="nav-number">1.6.7.</span> <span class="nav-text">内联函数和重载函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7%E4%B8%8E%E6%A0%87%E8%AF%86%E7%AC%A6%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.6.8.</span> <span class="nav-text">变量存储特性与标识符作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="nav-number">1.6.9.</span> <span class="nav-text">多文件程序结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-number">1.6.10.</span> <span class="nav-text">预处理指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">1.6.11.</span> <span class="nav-text">多文件程序使用全局变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.7.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.7.1.</span> <span class="nav-text">标准命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.7.2.</span> <span class="nav-text">定义命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.7.3.</span> <span class="nav-text">使用命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%88%E6%AD%A2%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C"><span class="nav-number">1.7.4.</span> <span class="nav-text">终止程序运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.8.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="nav-number">1.9.</span> <span class="nav-text">指针数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8"><span class="nav-number">1.10.</span> <span class="nav-text">动态存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.11.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">1.12.</span> <span class="nav-text">集合与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.12.1.</span> <span class="nav-text">位运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">1.12.2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.12.3.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E7%BB%93%E7%82%B9"><span class="nav-number">1.12.4.</span> <span class="nav-text">插入结点</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C++/C++%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++语言程序设计基础（2） | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++语言程序设计基础（2）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-01T00:00:00+08:00">2020-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="C-语言程序设计基础（2）">C++语言程序设计基础（2）</h2>
+<ul>
+<li><a href="#c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%802">C++语言程序设计基础（2）</a>
+<ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
+<li><a href="#%E6%8C%87%E9%92%88">指针</a></li>
+<li><a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6">表达式与运算符</a></li>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5">程序控制语句</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0">函数</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89">函数的定义</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B">函数原型</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">函数的参数传递</a>
+<ul>
+<li><a href="#%E5%80%BC%E4%BC%A0%E9%80%92">值传递</a></li>
+<li><a href="#%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92">指针传递</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92">引用传递</a></li>
+</ul>
+</li>
+<li><a href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E">函数返回</a>
+<ul>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B">返回基本类型</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B">返回指针类型</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">返回引用类型</a></li>
+</ul>
+</li>
+<li><a href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8">函数调用</a>
+<ul>
+<li><a href="#%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8">递归调用</a></li>
+</ul>
+</li>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80%E5%92%8C%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88">函数地址和函数指针</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80">函数地址</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88">函数指针</a></li>
+</ul>
+</li>
+<li><a href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0">内联函数和重载函数</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7%E4%B8%8E%E6%A0%87%E8%AF%86%E7%AC%A6%E4%BD%9C%E7%94%A8%E5%9F%9F">变量存储特性与标识符作用域</a></li>
+<li><a href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84">多文件程序结构</a></li>
+<li><a href="#%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4">预处理指令</a></li>
+<li><a href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F">多文件程序使用全局变量</a></li>
+</ul>
+</li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a>
+<ul>
+<li><a href="#%E6%A0%87%E5%87%86%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">标准命名空间</a></li>
+<li><a href="#%E5%AE%9A%E4%B9%89%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">定义命名空间</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">使用命名空间</a></li>
+<li><a href="#%E7%BB%88%E6%AD%A2%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C">终止程序运行</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84">指针数组</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8">动态存储</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="#%E9%9B%86%E5%90%88%E4%B8%8E%E7%BB%93%E6%9E%84">集合与结构</a>
+<ul>
+<li><a href="#%E4%BD%8D%E8%BF%90%E7%AE%97">位运算</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84">结构</a></li>
+<li><a href="#%E9%93%BE%E8%A1%A8">链表</a></li>
+<li><a href="#%E6%8F%92%E5%85%A5%E7%BB%93%E7%82%B9">插入结点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="概述">概述</h3>
+<p>C++源于 C 语言,有高级语言的数据表示，运算功能，还可以直接对内存进行操作（指针），属于编译型语言，运行效率高，可以面向对象编程，也可以面向过程编程。</p>
+<blockquote>
+<p>编译型语言：<br>
+通过编辑器产生的源代码文件通过预处理、编译、汇编、链接 3 个步骤，编译成二进制的机器语言文件并与库文件进行连接生成.exe 可执行文件，再运行，效率高。</p>
+<blockquote>
+<p>编译：将源代码翻译成汇编代码的过程</p>
+</blockquote>
+<p>解释型语言：<br>
+通过编辑器产生的源文件通过解释器，逐句将源代码解释为机器代码并运行，效率低。</p>
+</blockquote>
+<p>一个简单的 C++程序例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span> <span class="comment">//引入iostream出入输出流库</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; <span class="comment">//使用std标准命名空间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">xxx</span> &#123; <span class="comment">//声明类，面向过程可以不需要</span></span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123; <span class="comment">//声明主函数</span></span><br><span class="line">  <span class="type">double</span> xxx; <span class="comment">//定义变量</span></span><br><span class="line">  <span class="type">int</span> xxx; <span class="comment">//定义变脸</span></span><br><span class="line">  ...</span><br><span class="line">  cin&lt;&lt;xxx&lt;&lt;endl; <span class="comment">//输入参数</span></span><br><span class="line">  cout&lt;&lt;xxx&lt;&lt;endl; <span class="comment">//输出参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数是程序执行的入口。</p>
+<h3 id="数据类型">数据类型</h3>
+<p>C++的数据类型：</p>
+<ul>
+<li>
+<p>基本类型</p>
+<ul>
+<li>整型(int,<strong>bool</strong>,<strong>enum</strong>)</li>
+<li>浮点型(float,double)</li>
+<li>字符型(char)</li>
+</ul>
+</li>
+<li>
+<p>结构类型：</p>
+<ul>
+<li>数组([])</li>
+<li>结构(stuct)</li>
+<li>联合(union）</li>
+<li>类(class)</li>
+</ul>
+</li>
+<li>
+<p>指针类型(*)</p>
+</li>
+<li>
+<p>空类型(void)</p>
+</li>
+</ul>
+<p>根据操作系统和编译系统的不同，每种数据类型的精度和长度都不同，开发时要注意这一点。</p>
+<p>枚举类型(enum)的用法：<br>
+枚举类型是一种用户自定义的数据类型，用关键字 enum 定义，用标识符表来表示的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">colour</span>&#123;red, yellow, white,black&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  colour c;</span><br><span class="line">  c = red;</span><br><span class="line">  cout&lt;&lt;<span class="string">&quot;red:&quot;</span>&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">  c = blue;</span><br><span class="line">  cout&lt;&lt;<span class="string">&quot;blue:&quot;</span>&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">  c = black;</span><br><span class="line">  cout&lt;&lt;<span class="string">&quot;black:&quot;</span>&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">red:0</span><br><span class="line">blue:2</span><br><span class="line">black:4</span><br></pre></td></tr></table></figure>
+<p>浮点数表示方法：尾数 E（e）指数<br>
+尾数可以为小数或整数，指数必须为整数。</p>
+<p>字符型数据支持八进制/十六进制转换成字符类型：\ddd, \xhh<br>
+依据 ASCII 码转换。</p>
+<h3 id="指针">指针</h3>
+<p><strong>指针变量的定义：</strong><br>
+类型 * 标识符 //此时*表示指针变量的声明<br>
+（标识符可以写入地址值）</p>
+<p><strong>注意:</strong> void 类型指针可以存放任意类型对象，但是不可解释所指对象，必须经过强制类型转换才可以解释。</p>
+<p><strong>地址访问：</strong><br>
+* 地址值 相当于 访问地址对应的数据对象 //此时*表示间址访问<br>
+e.t：对 a 的地址访问可以写成*(&amp;a)，&amp;为取址符</p>
+<p><strong>引用：</strong><br>
+类型 &amp;引用名 = 对象名<br>
+没有创建新的内存区域，仅仅只是两个变量指向同一个内存区域，且引用必须在定义时初始化。</p>
+<p>常量指针（变量）：可以修改指向，不可修改所指向的对象。可用来限制指针对所指对象的修改（可以指向常量）。<br>
+指针常量（常量）：定义时即固定指向（地址值为常量），不可修改指向，可以修改所指变量的值。<br>
+常量指针常量（常量）：指向常量的指针常量，不可修改指向，不可修改所指对象（都是常量）。<br>
+常引用：限制了引用对象对原对象的修改。</p>
+<h3 id="表达式与运算符">表达式与运算符</h3>
+<p>优先级（高到低）：！-&gt; 算数运算符 -&gt; 关系运算符 -&gt; &amp;&amp; -&gt; ||</p>
+<p>&amp;&amp; || 短路运算符：当判断出根据前一个表达式即可判断结果时，后面的表达式将忽略。</p>
+<p>条件表达式：A? B:C<br>
+当 A 为真时则 B，当 A 为假时则 C</p>
+<h3 id="程序控制语句">程序控制语句</h3>
+<p>选择控制：<br>
+if</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ()&#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>switch</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>()&#123;</span><br><span class="line"><span class="keyword">case</span> 常量<span class="number">1</span>: 语句<span class="number">1</span>; [<span class="keyword">break</span>;]</span><br><span class="line"><span class="keyword">case</span> 常量<span class="number">2</span>: 语句<span class="number">2</span>; [<span class="keyword">break</span>;]</span><br><span class="line">...</span><br><span class="line">[<span class="keyword">default</span>: 语句n;]</span><br></pre></td></tr></table></figure>
+<p>循环控制：<br>
+while; do while; for</p>
+<p><strong>注意：</strong> for(;;)等价于 while(1)</p>
+<h3 id="函数">函数</h3>
+<h4 id="函数的定义">函数的定义</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类型 函数名([形参表])</span><br><span class="line">&#123;</span><br><span class="line"> 语句块;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="函数原型">函数原型</h4>
+<p>函数原型是函数的声明，作用是告诉编译器有关函数接口的信息：函数名、返回值的数据类型、参数个数，由于函数原型没有实现代码，所以可以不需要形参表。写法为：<br>
+double max(double,double);</p>
+<p><strong>注意：</strong> 如果函数定义出现在第一次调用之前，可以不需要函数原型。</p>
+<h4 id="函数的参数传递">函数的参数传递</h4>
+<ul>
+<li>值传递</li>
+<li>指针传递</li>
+<li>引用传递</li>
+</ul>
+<h5 id="值传递">值传递</h5>
+<p>函数中的操作都是对形参的操作，对实参没有影响。</p>
+<p>函数调用时，不应该将表达式作为实参进行调用，因为表达式之间可能相互影响，在不同的编译系统中，可能有不同的实参表。</p>
+<p>默认参数要放在函数名第一次出现的时候，且其他参数都要在默认参数之前。</p>
+<p>默认参数的默认值可以是常量、全局变量或函数调用，但不能是局部变量。</p>
+<h5 id="指针传递">指针传递</h5>
+<p>形参表中的形参被声明为指针类型，调用时，传递的是实参的地址，因此对形参的操作会影响到实参。<br>
+可以用 const 来限制对实参的修改。</p>
+<h5 id="引用传递">引用传递</h5>
+<p>相当于形参和实参形成绑定关系，对形参的操作就是对实参的操作。引用参数传递不会产生形参副本，面对大对象参数操作会很高效。</p>
+<h4 id="函数返回">函数返回</h4>
+<h5 id="返回基本类型">返回基本类型</h5>
+<p>计算表达式的值生成实际对象，将实际对象赋给函数自动生成的匿名对象（匿名对象的类型就是定义函数时的类型），再将匿名对象把值带到函数的调用点。</p>
+<h5 id="返回指针类型">返回指针类型</h5>
+<p>函数返回的匿名对象是实际对象的指针，不需要匿名对象复制实际对象的所有值。</p>
+<h5 id="返回引用类型">返回引用类型</h5>
+<p>函数返回的匿名对象是实际对象的引用，不需要匿名对象复制实际对象的所有值。可读性比返回指针类型简单。</p>
+<h4 id="函数调用">函数调用</h4>
+<p>函数的调用是通过堆栈的机制完成的，操作系统调用 main，将操作系统的运行状态压入栈中，再将调用完 main 函数的返回地址压入栈中，再将 main 函数的参数压入栈中。这一步完成了 main 函数的调用。main 函数中调用 fa()时，先将 main 函数的运行状态压入栈中，再将 fa()函数后的返回地址压入栈中，再将 fa()函数参数压入栈中，开始执行 fa()函数，然后如果有嵌套则继续压栈。当到达嵌套的最里层函数，最里层函数调用结束，再一步步返回，将压入的栈从上往下弹出。遵循先进后出的原则。</p>
+<h5 id="递归调用">递归调用</h5>
+<p>构成递归函数调用的两个基本要素：</p>
+<ul>
+<li>描述问题规模逐渐缩小的递归算法</li>
+<li>描述基本情况的递归终止条件</li>
+</ul>
+<h4 id="函数地址和函数指针">函数地址和函数指针</h4>
+<p>每一个函数语句序列经过编译后生成的二进制代码，都要调入内存才能运行。每一个函数块都有一个首地址，函数块的首地址称为函数地址的入口地址，或函数指针。<br>
+一个定义了的函数，函数名就是入口地址。</p>
+<h5 id="函数地址">函数地址</h5>
+<ol>
+<li>函数名、函数地址都是函数的入口地址；</li>
+<li>函数调用指令要做的事情是：找到函数入口地址，传递参数。</li>
+</ol>
+<h5 id="函数指针">函数指针</h5>
+<ol>
+<li>
+<p>函数的类型：函数的类型指的是函数的接口，包括函数的参数定义和返回类型。<br>
+表示函数类型地形式为：<br>
+<strong>typedef 类型 函数类型名(形式参数表)</strong></p>
+</li>
+<li>
+<p>函数的指针：<br>
+<strong>类型 (* 指针变量名) (形式参数表)；</strong><br>
+或者 <strong>函数类型 * 指针变量名；</strong></p>
+</li>
+<li>
+<p>函数指针类型：<br>
+<strong>typedef 类型 (* 指针类型) (形式参数表);</strong><br>
+或者 <strong>typedef 函数类型 * 指针类型；</strong></p>
+</li>
+<li>
+<p>用函数指针调用函数<br>
+<strong>(* 指针变量名) (实际参数表)</strong><br>
+或者 <strong>指针变量名 (实际参数表)</strong></p>
+</li>
+</ol>
+<h4 id="内联函数和重载函数">内联函数和重载函数</h4>
+<p>内联函数：在函数名第一次出现时，在函数名之前添加关键字 inline。可以将功能简单、代码较短的函数嵌入到每一个函数调用处，节省了栈空间的使用，节约了空间和时间。<br>
+重载函数：相当于 Java 中的重载函数，函数名相同而参数类型不同，叫做函数重载。C++编译器只根据函数参数表（参数类型和格式）进行重载函数版本的调用匹配。</p>
+<h4 id="变量存储特性与标识符作用域">变量存储特性与标识符作用域</h4>
+<p>存储特性：</p>
+<ol>
+<li>自动存储(<s>auto</s>和<s>register</s>)</li>
+<li>静态存储(extern 和 static)</li>
+</ol>
+<p>作用域：<br>
+C++的标识符有五种作用域：函数原型、块、函数、类和文件作用域<br>
+函数原型：函数原型的形参会被忽略；<br>
+块：作用域在花括号内，花括号结束后变量被释放；<br>
+函数：函数体可理解为特殊的块，作用域规则和块同理；<br>
+文件：这种作用域是从声明变量到文件结束为止的作用域；<br>
+全局变量和局部变量：具有文件作用域的变量称为全局变量，在块内，同名全局变量会被屏蔽。</p>
+<h4 id="多文件程序结构">多文件程序结构</h4>
+<p>程序通常由.cpp 文件和.h 头文件构成。一个表达特定程序功能功能的模块由两部分构成：规范说明和实现部分。规范说明描述一个模块与其他模块的接口，包括函数原型、类说明、类型说明、全局量说明、包含指令、宏定义、注释等。规范说明通常集中在头文件中。实现部分则在.cpp 文件中，通常称为实现文件。</p>
+<pre class="mermaid">graph TD
+  A1(头文件A.h)-->A2[实现文件A.cpp]
+  B1(头文件B.h)-->B2[实现文件B.cpp]
+  C1(头文件C.h)-->C2[实现文件C.cpp]
+  A2-->D
+  B2-->D
+  C2-->D
+  A1-->D[主文件M.cpp]
+  B1-->D
+  C1-->D</pre>
+<h4 id="预处理指令">预处理指令</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;文件名&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;文件名.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><code>#define 标识符 文本</code><br>
+文本中带参数用于定义简单函数，不带参数用于定义常量。<br>
+宏定义在编译之前就执行了，所以不能对替换内容进行语法检查。</p>
+<p>条件编译：可以决定程序文本是否参加编译</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> 常量表达式</span></span><br><span class="line">程序文本</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> 常量表达式</span></span><br><span class="line">程序文本 <span class="number">1</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">程序文本 <span class="number">2</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> 标识符</span></span><br><span class="line">  <span class="meta">#<span class="keyword">define</span> 标识符</span></span><br><span class="line">  程序文本</span><br><span class="line">  <span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="多文件程序使用全局变量">多文件程序使用全局变量</h4>
+<p>用 extern 声明就可以跨文件使用具有静态属性的全局变量。<br>
+例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//file1.cpp</span><br><span class="line">...</span><br><span class="line">int global;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">//file2.cpp</span><br><span class="line">...</span><br><span class="line">extern int global;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>全局变量可以被所有函数访问，所以使用全局变量可以节省函数之间传递参数的开销，但是这样违背了程序结构化和信息隐蔽的原则，所以如果不是性能优先的程序，最好不要使用全局变量。<br>
+函数原型定义时默认为 extern，即可以跨文件或文件内任意地方定义函数。所以用 include 嵌入之后，不需要关心程序定义的位置了。</p>
+<h3 id="命名空间">命名空间</h3>
+<p>命名空间保证编程时不会与已有的软件组件产生命名冲突。命名空间是类、函数、对象、类型和其他名字的集合。</p>
+<h4 id="标准命名空间">标准命名空间</h4>
+<p>标准命名空间的三种使用方法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;a;</span><br><span class="line">cout&lt;&lt;a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line">cin&gt;&gt;a;</span><br><span class="line">cout&lt;&lt;a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第三种</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">std::cin&gt;&gt;a;</span><br><span class="line">std::cout&lt;&lt;a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>标准命名空间包括标准库内的各种名字的声明。<br>
+C++标准库包括：<br>
+iostream iomanip limit fstream string typeinfo stdexcept<br>
+一些 C 语言的标准库头文件可以用两种方式声明命名空间：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line">等价于：</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>注意：在 C++中，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span> <span class="comment">//使用标准库中的string类以及其操作</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span> <span class="comment">//调用C语言中字符处理函数</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="定义命名空间">定义命名空间</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 标识符</span><br><span class="line">&#123;语句序列&#125;</span><br></pre></td></tr></table></figure>
+<p>标识符是用户定义的命名空间的名字；语句序列可以包含类、函数、对象、类型和其他空间的定义和说明，在文件中声明；<br>
+使用方法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;lib1.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;lib2.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">UseSameName</span><span class="params">()</span></span>&#123;</span><br><span class="line">lib1::SameName one;</span><br><span class="line">lib2::SameName two;<span class="comment">//这里的lib1,lib2都是命名空间的名字而不是头文件名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命名空间的定义遵循先定义后使用的原则，可以嵌套追加定义。</p>
+<h4 id="使用命名空间">使用命名空间</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> 名空间;</span><br><span class="line"><span class="keyword">using</span> 名空间::元素;</span><br></pre></td></tr></table></figure>
+<p>注意，即使指定命名空间，但若文件内有同样的名字声明，仍需要在名字前添加::。<br>
+::同样可以嵌套使用，例如 A::B::f()。</p>
+<h4 id="终止程序运行">终止程序运行</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()&#123;</span><br><span class="line"><span class="built_in">abort</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">assert</span><span class="params">(expression)</span></span>;<span class="comment">//若expression为false则终止</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">bool</span> s=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">assert</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exit</span><span class="params">(<span class="type">int</span> status)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="数组">数组</h3>
+<p>数组定义：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>] <span class="comment">//一维数组</span></span><br><span class="line"><span class="type">int</span> b[<span class="number">10</span>][<span class="number">20</span>] <span class="comment">//二维数组</span></span><br><span class="line"><span class="type">int</span> c[][<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125; <span class="comment">//可以省略最高维的下标</span></span><br><span class="line"><span class="type">int</span> d[<span class="number">2</span>][<span class="number">3</span>]=&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>超出范围的数组访问可能得到不寻常的结果。<br>
+C++中数组名表示的是数组首位的地址值，例如：a==&amp;a[0]，a+1==&amp;a[1],*(a+3)==a[3]</p>
+<h3 id="指针数组">指针数组</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *a[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<p>因为变量、数组、函数都可以用地址表示，所以指针数组可以任意指向他们。<br>
+实际上二维数组（高维数组），就是一维数组的叠加映射。<br>
+但对于高维数组不可以用指针操作数组，例如：p=a 或者 pp=a<br>
+因为无论是一级指针还是二级指针，关联类型都与二维数组不同，二维数组中，a 的关联类型是 int[4]。<br>
+只能通过定义一个指向一维数组的指针操作二维指针。</p>
+<h3 id="动态存储">动态存储</h3>
+<p>C++提供了 new 和 delet 操作符来动态分配存储空间和释放已分配的存储空间。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指针变量 = <span class="keyword">new</span> 类型</span><br><span class="line"><span class="keyword">delete</span> 指针变量</span><br></pre></td></tr></table></figure>
+<p>delete 之后，指针变量还会有无意义的值。习惯性对指针变量赋值 NULL。</p>
+<h3 id="字符串">字符串</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str1[<span class="number">10</span>] = &#123;<span class="string">&#x27;S&#x27;</span>,<span class="string">&#x27;t&#x27;</span>,<span class="string">&#x27;u&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;n&#x27;</span>,<span class="string">&#x27;t&#x27;</span>&#125;;</span><br><span class="line"><span class="type">char</span> str2[<span class="number">10</span>] = &#123;<span class="string">&quot;Student&quot;</span>&#125;;</span><br><span class="line"><span class="type">char</span> str3[] = &#123;<span class="string">&quot;Student&quot;</span>&#125;;</span><br><span class="line"><span class="type">char</span> str3[] = <span class="string">&quot;Student&quot;</span>; <span class="comment">//str3是常指针</span></span><br><span class="line"><span class="type">char</span> *string = <span class="string">&quot;Student&quot;</span>; <span class="comment">//string是指针变量，关联字符类型，串赋值</span></span><br><span class="line"><span class="type">char</span> s = <span class="keyword">new</span> <span class="type">char</span>[<span class="number">80</span>];</span><br><span class="line">cin&gt;&gt;s&gt;&gt;endl;</span><br><span class="line"><span class="type">char</span> *sp;</span><br><span class="line">sp = <span class="string">&quot;Student&quot;</span>; <span class="comment">//串赋值</span></span><br></pre></td></tr></table></figure>
+<h3 id="集合与结构">集合与结构</h3>
+<p>C++中没有表示集合的数据类型，取而代之，我们用位运算实现集合运算的基本操作。</p>
+<h4 id="位运算">位运算</h4>
+<p>位运算的操作数为整型数据，通常是无符号数据。位运算的运算符有 6 个：按位与(&amp;)、按位或(|)、按位异或(^)、按位取反(~)、左移(&lt;&lt;)、右移(&gt;&gt;)。还有五个按位复合赋值运算符。</p>
+<p>按位与、或、异或、取反运算法则：先将操作数转换成二进制数，在一位一位通过逻辑运算计算结果。</p>
+<p>左移、右移：将左操作数转换为二进制，向左/右移动右操作数位，空白处填充 0。</p>
+<p><strong>掩码</strong>：只有一位是 1 的数字，用来按位测试数据。</p>
+<p>使用数组可以突破 32 位的限制。</p>
+<h4 id="结构">结构</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 标识符</span><br><span class="line">&#123; 类型 成员<span class="number">1</span>;</span><br><span class="line">  类型 成员<span class="number">2</span>;</span><br><span class="line">  ...</span><br><span class="line">  类型 成员n;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p>结构的数据成员只有在结构变量说明之后才有意义，才会在内存中开辟空间。<br>
+访问结构变量：结构变量名.成员<br>
+通过指针访问：*(指针).成员 或者 指针-&gt;成员<br>
+结构可以定义为数组，声明：结构名 标识符</p>
+<h4 id="链表">链表</h4>
+<p>链表的数据元素包含了数据本身和指向下一个数据元素的指针。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span></span><br><span class="line">&#123; datatype data;</span><br><span class="line">  Node *next;</span><br><span class="line">&#125;;</span><br><span class="line">Node *head, *p;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(未结束)</span><br><span class="line">&#123; 生成新结点;</span><br><span class="line">  把新结点插入链表;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="插入结点">插入结点</h4>
+<ol>
+<li>在头部插入结点</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-Hello%20world/" rel="prev" title="C语言程序设计基础-Hello world">
+                  <i class="fa fa-angle-left"></i> C语言程序设计基础-Hello world
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/C/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F/" rel="next" title="C语言程序设计基础-变量">
+                  C语言程序设计基础-变量 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

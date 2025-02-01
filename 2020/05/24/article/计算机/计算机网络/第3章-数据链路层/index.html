@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="第三章-数据链路层 4.1 信道分配问题 网络链路分为两大类：点到点连接(WAN)和广播信道(LAN) 广播信道的节点共用一条信道进行通信，那么就存在着信道竞争的问题。  广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)  两种解决信道分配问题的方案：信道静态分配、信道动态分配 4.1.1 静态信道分配 这种信道">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三章-数据链路层">
+<meta property="og:url" content="http://example.com/2020/05/24/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章-数据链路层 4.1 信道分配问题 网络链路分为两大类：点到点连接(WAN)和广播信道(LAN) 广播信道的节点共用一条信道进行通信，那么就存在着信道竞争的问题。  广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)  两种解决信道分配问题的方案：信道静态分配、信道动态分配 4.1.1 静态信道分配 这种信道">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/05/24/article/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
+<meta property="article:published_time" content="2020-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/05/24/article/assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png">
+
+
+<link rel="canonical" href="http://example.com/2020/05/24/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/05/24/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/","path":"2020/05/24/article/计算机/计算机网络/第3章-数据链路层/","title":"第三章-数据链路层"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第三章-数据链路层 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">第三章-数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 信道分配问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-%E9%9D%99%E6%80%81%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">4.1.1 静态信道分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-%E5%8A%A8%E6%80%81%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">4.1.2 动态信道分配方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 多路访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-ALOHA"><span class="nav-number">1.2.1.</span> <span class="nav-text">4.2.1 ALOHA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%AF-ALOHA"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">纯 ALOHA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%A7%BD-ALOHA"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">分槽 ALOHA</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E8%BD%BD%E6%B3%A2%E4%BE%A6%E5%90%AC%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">4.2.2 载波侦听多路访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%9D%9A%E6%8C%81-CSMA%E3%80%81p-%E5%9D%9A%E6%8C%81-CSMA%E3%80%81%E9%9D%9E%E5%9D%9A%E6%8C%81-CSMA"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">1-坚持 CSMA、p-坚持 CSMA、非坚持 CSMA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%A6%E6%9C%89%E5%86%B2%E7%AA%81%E6%A3%80%E6%B5%8B%E7%9A%84-CSMA"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">带有冲突检测的 CSMA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E5%86%B2%E7%AA%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">无冲突协议</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/24/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="第三章-数据链路层 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第三章-数据链路层
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-24T00:00:00+08:00">2020-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="第三章-数据链路层">第三章-数据链路层</h2>
+<h3 id="4-1-信道分配问题">4.1 信道分配问题</h3>
+<p>网络链路分为两大类：点到点连接(WAN)和广播信道(LAN)<br>
+广播信道的节点共用一条信道进行通信，那么就存在着<strong>信道竞争</strong>的问题。</p>
+<blockquote>
+<p>广播信道有时也称为多路访问信道(multiaccess channel)或者随机访问信道(random access channel)</p>
+</blockquote>
+<p>两种解决信道分配问题的方案：信道静态分配、信道动态分配</p>
+<h4 id="4-1-1-静态信道分配">4.1.1 静态信道分配</h4>
+<p>这种信道分配方式，相当于把一条马路中间用护栏隔开，车辆不能换道。以前讨论的多路复用技术就是这种方式，如 频分多路 FDM。<br>
+网络流量是具有突发性的，变化很大，空闲时这种方案就浪费了信道；繁忙时，就会造成堵塞。</p>
+<p>。。。数学论证待补充。。。</p>
+<h4 id="4-1-2-动态信道分配方案">4.1.2 动态信道分配方案</h4>
+<p>构建模型的 5 个假设：</p>
+<ol>
+<li>流量独立：有 N 台流量恒定独立的计算机；</li>
+<li>单信道：N 台计算机使用共享的信道；</li>
+<li>冲突可观察：冲突可以被计算机侦察到，并重新发送；</li>
+<li>时间连续或分槽：在一段连续的时间内，任意时段都可发送；或者将时间分成一段段的时间槽，只能在时间槽的开始时发送；</li>
+<li>载波侦听或不侦听：用户可以侦听信道是否有信息在传输（载波）；不侦听就是不能侦听；</li>
+</ol>
+<p>第一个假设表示流量的产生符合泊松分布，方便我们建立模型分析，尽管这不符合显示流量的流动方式；<br>
+单信道是我们分析的核心，冲突可观察是保证传输可靠的必要条件；<br>
+后面的讨论我们能知道，时间槽和载波侦听能够提高最大传输率；</p>
+<h3 id="4-2-多路访问协议">4.2 多路访问协议</h3>
+<h4 id="4-2-1-ALOHA">4.2.1 ALOHA</h4>
+<p>ALOHA 是夏威夷大学研究员为了解决偏远岛屿和远程计算机连接而设计的协议，这个原始的协议采用了一种简单而巧妙的方式解决了信道分配的问题，虽然该协议本身使用的是地面无线电广播通信，但它的基本思路同样适用其他的单信道竞争系统；</p>
+<p>下面讨论两个版本的 ALOHA</p>
+<h5 id="纯-ALOHA">纯 ALOHA</h5>
+<p>这种 ALOHA 协议十分简单，节点在任意时候，有需要就发送；如果产生了冲突，就等待一个随机时间后，重发；<br>
+冲突检测机制为：远程计算机收到数据之后，将其广播回节点中，节点收到数据后，对比发送的，如果不同就说明发生了冲突。<br>
+（后检测的机制，其实冲突在发生时，就应该被节点检测到，然后停止发送。这样的机制浪费了冲突发生后的带宽以及时间；）</p>
+<p>。。。数学说明待补充。。。</p>
+<p>通过建模分析得到，该协议最好情况下，信道利用率为 18%。</p>
+<h5 id="分槽-ALOHA">分槽 ALOHA</h5>
+<p>在前一种协议的基础上，增加了时间槽。信道利用率提高了一倍，36%。<br>
+前一种方式，每个发送出去的帧都要占用两个帧时作为高冲突区，而增加时间槽后，强行将帧限制到时间槽的开头开始发送，高冲突区变成了一个帧时</p>
+<p>。。。数学说明待补充。。。</p>
+<h4 id="4-2-2-载波侦听多路访问协议">4.2.2 载波侦听多路访问协议</h4>
+<h5 id="1-坚持-CSMA、p-坚持-CSMA、非坚持-CSMA">1-坚持 CSMA、p-坚持 CSMA、非坚持 CSMA</h5>
+<ol>
+<li>1-坚持 CSMA：计算机侦听信道，一空闲马上发，若冲突，等待随机时间后，重复上述过程；</li>
+<li>p-坚持 CSMA：计算机侦听信道，若空闲，以概率 p 发送（可能发，可能不发），以概率 1-p 推迟发送；这个过程一直重复，直到数据发送了，或者别人占了信道；若别人占了信道，则和冲突使用同样的方式处理；</li>
+<li>非坚持 CSMA：计算机侦听信道，若空闲，就发送，若忙碌，则放弃侦听，等一个随机时间后，再看看是否空闲，以便发送；</li>
+</ol>
+<p>很显然，贪婪的 1-坚持 CSMA 在 2 台以上的计算机竞争时，大家都很急躁争抢信道，冲突会频繁发生；<br>
+稍微没那么贪婪的 p-坚持 CSMA 表现良好，IEEE 802.11 是对这种方式的改良；<br>
+非坚持的 CSMA，很佛系，提高了高竞争系统的信道利用率，但是这种方式的延迟更大了（每次遇到冲突，都等一个随机时间，这个随机时间很可能有能够发送出去的机会，但错失了）；</p>
+<h5 id="带有冲突检测的-CSMA">带有冲突检测的 CSMA</h5>
+<p>CSMA/CD 协议工作流程：当空闲时，多个计算机都要发送，冲突就会发生。如果一个站检测到冲突，就会停止发送，并发送一个冲突加强信号，通知网络上各个站点已经发生冲突，所有计算机都等待一段随机时间再发送；</p>
+<p>用下图模型描述，我们可以看到，CSMA/CD 模型将会交替出现竞争期、传输期、空闲期；</p>
+<p><img src="../../../assets/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/add54e874787e29959cee70672088b85fe55e240422370781dd7a93e7938ab44.png" alt="picture 40"></p>
+<p>冲突检测机制：考虑一个极端情况，网络中距离最远的两台计算机，计算机 A 在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时刻发送一个帧，在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + \tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span> 时刻（该帧几乎到达另一台计算机 B 时），另一台计算机 B 刚好发送了一个帧，这时冲突了，计算机 B 立刻检测到了，马上停止发送，而计算机 A 要等到，冲突信号回传才能知道冲突了，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mn>2</mn><mi>τ</mi><mo>−</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">t_0 + 2\tau - \varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span> 时刻。<br>
+通过以上极端情况讨论，我们得到了一个结论，当计算机发送的数据，经过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span> 时长之后没有收到冲突信号，那么就可以认为，数据安全的发送出去了。那么我们可以试着按照 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span> 将时间分成时间槽，这时的 CSMA/CD 协议就很像是带时间槽的 ALOHA 协议了。差异在于，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span> 往往比时间槽的长度（帧时）短，这个差距越大，带来的性能提升就越高。</p>
+<h5 id="无冲突协议">无冲突协议</h5>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/15/article/%E9%A2%98%E7%BB%8F%E9%9D%A2%E7%BB%8F/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="知识点整理">
+                  <i class="fa fa-angle-left"></i> 知识点整理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C-os%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="python系统操作-os库的使用">
+                  python系统操作-os库的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

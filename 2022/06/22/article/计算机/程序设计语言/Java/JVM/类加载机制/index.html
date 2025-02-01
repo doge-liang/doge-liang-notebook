@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="类加载机制 类的加载过程 类的加载过程：（Load-Link-Initialize）   类的加载（Load）：  通过类的全限定名获取定义此类的二进制字节流； 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构； 在内存中创建一个代表这个类的 java.lang.Class 对象，作为方法区这个类的各种数据的访问入口； 整个过程由类加载器完成；   类的链接（Link）：将类的二进制数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类加载机制">
+<meta property="og:url" content="http://example.com/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类加载机制 类的加载过程 类的加载过程：（Load-Link-Initialize）   类的加载（Load）：  通过类的全限定名获取定义此类的二进制字节流； 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构； 在内存中创建一个代表这个类的 java.lang.Class 对象，作为方法区这个类的各种数据的访问入口； 整个过程由类加载器完成；   类的链接（Link）：将类的二进制数">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/22/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
+<meta property="og:image" content="http://example.com/2022/06/22/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png">
+<meta property="og:image" content="http://example.com/2022/06/22/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png">
+<meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/22/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png">
+
+
+<link rel="canonical" href="http://example.com/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/","path":"2022/06/22/article/计算机/程序设计语言/Java/JVM/类加载机制/","title":"类加载机制"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>类加载机制 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">类加载机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">类的加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.1.1.</span> <span class="nav-text">类的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-clinit"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">执行 &lt;clinit&gt;()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%88%86%E6%9E%90%E4%B8%8B%E9%9D%A2%E4%BB%A3%E7%A0%81%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">实例：分析下面代码的加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">类的加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">双亲委派机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="类加载机制 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          类加载机制
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-22T00:00:00+08:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="类加载机制">类加载机制</h2>
+<h3 id="类的加载过程">类的加载过程</h3>
+<p>类的加载过程：（Load-Link-Initialize）</p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1323eba348af5a32881cfe4ee34f5bbf375177e4fb0d9fc710368affb015b2f5.png" alt="picture 4"></p>
+<ol>
+<li>类的加载（Load）：
+<ul>
+<li>通过类的全限定名获取定义此类的二进制字节流；</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构；</li>
+<li>在内存中创建一个代表这个类的 <code>java.lang.Class</code> 对象，作为方法区这个类的各种数据的访问入口；</li>
+<li>整个过程由类加载器完成；</li>
+</ul>
+</li>
+<li>类的链接（Link）：将类的二进制数据合并到 JRE 中；
+<ul>
+<li>验证：确保加载的类信息符合 JVM 规范，不会出现安全问题；</li>
+<li>准备：正式为 <strong>类变量</strong> （static 变量，不包括 static final 常量，常量在编译阶段便分配了内存，准备阶段会显式初始化）分配内存并设置 <strong>默认初始值</strong> （零值），这些内存都在 <strong>方法区</strong> 中进行分配；</li>
+<li>解析：虚拟机常量池内的符号引用（常量名）替换为直接引用（地址）的过程；</li>
+</ul>
+</li>
+<li>类的初始化（Initialize）：JVM 负责对类进行初始化；
+<ul>
+<li>执行类构造器 <code>&lt;clinit&gt;()</code> 方法的过程。类构造器 <code>&lt;clinit&gt;()</code> 方法，是由编译器自动收集类中所有 <strong>类变量</strong> 的赋值和 <strong>静态代码块</strong> 中的语句合并产生的；（类构造器是构造类信息的，不是构造类对象的）</li>
+<li>当初始化一个类的时候，如果发现其父类还没有初始化，则需要先触发其父类的初始化；（双亲委派机制）</li>
+<li>虚拟机会保证一个类的方法在多线程的环境中被正确加锁和同步；</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">   a = <span class="number">3</span>;</span><br><span class="line">   num = <span class="number">200</span>; <span class="comment">// 这里的赋值是合法的，因为 static 变量在 linking 阶段的 prepare 就已经分配了内存并设置了初始默认值，所以这里的赋值是成功的</span></span><br><span class="line">   <span class="comment">// System.out.println(num); // 这是会编译出错的，会发生非法的前向引用错误</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="类的初始化">类的初始化</h4>
+<p>类的初始化触发分为下面两种情况：</p>
+<ol>
+<li>类的主动引用（一定会发生类的初始化）
+<ul>
+<li>当虚拟机启动，先初始化 ma`in 方法所在的类；</li>
+<li><code>new</code> 一个类的对象；</li>
+<li>调用类的静态成员（除了 <code>final</code> 常量）和静态方法；</li>
+<li>使用 <code>java.lang.reflect</code> 包的方法对类进行反射调用；</li>
+<li>当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类；</li>
+<li>JDK 7 开始提供了动态语言的支持：
+<ul>
+<li><code>java.lang.invoke.MethodHandle</code> 实例的解析结果；</li>
+<li><code>REF_getStatic</code> 、 <code>REF_putStatic</code> 、 <code>REF_invokeStatic</code> 句柄对应的类没有初始化，则初始化；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类的被动引用（不会发生类的初始化）
+<ul>
+<li>当访问一个静态域时，只有真正声明这个域的类才会被初始化。如：当通过子类引用父类的静态变量，不会导致子类初始化；</li>
+<li>通过数组定义类引用，不会触发此类的初始化，<code>Son[] array = new Son[5];</code>；</li>
+<li>引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）；</li>
+<li>其他操作……</li>
+</ul>
+</li>
+</ol>
+<h5 id="执行-clinit">执行 <code>&lt;clinit&gt;()</code></h5>
+<p>类的初始化阶段就是执行类构造器 <code>&lt;clinit&gt;()</code> 方法。<br>
+<code>&lt;clinit&gt;()</code> 由编译器自动收集的，所有 <strong>类变量的赋值动作</strong> 和 <strong>静态语句块</strong>，合并产生的。收集顺序由源码的出现顺序决定。<br>
+静态语句块中只能访问定义在其之前的变量，对于定义在其后的变量，语句块能够 <strong>赋值</strong> ， <strong>不能访问</strong> （会报非法向前引用变量的错误）。</p>
+<p><code>&lt;clinit&gt;()</code> 方法与类的构造函数（<code>&lt;init&gt;()</code> 方法不同），它不需要显式地调用父类构造器，虚拟机会自己保证父类的 <code>&lt;clinit&gt;()</code> 先执行。所以最先执行的 <code>&lt;clinit&gt;()</code> 是 <code>java.lang.Object</code> 的。</p>
+<h3 id="实例：分析下面代码的加载过程">实例：分析下面代码的加载过程</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ClinitTest1</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">A</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">static</span> &#123;</span><br><span class="line">            A = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">B</span> <span class="operator">=</span> A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(Son.B); <span class="comment">// 2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>首先加载 main 方法所在的类 <code>ClinitTest1</code> ；</li>
+<li>开始执行 main 方法，遇到调用 <code>Son.B</code> ，开始加载 <code>Son</code> 类，执行 <code>&lt;clinit&gt;</code> ；</li>
+<li>由于 <code>Son</code> 类有父类 <code>Father</code> ， <strong>双亲委派机制</strong> ，先执行 <code>Father</code> 的 <code>&lt;clinit&gt;</code> ，加载父类先；</li>
+<li>父类的 static 变量经过加载链接初始化之后， <code>A = 2</code> ；</li>
+<li>然后执行 <code>Son</code> 的 <code>&lt;clinit&gt;</code> ，得到 <code>B = 2</code> ；</li>
+<li>最后输出为 2 ；</li>
+<li>虚拟机必须保证一个类的 <code>&lt;clinit&gt;()</code> 方法在多线程下被 <strong>同步加锁</strong> ；</li>
+</ol>
+<p>第 7 点可以用以下代码验证：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadThreadTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Runnable</span> <span class="variable">task</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">&quot;开始&quot;</span>);</span><br><span class="line">            <span class="type">DeadThread</span> <span class="variable">deadThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DeadThread</span>();</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">&quot;结束&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(task, <span class="string">&quot;线程1&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(task, <span class="string">&quot;线程2&quot;</span>);</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DeadThread</span> &#123;</span><br><span class="line">    <span class="comment">// &lt;clint&gt; 方法，将被 jvm 同步加锁</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">&quot;初始化 DeadThread&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="comment">// 其中一个线程会被卡在这里，而另外一个线程由于得不到锁，所以两个线程都无法输出结束</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="类的加载器">类的加载器</h4>
+<p>类加载器（ClassLoader）的作用就是用来把类装载进内存的。JVM 规范定义了如下几类加载器：</p>
+<ul>
+<li>引导类加载器：用 C++ 编写的，是 JVM 自带的类加载器，负责 Java 平台核心库，用来装载核心类库。<strong>无法直接获取。</strong></li>
+<li>扩展类加载器：负责 <code>re/lib/ext</code> 目录下的 jar 包或 <code>-D java.ext.dirs</code> 指定目录下的 jar 包装入工作库；</li>
+<li>系统类加载器：负责 <code>java-classpath</code> 或 <code>-D java.class.path</code> 所指的目录下的类与 jar 包装入工作，是最常用的加载器；</li>
+<li>用户自定义加载器：用户自定义；</li>
+</ul>
+<p>这里的四种加载器之间的关系不是上下级、不是继承关系，而是包含关系。</p>
+<p>这三个类加载器以及自定义加载器的层次结构如下：</p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1e7913aabfc6dea0b525664d34a72b587b5c86f8dcb4faf8b0c37afa1fd6c636.png" alt="picture 1"></p>
+<p>在代码中，类加载器的关系如下（这里只有 <code>ExtClassLoader</code> 和 <code>AppClassLoader</code> 没有 <code>BootstrapClassLoader</code> ，因为引导类加载器是 C/C++ 编写的，不在 java 源码里面）：</p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/efc7af539b9e0a1727f18660b82d54010482ddf1cdf9249f49a833132cc6cf9f.png" alt="picture 3"></p>
+<p><code>sun.misc.Launcher</code> 是 JVM 的入口应用， <code>ExtClassLoader</code> 和 <code>AppClassLoader</code> 都是 <code>Launcher</code> 的内部类。</p>
+<p>这些类加载器是自上而下加载，自下而上检查是否加载完成的。此外我们还可以自定义类加载器；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取系统类加载器</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">systemClassLoader</span> <span class="operator">=</span> ClassLoader.getSystemClassLoader();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取系统类加载器的父类加载器--&gt;扩展类加载器</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">extClassLoader</span> <span class="operator">=</span> systemClassLoader.getParent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取扩展类加载器的父类加载器--&gt;根加载器（是用C/C++写的）</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">rootClassLoader</span> <span class="operator">=</span> systemClassLoader.getParent(); <span class="comment">//null，因为无法获取</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得系统类加载器可以加载的路径</span></span><br><span class="line">System.getProperty(<span class="string">&quot;java.class.path&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="双亲委派机制">双亲委派机制</h4>
+<p>JVM <strong>按需</strong> 加载 class 文件，只有当使用到某个类时才会将 class 文件加载到内存生成类对象。加载时采用的时双亲委派机制，把请求交给父类处理，是一种任务委派模式。</p>
+<p><strong>双亲委派机制</strong>：加载 <code>java.lang.String</code> 类时，JVM 会从用户自定义的类加载器开始（如果有）向上到 <code>AppClassLoader</code> 再向上到 <code>ExtClassLoader</code> 直到 <code>BootstrapClassLoader</code> 。一步步将加载任务委派给上一级的类加载器，如果上一级的类加载器能够加载就加载，不能再由下一级类加载器加载，是个递归的操作。这样做也可以保证程序的安全性，比如 java 的核心类库不会被用户自定义的类覆盖，如果没有用双亲委派机制加载，那对于从网络中获取字节码加载的场景，就会有攻击注入的风险。</p>
+<p>在双亲委派加载过程中，每个类只会被加载一次，不会被重复加载。而且可以保护系统核心 API ，当加载到自定义的 <code>java.*</code> 或者 <code>javax.*</code> 等包（即试图使用引导类加载器加载用户自定义类），会发生安全异常。这种保护又叫做 <strong>沙箱安全机制</strong>。</p>
+<h3 id="其他">其他</h3>
+<p>判断 JVM 中两个 Class 对象是否一样：</p>
+<ol>
+<li>类的全限定名是否一致；</li>
+<li>加载类的 classLoader 必须相同；</li>
+</ol>
+<p>对于用户类加载器加载的类， <strong>JVM 会将类加载器的引用作为类型信息的一部分保存在方法区中</strong> 。当解析一个类型到另一个类型的引用的时候， JVM 需要保证这两个类型的类加载器是相同的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E7%AE%80%E4%BB%8B/" rel="prev" title="简介">
+                  <i class="fa fa-angle-left"></i> 简介
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/" rel="next" title="Java IO">
+                  Java IO <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

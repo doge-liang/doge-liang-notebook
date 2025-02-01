@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="内存模型 HotSpot JVM 架构  由于 Java 的内存管理是由 JVM 自己实现的， Java 程序员编写代码时无需关注内存的使用情况，避免了将内存管理逻辑实现在代码中，能更好地描述业务，减少代码的冗余。但如果编写代码时对于 JVM 如何管理内存没有了解，一旦出现问题则无法定位修复问题。 内存布局 根据 JVM 规范，在运行时，内存会被分为以下几个数据区域：  程序计数器（Program">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存模型">
+<meta property="og:url" content="http://example.com/2022/06/26/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存模型 HotSpot JVM 架构  由于 Java 的内存管理是由 JVM 自己实现的， Java 程序员编写代码时无需关注内存的使用情况，避免了将内存管理逻辑实现在代码中，能更好地描述业务，减少代码的冗余。但如果编写代码时对于 JVM 如何管理内存没有了解，一旦出现问题则无法定位修复问题。 内存布局 根据 JVM 规范，在运行时，内存会被分为以下几个数据区域：  程序计数器（Program">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/26/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/a9cec5474a1a9b1da2c4b6b7b9030194a4015d71ff7981dd0a7d56059220e86a.png">
+<meta property="og:image" content="http://example.com/2022/06/26/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/eaae6c32c4ed28431bf80beb0b0148009cf36631c4a371d50cd7306e7ebf25fe.png">
+<meta property="og:image" content="http://example.com/2022/06/26/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/44a97062ea830c63a6fed4dd185edac38b5620c6eac9e2525bcc40dd9e7827d9.png">
+<meta property="og:image" content="http://example.com/2022/06/26/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/b9f17c723c33a38135168812ddb4cbf1cc40e32542595c6b22d16a2419fd07ee.png">
+<meta property="article:published_time" content="2022-06-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/26/article/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/a9cec5474a1a9b1da2c4b6b7b9030194a4015d71ff7981dd0a7d56059220e86a.png">
+
+
+<link rel="canonical" href="http://example.com/2022/06/26/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/26/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/","path":"2022/06/26/article/计算机/程序设计语言/Java/JVM/内存模型/","title":"内存模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>内存模型 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HotSpot-JVM-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">HotSpot JVM 架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">1.2.</span> <span class="nav-text">内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%EF%BC%88Program-Counter-Register%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%EF%BC%88VM-Stack%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">虚拟机栈（VM Stack）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">局部变量表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">1.2.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-%E5%A0%86"><span class="nav-number">1.2.4.</span> <span class="nav-text">Java 堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.2.5.</span> <span class="nav-text">方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.2.6.</span> <span class="nav-text">直接内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.3.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">1.4.</span> <span class="nav-text">对象的内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="nav-number">1.4.1.</span> <span class="nav-text">对象头</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/26/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="内存模型 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          内存模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-26T00:00:00+08:00">2022-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="内存模型">内存模型</h2>
+<h3 id="HotSpot-JVM-架构">HotSpot JVM 架构</h3>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/a9cec5474a1a9b1da2c4b6b7b9030194a4015d71ff7981dd0a7d56059220e86a.png" alt="picture 5"></p>
+<p>由于 Java 的内存管理是由 JVM 自己实现的， Java 程序员编写代码时无需关注内存的使用情况，避免了将内存管理逻辑实现在代码中，能更好地描述业务，减少代码的冗余。但如果编写代码时对于 JVM 如何管理内存没有了解，一旦出现问题则无法定位修复问题。</p>
+<h3 id="内存布局">内存布局</h3>
+<p>根据 JVM 规范，在运行时，内存会被分为以下几个数据区域：</p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/eaae6c32c4ed28431bf80beb0b0148009cf36631c4a371d50cd7306e7ebf25fe.png" alt="picture 1"></p>
+<h4 id="程序计数器（Program-Counter-Register）">程序计数器（Program Counter Register）</h4>
+<p>程序计数器(Program Counter Register)用来指示程序下一次的执行位置，程序的控制流实现依赖于它。由于 JVM 的多线程是在多个线程间轮流切换、分配处理器的执行时间来实现的，所以<strong>每个线程需要私有程序计数器</strong>，以方便在线程切换后恢复自己的运行位置。</p>
+<p>程序计数器会记录 Java 方法的虚拟机字节码指令的地址，但执行到本地(Native) 方法时，该处会为空(undefined)。并且该区域是 JVM 规范中 <strong>唯一没有规定任何 OutOfMemoryError</strong>情况的区域。</p>
+<h4 id="虚拟机栈（VM-Stack）">虚拟机栈（VM Stack）</h4>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/44a97062ea830c63a6fed4dd185edac38b5620c6eac9e2525bcc40dd9e7827d9.png" alt="picture 6"></p>
+<p>虚拟机栈(VM Stack)是描述方法执行的内存模型，每个方法被执行的时候都会同步创建一个<strong>栈帧</strong>(Stack Frame)，用于存储<strong>局部变量表</strong>（方法内定义的局部变量）、<strong>操作数栈</strong>（方法内对变量的操作）、<strong>动态链接</strong>（调用别的方法）、<strong>方法出口</strong>（返回值）等信息。每个方法的执行过程对应一个栈帧的入栈和出栈的过程。当线程执行完毕时，意味着没有方法需要执行了，所以虚拟机栈也销毁了。</p>
+<blockquote>
+<p>按照 C/C++ 的划分，内存区域被笼统地划分为 <strong>栈</strong> 和 <strong>堆</strong> 两部分，在 JVM 中，这个栈通常指的就是虚拟机栈，或者更多情况下，指的是虚拟机栈中存储的局部变量表。</p>
+</blockquote>
+<p>在 JVM 规范中，这个内存区域会产生两类异常状况：</p>
+<ol>
+<li>如果线程请求的栈的深度大于虚拟机所允许的深度，会产生 <strong>StackOverflowError</strong> 异常；</li>
+<li>如果 JVM 的容量可以动态扩展，而栈扩展时无法申请足够的内存会抛出 <strong>OutOfMemoryError</strong> 异常；</li>
+</ol>
+<p>可以使用 <code>-Xss</code> 调整栈内存空间；</p>
+<h5 id="局部变量表">局部变量表</h5>
+<p>存放了 <strong>编译期间</strong> 得知的 JVM <strong>基本类型</strong>（boolean、byte、int、……）、<strong>对象引用</strong>（reference 类型，或者说指向对象的指针）和 <strong>returnAddress 类型</strong>（指向一条字节码指令的地址）。这些数据类型的存储空间单位用局部变量槽（Slot）来表示，64 位长度的 long 和 double 类型占用两个 Slot ，其余变量只占用一个。局部变量表的空间在编译期就设定好了，因为方法运行期间不会再创建新的局部变量。</p>
+<blockquote>
+<p>具体一个 Slot 有多大取决于 JVM 的具体实现。</p>
+</blockquote>
+<h4 id="本地方法栈">本地方法栈</h4>
+<p>本地方法栈（Native Method Stack）与虚拟机栈的作用类似，区别只是一个是存放 Java 方法的数据，一个是存放本地方法的数据。该内存区域会抛出的错误和虚拟机栈的一样；</p>
+<h4 id="Java-堆">Java 堆</h4>
+<p>Java 堆往往是虚拟机所管理的内存中最大的一块，该区域被所有线程共享。此区域的唯一目的就是存放对象的实例，几乎所有的对象都在这里分配内存空间。Java 堆不需要连续的内存，<br>
+该区域的大小可以被实现为固定的，也可以实现为可拓展的，主流虚拟机都是实现为可拓展的（<code>-Xmx</code> 指定堆的最大值，<code>-Xms</code> 指定堆的初始大小），当堆的空间不足时，会抛出 <code>OutOfMemoryError</code> 异常。</p>
+<p>Java 堆是垃圾收集器所管理的内存区域，所以也叫 <strong>GC 堆</strong> (Garbage Collected Heap) ，目前大多的垃圾回收器都是基于分代收集理论实现的，所以 Java 堆中经常会出现 <strong>新生代</strong> 、 <strong>老年代</strong> 、 <strong>永久代</strong> 、 <strong>Eden</strong> 、 <strong>Survivor</strong> 等划分。这种划分是目前大多数垃圾收集器所规定的，而 JVM 规范中并没有规定这些划分。实际上，一些新兴的垃圾收集器技术并不是按照经典分代的理论实现的。</p>
+<p>新生代使用 <code>-Xmn</code> 参数指定内存大小；<br>
+Eden 区与 Survivor 区的比例使用 <code>-XX:SurvivorRatio</code> 指定；<br>
+晋升老年代对象大小 <code>-XX:PretenureSizeThreshold</code> 指定；</p>
+<h4 id="方法区">方法区</h4>
+<p>方法区(Method Area) 和 Java 堆一样是线程共享的内存区域，用于存储已经被虚拟机加载的<strong>类型信息</strong>、<strong>常量</strong>、<strong>静态变量</strong>、即时编译器编译后的<strong>代码缓存</strong>等数据。</p>
+<p>方法区是 JVM 规范中声明的一块内存区域，具体的实现在各家 JVM 厂商的产品中各有不同，在 HotSpot JVM 的 JDK 6 版本中，方法区又被叫做 <strong>永久代</strong> ，并将垃圾收集器的分代设计扩展到方法区中，省去了专门为方法区编写内存管理的工作。但这种设计使得 JVM 更容易发生 <strong>内存溢出</strong> ，因为永久代有 <code>-XX:MaxPermSize</code> 的上限，如果不设置有默认值，而其他 JVM 厂商使用 <strong>本地内存</strong> 的设计，只要没有达到进程的可用内存上限都可以继续使用，例如 32 位操作系统为 4GB ，都不会发生内存溢出。这种不一致导致 HotSpot 在吸收其他 JVM 的优点时产生了麻烦。在后续的 JDK 8 版本中，HotSpot JVM 也放弃了永久代，而采用 <strong>元空间</strong> （本地内存）来实现 JVM 的方法区。</p>
+<h5 id="运行时常量池">运行时常量池</h5>
+<p>运行时常量池（COnstant Pool Table）是方法区的一部分，用于存放编译期生成的各种 <strong>字面量</strong> （常量）和 <strong>符号引用</strong> ，这些内容将在类加载后存放到运行时常量中。<br>
+不同于其他区域，这个区域 JVM 规范并没有提出任何细节上的要求。 Java 虚拟机对于 Class 文件的每个部分都有严格的要求，比如每个字节用于存放那种数据都必须符合 JVM 规范才能被加载和执行。<br>
+一般说来，除了保存 Class 文件的符号引用外，常量池还会存放从符号引用翻译过来的直接引用。<br>
+运行时常量池相对于 Class 文件常量池，还有 <strong>动态性</strong> ，并不是预先放入 Class 文件中的常量才会被放入运行时常量池中，运行期间也可以将新的常量放入池中，比如 <code>String.intern()</code> 方法。</p>
+<h4 id="直接内存">直接内存</h4>
+<p>直接内存（Direct Memory）不是 JVM 运行时的数据区域之一，也没有被 JVM 规范定义。但是在编码中会频繁使用，比如 JDK1.4 后加入的 <strong>NIO 类</strong>，这种基于<strong>通道</strong>（channel）和<strong>缓冲区</strong>（buffer）的 IO 类，可以使用 Native 方法直接分配堆外内存，然后通过一个存储在 Java 堆里的 <code>DirectByteBuffer</code> 对象作为这块内存的引用进行操作。这样避免了在 Java 堆和 Native 堆间来回复制数据。<br>
+直接内存属于物理机本地的内存区域，通过 <code>-Xmx</code> 参数配置只能设置 Java 堆内存，因此在做虚拟机参数配置时，需要考虑到直接内存，如果直接将堆内存设置和物理机内存一致，就会突破物理机内存限制。比如说， 32 位计算机能够为一个进程分配的内存只有 2GB (根据位长计算得来，一台计算机不是所有的内存都可以用来跑一个进程，计算机可以运行多个进程)，假设 Java 堆已经分配了 1.6 GB 那么剩下的 0.4 GB 就是直接内存使用的空间。这 0.4 GB 就是直接内存，也被叫做<strong>堆外内存</strong>。</p>
+<h3 id="对象的创建">对象的创建</h3>
+<p>这里的对象指的是普通的 Java 对象，不包括数组和 Class 对象。当 JVM 遇到一个对象的 new 指令时，首先会去检查该指令的参数是否能在常量池中定位到一个类的符号引用，并检查该类是否被加载、解析和初始化过。如果没有，则首先要执行类加载过程。</p>
+<p>类加载检查通过之后， JVM 将为对象 <strong>分配内存</strong> 。分配内存有两种方式：</p>
+<ol>
+<li>指针碰撞（Bump The Pointer），当 Java 堆是规整的时，就像进度条一样，一边是空闲的空间，一边是被占用的空间，为对象分配内存时，就是将分界指针向空闲一边移动；</li>
+<li>空闲列表（Free List），当 Java 堆是不规整的， JVM 需要维护一张表格记录哪块内存是可用的，在分配空间的时候从列表中查出一块足够大的空间分配给对象；</li>
+</ol>
+<p>而 Java 堆是否规整是取决于垃圾收集器是否带有空间<strong>压缩整理</strong>（Compact）功能决定的，当使用 Serial 、 ParNew 等收集器时，系统采用指针碰撞的分配方法。当使用 CMS 这种基于<strong>清除</strong>（Sweep）算法的收集器时，理论上只能采用较为复杂的空闲列表来分配内存（实际上为了能够更快地分配内存， CMS 设计了一个叫做 Linear Allocation Buffer 的缓冲区，通过空闲列表拿到一大块空间分配缓冲区后，在缓冲区内仍可以使用指针碰撞的方式分配内存；</p>
+<p>另外，在并发场景中分配内存还会面临线程不安全的问题，有两种解决方法：</p>
+<ol>
+<li>使用 CAS 失败重试的机制保证更新操作的原子性；</li>
+<li>在每个线程中都分配缓冲区，称为 <strong>本地线程缓冲区</strong> （Thread Local Allocation Buffer， TLAB），每个线程先在自己的本地缓冲区分配内存，只有在本地缓冲区用完了，需要分配新的内存时才需要同步锁定；可以通过 -XX:+/-UseTLAB 参数来设定是否使用 TLAB 机制；</li>
+</ol>
+<blockquote>
+<p><strong>CAS</strong>（Compare And Swap）：比较并替换，CAS 机制定义了三个基本的操作数：内存地址 V ，预期值 A ，要修改成值 B 。<br>
+当更新一个变量时，只有当地址 V 的变量为预期值 A 才将地址 V 中的值替换为值 B 。<br>
+考虑两个线程都在更新某个变量的场景：</p>
+<ol>
+<li>线程 1 想要将 V 出的值 10 增加 1 ，此时对于地址 V 变量的预期值为 10 ，要更新为 11；</li>
+<li>线程 1 执行更新操作时， CPU 被线程 2 抢占，地址 V 被抢先一步更新为 11 ；</li>
+<li>线程 1 开始执行更新操作时，<strong>比较</strong>地址 V 的值发现和预期值 10 不一样，更新失败；</li>
+<li>线程 1 重新获取地址 V 的值 11 ，要更新为新值 12 ，这个重试的操作被称为 <strong>自旋</strong>；</li>
+<li>这次线程 1 没有被抢占，<strong>比较</strong>地址 V 的值发现和预期值 11 相同，进行<strong>交换</strong>操作，将地址 V 的值替换为 12；</li>
+</ol>
+<p>CAS 对于并发程度的估计是乐观的，所以让线程不断地重试之前的操作，分类上叫 <strong>乐观锁</strong>。<br>
+而 Synchronized 属于 <strong>悲观锁</strong> ，对并发程度的估计是悲观的，所以对资源的访问严防死守。</p>
+<p>在 Java 中 Atomic 系列类和 Lock 系列类的底层实现都是使用 CAS 机制实现的。</p>
+</blockquote>
+<p>内存分配完成后， JVM 将分配的空间都 <strong>初始化为零值</strong> ，如果使用 TLAB 的话，这项工作可以提前至 TLAB 分配时进行。这是为了保证对象的实例字段可以不用赋初始值就可以直接使用。</p>
+<p>然后， JVM 开始 <strong>设置对象头</strong> ，对象头包含了对象的一些元数据信息。</p>
+<p>经历上面的步骤， 从 JVM 的视角看来，一个对象已经创建完成了，然而这时尚未进入 Java 程序的构造函数，即 Class 文件中的 <code>&lt;init&gt;()</code> 方法。 JVM 编译器在程序中遇到 <code>new</code> 关键字的地方同时生成 <code>new</code> 指令和 <code>invokespecial</code> 指令，<code>new</code> 指令后会接着执行 <code>&lt;init&gt;()</code> 方法。这时一个对象才真正被构造出来。</p>
+<p>下面的代码片段来自于 Hotspot 的字节码解释器，可以用来描述前面所说的对象创建过程：</p>
+<p><img src="../../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/JVM/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/b9f17c723c33a38135168812ddb4cbf1cc40e32542595c6b22d16a2419fd07ee.png" alt="picture 2"></p>
+<h3 id="对象的内存布局">对象的内存布局</h3>
+<p>对象在堆内存的存储分布如下：</p>
+<ol>
+<li>对象头（Header）</li>
+<li>实例数据（Instance Data）</li>
+<li>对齐填充（Padding）</li>
+</ol>
+<h4 id="对象头">对象头</h4>
+<p>对象头部分包含两类信息：</p>
+<ol>
+<li>对象的运行时数据（<strong>Mark Word</strong>），哈希码、 GC 分代年龄、锁状态标志、线程持有的锁、偏向线程 ID 、偏向时间戳等；</li>
+<li>类型指针，指向对象的类型元数据， JVM 通过该指针确定对象的类型。（该信息不是所有虚拟机实现都有，因为查找对象的元数据信息不一定要经过对象本身）</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/22/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20IO/" rel="prev" title="Java IO">
+                  <i class="fa fa-angle-left"></i> Java IO
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/13/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/" rel="next" title="多线程实现">
+                  多线程实现 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

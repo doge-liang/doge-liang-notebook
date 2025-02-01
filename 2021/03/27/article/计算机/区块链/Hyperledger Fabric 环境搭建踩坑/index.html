@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hyperledger Fabric 环境搭建踩坑 网络启动失败 在跑 . .&#x2F;init.sh 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误： 1234567891011121314155.Create &amp; Join Channel######## - (COMMON) setup variables - ########~&#x2F;workspace&#x2F;channel-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperledger Fabric 环境搭建踩坑">
+<meta property="og:url" content="http://example.com/2021/03/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hyperledger Fabric 环境搭建踩坑 网络启动失败 在跑 . .&#x2F;init.sh 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误： 1234567891011121314155.Create &amp; Join Channel######## - (COMMON) setup variables - ########~&#x2F;workspace&#x2F;channel-">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:07.835Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/03/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/03/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/","path":"2021/03/27/article/计算机/区块链/Hyperledger Fabric 环境搭建踩坑/","title":"Hyperledger Fabric 环境搭建踩坑"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hyperledger Fabric 环境搭建踩坑 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperledger-Fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91"><span class="nav-number">1.</span> <span class="nav-text">Hyperledger Fabric 环境搭建踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.1.</span> <span class="nav-text">网络启动失败</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hyperledger Fabric 环境搭建踩坑 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hyperledger Fabric 环境搭建踩坑
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:07" itemprop="dateModified" datetime="2025-02-01T01:54:07+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Hyperledger-Fabric-环境搭建踩坑">Hyperledger Fabric 环境搭建踩坑</h2>
+<h3 id="网络启动失败">网络启动失败</h3>
+<p>在跑 <code>. ./init.sh</code> 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">5.Create &amp; Join Channel</span><br><span class="line">######## - (COMMON) setup variables - ########</span><br><span class="line">~/workspace/channel-artifacts ~/workspace</span><br><span class="line">Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">~/workspace</span><br><span class="line">######## - (ORG1) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:7051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG1) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.708 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) join channel - ########</span><br><span class="line">Error: error getting endorser client for channel: endorser client failed to connect to localhost:9051: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:9051: connect: connection refused&quot;</span><br><span class="line">######## - (ORG2) update anchor - ########</span><br><span class="line">2021-03-27 13:40:35.785 CST [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized</span><br><span class="line">Error: Error getting broadcast client: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = &quot;transport: error while dialing: dial tcp 127.0.0.1:7050: connect: connection refused&quot;</span><br></pre></td></tr></table></figure>
+<p>意思是建立到本地的 7050 等等端口的 tcp 时失败了，原因是拒绝访问。</p>
+<p>原因暂时不明，但是我运行了 <code>. ./shutdown.sh</code> 和 <code>. ./teardown.sh</code> 两个脚本，把整个网络都删掉了，再重新执行接下来的脚本就搞定了。</p>
+<p>原因不明，但是先记录一下这两个脚本都做了什么吧，以后再出现了就再分析。</p>
+<p>/root/workspace/shutdown.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Clearing&quot;</span></span><br><span class="line">docker <span class="built_in">rm</span> -f `docker ps -qa`</span><br><span class="line">docker rmi -f $(docker images | awk <span class="string">&#x27;($1 ~ /dev-peer.*/) &#123;print $3&#125;&#x27;</span>)</span><br><span class="line">docker volume prune -f</span><br><span class="line">docker network prune -f</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf system-genesis-block/*.block</span><br><span class="line"><span class="built_in">rm</span> -rf channel-artifacts</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/peerOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf organizations/ordererOrganizations</span><br><span class="line"><span class="built_in">rm</span> -rf tmp</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf organizations/fabric-ca/org1/*</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf organizations/fabric-ca/org2/*</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf organizations/fabric-ca/ordererOrg/*</span><br></pre></td></tr></table></figure>
+<p>/root/workspace/teardown.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Shutdown CA Services, Peers and Orderer in Network&quot;</span></span><br><span class="line">COMPOSE_FILE_CA=docker/docker-compose-ca.yaml</span><br><span class="line">COMPOSE_FILE_BASE=docker/docker-compose-ABC.yaml</span><br><span class="line">COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml</span><br><span class="line">CA_IMAGE_TAG=<span class="variable">$&#123;CA_VERSION&#125;</span></span><br><span class="line">IMAGE_TAG=<span class="variable">$&#123;FABRIC_VERSION&#125;</span></span><br><span class="line">DB_IMAGE_TAG=<span class="variable">$&#123;OTHER_VERSION&#125;</span></span><br><span class="line">docker-compose -f <span class="variable">$&#123;COMPOSE_FILE_CA&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_BASE&#125;</span> -f <span class="variable">$&#123;COMPOSE_FILE_COUCH&#125;</span> down</span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/docker/docker%20%E7%AE%80%E4%BB%8B/" rel="prev" title="docker 简介">
+                  <i class="fa fa-angle-left"></i> docker 简介
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/27/article/%E9%9B%B6%E7%A2%8E/vscode+remote-ssh%E6%8F%92%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="next" title="vscode+remote-ssh插件进行远程开发">
+                  vscode+remote-ssh插件进行远程开发 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Fabric 环境搭建 简单说说 Fabric：  HyperLegder 下的 模块化架构的 分布式的账本解决方案平台 特点是： 深度加密 便捷扩展 灵活部署（基于 Docker） 可插拔（定制化）  这次实验使用的是二进制源码编译的方式安装 Fabric 。 实验机器 VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机 基本环境部署 主要是 Go 语言环境和 Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fabric实战-环境搭建（编译方式）">
+<meta property="og:url" content="http://example.com/2020/05/15/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Fabric 环境搭建 简单说说 Fabric：  HyperLegder 下的 模块化架构的 分布式的账本解决方案平台 特点是： 深度加密 便捷扩展 灵活部署（基于 Docker） 可插拔（定制化）  这次实验使用的是二进制源码编译的方式安装 Fabric 。 实验机器 VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机 基本环境部署 主要是 Go 语言环境和 Docker">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:07.838Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hyperledger Fabric">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/05/15/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/05/15/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/","path":"2020/05/15/article/计算机/区块链/区块链原理、设计与应用/实践篇/Fabric实战-环境搭建（编译方式）/","title":"Fabric实战-环境搭建（编译方式）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fabric实战-环境搭建（编译方式） | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fabric-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">Fabric 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">实验机器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="nav-number">1.2.</span> <span class="nav-text">基本环境部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装工具包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GO-%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.2.2.</span> <span class="nav-text">GO 语言环境搭建</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/15/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/Fabric%E5%AE%9E%E6%88%98-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fabric实战-环境搭建（编译方式） | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fabric实战-环境搭建（编译方式）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:07" itemprop="dateModified" datetime="2025-02-01T01:54:07+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">区块链原理、设计与应用</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8/%E5%AE%9E%E8%B7%B5%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">实践篇</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Fabric-环境搭建">Fabric 环境搭建</h2>
+<p>简单说说 Fabric：</p>
+<ul>
+<li>HyperLegder 下的</li>
+<li>模块化架构的</li>
+<li>分布式的账本解决方案<strong>平台</strong><br>
+特点是：</li>
+<li>深度加密</li>
+<li>便捷扩展</li>
+<li>灵活部署（基于 Docker）</li>
+<li>可插拔（定制化）</li>
+</ul>
+<p>这次实验使用的是二进制源码编译的方式安装 Fabric 。</p>
+<h3 id="实验机器">实验机器</h3>
+<p>VirtualBox 的 Ubuntu 18.04.5 LTS 虚拟机</p>
+<h3 id="基本环境部署">基本环境部署</h3>
+<p>主要是 Go 语言环境和 Docker 容器，因为 fabric 是 Go 语言实现的，而 Docker 用于在一台虚拟机中搭建多个独立的环境，让 Peer 节点可以在其中运行，组成区块链网络。</p>
+<h4 id="安装工具包">安装工具包</h4>
+<p>HTTPS 访问依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y apt-transport-https ca-certificates software-properties-common</span><br></pre></td></tr></table></figure>
+<p>解压缩工具、git（代码版本管理）、curl（文件传输）、vim（编辑器）、jq（JSON 解析器）、 tree （路径树查看器）安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y unzip git curl vim jq tree</span><br></pre></td></tr></table></figure>
+<h4 id="GO-语言环境搭建">GO 语言环境搭建</h4>
+<p>使用 <code>curl</code> 命令下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<p>如果由于网络环境无法下载成功，则去<a target="_blank" rel="noopener" href="https://studygolang.com/dl">go 语言中文网</a>下载压缩包<br>
+解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -xvf go1.14.15.linux-amd64.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
+<p>创建工作环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /opt/goworkspace/bin</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /opt/goworkspace/src</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /opt/goworkspace/pkg</span><br></pre></td></tr></table></figure>
+<p>设置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>追加以下内容到文件末尾：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=/usr/local/go</span><br><span class="line"><span class="built_in">export</span> GOPATH=/opt/goworkspace</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$GOROOT</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>应用环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>设置代理，（如果网络环境没问题可以不用设置）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go <span class="built_in">env</span> -w GO111MODULE=on</span><br><span class="line">go <span class="built_in">env</span> -w GOPROXY=https://mirrors.aliyun.com/goproxy/</span><br></pre></td></tr></table></figure>
+<p><code>GO111MODULE</code> 选项打开之后，<code>go install</code> 命令可能无法使用，所以如果使用 <code>go install</code> 命令编译源码包，就要关闭 <code>GO111MODULE</code> 。后面需要使用代理进行 <code>go get</code> 就又要打开 <code>GO111MODULE</code> 。</p>
+<!-- 启动 go module
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GO111MODULE=on</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 安装 Docker</span></span><br><span class="line"></span><br><span class="line">&gt; 确保 Linux 内核在 3.2 以上，以及依赖已经更新。</span><br><span class="line"></span><br><span class="line">卸载旧的 docker：</span><br><span class="line"></span><br><span class="line">```BASH</span><br><span class="line"><span class="built_in">sudo</span> apt-get remove docker \</span><br><span class="line">        docker-client \</span><br><span class="line">        docker-client-latest \</span><br><span class="line">        docker-common \</span><br><span class="line">        docker-latest \</span><br><span class="line">        docker-latest-logrotate \</span><br><span class="line">        docker-logrotate \</span><br><span class="line">        docker-selinux \</span><br><span class="line">        docker-engine-selinux \</span><br><span class="line">        docker-engine</span><br></pre></td></tr></table></figure>
+<h5 id="curl-下载脚本一键安装">curl 下载脚本一键安装</h5>
+<p>其实这个脚本要完成的工作就是官方推荐的下载步骤，包含了一系列脚本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+<h5 id="官方推荐的下载方法">官方推荐的下载方法</h5>
+<p>获取 docker 官方 GPG：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> apt-key add -</span><br></pre></td></tr></table></figure>
+<p>由于国内网络环境，以上方法有可能不成功，可以通过科学手段访问链接，直接下载 GPG 文件，然后手动 add</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-key add [gpg path]</span><br></pre></td></tr></table></figure>
+<p>设置稳定的存储库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> add-apt-repository \</span><br><span class="line"><span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string"><span class="subst">$(lsb_release -cs)</span> stable&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>$(lsb_release -cs)</code> 代表了当前发行版的 codename 这里用的是 <code>bionic</code> 所以改成 <code>bionic</code> 也可以。</p>
+<blockquote>
+<p>curl 参照：<a target="_blank" rel="noopener" href="https://blog.csdn.net/huangzx3/article/details/80625080">https://blog.csdn.net/huangzx3/article/details/80625080</a></p>
+</blockquote>
+<p>更新源并安装 docker-ce</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt install -y docker-ce</span><br><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<p>测试 docker 安装情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>由于国内的网络环境，为了加快拉取镜像的速度，需要将官方镜像源换成国内的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<p>输入以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>重载重启 docker 以应用设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于美国的制裁，中国很多公司或组织提供的镜像源无法使用了，最后都会连接到 Docker-Hub 上……暂时没有好的办法。找到了一个测试镜像站点的项目，会定期检测哪些镜像站还有用，<a target="_blank" rel="noopener" href="https://github.com/docker-practice/docker-registry-cn-mirror-test">https://github.com/docker-practice/docker-registry-cn-mirror-test</a> 点击 <code>Action</code> 可以查看近期有哪些镜像还有用。这本书蛮 nb 的 <a target="_blank" rel="noopener" href="https://github.com/yeasy/docker_practice">https://github.com/yeasy/docker_practice</a></p>
+</blockquote>
+<h3 id="获取-fabric-代码">获取 fabric 代码</h3>
+<p>创建 fabric 代码仓库目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p <span class="variable">$GOPATH</span>/src/github.com/hyperledger</span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/hyperledger</span><br></pre></td></tr></table></figure>
+<p>获取 fabric 代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fabric</span></span><br><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/hyperledger/fabric.git</span><br><span class="line"><span class="comment"># fabric-ca</span></span><br><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/hyperledger/fabric-ca.git</span><br></pre></td></tr></table></figure>
+<p>使用哪个版本的 Fabric 就要 checkout 到哪个发行版的分支，我这里使用的是 release-2.0 ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout release-2.0</span><br></pre></td></tr></table></figure>
+<h3 id="编译安装-Peer-组件">编译安装 Peer 组件</h3>
+<p>配置版本号和编译参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PROJECT_VERSION=2.0.0</span><br><span class="line"></span><br><span class="line">LD_FLAGS=<span class="string">&quot;-X github.com/hyperledger/fabric/common/metadata.Version=<span class="variable">$&#123;PROJECT_VERSION&#125;</span> \</span></span><br><span class="line"><span class="string">-X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric \</span></span><br><span class="line"><span class="string">-X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger \</span></span><br><span class="line"><span class="string">-X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger&quot;</span></span><br></pre></td></tr></table></figure>
+<p>编译并安装 Peer 组件到 <code>$GOPATH/bin</code> 下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span></span><br><span class="line">go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">github.com/hyperledger/fabric/cmd/peer</span><br></pre></td></tr></table></figure>
+<p>这里我遇到了移动文件被拒绝的问题，猜测是权限问题，通过 <code>su root</code> 命令，暂时性使用 root 用户权限，可以成功安装。切换用户之后不要忘了重新设定编译参数和版本号，还要重新使用 <code>source /etc/profile</code> 命令应用 go 环境变量，否则会提示没有 <code>go</code> 命令。</p>
+<h3 id="编译安装-Orderer-组件">编译安装 Orderer 组件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span></span><br><span class="line">go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">github.com/hyperledger/fabric/cmd/orderer</span><br></pre></td></tr></table></figure>
+<p>这里同样遇到了 <code>permission denied</code> 的问题，同样是切换到 <code>root</code> 用户执行代码解决。</p>
+<h3 id="编译安装-fabric-ca">编译安装 fabric-ca</h3>
+<p>从源码编译安装 fabric-ca：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">go install -ldflags \</span><br><span class="line"><span class="string">&quot;-X github.com/hyperledger/fabric-ca/lib/metadata.Version=<span class="variable">$PROJECT_VERSION</span> \</span></span><br><span class="line"><span class="string">-linkmode external \</span></span><br><span class="line"><span class="string">-extldflags &#x27;-static -lpthread&#x27;&quot;</span> \</span><br><span class="line">github.com/hyperledger/fabric-ca/cmd/...</span><br></pre></td></tr></table></figure>
+<p>这里的命令很长，很容易不小心打错，复制是最好的。多打了一个字母 t 浪费了我一个下午的时间……晕死</p>
+<h3 id="编译安装配置辅助工具">编译安装配置辅助工具</h3>
+<ul>
+<li>cryptogen：本地生成组织结构和身份文件；</li>
+<li>configtxgen：生成配置区块和配置交易；</li>
+<li>configtxlator：解析转换配置信息；</li>
+<li>discover：拓扑探测；</li>
+<li>idemixgen：Idemix 证书生成；</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译安装 cryptogen，等价于执行 make cryptogen</span></span><br><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span> \</span><br><span class="line">  go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">  github.com/hyperledger/fabric/cmd/cryptogen</span><br><span class="line"><span class="comment"># 编译安装 cryptogen，等价于执行 make configtxgen</span></span><br><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span> \</span><br><span class="line">  go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">  github.com/hyperledger/fabric/cmd/configtxgen</span><br><span class="line"><span class="comment"># 编译安装 cryptogen，等价于执行 make configtxlator</span></span><br><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span> \</span><br><span class="line">  go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">  github.com/hyperledger/fabric/cmd/configtxlator</span><br><span class="line"><span class="comment"># 编译安装 cryptogen，等价于执行 make discover</span></span><br><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span> \</span><br><span class="line">  go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">  github.com/hyperledger/fabric/cmd/discover</span><br><span class="line"><span class="comment"># 编译安装 cryptogen，等价于执行 make idemixgen</span></span><br><span class="line">CGO_CFLAGS=<span class="string">&quot; &quot;</span> \</span><br><span class="line">  go install -tags <span class="string">&quot;&quot;</span> -ldflags <span class="string">&quot;<span class="variable">$LD_FLAGS</span>&quot;</span> \</span><br><span class="line">  github.com/hyperledger/fabric/cmd/idemixgen</span><br></pre></td></tr></table></figure>
+<h3 id="安装-Protobuf-支持和-Go-语言相关工具">安装 Protobuf 支持和 Go 语言相关工具</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/golang/protobuf/protoc-gen-go \</span><br><span class="line"><span class="comment">#   &amp;&amp; go get github.com/maxbrunsfeld/counterfeiter \</span></span><br><span class="line">  &amp;&amp; go get github.com/axw/gocov/... \</span><br><span class="line">  &amp;&amp; go get github.com/AlekSi/gocov-xml \</span><br><span class="line">  &amp;&amp; go get golang.org/x/tools/cmd/goimports \</span><br><span class="line">  &amp;&amp; go get golang.org/x/lint/golint \</span><br><span class="line"><span class="comment">#   &amp;&amp; go get github.com/estesp/manifest-tool \</span></span><br><span class="line">  &amp;&amp; go get github.com/client9/misspell/cmd/misspell \</span><br><span class="line">  &amp;&amp; go get github.com/onsi/ginkgo/ginkgo</span><br></pre></td></tr></table></figure>
+<p>出现错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unrecognized import path <span class="string">&quot;google.golang.org/protobuf/compiler/protogen&quot;</span>: https fetch: Get <span class="string">&quot;https://google.golang.org/protobuf/compiler/protogen?go-get=1&quot;</span>: dial tcp 216.239.37.1:443: i/o <span class="built_in">timeout</span></span><br><span class="line">unrecognized import path <span class="string">&quot;google.golang.org/protobuf/types/descriptorpb&quot;</span>: https fetch: Get <span class="string">&quot;https://google.golang.org/protobuf/types/descriptorpb?go-get=1&quot;</span>: dial tcp 216.239.37.1:443: i/o <span class="built_in">timeout</span></span><br><span class="line">unrecognized import path <span class="string">&quot;google.golang.org/protobuf/cmd/protoc-gen-go/internal_gengo&quot;</span>: https fetch: Get <span class="string">&quot;https://google.golang.org/protobuf/cmd/protoc-gen-go/internal_gengo?go-get=1&quot;</span>: dial tcp 216.239.37.1:443: i/o <span class="built_in">timeout</span></span><br></pre></td></tr></table></figure>
+<p>这里就是因为没有使用 go 代理进行下载，所以才出现了 <code>timeout</code> 错误。</p>
+<p>配置代理打开了 <code>GO111MODULE</code> 之后，仍然出现错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/maxbrunsfeld/counterfeiter: github.com/maxbrunsfeld/counterfeiter@v6.3.0: reading https://mirrors.aliyun.com/goproxy/github.com/maxbrunsfeld/counterfeiter/@v/v6.3.0.info: 404 Not Found</span><br></pre></td></tr></table></figure>
+<p>逐一调试发现上面注释掉的两个包下不了，下不了就下不了吧……暂时不管他，如果服务器在境外就能够正常下载了吧……</p>
+<h3 id="示例配置">示例配置</h3>
+<p>在 <code>$GOPATH/src/github.com/hyperledger/fabric/sampleconfig</code> 下有几个示例配置文件，可以将他们移动到默认配置目录 <code>/etc/hyperledger/fabric</code> 下进行使用</p>
+<ul>
+<li>configtx.yaml：示例配置区块生成文件；</li>
+<li>orderer.yaml：示例排序节点配置文件；</li>
+<li>core.yaml：示例 Peer 节点配置文件；</li>
+<li>msp/config.yaml：示例组织身份配置文件；</li>
+<li>msp/：存放示例证书和私钥文件；</li>
+</ul>
+<p>到此为止，通过编译的方式安装 fabric 已经完成了。<br>
+上面的配置过程参考了多篇博客，中间遇到许多问题，都是通过检索得到的解决方案。主要配置过程参考的是 《区块链原理、设计与应用》 这本书。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hyperledger-Fabric/" rel="tag"># Hyperledger Fabric</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/22/article/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A24/" rel="prev" title="文献检索4">
+                  <i class="fa fa-angle-left"></i> 文献检索4
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/15/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/" rel="next" title="区块链概述">
+                  区块链概述 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

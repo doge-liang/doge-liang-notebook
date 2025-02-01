@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java 面向对象 类和对象 类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。 每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 成员变量 或 实例变量 或 属性域 等等 ……； 人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 类变量 、 静态变量 等等 ……； 每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行为只">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面向对象">
+<meta property="og:url" content="http://example.com/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java 面向对象 类和对象 类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。 每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 成员变量 或 实例变量 或 属性域 等等 ……； 人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 类变量 、 静态变量 等等 ……； 每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行为只">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/","path":"2021/03/07/article/计算机/程序设计语言/Java/Java 零碎知识点/","title":"Java面向对象"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java面向对象 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">Java 面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-number">3.</span> <span class="nav-text">继承、封装、多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">4.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="nav-number">5.1.</span> <span class="nav-text">泛型类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">泛型方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="nav-number">5.3.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Producer-Extend-Consumer-Super-PECS"><span class="nav-number">5.4.</span> <span class="nav-text">Producer Extend Consumer Super(PECS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashcode-%E4%B8%8E-equal"><span class="nav-number">5.5.</span> <span class="nav-text">hashcode() 与 equal()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-%E5%85%B3%E9%94%AE%E5%AD%97%E5%9C%A8%E4%B8%8D%E5%90%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%AD%E7%9A%84%E6%8C%87%E5%90%91"><span class="nav-number">5.6.</span> <span class="nav-text">this 关键字在不同上下文中的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">5.6.1.</span> <span class="nav-text">lambda 表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">5.6.2.</span> <span class="nav-text">匿名内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%9C%BA%E5%88%B6"><span class="nav-number">5.6.3.</span> <span class="nav-text">常量池机制</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java面向对象 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java面向对象
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Java-面向对象">Java 面向对象</h2>
+<h2 id="类和对象">类和对象</h2>
+<p>类是对象的抽象，对象是类型的实例。好比人类是每一个人的抽象，每个人都是人类的实例。<br>
+每个人都有属于自己的属性：身高、体重、年龄、……，这些叫做 <strong>成员变量</strong> 或 <strong>实例变量</strong> 或 <strong>属性域</strong> 等等 ……；<br>
+人类又有属于整个类的属性：种群数量、灵长类、哺乳动物、脊椎动物、……，这些叫做 <strong>类变量</strong> 、 <strong>静态变量</strong> 等等 ……；<br>
+每个人也都会有自己的行为：吃、喝、睡、运动、……，这些行为只会影响到这一个个体的属性，不会对其他个体产生影响，称之为 <strong>成员方法</strong> 、 <strong>成员函数</strong> 、……；<br>
+个体的行为会影响到整个人类的属性：比如生育使得种群数量增长，这种影响类属性的方法称之为 <strong>静态方法</strong> 、<strong>类方法</strong>；</p>
+<h2 id="继承、封装、多态">继承、封装、多态</h2>
+<h2 id="接口">接口</h2>
+<p>有时候我们并不想定义一个类，只是想声明一个行为的集合，用于修饰类型，我们可以定义一个接口。接口可以用来描述一种类型应该会有怎样的行为，比如 Java 中的 <code>Comparable</code> 接口用于修饰一个可以比较大小的类，实现这个接口的类则需要实现 <code>compareTo()</code> 方法用于比较大小； <code>Runable</code> 接口用于修饰可以多线程运行的类，实现这个接口的类需要实现 <code>run()</code> 方法用于在执行时被调用。</p>
+<h2 id="泛型">泛型</h2>
+<p>这个特性使得我们可以将类型参数化，即，将类型定义为参数传入方法中，不需要在传入参数的时候再考虑传入对象类型问题，以及相关的程序调试问题。因此对于使用同样处理逻辑的类型，我们不需要为他们单独编写冗余的代码。</p>
+<p>借助于 <strong>自动装箱(autoboxing)</strong> 的特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">genericClass</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="comment">//这是一个泛型方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">genericMethod</span><span class="params">(T param)</span> &#123;...&#125;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是一个泛型接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">genericInterface</span>&lt;T&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以定义多个类型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">genericInterface</span>&lt;T, R&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Java 不支持泛型之前，泛型程序设计的实现依赖于 Object 类，以及强制类型转换，这要求程序员写代码时对自己泛型中的 Object 类实际所指对象了如执掌，否则很容易发生错误的类型转换，导致程序崩溃。引入了泛型之后， 泛型的使用方可以使用 <code>&lt;&gt;</code> 告诉编译器，这是对哪个类型执行方法，给予了编译器检查的类型信息，更好地保障了类型转换的安全。<br>
+如下代码描述了没有引入泛型之前的时候：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有泛型的时候</span></span><br><span class="line"><span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">list.add(<span class="keyword">new</span> <span class="title class_">File</span>());</span><br><span class="line"><span class="type">String</span> <span class="variable">string</span> <span class="operator">=</span> list.get(<span class="number">0</span>); <span class="comment">// 这个方法在编译阶段不会报错，但在运行时会引发类型转换错误的异常</span></span><br></pre></td></tr></table></figure>
+<p>引入了泛型之后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">list.add(<span class="keyword">new</span> <span class="title class_">File</span>());</span><br><span class="line"><span class="comment">// 这里编译器知道这个 list 存放的是 File 类型的元素，因此编译器预先发现这里会发生类型转换异常，因此代码编译会失败</span></span><br><span class="line">String list.get(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="泛型类">泛型类</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pair</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="泛型方法">泛型方法</h3>
+<p>普通类和泛型类都可以定义泛型方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; T <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title function_">getSecond</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title function_">getThird</span><span class="params">(T... t)</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用泛型方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常调用</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Test</span>().&lt;String&gt;getFirst();</span><br><span class="line"><span class="comment">// 借助类型推断，省略具体类型</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> Test.getSecond();</span><br></pre></td></tr></table></figure>
+<p>大多数情况下，类型推断都能正常工作，但偶尔也会遇到问题；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">middle</span> <span class="operator">=</span> Test.getThird(<span class="number">3.14</span>, <span class="number">1729</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 在上述例子中，参数被自动装箱成包装类型，一个 Double 和两个 Integer</span></span><br><span class="line"><span class="comment">// 他们的共同超类型有两个， Number 和 Comparable 而 Comparable 也是个泛型类型</span></span><br><span class="line"><span class="comment">// 因此返回值应该是两个共同超类型中的一个，而不是 double</span></span><br></pre></td></tr></table></figure>
+<h3 id="通配符">通配符</h3>
+<p>通配符是为了限制泛型的使用范围而设计的。</p>
+<ul>
+<li><code>? extends Employee</code> 代表这个泛型是 Employee 的子类；</li>
+<li><code>? super Manager</code> 代表这个泛型是 Manager 的父类；</li>
+</ul>
+<p>这里 <code>extends</code> 和 <code>super</code> 关键字后面的不一定要是一个类，也可以是一个接口。也可以指定多个类表示 <code>?</code> 是多个类及其子（父）类：<code>? extends Function &amp; Serializable</code> 。</p>
+<p>在运行时阶段（JVM 所执行的代码）是不存在类型参数的，这个特性又叫做 <strong>类型擦除</strong> 。我们从编译器的角度考虑下面的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setFirst</span><span class="params">(? <span class="built_in">super</span> Manager obj)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">T <span class="built_in">super</span> Manger T <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于方法 <code>setFirst()</code> ：<br>
+编译器无法得知 <code>? super Manager</code> 指的是哪一个超类，因此不能接受类型 <code>Employee</code> 或 <code>Object</code> ，只能接受 <code>Manager</code> 类型及其子类型。<br>
+对于方法 <code>getFirst()</code> ：<br>
+编译器无法得知 <code>? super Manager</code> 指的是哪个超类，不能保证返回对象的类型正确，因此只能返回 <code>Object</code> 类；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法不是真的 Java 语法，是为了便于理解写的伪代码</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setFirst</span><span class="params">(Test&lt;? extends Employee&gt; obj)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;T <span class="keyword">extends</span> <span class="title class_">Employee</span>&gt; T <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于方法 <code>setFirst()</code> ：<br>
+编译器无法得知 <code>? extends Employee</code> 指的是哪个子类，无论传 <code>Employee</code> 或者它的哪个子类都无法保证类型安全，因为 <code>?</code> 的真实类型可能是传入类型的子类（也可能没有任何关系，只是拥有同一个父亲 <code>Employee</code>)。<br>
+对于方法 <code>getFirst()</code> ：<br>
+方法返回值为 <code>Employee</code> 的或其子类型，因此我们可以用 <code>Employee</code> 或其父类接收；</p>
+<h3 id="Producer-Extend-Consumer-Super-PECS">Producer Extend Consumer Super(PECS)</h3>
+<blockquote>
+<p><strong>协变</strong>：原父子类型关系在经过复杂类型构造之后，父子类型关系被保持下来了；<br>
+<strong>逆变</strong>：原父子类型经过类型构造之后，父子关系逆转；<br>
+<strong>不变</strong>：上述两种不适用；</p>
+</blockquote>
+<p>考虑 <code>List&lt;? extends T&gt; list</code> ：<br>
+<code>list.add(something)</code> 会报错，因为编译器只知道要存的是 <code>T</code> 的子类，但是不知道是哪个子类，不能保证类型安全，所以禁止存，只能保证取出来的是 <code>T</code> 的子类，所以可以使用 <code>T</code> 以及 <code>T</code> 的父类型的变量来接受 <code>list.get()</code> 的返回值，因为向上转换类型是安全的；<br>
+考虑 <code>List&lt;? super T&gt; list</code> ：<br>
+<code>list.get()</code> 只能使用 <code>Object</code> 类型来接收，因为我们不知道所存元素的上界，所以只能使用最大的上界来接收他的返回值，以保证类型安全。但编译器知道，<code>T</code> 以及 <code>T</code> 的子类都能够和 <code>T</code> 的某个父类兼容，所以可以使用 <code>list.add(t)</code> 存放 <code>T</code> 及其子类。</p>
+<p>考虑 <code>List&lt;? extends Animal&gt;</code> 和 <code>List&lt;? extends Cat&gt;</code> ：<br>
+<code>Cat</code> 是 <code>Animal</code> 的子类，而 <code>List&lt;? extends Cat&gt;</code> 也是 <code>List&lt;? extends Animal&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>上界协变</strong> 的</em>；</p>
+<p>考虑 <code>List&lt;? super Animal&gt;</code> 和 <code>List&lt;? super Cat&gt;</code> ：<br>
+<code>Animal</code> 是 <code>Cat</code> 的父类，而 <code>List&lt;? super Animal&gt;</code> 是 <code>List&lt;? super Cat&gt;</code> 的子类，我们称之为 <em>通配符类型是在 <strong>下界逆变</strong> 的</em>；</p>
+<h3 id="hashcode-与-equal">hashcode() 与 equal()</h3>
+<p>在所有类的父类 <code>Object</code> 类中， <code>equal()</code> 方法是这样定义的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于基本数据类型 <code>==</code> 进行的是值比较，对于引用数据类型 <code>==</code> 比较的是变量的地址值；</p>
+<p><code>hashCode()</code> 方法是这样定义的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<p>可以看到是一个本地方法，其返回一个 <code>int</code> ，这个 <code>int</code> 是由对象的 <strong>内存地址</strong> 计算得来的。因为对于两个对象 <code>equal()</code> 方法返回 <code>true</code> ，其 <code>hashCode()</code> 必定相等。这是由哈希码的定义得到的，哈希码是一个对象的信息摘要，如果两个对象是相等的，那么他们的摘要必定相等；但是反过来，如果两个对象的 hashCode 相等，他们不一定相等，因为用 32 位长的 <code>int</code> 是无法描述世界上无穷无尽的对象的，所以必然存在 <strong>哈希碰撞</strong> 的情形。在哈希碰撞的情况下，对象的 hashCode 相等，但是却不是相等的对象。</p>
+<p>基于哈希码的定义我们有以下结论：</p>
+<ol>
+<li>两对象 equal ， hashCode 必定一样；</li>
+<li>两对象不 equal ， hashCode 可能一样，也可能不一样；</li>
+<li>两对象 hashCode 一样， 不一定 equal ；</li>
+<li>两对象 hashCode 不一样，必定不 equal ；</li>
+</ol>
+<p>进一步，我们有以下结论：</p>
+<ol>
+<li>重写 <code>equal()</code> 方法必须重写 <code>hashcode()</code> 方法；（因为重写 equal 之后，可能两个地址不同的对象也能 equal ，而 hashCode 返回的还是他们各自的地址，不符合上述的 <strong>结论 1</strong> ）</li>
+<li>重写 <code>hashcode()</code> 方法可以不重写 <code>equal()</code> 方法；（因为重写 <code>hashCode()</code> 方法要求，程序运行时，对于同一个对象无论调用多少次，返回的都是相同的结果，因此必须基于对象自身的信息计算 hashCode ，如果两个对象计算出来的 hashCode 不一样，那么他们必定不是同一个对象，地址肯定也不同， <code>equal()</code> 方法必定返回 <code>false</code> 所以不重写 <code>equal()</code> 也能满足要求；</li>
+</ol>
+<h3 id="this-关键字在不同上下文中的指向">this 关键字在不同上下文中的指向</h3>
+<h4 id="lambda-表达式">lambda 表达式</h4>
+<p>lambda 表达式在匿名内部类的基础上进一步省去了接口名和函数名，但实际上 lambda 表达式并不仅仅是匿名内部类的语法糖， JVM 内部通过 <code>invokedynamic</code> 指令实现。在 JVM 层面，匿名内部类依然是一个类，只是不需要类名，编译器会自动取一个类名，编译后会出现两个 class 文件。 <code>MainAnonymousClass.class</code> 和 <code>MainAnonymousClass$1.class</code> 。而 lambda 表达式会被编译成主类的一个私有方法，并通过 <code>invokedynamic</code> 指令进行调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javap -c -p MainLambda.class</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainLambda</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(java.lang.String[])</span>;</span><br><span class="line">    Code:</span><br><span class="line">       <span class="number">0</span>: <span class="keyword">new</span>           #<span class="number">2</span>                  <span class="comment">// class java/lang/Thread</span></span><br><span class="line">       <span class="number">3</span>: dup</span><br><span class="line">       <span class="number">4</span>: invokedynamic #<span class="number">3</span>,  <span class="number">0</span>              <span class="comment">// InvokeDynamic #0:run:()Ljava/lang/Runnable; /*使用invokedynamic指令调用*/</span></span><br><span class="line">       <span class="number">9</span>: invokespecial #<span class="number">4</span>                  <span class="comment">// Method java/lang/Thread.&quot;&lt;init&gt;&quot;:(Ljava/lang/Runnable;)V</span></span><br><span class="line">      <span class="number">12</span>: invokevirtual #<span class="number">5</span>                  <span class="comment">// Method java/lang/Thread.start:()V</span></span><br><span class="line">      <span class="number">15</span>: <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> lambda$main$<span class="number">0</span>();  <span class="comment">/*Lambda表达式被封装成主类的私有方法*/</span></span><br><span class="line">    Code:</span><br><span class="line">       <span class="number">0</span>: getstatic     #<span class="number">6</span>                  <span class="comment">// Field java/lang/System.out:Ljava/io/PrintStream;</span></span><br><span class="line">       <span class="number">3</span>: ldc           #<span class="number">7</span>                  <span class="comment">// String Lambda Thread run()</span></span><br><span class="line">       <span class="number">5</span>: invokevirtual #<span class="number">8</span>                  <span class="comment">// Method java/io/PrintStream.println:(Ljava/lang/String;)V</span></span><br><span class="line">       <span class="number">8</span>: <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，在 lambda 表达式中， <code>this</code> 关键字和在表达式外的含义一样，都是指向 lambda 表达式所在的类的实例。</p>
+<h4 id="匿名内部类">匿名内部类</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;<span class="comment">// 接口名</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;<span class="comment">// 方法名</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Thread run()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+<p>匿名内部类常见于模板方法设计中（比如 Thread 类），由于不需要声明类名，因此叫匿名内部类。而匿名内部类实际上是一个独立的类，编译后生成的 class 文件也是一个独立的文件，因此 <code>this</code> 关键字指向的是这个匿名内部类的实例。</p>
+<h4 id="常量池机制">常量池机制</h4>
+<p>Java 的 <code>Integer</code> 类在值的范围为 -128 ~ 127 时， <code>valueOf()</code> 方法会复用 <code>IntegerCache</code> 中的值。对于在这个范围内的 <code>Integer</code> 如果不使用 <code>new</code> 关键字新建一个 <code>Integer</code> 对象，那么返回的都是同一块地址的值，使用 <code>==</code> 判断都会返回 <code>true</code> 。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" rel="prev" title="Java注解与反射">
+                  <i class="fa fa-angle-left"></i> Java注解与反射
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/07/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Java/Java%20%E6%8B%86%E7%AE%B1%E8%A3%85%E7%AE%B1/" rel="next" title="Java 拆箱装箱">
+                  Java 拆箱装箱 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

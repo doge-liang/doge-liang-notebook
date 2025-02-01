@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  第 6 章-应用层 应用层主要协议 HTTP HTTP 即超文本传输协议的缩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第6章-应用层">
+<meta property="og:url" content="http://example.com/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  第 6 章-应用层 应用层主要协议 HTTP HTTP 即超文本传输协议的缩">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/","path":"2021/03/12/article/计算机/计算机网络/第6章-应用层/","title":"第6章-应用层"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第6章-应用层 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-6-%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">第 6 章-应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82%E4%B8%BB%E8%A6%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.1.</span> <span class="nav-text">应用层主要协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">1.1.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E5%A4%A7%E7%B1%BB%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">五大类状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E5%AD%97%E6%AE%B5"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">报文字段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.1.2.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TLS-SSL"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">TLS&#x2F;SSL</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC6%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="第6章-应用层 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第6章-应用层
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-12T00:00:00+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="第-6-章-应用层">第 6 章-应用层</h2>
+<h3 id="应用层主要协议">应用层主要协议</h3>
+<h4 id="HTTP">HTTP</h4>
+<p>HTTP 即超文本传输协议的缩写，是计算机网络应用层中用于计算机之间传输文字、图片、音频、视频等多媒体信息的约定和规范。</p>
+<blockquote>
+<p>可以工作在客户机和服务器之间，也可以工作在服务器和服务器之间。</p>
+</blockquote>
+<h5 id="五大类状态码">五大类状态码</h5>
+<ul>
+<li>1xx，<strong>提示信息</strong>，表示目前处于协议处理的中间状态，还需要后续操作；</li>
+<li>2xx，<strong>成功</strong>，报文到达并正确处理；（200、204、206）
+<ul>
+<li><code>[200 OK]</code> ：如果是非 <code>HEAD</code> 请求一般都会有 <code>body</code> 数据；</li>
+<li><code>[204 No Content]</code> ：没有 <code>body</code> 的成功请求；</li>
+<li><code>[206 Partial Content]</code> ：主要应用于 HTTP 分块或者断点续传，表示返回的数据只是一部分，并不全；</li>
+</ul>
+</li>
+<li>3xx，<strong>重定向</strong>，资源位置有变动，需要客户机重新发送请求；（301、302、304）
+<ul>
+<li><code>[301 Moved Permanently]</code> ：永久重定向，资源已不存在，需要客户端使用新的 url 请求；</li>
+<li><code>[302 Found]</code> ：临时重定向，表示资源还在，但临时需要用别的 url 请求；
+<blockquote>
+<p><code>301</code> 和 <code>302</code> 都会在 <code>Location</code> 字段指明重定向的新 url 浏览器会自动跳转；</p>
+</blockquote>
+</li>
+<li><code>[304 Not Modified]</code> ：不具有跳转的含义，表示资源未修改，重定向已存在的缓冲文件，也称缓存重定向，用于缓存控制；</li>
+</ul>
+</li>
+<li>4xx，<strong>客户端错误</strong>，请求有误，服务器无法处理；（400、403、404）
+<ul>
+<li><code>[400 Bad Request]</code> ：请求报文有误；（不知道哪里有误，反正有误）</li>
+<li><code>[403 Forbidden]</code> ：服务器禁止访问该资源；</li>
+<li><code>[404 Not Found]</code> ：请求资源在服务器未找到；</li>
+</ul>
+</li>
+<li>5xx，<strong>服务端错误</strong>，服务器在处理请求时发生内部错误；（500、501、502、503）
+<ul>
+<li><code>[500 Internal Server Error]</code> ：表示服务器发生错误；（不知道哪里错了，反正是错了）</li>
+<li><code>[501 Not Implemented]</code> ：表示所请求的功能尚未实现；（尽请期待）</li>
+<li><code>[502 Bad Gateway]</code> ：服务器作为网关或代理时返回的错误码，表示服务器自身工作正常，访问后端服务器发生了错误；（后端访问后端的后端时发生错误）</li>
+<li><code>[503 Service Unavailable]</code> ：服务器忙，稍后再试；</li>
+</ul>
+</li>
+</ul>
+<h5 id="报文字段">报文字段</h5>
+<ul>
+<li>[起始行]
+<ul>
+<li><code>[GET|POST|PUT|DELETE|OPTIONS|TRACE|CONNECT|HEAD] [URL] [HTTP_VERSION]</code><br>
+一般最常用的是 <code>GET</code> 和 <code>POST</code> 方法，其他了解即可。</li>
+</ul>
+</li>
+<li>[请求头]
+<ul>
+<li><code>Host</code> ：指定访问域名；</li>
+<li><code>Connection</code> ：</li>
+<li><code>User-agent</code> ：</li>
+<li><code>Accept-language</code> ：</li>
+<li><code>Content-Length</code> ：回应的报文长度；</li>
+</ul>
+</li>
+</ul>
+<p>未完待续。。。</p>
+<h4 id="HTTPS">HTTPS</h4>
+<p>由于 HTTP 协议一般是明文传输，所以很容易被攻击者窃取信息或者篡改信息。所以 HTTPS 应运而生， HTTPS = HTTP + SSL/TLS ，即在 HTTP 的基础上添加了身份认证和传输加密的 SSL/TLS 层，保证了传输过程的安全性。</p>
+<p>HTTPS 协议相比 HTTP 只有协议名和端口号的差别， HTTPS 的默认端口号是 443 。而其安全性的保证其实是有 TLS/SSL 提供的。</p>
+<h5 id="TLS-SSL">TLS/SSL</h5>
+<p>TLS(Transport Layer Security) 是 SSL(Secure Socket Layer) 的后续版本，是用于计算机之间身份认证和加密的一种协议。这个协议是一个独立的协议，除了 HTTPS 还有其他协议可以使用这个协议，比如 <code>SMTP</code> 电子邮件协议、 <code>Telnet</code> 远程登陆协议。直到现在 <code>TLS</code> 发布了 1.1 、 1.2 、 1.3 三个版本。</p>
+<p><code>TLS</code> 由</p>
+<ul>
+<li>记录协议</li>
+<li>握手协议</li>
+<li>警告协议</li>
+<li>变更密码规范协议</li>
+<li>扩展协议</li>
+</ul>
+<p>等几个子协议组成，综合使用了对称加密、非对称加密、身份认证等密码学技术。</p>
+<p>为了满足身份认证的要求， <code>TLS</code> 使用非对称加密技术，私钥拥有方可以用自己的私钥对数据进行加密，公钥发布出去，公钥的拥有者可以用公钥去解密数据，将解密的结果和随消息发来的 <code>hashcode</code> 一起验证消息确实是私钥拥有者发出的。</p>
+<p>虽然私钥是私有的，但公钥是谁都可以发布的，所以引入了 <code>CA</code> 即 Certificate Authority ，证书认证机构，为发布的公钥提供认证，解决公钥的信任问题。</p>
+<p>证书申请人在自己的电脑生成一对密钥对，并将公钥和自己的私人信息打包成 <code>CSR</code> 文件，把这份文件交给 <code>CA</code> 机构，用 <code>CA</code> 机构的私钥进行签名，把签名后的证书发回给申请人，于是申请人就可以拿着这个证书去发布自己的公钥了。这样便保证了公钥发布的安全性。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/" rel="prev" title="Linux 文件与目录">
+                  <i class="fa fa-angle-left"></i> Linux 文件与目录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/12/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC5%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/" rel="next" title="第5章-传输层">
+                  第5章-传输层 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

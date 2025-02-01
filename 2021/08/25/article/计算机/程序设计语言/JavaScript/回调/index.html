@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="回调  回调  回调简介 Promise 对象  消费者处理结果 then() catch() finally()      回调简介 回调是一种异步编程风格，将函数作为变量传入函数中，当触发某个条件时，调用该函数。 这是一个动态加载 js 脚本的函数。 123456789function loadScript(src, callback) &#123;  let script &#x3D; documen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回调">
+<meta property="og:url" content="http://example.com/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="回调  回调  回调简介 Promise 对象  消费者处理结果 then() catch() finally()      回调简介 回调是一种异步编程风格，将函数作为变量传入函数中，当触发某个条件时，调用该函数。 这是一个动态加载 js 脚本的函数。 123456789function loadScript(src, callback) &#123;  let script &#x3D; documen">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Draft">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/","path":"2021/08/25/article/计算机/程序设计语言/JavaScript/回调/","title":"回调"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>回调 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83"><span class="nav-number">1.</span> <span class="nav-text">回调</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">回调简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text">Promise 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.1.</span> <span class="nav-text">消费者处理结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#then"><span class="nav-number">1.2.2.</span> <span class="nav-text">then()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#catch"><span class="nav-number">1.2.3.</span> <span class="nav-text">catch()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finally"><span class="nav-number">1.2.4.</span> <span class="nav-text">finally()</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/%E5%9B%9E%E8%B0%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="回调 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          回调
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-25T00:00:00+08:00">2021-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="回调">回调</h2>
+<ul>
+<li><a href="#%E5%9B%9E%E8%B0%83">回调</a>
+<ul>
+<li><a href="#%E5%9B%9E%E8%B0%83%E7%AE%80%E4%BB%8B">回调简介</a></li>
+<li><a href="#promise-%E5%AF%B9%E8%B1%A1"><code>Promise</code> 对象</a>
+<ul>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C">消费者处理结果</a></li>
+<li><a href="#then"><code>then()</code></a></li>
+<li><a href="#catch"><code>catch()</code></a></li>
+<li><a href="#finally"><code>finally()</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="回调简介">回调简介</h3>
+<p>回调是一种异步编程风格，将函数作为变量传入函数中，当触发某个条件时，调用该函数。</p>
+<p>这是一个动态加载 js 脚本的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadScript</span>(<span class="params">src, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">  script.<span class="property">src</span> = src;</span><br><span class="line"></span><br><span class="line">  script.<span class="property">onload</span> = <span class="title function_">callback</span>(<span class="literal">null</span>, script);</span><br><span class="line">  script.<span class="property">onerror</span> = <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`Script load error for <span class="subst">$&#123;src&#125;</span>`</span>));</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">append</span>(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用该函数加载脚本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">loadScript</span>(<span class="string">&quot;/myscript.js&quot;</span>, <span class="keyword">function</span> (<span class="params">error, script</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="comment">// fail</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// success</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>回调可以嵌套，即在回调要执行的动作中传入回调函数本身。但这种方式不建议使用，嵌套过多很容易损害代码可读性。</p>
+<h3 id="Promise-对象"><code>Promise</code> 对象</h3>
+<p>异步操作一般是因为某些函数从执行操作，到产生结果中间有时间差，为了提高效率我们一般会阻塞这部分代码知道接受到返回结果，再执行相应的逻辑。</p>
+<ul>
+<li>生产者：我们可以理解为异步的源头；</li>
+<li>消费者：接受生产者返回结果的代码；</li>
+</ul>
+<p>而 JavaScript 内置的 <code>Promise</code> 对象，就是用于连接生产者代码和消费者代码的对象。<br>
+构造语法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> success = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// executor （生产者代码）</span></span><br><span class="line">  <span class="keyword">if</span> (success) &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>Promise</code> 对象有两个内置变量 <code>state</code> 和 <code>result</code> ，外部无法访问，只能通过 resolve 和 reject 两个函数改变，并且这种改变都是<strong>最终的</strong>。</p>
+<ul>
+<li>初始态 <code>&#123;state: &quot;pending&quot;, result: undefined&#125;</code>
+<ul>
+<li>调用 <code>resolve(value)</code> 后 <code>&#123;state: &quot;fulfilled&quot;, result: value&#125;</code></li>
+<li>调用 <code>reject(error)</code> 后 <code>&#123;state: &quot;rejected&quot;, result: error&#125;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="消费者处理结果">消费者处理结果</h4>
+<p>消费者通过 <code>then</code> 和 <code>catch</code> 捕获 <code>Promise</code> 相应的状态，并执行相应的逻辑：</p>
+<h4 id="then"><code>then()</code></h4>
+<p><code>then(f, f)</code> 通过箭头函数向 <code>promise.then()</code> 传入两个函数，如果 resolve 了执行第一个，如果 reject 执行第二个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result), <span class="comment">// alert(&quot;done&quot;);</span></span><br><span class="line">  <span class="function"><span class="params">error</span>  =&gt;</span> <span class="title function_">alert</span>(error) <span class="comment">// alert(&quot;Error&quot;);</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>相当于对消费者 resolve 做出 promise 如果 promise 被生产者 resolve 了，便执行 <code>promise.then()</code> 的第一个函数，如果 reject 便执行第二个。<br>
+另外，如果我们只关心是否 resolve 或是否 reject ，代码如下：</p>
+<h4 id="catch"><code>catch()</code></h4>
+<p><code>catch(f)</code> 可以捕获 reject 的 Error 对象，执行相应的回调。（其实不是 Error 对象也可以，reject 和 resolve 一样对参数类型无要求，后面再说）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只看是否 resolve</span></span><br><span class="line">promise.<span class="title function_">then</span>(alert);</span><br><span class="line"><span class="comment">// 只看是否 reject</span></span><br><span class="line">promise.<span class="title function_">catch</span>(alert);</span><br></pre></td></tr></table></figure>
+<h4 id="finally"><code>finally()</code></h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无论什么结果都执行的，一般用来执行清理的操作。</span></span><br><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">exit</span>());</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>finally(f)</code> 的回调 <code>f</code> 是没有参数的，它并不关心 promise 是否成功，只知道 promise 已经执行完了。</li>
+<li><code>finally(f)</code> 会将 promise 的结果传递到下面的处理程序中去，即可以被 <code>finally</code> 后面的 <code>then()</code> 和 <code>catch()</code> 捕获并处理。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> <span class="title function_">alert</span>(<span class="string">&quot;Promise ready&quot;</span>));</span><br><span class="line">promise.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">alert</span>(result),</span><br><span class="line">  <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">alert</span>(err)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Draft/" rel="tag"># Draft</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A1%86%E6%9E%B6/%E5%89%8D%E5%8F%B0/Vue/%E5%85%A5%E9%97%A8/" rel="prev" title="入门">
+                  <i class="fa fa-angle-left"></i> 入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/25/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/maven/maven%E5%85%A5%E9%97%A8/" rel="next" title="maven入门">
+                  maven入门 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

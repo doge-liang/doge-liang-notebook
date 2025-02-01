@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hyperledger 简介 Hyperledger 是由 Linux 基金会发起的大型开源项目，包含了许多的子项目，其中的 Fabric 是联盟链框架。 下图描述了 Fabric 的主要构成元素。   Chaincode 即链码，即链上代码，是工作在每个 Peer 内的脚本，当接收到服务端发起的 proposal 提案之后， Peer 开始执行链码产生相应的结果； Shared Ledger 即">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperledger 简介">
+<meta property="og:url" content="http://example.com/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hyperledger 简介 Hyperledger 是由 Linux 基金会发起的大型开源项目，包含了许多的子项目，其中的 Fabric 是联盟链框架。 下图描述了 Fabric 的主要构成元素。   Chaincode 即链码，即链上代码，是工作在每个 Peer 内的脚本，当接收到服务端发起的 proposal 提案之后， Peer 开始执行链码产生相应的结果； Shared Ledger 即">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/05/27/article/assets/%E5%8C%BA%E5%9D%97%E9%93%BE/HyperLedger%20Fabric%201.4%E6%A6%82%E8%BF%B0/32790cf3b7c91c39b3d5e705884baf3078f5af0a95b61550ed9101461edffb45.png">
+<meta property="article:published_time" content="2020-05-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:07.836Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="区块链概述">
+<meta property="article:tag" content="Hyperledger Fabric">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/05/27/article/assets/%E5%8C%BA%E5%9D%97%E9%93%BE/HyperLedger%20Fabric%201.4%E6%A6%82%E8%BF%B0/32790cf3b7c91c39b3d5e705884baf3078f5af0a95b61550ed9101461edffb45.png">
+
+
+<link rel="canonical" href="http://example.com/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20%E7%AE%80%E4%BB%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20%E7%AE%80%E4%BB%8B/","path":"2020/05/27/article/计算机/区块链/Hyperledger Fabric/Hyperledger 简介/","title":"Hyperledger 简介"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hyperledger 简介 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperledger-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Hyperledger 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Permissioned-or-Permissionless"><span class="nav-number">1.1.</span> <span class="nav-text">Permissioned or Permissionless</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96-modular"><span class="nav-number">1.2.</span> <span class="nav-text">模块化 modular</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6-smart-contracts"><span class="nav-number">1.3.</span> <span class="nav-text">智能合约 smart contracts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6%E5%8F%AF%E6%8F%92%E6%8B%94-pluggable-consensus"><span class="nav-number">1.4.</span> <span class="nav-text">共识机制可插拔 pluggable consensus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE-Privacy"><span class="nav-number">1.5.</span> <span class="nav-text">隐私数据 Privacy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E6%8C%96%E7%9F%BF-No-mining"><span class="nav-number">1.6.</span> <span class="nav-text">没有内置挖矿 No mining</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger%20Fabric/Hyperledger%20%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hyperledger 简介 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hyperledger 简介
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-27T00:00:00+08:00">2020-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:07" itemprop="dateModified" datetime="2025-02-01T01:54:07+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8C%BA%E5%9D%97%E9%93%BE/Hyperledger-Fabric/" itemprop="url" rel="index"><span itemprop="name">Hyperledger Fabric</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Hyperledger-简介">Hyperledger 简介</h2>
+<p>Hyperledger 是由 Linux 基金会发起的大型开源项目，包含了许多的子项目，其中的 Fabric 是联盟链框架。</p>
+<p>下图描述了 Fabric 的主要构成元素。</p>
+<p><img src="../../../../assets/%E5%8C%BA%E5%9D%97%E9%93%BE/HyperLedger%20Fabric%201.4%E6%A6%82%E8%BF%B0/32790cf3b7c91c39b3d5e705884baf3078f5af0a95b61550ed9101461edffb45.png" alt="picture 28"></p>
+<ul>
+<li>Chaincode 即链码，即链上代码，是工作在每个 Peer 内的脚本，当接收到服务端发起的 proposal 提案之后， Peer 开始执行链码产生相应的结果；</li>
+<li>Shared Ledger 即共享账本，链上的每一个 Peer 都拥有一套相同的账本（部分节点私有的数据，未授权节点保留其 hashcode ），这也是区块链系统的基础；</li>
+<li>Consensus 即共识，所有的分布式系统都会面临数据一致性的问题，为了保证数据的一致性，需要引入共识机制，目前 Fabric 使用的机制有 <code>raft</code> 、 <code>kafka</code> 、 ；</li>
+</ul>
+<h3 id="Permissioned-or-Permissionless">Permissioned or Permissionless</h3>
+<p>许可的概念不理解成非 0 即 1 的概念，根据不同的业务场景，有很多维度的许可，不同维度的许可排列组合能够形成丰富的许可结构，比如身份是否可以公开访问、谁可以访问节点，谁可以提交一个交易，谁可以看到这个区块。。。</p>
+<h3 id="模块化-modular">模块化 modular</h3>
+<p>blockmaker:orderer<br>
+bookkeeper:peer<br>
+submitter:client<br>
+CA<br>
+organization</p>
+<h3 id="智能合约-smart-contracts">智能合约 smart contracts</h3>
+<p>支持语言：GO, nodeJS, Java</p>
+<h3 id="共识机制可插拔-pluggable-consensus">共识机制可插拔 pluggable consensus</h3>
+<p>实现接口替代内置共识机制</p>
+<h3 id="隐私数据-Privacy">隐私数据 Privacy</h3>
+<p>保证数据隐私</p>
+<h3 id="没有内置挖矿-No-mining">没有内置挖矿 No mining</h3>
+<p>为了提升交易速度</p>
+<p>。。。官方的太慢了而且讲的不细，本篇到此作废，下一篇开始实战。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A6%82%E8%BF%B0/" rel="tag"># 区块链概述</a>
+              <a href="/tags/Hyperledger-Fabric/" rel="tag"># Hyperledger Fabric</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/27/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C-os%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="python系统操作-os库的使用">
+                  <i class="fa fa-angle-left"></i> python系统操作-os库的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/28/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-pandas%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="python数据分析-pandas的使用">
+                  python数据分析-pandas的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

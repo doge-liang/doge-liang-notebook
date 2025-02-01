@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  Linux 简介 要说 Linux 就不得不说说 UNIX 和 GNU 了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 简介">
+<meta property="og:url" content="http://example.com/2021/01/14/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  Linux 简介 要说 Linux 就不得不说说 UNIX 和 GNU 了。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.009Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/01/14/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%AE%80%E4%BB%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/01/14/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%AE%80%E4%BB%8B/","path":"2021/01/14/article/计算机/操作系统/linux/Linux 简介/","title":"Linux 简介"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux 简介 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Linux 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UNIX-%E5%92%8C-GNU"><span class="nav-number">1.1.</span> <span class="nav-text">UNIX 和 GNU</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UNIX-%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">UNIX 特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU%EF%BC%88GNU%E2%80%99s-NOT-UNIX%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">GNU（GNU’s NOT UNIX）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Linux"><span class="nav-number">1.3.</span> <span class="nav-text">什么是 Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux-%E5%93%B2%E5%AD%A6"><span class="nav-number">1.3.1.</span> <span class="nav-text">Linux 哲学</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4-Ubuntu"><span class="nav-number">1.4.</span> <span class="nav-text">说说 Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.5.</span> <span class="nav-text">Linux 程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">文本编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">1.7.</span> <span class="nav-text">C 语言编译器</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%20%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux 简介 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 简介
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-14T00:00:00+08:00">2021-01-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="Linux-简介">Linux 简介</h2>
+<p>要说 Linux 就不得不说说 UNIX 和 GNU 了。</p>
+<h3 id="UNIX-和-GNU">UNIX 和 GNU</h3>
+<p>UNIX 操作系统最初由贝尔实验室开发，是第一个多用户、多任务的操作系统。</p>
+<p>后来 UNIX 变成了 Open Group （开放组织）管理的商标，指向一种遵循特定规范的操作系统。这种规范又被称为单一 UNIX 规范，定义了所以必需的 UNIX 操作系统函数的名称、接口和行为。</p>
+<p>只有遵循了 UNIX 规范的操作系统才会被冠以 UNIX 之名。其他的都被称为类 UNIX。如今只有少数的操作系统还遵循 UNIX 规范。</p>
+<h4 id="UNIX-特点">UNIX 特点</h4>
+<p>UNIX 鼓励的编程风格包括以下几点：</p>
+<ol>
+<li>简单性：工具应当小而简单，便于快速理解，避免大而复杂的系统，导致复杂的错误难以调试；</li>
+<li>集中性：每个程序遵顼自己的单一职责，管得太多不论是开发调试还是维护升级都很困难；</li>
+<li>可重用组件：将程序的核心功能实现为库，用灵活的接口、完备的文档吸引更多的人将技术拓展到其他领域；</li>
+<li>过滤器：</li>
+<li>开放的文件格式：采用统一的文件格式进行数据文件和配置文件的编写，比如统一使用 ASCII 文本文件或 XML 文件。便于使用标准化工具查找和修改；</li>
+<li>灵活性：对于程序的输入/输出尽量避免随意地限制长度和记录数目，保证程序使用的灵活性；</li>
+</ol>
+<h3 id="GNU（GNU’s-NOT-UNIX）">GNU（GNU’s NOT UNIX）</h3>
+<p>自由软件的概念：软件本身不应当受到限制应该开源，主张获得软件可能需要费用，但此后可以随意使用他们。</p>
+<p>后来有个叫 Richard Stallman 的人创立了一个叫 <strong>自由软件基金会（Free Software Foundation)</strong> 的组织，并发起了一个叫 GNU 的项目。项目的宗旨就是建立一个兼容 UNIX 操作系统，但是开源的操作系统+开发环境。</p>
+<p>项目发起后，得到了很多开发者的支持。出现了许多 UNIX 应用的仿制品，像 <code>GCC</code> <code>G++</code> <code>GDB</code> <code>GNU make</code> <code>Bison</code> <code>bash</code> <code>Emacs</code> 等等。并且 GNU 项目下的软件都遵循 GNU 通用公共许可证 GPL。这个许可证对商业很不友好，它为了防止自由软件被限制，要求所有使用了遵循 GPL 协议的代码的软件都遵守 GPL 协议，即开源。就像传染病一样，别的软件一伸手就变成了 GPL 的形状了。</p>
+<h3 id="什么是-Linux">什么是 Linux</h3>
+<p>Linux 是有名的开源类 UNIX 操作系统，由 Linus Torvalds 于 1991 年开发，遵循 GNU 开源协议。由于系统较高的代码质量，很快就得到了大量的开发者支持。</p>
+<p>后来，Linux 操作系统的<strong>内核</strong>被加上了各种各样的<strong>软件套装</strong>，封装成了各种各样的发行版。包括 <code>RHEL</code>、<code>CentOS</code>、<code>Fedora</code>、<code>openSUSE</code>、<code>Gentoo</code>、<code>Debian</code>、<code>Ubuntu</code>等等。</p>
+<p>从此 Linux 内核继续由 Linus Torvalds 维护，而其他的发行版，由相应的开源社区或相关企业进行维护。</p>
+<h4 id="Linux-哲学">Linux 哲学</h4>
+<ul>
+<li>“集百家之长，方可无敌于天下。”</li>
+</ul>
+<p>从代码级、函数级、软件包级、系统级方方面面都体现了以上哲学，面对复杂的问题，通过综合使用多个软件、函数等等便可解决。 Windows 则恰恰相反，寄希望于一个软件可以解决许多问题，最终软件便庞大臃肿。</p>
+<h3 id="说说-Ubuntu">说说 Ubuntu</h3>
+<p>作为最流行的 Linux 发行版之一，Ubuntu 受到一众 Linux 爱好者的欢迎。每个 Linux 版本都包含一个由发布时间决定的版本号，例如 2018 年 4 月发布的版本号为 <code>18.04</code>，若为 18 年 10 月发布的就为 <code>18.10</code>，若带有 <code>LTS</code> 标识的版本，意思就是 Long Term Support，拥有较长的维护时间，桌面端一般是 3 年，服务端一般是 5 年。</p>
+<p>除了版本号外，每个版本还有一个通俗的版本名，通常与动物有关，比如版本<code>6.06</code>的代码名是<code>Dapper Drake</code>（绅士鸭），<code>6.10</code>是<code>Edgy Eft</code>（小心的蜥蜴），<code>7.04</code>是<code>Feisty Fawn</code>（勇敢的小鹿），<code>7.10</code>是<code>Gutsy Gibbon</code>（大胆的长臂猿）。</p>
+<blockquote>
+<p>如何查看 Linux 版本：<a target="_blank" rel="noopener" href="https://linux.cn/article-9586-1.html">https://linux.cn/article-9586-1.html</a></p>
+</blockquote>
+<h3 id="Linux-程序">Linux 程序</h3>
+<p>Linux 的程序分为 <em>可执行程序</em> 和 <em>脚本文件</em>。</p>
+<ul>
+<li>可执行程序由计算机直接执行；</li>
+<li>脚本文件依赖于解释器程序的存在；</li>
+</ul>
+<p>Linux 不以特殊的文件名或者扩展名来区分他们，而以 <strong>文件系统属性</strong> 来指明，这一点与 Windows 不同。</p>
+<p>在 Linux 中运行程序一般通过 shell 程序（通常是 bash）。键入要执行的文件名，Linux 会在 shell 变量 <code>PATH</code> 中寻找同名的路径。<code>PATH</code> 包括以下目录，另外还可以自己添加：</p>
+<ul>
+<li><code>/bin</code>：二进制文件目录，用于存放启动系统时用到的程序；</li>
+<li><code>/usr/bin</code>：用户~，存放用户要用的；</li>
+<li><code>/usr/local/bin</code>：本地~，存放软件安装的程序；</li>
+</ul>
+<p>root 用户的 <code>PATH</code> 变量包含更多的目录，比如 <code>/sbin</code> 和 <code>/usr/sbin</code> 是属于系统管理程序的目录。</p>
+<p>一些第三方程序有可能被安装在 <code>/opt</code> 下，需要用户自己添加；</p>
+<blockquote>
+<p><strong>ps</strong>：<br>
+注意 Linux 目录分隔符 <code>/</code> 和 windows 的 <code>\</code> 不同；<br>
+注意 Linux 的 <code>PATH</code> 变量的条目分隔符 <code>:</code> 不同于 windows 的 <code>;</code> 。</p>
+</blockquote>
+<h3 id="文本编辑器">文本编辑器</h3>
+<p>Linux 阵营有 Emacs 和 vi/vim ，都挺强大的。</p>
+<h3 id="C-语言编译器">C 语言编译器</h3>
+<p>C 语言的编译器在标准出现以前，五花八门无法兼容了。后来 POSIX 委员会起草了一份新的 C 语言编译器标准命令——c89。</p>
+<p>Linux 上的 C 编译器，无论是 <code>c89</code> <code>gcc</code> <code>cc</code> 都指向系统的 C 语言编译器或 <code>gcc</code>。</p>
+<p>在 UNIX 中一般使用 <code>cc</code> 命令。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/24/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8E%92%E5%BA%8F/" rel="prev" title="查找和排序">
+                  <i class="fa fa-angle-left"></i> 查找和排序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/02/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/IDEA/%E5%A6%82%E4%BD%95%E5%9C%A8%20IDEA%20%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8BJava%20doc%EF%BC%9F/" rel="next" title="如何在 IDEA 中快速查看Java doc？">
+                  如何在 IDEA 中快速查看Java doc？ <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

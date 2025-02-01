@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="检查 Linux 版本 12lsb_release -auname -a #查看硬件架构 转换到 root 用户 1su root 修改 root 用户密码 1sudo passwd root 修改 ssh 密码 1234passwd [用户]#输入新密码#重新输入密码 安装软件 12sudo yum install [Option] &#x2F;&#x2F; RedHat-basedsudo apt-get ins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令杂记">
+<meta property="og:url" content="http://example.com/2019/10/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="检查 Linux 版本 12lsb_release -auname -a #查看硬件架构 转换到 root 用户 1su root 修改 root 用户密码 1sudo passwd root 修改 ssh 密码 1234passwd [用户]#输入新密码#重新输入密码 安装软件 12sudo yum install [Option] &#x2F;&#x2F; RedHat-basedsudo apt-get ins">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2019/10/01/article/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/ef0b611502dc124d89efc8243f3fd852fca246f73c31c935e9bd7579c51c156d.png">
+<meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.009Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2019/10/01/article/assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/ef0b611502dc124d89efc8243f3fd852fca246f73c31c935e9bd7579c51c156d.png">
+
+
+<link rel="canonical" href="http://example.com/2019/10/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2019/10/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/","path":"2019/10/01/article/计算机/操作系统/linux/Linux命令杂记/","title":"Linux命令杂记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux命令杂记 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5-Linux-%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">检查 Linux 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%88%B0-root-%E7%94%A8%E6%88%B7"><span class="nav-number">2.</span> <span class="nav-text">转换到 root 用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-root-%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">修改 root 用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-ssh-%E5%AF%86%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">修改 ssh 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">6.</span> <span class="nav-text">查看软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%9F%A5%E9%98%85%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">目录查阅命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E5%8D%B8%E8%BD%BD"><span class="nav-number">8.</span> <span class="nav-text">软件安装&#x2F;卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">9.</span> <span class="nav-text">后台启动命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E7%BB%B4%E6%8A%A4"><span class="nav-number">10.</span> <span class="nav-text">文件和目录的维护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C"><span class="nav-number">10.1.</span> <span class="nav-text">权限操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">10.1.1.</span> <span class="nav-text">文件类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">10.1.2.</span> <span class="nav-text">权限字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95-%E9%93%BE%E6%8E%A5%E4%B8%AA%E6%95%B0"><span class="nav-number">10.1.3.</span> <span class="nav-text">目录&#x2F;链接个数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">10.2.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="nav-number">10.2.1.</span> <span class="nav-text">复制文件或目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%A0%88"><span class="nav-number">10.3.</span> <span class="nav-text">目录栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash-%E8%84%9A%E6%9C%AC%E7%9A%84%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86"><span class="nav-number">10.4.</span> <span class="nav-text">bash 脚本的零碎知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shell-%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">10.4.1.</span> <span class="nav-text">shell 的字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="nav-number">10.4.1.1.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="nav-number">10.4.1.2.</span> <span class="nav-text">获取字符串长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">10.4.1.3.</span> <span class="nav-text">提取子字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">10.4.1.4.</span> <span class="nav-text">查找子字符串</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell-%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">10.4.2.</span> <span class="nav-text">shell 的变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">10.4.3.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bash-%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84-set-%E5%91%BD%E4%BB%A4"><span class="nav-number">10.4.4.</span> <span class="nav-text">bash 脚本中的 set 命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">10.5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="nav-number">10.5.1.</span> <span class="nav-text">条件判断</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E5%88%A4%E6%96%AD"><span class="nav-number">10.5.1.1.</span> <span class="nav-text">多重判断</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">10.5.2.</span> <span class="nav-text">循环</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/10/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux命令杂记 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux命令杂记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-01T00:00:00+08:00">2019-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="检查-Linux-版本">检查 Linux 版本</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br><span class="line"><span class="built_in">uname</span> -a <span class="comment">#查看硬件架构</span></span><br></pre></td></tr></table></figure>
+<h2 id="转换到-root-用户">转换到 root 用户</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h2 id="修改-root-用户密码">修改 root 用户密码</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+<h2 id="修改-ssh-密码">修改 ssh 密码</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd [用户]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输入新密码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新输入密码</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装软件">安装软件</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install [Option] // RedHat-based</span><br><span class="line">sudo apt-get install [Option] // Debian-based</span><br></pre></td></tr></table></figure>
+<h2 id="查看软件安装">查看软件安装</h2>
+<p><strong>因为 linux 安装软件的方式比较多，所以没有一个通用的办法能查到某些软件是否安装。总结起来就是这几类：</strong></p>
+<ol>
+<li>rpm 包安装的：用 rpm -qa，如果查找某一软件包是否安装，用 rpm -qa|grep “软件或包的名字”;</li>
+<li>deb 包安装的：用 dpkg -l，如果指定软件包，用 dpkg -l|grep “软件或者包的名字”;</li>
+</ol>
+<h2 id="目录查阅命令">目录查阅命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 显示文件信息</span><br><span class="line">ls [OPTION]... [FILE]...</span><br><span class="line">// 按行显示</span><br><span class="line">ls -1</span><br><span class="line">// 显示具体信息</span><br><span class="line">ls -l</span><br><span class="line">// 显示子文件夹</span><br><span class="line">ls [OPTION] -R</span><br><span class="line">// 树形结构显示文件目录，使用tree，要自己安装</span><br><span class="line">tree</span><br><span class="line">// 显示到第N层</span><br><span class="line">tree -L N</span><br><span class="line">// 这两个命令参数非常多，-help参数查看帮助信息</span><br><span class="line">ls -help</span><br><span class="line">tree -help</span><br></pre></td></tr></table></figure>
+<h2 id="软件安装-卸载">软件安装/卸载</h2>
+<ul>
+<li>Debian 系列：<br>
+apt:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install xxx xxx</span><br><span class="line">apt install xxx xxx # 看apt的版本，新版的apt == apt-get</span><br><span class="line">apt remove xxx xxx # 保留配置的卸载</span><br><span class="line">apt purge xxx xxx # 不保留配置的卸载</span><br><span class="line">apt update xxx xxx</span><br><span class="line">apt upgrade xxx xxx</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RedHat 系列：<br>
+yum:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install [RPM package]</span><br><span class="line">yum remove [RPM package]</span><br><span class="line">yum update [RPM package]</span><br><span class="line">yum list</span><br><span class="line">yum list installed</span><br></pre></td></tr></table></figure>
+<h2 id="后台启动命令">后台启动命令</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid [Option] [program]</span><br></pre></td></tr></table></figure>
+<h2 id="文件和目录的维护">文件和目录的维护</h2>
+<h3 id="权限操作">权限操作</h3>
+<p><code>chmod [mode] [path]</code> 修改目录的读/写/执行权限</p>
+<ul>
+<li>mode：代表权限模式</li>
+<li>path：表示作用目录</li>
+</ul>
+<p>mode 有几种表示方式，一种是数字的表达方式</p>
+<p>mode 可以写成三个八进制数字的组合，第一个数字表示文件所有者的权限，第二个表示所属组的权限，第三个表示其他用户的权限。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ll</span><br><span class="line"></span><br><span class="line"><span class="comment"># total 16</span></span><br><span class="line"><span class="comment"># drwxr-xr-x 4 root   root   4096 Apr  6 12:33 ./</span></span><br><span class="line"><span class="comment"># drwxrwxr-x 3 ubuntu ubuntu 4096 Apr  6 12:55 ../</span></span><br><span class="line"><span class="comment"># drwxr-xr-x 3 root   root   4096 Apr  6 12:33 msp/</span></span><br><span class="line"><span class="comment"># drwxr-xr-x 2 root   root   4096 Apr  6 12:33 tls/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件类型 权限字符串 目录/链接数 所有者 所有者的用户组 修改时间 文件名</span></span><br></pre></td></tr></table></figure>
+<p><code>drwxr-xr-x</code> 意思是：</p>
+<ol>
+<li>文件的所有者拥有读、写、执行权限；</li>
+<li>文件所属用户组有读、执行权限；</li>
+<li>其他用户拥有读、执行权限；</li>
+</ol>
+<h4 id="文件类型">文件类型</h4>
+<p><code>-</code> ：表示普通文件；<br>
+<code>d</code> ：表示目录；<br>
+<code>l</code> ：表示链接文件；<br>
+<code>p</code> ：表示管理文件；<br>
+<code>b</code> ：表示块设备文件；<br>
+<code>c</code> ：表示字符设备文件；<br>
+<code>s</code> ：表示套接字文件；</p>
+<h4 id="权限字符串">权限字符串</h4>
+<ul>
+<li>执行： <code>001</code> 、 <code>x</code> (execute)</li>
+<li>写： <code>010</code> 、 <code>w</code> (write)</li>
+<li>读： <code>100</code> 、 <code>r</code> (read)</li>
+</ul>
+<h4 id="目录-链接个数">目录/链接个数</h4>
+<ul>
+<li>对于目录文件，就会显示该目录下有几个目录文件，比如上面的代码中 <code>./</code> 目录有 4 个目录文件，看输出中的文件的文件类型是有四个目录文件（ <code>./</code> 本身和 <code>../</code> 都算进去了）；</li>
+<li>对于其他文件，就会显示链接到这个文件的链接的个数，一个文件至少会有自己链接到自己，所以至少是 1；</li>
+</ul>
+<p>注意和 <code>umask</code> 权限掩码的区别，权限掩码的各个位表示的意思和 <code>mode</code> 一样。但是 <code>umask</code> 中设置为 1 的位是表示剥夺该项权限的。因为赋予什么权限是由 <code>mode</code> 和 <code>umask</code> 之间 <code>AND</code> 的结果定。</p>
+<h3 id="文件操作">文件操作</h3>
+<h4 id="复制文件或目录">复制文件或目录</h4>
+<p><code>cp</code> [参数] [文件]</p>
+<p><img src="../../../../assets/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E5%91%BD%E4%BB%A4%E6%9D%82%E8%AE%B0/ef0b611502dc124d89efc8243f3fd852fca246f73c31c935e9bd7579c51c156d.png" alt="picture 8"></p>
+<h3 id="目录栈">目录栈</h3>
+<p>目录栈是 Linux 维护目录的一个高级工具，顾名思义是一个存放目录的栈，栈顶代表现在正在使用的工作目录，使用</p>
+<ul>
+<li><code>pushd</code></li>
+<li><code>popd</code></li>
+<li><code>dirs</code></li>
+</ul>
+<p>等等命令来操作目录栈。</p>
+<p><code>pushd</code> ：添加目录栈<br>
+用法： <code>pushd [-n] [+N | -N | dir]</code><br>
+参数：<br>
+<code>+n</code> 切换目录，以当前目录为准，从右向左数第 n 个；<br>
+<code>-n</code> 切换目录，以当前目录为准，从左向右数第 n 个；</p>
+<p>使用例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#这个符号~代表根home目录</span><br><span class="line">root@localhost:ubuntu# pushd /root</span><br><span class="line">~ /home/ubuntu</span><br><span class="line"></span><br><span class="line">#添加目录</span><br><span class="line">root@localhost:ubuntu# pushd /home/ubuntu/download/</span><br><span class="line">/home/ubuntu/download /home/ubuntu ~</span><br><span class="line"></span><br><span class="line">#添加目录</span><br><span class="line">root@localhost:download# pushd /usr/local/</span><br><span class="line">/usr/local /home/ubuntu/download /home/ubuntu ~</span><br><span class="line"></span><br><span class="line">#切换到了原始目录</span><br><span class="line">root@localhost:download# pushd +1</span><br><span class="line">/home/ubuntu ~ /usr/local /home/ubuntu/download</span><br><span class="line">root@localhost:ubuntu#</span><br><span class="line"></span><br><span class="line">#切换到home目录</span><br><span class="line">root@localhost:ubuntu# pushd +1</span><br><span class="line">~ /usr/local /home/ubuntu/download /home/ubuntu</span><br><span class="line">root@localhost:~#</span><br><span class="line"></span><br><span class="line">#切换到了/usr/local目录</span><br><span class="line">root@localhost:~# pushd -2</span><br><span class="line">/usr/local /home/ubuntu/download /home/ubuntu ~</span><br><span class="line">root@localhost:local#</span><br></pre></td></tr></table></figure>
+<p><code>popd</code> ：弹出目录栈<br>
+用法： <code>popd [-n] [+N | -N | dir]</code><br>
+参数：<br>
+<code>+n</code> 删除 pushd 添加的目录，以当前目录为准，从左向右数，删除第 n 个；<br>
+<code>-n</code> 删除 pushd 添加的目录，以当前目录为准，从右向左数，删除第 n 个；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#添加目录</span><br><span class="line">root@localhost:dev# pushd /usr/</span><br><span class="line">/usr /dev /home/ubuntu</span><br><span class="line"></span><br><span class="line">#删除了/dev</span><br><span class="line">root@localhost:usr# popd +1</span><br><span class="line">/usr /home/ubuntu</span><br><span class="line"></span><br><span class="line">#添加目录</span><br><span class="line">root@localhost:usr# pushd /home/</span><br><span class="line">/home /usr /home/ubuntu</span><br><span class="line"></span><br><span class="line">#删除了/usr</span><br><span class="line">root@localhost:home# popd -1</span><br><span class="line">/home /home/ubuntu</span><br></pre></td></tr></table></figure>
+<p><code>dirs</code> ：显示目录栈中的内容<br>
+用法： <code>dirs [-clpv] [+N] [-N]</code><br>
+参数：<br>
+<code>+n</code> 以当前目录为准，显示从左边算起第 n 笔的目录；<br>
+<code>-n</code> 以当前目录为准，显示从右边算起第 n 笔的目录；<br>
+<code>-l</code> 显示目录完整的记录；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#显示目录栈</span><br><span class="line">root@localhost:ubuntu# dirs</span><br><span class="line">/home/ubuntu /usr</span><br><span class="line"></span><br><span class="line">root@localhost:ubuntu# dirs -1</span><br><span class="line">/home/ubuntu</span><br><span class="line"></span><br><span class="line">root@localhost:ubuntu# dirs +1</span><br><span class="line">/usr</span><br></pre></td></tr></table></figure>
+<h3 id="bash-脚本的零碎知识">bash 脚本的零碎知识</h3>
+<p><code>$(ls /etc)</code> 代表一条语句；<br>
+<code>$your_name</code> 或 <code>$&#123;your_name&#125;</code> 代表定义过的变量；<br>
+<code>$1</code> 或 <code>$2</code> … 等等，代表了执行 bash 脚本时传递的参数，数字代表参数的位置；</p>
+<p><code>export val_name</code> 设置环境变量；</p>
+<blockquote>
+<p>环境变量和本地变量的本质区别在于遗传性，不管开了几个子进程，只要都还在这个环境工作，那么都能用到这个环境变量，而本地变量则是各自维护的；</p>
+</blockquote>
+<h4 id="shell-的字符串">shell 的字符串</h4>
+<p><code>'string'</code> ：</p>
+<ol>
+<li>单引号字符串中的变量都会被当作字符串；</li>
+<li>转义字符无效；</li>
+<li>单引号字符串中不允许出现单独的单引号（转义也不行），成对的单引号会把字符串分割，可以用来做字符串拼接用；</li>
+</ol>
+<p><code>&quot;string&quot;</code> ：</p>
+<ol>
+<li>允许带有变量名，比如 <code>&quot;My name is $name&quot;</code>；</li>
+<li>转义字符有效；</li>
+</ol>
+<h5 id="字符串拼接">字符串拼接</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">your_name=<span class="string">&quot;runoob&quot;</span></span><br><span class="line"><span class="comment"># 使用双引号拼接</span></span><br><span class="line">greeting=<span class="string">&quot;hello, &quot;</span><span class="variable">$your_name</span><span class="string">&quot; !&quot;</span></span><br><span class="line">greeting_1=<span class="string">&quot;hello, <span class="variable">$&#123;your_name&#125;</span> !&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$greeting</span>  <span class="variable">$greeting_1</span></span><br><span class="line"><span class="comment"># 使用单引号拼接</span></span><br><span class="line">greeting_2=<span class="string">&#x27;hello, &#x27;</span><span class="variable">$your_name</span><span class="string">&#x27; !&#x27;</span></span><br><span class="line">greeting_3=<span class="string">&#x27;hello, $&#123;your_name&#125; !&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$greeting_2</span>  <span class="variable">$greeting_3</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello, runoob ! hello, runoob !</span><br><span class="line">hello, runoob ! hello, <span class="variable">$&#123;your_name&#125;</span> !</span><br></pre></td></tr></table></figure>
+<h5 id="获取字符串长度">获取字符串长度</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">&quot;abcd&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#string&#125;</span> <span class="comment">#输出 4</span></span><br></pre></td></tr></table></figure>
+<h5 id="提取子字符串">提取子字符串</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">&quot;runoob is a great site&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string:1:4&#125;</span> <span class="comment"># 输出 unoo</span></span><br></pre></td></tr></table></figure>
+<h5 id="查找子字符串">查找子字符串</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">&quot;runoob is a great site&quot;</span></span><br><span class="line"><span class="built_in">echo</span> `<span class="built_in">expr</span> index <span class="string">&quot;<span class="variable">$string</span>&quot;</span> io`  <span class="comment"># 输出 4</span></span><br></pre></td></tr></table></figure>
+<h4 id="shell-的变量">shell 的变量</h4>
+<p><code>readonly val_name</code> 只读变量；<br>
+<code>unset val_name</code> 删除变量（不能删除只读变量）；<br>
+<code>echo val_name</code> 打印变量；<br>
+<code>$val_name</code> 或 <code>$&#123;val_name&#125;</code> 使用变量；</p>
+<p>变量也可以指向语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file=`<span class="built_in">ls</span> /etc`</span><br></pre></td></tr></table></figure>
+<h4 id="数组">数组</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">array_name=(value1 value2 ... valuen)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取</span></span><br><span class="line">array_name[0]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数组长度</span></span><br><span class="line"><span class="variable">$&#123;#array_name[@]&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for 循环遍历</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$&#123;array_name[@]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># while 循环遍历</span></span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$j</span> -lt <span class="variable">$&#123;#array_name[@]&#125;</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$j</span></span><br><span class="line">    <span class="built_in">let</span> <span class="string">&quot;<span class="variable">$j</span>++&quot;</span></span><br><span class="line">    <span class="comment"># 也可以不加引号，也可以不加 $ 符号</span></span><br><span class="line">    <span class="comment"># 也可以用 ((j++)) 替代</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h4 id="bash-脚本中的-set-命令">bash 脚本中的 set 命令</h4>
+<p><code>set</code> 命令是对 shell 的一些设置，<br>
+例如 <code>set -x</code> 为打开调试回响模式，可以使脚本中的命令在控制台中打印出来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"><span class="built_in">echo</span> $(uanme -a)</span><br><span class="line"><span class="built_in">set</span> +x</span><br><span class="line"><span class="built_in">echo</span> $(<span class="built_in">uname</span> -a)</span><br></pre></td></tr></table></figure>
+<p>以上命令会返回两次 Linux 的版本信息，区别是，上一条命令会被显示出来，而下一条不会。</p>
+<h3 id="流程控制">流程控制</h3>
+<h4 id="条件判断">条件判断</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition1</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command1</span><br><span class="line"><span class="keyword">elif</span> condition2</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command2</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    commandN</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ ! -f tmp/mycc.tar.gz ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">pushd</span> ~/workspace/chaincode/chaincode_example01/go</span><br><span class="line">        ./build.sh</span><br><span class="line">    <span class="built_in">popd</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p><code>-f</code> 判断文件 <code>tmp/mycc.tar.gz</code> 是否存在，若存在则为 <code>True</code> 。前面有个非符号，变成 <code>False</code> 。</p>
+<p>另外，<code>if [ ... ]</code> 和 <code>if [[ ... ]]</code> 是有区别的，详见 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/aaron-agu/p/5700650.html">https://www.cnblogs.com/aaron-agu/p/5700650.html</a></p>
+<h5 id="多重判断">多重判断</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> 值 <span class="keyword">in</span></span><br><span class="line">模式1)</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line">模式2）</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<h4 id="循环">循环</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> item1 item2 ... itemN</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">command</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/10/01/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux/Linux%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/" rel="prev" title="Linux知识杂记">
+                  <i class="fa fa-angle-left"></i> Linux知识杂记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/10/01/article/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%89%98%E9%A9%AC%E6%96%AF%E5%BE%AE%E7%A7%AF%E5%88%86-00-%E5%85%88%E9%AA%8C%E7%9F%A5%E8%AF%86/" rel="next" title="极限和连续">
+                  极限和连续 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

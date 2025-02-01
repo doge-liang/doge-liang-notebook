@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Jupyter NoteBook  Jupyter NoteBook  简介 安装 创建第一个 NoteBook kernel cell 好用的快捷键 Tips  使一个 cell 可以 out 出所有的结果      简介 Jupyter NoteBook 是一个基于 IPython 的开源 Web 应用。我们可以使用它来创建和分享包含实时代码和数据可视化的文档。我们可以在文档内看到程序的运行结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jupyter Notebook的使用">
+<meta property="og:url" content="http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20Notebook/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Jupyter NoteBook  Jupyter NoteBook  简介 安装 创建第一个 NoteBook kernel cell 好用的快捷键 Tips  使一个 cell 可以 out 出所有的结果      简介 Jupyter NoteBook 是一个基于 IPython 的开源 Web 应用。我们可以使用它来创建和分享包含实时代码和数据可视化的文档。我们可以在文档内看到程序的运行结">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/357056832e198d627af5ad5e634a548ca688f56d6f6ac2e04b5df6ec2d0b67f7.png">
+<meta property="article:published_time" content="2019-10-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Jupyter Notebook">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/357056832e198d627af5ad5e634a548ca688f56d6f6ac2e04b5df6ec2d0b67f7.png">
+
+
+<link rel="canonical" href="http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20Notebook/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20Notebook/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/","path":"2019/10/10/article/计算机/程序设计语言/python/Jupyter Notebook/Jupyter NoteBook 使用/","title":"Jupyter Notebook的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Jupyter Notebook的使用 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-NoteBook"><span class="nav-number">1.</span> <span class="nav-text">Jupyter NoteBook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA-NoteBook"><span class="nav-number">1.3.</span> <span class="nav-text">创建第一个 NoteBook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel"><span class="nav-number">1.4.</span> <span class="nav-text">kernel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cell"><span class="nav-number">1.5.</span> <span class="nav-text">cell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.6.</span> <span class="nav-text">好用的快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">1.7.</span> <span class="nav-text">Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E4%B8%80%E4%B8%AA-cell-%E5%8F%AF%E4%BB%A5-out-%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="nav-number">1.7.1.</span> <span class="nav-text">使一个 cell 可以 out 出所有的结果</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20Notebook/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Jupyter Notebook的使用 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Jupyter Notebook的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">2019-10-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter-Notebook/" itemprop="url" rel="index"><span itemprop="name">Jupyter Notebook</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Jupyter-NoteBook">Jupyter NoteBook</h2>
+<ul>
+<li><a href="#jupyter-notebook">Jupyter NoteBook</a>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA-notebook">创建第一个 NoteBook</a></li>
+<li><a href="#kernel">kernel</a></li>
+<li><a href="#cell">cell</a></li>
+<li><a href="#%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE">好用的快捷键</a></li>
+<li><a href="#tips">Tips</a>
+<ul>
+<li><a href="#%E4%BD%BF%E4%B8%80%E4%B8%AA-cell-%E5%8F%AF%E4%BB%A5-out-%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84%E7%BB%93%E6%9E%9C">使一个 cell 可以 out 出所有的结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="简介">简介</h3>
+<p>Jupyter NoteBook 是一个基于 IPython 的开源 Web 应用。我们可以使用它来创建和分享包含实时代码和数据可视化的文档。我们可以在文档内看到程序的运行结果。用途多样，可以用于统计建模分析、机器学习、数据可视化等等。</p>
+<h3 id="安装">安装</h3>
+<p>对于初学者，最简单的方式是安装 Anaconda。Anaconda 是在数据科学领域最流行 python 发行版本，这个版本预装载了许多流行的库和工具，如 NumPy，pandas 和 Matplotlib。</p>
+<p>对于熟悉 python 的程序员可以使用 pip 命令直接安装 Jupyter，其他的包可以自行安装。</p>
+<p><code>pip3 install jupyter</code></p>
+<blockquote>
+<p>tips: 通过 anaconda 安装的，可以有两种方式修改启动的初始目录：</p>
+<ol>
+<li>修改 <strong>“Anaconda Prompt (Anaconda3)快捷方式”</strong> 的 <strong>“属性” - “起始位置”</strong> 为目标目录。这样可以修改 Anaconda Prompt 的启动工作目录，执行 jupyter notebook 命令。也可以直接修改 <strong>“Jupyter Notebook (Anaconda3)快捷方式”</strong> 的 <strong>“目标”</strong> ，这样从开始中直接唤出也可以直接进入目标工作目录；</li>
+<li>将目标目录写进环境变量中（系统和用户对机主差别应该不大），然后将写入的环境变量添加进 Path 中；</li>
+</ol>
+</blockquote>
+<h3 id="创建第一个-NoteBook">创建第一个 NoteBook</h3>
+<p>打开 Anaconda prompt，cd 到存储笔记的目录。输入 jupyter notebook 命令运行 jupyter notebook。<br>
+程序自动打开一个浏览器窗口，如下：</p>
+<p><img src="../../../../assets/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/Jupyter%20NoteBook%20%E4%BD%BF%E7%94%A8/357056832e198d627af5ad5e634a548ca688f56d6f6ac2e04b5df6ec2d0b67f7.png" alt="picture 19"></p>
+<p>我们可以在这个窗口创建 jupyter notebook</p>
+<h3 id="kernel">kernel</h3>
+<p>kernel 是一个计算机引擎，用来执行 code 中的代码的。</p>
+<h3 id="cell">cell</h3>
+<p>notebook 被分为一个个的 cell，cell 的样式可以被设置为 code 和 Markdown。code 的 cell 可以被运行，输出被放在下面作为新的 cell 插入。<br>
+Markdown 的 cell 中可以使用 Markdown 格式进行编写，插入公式等等操作都可以利用 Markdown 实现。</p>
+<h3 id="好用的快捷键">好用的快捷键</h3>
+<p><code>ctrl+shift+P</code>打开快捷键卷轴</p>
+<p><code>ctrl+Enter</code>执行选中 cell 的代码<br>
+<code>shift+Enter</code>执行选中 cell 的代码并跳到下一个 cell<br>
+<code>Esc</code>跳出编辑模式<br>
+<code>m</code>将该 cell 变成 Markdown<br>
+<code>y</code>将该 cell 变成 code<br>
+<code>1-6</code>将该 cell 变成 heading 1-6</p>
+<h3 id="Tips">Tips</h3>
+<h4 id="使一个-cell-可以-out-出所有的结果">使一个 cell 可以 out 出所有的结果</h4>
+<p>这个功能十分方便，使得我们不需要使用 print 即可输出变量。<br>
+有两种配置方式：</p>
+<p>局部配置：<br>
+在代码顶部添加：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span></span><br></pre></td></tr></table></figure>
+<p>全局配置：<br>
+创建<code>~/.ipython/profile_default/ipython_config.py</code><br>
+输入命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = get_config()</span><br><span class="line">c.InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Jupyter-Notebook/" rel="tag"># Jupyter Notebook</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/10/01/article/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E7%AC%AC2%E8%AE%B2-%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E9%9D%99%E6%80%81%E5%8D%9A%E5%BC%88/" rel="prev" title="第二讲 完全信息静态博弈">
+                  <i class="fa fa-angle-left"></i> 第二讲 完全信息静态博弈
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/10/10/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/python/python%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93mysql/" rel="next" title="python 连接mysql">
+                  python 连接mysql <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

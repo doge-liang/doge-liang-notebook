@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  Golang 程序设计语言基础-概述 优势领域  数据处理 并发 区块链（兼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang 程序设计语言基础-概述">
+<meta property="og:url" content="http://example.com/2021/03/05/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/Golang%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".center { width: auto; display: table; margin - left: auto; margin - right: auto; } &#x2F;&#x2F; 图片居中 img { position: relative; left: 50%; transform: translateX(-50%); }  Golang 程序设计语言基础-概述 优势领域  数据处理 并发 区块链（兼">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-31T17:54:09.024Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/03/05/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/Golang%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%A6%82%E8%BF%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/03/05/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/Golang%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%A6%82%E8%BF%B0/","path":"2021/03/05/article/计算机/程序设计语言/Golang/Golang 程序设计语言基础-概述/","title":"Golang 程序设计语言基础-概述"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Golang 程序设计语言基础-概述 | Hexo</title>
+  
+
+
+
+
+
+
+
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Golang-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Golang 程序设计语言基础-概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E9%A2%86%E5%9F%9F"><span class="nav-number">1.1.</span> <span class="nav-text">优势领域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%83%8C%E6%99%AF"><span class="nav-number">1.2.</span> <span class="nav-text">设计背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">语言特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.4.</span> <span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F-Hello-world"><span class="nav-number">1.5.</span> <span class="nav-text">第一个程序 Hello world</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">执行方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.2.</span> <span class="nav-text">依赖安装问题</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/05/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/Golang%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Golang 程序设计语言基础-概述 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Golang 程序设计语言基础-概述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-05T00:00:00+08:00">2021-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-01 01:54:09" itemprop="dateModified" datetime="2025-02-01T01:54:09+08:00">2025-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序设计语言</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><style>
+.center {
+width: auto;
+display: table;
+margin - left: auto;
+margin - right: auto;
+}
+// 图片居中
+img {
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+<h2 id="Golang-程序设计语言基础-概述">Golang 程序设计语言基础-概述</h2>
+<h3 id="优势领域">优势领域</h3>
+<ul>
+<li>数据处理</li>
+<li>并发</li>
+<li>区块链（兼容性）</li>
+</ul>
+<h3 id="设计背景">设计背景</h3>
+<p>现有编程语言没办法发挥多核 cpu 优势（cuda？）<br>
+编程风格不统一，计算能力不够强，并发处理差（Java？）<br>
+编译语言编译过程慢，解释语言运行慢，要综合他们的优势。</p>
+<h3 id="语言特性">语言特性</h3>
+<p>Go = Pyhton + C</p>
+<p>提供了 C 的指针特性，使用 Python 编程风格。</p>
+<p>静态语言：运行时，变量类型必须明确，是类型安全的（你调用某个函数的时候，期望接受一个叫做 id 的字符串，不是字符串 IDE 会报类型不兼容错误，但是动态语言意味着，编译器也不知道你传的类型符不符合要求，直到测试的时候才能发现错误）；<br>
+动态语言：运行时，变量类型是不明确的，赋值那一刻才知道变量的类型；</p>
+<p>保留了 C 的很多语言特性，并且弱化了指针；<br>
+强制归入包，类似 Java；<br>
+垃圾回收机制，类似 Java；<br>
+语言层面实现并发，实现简单 （goroutine）；<br>
+管道通信机制 （Chanel)；<br>
+支持函数多值返回；<br>
+切片（动态数组），延时执行（defer）（类似回调？）</p>
+<h3 id="开发工具">开发工具</h3>
+<p>VS Code + GO SDK 1.16.3</p>
+<h3 id="第一个程序-Hello-world">第一个程序 Hello world</h3>
+<p>项目路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">learning-go # $GOPATH 的路径</span><br><span class="line">└─src # 源代码</span><br><span class="line">    └─go_code # 项目</span><br><span class="line">        ├─ex-1</span><br><span class="line">        │  ├─main</span><br><span class="line">        │  │      hello-world.go</span><br><span class="line">        │  │      main.exe</span><br><span class="line">        │  │</span><br><span class="line">        │  └─package</span><br><span class="line">        └─ex-2</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;Hello world&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>main()</code> 是入口函数；</li>
+<li><code>import</code> 是导入包；</li>
+<li><code>func</code> 是声明函数；</li>
+<li><code>package xxx</code> 是声明包；</li>
+<li><strong>注意</strong> go 语言导入的包和定义的变量没有用到是不通过编译的（节约资源）；</li>
+<li><code>gofmt -w hellow-world.go</code> 格式化代码；</li>
+<li>代码过长换行展示；</li>
+<li>大括号只有一种写法；</li>
+</ol>
+<h4 id="执行方式">执行方式</h4>
+<ul>
+<li>
+<p><code>go build</code>：<br>
+编译生成 .exe 文件（编译语言的方式，一次编译，多次运行）<br>
+生成文件相对源代码大很多，自动添加环境变量；</p>
+<ul>
+<li><code>[-o]</code> 参数，后接生成文件名；</li>
+</ul>
+</li>
+<li>
+<p><code>go run</code>：<br>
+自动使用编译器将源代码编译，再执行（脚本语言的方式，一边解释，一边执行）</p>
+</li>
+</ul>
+<h4 id="依赖安装问题">依赖安装问题</h4>
+<p>由于 <a target="_blank" rel="noopener" href="http://golang.org">golang.org</a> 在国内无法访问</p>
+<ul>
+<li>翻墙下载</li>
+<li>先 git 源码，再本地安装</li>
+<li>通过设置代理 GOPROXY（推荐）</li>
+</ul>
+<ol>
+<li>
+<p>先写 GOPROXY 方法，其他的不知道为什么试了没用；<br>
+<a target="_blank" rel="noopener" href="https://goproxy.io/zh/">https://goproxy.io/zh/</a><br>
+就一条命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://goproxy.io,direct</span><br></pre></td></tr></table></figure>
+<p>然后通过正常的安装命令完成安装，下一种方法贴了代码；</p>
+</li>
+<li>
+<p>使用 git 源码再安装的方法。<br>
+在 Golang SDK 安装目录新建 <code>src/golang.org/x/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir src/golang.org/x/</span><br><span class="line">cd src/golang.org/x/</span><br><span class="line">git clone https://github.com/golang/tools.git tools</span><br><span class="line">git clone https://github.com/golang/lint.git lint</span><br><span class="line">git clone https://github.com/golang/mod.git mod</span><br><span class="line">git clone https://github.com/golang/xerrors.git xerrors</span><br><span class="line">git clone https://github.com/golang/net.git net</span><br></pre></td></tr></table></figure>
+<p>获取依赖源代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先从github下载依赖工具的源码，fetch提示<span class="built_in">timeout</span>不要管</span></span><br><span class="line">go get -v github.com/ramya-rao-a/go-outline</span><br><span class="line">go get -v github.com/acroca/go-symbols</span><br><span class="line">go get -v github.com/mdempsky/gocode</span><br><span class="line">go get -v github.com/rogpeppe/godef</span><br><span class="line">go get -v github.com/zmb3/gogetdoc</span><br><span class="line">go get -v github.com/fatih/gomodifytags</span><br><span class="line">go get -v sourcegraph.com/sqs/goreturns</span><br><span class="line">go get -v github.com/cweill/gotests/...</span><br><span class="line">go get -v github.com/josharian/impl</span><br><span class="line">go get -v github.com/haya14busa/goplay/cmd/goplay</span><br><span class="line">go get -v github.com/uudashr/gopkgs/cmd/gopkgs</span><br><span class="line">go get -v github.com/davidrjenni/reftools/cmd/fillstruct</span><br><span class="line">go get -v github.com/alecthomas/gometalinter</span><br></pre></td></tr></table></figure>
+<p>开始安装相关依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/mdempsky/gocode</span><br><span class="line">go install github.com/ramya-rao-a/go-outline</span><br><span class="line">go install github.com/acroca/go-symbols</span><br><span class="line">go install golang.org/x/tools/cmd/guru</span><br><span class="line">go install golang.org/x/tools/cmd/gorename</span><br><span class="line">go install github.com/stamblerre/gocode</span><br><span class="line">go install github.com/ianthehat/godef</span><br><span class="line">go install github.com/sqs/goreturns</span><br><span class="line">go install golang.org/x/lint/golint</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/02/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/IDEA/%E5%A6%82%E4%BD%95%E5%9C%A8%20IDEA%20%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8BJava%20doc%EF%BC%9F/" rel="prev" title="如何在 IDEA 中快速查看Java doc？">
+                  <i class="fa fa-angle-left"></i> 如何在 IDEA 中快速查看Java doc？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/05/article/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/Golang/Golang%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="next" title="Golang 程序设计语言基础-基本语法">
+                  Golang 程序设计语言基础-基本语法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.bootcdn.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
